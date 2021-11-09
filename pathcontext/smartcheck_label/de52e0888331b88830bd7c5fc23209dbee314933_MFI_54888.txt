@@ -1,0 +1,56 @@
+C:\Users\hp\DataSet\contracts\ropsten\de\de52e0888331b88830bd7c5fc23209dbee314933_MFI.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 49
+column: 0
+content: contractMFI{usingSafeMathforuint;mapping(address=>mapping(address=>uint256))internalallowed;mapping(address=>uint256)deposits;mapping(address=>uint256)borrowings;uint256publictotolFund;uint256publicintRate;uint256publicdepIntRate;addresspublicowner;eventTransfer(addressindexedfrom,addressindexedto,uint256amount);eventApproval(addressindexedowner,addressindexedspender,uint256value);constructor()public{totolFund=0;intRate=30;depIntRate=20;owner=msg.sender;}function()publicpayable{revert("contract don`t acccept any payment");}functionsender()publicviewreturns(address){returnmsg.sender;}functioncontractAddress()publicviewreturns(address){returnthis;}functionbalanceOf(address_owner)publicviewreturns(uint){returndeposits[_owner];}functionborrowerBalance(address_owner)publicviewreturns(uint){returnborrowings[_owner];}functiondeposit(address_to,uint_value)publicreturns(bool){require(_to!=address(0),"Please provide valid address");deposits[_to]=deposits[_to].add(_value);totolFund+=_value;emitTransfer(msg.sender,_to,_value);returntrue;}functionfundsAvailable()publicviewreturns(uint){returntotolFund;}functionborrow(address_from,uint_value)publicreturns(bool){require(_from!=address(0),"Please provide valid address");require(_value<=totolFund,"Unsufficient funds");borrowings[msg.sender]=borrowings[msg.sender].add(_value);totolFund-=_value;returntrue;}functionapprove(address_to,uint_value)publicreturns(bool){require(_to!=address(0),"Please provide valid address");allowed[msg.sender][_to]=_value;emitApproval(msg.sender,_to,_value);emitTransfer(owner,_to,_value);returntrue;}functionallowance(address_owner,address_spender)publicviewreturns(uint){returnallowed[_owner][_spender];}functionpaybackToDepositer(address_to,uint_amount)publicreturns(bool){require(_to!=address(0),"Please provide valid address");require(_amount<=deposits[_to],"Unsufficient funds");uinttoPay;toPay=_amount+(_amount*depIntRate/100);totolFund-=toPay;deposits[_to]=deposits[_to].sub(_amount);emitTransfer(owner,_to,toPay);returntrue;}functionpaybackToOwner(address_to,uint_amount)publicreturns(bool){require(_to!=address(0),"Please provide valid address");require(_amount<=borrowings[msg.sender],"Unsufficient funds");borrowings[msg.sender]=borrowings[msg.sender].sub(_amount);uinttoPay;toPay=_amount+(_amount*intRate/100);totolFund+=toPay;emitTransfer(msg.sender,_to,_amount);returntrue;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 72
+column: 30
+content: {revert("contract don`t acccept any payment");}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 51
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 72
+column: 15
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 54
+column: 4
+content: mapping(address=>uint256)deposits;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 55
+column: 4
+content: mapping(address=>uint256)borrowings;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

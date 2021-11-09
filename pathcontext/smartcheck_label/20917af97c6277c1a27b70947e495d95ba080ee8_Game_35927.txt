@@ -1,0 +1,152 @@
+C:\Users\hp\DataSet\contracts\ropsten\20\20917af97c6277c1a27b70947e495d95ba080ee8_Game.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 102
+column: 16
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 127
+column: 7
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 136
+column: 7
+content: throw
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 126
+column: 7
+content: if(winner==1)return"The winner is B.";elsethrow;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 135
+column: 7
+content: if(state==GameState.End)return"End";elsethrow;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 15
+column: 1
+content: constructor(address_bank){bank=_bank;owner=msg.sender;totalSupply=0;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 21
+column: 1
+content: functiontransfer(address_to,uint_amount)returns(bool){require(balanceOf[_to]+_amount>balanceOf[_to]);require(balanceOf[msg.sender]>=_amount);balanceOf[msg.sender]-=_amount;balanceOf[_to]+=_amount;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 30
+column: 1
+content: functionmint(address_to,uint_amount)onlyBy(bank){require(balanceOf[_to]+_amount>balanceOf[_to]);balanceOf[_to]+=_amount;totalSupply+=_amount;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 36
+column: 1
+content: functiontransferByGame(address_from,address_to,uint_amount)onlyBy(owner){require(balanceOf[_to]+_amount>balanceOf[_to]);require(balanceOf[_from]>=_amount);balanceOf[_from]-=_amount;balanceOf[_to]+=_amount;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 43
+column: 1
+content: functionchangeBank(address_newBank)onlyBy(bank){bank=_newBank;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 79
+column: 1
+content: constructor(uint_betTimePeriodInMinutes,address_bank){bettingTime=_betTimePeriodInMinutes*1minutes;state=GameState.Betting;tokenAddress=newMyToken(_bank);money=MyToken(tokenAddress);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 87
+column: 1
+content: functionbet(uint_option,uint_amount)onlyAt(GameState.Betting){require(_option<options.length);money.transferByGame(msg.sender,this,_amount);options[_option].betInfo[msg.sender]+=_amount;options[_option].totalGet+=_amount;totalReward+=_amount;emitBetSuccess(msg.sender,_amount,_option);if(now>bettingTime){state=GameState.GettingResult;emitRevealResult(options[0].totalGet,options[1].totalGet);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 101
+column: 1
+content: functionrevealResult()onlyAt(GameState.GettingResult){winner=uint(sha3(block.timestamp))%2;state=GameState.Dispatch;emitWinner(winner);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 108
+column: 1
+content: functionwithdraw()onlyAt(GameState.Dispatch){require(winner<options.length);require(options[winner].betInfo[msg.sender]!=0);uintvalue=totalReward*options[winner].betInfo[msg.sender]/options[winner].totalGet;require(money.transfer(msg.sender,value));emitReward(msg.sender,value);options[winner].betInfo[msg.sender]=0;totalSend+=value;if(totalSend==totalReward)state=GameState.End;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 123
+column: 1
+content: functionshowWinner()viewreturns(string){if(state<=GameState.GettingResult)return"no result";elseif(winner==0)return"The winner is A.";elseif(winner==1)return"The winner is B.";elsethrow;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 130
+column: 1
+content: functionshowState()viewreturns(string){if(state==GameState.Create)return"Create";elseif(state==GameState.Betting)return"Betting";elseif(state==GameState.GettingResult)return"GettingResult";elseif(state==GameState.Dispatch)return"Dispatch";elseif(state==GameState.End)return"End";elsethrow;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 60
+column: 1
+content: uintwinner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 61
+column: 1
+content: uinttotalSend;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 62
+column: 1
+content: MyTokenmoney;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 65
+column: 1
+content: GameStatestate;
+
+SOLIDITY_VISIBILITY :15
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2

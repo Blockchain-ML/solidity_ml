@@ -1,0 +1,694 @@
+C:\Users\hp\DataSet\flat_TokenController.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 1047
+column: 48
+content: 0x100000
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: f32db1
+severity: 1
+line: 1538
+column: 60
+content: 1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 478
+column: 4
+content: pendingOwner=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 635
+column: 8
+content: pendingOwner=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 1216
+column: 51
+content: (address(0),_value)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 1412
+column: 38
+content: (address(0))
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 307
+column: 8
+content: subscribers[_attribute].length=length-1
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 742
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){_approveAllArgs(_spender,_value,msg.sender);returntrue;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 974
+column: 4
+content: functionminimumGasPriceForRefund()publicviewreturns(uint256result){assembly{letoffset:=sload(0xfffff)letlocation:=add(offset,0xfffff)result:=add(sload(location),1)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 1021
+column: 4
+content: functionremainingGasRefundPool()publicviewreturns(uintlength){assembly{length:=sload(0xfffff)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 1027
+column: 4
+content: functiongasRefundPool(uint256_index)publicviewreturns(uint256gasPrice){assembly{gasPrice:=sload(add(0x100000,_index))}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 1357
+column: 4
+content: functionproxyOwner()publicviewreturns(addressowner){bytes32position=proxyOwnerPosition;assembly{owner:=sload(position)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 1368
+column: 4
+content: functionpendingProxyOwner()publicviewreturns(addresspendingOwner){bytes32position=pendingProxyOwnerPosition;assembly{pendingOwner:=sload(position)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 1440
+column: 4
+content: functionimplementation()publicviewreturns(addressimpl){bytes32position=implementationPosition;assembly{impl:=sload(position)}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 12cf32
+severity: 2
+line: 354
+column: 12
+content: for(uint256i=_addresses.length;i-->0;){addresswho=_addresses[i];target.syncAttributeValue(who,_attribute,attributes[who][_attribute].value);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 352
+column: 15
+content: index-->_startIndex
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 243
+column: 0
+content: contractRegistry{structAttributeData{uint256value;bytes32notes;addressadminAddr;uint256timestamp;}addresspublicowner;addresspublicpendingOwner;boolinitialized;mapping(address=>mapping(bytes32=>AttributeData))attributes;bytes32constantWRITE_PERMISSION=keccak256("canWriteTo-");mapping(bytes32=>RegistryClone[])subscribers;eventOwnershipTransferred(addressindexedpreviousOwner,addressindexednewOwner);eventSetAttribute(addressindexedwho,bytes32attribute,uint256value,bytes32notes,addressindexedadminAddr);eventSetManager(addressindexedoldManager,addressindexednewManager);eventStartSubscription(bytes32indexedattribute,RegistryCloneindexedsubscriber);eventStopSubscription(bytes32indexedattribute,RegistryCloneindexedsubscriber);functionconfirmWrite(bytes32_attribute,address_admin)internalviewreturns(bool){return(_admin==owner||hasAttribute(_admin,keccak256(abi.encodePacked(WRITE_PERMISSION^_attribute))));}functionsetAttribute(address_who,bytes32_attribute,uint256_value,bytes32_notes)public{require(confirmWrite(_attribute,msg.sender));attributes[_who][_attribute]=AttributeData(_value,_notes,msg.sender,block.timestamp);emitSetAttribute(_who,_attribute,_value,_notes,msg.sender);RegistryClone[]storagetargets=subscribers[_attribute];uint256index=targets.length;while(index-->0){targets[index].syncAttributeValue(_who,_attribute,_value);}}functionsubscribe(bytes32_attribute,RegistryClone_syncer)externalonlyOwner{subscribers[_attribute].push(_syncer);emitStartSubscription(_attribute,_syncer);}functionunsubscribe(bytes32_attribute,uint256_index)externalonlyOwner{uint256length=subscribers[_attribute].length;require(_index<length);emitStopSubscription(_attribute,subscribers[_attribute][_index]);subscribers[_attribute][_index]=subscribers[_attribute][length-1];subscribers[_attribute].length=length-1;}functionsubscriberCount(bytes32_attribute)publicviewreturns(uint256){returnsubscribers[_attribute].length;}functionsetAttributeValue(address_who,bytes32_attribute,uint256_value)public{require(confirmWrite(_attribute,msg.sender));attributes[_who][_attribute]=AttributeData(_value,"",msg.sender,block.timestamp);emitSetAttribute(_who,_attribute,_value,"",msg.sender);RegistryClone[]storagetargets=subscribers[_attribute];uint256index=targets.length;while(index-->0){targets[index].syncAttributeValue(_who,_attribute,_value);}}functionhasAttribute(address_who,bytes32_attribute)publicviewreturns(bool){returnattributes[_who][_attribute].value!=0;}functiongetAttribute(address_who,bytes32_attribute)publicviewreturns(uint256,bytes32,address,uint256){AttributeDatamemorydata=attributes[_who][_attribute];return(data.value,data.notes,data.adminAddr,data.timestamp);}functiongetAttributeValue(address_who,bytes32_attribute)publicviewreturns(uint256){returnattributes[_who][_attribute].value;}functiongetAttributeAdminAddr(address_who,bytes32_attribute)publicviewreturns(address){returnattributes[_who][_attribute].adminAddr;}functiongetAttributeTimestamp(address_who,bytes32_attribute)publicviewreturns(uint256){returnattributes[_who][_attribute].timestamp;}functionsyncAttribute(bytes32_attribute,uint256_startIndex,address[]calldata_addresses)external{RegistryClone[]storagetargets=subscribers[_attribute];uint256index=targets.length;while(index-->_startIndex){RegistryClonetarget=targets[index];for(uint256i=_addresses.length;i-->0;){addresswho=_addresses[i];target.syncAttributeValue(who,_attribute,attributes[who][_attribute].value);}}}functionreclaimEther(addresspayable_to)externalonlyOwner{_to.transfer(address<missing ';'>(this).balance);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 647
+column: 0
+content: contractReclaimerTokenisHasOwner{functionreclaimEther(addresspayable_to)externalonlyOwner{_to.transfer(address<missing ';'>(this).balance);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 1311
+column: 0
+content: contractOwnedUpgradeabilityProxy{eventProxyOwnershipTransferred(addressindexedpreviousOwner,addressindexednewOwner);eventNewPendingOwner(addresscurrentOwner,addresspendingOwner);bytes32privateconstantproxyOwnerPosition=0x6279e8199720cf3557ecd8b58d667c8edc486bd1cf3ad59ea9ebdfcae0d0dfac;bytes32privateconstantpendingProxyOwnerPosition=0x8ddbac328deee8d986ec3a7b933a196f96986cb4ee030d86cc56431c728b83f4;constructor()public{_setUpgradeabilityOwner(msg.sender);}modifieronlyProxyOwner(){require(msg.sender==proxyOwner(),"only Proxy Owner");_;}modifieronlyPendingProxyOwner(){require(msg.sender==pendingProxyOwner(),"only pending Proxy Owner");_;}functionproxyOwner()publicviewreturns(addressowner){bytes32position=proxyOwnerPosition;assembly{owner:=sload(position)}}functionpendingProxyOwner()publicviewreturns(addresspendingOwner){bytes32position=pendingProxyOwnerPosition;assembly{pendingOwner:=sload(position)}}function_setUpgradeabilityOwner(addressnewProxyOwner)internal{bytes32position=proxyOwnerPosition;assembly{sstore(position,newProxyOwner)}}function_setPendingUpgradeabilityOwner(addressnewPendingProxyOwner)internal{bytes32position=pendingProxyOwnerPosition;assembly{sstore(position,newPendingProxyOwner)}}functiontransferProxyOwnership(addressnewOwner)externalonlyProxyOwner{require(newOwner!=address(0));_setPendingUpgradeabilityOwner(newOwner);emitNewPendingOwner(proxyOwner(),newOwner);}functionclaimProxyOwnership()externalonlyPendingProxyOwner{emitProxyOwnershipTransferred(proxyOwner(),pendingProxyOwner());_setUpgradeabilityOwner(pendingProxyOwner());_setPendingUpgradeabilityOwner(address(0));}functionupgradeTo(addressimplementation)externalonlyProxyOwner{addresscurrentImplementation;bytes32position=implementationPosition;assembly{currentImplementation:=sload(position)}require(currentImplementation!=implementation);assembly{sstore(position,implementation)}emitUpgraded(implementation);}eventUpgraded(addressindexedimplementation);bytes32privateconstantimplementationPosition=0x6e41e0fbe643dfdb6043698bf865aada82dc46b953f754a3468eaa272a362dc7;functionimplementation()publicviewreturns(addressimpl){bytes32position=implementationPosition;assembly{impl:=sload(position)}}function()externalpayable{bytes32position=implementationPosition;assembly{letptr:=mload(0x40)calldatacopy(ptr,returndatasize,calldatasize)letresult:=delegatecall(gas,sload(position),ptr,calldatasize,returndatasize,returndatasize)returndatacopy(ptr,0,returndatasize)switchresultcase0{revert(ptr,returndatasize)}default{return(ptr,returndatasize)}}}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 1491
+column: 0
+content: contractTokenController{usingSafeMathforuint256;structMintOperation{addressto;uint256value;uint256requestedBlock;uint256numberOfApproval;boolpaused;mapping(address=>bool)approved;}addresspayablepublicowner;addresspayablepublicpendingOwner;boolpublicinitialized;uint256publicinstantMintThreshold;uint256publicratifiedMintThreshold;uint256publicmultiSigMintThreshold;uint256publicinstantMintLimit;uint256publicratifiedMintLimit;uint256publicmultiSigMintLimit;uint256publicinstantMintPool;uint256publicratifiedMintPool;uint256publicmultiSigMintPool;address[2]publicratifiedPoolRefillApprovals;uint8constantpublicRATIFY_MINT_SIGS=1;uint8constantpublicMULTISIG_MINT_SIGS=3;boolpublicmintPaused;uint256publicmintReqInvalidBeforeThisBlock;addresspublicmintKey;MintOperation[]publicmintOperations;CompliantDepositTokenWithHookpublictoken;Registrypublicregistry;addresspublicfastPause;bytes32constantpublicIS_MINT_PAUSER="isTUSDMintPausers";bytes32constantpublicIS_MINT_RATIFIER="isTUSDMintRatifier";bytes32constantpublicIS_REDEMPTION_ADMIN="isTUSDRedemptionAdmin";addressconstantpublicPAUSED_IMPLEMENTATION=address(1);modifieronlyFastPauseOrOwner(){require(msg.sender==fastPause||msg.sender==owner,"must be pauser or owner");_;}modifieronlyMintKeyOrOwner(){require(msg.sender==mintKey||msg.sender==owner,"must be mintKey or owner");_;}modifieronlyMintPauserOrOwner(){require(registry.hasAttribute(msg.sender,IS_MINT_PAUSER)||msg.sender==owner,"must be pauser or owner");_;}modifieronlyMintRatifierOrOwner(){require(registry.hasAttribute(msg.sender,IS_MINT_RATIFIER)||msg.sender==owner,"must be ratifier or owner");_;}modifieronlyOwnerOrRedemptionAdmin(){require(registry.hasAttribute(msg.sender,IS_REDEMPTION_ADMIN)||msg.sender==owner,"must be Redemption admin or owner");_;}modifiermintNotPaused(){if(msg.sender!=owner){require(!mintPaused,"minting is paused");}_;}eventOwnershipTransferred(addressindexedpreviousOwner,addressindexednewOwner);eventNewOwnerPending(addressindexedcurrentOwner,addressindexedpendingOwner);eventSetRegistry(addressindexedregistry);eventTransferChild(addressindexedchild,addressindexednewOwner);eventRequestReclaimContract(addressindexedother);eventSetToken(CompliantDepositTokenWithHooknewContract);eventRequestMint(addressindexedto,uint256indexedvalue,uint256opIndex,addressmintKey);eventFinalizeMint(addressindexedto,uint256indexedvalue,uint256opIndex,addressmintKey);eventInstantMint(addressindexedto,uint256indexedvalue,addressindexedmintKey);eventTransferMintKey(addressindexedpreviousMintKey,addressindexednewMintKey);eventMintRatified(uint256indexedopIndex,addressindexedratifier);eventRevokeMint(uint256opIndex);eventAllMintsPaused(boolstatus);eventMintPaused(uintopIndex,boolstatus);eventMintApproved(addressapprover,uintopIndex);eventFastPauseSet(address_newFastPause);eventMintThresholdChanged(uintinstant,uintratified,uintmultiSig);eventMintLimitsChanged(uintinstant,uintratified,uintmultiSig);eventInstantPoolRefilled();eventRatifyPoolRefilled();eventMultiSigPoolRefilled();functioninitialize()external{require(!initialized,"already initialized");owner=msg.sender;initialized=true;}modifieronlyOwner(){require(msg.sender==owner,"only Owner");_;}modifieronlyPendingOwner(){require(msg.sender==pendingOwner);_;}functiontransferOwnership(addresspayablenewOwner)externalonlyOwner{pendingOwner=newOwner;emitNewOwnerPending(address<missing ';'>(owner),address(pendingOwner));}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 498
+column: 4
+content: functionsetBalance(address_addr,uint256_value)publiconlyOwner{balanceOf[_addr]=_value;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 519
+column: 4
+content: functionsetAllowance(address_tokenHolder,address_spender,uint256_value)publiconlyOwner{allowanceOf[_tokenHolder][_spender]=_value;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 871
+column: 4
+content: functionsetBurnBounds(uint256_min,uint256_max)externalonlyOwner{require(_min<=_max,"min > max");burnMin=_min;burnMax=_max;emitSetBurnBounds(_min,_max);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1228
+column: 4
+content: functionsetRegistry(Registry_registry)publiconlyOwner{registry=_registry;emitSetRegistry(address(registry));}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 542
+column: 9
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 543
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 554
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 1327
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 1328
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 1438
+column: 12
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 486
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 507
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 681
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 725
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 1492
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 974
+column: 4
+content: functionminimumGasPriceForRefund()publicviewreturns(uint256result){assembly{letoffset:=sload(0xfffff)letlocation:=add(offset,0xfffff)result:=add(sload(location),1)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 1021
+column: 4
+content: functionremainingGasRefundPool()publicviewreturns(uintlength){assembly{length:=sload(0xfffff)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 1027
+column: 4
+content: functiongasRefundPool(uint256_index)publicviewreturns(uint256gasPrice){assembly{gasPrice:=sload(add(0x100000,_index))}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 1357
+column: 4
+content: functionproxyOwner()publicviewreturns(addressowner){bytes32position=proxyOwnerPosition;assembly{owner:=sload(position)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 1368
+column: 4
+content: functionpendingProxyOwner()publicviewreturns(addresspendingOwner){bytes32position=pendingProxyOwnerPosition;assembly{pendingOwner:=sload(position)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 1440
+column: 4
+content: functionimplementation()publicviewreturns(addressimpl){bytes32position=implementationPosition;assembly{impl:=sload(position)}}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 332
+column: 80
+content: (uint256,bytes32,address,uint256)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 1261
+column: 83
+content: (address,bool)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 1271
+column: 105
+content: (address,bool)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 1282
+column: 64
+content: (address,bool)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 915
+column: 8
+content: assembly{mstore(0,or(0x601b8060093d393df33d33730000000000000000000000000000000000000000,address))mstore(32,0x185857ff00000000000000000000000000000000000000000000000000000000)letoffset:=sload(0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff)letlocation:=sub(0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe,offset)sstore(location,create(0,0,0x24))location:=sub(location,1)sstore(location,create(0,0,0x24))location:=sub(location,1)sstore(location,create(0,0,0x24))sstore(0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff,add(offset,3))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 934
+column: 8
+content: assembly{letoffset:=sload(0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff)ifgt(offset,0){letlocation:=sub(0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff,offset)sstore(0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff,sub(offset,1))letsheep:=sload(location)pop(call(gas,sheep,0,0,0,0,0))sstore(location,0)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 949
+column: 8
+content: assembly{letoffset:=sload(0xfffff)letresult:=add(offset,9)sstore(0xfffff,result)letposition:=add(offset,0x100000)sstore(position,refundPrice)position:=add(position,1)sstore(position,refundPrice)position:=add(position,1)sstore(position,refundPrice)position:=add(position,1)sstore(position,refundPrice)position:=add(position,1)sstore(position,refundPrice)position:=add(position,1)sstore(position,refundPrice)position:=add(position,1)sstore(position,refundPrice)position:=add(position,1)sstore(position,refundPrice)position:=add(position,1)sstore(position,refundPrice)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 975
+column: 8
+content: assembly{letoffset:=sload(0xfffff)letlocation:=add(offset,0xfffff)result:=add(sload(location),1)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 987
+column: 8
+content: assembly{letoffset:=sload(0xfffff)ifgt(offset,1){letlocation:=add(offset,0xfffff)ifgt(gasprice,sload(location)){sstore(location,0)location:=sub(location,1)sstore(location,0)sstore(0xfffff,sub(offset,2))}}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 1006
+column: 8
+content: assembly{letoffset:=sload(0xfffff)ifgt(offset,1){letlocation:=add(offset,0xfffff)ifgt(gasprice,sload(location)){sstore(location,0)sstore(0xfffff,sub(offset,1))}}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 1022
+column: 8
+content: assembly{length:=sload(0xfffff)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 1028
+column: 8
+content: assembly{gasPrice:=sload(add(0x100000,_index))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 1359
+column: 8
+content: assembly{owner:=sload(position)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 1370
+column: 8
+content: assembly{pendingOwner:=sload(position)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 1380
+column: 8
+content: assembly{sstore(position,newProxyOwner)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 1390
+column: 8
+content: assembly{sstore(position,newPendingProxyOwner)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 1422
+column: 8
+content: assembly{currentImplementation:=sload(position)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 1426
+column: 8
+content: assembly{sstore(position,implementation)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 1442
+column: 8
+content: assembly{impl:=sload(position)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 1454
+column: 8
+content: assembly{letptr:=mload(0x40)calldatacopy(ptr,returndatasize,calldatasize)letresult:=delegatecall(gas,sload(position),ptr,calldatasize,returndatasize,returndatasize)returndatacopy(ptr,0,returndatasize)switchresultcase0{revert(ptr,returndatasize)}default{return(ptr,returndatasize)}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 361
+column: 4
+content: functionreclaimEther(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 651
+column: 4
+content: functionreclaimEther(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 1629
+column: 4
+content: functiontransferOwnership(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 254
+column: 4
+content: boolinitialized;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 262
+column: 4
+content: mapping(address=>mapping(bytes32=>AttributeData))attributes;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 265
+column: 4
+content: bytes32constantWRITE_PERMISSION=keccak256("canWriteTo-");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 266
+column: 4
+content: mapping(bytes32=>RegistryClone[])subscribers;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 362
+column: 8
+content: _to.transfer
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 362
+column: 20
+content: (address<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 362
+column: 28
+content: (this).balance);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 535
+column: 4
+content: boolinitialized;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 537
+column: 4
+content: BalanceSheetbalances_Deprecated;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 538
+column: 4
+content: AllowanceSheetallowances_Deprecated;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 540
+column: 4
+content: uint256totalSupply_;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 550
+column: 4
+content: stringname_Deprecated;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 551
+column: 4
+content: stringsymbol_Deprecated;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 553
+column: 4
+content: uint[]gasRefundPool_Deprecated;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 557
+column: 4
+content: mapping(address=>uint256)_balanceOf;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 558
+column: 4
+content: mapping(address=>mapping(address=>uint256))_allowance;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 559
+column: 4
+content: mapping(bytes32=>mapping(address=>uint256))attributes;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 652
+column: 8
+content: _to.transfer
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 652
+column: 20
+content: (address<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 652
+column: 28
+content: (this).balance);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 729
+column: 4
+content: uint256constantINFINITE_ALLOWANCE=0xfe00000000000000000000000000000000000000000000000000000000000000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 832
+column: 4
+content: uint256constantCENT=10**16;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1033
+column: 4
+content: bytes32constantCAN_SET_FUTURE_REFUND_MIN_GAS_PRICE="canSetFutureRefundMinGasPrice";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1045
+column: 4
+content: bytes32constantIS_REGISTERED_CONTRACT="isRegisteredContract";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1046
+column: 4
+content: bytes32constantIS_DEPOSIT_ADDRESS="isDepositAddress";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1047
+column: 4
+content: uint256constantREDEMPTION_ADDRESS_COUNT=0x100000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1048
+column: 4
+content: bytes32constantIS_BLACKLISTED="isBlacklisted";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1630
+column: 8
+content: pendingOwner=newOwner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1631
+column: 8
+content: emitNewOwnerPending
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1631
+column: 28
+content: (address<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1631
+column: 36
+content: (owner),
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1631
+column: 45
+content: address(pendingOwner));
+
+SOLIDITY_VISIBILITY :35
+SOLIDITY_OVERPOWERED_ROLE :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :6
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :6
+SOLIDITY_ADDRESS_HARDCODED :6
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_SHOULD_RETURN_STRUCT :4
+SOLIDITY_ERC20_APPROVE :1
+SOLIDITY_SAFEMATH :5
+SOLIDITY_LOCKED_MONEY :4
+SOLIDITY_USING_INLINE_ASSEMBLY :16
+SOLIDITY_SHOULD_NOT_BE_VIEW :6

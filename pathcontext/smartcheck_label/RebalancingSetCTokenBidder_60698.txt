@@ -1,0 +1,75 @@
+C:\Users\hp\DataSet\RebalancingSetCTokenBidder.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 95
+column: 8
+content: for(uint256i=0;i<_cTokenArray.length;i++){addresscTokenAddress=_cTokenArray[i];addressunderlyingAddress=_underlyingArray[i];cTokenToUnderlying[cTokenAddress]=underlyingAddress;ERC20Wrapper.approve(underlyingAddress,cTokenAddress,CommonMath.maxUInt256());ERC20Wrapper.approve(cTokenAddress,address(_transferProxy),CommonMath.maxUInt256());}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 197
+column: 8
+content: for(uint256i=0;i<combinedTokenArray.length;i++){addresscurrentComponentAddress=combinedTokenArray[i];addressunderlyingAddress=cTokenToUnderlying[currentComponentAddress];if(underlyingAddress!=address(0)){combinedTokenArray[i]=underlyingAddress;uint256exchangeRate=ICToken(currentComponentAddress).exchangeRateStored();uint256currentInflowQuantity=inflowUnitsArray[i];uint256currentOutflowQuantity=outflowUnitsArray[i];inflowUnitsArray[i]=CompoundUtils.convertCTokenToUnderlying(currentInflowQuantity,exchangeRate);outflowUnitsArray[i]=CompoundUtils.convertCTokenToUnderlying(currentOutflowQuantity,exchangeRate);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 235
+column: 8
+content: for(uint256i=0;i<_combinedTokenArray.length;i++){addresscurrentComponentAddress=_combinedTokenArray[i];uint256currentComponentQuantity=_inflowUnitsArray[i];if(currentComponentQuantity>0){ERC20Wrapper.ensureAllowance(currentComponentAddress,address(this),address(transferProxy),currentComponentQuantity);addressunderlyingAddress=cTokenToUnderlying[currentComponentAddress];if(underlyingAddress!=address(0)){ICTokencTokenInstance=ICToken(currentComponentAddress);uint256exchangeRate=cTokenInstance.exchangeRateCurrent();uint256underlyingQuantity=CompoundUtils.convertCTokenToUnderlying(currentComponentQuantity,exchangeRate);ERC20Wrapper.transferFrom(underlyingAddress,msg.sender,address(this),underlyingQuantity);ERC20Wrapper.ensureAllowance(underlyingAddress,address(this),address(cTokenInstance),underlyingQuantity);uint256mintResponse=cTokenInstance.mint(underlyingQuantity);require(mintResponse==0,"RebalancingSetCTokenBidder.bidAndWithdraw: Error minting cToken");}else{ERC20Wrapper.transferFrom(currentComponentAddress,msg.sender,address(this),currentComponentQuantity);}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 306
+column: 8
+content: for(uint256i=0;i<_combinedTokenArray.length;i++){addresscurrentComponentAddress=_combinedTokenArray[i];uint256currentComponentBalance=ERC20Wrapper.balanceOf(currentComponentAddress,address(this));if(currentComponentBalance>0){addressunderlyingAddress=cTokenToUnderlying[currentComponentAddress];if(underlyingAddress!=address(0)){uint256mintResponse=ICToken(currentComponentAddress).redeem(currentComponentBalance);require(mintResponse==0,"RebalancingSetCTokenBidder.bidAndWithdraw: Erroring redeeming cToken");uint256underlyingComponentBalance=ERC20Wrapper.balanceOf(underlyingAddress,address(this));ERC20Wrapper.transfer(underlyingAddress,msg.sender,underlyingComponentBalance);}else{ERC20Wrapper.transfer(currentComponentAddress,msg.sender,currentComponentBalance);}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 95
+column: 8
+content: for(uint256i=0;i<_cTokenArray.length;i++){addresscTokenAddress=_cTokenArray[i];addressunderlyingAddress=_underlyingArray[i];cTokenToUnderlying[cTokenAddress]=underlyingAddress;ERC20Wrapper.approve(underlyingAddress,cTokenAddress,CommonMath.maxUInt256());ERC20Wrapper.approve(cTokenAddress,address(_transferProxy),CommonMath.maxUInt256());}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 197
+column: 8
+content: for(uint256i=0;i<combinedTokenArray.length;i++){addresscurrentComponentAddress=combinedTokenArray[i];addressunderlyingAddress=cTokenToUnderlying[currentComponentAddress];if(underlyingAddress!=address(0)){combinedTokenArray[i]=underlyingAddress;uint256exchangeRate=ICToken(currentComponentAddress).exchangeRateStored();uint256currentInflowQuantity=inflowUnitsArray[i];uint256currentOutflowQuantity=outflowUnitsArray[i];inflowUnitsArray[i]=CompoundUtils.convertCTokenToUnderlying(currentInflowQuantity,exchangeRate);outflowUnitsArray[i]=CompoundUtils.convertCTokenToUnderlying(currentOutflowQuantity,exchangeRate);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 235
+column: 8
+content: for(uint256i=0;i<_combinedTokenArray.length;i++){addresscurrentComponentAddress=_combinedTokenArray[i];uint256currentComponentQuantity=_inflowUnitsArray[i];if(currentComponentQuantity>0){ERC20Wrapper.ensureAllowance(currentComponentAddress,address(this),address(transferProxy),currentComponentQuantity);addressunderlyingAddress=cTokenToUnderlying[currentComponentAddress];if(underlyingAddress!=address(0)){ICTokencTokenInstance=ICToken(currentComponentAddress);uint256exchangeRate=cTokenInstance.exchangeRateCurrent();uint256underlyingQuantity=CompoundUtils.convertCTokenToUnderlying(currentComponentQuantity,exchangeRate);ERC20Wrapper.transferFrom(underlyingAddress,msg.sender,address(this),underlyingQuantity);ERC20Wrapper.ensureAllowance(underlyingAddress,address(this),address(cTokenInstance),underlyingQuantity);uint256mintResponse=cTokenInstance.mint(underlyingQuantity);require(mintResponse==0,"RebalancingSetCTokenBidder.bidAndWithdraw: Error minting cToken");}else{ERC20Wrapper.transferFrom(currentComponentAddress,msg.sender,address(this),currentComponentQuantity);}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 306
+column: 8
+content: for(uint256i=0;i<_combinedTokenArray.length;i++){addresscurrentComponentAddress=_combinedTokenArray[i];uint256currentComponentBalance=ERC20Wrapper.balanceOf(currentComponentAddress,address(this));if(currentComponentBalance>0){addressunderlyingAddress=cTokenToUnderlying[currentComponentAddress];if(underlyingAddress!=address(0)){uint256mintResponse=ICToken(currentComponentAddress).redeem(currentComponentBalance);require(mintResponse==0,"RebalancingSetCTokenBidder.bidAndWithdraw: Erroring redeeming cToken");uint256underlyingComponentBalance=ERC20Wrapper.balanceOf(underlyingAddress,address(this));ERC20Wrapper.transfer(underlyingAddress,msg.sender,underlyingComponentBalance);}else{ERC20Wrapper.transfer(currentComponentAddress,msg.sender,currentComponentBalance);}}}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 43
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 187
+column: 16
+content: (address[]memory,uint256[]memory,uint256[]memory)
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4
+SOLIDITY_SHOULD_RETURN_STRUCT :1

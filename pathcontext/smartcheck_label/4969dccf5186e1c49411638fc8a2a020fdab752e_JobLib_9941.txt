@@ -1,0 +1,211 @@
+C:\Users\hp\DataSet\contracts\mainnet\49\4969dccf5186e1c49411638fc8a2a020fdab752e_JobLib.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 95
+column: 13
+content: (address(0))
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 112
+column: 13
+content: (address(0))
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 56
+column: 4
+content: for(uint256i=32;i<=_proof.length;i+=32){assembly{proofElement:=mload(add(_proof,i))}if(computedHash<proofElement){computedHash=keccak256(computedHash,proofElement);}else{computedHash=keccak256(proofElement,computedHash);}}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 121
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 49
+column: 2
+content: functionverifyProof(bytes_proof,bytes32_root,bytes32_leaf)publicpurereturns(bool){if(_proof.length%32!=0)returnfalse;bytes32proofElement;bytes32computedHash=_leaf;for(uint256i=32;i<=_proof.length;i+=32){assembly{proofElement:=mload(add(_proof,i))}if(computedHash<proofElement){computedHash=keccak256(computedHash,proofElement);}else{computedHash=keccak256(proofElement,computedHash);}}returncomputedHash==_root;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 88
+column: 2
+content: functionrecover(bytes32hash,bytessig)publicpurereturns(address){bytes32r;bytes32s;uint8v;if(sig.length!=65){return(address(0));}assembly{r:=mload(add(sig,32))s:=mload(add(sig,64))v:=byte(0,mload(add(sig,96)))}if(v<27){v+=27;}if(v!=27&&v!=28){return(address(0));}else{returnecrecover(hash,v,r,s);}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 64
+column: 23
+content: keccak256(computedHash,proofElement)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 67
+column: 23
+content: keccak256(proofElement,computedHash)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 179
+column: 20
+content: keccak256(_challengeBlock,_challengeBlockHash,_segmentNumber)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 240
+column: 15
+content: keccak256(_streamId,_segmentNumber,_dataHash)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 252
+column: 15
+content: keccak256(prefixBytes,segmentHash(_streamId,_segmentNumber,_dataHash))
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 274
+column: 15
+content: keccak256(_streamId,_segmentNumber,_dataHash,_transcodedDataHash,_broadcasterSig)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 49
+column: 23
+content: bytes_proof
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 88
+column: 33
+content: bytessig
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 136
+column: 37
+content: string_transcodingOptions
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 147
+column: 46
+content: string_transcodingOptions
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 195
+column: 8
+content: string_streamId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 198
+column: 8
+content: bytes_broadcasterSig
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 218
+column: 8
+content: string_streamId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 222
+column: 8
+content: bytes_broadcasterSig
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 223
+column: 8
+content: bytes_proof
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 239
+column: 25
+content: string_streamId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 249
+column: 33
+content: string_streamId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 264
+column: 8
+content: string_streamId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 268
+column: 8
+content: bytes_broadcasterSig
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 57
+column: 6
+content: assembly{proofElement:=mload(add(_proof,i))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 99
+column: 4
+content: assembly{r:=mload(add(sig,32))s:=mload(add(sig,64))v:=byte(0,mload(add(sig,96)))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 123
+column: 4
+content: stringconstantPERSONAL_HASH_PREFIX="\u0019Ethereum Signed Message:\n32";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 128
+column: 4
+content: uint8constantVIDEO_PROFILE_SIZE=8;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :19
+SOLIDITY_USING_INLINE_ASSEMBLY :2
+SOLIDITY_SHOULD_NOT_BE_PURE :2

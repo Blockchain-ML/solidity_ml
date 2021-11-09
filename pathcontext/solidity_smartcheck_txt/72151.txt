@@ -1,0 +1,17 @@
+F:\Blockchain\dataset_new_byID\72151.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 52
+column: 4
+content: functiongetStructHash(ZeroExTransactionmemorytransaction)internalpurereturns(bytes32result){bytes32schemaHash=_EIP712_ZEROEX_TRANSACTION_SCHEMA_HASH;bytesmemorydata=transaction.data;uint256salt=transaction.salt;uint256expirationTimeSeconds=transaction.expirationTimeSeconds;uint256gasPrice=transaction.gasPrice;addresssignerAddress=transaction.signerAddress;assembly{letdataHash:=keccak256(add(data,32),mload(data))letmemPtr:=mload(64)mstore(memPtr,schemaHash)mstore(add(memPtr,32),salt)mstore(add(memPtr,64),expirationTimeSeconds)mstore(add(memPtr,96),gasPrice)mstore(add(memPtr,128),and(signerAddress,0xffffffffffffffffffffffffffffffffffffffff))mstore(add(memPtr,160),dataHash)result:=keccak256(memPtr,192)}returnresult;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 74
+column: 8
+content: assembly{letdataHash:=keccak256(add(data,32),mload(data))letmemPtr:=mload(64)mstore(memPtr,schemaHash)mstore(add(memPtr,32),salt)mstore(add(memPtr,64),expirationTimeSeconds)mstore(add(memPtr,96),gasPrice)mstore(add(memPtr,128),and(signerAddress,0xffffffffffffffffffffffffffffffffffffffff))mstore(add(memPtr,160),dataHash)result:=keccak256(memPtr,192)}
+
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

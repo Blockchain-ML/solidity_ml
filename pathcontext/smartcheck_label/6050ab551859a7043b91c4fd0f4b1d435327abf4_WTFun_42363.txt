@@ -1,0 +1,375 @@
+C:\Users\hp\DataSet\contracts\ropsten\60\6050ab551859a7043b91c4fd0f4b1d435327abf4_WTFun.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 39
+column: 31
+content: 0x11
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 40
+column: 33
+content: 0x11111111
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 302
+column: 48
+content: 0xff
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 201
+column: 27
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 201
+column: 72
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 362
+column: 30
+content: 0x0
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 142
+column: 2
+content: rounds.length++
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 336
+column: 3
+content: rounds.length++
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 291
+column: 12
+content: for(uint8i=0;i<result.length;i++){if(((HEXBASE**i)&((betMask>>(result[i]-1)*32)&EIGHT_XBIT_MASK))!=0)gameWin+=(avgAmount*RACE_ODDS/NUM_HUNDRED);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 425
+column: 2
+content: for(uinti=0;i<investor.investinfo.length;i++){investThisRound+=investor.investinfo[i].amount;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 460
+column: 2
+content: for(uintj=0;j<investor.investinfo.length;j++){uintamount=investor.investinfo[j].amount;uintjoinProfit=investor.investinfo[j].joinProfit;uintroundProfit=round.profit;uintroundInvest=round.invest;if(roundProfit>=joinProfit){payeeRoundProfit+=(amount+(amount*(roundProfit-joinProfit)*PROFIT_PERCENT_INVESTORS/NUM_HUNDRED/roundInvest));}else{uintloseProfit=(amount*(joinProfit-roundProfit)/roundInvest);payeeRoundProfit+=((amount>loseProfit)?(amount-loseProfit):0);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 485
+column: 2
+content: for(uintj=0;j<investor.investinfo.length;j++){uintamount=investor.investinfo[j].amount;uintjoinProfit=investor.investinfo[j].joinProfit;uintroundProfit=round.profit;uintroundInvest=round.invest;if(roundProfit>=joinProfit){payeeRoundProfit+=(amount+(amount*(roundProfit-joinProfit)*PROFIT_PERCENT_INVESTORS/NUM_HUNDRED/roundInvest));}else{uintloseProfit=(amount*(joinProfit-roundProfit)/roundInvest);payeeRoundProfit+=((amount>loseProfit)?(amount-loseProfit):0);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 604
+column: 2
+content: for(uinti=0;i<investor.investinfo.length;i++){investThisRound+=investor.investinfo[i].amount;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 505
+column: 1
+content: functioncalLast5RoundProfit(uintroundLength)privatereturns(uintprofitInvest5Round,uintprofitPromoter5Round,uintprofitDev5Round){uintbeginRound=((roundLength>ROUND_MAX_RECORD)?(roundLength-ROUND_MAX_RECORD-1):(0));uintendRound=roundLength-2;addresspayee=msg.sender;for(uinti=beginRound;i<=endRound;i++){Roundstorageround=rounds[i];profitInvest5Round+=calcProfitInvestor(payee,round);Promoterstoragepromoter=round.promoters[payee];uintbonus=promoter.bonus;uintgotBonus=promoter.gotBonus;if(bonus>gotBonus){profitPromoter5Round+=(bonus-gotBonus);promoter.gotBonus=bonus;}if(payee==dev){profitDev5Round+=calProfitDev(round);}}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 533
+column: 1
+content: functioncalLast5RoundProfitForRead(uintroundLength)publicviewreturns(uintprofitInvest5Round,uintprofitPromoter5Round){uintbeginRound=((roundLength>ROUND_MAX_RECORD)?(roundLength-ROUND_MAX_RECORD-1):(0));uintendRound=roundLength-2;addresspayee=msg.sender;for(uinti=beginRound;i<=endRound;i++){Roundstorageround=rounds[i];profitInvest5Round+=calcProfitInvestorForRead(payee,i);Promotermemorypromoter=round.promoters[payee];uintbonus=promoter.bonus;uintgotBonus=promoter.gotBonus;if(bonus>gotBonus){profitPromoter5Round+=(bonus-gotBonus);}}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 600
+column: 1
+content: functionpersonalInfo()publicviewreturns(uintinvestThisRound,uintpromoteThisRound,uintprofitInvest5Round,uintprofitPromoter5Round){Roundstoragernd=rounds[rounds.length-1];addressboss=msg.sender;Investorstorageinvestor=rnd.investors[boss];for(uinti=0;i<investor.investinfo.length;i++){investThisRound+=investor.investinfo[i].amount;}promoteThisRound=rnd.promoters[boss].bonus;uintroundLength=rounds.length;if(roundLength>=2){(profitInvest5Round,profitPromoter5Round)=calLast5RoundProfitForRead(roundLength);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 291
+column: 12
+content: for(uint8i=0;i<result.length;i++){if(((HEXBASE**i)&((betMask>>(result[i]-1)*32)&EIGHT_XBIT_MASK))!=0)gameWin+=(avgAmount*RACE_ODDS/NUM_HUNDRED);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 425
+column: 2
+content: for(uinti=0;i<investor.investinfo.length;i++){investThisRound+=investor.investinfo[i].amount;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 460
+column: 2
+content: for(uintj=0;j<investor.investinfo.length;j++){uintamount=investor.investinfo[j].amount;uintjoinProfit=investor.investinfo[j].joinProfit;uintroundProfit=round.profit;uintroundInvest=round.invest;if(roundProfit>=joinProfit){payeeRoundProfit+=(amount+(amount*(roundProfit-joinProfit)*PROFIT_PERCENT_INVESTORS/NUM_HUNDRED/roundInvest));}else{uintloseProfit=(amount*(joinProfit-roundProfit)/roundInvest);payeeRoundProfit+=((amount>loseProfit)?(amount-loseProfit):0);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 485
+column: 2
+content: for(uintj=0;j<investor.investinfo.length;j++){uintamount=investor.investinfo[j].amount;uintjoinProfit=investor.investinfo[j].joinProfit;uintroundProfit=round.profit;uintroundInvest=round.invest;if(roundProfit>=joinProfit){payeeRoundProfit+=(amount+(amount*(roundProfit-joinProfit)*PROFIT_PERCENT_INVESTORS/NUM_HUNDRED/roundInvest));}else{uintloseProfit=(amount*(joinProfit-roundProfit)/roundInvest);payeeRoundProfit+=((amount>loseProfit)?(amount-loseProfit):0);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 604
+column: 2
+content: for(uinti=0;i<investor.investinfo.length;i++){investThisRound+=investor.investinfo[i].amount;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 21
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 505
+column: 63
+content: (uintprofitInvest5Round,uintprofitPromoter5Round,uintprofitDev5Round)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 273
+column: 8
+content: sendFunds(player,gameWin+jpotWin==0?1wei:gameWin+jpotWin,gameWin)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 179
+column: 13
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 283
+column: 57
+content: uint8[]result
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 297
+column: 72
+content: uint8[]result
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 191
+column: 35
+content: Betclosed
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 25
+column: 1
+content: uintconstantMIN_BET=0.01ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 1
+content: uintconstantMAX_BET=20000ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 27
+column: 1
+content: uintconstantMAX_BET_PROFIT=100000ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 1
+content: uintconstantMIN_JPOT_BET=0.1ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 29
+column: 1
+content: uintconstantJPOT_MODULO=5000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 30
+column: 1
+content: uintconstantBONUS_PERCENT_JPOT=5;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 31
+column: 1
+content: uintconstantBET_EXPIRATION_BLOCKS=250;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 34
+column: 1
+content: uintconstantBAC_ODDS=1985;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 1
+content: uintconstantG8_ODDS=788;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 36
+column: 1
+content: uintconstantRACE_ODDS=788;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 1
+content: uintconstantNUM_THOUSAND=1000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 1
+content: uintconstantNUM_HUNDRED=100;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 39
+column: 1
+content: uintconstantTWO_XBIT_MASK=0x11;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 40
+column: 1
+content: uintconstantEIGHT_XBIT_MASK=0x11111111;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 41
+column: 1
+content: uintconstantHEXBASE=16;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 1
+content: uintconstantPROFIT_BASE=10**25;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 1
+content: uintconstantINVEST_BASE=3ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 47
+column: 1
+content: uintconstantONE_MIN_INVEST=0.05ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 48
+column: 1
+content: uintconstantONE_MAX_INVEST=20ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 49
+column: 1
+content: uintconstantROUND_MAX_RECORD=5;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 50
+column: 1
+content: uintconstantPROFIT_PERCENT_INVESTORS=80;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 51
+column: 1
+content: uintconstantPROFIT_PERCENT_DEV=20;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 1
+content: uintconstantBONUS_PERCENT_PROMOTER=3;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 53
+column: 1
+content: uintconstantROUND_AMAN_LIMIT=10;
+
+SOLIDITY_VISIBILITY :24
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :2
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :3
+SOLIDITY_EXTRA_GAS_IN_LOOPS :5
+SOLIDITY_ADDRESS_HARDCODED :6
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :5
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

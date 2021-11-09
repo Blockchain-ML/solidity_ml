@@ -1,0 +1,25 @@
+C:\Users\hp\DataSet\ClassicEternalStorageProxy.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 12
+column: 0
+content: contractClassicEternalStorageProxyisEternalStorageProxy{function()publicpayable{address_impl=implementation();require(_impl!=address(0));uint256len=getSize(msg.sig);assembly{letptr:=mload(0x40)calldatacopy(ptr,0,calldatasize)letresult:=delegatecall(gas,_impl,ptr,calldatasize,0,len)switchresultcase0{revert(0,len)}default{return(0,len)}}}functiongetSize(bytes4sig)publicviewreturns(uint256){uint256ret=uintStorage[keccak256(abi.encodePacked("dataSizes",sig))];if(ret==0){ret=32;}returnret;}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 14
+column: 15
+content: public
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 18
+column: 8
+content: assembly{letptr:=mload(0x40)calldatacopy(ptr,0,calldatasize)letresult:=delegatecall(gas,_impl,ptr,calldatasize,0,len)switchresultcase0{revert(0,len)}default{return(0,len)}}
+
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1

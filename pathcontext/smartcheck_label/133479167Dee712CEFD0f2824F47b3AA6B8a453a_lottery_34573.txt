@@ -1,0 +1,40 @@
+C:\Users\hp\DataSet\contracts\ropsten\13\133479167Dee712CEFD0f2824F47b3AA6B8a453a_lottery.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 251
+column: 8
+content: for(uinti=0;i<lotterytimeresultinfo[_lotteryDate].allbettingtime;i++){uint8result=_checklottery(_lotteryNum,lotteryuserresultlist[_lotteryDate][i].lotteryNum);if(result==66){lotterytimeresultinfo[_lotteryDate].result66Num+=lotteryuserresultlist[_lotteryDate][i].money;lotteryuserresultlist[_lotteryDate][i].result=66;}elseif(result==1){lotterytimeresultinfo[_lotteryDate].result1Num+=lotteryuserresultlist[_lotteryDate][i].money;lotteryuserresultlist[_lotteryDate][i].result=1;}elseif(result==2){lotterytimeresultinfo[_lotteryDate].result2Num+=lotteryuserresultlist[_lotteryDate][i].money;lotteryuserresultlist[_lotteryDate][i].result=2;}elseif(result==3){lotterytimeresultinfo[_lotteryDate].result3Num+=lotteryuserresultlist[_lotteryDate][i].money;lotteryuserresultlist[_lotteryDate][i].result=3;}elseif(result==4){lotterytimeresultinfo[_lotteryDate].result4Num+=lotteryuserresultlist[_lotteryDate][i].money;lotteryuserresultlist[_lotteryDate][i].result=4;}elseif(result==5){lotterytimeresultinfo[_lotteryDate].result5Num+=lotteryuserresultlist[_lotteryDate][i].money;lotteryuserresultlist[_lotteryDate][i].result=5;}else{lotterytimeresultinfo[_lotteryDate].result6Num+=lotteryuserresultlist[_lotteryDate][i].money;lotteryuserresultlist[_lotteryDate][i].result=6;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 338
+column: 8
+content: for(uinti=0;i<lotterytimeresultinfo[_lotteryDate].allbettingtime;i++){if(lotteryuserresultlist[_lotteryDate][i].result==_prize){uint256allprizemonty=uint256(thismul)*lotteryuserresultlist[_lotteryDate][i].money/10000;uint256userprizemonty=allprizemonty*9/10;uint256developprizemonty=allprizemonty*1/10;lotteryuserresultlist[_lotteryDate][i].takemoney=userprizemonty;lotteryuserresultlist[_lotteryDate][i].userAddress.transfer(userprizemonty);owner.transfer(developprizemonty);useLotteryMoney+=allprizemonty;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 338
+column: 8
+content: for(uinti=0;i<lotterytimeresultinfo[_lotteryDate].allbettingtime;i++){if(lotteryuserresultlist[_lotteryDate][i].result==_prize){uint256allprizemonty=uint256(thismul)*lotteryuserresultlist[_lotteryDate][i].money/10000;uint256userprizemonty=allprizemonty*9/10;uint256developprizemonty=allprizemonty*1/10;lotteryuserresultlist[_lotteryDate][i].takemoney=userprizemonty;lotteryuserresultlist[_lotteryDate][i].userAddress.transfer(userprizemonty);owner.transfer(developprizemonty);useLotteryMoney+=allprizemonty;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 114
+column: 4
+content: Lottery[]lotteryList;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_TRANSFER_IN_LOOP :1

@@ -1,0 +1,25 @@
+C:\Users\hp\DataSet\SetToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 101
+column: 8
+content: for(uint256i=0;i<unitCount;i++){uint256currentUnits=_units[i];require(currentUnits>0,"SetToken.constructor: Units must be positive");addresscurrentComponent=_components[i];require(currentComponent!=address(0),"SetToken.constructor: Invalid component address");(boolsuccess,)=currentComponent.call(abi.encodeWithSignature("decimals()"));if(success){currentDecimals=ERC20Detailed(currentComponent).decimals();minDecimals=currentDecimals<minDecimals?currentDecimals:minDecimals;}else{minDecimals=0;}require(!tokenIsComponent(currentComponent),"SetToken.constructor: Duplicated component");isComponent[currentComponent]=true;components.push(currentComponent);units.push(currentUnits);}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 39
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 118
+column: 48
+content: call(abi.encodeWithSignature("decimals()"))
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_UNCHECKED_CALL :1

@@ -1,0 +1,70 @@
+C:\Users\hp\DataSet\BaseBridgeValidators.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 10
+column: 37
+content: 0xFFfFfFffFFfffFFfFFfFFFFFffFFFffffFfFFFfF
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 36
+column: 8
+content: while(nextValidator!=F_ADDR){list[counter]=nextValidator;nextValidator=getNextValidator(nextValidator);counter++;require(nextValidator!=address(0));}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 112
+column: 8
+content: while(next!=F_ADDR){if(next==_validator){return(block.number%validatorCount()==counter);}next=getNextValidator(next);counter++;require(next!=address(0));}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 36
+column: 15
+content: nextValidator!=F_ADDR
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 66
+column: 15
+content: next!=_validator
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 112
+column: 15
+content: next!=F_ADDR
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 19
+column: 4
+content: functionsetRequiredSignatures(uint256_requiredSignatures)externalonlyOwner{require(validatorCount()>=_requiredSignatures);require(_requiredSignatures!=0);uintStorage[REQUIRED_SIGNATURES]=_requiredSignatures;emitRequiredSignaturesChanged(_requiredSignatures);}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 8
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 94
+column: 42
+content: string_mapName
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3

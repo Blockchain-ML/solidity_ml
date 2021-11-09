@@ -1,0 +1,111 @@
+C:\Users\hp\DataSet\contracts\ropsten\24\2445113ef055b6304b71c4aa54ea37db1f6a727d_contrato_base.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 20
+column: 4
+content: functionset_recivers(address_recivers,uint_porcentaje)returns(string){require(estado==false,"El contrato est&#225; bloqueado. &#39;En producci&#243;n&#39;");require(owner==msg.sender,"Solo el owner puede configurar el contrato");map_recivers[_recivers]=_porcentaje;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 26
+column: 4
+content: functionbloquear_contrato()returns(string){estado=true;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 2
+column: 0
+content: contractcontrato_base{boolestado;mapping(address=>uint)map_recivers;address[]arr_recivers;addressowner;functionenvio_dinero()payablereturns(string){require(estado==true,"El contrato no est&#225; en producci&#243;n");return"OK";}functionset_owner(address_owner)returns(string){require(estado==false,"El contrato est&#225; bloqueado. &#39;En producci&#243;n&#39;");require(owner==0||owner==msg.sender,"Ya existe un owner seleccionado");owner=_owner;return"Se asign&#243; el owner _owner al contrato";}functionset_recivers(address_recivers,uint_porcentaje)returns(string){require(estado==false,"El contrato est&#225; bloqueado. &#39;En producci&#243;n&#39;");require(owner==msg.sender,"Solo el owner puede configurar el contrato");map_recivers[_recivers]=_porcentaje;}functionbloquear_contrato()returns(string){estado=true;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 14
+column: 4
+content: functionset_owner(address_owner)returns(string){require(estado==false,"El contrato est&#225; bloqueado. &#39;En producci&#243;n&#39;");require(owner==0||owner==msg.sender,"Ya existe un owner seleccionado");owner=_owner;return"Se asign&#243; el owner _owner al contrato";}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 20
+column: 4
+content: functionset_recivers(address_recivers,uint_porcentaje)returns(string){require(estado==false,"El contrato est&#225; bloqueado. &#39;En producci&#243;n&#39;");require(owner==msg.sender,"Solo el owner puede configurar el contrato");map_recivers[_recivers]=_porcentaje;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: >=
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 25
+content: <
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 8
+column: 4
+content: functionenvio_dinero()payablereturns(string){require(estado==true,"El contrato no est&#225; en producci&#243;n");return"OK";}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 14
+column: 4
+content: functionset_owner(address_owner)returns(string){require(estado==false,"El contrato est&#225; bloqueado. &#39;En producci&#243;n&#39;");require(owner==0||owner==msg.sender,"Ya existe un owner seleccionado");owner=_owner;return"Se asign&#243; el owner _owner al contrato";}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 20
+column: 4
+content: functionset_recivers(address_recivers,uint_porcentaje)returns(string){require(estado==false,"El contrato est&#225; bloqueado. &#39;En producci&#243;n&#39;");require(owner==msg.sender,"Solo el owner puede configurar el contrato");map_recivers[_recivers]=_porcentaje;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 26
+column: 4
+content: functionbloquear_contrato()returns(string){estado=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 3
+column: 4
+content: boolestado;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 4
+column: 4
+content: mapping(address=>uint)map_recivers;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 5
+column: 4
+content: address[]arr_recivers;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 4
+content: addressowner;
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2

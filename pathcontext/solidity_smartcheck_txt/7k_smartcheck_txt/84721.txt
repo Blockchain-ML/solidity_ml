@@ -1,0 +1,125 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\84721.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 220
+column: 31
+content: 0x0
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 479
+column: 4
+content: functioncurrentTime()internalconstantreturns(uint_currentTime){returnnow;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 484
+column: 4
+content: functioncalculateBonus()internalconstantreturns(uint){if(soldTokens>=0&&soldTokens<=10000000*1ether){return4;}elseif(soldTokens>10000000*1ether&&soldTokens<=20000000*1ether){return3;}elseif(soldTokens>20000000*1ether&&soldTokens<=30000000*1ether){return2;}else{return1;}}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 158
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 249
+column: 4
+content: functionsetCrowdsale(address_crowdsaleAddr,uint256_amountForSale)externalonlyOwner{require(!transferEnabled);require(_amountForSale<=crowdsaleAllowance);uintamount=(_amountForSale==0)?crowdsaleAllowance:_amountForSale;approve(crowdsaleAddr,0);approve(_crowdsaleAddr,amount);crowdsaleAddr=_crowdsaleAddr;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 319
+column: 9
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 435
+column: 8
+content: if(!tokenReward.transferFrom(tokenReward.owner(),msg.sender,tokensAmountForUser)){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 508
+column: 8
+content: if(!msg.sender.send(refund)){revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 115
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 308
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 508
+column: 24
+content: send(refund)
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: d48ac4
+severity: 2
+line: 485
+column: 12
+content: soldTokens>=0
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 378
+column: 16
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 117
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 336
+column: 4
+content: mapping(address=>bool)refunded;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :2
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_SEND :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_UINT_CANT_BE_NEGATIVE :1
+SOLIDITY_ERC20_APPROVE :1

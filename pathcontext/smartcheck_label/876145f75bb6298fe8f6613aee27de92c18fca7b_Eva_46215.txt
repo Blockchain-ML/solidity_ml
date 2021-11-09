@@ -1,0 +1,229 @@
+C:\Users\hp\DataSet\contracts\ropsten\87\876145f75bb6298fe8f6613aee27de92c18fca7b_Eva.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 140
+column: 4
+content: investor.refer=address(0)
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 108
+column: 12
+content: investor.invested.mul(dividends).div(10000).mul(now.sub(investor.last_payment))
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 186
+column: 3
+content: for(uintlvl=0;lvl<refer_bonus_percent.length;lvl++){sum=msg.value.mul(refer_bonus_percent[lvl]).div(10000);if(investor_refer.refer.notZero()){if(getInvestorStatus(investor_refer.refer)>lvl){investors[investor_refer.refer].refer_bonus_count[lvl]++;investors[investor_refer.refer].refer_bonus[lvl]+=sum;all_refer_bonus[lvl]+=sum;all_refer_bonus_count[lvl]++;emitRefBonus(investor_refer.refer,now,sum,refer_bonus_otype,msg.sender,lvl.add(1));address(investor_refer.refer).transfer(sum);sum=0;}investor_refer=investors[investor_refer.refer];}if(sum>0){admin_ref_sys_payment[lvl]+=sum;admin_ref_sys_payment_count[lvl]++;admin.transfer(sum);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 186
+column: 3
+content: for(uintlvl=0;lvl<refer_bonus_percent.length;lvl++){sum=msg.value.mul(refer_bonus_percent[lvl]).div(10000);if(investor_refer.refer.notZero()){if(getInvestorStatus(investor_refer.refer)>lvl){investors[investor_refer.refer].refer_bonus_count[lvl]++;investors[investor_refer.refer].refer_bonus[lvl]+=sum;all_refer_bonus[lvl]+=sum;all_refer_bonus_count[lvl]++;emitRefBonus(investor_refer.refer,now,sum,refer_bonus_otype,msg.sender,lvl.add(1));address(investor_refer.refer).transfer(sum);sum=0;}investor_refer=investors[investor_refer.refer];}if(sum>0){admin_ref_sys_payment[lvl]+=sum;admin_ref_sys_payment_count[lvl]++;admin.transfer(sum);}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 48
+column: 0
+content: contractEvaisAssets{usingSafeMathforuint;usingToAddressfor*;usingZerofor*;uintpublicall_invest_count=0;uintpublicall_invest=0;uintpublicall_payments_count=0;uintpublicall_payments=0;uintpublicall_marketing_payments=0;uintpublicall_cashbacks=0;uintpublicall_cashbacks_count=0;uintpublicinvestors_count=0;uint[]privateadmin_ref_sys_payment=[0,0,0];uint[]privateadmin_ref_sys_payment_count=[0,0,0];uint[]privateall_refer_bonus=[0,0,0];uint[]privateall_refer_bonus_count=[0,0,0];uintprivatemarketingFee=1500;uintprivatedividends=188;uintconstantprivatecashback_percent=300;uintconstantprivatesec_in_24h=1days;uintconstantprivatemin_invesment=10finney;uint[]privaterefer_levels=[0finney,5ether,20ether];uint[]privaterefer_bonus_percent=[1000,500,300];addresspayableprivateadmin;uintconstantreg_otype=4;uintconstantcashback_otype=3;uintconstantrefer_bonus_otype=2;uintconstantinvest_otype=1;uintconstantpayments_otype=0;mapping(address=>Investor)publicinvestors;address[]publicinvestors_indexes;constructor()public{admin=msg.sender;}modifieronlyAdmin{require(msg.sender==admin,"Admin only");_;}function()payableexternal{Investorstorageinvestor=investors[msg.sender];if(investor.invested>0){uintamount=0;amount=investor.invested.mul(dividends).div(10000).mul(now.sub(investor.last_payment)).div(sec_in_24h);if(amount>0){investor.last_payment=now;require(amount<address(this).balance,"insufficient balance");investor.payments_count++;investor.payments+=amount;all_payments_count++;all_payments+=amount;emitOperation(msg.sender,now,amount,payments_otype);msg.sender.transfer(amount);}}if(msg.value>0){require(msg.value>=min_invesment,"value to invest must be >= 0.01 ether");if(investor.invested==0){investors_indexes.push(msg.sender);investor.id=investors_count;investors_count++;investor.invested=0;investor.invested_count=0;investor.payments=0;investor.payments_count=0;investor.refer=address(0);investor.cashback=0;investor.refer_bonus=[0,0,0];investor.refer_bonus_count=[0,0,0];investor.first_invest=now;investor.last_payment=now;<missing ';'>addresspayable<missing ';'>ref_addr=msg.data.toAddr();if(ref_addr.notZero()){require(investors[ref_addr].invested!=0,"refer address not found");investor.refer=ref_addr;investors[ref_addr].referals.push(msg.sender);investors[ref_addr].referals_count++;uintcashback_amount=msg.value.mul(cashback_percent).div(10000);investor.cashback=cashback_amount;all_cashbacks+=cashback_amount;all_cashbacks_count++;emitRegistration(msg.sender,now,ref_addr,reg_otype);emitOperation(msg.sender,now,cashback_amount,cashback_otype);msg.sender.transfer(cashback_amount);}elseemitRegistration(msg.sender,now,address(0),reg_otype);}investor.invested_count++;investor.invested+=msg.value;all_invest_count++;all_invest+=msg.value;emitOperation(msg.sender,now,msg.value,invest_otype);Investorstorageinvestor_refer=investor;uintsum=0;for(uintlvl=0;lvl<refer_bonus_percent.length;lvl++){sum=msg.value.mul(refer_bonus_percent[lvl]).div(10000);if(investor_refer.refer.notZero()){if(getInvestorStatus(investor_refer.refer)>lvl){investors[investor_refer.refer].refer_bonus_count[lvl]++;investors[investor_refer.refer].refer_bonus[lvl]+=sum;all_refer_bonus[lvl]+=sum;all_refer_bonus_count[lvl]++;emitRefBonus(investor_refer.refer,now,sum,refer_bonus_otype,msg.sender,lvl.add(1));address(investor_refer.refer).transfer(sum);sum=0;}investor_refer=investors[investor_refer.refer];}if(sum>0){admin_ref_sys_payment[lvl]+=sum;admin_ref_sys_payment_count[lvl]++;admin.transfer(sum);}}uintfee=msg.value.mul(marketingFee).div(10000);all_marketing_payments+=fee;admin.transfer(fee);}}functiongetInvestorStatus(addressinvestor)privateviewreturns(uint){uintsum=investors[investor].invested;require(sum>0);for(uinti=refer_levels.length-1;i>=0;i--){if(sum>=refer_levels[i])returni+1;}return0;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 64
+column: 8
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 65
+column: 8
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 66
+column: 8
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 67
+column: 8
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 70
+column: 6
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 71
+column: 6
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 72
+column: 15
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 74
+column: 15
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 75
+column: 15
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 78
+column: 8
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 79
+column: 8
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 82
+column: 17
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 49
+column: 1
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 186
+column: 3
+content: for(uintlvl=0;lvl<refer_bonus_percent.length;lvl++){sum=msg.value.mul(refer_bonus_percent[lvl]).div(10000);if(investor_refer.refer.notZero()){if(getInvestorStatus(investor_refer.refer)>lvl){investors[investor_refer.refer].refer_bonus_count[lvl]++;investors[investor_refer.refer].refer_bonus[lvl]+=sum;all_refer_bonus[lvl]+=sum;all_refer_bonus_count[lvl]++;emitRefBonus(investor_refer.refer,now,sum,refer_bonus_otype,msg.sender,lvl.add(1));address(investor_refer.refer).transfer(sum);sum=0;}investor_refer=investors[investor_refer.refer];}if(sum>0){admin_ref_sys_payment[lvl]+=sum;admin_ref_sys_payment_count[lvl]++;admin.transfer(sum);}}
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 11ca45b
+severity: 3
+line: 224
+column: 38
+content: i>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: d48ac4
+severity: 2
+line: 224
+column: 38
+content: i>=0
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 83
+column: 1
+content: uintconstantreg_otype=4;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 84
+column: 1
+content: uintconstantcashback_otype=3;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 85
+column: 1
+content: uintconstantrefer_bonus_otype=2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 86
+column: 1
+content: uintconstantinvest_otype=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 87
+column: 1
+content: uintconstantpayments_otype=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 272
+column: 76
+content: addr){assembly{
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 273
+column: 13
+content: addr:=mload
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 273
+column: 26
+content: (add<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 273
+column: 30
+content: (source,0x14))<missing ';'>
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :12
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UINT_CANT_BE_NEGATIVE :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_DIV_MUL :1
+SOLIDITY_TRANSFER_IN_LOOP :1

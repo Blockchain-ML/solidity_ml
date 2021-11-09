@@ -1,0 +1,108 @@
+C:\Users\hp\DataSet\contracts\ropsten\79\79d351c6a97fa3ca24e71a1acc7700636949db2a_CustomToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 38
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(boolsuccess){allowance[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 107
+column: 8
+content: for(uinti=0;i<_tos.length;i++){balanceOf[_tos[i]]+=_amount;emitTransfer(airSender,_tos[i],_amount);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 107
+column: 8
+content: for(uinti=0;i<_tos.length;i++){balanceOf[_tos[i]]+=_amount;emitTransfer(airSender,_tos[i],_amount);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 66
+column: 0
+content: contractAirdropTokenisBaseToken,Ownable{uint256publicairAmount;addresspublicairSender;uint32publicairLimitCount;boolpublicairState;mapping(address=>uint32)publicairCountOf;eventAirdrop(addressindexedfrom,uint32indexedcount,uint256tokenValue);functionsetAirState(bool_state)publiconlyOwner{airState=_state;}functionsetAirAmount(uint256_amount)publiconlyOwner{airAmount=_amount;}functionsetAirLimitCount(uint32_count)publiconlyOwner{airLimitCount=_count;}functionsetAirSender(address_sender)publiconlyOwner{airSender=_sender;}functionairdrop()publicpayable{require(airState==true);require(msg.value==0);if(airLimitCount>0&&airCountOf[msg.sender]>=airLimitCount){revert();}_transfer(airSender,msg.sender,airAmount);airCountOf[msg.sender]+=1;emitAirdrop(msg.sender,airCountOf[msg.sender],airAmount);}functionairdropToAdresses(address[]_tos,uint_amount)publiconlyOwner{uinttotal=_amount*_tos.length;require(total>=_amount&&balanceOf[airSender]>=total);balanceOf[airSender]-=total;for(uinti=0;i<_tos.length;i++){balanceOf[_tos[i]]+=_amount;emitTransfer(airSender,_tos[i],_amount);}}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 114
+column: 0
+content: contractCustomTokenisBaseToken,AirdropToken{constructor()public{totalSupply=10000000000000000000000000000;name=&39;T0703&39;;symbol=&39;T0703&39;;decimals=18;balanceOf[msg.sender]=totalSupply;emitTransfer(address(0),address(msg.sender),totalSupply);airAmount=500000000000000000000;airState=false;airSender=msg.sender;airLimitCount=2;}function()publicpayable{airdrop();}}
+
+ruleId: SOLIDITY_MSGVALUE_EQUALS_ZERO
+patternId: 1df89a
+severity: 1
+line: 94
+column: 16
+content: msg.value==0
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 76
+column: 4
+content: functionsetAirState(bool_state)publiconlyOwner{airState=_state;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 80
+column: 4
+content: functionsetAirAmount(uint256_amount)publiconlyOwner{airAmount=_amount;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 84
+column: 4
+content: functionsetAirLimitCount(uint32_count)publiconlyOwner{airLimitCount=_count;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 88
+column: 4
+content: functionsetAirSender(address_sender)publiconlyOwner{airSender=_sender;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 95
+column: 8
+content: if(airLimitCount>0&&airCountOf[msg.sender]>=airLimitCount){revert();}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 129
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 103
+column: 31
+content: address[]_tos
+
+SOLIDITY_MSGVALUE_EQUALS_ZERO :1
+SOLIDITY_OVERPOWERED_ROLE :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_ERC20_APPROVE :1

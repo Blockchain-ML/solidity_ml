@@ -1,0 +1,75 @@
+C:\Users\hp\DataSet\ExtraFinalizeAgent.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 45
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 50
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 64
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 57
+column: 2
+content: functionisSane()publicconstantreturns(bool){return(token.mintAgents(address(this))==true);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 7
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 44
+column: 4
+content: if(address(crowdsale)==0){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 49
+column: 4
+content: if(address(teamMultisig)==0){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 63
+column: 4
+content: if(msg.sender!=address(crowdsale)){throw;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 40
+column: 2
+content: functionExtraFinalizeAgent(CrowdsaleToken_token,Crowdsale_crowdsale,uint_bonusBasePoints,address_teamMultisig,uint_accountedTokenSales){token=_token;crowdsale=_crowdsale;if(address(crowdsale)==0){throw;}teamMultisig=_teamMultisig;if(address(teamMultisig)==0){throw;}accountedTokenSales=_accountedTokenSales;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 62
+column: 2
+content: functionfinalizeCrowdsale(){if(msg.sender!=address(crowdsale)){throw;}uinttokensSold=crowdsale.tokensSold().minus(accountedTokenSales);allocatedBonus=tokensSold.times(bonusBasePoints)/10000;token.mint(teamMultisig,allocatedBonus);}
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :3

@@ -1,0 +1,350 @@
+C:\Users\hp\DataSet\contracts\ropsten\27\27907a9353d824022f89b58e09a1196251d6a410_InfoStore.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 78
+column: 8
+content: for(uinti=0;i<allIPFileHash.length;i++){if(keccak256(abi.encodePacked(Address))==keccak256(abi.encodePacked(allIPFileHash[i]))){returntrue;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 88
+column: 8
+content: for(uinti=0;i<allIPFileName.length;i++){if(keccak256(abi.encodePacked(fileName))==keccak256(abi.encodePacked(allIPFileName[i]))){returntrue;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 149
+column: 8
+content: for(uint32i=0;i<c.length-1;i++){d=string(abi.encodePacked(d,c[i],&39<missing ')'>;,&39;));}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 78
+column: 8
+content: for(uinti=0;i<allIPFileHash.length;i++){if(keccak256(abi.encodePacked(Address))==keccak256(abi.encodePacked(allIPFileHash[i]))){returntrue;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 88
+column: 8
+content: for(uinti=0;i<allIPFileName.length;i++){if(keccak256(abi.encodePacked(fileName))==keccak256(abi.encodePacked(allIPFileName[i]))){returntrue;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractInfoStore{addresspublicowner;string[]publicthisownerfiles;string[]publicallIPFileName;string[]publicallIPFileHash;mapping(string=>string)HashtoFileName;mapping(string=>string[])ownfiles;mapping(bytes32=>bool)publicusersRight;mapping(string=>bool)UsersID;mapping(string=>Author)fileNametoAuthor;mapping(string=>File)fileNametoFile;AuthorpublicthisAuthor;FilepublicthisFile;structAuthor{stringauthorName;stringemailAddress;uint256blocknumber;addressETHWalletAddress;}structFile{stringfileName;stringsubmitTime;stringfileAddress;stringkeywords;uint256money;}constructor()payablepublic{owner=msg.sender;}functionsetAuthor(stringname,stringEmail,addressaccount,uint256blocknumber)public{thisAuthor=Author(name,Email,blocknumber,account);}functionsetFile(stringname,stringTime,uint256money,stringAddress,stringkeyWords)public{thisFile=File(name,Time,Address,keyWords,money);}functionownFiles(stringuserSign,stringnewstring)public{thisownerfiles=ownfiles[userSign];thisownerfiles.push(newstring);ownfiles[userSign]=thisownerfiles;}functioncheckStoredFile(stringAddress)viewpublicreturns(bool){for(uinti=0;i<allIPFileHash.length;i++){if(keccak256(abi.encodePacked(Address))==keccak256(abi.encodePacked(allIPFileHash[i]))){returntrue;}}returnfalse;}functioncheckStoredFileName(stringfileName)viewpublicreturns(bool){for(uinti=0;i<allIPFileName.length;i++){if(keccak256(abi.encodePacked(fileName))==keccak256(abi.encodePacked(allIPFileName[i]))){returntrue;}}returnfalse;}functionSetIPR(stringauthorName,stringEmail,addressaccount,stringfileName,stringTime,uint256money,stringAddress,stringkeyWords,stringUserID)payablepublicreturns(bool){if(!(checkStoredFile(Address)||checkStoredFileName(fileName))){setAuthor(authorName,Email,account,block.number);setFile(fileName,Time,money,Address,keyWords);fileNametoAuthor[fileName]=thisAuthor;fileNametoFile[fileName]=thisFile;HashtoFileName[Address]=fileName;allIPFileHash.push(Address);allIPFileName.push(fileName);creatUserPurchase(UserID,fileName);returntrue;}else{returnfalse;}}functionHashToFileName(stringhash)viewpublicreturns(string){returnHashtoFileName[hash];}functionSearchTimeBlocknumber(stringfileName)viewpublicreturns(uint,string){AuthormemoryB=fileNametoAuthor[fileName];FilememoryF=fileNametoFile[fileName];return(B.blocknumber,F.submitTime);}functionSearchIPR(stringfileName,stringsearcherID)viewpublicreturns(stringauthorName,stringemailAddress,addressETHWalletAddress,stringFileName,stringSubmitTime,stringFileAddress,uint256Money,stringkeyWords){AuthormemoryA=fileNametoAuthor[fileName];FilememoryF=fileNametoFile[fileName];if(SearchUserPurchase(searcherID,F.fileName)){return(A.authorName,A.emailAddress,A.ETHWalletAddress,F.fileName,F.submitTime,F.fileAddress,F.money,F.keywords);}else{return<missing ';'>(A.authorName,A.emailAddress,A.ETHWalletAddress,F.fileName,F.submitTime,&39<missing ')'>;null&39;,F.money,F.keywords);}}functionSearchUserPurchase(stringaccountID,stringfileName)viewpublicreturns(bool){bytes32B=keccak256(abi.encodePacked(accountID,fileName));returnusersRight[B];}functioncreatUserPurchase(stringaccountID,stringfileName)public{require(!SearchUserPurchase(accountID,fileName));bytes32A=keccak256(abi.encodePacked(accountID,fileName));usersRight[A]=true;ownFiles(accountID,fileName);}functionSearchMyFiles(stringaccountID)viewpublicreturns(string){string[]storagec=ownfiles[accountID];stringmemoryd;for(uint32i=0;i<c.length-1;i++){d=string(abi.encodePacked(d,c[i],&39<missing ')'>;,&39;));}d=string(abi.encodePacked(d,c[c.length-1]));returnd;}functioncreatUserID(stringaccountID)public{UsersID[accountID]=true;}functionSearchUserID(stringaccountID)viewpublicreturns(bool){returnUsersID[accountID];}functionSearchALLFileLength()viewpublicreturns(uint256){returnallIPFileName.length;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 55
+column: 23
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 55
+column: 36
+content: stringEmail
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 58
+column: 21
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 58
+column: 34
+content: stringTime
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 58
+column: 62
+content: stringAddress
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 58
+column: 78
+content: stringkeyWords
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 62
+column: 22
+content: stringuserSign
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 62
+column: 39
+content: stringnewstring
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 76
+column: 30
+content: stringAddress
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 87
+column: 34
+content: stringfileName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 96
+column: 21
+content: stringauthorName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 96
+column: 40
+content: stringEmail
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 96
+column: 71
+content: stringfileName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 96
+column: 88
+content: stringTime
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 96
+column: 116
+content: stringAddress
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 96
+column: 132
+content: stringkeyWords
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 96
+column: 148
+content: stringUserID
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 112
+column: 28
+content: stringhash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 112
+column: 60
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 116
+column: 36
+content: stringfileName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 116
+column: 78
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 122
+column: 24
+content: stringfileName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 122
+column: 41
+content: stringsearcherID
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 122
+column: 80
+content: stringauthorName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 122
+column: 98
+content: stringemailAddress
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 122
+column: 144
+content: stringFileName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 122
+column: 161
+content: stringSubmitTime
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 122
+column: 179
+content: stringFileAddress
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 122
+column: 212
+content: stringkeyWords
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 134
+column: 32
+content: stringaccountID
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 134
+column: 50
+content: stringfileName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 139
+column: 31
+content: stringaccountID
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 139
+column: 49
+content: stringfileName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 146
+column: 27
+content: stringaccountID
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 146
+column: 65
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 156
+column: 25
+content: stringaccountID
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 162
+column: 27
+content: stringaccountID
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: mapping(string=>string)HashtoFileName;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 11
+column: 4
+content: mapping(string=>string[])ownfiles;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 4
+content: mapping(string=>bool)UsersID;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 14
+column: 4
+content: mapping(string=>Author)fileNametoAuthor;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 4
+content: mapping(string=>File)fileNametoFile;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_UPGRADE_TO_050 :37
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2

@@ -1,0 +1,278 @@
+C:\Users\hp\DataSet\contracts\ropsten\7b\7b8df52c1f8bc4aee8d0964d97fc82c59b01c490_SomeContract.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 88
+column: 23
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 111
+column: 22
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 50
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 68
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 117
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 186
+column: 5
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 94
+column: 2
+content: functiondisplay(bytes32part_name)constantreturns(uint){returnparts_mapping[part_name];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 101
+column: 2
+content: functiondisplay_time(bytes32part_name)constantreturns(uint){returntime_mapping[part_name];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 125
+column: 2
+content: functionbuy_part_amount_show(bytes32name_of_part,uinthow_many)constantreturns(uint){uintamount=how_many*price_mapping[name_of_part];returnamount;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 150
+column: 2
+content: functiongetPoolMoney()constantreturns(uint){returnthis.balance;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 194
+column: 1
+content: functioncheck_part_location(uintpartid)constantreturns(uinta,stringb){a=partinauto[partid].vehicle_id;b=partinauto[partid].vehicle_name;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 12
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 45
+column: 4
+content: if(addautoindustry[msg.sender].typ==1){_;}else{throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 63
+column: 4
+content: if(addautoindustry[msg.sender].typ==2){_;}else{throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 113
+column: 4
+content: if(hash_temp==orig_hash){_;}else{throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 184
+column: 3
+content: if(completeness[_vehicle_id]==1){throw;}else{partinauto[partid]=vehicle(_vehicle_id,vehicle_n);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 37
+column: 2
+content: functionadd_OEM(){addautoindustry[msg.sender]=auto_industry(1,msg.sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 55
+column: 2
+content: functionadd_AUTO_MANU(){addautoindustry[msg.sender]=auto_industry(2,msg.sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 80
+column: 2
+content: functionaddparts(bytes32name,uintquantity,uintids,uintprice)only_OEM{uintp=parts_mapping[name];parts_mapping[name]=p+quantity;uinttime_now=now;id_mapping[name]=ids;time_mapping[name]=time_now;price_mapping[name]=price;hashing_item[name]=sha3(name,ids,time_now);TheOemAddedAnItem(msg.sender,name,quantity);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 94
+column: 2
+content: functiondisplay(bytes32part_name)constantreturns(uint){returnparts_mapping[part_name];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 101
+column: 2
+content: functiondisplay_time(bytes32part_name)constantreturns(uint){returntime_mapping[part_name];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 125
+column: 2
+content: functionbuy_part_amount_show(bytes32name_of_part,uinthow_many)constantreturns(uint){uintamount=how_many*price_mapping[name_of_part];returnamount;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 133
+column: 2
+content: functionuse_OEM_Parts(bytes32name_of_part,uinthow_many,uintid_of_item)auth_part(name_of_part,id_of_item)payable{if(parts_mapping[name_of_part]<how_many){TheManufacturerRequestedForMoreParts(name_of_part,how_many);}parts_mapping[name_of_part]=parts_mapping[name_of_part]-how_many;uintamount=msg.value;this.transfer(amount);pooltime=now;TheManufacturerRequestedForParts(name_of_part,how_many);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 150
+column: 2
+content: functiongetPoolMoney()constantreturns(uint){returnthis.balance;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 157
+column: 2
+content: functiondefective(bytes32_name_of_part,uintno_of_pieces)only_AUTO_MANU{uint__amount=no_of_pieces*price_mapping[_name_of_part];msg.sender.transfer(__amount);TheManufacturerRefundedTheDefectiveItem(_name_of_part,no_of_pieces);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 166
+column: 2
+content: functionpay_to_OEM()payableonly_OEM(){if(now-pooltime>36000){TheOemGotPaid(msg.sender,this.balance);msg.sender.transfer(this.balance);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 182
+column: 1
+content: functionpart_to_vehicle(uintpartid,stringvehicle_n,uint_vehicle_id)only_AUTO_MANU{if(completeness[_vehicle_id]==1){throw;}else{partinauto[partid]=vehicle(_vehicle_id,vehicle_n);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 194
+column: 1
+content: functioncheck_part_location(uintpartid)constantreturns(uinta,stringb){a=partinauto[partid].vehicle_id;b=partinauto[partid].vehicle_name;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 200
+column: 1
+content: functionvehicle_assembled(uintvehicle_id_){completeness[vehicle_id_]=1;TheVehicleIsReadyToBeSendToTheDealer(vehicle_id_);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 205
+column: 2
+content: function()payable{}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 2
+content: mapping(address=>auto_industry)addautoindustry;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 73
+column: 2
+content: mapping(bytes32=>uint)parts_mapping;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 74
+column: 2
+content: mapping(bytes32=>uint)id_mapping;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 75
+column: 2
+content: mapping(bytes32=>uint)time_mapping;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 76
+column: 2
+content: mapping(bytes32=>bytes32)hashing_item;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 77
+column: 2
+content: mapping(bytes32=>uint)price_mapping;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 122
+column: 2
+content: uintpooltime;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 174
+column: 1
+content: mapping(uint=>vehicle)partinauto;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 180
+column: 1
+content: mapping(uint=>uint)completeness;
+
+SOLIDITY_VISIBILITY :23
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :11
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :4

@@ -1,0 +1,82 @@
+C:\Users\hp\DataSet\KlerosLiquidExtraViews.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 45
+column: 8
+content: for(uinti=0;i<subcourtIDs.length;i++){if(_subcourtID+1==subcourtIDs[i]){stake=subcourtStakes[i];}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 69
+column: 8
+content: for(uinti=0;i<actualSubcourtIDs.length;i++){subcourtIDs[i]=actualSubcourtIDs[i]+1;subcourtStakes[i]=klerosLiquid.stakeOf(_account,actualSubcourtIDs[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 74
+column: 8
+content: for(i=klerosLiquid.nextDelayedSetStake();i<=klerosLiquid.lastDelayedSetStake();i++){(addressaccount,uint96subcourtID,uint128stake)=klerosLiquid.delayedSetStakes(i);if(_account==account){if(stake==0){for(uintj=0;j<subcourtIDs.length;j++){if(subcourtID==subcourtIDs[j]){subcourtIDs[j]=0;subcourtStakes[j]=0;break;}}}else{for(j=0;j<subcourtIDs.length*2;j++){if((j<subcourtIDs.length&&subcourtID+1==subcourtIDs[j])||(j>=subcourtIDs.length&&subcourtIDs[j%subcourtIDs.length]==0)){(,,uintcourtMinStake,,,)=klerosLiquid.courts(j%subcourtIDs.length);if(courtMinStake<=stake&&klerosLiquid.pinakion().balanceOf(_account)>=stakedTokens-subcourtStakes[j%subcourtIDs.length]+stake){subcourtIDs[j%subcourtIDs.length]=subcourtID+1;stakedTokens=stakedTokens-subcourtStakes[j%subcourtIDs.length]+stake;subcourtStakes[j%subcourtIDs.length]=stake;}}}}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 78
+column: 20
+content: for(uintj=0;j<subcourtIDs.length;j++){if(subcourtID==subcourtIDs[j]){subcourtIDs[j]=0;subcourtStakes[j]=0;break;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 86
+column: 20
+content: for(j=0;j<subcourtIDs.length*2;j++){if((j<subcourtIDs.length&&subcourtID+1==subcourtIDs[j])||(j>=subcourtIDs.length&&subcourtIDs[j%subcourtIDs.length]==0)){(,,uintcourtMinStake,,,)=klerosLiquid.courts(j%subcourtIDs.length);if(courtMinStake<=stake&&klerosLiquid.pinakion().balanceOf(_account)>=stakedTokens-subcourtStakes[j%subcourtIDs.length]+stake){subcourtIDs[j%subcourtIDs.length]=subcourtID+1;stakedTokens=stakedTokens-subcourtStakes[j%subcourtIDs.length]+stake;subcourtStakes[j%subcourtIDs.length]=stake;}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 45
+column: 8
+content: for(uinti=0;i<subcourtIDs.length;i++){if(_subcourtID+1==subcourtIDs[i]){stake=subcourtStakes[i];}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 69
+column: 8
+content: for(uinti=0;i<actualSubcourtIDs.length;i++){subcourtIDs[i]=actualSubcourtIDs[i]+1;subcourtStakes[i]=klerosLiquid.stakeOf(_account,actualSubcourtIDs[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 78
+column: 20
+content: for(uintj=0;j<subcourtIDs.length;j++){if(subcourtID==subcourtIDs[j]){subcourtIDs[j]=0;subcourtStakes[j]=0;break;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 8
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 59
+column: 8
+content: uint96[]subcourtIDs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 62
+column: 8
+content: uint[]subcourtStakes
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :5
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3

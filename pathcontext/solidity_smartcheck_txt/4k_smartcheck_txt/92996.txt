@@ -1,0 +1,590 @@
+F:\Blockchain\solidity_dataset_work\4k_dataset\92996.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 484
+column: 4
+content: 0x14f01e00092a5b0dBD43414793541df316363D82
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 5
+column: 2
+content: functionmul(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a*b;assert(a==0||c/a==b);returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 11
+column: 2
+content: functiondiv(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a/b;returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 18
+column: 2
+content: functionsub(uint256a,uint256b)internalconstantreturns(uint256){assert(b<=a);returna-b;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 23
+column: 2
+content: functionadd(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a+b;assert(c>=a);returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 104
+column: 2
+content: functionvalidPurchase()internalconstantreturns(bool){uint256current=block.number;boolwithinPeriod=current>=startBlock&&current<=endBlock;boolnonZeroPurchase=msg.value!=0;returnwithinPeriod&&nonZeroPurchase;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 112
+column: 2
+content: functionhasEnded()publicconstantreturns(bool){returnblock.number>endBlock;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 148
+column: 2
+content: functionvalidWhiteListedPurchase(addressbeneficiary)internalconstantreturns(bool){returnisWhiteListed[beneficiary]||whiteListEndBlock<=block.number;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 199
+column: 2
+content: functionvalidWhiteListedPurchase(addressbeneficiary)internalconstantreturns(bool){returnsuper.validWhiteListedPurchase(beneficiary)||referrals[beneficiary]!=0x0;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 272
+column: 2
+content: functionvalidPurchase()internalconstantreturns(bool){boolwithinCap=weiRaised.add(msg.value)<=cap;returnsuper.validPurchase()&&withinCap;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 279
+column: 2
+content: functionhasEnded()publicconstantreturns(bool){boolcapReached=weiRaised>=cap;returnsuper.hasEnded()||capReached;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 428
+column: 2
+content: functiongoalReached()publicconstantreturns(bool){returnweiRaised>=goal;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 497
+column: 2
+content: functionbalanceOf(addresswho)constantreturns(uint256);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 516
+column: 2
+content: functionbalanceOf(address_owner)constantreturns(uint256balance){returnbalances[_owner];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 523
+column: 2
+content: functionallowance(addressowner,addressspender)constantreturns(uint256);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 588
+column: 2
+content: functionallowance(address_owner,address_spender)constantreturns(uint256remaining){returnallowed[_owner][_spender];}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 574
+column: 2
+content: functionapprove(address_spender,uint256_value)returns(bool){require((_value==0)||(allowed[msg.sender][_spender]==0));allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 119
+column: 0
+content: contractWhiteListCrowdsaleisCrowdsale{usingSafeMathforuint256;uint256publicwhiteListEndBlock;mapping(address=>bool)isWhiteListed;eventInvestorWhiteListAddition(addressinvestor);functionWhiteListCrowdsale(uint256_whiteListEndBlock){require(_whiteListEndBlock>startBlock);whiteListEndBlock=_whiteListEndBlock;}functionaddToWhiteList(addressinvestor)public{require(startBlock>block.number);require(!isWhiteListed[investor]);require(investor!=0);isWhiteListed[investor]=true;InvestorWhiteListAddition(investor);}functionbuyTokens(addressbeneficiary)payable{require(validWhiteListedPurchase(beneficiary));returnsuper.buyTokens(beneficiary);}functionvalidWhiteListedPurchase(addressbeneficiary)internalconstantreturns(bool){returnisWhiteListed[beneficiary]||whiteListEndBlock<=block.number;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 154
+column: 0
+content: contractBonusWhiteListCrowdsaleisWhiteListCrowdsale{usingSafeMathforuint256;uint256bonusWhiteListRate;eventBonusWhiteList(addressindexedpurchaser,addressindexedbeneficiary,uint256value,uint256amount);functionBonusWhiteListCrowdsale(uint256_bonusWhiteListRate){require(_bonusWhiteListRate>0);bonusWhiteListRate=_bonusWhiteListRate;}functionbuyTokens(addressbeneficiary)payable{super.buyTokens(beneficiary);if(whiteListEndBlock>block.number&&isWhiteListed[beneficiary]){uint256weiAmount=msg.value;uint256bonusTokens=weiAmount.mul(rate).mul(bonusWhiteListRate).div(100);token.mint(beneficiary,bonusTokens);BonusWhiteList(msg.sender,beneficiary,weiAmount,bonusTokens);}}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 205
+column: 0
+content: contractBonusReferrerCrowdsaleisReferedCrowdsale,BonusWhiteListCrowdsale{usingSafeMathforuint256;uint256bonusReferredRate;eventBonusReferred(addressindexedpurchaser,addressindexedbeneficiary,uint256value,uint256amount);functionBonusReferrerCrowdsale(uint256_bonusReferredRate){require(_bonusReferredRate>0&&_bonusReferredRate<bonusWhiteListRate);bonusReferredRate=_bonusReferredRate;}functionbuyTokens(addressbeneficiary)payable{super.buyTokens(beneficiary);if(whiteListEndBlock>block.number&&referrals[beneficiary]!=0x0){uint256weiAmount=msg.value;uint256bonusReferrerTokens=weiAmount.mul(rate).mul(bonusWhiteListRate-bonusReferredRate).div(100);uint256bonusReferredTokens=weiAmount.mul(rate).mul(bonusReferredRate).div(100);token.mint(beneficiary,bonusReferredTokens);token.mint(referrals[beneficiary],bonusReferrerTokens);BonusWhiteList(msg.sender,referrals[beneficiary],weiAmount,bonusReferrerTokens);BonusReferred(msg.sender,beneficiary,weiAmount,bonusReferredTokens);}}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 233
+column: 0
+content: contractPartialOwnershipCrowdsaleisBonusReferrerCrowdsale{usingSafeMathforuint256;uint256percentToInvestor;eventCompanyTokenIssued(addressindexedpurchaser,addressindexedbeneficiary,uint256value,uint256amount);functionPartialOwnershipCrowdsale(uint256_percentToInvestor){require(_percentToInvestor!=0);percentToInvestor=_percentToInvestor;}functionbuyTokens(addressbeneficiary)payable{super.buyTokens(beneficiary);uint256weiAmount=msg.value;uint256investorTokens=weiAmount.mul(rate);uint256companyTokens=investorTokens.mul(100-percentToInvestor).div(percentToInvestor);if(whiteListEndBlock>block.number&&(referrals[beneficiary]!=0x0||isWhiteListed[beneficiary])){companyTokens=companyTokens.sub(investorTokens.mul(bonusWhiteListRate).div(100));}token.mint(wallet,companyTokens);CompanyTokenIssued(msg.sender,beneficiary,weiAmount,companyTokens);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 539
+column: 2
+content: functionsetEndBlock(uint256_endBlock)onlyOwner{endBlock=_endBlock;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 31
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 120
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 155
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 180
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 206
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 234
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 261
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 313
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 342
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 388
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 503
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 53
+column: 2
+content: functionCrowdsale(uint256_startBlock,uint256_endBlock,uint256_rate,address_wallet){require(_startBlock>=block.number);require(_endBlock>=_startBlock);require(_rate>0);require(_wallet!=0x0);token=createTokenContract();startBlock=_startBlock;endBlock=_endBlock;rate=_rate;wallet=_wallet;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 74
+column: 2
+content: function()payable{buyTokens(msg.sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 79
+column: 2
+content: functionbuyTokens(addressbeneficiary)payable{require(beneficiary!=0x0);require(validPurchase());uint256weiAmount=msg.value;uint256tokens=weiAmount.mul(rate);weiRaised=weiRaised.add(weiAmount);token.mint(beneficiary,tokens);TokenPurchase(msg.sender,beneficiary,weiAmount,tokens);forwardFunds();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 127
+column: 2
+content: functionWhiteListCrowdsale(uint256_whiteListEndBlock){require(_whiteListEndBlock>startBlock);whiteListEndBlock=_whiteListEndBlock;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 143
+column: 2
+content: functionbuyTokens(addressbeneficiary)payable{require(validWhiteListedPurchase(beneficiary));returnsuper.buyTokens(beneficiary);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 161
+column: 2
+content: functionBonusWhiteListCrowdsale(uint256_bonusWhiteListRate){require(_bonusWhiteListRate>0);bonusWhiteListRate=_bonusWhiteListRate;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 166
+column: 2
+content: functionbuyTokens(addressbeneficiary)payable{super.buyTokens(beneficiary);if(whiteListEndBlock>block.number&&isWhiteListed[beneficiary]){uint256weiAmount=msg.value;uint256bonusTokens=weiAmount.mul(rate).mul(bonusWhiteListRate).div(100);token.mint(beneficiary,bonusTokens);BonusWhiteList(msg.sender,beneficiary,weiAmount,bonusTokens);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 186
+column: 2
+content: functionReferedCrowdsale(){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 212
+column: 2
+content: functionBonusReferrerCrowdsale(uint256_bonusReferredRate){require(_bonusReferredRate>0&&_bonusReferredRate<bonusWhiteListRate);bonusReferredRate=_bonusReferredRate;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 217
+column: 2
+content: functionbuyTokens(addressbeneficiary)payable{super.buyTokens(beneficiary);if(whiteListEndBlock>block.number&&referrals[beneficiary]!=0x0){uint256weiAmount=msg.value;uint256bonusReferrerTokens=weiAmount.mul(rate).mul(bonusWhiteListRate-bonusReferredRate).div(100);uint256bonusReferredTokens=weiAmount.mul(rate).mul(bonusReferredRate).div(100);token.mint(beneficiary,bonusReferredTokens);token.mint(referrals[beneficiary],bonusReferrerTokens);BonusWhiteList(msg.sender,referrals[beneficiary],weiAmount,bonusReferrerTokens);BonusReferred(msg.sender,beneficiary,weiAmount,bonusReferredTokens);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 240
+column: 2
+content: functionPartialOwnershipCrowdsale(uint256_percentToInvestor){require(_percentToInvestor!=0);percentToInvestor=_percentToInvestor;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 245
+column: 2
+content: functionbuyTokens(addressbeneficiary)payable{super.buyTokens(beneficiary);uint256weiAmount=msg.value;uint256investorTokens=weiAmount.mul(rate);uint256companyTokens=investorTokens.mul(100-percentToInvestor).div(percentToInvestor);if(whiteListEndBlock>block.number&&(referrals[beneficiary]!=0x0||isWhiteListed[beneficiary])){companyTokens=companyTokens.sub(investorTokens.mul(bonusWhiteListRate).div(100));}token.mint(wallet,companyTokens);CompanyTokenIssued(msg.sender,beneficiary,weiAmount,companyTokens);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 265
+column: 2
+content: functionCappedCrowdsale(uint256_cap){require(_cap>0);cap=_cap;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 291
+column: 2
+content: functionOwnable(){owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 304
+column: 2
+content: functiontransferOwnership(addressnewOwner)onlyOwner{if(newOwner!=address(0)){owner=newOwner;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 321
+column: 2
+content: functionfinalize()onlyOwner{require(!isFinalized);require(hasEnded());finalization();Finalized();isFinalized=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 354
+column: 2
+content: functionRefundVault(address_wallet){require(_wallet!=0x0);wallet=_wallet;state=State.Active;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 360
+column: 2
+content: functiondeposit(addressinvestor)onlyOwnerpayable{require(state==State.Active);deposited[investor]=deposited[investor].add(msg.value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 365
+column: 2
+content: functionclose()onlyOwner{require(state==State.Active);state=State.Closed;Closed();wallet.transfer(this.balance);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 372
+column: 2
+content: functionenableRefunds()onlyOwner{require(state==State.Active);state=State.Refunding;RefundsEnabled();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 378
+column: 2
+content: functionrefund(addressinvestor){require(state==State.Refunding);uint256depositedValue=deposited[investor];deposited[investor]=0;investor.transfer(depositedValue);Refunded(investor,depositedValue);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 396
+column: 2
+content: functionRefundableCrowdsale(uint256_goal){require(_goal>0);vault=newRefundVault(wallet);goal=_goal;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 410
+column: 2
+content: functionclaimRefund(){require(isFinalized);require(!goalReached());vault.refund(msg.sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 446
+column: 2
+content: functionDemeterCrowdsale(uint256_startBlock,uint256_endBlock,uint256_rate,address_wallet,uint256_cap,uint256_goal,uint256_whiteListEndBlock,uint256_bonusWhiteListRate,uint256_bonusReferredRate,uint256_percentToInvestor)Crowdsale(_startBlock,_endBlock,_rate,_wallet)CappedCrowdsale(_cap)RefundableCrowdsale(_goal)WhiteListCrowdsale(_whiteListEndBlock)ReferedCrowdsale()BonusWhiteListCrowdsale(_bonusWhiteListRate)BonusReferrerCrowdsale(_bonusReferredRate)PartialOwnershipCrowdsale(_percentToInvestor){DemeterToken(token).setEndBlock(_endBlock);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 480
+column: 2
+content: functionDemeterCrowdsaleInstance()DemeterCrowdsale(4164989,4176989,1000000000000,0x14f01e00092a5b0dBD43414793541df316363D82,20000000000000000,10000000000000000,4168989,7,3,30){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 497
+column: 2
+content: functionbalanceOf(addresswho)constantreturns(uint256);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 498
+column: 2
+content: functiontransfer(addressto,uint256value)returns(bool);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 508
+column: 2
+content: functiontransfer(address_to,uint256_value)returns(bool){balances[msg.sender]=balances[msg.sender].sub(_value);balances[_to]=balances[_to].add(_value);Transfer(msg.sender,_to,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 516
+column: 2
+content: functionbalanceOf(address_owner)constantreturns(uint256balance){returnbalances[_owner];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 523
+column: 2
+content: functionallowance(addressowner,addressspender)constantreturns(uint256);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 524
+column: 2
+content: functiontransferFrom(addressfrom,addressto,uint256value)returns(bool);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 525
+column: 2
+content: functionapprove(addressspender,uint256value)returns(bool);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 539
+column: 2
+content: functionsetEndBlock(uint256_endBlock)onlyOwner{endBlock=_endBlock;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 544
+column: 2
+content: functiontransfer(address_to,uint256_value)canTransferreturns(bool){returnsuper.transfer(_to,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 549
+column: 2
+content: functiontransferFrom(address_from,address_to,uint256_value)canTransferreturns(bool){returnsuper.transferFrom(_from,_to,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 560
+column: 2
+content: functiontransferFrom(address_from,address_to,uint256_value)returns(bool){var_allowance=allowed[_from][msg.sender];balances[_to]=balances[_to].add(_value);balances[_from]=balances[_from].sub(_value);allowed[_from][msg.sender]=_allowance.sub(_value);Transfer(_from,_to,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 574
+column: 2
+content: functionapprove(address_spender,uint256_value)returns(bool){require((_value==0)||(allowed[msg.sender][_spender]==0));allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 588
+column: 2
+content: functionallowance(address_owner,address_spender)constantreturns(uint256remaining){returnallowed[_owner][_spender];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 607
+column: 2
+content: functionmint(address_to,uint256_amount)onlyOwnercanMintreturns(bool){totalSupply=totalSupply.add(_amount);balances[_to]=balances[_to].add(_amount);Mint(_to,_amount);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 615
+column: 2
+content: functionfinishMinting()onlyOwnerreturns(bool){mintingFinished=true;MintFinished();returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 123
+column: 2
+content: mapping(address=>bool)isWhiteListed;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 157
+column: 2
+content: uint256bonusWhiteListRate;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 182
+column: 2
+content: mapping(address=>address)referrals;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 208
+column: 2
+content: uint256bonusReferredRate;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 236
+column: 2
+content: uint256percentToInvestor;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 444
+column: 4
+content: uint256endBlock;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 505
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 531
+column: 2
+content: uint256endBlock;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 556
+column: 2
+content: mapping(address=>mapping(address=>uint256))allowed;
+
+SOLIDITY_VISIBILITY :49
+SOLIDITY_SAFEMATH :11
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :15
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :4
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_ERC20_APPROVE :1

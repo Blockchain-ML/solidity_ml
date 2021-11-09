@@ -1,0 +1,40 @@
+C:\Users\hp\DataSet\SimplePyramid.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 9
+column: 5
+content: investors.length=3
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 34
+column: 9
+content: investors.length+=2**depth
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 29
+column: 9
+content: for(i=0;i<numInvestors;i++)balances[investors[i]]+=eachInvestorGets;
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 1
+column: 0
+content: contractSimplePyramid{uintpublicconstantMINIMUM_INVESTMENT=1e15;uintpublicnumInvestors=0;uintpublicdepth=0;address[]publicinvestors;mapping(address=>uint)publicbalances;functionSimplePyramid()publicpayable{require(msg.value>=MINIMUM_INVESTMENT);investors.length=3;investors[0]=msg.sender;numInvestors=1;depth=1;balances[address(this)]=msg.value;}function()payablepublic{require(msg.value>=MINIMUM_INVESTMENT);balances[address(this)]+=msg.value;numInvestors+=1;investors[numInvestors-1]=msg.sender;if(numInvestors==investors.length){uintendIndex=numInvestors-2**depth;uintstartIndex=endIndex-2**(depth-1);for(uinti=startIndex;i<endIndex;i++)balances[investors[i]]+=MINIMUM_INVESTMENT;uintpaid=MINIMUM_INVESTMENT*2**(depth-1);uinteachInvestorGets=(balances[address(this)]-paid)/numInvestors;for(i=0;i<numInvestors;i++)balances[investors[i]]+=eachInvestorGets;balances[address(this)]=0;depth+=1;investors.length+=2**depth;}}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 15
+column: 21
+content: public
+
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :1

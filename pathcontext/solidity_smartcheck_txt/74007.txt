@@ -1,0 +1,61 @@
+F:\Blockchain\dataset_new_byID\74007.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 13
+column: 47
+content: 0xFF
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 24
+column: 47
+content: 0xFF
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 42
+column: 37
+content: 0xFF
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: >=
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 31
+column: 4
+content: functiongetUint256(bytesmemory_data,uint8offset)publicpurereturns(uint256){require(offset<=_data.length,"Offset beyond bytes array length.");uint[1]memoryuints;assembly{mstore(uints,mload(add(_data,offset)))}returnuints[0];}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 46
+column: 4
+content: functionsliceBytes(bytesmemory_bytes,uint_start,uint_end)publicpurereturns(bytesmemory){require(_start<_end,"Start offset should be less than end offset.");uint_length=_end-_start;require(_end<=_bytes.length,"End offset should be less than bytes length.");bytesmemorytempBytes;assembly{switchiszero(_length)case0{tempBytes:=mload(0x40)letlengthmod:=and(_length,31)letmc:=add(add(tempBytes,lengthmod),mul(0x20,iszero(lengthmod)))letend:=add(mc,_length)for{letcc:=add(add(add(_bytes,lengthmod),mul(0x20,iszero(lengthmod))),_start)}lt(mc,end){mc:=add(mc,0x20)cc:=add(cc,0x20)}{mstore(mc,mload(cc))}mstore(tempBytes,_length)mstore(0x40,and(add(mc,31),not(31)))}default{tempBytes:=mload(0x40)mstore(0x40,add(tempBytes,0x20))}}returntempBytes;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 36
+column: 8
+content: assembly{mstore(uints,mload(add(_data,offset)))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 59
+column: 8
+content: assembly{switchiszero(_length)case0{tempBytes:=mload(0x40)letlengthmod:=and(_length,31)letmc:=add(add(tempBytes,lengthmod),mul(0x20,iszero(lengthmod)))letend:=add(mc,_length)for{letcc:=add(add(add(_bytes,lengthmod),mul(0x20,iszero(lengthmod))),_start)}lt(mc,end){mc:=add(mc,0x20)cc:=add(cc,0x20)}{mstore(mc,mload(cc))}mstore(tempBytes,_length)mstore(0x40,and(add(mc,31),not(31)))}default{tempBytes:=mload(0x40)mstore(0x40,add(tempBytes,0x20))}}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_USING_INLINE_ASSEMBLY :2
+SOLIDITY_SHOULD_NOT_BE_PURE :2

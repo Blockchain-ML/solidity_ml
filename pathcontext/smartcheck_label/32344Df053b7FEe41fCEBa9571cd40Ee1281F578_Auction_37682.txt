@@ -1,0 +1,75 @@
+C:\Users\hp\DataSet\contracts\ropsten\32\32344Df053b7FEe41fCEBa9571cd40Ee1281F578_Auction.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 45
+column: 2
+content: h1=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 46
+column: 2
+content: h2=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 47
+column: 2
+content: h3=address(0)
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 16
+column: 0
+content: contractAuction{addresspublicauction_owner;uintpublicmin_increment;uintpublich1A;uinth2A;uinth3A;addressh1;addressh2;addressh3;constructor()public{h1A=0;h2A=0;h3A=0;h1=address(0);h2=address(0);h3=address(0);min_increment=2;auction_owner=msg.sender;}functionbid(uintamount)publicpayable{if(amount<(h1A+min_increment)){revert<missing ';'>(&39;InvalidBid<missing ';'><missing ';'>Amount.&39;);}else{if(msg.sender==auction_owner){revert<missing ';'>(&39;Youcan<missing ';'>notbid<missing ';'>inthis<missing ';'>auction.Becauseyou<missing ';'>areauction<missing ';'>owner<missing ';'>!!!&39;);}else{h3=h2;h3A=h2A;h2=h1;h2A=h1A;h1=msg.sender;h1A=amount;}}}functiongetH1Bidder()publicrestrictedviewreturns(address){returnh1;}functiongetH2Bidder()publicrestrictedviewreturns(address){returnh2;}functiongetH3Bidder()publicrestrictedviewreturns(address){returnh3;}functiongetH1Amount()publicviewreturns(uint){returnh1A;}functiongetH2Amount()publicviewreturns(uint){returnh2A;}functiongetH3Amount()publicviewreturns(uint){returnh3A;}functionamIH1()publicviewreturns(stringmemory){<missing ';'>stringmemory<missing ';'>returnvar=&39;--&39;;if(msg.sender==h1){returnvar=&39;H1&39;;}returnreturnvar;}modifierrestricted(){if(msg.sender!=auction_owner){revert<missing ';'>(&39;Sorry,Itsonly<missing ';'>for<missing '('>AuctionOwner&39;);}else{_;}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 33
+column: 1
+content: uinth2A;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 34
+column: 1
+content: uinth3A;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 1
+content: addressh1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 1
+content: addressh2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 39
+column: 1
+content: addressh3;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :3

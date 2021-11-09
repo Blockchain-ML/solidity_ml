@@ -1,0 +1,117 @@
+F:\Blockchain\dataset_new_byID\79838.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 158
+column: 59
+content: 0x0
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 348
+column: 2
+content: functioncheckReputation(uint256_id,address_who,bytesmemory_key,bytesmemory_value,uint256_branchMask,bytes32[]memory_siblings)internalviewreturns(uint256){bytes32impliedRoot=getImpliedRootHashKey(_key,_value,_branchMask,_siblings);require(colonyNetwork.getReputationRootHash()==impliedRoot,"funding-queue-invalid-root-hash");uint256reputationValue;addresskeyColonyAddress;uint256keySkill;addresskeyUserAddress;assembly{reputationValue:=mload(add(_value,32))keyColonyAddress:=mload(add(_key,20))keySkill:=mload(add(_key,52))keyUserAddress:=mload(add(_key,72))}require(keyColonyAddress==address(colony),"funding-queue-invalid-colony-address");require(keySkill==colony.getDomain(proposals[_id].domainId).skillId,"funding-queue-invalid-skill-id");require(keyUserAddress==_who,"funding-queue-invalid-user-address");returnreputationValue;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 366
+column: 4
+content: assembly{reputationValue:=mload(add(_value,32))keyColonyAddress:=mload(add(_key,20))keySkill:=mload(add(_key,52))keyUserAddress:=mload(add(_key,72))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 2
+content: uint256constantHEAD=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 27
+column: 2
+content: uint256constantUINT256_MAX=(2**256)-1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 2
+content: uint256constantSTAKE_FRACTION=WAD/1000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 29
+column: 2
+content: uint256constantCOOLDOWN_PERIOD=14days;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 32
+column: 2
+content: IColonycolony;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 33
+column: 2
+content: IColonyNetworkcolonyNetwork;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 34
+column: 2
+content: ITokenLockingtokenLocking;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 2
+content: addresstoken;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 66
+column: 2
+content: uint256proposalCount;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 67
+column: 2
+content: mapping(uint256=>Proposal)proposals;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 68
+column: 2
+content: mapping(uint256=>mapping(address=>uint256))supporters;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 70
+column: 2
+content: mapping(uint256=>uint256)queue;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 318
+column: 2
+content: uint256[11]decayRates=[1000000000000000000,999999151896947103,999998257929499257,999997312851998332,999996310463960536,999995243363289488,999994102614216063,999992877291965621,999991553844799874,999990115177810890,999988539298800050];
+
+SOLIDITY_VISIBILITY :13
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

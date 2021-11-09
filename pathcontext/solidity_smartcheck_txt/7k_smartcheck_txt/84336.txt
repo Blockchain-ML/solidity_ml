@@ -1,0 +1,219 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\84336.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 200
+column: 8
+content: self.length--
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 16
+column: 29
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 27
+column: 24
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 30
+column: 28
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 32
+column: 32
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 44
+column: 24
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 47
+column: 28
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 49
+column: 32
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 75
+column: 30
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 80
+column: 32
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 94
+column: 30
+content: sha3
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 191
+column: 4
+content: for(uint256i=0;i<self.length;i++){(contains,index)=indexOf(self,self[i],false);if(i>index){for(uint256j=i;j<self.length-1;j++){self[j]=self[j+1];}deleteself[self.length-1];self.length--;i--;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 195
+column: 8
+content: for(uint256j=i;j<self.length-1;j++){self[j]=self[j+1];}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 11
+column: 2
+content: functionsumElements(uint256[]storageself)publicviewreturns(uint256sum){assembly{mstore(0x60,self_slot)for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{sum:=add(sload(add(sha3(0x60,0x20),i)),sum)}}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 24
+column: 2
+content: functiongetMax(uint256[]storageself)publicviewreturns(uint256maxValue){assembly{mstore(0x60,self_slot)maxValue:=sload(sha3(0x60,0x20))for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{switchgt(sload(add(sha3(0x60,0x20),i)),maxValue)case1{maxValue:=sload(add(sha3(0x60,0x20),i))}}}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 41
+column: 2
+content: functiongetMin(uint256[]storageself)publicviewreturns(uint256minValue){assembly{mstore(0x60,self_slot)minValue:=sload(sha3(0x60,0x20))for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{switchgt(sload(add(sha3(0x60,0x20),i)),minValue)case0{minValue:=sload(add(sha3(0x60,0x20),i))}}}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 61
+column: 2
+content: functionindexOf(uint256[]storageself,uint256value,boolisSorted)publicviewreturns(boolfound,uint256index){assembly{mstore(0x60,self_slot)switchisSortedcase1{lethigh:=sub(sload(self_slot),1)letmid:=0letlow:=0for{}iszero(gt(low,high)){}{mid:=div(add(low,high),2)switchlt(sload(add(sha3(0x60,0x20),mid)),value)case1{low:=add(mid,1)}case0{switchgt(sload(add(sha3(0x60,0x20),mid)),value)case1{high:=sub(mid,1)}case0{found:=1index:=midlow:=add(high,1)}}}}case0{for{letlow:=0}lt(low,sload(self_slot)){low:=add(low,1)}{switcheq(sload(add(sha3(0x60,0x20),low)),value)case1{found:=1index:=lowlow:=sload(self_slot)}}}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 191
+column: 4
+content: for(uint256i=0;i<self.length;i++){(contains,index)=indexOf(self,self[i],false);if(i>index){for(uint256j=i;j<self.length-1;j++){self[j]=self[j+1];}deleteself[self.length-1];self.length--;i--;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 135
+column: 14
+content: lChild<=end
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 164
+column: 14
+content: lChild<=end
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 11
+column: 2
+content: functionsumElements(uint256[]storageself)publicviewreturns(uint256sum){assembly{mstore(0x60,self_slot)for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{sum:=add(sload(add(sha3(0x60,0x20),i)),sum)}}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 24
+column: 2
+content: functiongetMax(uint256[]storageself)publicviewreturns(uint256maxValue){assembly{mstore(0x60,self_slot)maxValue:=sload(sha3(0x60,0x20))for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{switchgt(sload(add(sha3(0x60,0x20),i)),maxValue)case1{maxValue:=sload(add(sha3(0x60,0x20),i))}}}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 41
+column: 2
+content: functiongetMin(uint256[]storageself)publicviewreturns(uint256minValue){assembly{mstore(0x60,self_slot)minValue:=sload(sha3(0x60,0x20))for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{switchgt(sload(add(sha3(0x60,0x20),i)),minValue)case0{minValue:=sload(add(sha3(0x60,0x20),i))}}}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 61
+column: 2
+content: functionindexOf(uint256[]storageself,uint256value,boolisSorted)publicviewreturns(boolfound,uint256index){assembly{mstore(0x60,self_slot)switchisSortedcase1{lethigh:=sub(sload(self_slot),1)letmid:=0letlow:=0for{}iszero(gt(low,high)){}{mid:=div(add(low,high),2)switchlt(sload(add(sha3(0x60,0x20),mid)),value)case1{low:=add(mid,1)}case0{switchgt(sload(add(sha3(0x60,0x20),mid)),value)case1{high:=sub(mid,1)}case0{found:=1index:=midlow:=add(high,1)}}}}case0{for{letlow:=0}lt(low,sload(self_slot)){low:=add(low,1)}{switcheq(sload(add(sha3(0x60,0x20),low)),value)case1{found:=1index:=lowlow:=sload(self_slot)}}}}}
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 11ca45b
+severity: 3
+line: 132
+column: 12
+content: start>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: d48ac4
+severity: 2
+line: 132
+column: 12
+content: start>=0
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 12
+column: 4
+content: assembly{mstore(0x60,self_slot)for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{sum:=add(sload(add(sha3(0x60,0x20),i)),sum)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 25
+column: 4
+content: assembly{mstore(0x60,self_slot)maxValue:=sload(sha3(0x60,0x20))for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{switchgt(sload(add(sha3(0x60,0x20),i)),maxValue)case1{maxValue:=sload(add(sha3(0x60,0x20),i))}}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 42
+column: 4
+content: assembly{mstore(0x60,self_slot)minValue:=sload(sha3(0x60,0x20))for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{switchgt(sload(add(sha3(0x60,0x20),i)),minValue)case0{minValue:=sload(add(sha3(0x60,0x20),i))}}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 65
+column: 4
+content: assembly{mstore(0x60,self_slot)switchisSortedcase1{lethigh:=sub(sload(self_slot),1)letmid:=0letlow:=0for{}iszero(gt(low,high)){}{mid:=div(add(low,high),2)switchlt(sload(add(sha3(0x60,0x20),mid)),value)case1{low:=add(mid,1)}case0{switchgt(sload(add(sha3(0x60,0x20),mid)),value)case1{high:=sub(mid,1)}case0{found:=1index:=midlow:=add(high,1)}}}}case0{for{letlow:=0}lt(low,sload(self_slot)){low:=add(low,1)}{switcheq(sload(add(sha3(0x60,0x20),low)),value)case1{found:=1index:=lowlow:=sload(self_slot)}}}}
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :10
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :4
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_UINT_CANT_BE_NEGATIVE :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_USING_INLINE_ASSEMBLY :4
+SOLIDITY_SHOULD_NOT_BE_VIEW :4

@@ -1,0 +1,299 @@
+C:\Users\hp\DataSet\KlerosLiquid.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 706
+column: 8
+content: dispute.votes[dispute.votes.length++].length=msg.value/courts[dispute.subcourtID].feeForJuror
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 736
+column: 8
+content: dispute.votes[dispute.votes.length++].length=msg.value/courts[dispute.subcourtID].feeForJuror
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 883
+column: 20
+content: juror.subcourtIDs.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 698
+column: 20
+content: disputes.length++
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 706
+column: 22
+content: dispute.votes.length++
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 707
+column: 29
+content: dispute.voteCounters.length++
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 736
+column: 22
+content: dispute.votes.length++
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 737
+column: 29
+content: dispute.voteCounters.length++
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 346
+column: 8
+content: for(uinti=0;i<courts[_subcourtID].children.length;i++){require(courts[courts[_subcourtID].children[i]].minStake>=_minStake,"A subcourt cannot be the parent of a subcourt with a lower minimum stake.");}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 515
+column: 8
+content: for(uinti=0;i<_voteIDs.length;i++){require(dispute.votes[dispute.votes.length-1][_voteIDs[i]].account==msg.sender,"The caller has to own the vote.");require(dispute.votes[dispute.votes.length-1][_voteIDs[i]].commit==bytes32(0),"Already committed this vote.");dispute.votes[dispute.votes.length-1][_voteIDs[i]].commit=_commit;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 537
+column: 8
+content: for(uinti=0;i<_voteIDs.length;i++){require(dispute.votes[dispute.votes.length-1][_voteIDs[i]].account==msg.sender,"The caller has to own the vote.");require(!courts[dispute.subcourtID].hiddenVotes||dispute.votes[dispute.votes.length-1][_voteIDs[i]].commit==keccak256(_choice,_salt),"The commit must match the choice in subcourts with hidden votes.");require(!dispute.votes[dispute.votes.length-1][_voteIDs[i]].voted,"Vote already cast.");dispute.votes[dispute.votes.length-1][_voteIDs[i]].choice=_choice;dispute.votes[dispute.votes.length-1][_voteIDs[i]].voted=true;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 651
+column: 24
+content: for(uintj=0;j<jurors[vote.account].subcourtIDs.length;j++)_setStake(vote.account,jurors[vote.account].subcourtIDs[j],0);
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 880
+column: 12
+content: for(uinti=0;i<juror.subcourtIDs.length;i++)if(juror.subcourtIDs[i]==_subcourtID){juror.subcourtIDs[i]=juror.subcourtIDs[juror.subcourtIDs.length-1];juror.subcourtIDs.length--;break;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1022
+column: 8
+content: for(uinti=0;i<dispute.votes.length;i++)votesLengths[i]=dispute.votes[i].length;
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 923
+column: 4
+content: functionaccountAndSubcourtIDToStakePathID(address_account,uint96_subcourtID)internalpurereturns(bytes32stakePathID){assembly{letptr:=mload(0x40)for{leti:=0x00}lt(i,0x14){i:=add(i,0x01)}{mstore8(add(ptr,i),byte(add(0x0c,i),_account))}for{leti:=0x14}lt(i,0x20){i:=add(i,0x01)}{mstore8(add(ptr,i),byte(i,_subcourtID))}stakePathID:=mload(ptr)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 940
+column: 4
+content: functionstakePathIDToAccountAndSubcourtID(bytes32_stakePathID)internalpurereturns(addressaccount,uint96subcourtID){assembly{letptr:=mload(0x40)for{leti:=0x00}lt(i,0x14){i:=add(i,0x01)}{mstore8(add(add(ptr,0x0c),i),byte(i,_stakePathID))}account:=mload(ptr)subcourtID:=_stakePathID}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 346
+column: 8
+content: for(uinti=0;i<courts[_subcourtID].children.length;i++){require(courts[courts[_subcourtID].children[i]].minStake>=_minStake,"A subcourt cannot be the parent of a subcourt with a lower minimum stake.");}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 515
+column: 8
+content: for(uinti=0;i<_voteIDs.length;i++){require(dispute.votes[dispute.votes.length-1][_voteIDs[i]].account==msg.sender,"The caller has to own the vote.");require(dispute.votes[dispute.votes.length-1][_voteIDs[i]].commit==bytes32(0),"Already committed this vote.");dispute.votes[dispute.votes.length-1][_voteIDs[i]].commit=_commit;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 537
+column: 8
+content: for(uinti=0;i<_voteIDs.length;i++){require(dispute.votes[dispute.votes.length-1][_voteIDs[i]].account==msg.sender,"The caller has to own the vote.");require(!courts[dispute.subcourtID].hiddenVotes||dispute.votes[dispute.votes.length-1][_voteIDs[i]].commit==keccak256(_choice,_salt),"The commit must match the choice in subcourts with hidden votes.");require(!dispute.votes[dispute.votes.length-1][_voteIDs[i]].voted,"Vote already cast.");dispute.votes[dispute.votes.length-1][_voteIDs[i]].choice=_choice;dispute.votes[dispute.votes.length-1][_voteIDs[i]].voted=true;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 651
+column: 24
+content: for(uintj=0;j<jurors[vote.account].subcourtIDs.length;j++)_setStake(vote.account,jurors[vote.account].subcourtIDs[j],0);
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 880
+column: 12
+content: for(uinti=0;i<juror.subcourtIDs.length;i++)if(juror.subcourtIDs[i]==_subcourtID){juror.subcourtIDs[i]=juror.subcourtIDs[juror.subcourtIDs.length-1];juror.subcourtIDs.length--;break;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1022
+column: 8
+content: for(uinti=0;i<dispute.votes.length;i++)votesLengths[i]=dispute.votes[i].length;
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 891
+column: 15
+content: !finished
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 10
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 437
+column: 15
+content: if(dispute.period==Period.execution){revert("The dispute is already in the last period.");}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 923
+column: 4
+content: functionaccountAndSubcourtIDToStakePathID(address_account,uint96_subcourtID)internalpurereturns(bytes32stakePathID){assembly{letptr:=mload(0x40)for{leti:=0x00}lt(i,0x14){i:=add(i,0x01)}{mstore8(add(ptr,i),byte(add(0x0c,i),_account))}for{leti:=0x14}lt(i,0x20){i:=add(i,0x01)}{mstore8(add(ptr,i),byte(i,_subcourtID))}stakePathID:=mload(ptr)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 940
+column: 4
+content: functionstakePathIDToAccountAndSubcourtID(bytes32_stakePathID)internalpurereturns(addressaccount,uint96subcourtID){assembly{letptr:=mload(0x40)for{leti:=0x00}lt(i,0x14){i:=add(i,0x01)}{mstore8(add(add(ptr,0x0c),i),byte(i,_stakePathID))}account:=mload(ptr)subcourtID:=_stakePathID}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 904
+column: 4
+content: functionextraDataToSubcourtIDAndMinJurors(bytes_extraData)internalviewreturns(uint96subcourtID,uintminJurors){if(_extraData.length>=64){assembly{subcourtID:=mload(add(_extraData,0x20))minJurors:=mload(add(_extraData,0x40))}if(subcourtID>=courts.length)subcourtID=0;if(minJurors==0)minJurors=MIN_JURORS;}else{subcourtID=0;minJurors=MIN_JURORS;}}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 569
+column: 90
+content: (uinttokenReward,uintETHReward)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 904
+column: 87
+content: (uint96subcourtID,uintminJurors)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 940
+column: 91
+content: (addressaccount,uint96subcourtID)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 492
+column: 107
+content: keccak256(RN,_disputeID,i)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 540
+column: 122
+content: keccak256(_choice,_salt)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 695
+column: 8
+content: bytes_extraData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 724
+column: 8
+content: bytes_extraData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 785
+column: 29
+content: bytes_extraData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 795
+column: 41
+content: bytes_extraData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 904
+column: 47
+content: bytes_extraData
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 906
+column: 12
+content: assembly{subcourtID:=mload(add(_extraData,0x20))minJurors:=mload(add(_extraData,0x40))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 924
+column: 8
+content: assembly{letptr:=mload(0x40)for{leti:=0x00}lt(i,0x14){i:=add(i,0x01)}{mstore8(add(ptr,i),byte(add(0x0c,i),_account))}for{leti:=0x14}lt(i,0x20){i:=add(i,0x01)}{mstore8(add(ptr,i),byte(i,_subcourtID))}stakePathID:=mload(ptr)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 941
+column: 8
+content: assembly{letptr:=mload(0x40)for{leti:=0x00}lt(i,0x14){i:=add(i,0x01)}{mstore8(add(add(ptr,0x0c),i),byte(i,_stakePathID))}account:=mload(ptr)subcourtID:=_stakePathID}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :8
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :6
+SOLIDITY_UPGRADE_TO_050 :7
+SOLIDITY_GAS_LIMIT_IN_LOOPS :7
+SOLIDITY_USING_INLINE_ASSEMBLY :3
+SOLIDITY_SHOULD_RETURN_STRUCT :3
+SOLIDITY_SHOULD_NOT_BE_VIEW :1
+SOLIDITY_SHOULD_NOT_BE_PURE :2

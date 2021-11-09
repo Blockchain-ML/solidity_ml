@@ -1,0 +1,115 @@
+F:\Blockchain\dataset_new_byID\77032.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 65
+column: 8
+content: for(uinti=0;i<bresult.length;i++){if((bresult[i]>=48)&&(bresult[i]<=57)){mint*=16;mint+=uint(bresult[i])-48;}if((bresult[i]>=97)&&(bresult[i]<=102)){mint*=16;mint+=uint(bresult[i])-97+10;}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 55
+column: 4
+content: functiongetFirst32Bytes(stringsource)returns(bytes32result){assembly{result:=mload(add(source,32))}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 65
+column: 8
+content: for(uinti=0;i<bresult.length;i++){if((bresult[i]>=48)&&(bresult[i]<=57)){mint*=16;mint+=uint(bresult[i])-48;}if((bresult[i]>=97)&&(bresult[i]<=102)){mint*=16;mint+=uint(bresult[i])-97+10;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 8
+column: 0
+content: contractDhOraclizeBaseisBaseAssetLogic,usingOraclize{mapping(bytes32=>uint24)oraclizeIdToAssetId;stringpublicendpoint="https://dev-web-prototype-bankex.azurewebsites.net/api/dh/";functionDhOraclizeBase(){}function__callback(bytes32myid,stringresult){require(msg.sender==oraclize_cbAddress());var(status,tokens,numberOfFoundTokens)=JsmnSolLib.parse(result,10);bytes11lat=bytes11(getFirst32Bytes(JsmnSolLib.getBytes(result,tokens[2].start,tokens[2].end)));bytes32imageUrl=parseHex(JsmnSolLib.getBytes(result,tokens[4].start,tokens[4].end));boolshaked=JsmnSolLib.parseBool(JsmnSolLib.getBytes(result,tokens[6].start,tokens[6].end));bytes11long=bytes11(getFirst32Bytes(JsmnSolLib.getBytes(result,tokens[8].start,tokens[8].end)));uint24assetId=oraclizeIdToAssetId[myid];updateAvailability(assetId,shaked);SmartAssetInterfaceasset=SmartAssetInterface(smartAssetAddr);asset.updateFromExternalSource(assetId,lat,long,imageUrl);}functionupdateAvailability(uint24assetId,boolavailability)internal;functionforceUpdateFromExternalSource(uint24id,stringparam)onlySmartAssetRouter{stringmemoryurl=strConcat("json(",endpoint,uint2str(id),").0.parameters");bytes32oraclizeId=oraclize_query("URL",url,800000);oraclizeIdToAssetId[oraclizeId]=id;}functiongetFirst32Bytes(stringsource)returns(bytes32result){assembly{result:=mload(add(source,32))}}functionparseHex(string_a)privatereturns(bytes32){bytesmemorybresult=bytes(_a);uintmint=0;for(uinti=0;i<bresult.length;i++){if((bresult[i]>=48)&&(bresult[i]<=57)){mint*=16;mint+=uint(bresult[i])-48;}if((bresult[i]>=97)&&(bresult[i]<=102)){mint*=16;mint+=uint(bresult[i])-97+10;}}returnbytes32(mint);}functionsetEndpoint(string_endpoint)onlyOwner{endpoint=_endpoint;}function()payable{}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 80
+column: 4
+content: functionsetEndpoint(string_endpoint)onlyOwner{endpoint=_endpoint;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 61
+column: 22
+content: string_a
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 56
+column: 8
+content: assembly{result:=mload(add(source,32))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 14
+column: 4
+content: functionDhOraclizeBase(){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 18
+column: 4
+content: function__callback(bytes32myid,stringresult){require(msg.sender==oraclize_cbAddress());var(status,tokens,numberOfFoundTokens)=JsmnSolLib.parse(result,10);bytes11lat=bytes11(getFirst32Bytes(JsmnSolLib.getBytes(result,tokens[2].start,tokens[2].end)));bytes32imageUrl=parseHex(JsmnSolLib.getBytes(result,tokens[4].start,tokens[4].end));boolshaked=JsmnSolLib.parseBool(JsmnSolLib.getBytes(result,tokens[6].start,tokens[6].end));bytes11long=bytes11(getFirst32Bytes(JsmnSolLib.getBytes(result,tokens[8].start,tokens[8].end)));uint24assetId=oraclizeIdToAssetId[myid];updateAvailability(assetId,shaked);SmartAssetInterfaceasset=SmartAssetInterface(smartAssetAddr);asset.updateFromExternalSource(assetId,lat,long,imageUrl);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 44
+column: 4
+content: functionforceUpdateFromExternalSource(uint24id,stringparam)onlySmartAssetRouter{stringmemoryurl=strConcat("json(",endpoint,uint2str(id),").0.parameters");bytes32oraclizeId=oraclize_query("URL",url,800000);oraclizeIdToAssetId[oraclizeId]=id;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 55
+column: 4
+content: functiongetFirst32Bytes(stringsource)returns(bytes32result){assembly{result:=mload(add(source,32))}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 80
+column: 4
+content: functionsetEndpoint(string_endpoint)onlyOwner{endpoint=_endpoint;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 84
+column: 4
+content: function()payable{}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: mapping(bytes32=>uint24)oraclizeIdToAssetId;
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1

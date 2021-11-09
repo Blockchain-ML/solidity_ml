@@ -1,0 +1,139 @@
+C:\Users\hp\DataSet\contracts\ropsten\c7\c7d5e3131da5f8ca7fa1a0ea0b7c51573eb09bd2_Exam.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 47
+column: 8
+content: for(game_count=0;game_count<39;game_count++){players[msg.sender].game[game_count]=a[game_count];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 64
+column: 8
+content: for(uinti=0;i<player_addresss.length;i++){for(uintj=0;j<39;j++){if(players[player_addresss[i]].game[j]==3){}elseif(players[player_addresss[i]].game[j]==correct[j]){players[player_addresss[i]].score=players[player_addresss[i]].score+1;}elseif(players[player_addresss[i]].game[j]!=correct[j]){players[player_addresss[i]].score=players[player_addresss[i]].score-1;}}if(best_score<=players[player_addresss[i]].score){best_score=players[player_addresss[i]].score;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 91
+column: 9
+content: for(uinti=0;i<player_addresss.length;i++){if(players[player_addresss[i]].score==best_score){winnerlist.push(player_addresss[i]);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 108
+column: 8
+content: for(uinti=0;i<winnerlist.length;i++){winnerlist[i].transfer(prize_money);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 64
+column: 8
+content: for(uinti=0;i<player_addresss.length;i++){for(uintj=0;j<39;j++){if(players[player_addresss[i]].game[j]==3){}elseif(players[player_addresss[i]].game[j]==correct[j]){players[player_addresss[i]].score=players[player_addresss[i]].score+1;}elseif(players[player_addresss[i]].game[j]!=correct[j]){players[player_addresss[i]].score=players[player_addresss[i]].score-1;}}if(best_score<=players[player_addresss[i]].score){best_score=players[player_addresss[i]].score;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 91
+column: 9
+content: for(uinti=0;i<player_addresss.length;i++){if(players[player_addresss[i]].score==best_score){winnerlist.push(player_addresss[i]);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 108
+column: 8
+content: for(uinti=0;i<winnerlist.length;i++){winnerlist[i].transfer(prize_money);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 108
+column: 8
+content: for(uinti=0;i<winnerlist.length;i++){winnerlist[i].transfer(prize_money);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 35
+column: 4
+content: function()payable{require(msg.value>=join_money);players[msg.sender].can=true;prize_money=prize_money+msg.value;player_addresss.push(msg.sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 5
+column: 4
+content: addressjudge;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 4
+content: uintprize_money;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 7
+column: 4
+content: uintjoin_money;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 4
+content: uintgame_count;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 11
+column: 4
+content: uintbest_score;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 4
+content: address[]winnerlist;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 14
+column: 4
+content: uint[39]correct;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 23
+column: 4
+content: mapping(address=>player)players;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 24
+column: 4
+content: address[]player_addresss;
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_TRANSFER_IN_LOOP :1

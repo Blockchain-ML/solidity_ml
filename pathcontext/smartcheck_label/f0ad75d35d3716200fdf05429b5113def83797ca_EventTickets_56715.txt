@@ -1,0 +1,60 @@
+C:\Users\hp\DataSet\contracts\ropsten\f0\f0ad75d35d3716200fdf05429b5113def83797ca_EventTickets.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 10
+column: 30
+content: private
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 13
+column: 3
+content: constructor()payable{}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 16
+column: 4
+content: functionverEvento()returns(uint,string,string){return(myEvento.no_tkt,myEvento.description,myEvento.web);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 20
+column: 4
+content: functionbuyTkt()payablereturns(string,uint){require(myEvento.no_tkt>0,"Sold out");require(msg.value==1ether,"Pago de mas o de menos");myEvento.no_tkt=myEvento.no_tkt-1;COMPRADORES[msg.sender]=1;return("Compraste un tkt, quedan:",myEvento.no_tkt);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 27
+column: 4
+content: functionreembolso()returns(string){require(COMPRADORES[msg.sender]==1,"No sos comprador");msg.sender.transfer(1ether);COMPRADORES[msg.sender]=0;myEvento.no_tkt=myEvento.no_tkt+1;return("Reembolsado");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 4
+content: functiongetBalance()returns(uint){returnthis.balance;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 11
+column: 4
+content: eventomyEvento=evento(10,"Coldplay","http://Coldplay.com");
+
+SOLIDITY_VISIBILITY :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1

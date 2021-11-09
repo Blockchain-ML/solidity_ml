@@ -1,0 +1,153 @@
+F:\Blockchain\dataset_new_byID\76038.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 13
+column: 35
+content: 0xE4F0Ff4641f3c99de342b06c06414d94A585eFfb
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 14
+column: 37
+content: 0x76d4136d6EE53DB4cc087F2E2990283d5317A5e9
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 15
+column: 41
+content: 0x195610851A43E9685643A8F3b49F0F8a019204f1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 25
+column: 93
+content: 0x80826b5b717aDd3E840343364EC9d971FBa3955C
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 48
+column: 4
+content: functiongetRate(uint_value)internalconstantreturns(uint){returnrateProvider.getRate(msg.sender,soldTokens,_value);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 52
+column: 4
+content: functiongetBaseRate()internalconstantreturns(uint){returnrateProvider.getRate(msg.sender,soldTokens,minimalPurchase);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 57
+column: 4
+content: functiongetRateScale()internalconstantreturns(uint){returnrateProvider.getRateScale();}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 73
+column: 4
+content: functionvalidPurchase(uint_amountWei,uint_actualRate,uint_totalSupply)internalconstantreturns(bool){if(_amountWei<minimalPurchase){returnfalse;}returnsuper.validPurchase(_amountWei,_actualRate,_totalSupply);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 62
+column: 4
+content: functionsetRateProvider(address_rateProviderAddress)onlyOwner{require(_rateProviderAddress!=0);rateProvider=MyWillRateProviderI(_rateProviderAddress);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 68
+column: 4
+content: functionsetEndTime(uint32_endTime)onlyOwnernotFinalized{require(_endTime>startTime);endTime=_endTime;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 19
+column: 4
+content: functionMyWillCrowdsale(uint32_startTime,uint32_endTime,uint_softCapWei,uint_hardCapTokens)RefundableCrowdsale(_startTime,_endTime,_hardCapTokens*TOKEN_DECIMAL_MULTIPLIER,0x80826b5b717aDd3E840343364EC9d971FBa3955C,_softCapWei){token.mint(teamAddress,teamTokens);token.mint(bountyAddress,bountyTokens);token.mint(icoAccountAddress,icoTokens);MyWillToken(token).addExcluded(teamAddress);MyWillToken(token).addExcluded(bountyAddress);MyWillToken(token).addExcluded(icoAccountAddress);MyWillRateProviderprovider=newMyWillRateProvider();provider.transferOwnership(owner);rateProvider=provider;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 62
+column: 4
+content: functionsetRateProvider(address_rateProviderAddress)onlyOwner{require(_rateProviderAddress!=0);rateProvider=MyWillRateProviderI(_rateProviderAddress);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 68
+column: 4
+content: functionsetEndTime(uint32_endTime)onlyOwnernotFinalized{require(_endTime>startTime);endTime=_endTime;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 4
+content: uintconstantteamTokens=11000000*TOKEN_DECIMAL_MULTIPLIER;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: uintconstantbountyTokens=2000000*TOKEN_DECIMAL_MULTIPLIER;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 11
+column: 4
+content: uintconstanticoTokens=3038800*TOKEN_DECIMAL_MULTIPLIER;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 4
+content: uintconstantminimalPurchase=0.05ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 4
+content: addressconstantteamAddress=0xE4F0Ff4641f3c99de342b06c06414d94A585eFfb;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 14
+column: 4
+content: addressconstantbountyAddress=0x76d4136d6EE53DB4cc087F2E2990283d5317A5e9;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 4
+content: addressconstanticoAccountAddress=0x195610851A43E9685643A8F3b49F0F8a019204f1;
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :4

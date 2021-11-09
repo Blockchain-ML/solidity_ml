@@ -1,0 +1,119 @@
+C:\Users\hp\DataSet\contracts\ropsten\d3\d35ca25d5822609aaa7192dc6b9b463b22c08a29_TeamJust.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 8
+column: 70
+content: 0x9aa917ff8484415eda0f98c54968a6503a50ccb7
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 38
+column: 27
+content: 0x18E90Fc6F70344f53EBd4f6070bf6Aa23e2D748C
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 39
+column: 27
+content: 0x8b4DA1827932D71759687f925D17F81Fc94e3A9D
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 40
+column: 27
+content: 0x8e0d985f3Ec1857BEc39B76aAabDEa6B31B67d53
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 41
+column: 27
+content: 0x7ac74Fcc1a71b106F12c55ee8F802C9F672Ce40C
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 42
+column: 27
+content: 0xF39e044e1AB204460e06E87c6dca2c6319fC69E3
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractTeamJust{DGInterfaceForForwarderprivateDGCrop=DGInterfaceForForwarder(0x9aa917ff8484415eda0f98c54968a6503a50ccb7);MSFun.DataprivatemsData;functiondeleteAnyProposal(bytes32_whatFunction)onlyDevs()public{MSFun.deleteProposal(msData,_whatFunction);}functioncheckData(bytes32_whatFunction)onlyAdmins()publicviewreturns(bytes32message_data,uint256signature_count){return(MSFun.checkMsgData(msData,_whatFunction),MSFun.checkCount(msData,_whatFunction));}functioncheckSignersByName(bytes32_whatFunction,uint256_signerA,uint256_signerB,uint256_signerC)onlyAdmins()publicviewreturns(bytes32,bytes32,bytes32){return(this.adminName(MSFun.checkSigner(msData,_whatFunction,_signerA)),this.adminName(MSFun.checkSigner(msData,_whatFunction,_signerB)),this.adminName(MSFun.checkSigner(msData,_whatFunction,_signerC)));}structAdmin{boolisAdmin;boolisDev;bytes32name;}mapping(address=>Admin)admins_;uint256adminCount_;uint256devCount_;uint256requiredSignatures_;uint256requiredDevSignatures_;constructor()public{addressinventor=0x18E90Fc6F70344f53EBd4f6070bf6Aa23e2D748C;addressmantso=0x8b4DA1827932D71759687f925D17F81Fc94e3A9D;addressjusto=0x8e0d985f3Ec1857BEc39B76aAabDEa6B31B67d53;addresssumpunk=0x7ac74Fcc1a71b106F12c55ee8F802C9F672Ce40C;addressdeployer=0xF39e044e1AB204460e06E87c6dca2c6319fC69E3;admins_[inventor]=Admin(true,true,"inventor");admins_[mantso]=Admin(true,true,"mantso");admins_[justo]=Admin(true,true,"justo");admins_[sumpunk]=Admin(true,true,"sumpunk");admins_[deployer]=Admin(true,true,"deployer");adminCount_=5;devCount_=5;requiredSignatures_=1;requiredDevSignatures_=1;}function()publicpayable{DGCrop.deposit.value(address(this).balance)();}functionsetup(address_addr)onlyDevs()public{require(address(DGCrop)==address(0));DGCrop=DGInterfaceForForwarder(_addr);}modifieronlyDevs(){require(admins_[msg.sender].isDev==true,"onlyDevs failed - msg.sender is not a dev");_;}modifieronlyAdmins(){require(admins_[msg.sender].isAdmin==true,"onlyAdmins failed - msg.sender is not an admin");_;}functionaddAdmin(address_who,bytes32_name,bool_isDev)publiconlyDevs(){if(MSFun.multiSig(msData,requiredDevSignatures_,"addAdmin")==true){MSFun.deleteProposal(msData,"addAdmin");if(admins_[_who].isAdmin==false){admins_[_who].isAdmin=true;adminCount_+=1;requiredSignatures_+=1;}if(_isDev==true){admins_[_who].isDev=_isDev;devCount_+=1;requiredDevSignatures_+=1;}}admins_[_who].name=_name;}functionremoveAdmin(address_who)publiconlyDevs(){require(adminCount_>1,"removeAdmin failed - cannot have less than 2 admins");require(adminCount_>=requiredSignatures_,"removeAdmin failed - cannot have less admins than number of required signatures");if(admins_[_who].isDev==true){require(devCount_>1,"removeAdmin failed - cannot have less than 2 devs");require(devCount_>=requiredDevSignatures_,"removeAdmin failed - cannot have less devs than number of required dev signatures");}if(MSFun.multiSig(msData,requiredDevSignatures_,"removeAdmin")==true){MSFun.deleteProposal(msData,"removeAdmin");if(admins_[_who].isAdmin==true){admins_[_who].isAdmin=false;adminCount_-=1;if(requiredSignatures_>1){requiredSignatures_-=1;}}if(admins_[_who].isDev==true){admins_[_who].isDev=false;devCount_-=1;if(requiredDevSignatures_>1){requiredDevSignatures_-=1;}}}}functionchangeRequiredSignatures(uint256_howMany)publiconlyDevs(){require(_howMany>0&&_howMany<=adminCount_,"changeRequiredSignatures failed - must be between 1 and number of admins");if(MSFun.multiSig(msData,requiredDevSignatures_,"changeRequiredSignatures")==true){MSFun.deleteProposal(msData,"changeRequiredSignatures");requiredSignatures_=_howMany;}}functionchangeRequiredDevSignatures(uint256_howMany)publiconlyDevs(){require(_howMany>0&&_howMany<=devCount_,"changeRequiredDevSignatures failed - must be between 1 and number of devs");if(MSFun.multiSig(msData,requiredDevSignatures_,"changeRequiredDevSignatures")==true){MSFun.deleteProposal(msData,"changeRequiredDevSignatures");requiredDevSignatures_=_howMany;}}functionrequiredSignatures()externalviewreturns(uint256){return(requiredSignatures_);}functionrequiredDevSignatures()externalviewreturns(uint256){return(requiredDevSignatures_);}functionadminCount()externalviewreturns(uint256){return(adminCount_);}functiondevCount()externalviewreturns(uint256){return(devCount_);}functionadminName(address_who)externalviewreturns(bytes32){return(admins_[_who].name);}functionisAdmin(address_who)externalviewreturns(bool){return(admins_[_who].isAdmin);}functionisDev(address_who)externalviewreturns(bool){return(admins_[_who].isDev);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 8
+column: 28
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 12
+column: 15
+content: private
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 62
+column: 8
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 25
+column: 4
+content: mapping(address=>Admin)admins_;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 27
+column: 4
+content: uint256adminCount_;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 4
+content: uint256devCount_;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 29
+column: 4
+content: uint256requiredSignatures_;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 30
+column: 4
+content: uint256requiredDevSignatures_;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_ADDRESS_HARDCODED :6
+SOLIDITY_UPGRADE_TO_050 :1

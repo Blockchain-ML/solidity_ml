@@ -1,0 +1,84 @@
+C:\Users\hp\DataSet\Groth16Verifier.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 63
+column: 4
+content: for(uinti=0;i<input.length;i++)require(input[i]<r);
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 63
+column: 4
+content: for(uinti=0;i<input.length;i++)require(input[i]<r);
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: >=
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 19
+column: 2
+content: functionaddition(G1Pointmemoryp1,G1Pointmemoryp2)internalviewreturns(G1Pointmemory){G1Pointmemoryt;uint[4]memoryinput;input[0]=p1.X;input[1]=p1.Y;input[2]=p2.X;input[3]=p2.Y;boolsuccess;assembly{success:=staticcall(sub(gas(),2000),6,input,0xc0,t,0x60)switchsuccesscase0{invalid()}}require(success);returnt;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 39
+column: 2
+content: functionscalar_mul(G1Pointmemoryp,uints)internalviewreturns(G1Pointmemory){if(s==0)returnG1Point(0,0);if(s==1)returnp;G1Pointmemoryt;uint[3]memoryinput;input[0]=p.X;input[1]=p.Y;input[2]=s;boolsuccess;assembly{success:=staticcall(sub(gas(),2000),7,input,0x80,t,0x60)switchsuccesscase0{invalid()}}require(success);returnt;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 59
+column: 2
+content: functionverify(uint[]memoryinput,uint[8]memoryproof,uint[]memoryvk)internalviewreturns(bool){uintnsignals=(vk.length-16)/2;require((nsignals>0)&&(input.length==nsignals)&&(proof.length==8)&&(vk.length==16+2*nsignals));for(uinti=0;i<input.length;i++)require(input[i]<r);uint[]memoryp_input=newuint[](24);p_input[0]=proof[0];p_input[1]=q-(proof[1]%q);p_input[2]=proof[2];p_input[3]=proof[3];p_input[4]=proof[4];p_input[5]=proof[5];p_input[6]=vk[0];p_input[7]=vk[1];p_input[8]=vk[2];p_input[9]=vk[3];p_input[10]=vk[4];p_input[11]=vk[5];G1Pointmemoryt=G1Point(vk[14],vk[15]);for(uintj=0;j<nsignals;j++)t=addition(t,scalar_mul(G1Point(vk[16+2*j],vk[17+2*j]),input[j]));p_input[12]=t.X;p_input[13]=t.Y;p_input[14]=vk[6];p_input[15]=vk[7];p_input[16]=vk[8];p_input[17]=vk[9];p_input[18]=proof[6];p_input[19]=proof[7];p_input[20]=vk[10];p_input[21]=vk[11];p_input[22]=vk[12];p_input[23]=vk[13];uint[1]memoryout;boolsuccess;assembly{success:=staticcall(sub(gas(),2000),8,add(p_input,0x20),768,out,0x20)switchsuccesscase0{invalid()}}require(success);returnout[0]!=0;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 28
+column: 4
+content: assembly{success:=staticcall(sub(gas(),2000),6,input,0xc0,t,0x60)switchsuccesscase0{invalid()}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 49
+column: 4
+content: assembly{success:=staticcall(sub(gas(),2000),7,input,0x80,t,0x60)switchsuccesscase0{invalid()}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 112
+column: 4
+content: assembly{success:=staticcall(sub(gas(),2000),8,add(p_input,0x20),768,out,0x20)switchsuccesscase0{invalid()}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 5
+column: 2
+content: uintconstantq=21888242871839275222246405745257275088696311157297823662689037894645226208583;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 2
+content: uintconstantr=21888242871839275222246405745257275088548364400416034343698204186575808495617;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :3
+SOLIDITY_SHOULD_NOT_BE_VIEW :3

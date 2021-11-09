@@ -1,0 +1,220 @@
+C:\Users\hp\DataSet\contracts\ropsten\df\dfd10bae9ccc5ebf11bc6309a0645efe9f979584_TokenNetworkRegistry.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 138
+column: 8
+content: for(uinti=0;i<secrets.length;i++){if(!registerSecret(secrets[i])){completeSuccess=false;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 138
+column: 8
+content: for(uinti=0;i<secrets.length;i++){if(!registerSecret(secrets[i])){completeSuccess=false;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 64
+column: 4
+content: functionecverify(bytes32hash,bytessignature)internalpurereturns(addresssignature_address){require(signature.length==65);bytes32r;bytes32s;uint8v;assembly{r:=mload(add(signature,32))s:=mload(add(signature,64))v:=byte(0,mload(add(signature,96)))}if(v<27){v+=27;}require(v==27||v==28);signature_address=ecrecover(hash,v,r,s);require(signature_address!=0x0);returnsignature_address;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 10
+column: 4
+content: functioncontractExists(addresscontract_address)publicviewreturns(bool){uintsize;assembly{size:=extcodesize(contract_address)}returnsize>0;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 1422
+column: 4
+content: functiongetLockDataFromMerkleTree(bytesmerkle_tree_leaves,uint256offset)viewinternalreturns(bytes32,uint256){uint256expiration_block;uint256locked_amount;uint256reveal_block;bytes32secrethash;bytes32lockhash;if(merkle_tree_leaves.length<=offset){return(lockhash,0);}assembly{expiration_block:=mload(add(merkle_tree_leaves,offset))locked_amount:=mload(add(merkle_tree_leaves,add(offset,32)))secrethash:=mload(add(merkle_tree_leaves,add(offset,64)))}lockhash=keccak256(abi.encodePacked(expiration_block,locked_amount,secrethash));reveal_block=secret_registry.getSecretRevealBlockHeight(secrethash);if(reveal_block==0||expiration_block<=reveal_block){locked_amount=0;}return(lockhash,locked_amount);}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 751
+column: 16
+content: (uint256,uint256,uint256,uint256)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 1374
+column: 16
+content: (bytes32,uint256)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 1425
+column: 16
+content: (bytes32,uint256)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 1474
+column: 16
+content: (uint256,uint256)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 64
+column: 36
+content: bytessignature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 136
+column: 33
+content: bytes32[]secrets
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 511
+column: 8
+content: bytessignature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 845
+column: 8
+content: bytesmerkle_tree_leaves
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 909
+column: 8
+content: bytesparticipant1_signature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 910
+column: 8
+content: bytesparticipant2_signature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1090
+column: 8
+content: SettlementDataparticipant1_settlement
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1091
+column: 8
+content: SettlementDataparticipant2_settlement
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1251
+column: 8
+content: bytessignature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1274
+column: 8
+content: bytesclosing_signature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1275
+column: 8
+content: bytesnon_closing_signature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1300
+column: 8
+content: bytessignature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1323
+column: 8
+content: bytessignature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1345
+column: 8
+content: bytesparticipant_signature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1346
+column: 8
+content: bytespartner_signature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1371
+column: 44
+content: bytesmerkle_tree_leaves
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1422
+column: 39
+content: bytesmerkle_tree_leaves
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 78
+column: 8
+content: assembly{r:=mload(add(signature,32))s:=mload(add(signature,64))v:=byte(0,mload(add(signature,96)))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 1437
+column: 8
+content: assembly{expiration_block:=mload(add(merkle_tree_leaves,offset))locked_amount:=mload(add(merkle_tree_leaves,add(offset,32)))secrethash:=mload(add(merkle_tree_leaves,add(offset,64)))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 193
+column: 4
+content: mapping(bytes32=>uint256)locksroot_identifier_to_locked_amount;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :17
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :2
+SOLIDITY_SHOULD_RETURN_STRUCT :4
+SOLIDITY_SHOULD_NOT_BE_VIEW :2
+SOLIDITY_SHOULD_NOT_BE_PURE :1

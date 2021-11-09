@@ -1,0 +1,131 @@
+F:\Blockchain\dataset_new_byID\77700.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 9
+column: 0
+content: contractBondMemberProxy{function()payablepublic{}functionnewProposal(address_board,string_name,address_proxy,uint_debatePeriod,address_destination,uint_value,bytes_calldata)returns(uintproposalID){returnBoardRoom(_board).newProposal(_name,_proxy,_debatePeriod,_destination,_value,_calldata);}functionvote(address_board,uint_proposalID,uint_position)returns(uintvoteWeight){returnBoardRoom(_board).vote(_proposalID,_position);}functionexecute(address_board,uint_proposalID,bytes_calldata){returnBoardRoom(_board).execute(_proposalID,_calldata);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 11
+column: 22
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 25
+column: 24
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 13
+column: 2
+content: functionnewProposal(address_board,string_name,address_proxy,uint_debatePeriod,address_destination,uint_value,bytes_calldata)returns(uintproposalID){returnBoardRoom(_board).newProposal(_name,_proxy,_debatePeriod,_destination,_value,_calldata);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 16
+column: 2
+content: functionvote(address_board,uint_proposalID,uint_position)returns(uintvoteWeight){returnBoardRoom(_board).vote(_proposalID,_position);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 19
+column: 2
+content: functionexecute(address_board,uint_proposalID,bytes_calldata){returnBoardRoom(_board).execute(_proposalID,_calldata);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 26
+column: 4
+content: functiondepositBond(address_rules,uint_proposalID){returnRequiredBondRules(_rules).depositBond.value(this.balance)(_proposalID);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 39
+column: 2
+content: functionsetup(){member1=newBondMemberProxy();registry=newOpenRegistry();registry.register(address(member1));rules=newRequiredBondRules(address(registry));board=newBoardRoom(address(rules));bondProxy=newBondProxy();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 48
+column: 2
+content: functiontest_ShouldPassButNoBondSoFail(){board=newBoardRoom(address(rules));proxy=newOwnedProxy(address(board));if(proxy.send(600)){}addressdestinationAccount=address(newBondMemberProxy());BondMemberProxymember1=newBondMemberProxy();registry.register(address(member1));BondMemberProxymember2=newBondMemberProxy();registry.register(address(member2));BondMemberProxymember3=newBondMemberProxy();registry.register(address(member3));BondMemberProxymember4=newBondMemberProxy();registry.register(address(member4));assertEq(member1.newProposal(address(board),"Does Jet Fuel Melt Steel Beams?",address(proxy),30,destinationAccount,400,""),0);member1.vote(address(board),0,1);member2.vote(address(board),0,1);member3.vote(address(board),0,1);member4.vote(address(board),0,1);assertEq(board.numVoters(0),0);assertEq(proxy.balance,600);assertEq(destinationAccount.balance,0);member1.execute(address(board),0,"");assertEq(proxy.balance,600);assertEq(destinationAccount.balance,0);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 79
+column: 2
+content: functiontest_BondPostedAndOverMajority(){board=newBoardRoom(address(rules));proxy=newOwnedProxy(address(board));if(proxy.send(600)){}addressdestinationAccount=address(newBondMemberProxy());BondMemberProxymember1=newBondMemberProxy();registry.register(address(member1));BondMemberProxymember2=newBondMemberProxy();registry.register(address(member2));BondMemberProxymember3=newBondMemberProxy();registry.register(address(member3));BondMemberProxymember4=newBondMemberProxy();registry.register(address(member4));assertEq(member2.newProposal(address(board),"Some Awesome Sauce Proposal",address(proxy),30,destinationAccount,400,""),0);assertEq(bondProxy.balance,0);if(bondProxy.send(4000)){}assertEq(bondProxy.balance,4000);bondProxy.depositBond(address(rules),0);member1.vote(address(board),0,0);member2.vote(address(board),0,1);member3.vote(address(board),0,1);member4.vote(address(board),0,1);assertEq(board.numVoters(0),4);assertEq(proxy.balance,600);assertEq(destinationAccount.balance,0);member1.execute(address(board),0,"");assertEq(proxy.balance,200);assertEq(destinationAccount.balance,400);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 115
+column: 2
+content: functiontest_BondPostedButNoMajority(){board=newBoardRoom(address(rules));proxy=newOwnedProxy(address(board));if(proxy.send(600)){}addressdestinationAccount=address(newBondMemberProxy());BondMemberProxymember1=newBondMemberProxy();registry.register(address(member1));BondMemberProxymember2=newBondMemberProxy();registry.register(address(member2));BondMemberProxymember3=newBondMemberProxy();registry.register(address(member3));BondMemberProxymember4=newBondMemberProxy();registry.register(address(member4));assertEq(member2.newProposal(address(board),"Some Awesome Sauce Proposal",address(proxy),30,destinationAccount,400,""),0);assertEq(bondProxy.balance,0);if(bondProxy.send(4000)){}assertEq(bondProxy.balance,4000);bondProxy.depositBond(address(rules),0);member1.vote(address(board),0,0);member2.vote(address(board),0,0);member3.vote(address(board),0,1);member4.vote(address(board),0,1);assertEq(board.numVoters(0),4);assertEq(proxy.balance,600);assertEq(destinationAccount.balance,0);member1.execute(address(board),0,"");assertEq(proxy.balance,600);assertEq(destinationAccount.balance,0);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 32
+column: 2
+content: OpenRegistryregistry;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 33
+column: 2
+content: OwnedProxyproxy;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 34
+column: 2
+content: RequiredBondRulesrules;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 2
+content: BoardRoomboard;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 36
+column: 2
+content: BondMemberProxymember1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 2
+content: BondProxybondProxy;
+
+SOLIDITY_VISIBILITY :14
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :2

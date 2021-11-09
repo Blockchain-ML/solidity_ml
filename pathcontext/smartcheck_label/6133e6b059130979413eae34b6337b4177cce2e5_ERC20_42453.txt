@@ -1,0 +1,63 @@
+C:\Users\hp\DataSet\contracts\ropsten\61\6133e6b059130979413eae34b6337b4177cce2e5_ERC20.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 248
+column: 18
+content: amount*1ether/TokenPerETHSell*10**uint256(decimals)
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 129
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(boolsuccess){allowance[msg.sender][_spender]=_value;returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 209
+column: 4
+content: functionsetBuyRate(uint256value)onlyOwnerpublic{require(value>0);emitBuyRateChanged(TokenPerETHBuy,value);TokenPerETHBuy=value;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 221
+column: 4
+content: functionsetSellRate(uint256value)onlyOwnerpublic{require(value>0);emitSellRateChanged(TokenPerETHSell,value);TokenPerETHSell=value;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 144
+column: 62
+content: bytes_extraData
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 231
+column: 4
+content: functionbuy()payablereturns(uintamount){require(msg.value>0);amount=msg.value*TokenPerETHBuy*10**uint256(decimals)/1ether;_transfer(this,msg.sender,amount);emitBuyToken(msg.sender,msg.value,amount);returnamount;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 243
+column: 4
+content: functionsell(uintamount)returns(uintrevenue){require(balanceOf[msg.sender]>=amount);balanceOf[this]+=amount;balanceOf[msg.sender]-=amount;revenue=amount*1ether/TokenPerETHSell*10**uint256(decimals);msg.sender.transfer(revenue);Transfer(msg.sender,this,amount);returnrevenue;}
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_DIV_MUL :1
+SOLIDITY_ERC20_APPROVE :1

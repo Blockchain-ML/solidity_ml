@@ -1,0 +1,65 @@
+C:\Users\hp\DataSet\contracts\ropsten\0c\0c3d8bf736589fec99ad62fd4bcc81de447b3541_Storage.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 97
+column: 4
+content: owner=address(0)
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 192
+column: 0
+content: contractStorageisMortal,Pausable{usingSafeMathforuint256;uint8publicconstantTASK_REQUIRES_IMAGE=1;uint8publicconstantTASK_REQUIRES_INFO=2;uint256publicnumChecklists;uint256publicnumInspections;mapping(uint256=>Checklist)publicchecklists;mapping(address=>Assignment)publicassignments;enumStatusChecklist{Editing,Ready}enumStatusInspection{Pending,Done}eventNewChecklist(uint256checklist,stringname);eventChecklistReady(uint256checklist);eventNewTask(uint256checklist,uint8task,uint8rules,stringdescription);eventAssignInspection(uint256inspection,uint256checklist,addressaccountable,uint256deadline,bytes32id);eventAssignmentDone(uint256inspection);structTask{stringdescription;uint8rules;}structChecklist{stringname;uint256createAt;StatusCheckliststatus;uint8numTasks;mapping(uint8=>Task)tasks;}structCheck{boolok;stringinfo;stringimage;}structInspection{bytes32id;uint256deadline;uint256checklist;uint256number;StatusInspectionstatus;uint256assignedAt;uint256executedAt;mapping(uint8=>Check)checks;}structAssignment{uint256numAssignments;mapping(uint256=>Inspection)inspections;}functionassignInspection(uint256_checklist,address_accountable,uint256_deadline,bytes32_id)publiconlyOwnerreturns(uint256){Assignmentstoragea=assignments[_accountable];numInspections=numInspections.add(1);a.numAssignments=a.numAssignments.add(1);a.inspections[a.numAssignments]=Inspection(_id,_deadline,_checklist,numInspections,StatusInspection.Pending,now,0);emitAssignInspection(numInspections,_checklist,_accountable,_deadline,_id);returnnumInspections;}functiongetAssignment(address_accountable,uint256_assignment)publicviewreturns(bytes32,uint256,uint256,uint256,StatusInspection,uint256,uint256){Assignmentstoragea=assignments[_accountable];Inspectionstoragei=a.inspections[_assignment];return(i.id,i.deadline,i.checklist,i.number,i.status,i.assignedAt,i.executedAt);}functiongetCheck(address_accountable,uint256_assignment,uint8_task)publicviewreturns(bool,stringmemory,stringmemory){Assignmentstoragea=assignments[_accountable];Inspectionstoragei=a.inspections[_assignment];Checkstoragec=i.checks[_task];return(c.ok,c.info,c.image);}functionexecuteTask(uint256_assignment,uint8_task,bool_ok,stringmemory_info,stringmemory_image)publicisRunning{Assignmentstoragea=assignments[msg.sender];Inspectionstoragei=a.inspections[_assignment];i.checks[_task]=Check(_ok,_info,_image);}functioncreateChecklist(stringmemory_name)publiconlyOwnerreturns(uint256){require(bytes(_name).length>0,"Checklist name is required");numChecklists=numChecklists.add(1);checklists[numChecklists]=Checklist(_name,now,StatusChecklist.Editing,0);emitNewChecklist(numChecklists,_name);returnnumChecklists;}functionaddTask(uint256_checklist,stringmemory_description,uint8_rules)publiconlyOwnerreturns(uint8){Checkliststoragec=checklists[_checklist];c.numTasks++;c.tasks[c.numTasks]=Task(_description,_rules);emitNewTask(_checklist,c.numTasks,_rules,_description);returnc.numTasks;}functiongetTask(uint256_checklist,uint8_task)publicviewreturns(stringmemory,uint8){Checkliststoragec=checklists[_checklist];Taskstoraget=c.tasks[_task];return(t.description,t.rules);}functionsetChecklistReady(uint256_checklist)publiconlyOwner{Checkliststoragec=checklists[_checklist];c.status=StatusChecklist.Ready;emitChecklistReady(_checklist);}functionsetAssignmentDone(uint256_assignment)publicisRunning{Assignmentstoragea=assignments[msg.sender];Inspectionstoragei=a.inspections[_assignment];i.status=StatusInspection.Done;i.executedAt=now;emitAssignmentDone(_assignment);}function()publicpayable{revert("Don&#39;t send ETH to this contract");}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 391
+column: 4
+content: functionsetChecklistReady(uint256_checklist)publiconlyOwner{Checkliststoragec=checklists[_checklist];c.status=StatusChecklist.Ready;emitChecklistReady(_checklist);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 141
+column: 9
+content: private
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 419
+column: 31
+content: {revert("Don&#39;t send ETH to this contract");}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 193
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 419
+column: 16
+content: public
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

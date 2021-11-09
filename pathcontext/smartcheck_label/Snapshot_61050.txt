@@ -1,0 +1,46 @@
+C:\Users\hp\DataSet\Snapshot.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 167
+column: 16
+content: values.length--
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 33
+column: 4
+content: functionhasValue(Values[]storagevalues)internalconstantreturns(bool){returnvalues.length>0;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 44
+column: 4
+content: functionhasValueAt(Values[]storagevalues,uint256snapshotId)internalconstantreturns(bool){require(snapshotId<=mCurrentSnapshotId());returnvalues.length>0&&values[0].snapshotId<=snapshotId;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 57
+column: 4
+content: functiongetValue(Values[]storagevalues,uint256defaultValue)internalconstantreturns(uint256){if(values.length==0){returndefaultValue;}else{uint256last=values.length-1;returnvalues[last].value;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 77
+column: 4
+content: functiongetValueAt(Values[]storagevalues,uint256snapshotId,uint256defaultValue)internalconstantreturns(uint256){require(snapshotId<=mCurrentSnapshotId());if(values.length==0){returndefaultValue;}uint256last=values.length-1;uint256lastSnapshot=values[last].snapshotId;if(snapshotId>=lastSnapshot){returnvalues[last].value;}uint256firstSnapshot=values[0].snapshotId;if(snapshotId<firstSnapshot){returndefaultValue;}uint256min=0;uint256max=last;while(max>min){uint256mid=(max+min+1)/2;if(values[mid].snapshotId<=snapshotId){min=mid;}else{max=mid-1;}}returnvalues[min].value;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 106
+column: 15
+content: max>min
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

@@ -1,0 +1,54 @@
+F:\Blockchain\dataset_new_byID\74101.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 46
+column: 2
+content: functioninitiateAccountRecovery(addresssmartWallet,addressuserSigningKey,uint256extraTime)externalonlyOwner{require(smartWallet!=address(0),"No smart wallet address provided.");require(userSigningKey!=address(0),"No new user signing key provided.");_setTimelock(this.recover.selector,abi.encode(smartWallet,userSigningKey),extraTime);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 99
+column: 2
+content: functioninitiateAccountRecoveryDisablement(addresssmartWallet,uint256extraTime)externalonlyOwner{require(smartWallet!=address(0),"No smart wallet address provided.");_setTimelock(this.disableAccountRecovery.selector,abi.encode(smartWallet),extraTime);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 133
+column: 2
+content: functioninitiateModifyTimelockInterval(bytes4functionSelector,uint256newTimelockInterval,uint256extraTime)externalonlyOwner{require(functionSelector!=bytes4(0),"Function selector cannot be empty.");if(functionSelector==this.modifyTimelockInterval.selector){require(newTimelockInterval<=8weeks,"Timelock interval of modifyTimelockInterval cannot exceed eight weeks.");}_setTimelock(this.modifyTimelockInterval.selector,abi.encode(functionSelector,newTimelockInterval),extraTime);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 173
+column: 2
+content: functioninitiateModifyTimelockExpiration(bytes4functionSelector,uint256newTimelockExpiration,uint256extraTime)externalonlyOwner{require(functionSelector!=bytes4(0),"Function selector cannot be empty.");require(newTimelockExpiration<=30days,"New timelock expiration cannot exceed one month.");if(functionSelector==this.modifyTimelockExpiration.selector){require(newTimelockExpiration>=60minutes,"Expiration of modifyTimelockExpiration must be at least an hour long.");}_setTimelock(this.modifyTimelockExpiration.selector,abi.encode(functionSelector,newTimelockExpiration),extraTime);}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 24
+column: 27
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 21
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 84
+column: 47
+content: call.gas(gasleft()/2)(abi.encodeWithSelector(walletToRecover.getUserSigningKey.selector))
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :4
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_UNCHECKED_CALL :1

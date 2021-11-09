@@ -1,0 +1,96 @@
+C:\Users\hp\DataSet\contracts\ropsten\89\8948852e53ac1Fa9Cea7077E133bcED1f471f1d1_CountAndDeposit.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractCountAndDeposit{addresscontractOwner;addresscontractPartner;addresscontractAddress;mapping(address=>uint256)machineBalance;mapping(address=>uint256)machineCounter;uintcounterLimit;uintconfOwner;uintconfPartner;constructor()public{contractOwner=msg.sender;}functionsetContractPartner(addressinput)public{require(msg.sender==contractOwner);contractPartner=input;}functionsetCounterLimit(uintinput)public{require(msg.sender==contractOwner);counterLimit=input;}functionincrease(uintinput)publicpayable{require(msg.sender==contractOwner);machineCounter[contractOwner]+=input;machineBalance[contractOwner]+=msg.value;}functiongetCounterLimit()publicviewreturns(uint){returncounterLimit;}functiongetContractPartner()publicviewreturns(address){require(msg.sender==contractOwner);returncontractPartner;}functiongetContractOwner()publicviewreturns(address){require(msg.sender==contractOwner);returncontractOwner;}functiongetContractAddress()publicviewreturns(address){require(msg.sender==contractOwner);returnaddress(this);}functiongetBalance()publicviewreturns(uint){returnmachineBalance[contractOwner];}functiongetCount()publicviewreturns(uint){returnmachineCounter[contractOwner];}functioncheckCounterLimit()publicviewreturns(bool){if(machineCounter[contractOwner]>=counterLimit)returntrue;elsereturnfalse;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 28
+column: 5
+content: functionsetContractPartner(addressinput)public{require(msg.sender==contractOwner);contractPartner=input;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 35
+column: 5
+content: functionsetCounterLimit(uintinput)public{require(msg.sender==contractOwner);counterLimit=input;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 16
+content: >=
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 25
+content: <
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 4
+content: addresscontractOwner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: addresscontractPartner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 11
+column: 4
+content: addresscontractAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 4
+content: mapping(address=>uint256)machineBalance;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 4
+content: mapping(address=>uint256)machineCounter;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 14
+column: 4
+content: uintcounterLimit;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 4
+content: uintconfOwner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 16
+column: 4
+content: uintconfPartner;
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_LOCKED_MONEY :1

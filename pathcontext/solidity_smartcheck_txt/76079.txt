@@ -1,0 +1,52 @@
+F:\Blockchain\dataset_new_byID\76079.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 20
+column: 2
+content: functionTokenTimelock(ERC20Basic_token,address_beneficiary,uint64_releaseTime){require(_releaseTime>now);token=_token;beneficiary=_beneficiary;releaseTime=_releaseTime;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 28
+column: 2
+content: functionclaim(){require(msg.sender==beneficiary);release();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 2
+content: functionrelease(){require(now>=releaseTime);uint256amount=token.balanceOf(this);require(amount>0);token.safeTransfer(beneficiary,amount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 2
+content: ERC20Basictoken;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 2
+content: addressbeneficiary;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 18
+column: 2
+content: uint64releaseTime;
+
+SOLIDITY_VISIBILITY :6
+SOLIDITY_PRAGMAS_VERSION :1

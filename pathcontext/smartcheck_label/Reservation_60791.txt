@@ -1,0 +1,125 @@
+C:\Users\hp\DataSet\Reservation.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 274
+column: 4
+content: functiongetState()publicconstantreturns(State){if(address(pricingStrategy)==0)returnState.Preparing;elseif(block.timestamp<startsAt)returnState.PreFunding;elseif(block.timestamp<=endsAt&&!isReservationFull())returnState.Funding;elseif(isMinimumGoalReached())returnState.Success;elseif(!isMinimumGoalReached()&&weiRaised>0&&loadedRefund>=weiRaised)returnState.Refunding;elsereturnState.Failure;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 292
+column: 4
+content: functionisMinimumGoalReached()publicconstantreturns(boolreached){returnweiRaised>=minimumFundingGoal;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 299
+column: 4
+content: functionisBreakingCap(uinttokensSoldTotal)constantreturns(bool){returntokensSoldTotal>tokensHardCap;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 303
+column: 4
+content: functionisReservationFull()publicconstantreturns(bool){returntokensSold>=tokensHardCap;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 192
+column: 4
+content: functionsetEarlyParicipantWhitelist(addressaddr,boolstatus)onlyOwner{earlyParticipantWhitelist[addr]=status;Whitelisted(addr,status);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 207
+column: 4
+content: functionsetEndsAt(uinttime)onlyOwner{require(now<=time);endsAt=time;EndsAtChanged(endsAt);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 220
+column: 4
+content: functionsetPricingStrategy(address_pricingStrategy)onlyOwner{pricingStrategy=PricingStrategy(_pricingStrategy);require(pricingStrategy.isPricingStrategy());}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 234
+column: 4
+content: functionsetMultisig(addressaddr)publiconlyOwner{require(investorCount<=MAX_INVESTMENTS_BEFORE_MULTISIG_CHANGE);multisigWallet=addr;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 7
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 31
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 104
+column: 4
+content: functionReservation(address_token,address_pricingStrategy,address_multisigWallet,uint_start,uint_end,uint_tokensHardCap,uint_minimumFundingGoal){require(_token!=0);require(_pricingStrategy!=0);require(_multisigWallet!=0);require(_start!=0);require(_end!=0);require(_start<_end);require(_tokensHardCap!=0);token=IMintableToken(_token);setPricingStrategy(_pricingStrategy);multisigWallet=_multisigWallet;startsAt=_start;endsAt=_end;tokensHardCap=_tokensHardCap;minimumFundingGoal=_minimumFundingGoal;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 133
+column: 4
+content: function()payable{invest(msg.sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 145
+column: 4
+content: functioninvest(addressreceiver)whenNotPausedpayable{if(getState()==State.PreFunding){require(earlyParticipantWhitelist[receiver]);}else{require(getState()==State.Funding);}uintweiAmount=msg.value;uinttokenAmount=pricingStrategy.calculateTokenAmount(weiAmount);require(tokenAmount>0);if(investedAmountOf[receiver]==0){investorCount++;}investedAmountOf[receiver]=investedAmountOf[receiver].add(weiAmount);tokenAmountOf[receiver]=tokenAmountOf[receiver].add(tokenAmount);weiRaised=weiRaised.add(weiAmount);tokensSold=tokensSold.add(tokenAmount);require(!isBreakingCap(tokensSold));token.mint(receiver,tokenAmount);multisigWallet.transfer(weiAmount);Invested(receiver,weiAmount,tokenAmount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 192
+column: 4
+content: functionsetEarlyParicipantWhitelist(addressaddr,boolstatus)onlyOwner{earlyParticipantWhitelist[addr]=status;Whitelisted(addr,status);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 207
+column: 4
+content: functionsetEndsAt(uinttime)onlyOwner{require(now<=time);endsAt=time;EndsAtChanged(endsAt);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 220
+column: 4
+content: functionsetPricingStrategy(address_pricingStrategy)onlyOwner{pricingStrategy=PricingStrategy(_pricingStrategy);require(pricingStrategy.isPricingStrategy());}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 299
+column: 4
+content: functionisBreakingCap(uinttokensSoldTotal)constantreturns(bool){returntokensSoldTotal>tokensHardCap;}
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :4
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1

@@ -1,0 +1,133 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\86629.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 89
+column: 28
+content: 0x0727c7cb599D84792331273952BDA62F0bA77c12
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 126
+column: 4
+content: functionhasEnded()publicconstantreturns(bool){returnblock.number>=endBlock;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 131
+column: 4
+content: functionisActive()publicconstantreturns(bool){returnblock.number>=startBlock&&block.number<=endBlock;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 158
+column: 4
+content: functionvalidPurchase()internalconstantreturns(bool){uint256current=block.number;boolwithinPeriod=current>=startBlock&&current<=endBlock;boolminPurchase=msg.value>=minContrib;uint256totalWeiRaised=weiRaised.add(msg.value);boolwithinCap=totalWeiRaised<=totalEtherCap;returnwithinPeriod&&minPurchase&&withinCap;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 98
+column: 4
+content: functionsetStartBlock(uint256_startBlock)onlyOwnerpublic{startBlock=_startBlock;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 104
+column: 4
+content: functionsetEndBlock(uint256_endBlock)onlyOwnerpublic{endBlock=_endBlock;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 110
+column: 4
+content: functionsetWeiRaised(uint256_weiRaised)onlyOwnerpublic{weiRaised=weiRaised.add(_weiRaised);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 116
+column: 4
+content: functionsetWallet(address_wallet)onlyOwnerpublic{wallet=_wallet;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 121
+column: 4
+content: functionsetMinContribution(uint256_minContrib)onlyOwnerpublic{minContrib=_minContrib;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 3
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 75
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 25
+column: 4
+content: functionOwnable(){owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 36
+column: 4
+content: functiontransferOwnership(addressnewOwner)onlyOwner{if(newOwner!=address(0)){owner=newOwner;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 93
+column: 4
+content: functionFaradTokenSwap(){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 135
+column: 4
+content: function()payable{processContributions(msg.sender,msg.value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 140
+column: 4
+content: functionprocessContributions(address_contributor,uint256_weiAmount)payable{require(validPurchase());uint256updatedWeiRaised=weiRaised.add(_weiAmount);weiRaised=updatedWeiRaised;contributions[_contributor]=contributions[_contributor].add(_weiAmount);contribCount+=1;Contribution(_contributor,_weiAmount);forwardFunds();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 77
+column: 4
+content: mapping(address=>uint256)contributions;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 78
+column: 4
+content: uint256contribCount=0;
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :5
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :1

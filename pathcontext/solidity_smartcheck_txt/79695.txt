@@ -1,0 +1,40 @@
+F:\Blockchain\dataset_new_byID\79695.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 21
+column: 4
+content: functionbalanceOf(address_owner)publicconstantreturns(uint256){returnbalances[_owner];}
+
+ruleId: SOLIDITY_ERC20_TRANSFER_SHOULD_THROW
+patternId: 550a42
+severity: 1
+line: 25
+column: 4
+content: functiontransfer(address_to,uint256_value)publicreturns(bool){if(balances[msg.sender]>=_value&&balances[_to]+_value>=balances[_to]){balances[msg.sender]-=_value;balances[_to]+=_value;emitTransfer(msg.sender,_to,_value);returntrue;}returnfalse;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 48
+column: 4
+content: functionbuyToken()payablepublicreturns(bool){require(msg.value*exchangeRate<mt.balanceOf(address(this)));uint256distribution;distribution=msg.value*exchangeRate;mt.transfer(msg.sender,distribution);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 56
+column: 4
+content: functionwithdraw(uint256_value)publicreturns(bool){require(_value<address(this).balance&&msg.sender==owner);owner.transfer(_value);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_ERC20_TRANSFER_SHOULD_THROW :1

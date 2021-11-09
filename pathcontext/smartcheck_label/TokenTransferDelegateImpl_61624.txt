@@ -1,0 +1,93 @@
+C:\Users\hp\DataSet\TokenTransferDelegateImpl.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 357
+column: 16
+content: 0x0
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 172
+column: 8
+content: for(i=0;i<batch.length;i+=10){MemoryUtil.copyCallDataBytesInArray(4,orderPtr,i*32,10*32);bytes20tradingPair=bytes20(order.tokenS)^bytes20(batch[((i+10)%batch.length)+1]);require(order.validSince>tradingPairCutoffs[order.owner][tradingPair]);require(order.validSince>cutoffs[order.owner]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 185
+column: 8
+content: for(i=0;i<batch.length;i+=10){MemoryUtil.copyCallDataBytesInArray(4,orderPtr,i*32,10*32);ERC20token=ERC20(address(order.tokenS));if(order.amount!=0&&order.owner!=prevOwner){require(token.transferFrom(order.owner,prevOwner,order.amount));}if(order.lrcReward!=0&&miner!=order.owner){require(lrc.transferFrom(miner,order.owner,order.lrcReward));}splitPayFee(token,order.split,order.owner,feeRecipient,order.wallet,walletSplitPercentage);splitPayFee(lrc,order.lrcFee,order.owner,feeRecipient,order.wallet,walletSplitPercentage);cancelledOrFilled[order.orderHash]=cancelledOrFilled[order.orderHash].add(order.fillAmount);prevOwner=order.owner;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 172
+column: 8
+content: for(i=0;i<batch.length;i+=10){MemoryUtil.copyCallDataBytesInArray(4,orderPtr,i*32,10*32);bytes20tradingPair=bytes20(order.tokenS)^bytes20(batch[((i+10)%batch.length)+1]);require(order.validSince>tradingPairCutoffs[order.owner][tradingPair]);require(order.validSince>cutoffs[order.owner]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 185
+column: 8
+content: for(i=0;i<batch.length;i+=10){MemoryUtil.copyCallDataBytesInArray(4,orderPtr,i*32,10*32);ERC20token=ERC20(address(order.tokenS));if(order.amount!=0&&order.owner!=prevOwner){require(token.transferFrom(order.owner,prevOwner,order.amount));}if(order.lrcReward!=0&&miner!=order.owner){require(lrc.transferFrom(miner,order.owner,order.lrcReward));}splitPayFee(token,order.split,order.owner,feeRecipient,order.wallet,walletSplitPercentage);splitPayFee(lrc,order.lrcFee,order.owner,feeRecipient,order.wallet,walletSplitPercentage);cancelledOrFilled[order.orderHash]=cancelledOrFilled[order.orderHash].add(order.fillAmount);prevOwner=order.owner;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 121
+column: 15
+content: addr!=0x0&&count<max
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 41
+column: 12
+content: private
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 65
+column: 4
+content: {revert();}
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 323
+column: 16
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 331
+column: 27
+content: tx.origin
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 64
+column: 8
+content: public
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 166
+column: 8
+content: assembly{orderPtr:=order}
+
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_TX_ORIGIN :2

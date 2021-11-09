@@ -1,0 +1,119 @@
+C:\Users\hp\DataSet\contracts\ropsten\c2\c27447f41321d1c776490be3bb60e27682845f14_SocialMediaMarket.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 242
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(boolsuccess){allowances[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 389
+column: 2
+content: functionapprove(address_spender,uint256_currentValue,uint256_newValue)publicreturns(boolsuccess){if(allowance(msg.sender,_spender)==_currentValue)returnapprove(_spender,_newValue);elsereturnfalse;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 419
+column: 2
+content: functionsetOwner(address_newOwner)public{require(msg.sender==owner);owner=_newOwner;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 500
+column: 4
+content: functioninitiateEscrow(uint64id,uint256amount,addressadv_address,addressinf_address)onlyOwnerpublicreturns(boolsuccess){if(items[id].amount>0){returnfalse;}if(_token.allowance(adv_address,address(this))<amount){returnfalse;}require(_token.transferFrom(adv_address,address(this),amount));items[id]=Item(amount,adv_address,inf_address,0);emitInitiatedEscrow(id,amount,adv_address,inf_address,block.timestamp);returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 3
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 9
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 16
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 111
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 117
+column: 19
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 287
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 466
+column: 12
+content: private
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 326
+column: 40
+content: stringresult
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 335
+column: 42
+content: stringresult
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 292
+column: 2
+content: uint256tokenCount;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 297
+column: 2
+content: boolfrozen=false;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_PRAGMAS_VERSION :5
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :3
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_ERC20_APPROVE :2

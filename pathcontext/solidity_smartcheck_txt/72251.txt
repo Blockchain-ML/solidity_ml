@@ -1,0 +1,146 @@
+F:\Blockchain\dataset_new_byID\72251.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 99
+column: 8
+content: for(uint256i=0;i<newRelayWorkers.length;i++){require(workerToManager[newRelayWorkers[i]]==address(0),"this worker has a manager");workerToManager[newRelayWorkers[i]]=relayManager;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 99
+column: 8
+content: for(uint256i=0;i<newRelayWorkers.length;i++){require(workerToManager[newRelayWorkers[i]]==address(0),"this worker has a manager");workerToManager[newRelayWorkers[i]]=relayManager;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 25
+column: 0
+content: contractRelayHubV2isIRelayHub{stringpublicversionHub="2.0.0-alpha.1+opengsn.hub.irelayhub";uint256constantprivateMINIMUM_STAKE=1ether;uint256constantprivateMINIMUM_UNSTAKE_DELAY=1000;uint256constantprivateMINIMUM_RELAY_BALANCE=0.1ether;uint256constantprivateMAXIMUM_RECIPIENT_DEPOSIT=2ether;uint256constantprivateGAS_OVERHEAD=34936;uint256constantprivatePOST_OVERHEAD=9959;functiongetHubOverhead()externalviewreturns(uint256){returnGAS_OVERHEAD;}uint256constantprivateGAS_RESERVE=100000;mapping(address=>address)publicworkerToManager;mapping(address=>uint256)publicworkerCount;uint256constantpublicMAX_WORKER_COUNT=10;mapping(address=>uint256)publicbalances;StakeManagerpublicstakeManager;Penalizerpublicpenalizer;constructor(StakeManager_stakeManager,Penalizer_penalizer)public{stakeManager=_stakeManager;penalizer=_penalizer;}functiongetStakeManager()externalviewreturns(address){returnaddress(stakeManager);}functionregisterRelayServer(uint256baseRelayFee,uint256pctRelayFee,stringmemoryurl)public{addressrelayManager=msg.sender;require(stakeManager.isRelayManagerStaked(relayManager,MINIMUM_STAKE,MINIMUM_UNSTAKE_DELAY),"relay manager not staked");require(workerCount[relayManager]>0,"no relay workers");emitRelayServerRegistered(relayManager,baseRelayFee,pctRelayFee,url);}functionaddRelayWorkers(address[]memorynewRelayWorkers)public{addressrelayManager=msg.sender;workerCount[relayManager]=workerCount[relayManager]+newRelayWorkers.length;require(workerCount[relayManager]<=MAX_WORKER_COUNT,"too many workers");require(stakeManager.isRelayManagerStaked(relayManager,MINIMUM_STAKE,MINIMUM_UNSTAKE_DELAY),"relay manager not staked");for(uint256i=0;i<newRelayWorkers.length;i++){require(workerToManager[newRelayWorkers[i]]==address(0),"this worker has a manager");workerToManager[newRelayWorkers[i]]=relayManager;}emitRelayWorkersAdded(relayManager,newRelayWorkers,workerCount[relayManager]);}functiondepositFor(addresstarget)publicpayable{uint256amount=msg.value;require(amount<=MAXIMUM_RECIPIENT_DEPOSIT,"deposit too big");balances[target]=SafeMath.add(balances[target],amount);emitDeposited(target,msg.sender,amount);}functionbalanceOf(addresstarget)externalviewreturns(uint256){returnbalances[target];}functionwithdraw(uint256amount,address<missing ')'>payabledest)public{<missing ';'>addresspayableaccount=msg.sender;require(balances[account]>=amount,"insufficient funds");balances[account]-=amount;dest.transfer(amount);emitWithdrawn(account,dest,amount);}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 30
+column: 21
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 33
+column: 21
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 37
+column: 21
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 40
+column: 21
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 45
+column: 21
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 48
+column: 21
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 54
+column: 21
+content: private
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 120
+column: 4
+content: functionwithdraw(uint256amount,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 121
+column: 8
+content: addresspayableaccount=msg.sender;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 122
+column: 8
+content: require(balances[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 122
+column: 25
+content: account]>=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 122
+column: 37
+content: amount,"insufficient funds");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 124
+column: 8
+content: balances[account]-=amount;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 125
+column: 8
+content: dest.transfer(amount);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 127
+column: 8
+content: emitWithdrawn
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 127
+column: 22
+content: (account,dest,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 127
+column: 38
+content: amount);
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :7
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

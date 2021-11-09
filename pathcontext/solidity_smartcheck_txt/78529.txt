@@ -1,0 +1,25 @@
+F:\Blockchain\dataset_new_byID\78529.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 4
+column: 4
+content: functionequal(bytesmemory_preBytes,bytesmemory_postBytes)internalpurereturns(bool){boolsuccess=true;assembly{letlength:=mload(_preBytes)switcheq(length,mload(_postBytes))case1{letcb:=1letmc:=add(_preBytes,0x20)letend:=add(mc,length)for{letcc:=add(_postBytes,0x20)}eq(add(lt(mc,end),cb),2){mc:=add(mc,0x20)cc:=add(cc,0x20)}{ifiszero(eq(mload(mc),mload(cc))){success:=0cb:=0}}}default{success:=0}}returnsuccess;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 7
+column: 8
+content: assembly{letlength:=mload(_preBytes)switcheq(length,mload(_postBytes))case1{letcb:=1letmc:=add(_preBytes,0x20)letend:=add(mc,length)for{letcc:=add(_postBytes,0x20)}eq(add(lt(mc,end),cb),2){mc:=add(mc,0x20)cc:=add(cc,0x20)}{ifiszero(eq(mload(mc),mload(cc))){success:=0cb:=0}}}default{success:=0}}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

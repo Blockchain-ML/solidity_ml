@@ -1,0 +1,195 @@
+C:\Users\hp\DataSet\contracts\mainnet\3f\3f418d108772412095c2959767ab7282971df516_MemeNetworkToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 64
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 66
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 79
+column: 21
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 81
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 83
+column: 28
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 85
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 95
+column: 22
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 98
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 106
+column: 44
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 51
+column: 4
+content: functionbalanceOf(address_owner)externalconstantreturns(uint256){returnbalances[_owner];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 55
+column: 4
+content: functiontotalSupply()externalconstantreturns(uint256){returntotalTokens;}
+
+ruleId: SOLIDITY_MSGVALUE_EQUALS_ZERO
+patternId: 1df89a
+severity: 1
+line: 83
+column: 12
+content: msg.value==0
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 63
+column: 8
+content: if(balances[msg.sender]<_value)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 65
+column: 8
+content: if(balances[_to]+_value<balances[_to])throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 79
+column: 8
+content: if(!funding)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 80
+column: 8
+content: if(block.number>endingBlock)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 83
+column: 8
+content: if(msg.value==0)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 84
+column: 8
+content: if(msg.value>(tokenCreationCap-totalTokens)/tokenCreationRate)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 95
+column: 8
+content: if(!funding)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 96
+column: 8
+content: if(block.number<=endingBlock&&totalTokens<tokenCreationCap)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 106
+column: 8
+content: if(!devAddress.send(this.balance))throw;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 43
+column: 4
+content: functionMemeNetworkToken(address_devAddress,uint256_endingBlock){devAddress=_devAddress;endingBlock=_endingBlock;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 60
+column: 4
+content: functiontransfer(address_to,uint256_value){if(balances[msg.sender]<_value)throw;if(balances[_to]+_value<balances[_to])throw;balances[msg.sender]-=_value;balances[_to]+=_value;Transfer(msg.sender,_to,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 94
+column: 4
+content: functionfinalize(){if(!funding)throw;if(block.number<=endingBlock&&totalTokens<tokenCreationCap)throw;funding=false;uint256devTokens=tokenCreationCap-totalTokens+(tokenCreationCap/5);balances[devAddress]+=devTokens;Transfer(0,devAddress,devTokens);if(!devAddress.send(this.balance))throw;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 4
+content: uint256totalTokens;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 39
+column: 4
+content: mapping(address=>uint256)balances;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_MSGVALUE_EQUALS_ZERO :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :11
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :9

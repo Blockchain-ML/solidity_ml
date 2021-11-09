@@ -1,0 +1,33 @@
+C:\Users\hp\DataSet\contracts\ropsten\3b\3b839271cc12d6c71235c10b79c5dd4d07f11839_ZschopauToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 45
+column: 4
+content: functionapprove(address_spender,uint_value)publicreturns(bool){approvals[_spender][msg.sender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_ERC20_FUNCTIONS_ALWAYS_RETURN_FALSE
+patternId: b180ca
+severity: 2
+line: 34
+column: 4
+content: functiontransferFrom(address_from,address_to,uint_value)publicreturns(bool){require(approvals[_from][_to]<=_value,"This amount is not approved!");require(balanceOf[_from]>=_value,"Insufficient funds");approvals[_to][_from]-=_value;balanceOf[_from]-=_value;balanceOf[_to]+=_value;emitTransferFund(_to,_from,_value);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 34
+column: 4
+content: functiontransferFrom(address_from,address_to,uint_value)publicreturns(bool){require(approvals[_from][_to]<=_value,"This amount is not approved!");require(balanceOf[_from]>=_value,"Insufficient funds");approvals[_to][_from]-=_value;balanceOf[_from]-=_value;balanceOf[_to]+=_value;emitTransferFund(_to,_from,_value);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+SOLIDITY_ERC20_FUNCTIONS_ALWAYS_RETURN_FALSE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_ERC20_APPROVE :1

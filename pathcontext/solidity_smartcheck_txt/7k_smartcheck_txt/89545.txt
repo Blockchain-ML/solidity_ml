@@ -1,0 +1,31 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\89545.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 65
+column: 35
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 89
+column: 39
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 98
+column: 35
+content: 0x0
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractSaleisMultiOwners{uint256publictotalEthers;Tokenpublictoken;addresspublicwallet;uint256publicmaximumTokens;uint256publicminimalEther;uint256publicminFreePrixByTrans;uint256publicmaxFreePrixByTrans;uint256publicweiPerToken;uint256publicstartTime;uint256publicendTime;mapping(address=>uint256)publicetherBalances;eventTokenPurchase(addressindexedbeneficiary,uint256value,uint256amount);modifiervalidPurchase(addresscontributor){boolwithinPeriod=(now>=startTime&&now<=endTime);boolnonZeroPurchase=msg.value!=0;require(withinPeriod&&nonZeroPurchase);_;}modifierisStarted(){require(now>=startTime);_;}modifierisExpired(){require(now>endTime);_;}constructor(uint256_startTime,address_wallet)public{require(_startTime>=now);require(_wallet!=address(0x0));token=newToken();wallet=_wallet;startTime=_startTime;minimalEther=1e16;minFreePrixByTrans=1;maxFreePrixByTrans=10e8;endTime=_startTime+10*365days;weiPerToken=1e18/100e8;}function()payableexternal{returnbuyTokens(msg.sender);}functionbuyTokens(addresscontributor)payablepublic{uint256amount=msg.value/weiPerToken;require(contributor!=address(0x0));require(minimalEther<=msg.value);token.mint(contributor,amount);emitTokenPurchase(contributor,msg.value,amount);}functiongetFreeTokens(addresscontributor,uint256amount)public{if(contributor==address(0x0)){contributor=msg.sender;}require(minFreePrixByTrans<=amount&&maxFreePrixByTrans>=amount);token.mint(contributor,amount);emitTokenPurchase(contributor,amount,0);}functionrunning()publicviewreturns(bool){returnnow>=startTime&&!(now>endTime);}}
+
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :3

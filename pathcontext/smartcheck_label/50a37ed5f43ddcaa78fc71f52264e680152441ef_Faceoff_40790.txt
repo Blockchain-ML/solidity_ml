@@ -1,0 +1,33 @@
+C:\Users\hp\DataSet\contracts\ropsten\50\50a37ed5f43ddcaa78fc71f52264e680152441ef_Faceoff.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 54
+column: 23
+content: 0xF416D2D8F2739Ca7CF6d05e2b4aD509FAfc42f78
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 199
+column: 15
+content: z<y
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 4
+column: 0
+content: contractFaceoff{modifieronlyTokenHolders(){addressuserAddress=msg.sender;require(firstBalances[userAddress]+secondBalances[userAddress]>0);_;}eventonTokenMint(addressindexeduserAddress,uint256index,uint256incomingEthereum,uint256tokensMinted);eventonTokenBurn(addressindexeduserAddress,uint256index,uint256tokensBurned,uint256ethereumEarned);stringpublicname="Head2Head";stringpublicsymbol="H2H";uint8constantpublicdecimals=18;uint256constantinternaltokenPriceInitial=0.0001ether;uint256constantinternaltokenPriceIncremental=0.00001ether;uint256constantinternalmagnitude=2**64;uint8constantinternalgameFee=10;mapping(address=>bool)internaladministrators;mapping(address=>uint256)internalfirstBalances;mapping(address=>uint256)internalsecondBalances;mapping(address=>int256)internalfirstPayouts;mapping(address=>int256)internalsecondPayouts;uint256publicfirstTokenSupply=0;uint256publicsecondTokenSupply=0;uint256publicfirstProfitPerShare=0;uint256publicsecondProfitPerShare=0;constructor()public{administrators[0xF416D2D8F2739Ca7CF6d05e2b4aD509FAfc42f78]=true;}function()payableexternal{}functionbuyFirst()payablepublic{purchaseFirstTokens(msg.value);}functionpurchaseFirstTokens(uint256etherPayed)internalreturns(uint256){addressuserAddress=msg.sender;uint256tax=SafeMath.div(etherPayed,gameFee);uint256taxedEthereum=SafeMath.sub(etherPayed,tax);uint256tokens=ethereumToTokens(taxedEthereum,firstTokenSupply);require(tokens>0&&(SafeMath.add(tokens,firstTokenSupply)>firstTokenSupply));if(firstTokenSupply>0){firstTokenSupply=SafeMath.add(firstTokenSupply,tokens);}else{firstTokenSupply=tokens;}firstBalances[userAddress]=SafeMath.add(firstBalances[userAddress],tokens);emitonTokenMint(userAddress,0,etherPayed,tokens);returntokens;}functionethereumToTokens(uint256etherPayed,uint256supply)internalviewreturns(uint256){uint256tokenPriceInitialWei=tokenPriceInitial*1e18;uint256tokenPriceIncrementalWei=tokenPriceIncremental*1e18;uint256etherPayedWei=etherPayed*1e18;uint256tokens=((SafeMath.sub((sqrt((supply**2)*tokenPriceIncremental+(2*(etherPayedWei)*(tokenPriceIncrementalWei))+(2*(supply)*(tokenPriceIncrementalWei))*(tokenPriceInitialWei)+(tokenPriceInitialWei**2))),tokenPriceInitialWei))/(tokenPriceIncremental))-(supply);returntokens;}functiontokensToEthereum(uint256tokens,uint256supply)internalviewreturns(uint256){uint256tokensWei=(tokens+1e18);uint256supplyWei=(supply+1e18);uint256etherReceived=SafeMath.sub(SafeMath.add(tokensWei*tokenPriceInitial,tokensWei*tokenPriceInitial*supply),((tokensWei**2)*tokenPriceInitial)/2)/1e18;returnetherReceived;}functionfirstTotalSupply()publicviewreturns(uint256){returnfirstTokenSupply;}functionfirstBuyPrice()publicviewreturns(uint256){if(firstTokenSupply==0){returntokenPriceInitial+tokenPriceIncremental;}else{uint256etherAmount=tokensToEthereum(1e18,firstTokenSupply);uint256tax=SafeMath.div(etherAmount,gameFee);uint256taxedEthereum=SafeMath.add(etherAmount,tax);returntaxedEthereum;}}functionfirstSellPrice()publicviewreturns(uint256){if(firstTokenSupply==0){returntokenPriceInitial-tokenPriceIncremental;}else{uint256etherAmount=tokensToEthereum(1e18,firstTokenSupply);uint256tax=SafeMath.div(etherAmount,gameFee);uint256taxedEthereum=SafeMath.sub(etherAmount,tax);returntaxedEthereum;}}functionsecondTotalSupply()publicviewreturns(uint256){returnsecondTokenSupply;}functionsqrt(uintx)internalpurereturns(uinty){uintz=(x+1)/2;y=x;while(z<y){y=z;z=(x/z+z)/2;}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

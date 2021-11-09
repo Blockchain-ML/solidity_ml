@@ -1,0 +1,86 @@
+F:\Blockchain\dataset_new_byID\80338.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 185
+column: 4
+content: functioncalculateVestedTokens(uint256_time)publicconstantinitializedgrantedreturns(uint256){if(_time<startTime){return0;}if(_time>=startTime.add(TOTAL_VESTING_TIME)){returnkin.balanceOf(address(this));}uint256yearsPast=_time.sub(startTime).div(1years);uint256funds=0;for(uint256i=0;i<yearsPast;++i){funds=funds.add(ANNUAL_GRANTS[i]);}uint256periodsPast=_time.sub(startTime).sub(yearsPast.mul(1years)).div(VESTING_FREQUENCY);uint256vestingPeriodsPast=ANNUAL_GRANTS[yearsPast].mul(periodsPast).div(DAYS_IN_YEAR);funds=funds.add(vestingPeriodsPast);returnfunds;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 25
+column: 43
+content: years
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 197
+column: 55
+content: years
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 204
+column: 71
+content: years
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 171
+column: 8
+content: for(uint256i=0;i<ANNUAL_GRANTS.length;++i){funds=funds.add(ANNUAL_GRANTS[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 171
+column: 8
+content: for(uint256i=0;i<ANNUAL_GRANTS.length;++i){funds=funds.add(ANNUAL_GRANTS[i]);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 163
+column: 4
+content: functiongrant(uint256_startTime)externalonlyOwnerinitializednotGranted{require(_startTime>0);uint256funds=0;for(uint256i=0;i<ANNUAL_GRANTS.length;++i){funds=funds.add(ANNUAL_GRANTS[i]);}assert(funds<=kin.balanceOf(address(this)));startTime=_startTime;NewGrant(msg.sender,funds);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 98
+column: 12
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 10
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 135
+column: 4
+content: functionKinFoundationVestingTrustee(KinToken_kin,address_kinFoundation){require(_kin!=address(0));require(_kinFoundation!=address(0));kin=_kin;kinFoundation=_kinFoundation;}
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

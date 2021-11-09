@@ -1,0 +1,177 @@
+C:\Users\hp\DataSet\contracts\ropsten\c7\c782de3bc18387844bb939c2dba0e728876d7e07_IraqCoinToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 582
+column: 37
+content: 0x00
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 107
+column: 19
+content: 0x0
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 580
+column: 2
+content: functiongetUpgradeState()publicconstantreturns(UpgradeState){if(!canUpgrade())returnUpgradeState.NotAllowed;elseif(address(upgradeAgent)==0x00)returnUpgradeState.WaitingForAgent;elseif(totalUpgraded==0)returnUpgradeState.ReadyToUpgrade;elsereturnUpgradeState.Upgrading;}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 282
+column: 4
+content: functionapprove(address_spender,uint256_value)publicvalidAddress(_spender)returns(boolsuccess){require(_value==0||allowance[msg.sender][_spender]==0);allowance[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 60
+column: 4
+content: functionowner()publicpurereturns(addressowner){owner;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 173
+column: 4
+content: functionname()publicpurereturns(stringname){name;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 174
+column: 4
+content: functionsymbol()publicpurereturns(stringsymbol){symbol;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 175
+column: 4
+content: functiondecimals()publicpurereturns(uint8decimals){decimals;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 176
+column: 4
+content: functiontotalSupply()publicpurereturns(uint256totalSupply){totalSupply;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 177
+column: 4
+content: functionbalanceOf(address_owner)publicpurereturns(uint256balance){_owner;balance;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 178
+column: 4
+content: functionallowance(address_owner,address_spender)publicpurereturns(uint256remaining){_owner;_spender;remaining;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 557
+column: 2
+content: functionsetUpgradeAgent(addressagent)external{require(canUpgrade());require(agent!=0x0);require(msg.sender==upgradeMaster);require(getUpgradeState()!=UpgradeState.Upgrading);upgradeAgent=UpgradeAgent(agent);require(upgradeAgent.isUpgradeAgent());require(upgradeAgent.originalSupply()==totalSupply);emitUpgradeAgentSet(upgradeAgent);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 592
+column: 2
+content: functionsetUpgradeMaster(addressmaster)public{require(master!=0x0);require(msg.sender==upgradeMaster);upgradeMaster=master;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 173
+column: 41
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 174
+column: 43
+content: stringsymbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 206
+column: 16
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 206
+column: 30
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 335
+column: 16
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 335
+column: 30
+content: string_symbol
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 188
+column: 34
+content: Token0.1&39;;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 189
+column: 30
+content: IraqCoin
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 189
+column: 40
+content: Token&39;;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 190
+column: 32
+content: IRAQ&39;;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :7
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :6
+SOLIDITY_ERC20_APPROVE :1

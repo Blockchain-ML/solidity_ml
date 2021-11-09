@@ -1,0 +1,172 @@
+F:\Blockchain\dataset_new_byID\75933.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 19
+column: 27
+content: 0xbeef
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 32
+column: 28
+content: 0xbeef
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 38
+column: 19
+content: 0x1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 47
+column: 28
+content: 0xbeef
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 52
+column: 20
+content: 0x1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 61
+column: 31
+content: 0xbeef
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 69
+column: 19
+content: 0x32
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 74
+column: 19
+content: 0x32
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 79
+column: 19
+content: 0x32
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 15
+column: 2
+content: functionbeforeAll(){factory=newMiniMeTokenFactory();token=newANT(factory);token.generateTokens(this,100);token.changeController(0xbeef);baseBlock=block.number;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 26
+column: 2
+content: functiontestHasTokens(){Assert.equal(token.balanceOf(this),100,'should have tokens');}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 30
+column: 2
+content: functiontestCanClone(){clone1=MiniMeToken(token.createCloneToken("ANT2",18,"ANT2",block.number,true));clone1.changeController(0xbeef);Assert.equal(clone1.balanceOf(this),100,'should have tokens in cloned token');Assert.equal(clone1.balanceOfAt(this,block.number-1),100,'should have correct balance before creating it');}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 37
+column: 2
+content: functiontestCanTransfer(){token.transfer(0x1,10);Assert.equal(token.balanceOf(this),90,'should have updated balance in token');Assert.equal(token.balanceOfAt(this,block.number-1),100,'should have previous balance in token');Assert.equal(clone1.balanceOf(this),100,'should have previous balance in cloned token');}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 45
+column: 2
+content: functiontestCanCloneAfterTransfer(){clone2=MiniMeToken(token.createCloneToken("ANT2",18,"ANT2",block.number,true));clone2.changeController(0xbeef);Assert.equal(clone2.balanceOf(this),90,'should have updated balance in token');Assert.equal(clone2.balanceOfAt(this,block.number-2),100,'should have previous balance in token');clone1.transfer(0x1,10);Assert.equal(clone1.balanceOf(this),90,'should have updated balance in token');}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 56
+column: 2
+content: functiontestRecurringClones(){MiniMeTokenlastClone=clone1;for(uinti=0;i<10;i++){lastClone=MiniMeToken(lastClone.createCloneToken("ANTn",18,"ANTn",block.number,true));}lastClone.changeController(0xbeef);Assert.equal(lastClone.balanceOf(this),90,'should have updated balance in token');Assert.equal(lastClone.balanceOfAt(this,baseBlock),100,'should be able to travel back in time');}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 67
+column: 2
+content: functiontestMultitransfer1(){Assert.equal(token.balanceOf(this),90,'should have correct balance before');token.transfer(0x32,10);Assert.equal(token.balanceOf(this),80,'should have correct balance before');}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 73
+column: 2
+content: functiontestMultitransfer2(){token.transfer(0x32,10);Assert.equal(token.balanceOf(this),70,'should have correct balance before');}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 78
+column: 2
+content: functiontestMultitransfer3(){token.transfer(0x32,10);Assert.equal(token.balanceOf(this),60,'should have correct balance before');Assert.equal(token.balanceOfAt(this,baseBlock),100,'should be able to travel back in time');}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 8
+column: 2
+content: MiniMeTokenFactoryfactory;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 2
+content: ANTtoken;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 2
+content: MiniMeTokenclone1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 11
+column: 2
+content: MiniMeTokenclone2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 2
+content: uintbaseBlock;
+
+SOLIDITY_VISIBILITY :14
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :9

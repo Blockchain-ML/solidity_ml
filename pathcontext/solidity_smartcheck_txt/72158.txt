@@ -1,0 +1,32 @@
+F:\Blockchain\dataset_new_byID\72158.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 49
+column: 15
+content: if(proxyId==ERC721_DATA_ID){_approveERC721Token(assetData,amount);}else{revert("UNSUPPORTED_ASSET_PROXY");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 69
+column: 15
+content: if(proxyId==ERC721_DATA_ID){_transferERC721Token(assetData,amount);}else{revert("UNSUPPORTED_ASSET_PROXY");}
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 91
+column: 32
+content: call(abi.encodeWithSelector(ERC20_TRANSFER_SELECTOR,msg.sender,amount))
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 107
+column: 8
+content: assembly{ifreturndatasize{success:=0ifeq(returndatasize,32){returndatacopy(0,0,32)success:=mload(0)}}}
+
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_UNCHECKED_CALL :1

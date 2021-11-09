@@ -1,0 +1,175 @@
+F:\Blockchain\dataset_new_byID\78257.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 55
+column: 4
+content: functiongetCount()publicconstantreturns(uint){returnauctions.length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 60
+column: 4
+content: functiongetBidsCount(uint_auctionId)publicconstantreturns(uint){returnauctionBids[_auctionId].length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 65
+column: 4
+content: functiongetAuctionsOf(address_owner)publicconstantreturns(uint[]){uint[]memoryownedAuctions=auctionOwner[_owner];returnownedAuctions;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 71
+column: 4
+content: functiongetCurrentBid(uint_auctionId)publicconstantreturns(uint256,address){uintbidsLength=auctionBids[_auctionId].length;if(bidsLength>0){BidmemorylastBid=auctionBids[_auctionId][bidsLength-1];return(lastBid.amount,lastBid.from);}return(0,0);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 82
+column: 4
+content: functiongetAuctionsCountOfOwner(address_owner)publicconstantreturns(uint){returnauctionOwner[_owner].length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 87
+column: 4
+content: functiongetAuctionById(uint_auctionId)publicconstantreturns(stringname,uint256blockDeadline,uint256startPrice,stringmetadata,uint256deedId,addressdeedRepositoryAddress,addressowner,boolactive,boolfinalized){Auctionmemoryauc=auctions[_auctionId];return(auc.name,auc.blockDeadline,auc.startPrice,auc.metadata,auc.deedId,auc.deedRepositoryAddress,auc.owner,auc.active,auc.finalized);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 50
+column: 21
+content: {revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 147
+column: 12
+content: if(!lastBid.from.send(lastBid.amount)){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 165
+column: 8
+content: if(block.timestamp<myAuction.blockDeadline)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 174
+column: 12
+content: if(!myAuction.owner.send(lastBid.amount)){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 193
+column: 8
+content: if(myAuction.owner==msg.sender)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 196
+column: 8
+content: if(block.timestamp>myAuction.blockDeadline)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 209
+column: 8
+content: if(ethAmountSent<tempAmount)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 213
+column: 12
+content: if(!lastBid.from.send(lastBid.amount)){revert();}
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 147
+column: 29
+content: send(lastBid.amount)
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 174
+column: 32
+content: send(lastBid.amount)
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 213
+column: 29
+content: send(lastBid.amount)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 50
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 65
+column: 67
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 88
+column: 8
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 91
+column: 8
+content: stringmetadata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 112
+column: 76
+content: string_auctionTitle
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 112
+column: 98
+content: string_metadata
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :7
+SOLIDITY_SEND :3
+SOLIDITY_UPGRADE_TO_050 :6
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

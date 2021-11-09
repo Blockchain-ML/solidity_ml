@@ -1,0 +1,230 @@
+C:\Users\hp\DataSet\CrowdBank.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 95
+column: 12
+content: for(uinti=0;i<loanList[loanId].proposalCount;i++){uintnumI=loanList[loanId].proposal[i];if(proposalList[numI].state==ProposalState.ACCEPTED){}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 110
+column: 10
+content: for(uinti=0;i<loanList[loanId].proposalCount;i++){uintnumI=loanList[loanId].proposal[i];if(proposalList[numI].state==ProposalState.ACCEPTED){msg.sender.transfer(proposalList[numI].amount);}else{proposalList[numI].state=ProposalState.REPAID;proposalList[numI].lender.transfer(proposalList[numI].amount);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 134
+column: 10
+content: for(uinti=0;i<loanList[loanId].proposalCount;i++){uintnumI=loanList[loanId].proposal[i];if(proposalList[numI].state==ProposalState.ACCEPTED){uintoriginal=proposalList[numI].amount;uintrate=proposalList[numI].rate;uintnow=block.timestamp;uintinterest=(original*rate*(now-time))/(365*24*60*60*100);finalamount+=interest;finalamount+=original;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 162
+column: 8
+content: for(uinti=0;i<loanList[loanId].proposalCount;i++){uintnumI=loanList[loanId].proposal[i];if(proposalList[numI].state==ProposalState.ACCEPTED){uintoriginal=proposalList[numI].amount;uintrate=proposalList[numI].rate;uintinterest=(original*rate*(now-time))/(365*24*60*60*100);uintfinalamount=interest+original;proposalList[numI].lender.transfer(finalamount);proposalList[numI].state=ProposalState.REPAID;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 110
+column: 10
+content: for(uinti=0;i<loanList[loanId].proposalCount;i++){uintnumI=loanList[loanId].proposal[i];if(proposalList[numI].state==ProposalState.ACCEPTED){msg.sender.transfer(proposalList[numI].amount);}else{proposalList[numI].state=ProposalState.REPAID;proposalList[numI].lender.transfer(proposalList[numI].amount);}}
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 162
+column: 8
+content: for(uinti=0;i<loanList[loanId].proposalCount;i++){uintnumI=loanList[loanId].proposal[i];if(proposalList[numI].state==ProposalState.ACCEPTED){uintoriginal=proposalList[numI].amount;uintrate=proposalList[numI].rate;uintinterest=(original*rate*(now-time))/(365*24*60*60*100);uintfinalamount=interest+original;proposalList[numI].lender.transfer(finalamount);proposalList[numI].state=ProposalState.REPAID;}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 52
+column: 8
+content: Loanobj=loanList[loanMap[borrower][validLoans-1]]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 187
+column: 8
+content: ProposalpObj=proposalList[proposeId]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 190
+column: 8
+content: LoanlObj=loanList[loanId]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 205
+column: 8
+content: Proposalprop=proposalList[lendMap[lender][pos]]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 216
+column: 8
+content: Loanobj=loanList[loanMap[borrower][pos]]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 229
+column: 8
+content: Loanobj=loanList[loanMap[borrower][loanLength-1]]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 234
+column: 8
+content: Proposalobj=proposalList[loanList[loanId].proposal[numI]]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 45
+column: 4
+content: functionCrowdBank(){owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 49
+column: 4
+content: functionhasActiveLoan(addressborrower)viewreturns(bool){uintvalidLoans=loanMap[borrower].length;if(validLoans==0)returnfalse;Loanobj=loanList[loanMap[borrower][validLoans-1]];if(loanList[validLoans-1].state==LoanState.ACCEPTING)returntrue;if(loanList[validLoans-1].state==LoanState.LOCKED)returntrue;returnfalse;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 58
+column: 4
+content: functionnewLoan(uintamount,uintdueDate,bytes32mortgage){if(hasActiveLoan(msg.sender))return;uintcurrentDate=block.timestamp;loanList.push(Loan(msg.sender,LoanState.ACCEPTING,dueDate,amount,0,0,currentDate,mortgage));loanMap[msg.sender].push(loanList.length-1);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 4
+content: functionnewProposal(uintloanId,uintrate)payable{if(loanList[loanId].borrower==0||loanList[loanId].state!=LoanState.ACCEPTING)return;proposalList.push(Proposal(msg.sender,loanId,ProposalState.WAITING,rate,msg.value));lendMap[msg.sender].push(proposalList.length-1);loanList[loanId].proposalCount++;loanList[loanId].proposal[loanList[loanId].proposalCount-1]=proposalList.length-1;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 74
+column: 4
+content: functiongetActiveLoanId(addressborrower)viewreturns(uint){uintnumLoans=loanMap[borrower].length;if(numLoans==0)return(2**64-1);uintlastLoanId=loanMap[borrower][numLoans-1];if(loanList[lastLoanId].state!=LoanState.ACCEPTING)return(2**64-1);returnlastLoanId;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 82
+column: 4
+content: functionrevokeMyProposal(uintid){uintproposeId=lendMap[msg.sender][id];if(proposalList[proposeId].state!=ProposalState.WAITING)return;uintloanId=proposalList[proposeId].loanId;if(loanList[loanId].state==LoanState.ACCEPTING){proposalList[proposeId].state=ProposalState.REPAID;msg.sender.transfer(proposalList[proposeId].amount);}elseif(loanList[loanId].state==LoanState.LOCKED){if(loanList[loanId].dueDate<now)return;loanList[loanId].state=LoanState.FAILED;for(uinti=0;i<loanList[loanId].proposalCount;i++){uintnumI=loanList[loanId].proposal[i];if(proposalList[numI].state==ProposalState.ACCEPTED){}}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 104
+column: 4
+content: functionlockLoan(uintloanId){if(loanList[loanId].state==LoanState.ACCEPTING){loanList[loanId].state=LoanState.LOCKED;for(uinti=0;i<loanList[loanId].proposalCount;i++){uintnumI=loanList[loanId].proposal[i];if(proposalList[numI].state==ProposalState.ACCEPTED){msg.sender.transfer(proposalList[numI].amount);}else{proposalList[numI].state=ProposalState.REPAID;proposalList[numI].lender.transfer(proposalList[numI].amount);}}}elsereturn;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 129
+column: 4
+content: functiongetRepayValue(uintloanId)viewreturns(uint){if(loanList[loanId].state==LoanState.LOCKED){uinttime=loanList[loanId].startDate;uintfinalamount=0;for(uinti=0;i<loanList[loanId].proposalCount;i++){uintnumI=loanList[loanId].proposal[i];if(proposalList[numI].state==ProposalState.ACCEPTED){uintoriginal=proposalList[numI].amount;uintrate=proposalList[numI].rate;uintnow=block.timestamp;uintinterest=(original*rate*(now-time))/(365*24*60*60*100);finalamount+=interest;finalamount+=original;}}returnfinalamount;}elsereturn(2**64-1);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 153
+column: 4
+content: functionrepayLoan(uintloanId)payable{uintnow=block.timestamp;uinttoBePaid=getRepayValue(loanId);uinttime=loanList[loanId].startDate;uintpaid=msg.value;if(paid>=toBePaid){uintremain=paid-toBePaid;loanList[loanId].state=LoanState.SUCCESSFUL;for(uinti=0;i<loanList[loanId].proposalCount;i++){uintnumI=loanList[loanId].proposal[i];if(proposalList[numI].state==ProposalState.ACCEPTED){uintoriginal=proposalList[numI].amount;uintrate=proposalList[numI].rate;uintinterest=(original*rate*(now-time))/(365*24*60*60*100);uintfinalamount=interest+original;proposalList[numI].lender.transfer(finalamount);proposalList[numI].state=ProposalState.REPAID;}}msg.sender.transfer(remain);}else{msg.sender.transfer(paid);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 183
+column: 4
+content: functionacceptProposal(uintproposeId){uintloanId=getActiveLoanId(msg.sender);if(loanId==(2**64-1))return;ProposalpObj=proposalList[proposeId];if(pObj.state!=ProposalState.WAITING)return;LoanlObj=loanList[loanId];if(lObj.state!=LoanState.ACCEPTING)return;if(lObj.collected+pObj.amount<=lObj.amount){loanList[loanId].collected+=pObj.amount;proposalList[proposeId].state=ProposalState.ACCEPTED;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 200
+column: 4
+content: functiontotalProposalsBy(addresslender)viewreturns(uint){returnlendMap[lender].length;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 204
+column: 4
+content: functiongetProposalAtPosFor(addresslender,uintpos)viewreturns(address,uint,ProposalState,uint,uint,uint,uint,bytes32){Proposalprop=proposalList[lendMap[lender][pos]];return(prop.lender,prop.loanId,prop.state,prop.rate,prop.amount,loanList[prop.loanId].amount,loanList[prop.loanId].dueDate,loanList[prop.loanId].mortgage);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 211
+column: 4
+content: functiontotalLoansBy(addressborrower)viewreturns(uint){returnloanMap[borrower].length;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 215
+column: 4
+content: functiongetLoanDetailsByAddressPosition(addressborrower,uintpos)viewreturns(LoanState,uint,uint,uint,uint,bytes32){Loanobj=loanList[loanMap[borrower][pos]];return(obj.state,obj.dueDate,obj.amount,obj.collected,loanMap[borrower][pos],obj.mortgage);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 220
+column: 4
+content: functiongetLastLoanState(addressborrower)viewreturns(LoanState){uintloanLength=loanMap[borrower].length;if(loanLength==0)returnLoanState.SUCCESSFUL;returnloanList[loanMap[borrower][loanLength-1]].state;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 227
+column: 4
+content: functiongetLastLoanDetails(addressborrower)viewreturns(LoanState,uint,uint,uint,uint){uintloanLength=loanMap[borrower].length;Loanobj=loanList[loanMap[borrower][loanLength-1]];return(obj.state,obj.dueDate,obj.amount,obj.proposalCount,obj.collected);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 233
+column: 4
+content: functiongetProposalDetailsByLoanIdPosition(uintloanId,uintnumI)viewreturns(ProposalState,uint,uint,uint,address){Proposalobj=proposalList[loanList[loanId].proposal[numI]];return(obj.state,obj.rate,obj.amount,loanList[loanId].proposal[numI],obj.lender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 238
+column: 4
+content: functionnumTotalLoans()viewreturns(uint){returnloanList.length;}
+
+SOLIDITY_VISIBILITY :18
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :4
+SOLIDITY_UPGRADE_TO_050 :7
+SOLIDITY_TRANSFER_IN_LOOP :2

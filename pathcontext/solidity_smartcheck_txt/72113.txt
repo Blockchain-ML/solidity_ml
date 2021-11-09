@@ -1,0 +1,111 @@
+F:\Blockchain\dataset_new_byID\72113.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 32
+column: 56
+content: 0xb0671381
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 20
+column: 0
+content: contractMixinSignatureValidatorisLibEIP712ExchangeDomain,LibEIP1271,ISignatureValidator,MixinTransactions{usingLibBytesforbytes;usingLibOrderforLibOrder.Order;usingLibZeroExTransactionforLibZeroExTransaction.ZeroExTransaction;bytes4privateconstantLEGACY_WALLET_MAGIC_VALUE=0xb0671381;mapping(bytes32=>mapping(address=>bool))publicpreSigned;mapping(address=>mapping(address=>bool))publicallowedValidators;functionpreSign(bytes32hash)externalpayablerefundFinalBalanceNoReentry{addresssignerAddress=_getCurrentContextAddress();preSigned[hash][signerAddress]=true;}functionsetSignatureValidatorApproval(addressvalidatorAddress,boolapproval)externalpayablerefundFinalBalanceNoReentry{addresssignerAddress=_getCurrentContextAddress();allowedValidators[signerAddress][validatorAddress]=approval;emitSignatureValidatorApproval(signerAddress,validatorAddress,approval);}functionisValidHashSignature(bytes32hash,addresssignerAddress,bytesmemorysignature)publicviewreturns(boolisValid){SignatureTypesignatureType=_readValidSignatureType(hash,signerAddress,signature);if(signatureType==SignatureType.Validator||signatureType==SignatureType.EIP1271Wallet){revert();}isValid=_validateHashSignatureTypes(signatureType,hash,signerAddress,signature);returnisValid;}functionisValidOrderSignature(LibOrder.Ordermemoryorder,bytesmemorysignature)publicviewreturns(boolisValid){bytes32orderHash=order.getTypedDataHash(EIP712_EXCHANGE_DOMAIN_HASH);isValid=_isValidOrderWithHashSignature(order,orderHash,signature);returnisValid;}functionisValidTransactionSignature(LibZeroExTransaction.ZeroExTransactionmemorytransaction,bytesmemorysignature)publicviewreturns(boolisValid){bytes32transactionHash=transaction.getTypedDataHash(EIP712_EXCHANGE_DOMAIN_HASH);isValid=_isValidTransactionWithHashSignature(transaction,transactionHash,signature);returnisValid;}function_isValidOrderWithHashSignature(LibOrder.Ordermemoryorder,bytes32orderHash,bytesmemorysignature)internalviewreturns(boolisValid){addresssignerAddress=order.makerAddress;SignatureTypesignatureType=_readValidSignatureType(orderHash,signerAddress,signature);if(signatureType==SignatureType.Validator){isValid=_validateBytesWithValidator(_encodeEIP1271OrderWithHash(order,orderHash),orderHash,signerAddress,signature);}elseif(signatureType==SignatureType.EIP1271Wallet){isValid=_validateBytesWithWallet(_encodeEIP1271OrderWithHash(order,orderHash),signerAddress,signature);}else{isValid=_validateHashSignatureTypes(signatureType,orderHash,signerAddress,signature);}returnisValid;}function_isValidTransactionWithHashSignature(LibZeroExTransaction.ZeroExTransactionmemorytransaction,bytes32transactionHash,bytesmemorysignature)internalviewreturns(boolisValid){addresssignerAddress=transaction.signerAddress;SignatureTypesignatureType=_readValidSignatureType(transactionHash,signerAddress,signature);if(signatureType==SignatureType.Validator){isValid=_validateBytesWithValidator(_encodeEIP1271TransactionWithHash(transaction,transactionHash),transactionHash,signerAddress,signature);}elseif(signatureType==SignatureType.EIP1271Wallet){isValid=_validateBytesWithWallet(_encodeEIP1271TransactionWithHash(transaction,transactionHash),signerAddress,signature);}else{isValid=_validateHashSignatureTypes(signatureType,transactionHash,signerAddress,signature);}returnisValid;}function_validateHashSignatureTypes(SignatureTypesignatureType,bytes32hash,addresssignerAddress,bytesmemorysignature)privateviewreturns(boolisValid){if(signatureType==SignatureType.Invalid){if(signature.length!=1){revert();}isValid=false;}elseif(signatureType==SignatureType.EIP712){if(signature.length!=66){revert();}uint8v=uint8(signature[0]);bytes32r=signature.readBytes32(1);bytes32s=signature.readBytes32(33);addressrecovered=ecrecover(hash,v,r,s);isValid=signerAddress==recovered;}elseif(signatureType==SignatureType.EthSign){if(signature.length!=66){revert();}uint8v=uint8(signature[0]);bytes32r=signature.readBytes32(1);bytes32s=signature.readBytes32(33);addressrecovered=ecrecover(keccak256(abi.encodePacked("\x19Ethereum Signed Message:\n32",hash)),v,r,s);isValid=signerAddress==recovered;}elseif(signatureType==SignatureType.Wallet){isValid=_validateHashWithWallet(hash,signerAddress,signature);}else{assert(signatureType==SignatureType.PreSigned);isValid=preSigned[hash][signerAddress];}returnisValid;}function_readSignatureType(bytes32hash,addresssignerAddress,bytesmemorysignature)privatepurereturns(SignatureType){if(signature.length==0){revert();}returnSignatureType(uint8(signature[signature.length-1]));}function_readValidSignatureType(bytes32hash,addresssignerAddress,bytesmemorysignature)privatepurereturns(SignatureTypesignatureType){signatureType=_readSignatureType(hash,signerAddress,signature);if(signerAddress==address(0)){revert();}if(uint8(signatureType)>=uint8(SignatureType.NSignatureTypes)){revert();}if(signatureType==SignatureType.Illegal){revert();}returnsignatureType;}function_encodeEIP1271OrderWithHash(LibOrder.Ordermemoryorder,bytes32orderHash)privatepurereturns(bytesmemoryencoded){returnabi.encodeWithSelector(IEIP1271Data(address(0)).OrderWithHash.selector,order,orderHash);}function_encodeEIP1271TransactionWithHash(LibZeroExTransaction.ZeroExTransactionmemorytransaction,bytes32transactionHash)privatepurereturns(bytesmemoryencoded){returnabi.encodeWithSelector(IEIP1271Data(address(0)).ZeroExTransactionWithHash.selector,transaction,transactionHash);}function_validateHashWithWallet(bytes32hash,addresswalletAddress,bytesmemorysignature)privateviewreturns(bool){uint256signatureLength=signature.length;signature.writeLength(signatureLength-1);bytesmemorycallData=abi.encodeWithSelector(IWallet(address(0)).isValidSignature.selector,hash,signature);signature.writeLength(signatureLength);(booldidSucceed,bytesmemoryreturnData)=walletAddress.staticcall(callData);if(didSucceed&&returnData.length==32){returnreturnData.readBytes4(0)==LEGACY_WALLET_MAGIC_VALUE;}revert();}function_validateBytesWithWallet(bytesmemorydata,addresswalletAddress,bytesmemorysignature)privateviewreturns(boolisValid){isValid=_staticCallEIP1271WalletWithReducedSignatureLength(walletAddress,data,signature,1);returnisValid;}function_validateBytesWithValidator(bytesmemorydata,bytes32hash,addresssignerAddress,bytesmemorysignature)privateviewreturns(boolisValid){uint256signatureLength=signature.length;if(signatureLength<21){revert();}addressvalidatorAddress=signature.readAddress(signatureLength-21);if(!allowedValidators[signerAddress][validatorAddress]){revert();}isValid=_staticCallEIP1271WalletWithReducedSignatureLength(validatorAddress,data,signature,21);returnisValid;}function_staticCallEIP1271WalletWithReducedSignatureLength(addressverifyingContractAddress,bytesmemorydata,bytesmemorysignature,uint256ignoredSignatureBytesLen)privateviewreturns(bool){uint256signatureLength=signature.length;signature.writeLength(signatureLength-ignoredSignatureBytesLen);bytesmemorycallData=abi.encodeWithSelector(IEIP1271Wallet(address(0)).isValidSignature.selector,data,signature);signature.writeLength(signatureLength);(booldidSucceed,bytesmemoryreturnData)=verifyingContractAddress.staticcall(callData);if(didSucceed&&returnData.length==32){returnreturnData.readBytes4(0)==EIP1271_MAGIC_VALUE;}revert();}}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 32
+column: 11
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 100
+column: 8
+content: if(signatureType==SignatureType.Validator||signatureType==SignatureType.EIP1271Wallet){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 270
+column: 12
+content: if(signature.length!=1){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 277
+column: 12
+content: if(signature.length!=66){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 293
+column: 12
+content: if(signature.length!=66){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 337
+column: 8
+content: if(signature.length==0){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 361
+column: 8
+content: if(signerAddress==address(0)){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 366
+column: 8
+content: if(uint8(signatureType)>=uint8(SignatureType.NSignatureTypes)){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 375
+column: 8
+content: if(signatureType==SignatureType.Illegal){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 495
+column: 8
+content: if(signatureLength<21){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 502
+column: 8
+content: if(!allowedValidators[signerAddress][validatorAddress]){revert();}
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 444
+column: 67
+content: staticcall(callData)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 543
+column: 78
+content: staticcall(callData)
+
+SOLIDITY_REVERT_REQUIRE :10
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UNCHECKED_CALL :2

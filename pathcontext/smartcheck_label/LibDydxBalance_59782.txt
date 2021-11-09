@@ -1,0 +1,69 @@
+C:\Users\hp\DataSet\LibDydxBalance.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 120
+column: 8
+content: for(;depositCount<info.actions.length;++depositCount){IDydxBridge.BridgeActionmemoryaction=info.actions[depositCount];if(action.actionType!=IDydxBridge.BridgeActionType.Deposit){break;}uint256marketId=action.marketId;for(uint256j=0;j<depositCount;++j){if(info.actions[j].marketId==marketId){returnfalse;}}if(action.accountIdx>=info.accounts.length){returnfalse;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 176
+column: 8
+content: for(uint256i=0;i<info.actions.length;++i){IDydxBridge.BridgeActionmemoryaction=info.actions[i];if(action.actionType!=IDydxBridge.BridgeActionType.Deposit){continue;}int256depositRate=_getActionRate(action);addressdepositToken=info.dydx.getMarketTokenAddress(action.marketId);if(info.takerTokenAddress!=address(0)&&depositToken==info.takerTokenAddress){depositRate=D18.sub(depositRate,info.orderMakerToTakerRate);}if(depositRate>0){uint256supply=_getTransferabeTokenAmount(depositToken,info.makerAddress,address(info.dydx));depositableMakerAmount=LibSafeMath.min256(depositableMakerAmount,uint256(D18.div(supply,depositRate)));}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 222
+column: 8
+content: for(uint256accountIdx=0;accountIdx<info.accounts.length;++accountIdx){(uint256supplyValue,uint256borrowValue)=_getAccountMarketValues(info,info.accounts[accountIdx]);if(borrowValue!=0&&D18.div(supplyValue,borrowValue)<minCr){return0;}if(accountIdx!=withdraw.accountIdx){continue;}int256dd=0;for(uint256i=0;i<info.actions.length-1;++i){IDydxBridge.BridgeActionmemorydeposit=info.actions[i];assert(deposit.actionType==IDydxBridge.BridgeActionType.Deposit);if(deposit.accountIdx==accountIdx){dd=D18.add(dd,_getActionRateValue(info,deposit));}}int256db=_getActionRateValue(info,withdraw);if(D18.div(dd,db)>=minCr){continue;}if(D18.mul(minCr,db)==dd){continue;}int256t=D18.div(D18.sub(supplyValue,D18.mul(minCr,borrowValue)),D18.sub(D18.mul(minCr,db),dd));solventMakerAmount=LibSafeMath.min256(solventMakerAmount,_toWei(info.makerTokenAddress,uint256(D18.clip(t))));}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 237
+column: 12
+content: for(uint256i=0;i<info.actions.length-1;++i){IDydxBridge.BridgeActionmemorydeposit=info.actions[i];assert(deposit.actionType==IDydxBridge.BridgeActionType.Deposit);if(deposit.accountIdx==accountIdx){dd=D18.add(dd,_getActionRateValue(info,deposit));}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 176
+column: 8
+content: for(uint256i=0;i<info.actions.length;++i){IDydxBridge.BridgeActionmemoryaction=info.actions[i];if(action.actionType!=IDydxBridge.BridgeActionType.Deposit){continue;}int256depositRate=_getActionRate(action);addressdepositToken=info.dydx.getMarketTokenAddress(action.marketId);if(info.takerTokenAddress!=address(0)&&depositToken==info.takerTokenAddress){depositRate=D18.sub(depositRate,info.orderMakerToTakerRate);}if(depositRate>0){uint256supply=_getTransferabeTokenAmount(depositToken,info.makerAddress,address(info.dydx));depositableMakerAmount=LibSafeMath.min256(depositableMakerAmount,uint256(D18.div(supply,depositRate)));}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 222
+column: 8
+content: for(uint256accountIdx=0;accountIdx<info.accounts.length;++accountIdx){(uint256supplyValue,uint256borrowValue)=_getAccountMarketValues(info,info.accounts[accountIdx]);if(borrowValue!=0&&D18.div(supplyValue,borrowValue)<minCr){return0;}if(accountIdx!=withdraw.accountIdx){continue;}int256dd=0;for(uint256i=0;i<info.actions.length-1;++i){IDydxBridge.BridgeActionmemorydeposit=info.actions[i];assert(deposit.actionType==IDydxBridge.BridgeActionType.Deposit);if(deposit.accountIdx==accountIdx){dd=D18.add(dd,_getActionRateValue(info,deposit));}}int256db=_getActionRateValue(info,withdraw);if(D18.div(dd,db)>=minCr){continue;}if(D18.mul(minCr,db)==dd){continue;}int256t=D18.div(D18.sub(supplyValue,D18.mul(minCr,borrowValue)),D18.sub(D18.mul(minCr,db),dd));solventMakerAmount=LibSafeMath.min256(solventMakerAmount,_toWei(info.makerTokenAddress,uint256(D18.clip(t))));}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 19
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 41
+column: 11
+content: private
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 405
+column: 16
+content: (uint256supplyValue,uint256borrowValue)
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_SHOULD_RETURN_STRUCT :1

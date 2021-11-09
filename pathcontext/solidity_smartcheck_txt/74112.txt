@@ -1,0 +1,217 @@
+F:\Blockchain\dataset_new_byID\74112.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 53
+column: 31
+content: 0x000000000D38df53b45C5733c7b34000dE0BDF52
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 59
+column: 4
+content: 0x00000000004cDa75701EeA02D1F2F9BDcE54C10D
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 64
+column: 4
+content: 0xF5DCe57282A584D2746FaF1593d3121Fcac444dC
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 68
+column: 4
+content: 0x39AA39c021dfbaE8faC545936693aC917d5E7563
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 72
+column: 4
+content: 0x4Ddc2D193948926D02f9B1fE9e1daa0718270ED5
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 76
+column: 4
+content: 0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 80
+column: 4
+content: 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 84
+column: 4
+content: 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 88
+column: 4
+content: 0x3d9819210A31b4961b30EF54bE2aeD79B9c9Cd3B
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 95
+column: 58
+content: 0x20c13b0b
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 22
+column: 0
+content: contractDharmaSmartWalletImplementationVXisDharmaSmartWalletImplementationV0Interface,DharmaSmartWalletImplementationV1Interface,DharmaSmartWalletImplementationVXInterface{usingAddressforaddress;usingECDSAforbytes32;addressprivate_userSigningKey;uint256private_nonce;bytes4internal_selfCallContext;uint256internalconstant_DHARMA_SMART_WALLET_VERSION=uint256(-1);DharmaKeyRegistryInterfaceinternalconstant_DHARMA_KEY_REGISTRY=(DharmaKeyRegistryInterface(0x000000000D38df53b45C5733c7b34000dE0BDF52));addressinternalconstant_ACCOUNT_RECOVERY_MANAGER=address(0x00000000004cDa75701EeA02D1F2F9BDcE54C10D);CTokenInterfaceinternalconstant_CDAI=CTokenInterface(0xF5DCe57282A584D2746FaF1593d3121Fcac444dC);CTokenInterfaceinternalconstant_CUSDC=CTokenInterface(0x39AA39c021dfbaE8faC545936693aC917d5E7563);CEtherInterfaceinternalconstant_CETH=CEtherInterface(0x4Ddc2D193948926D02f9B1fE9e1daa0718270ED5);IERC20internalconstant_DAI=IERC20(0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359);IERC20internalconstant_USDC=IERC20(0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48);USDCV1Interfaceinternalconstant_USDC_NAUGHTY=USDCV1Interface(0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48);ComptrollerInterfaceinternalconstant_COMPTROLLER=ComptrollerInterface(0x3d9819210A31b4961b30EF54bE2aeD79B9c9Cd3B);uint256internalconstant_COMPOUND_SUCCESS=0;bytes4internalconstant_ERC_1271_MAGIC_VALUE=bytes4(0x20c13b0b);uint256internalconstant_AUTOMATIC_ETH_DEPOSIT_GAS=100000;function()externalpayable{if(msg.sender!=address(_CETH)&&gasleft()>_AUTOMATIC_ETH_DEPOSIT_GAS){_depositEtherOnCompound();}}functioninitialize(addressuserSigningKey)external{assembly{ifextcodesize(address){revert(0,0)}}_setUserSigningKey(userSigningKey);if(_setFullApproval(AssetType.DAI)){uint256daiBalance=_DAI.balanceOf(address(this));_depositOnCompound(AssetType.DAI,daiBalance);}if(_setFullApproval(AssetType.USDC)){uint256usdcBalance=_USDC.balanceOf(address(this));_depositOnCompound(AssetType.USDC,usdcBalance);}_depositOnCompound(AssetType.ETH,address(this).balance);_enterMarkets();}functionrepayAndDeposit()external{uint256daiBalance=_DAI.balanceOf(address(this));if(daiBalance>0){uint256remainingDai=_repayOnCompound(AssetType.DAI,daiBalance);_depositOnCompound(AssetType.DAI,remainingDai);}uint256usdcBalance=_USDC.balanceOf(address(this));if(usdcBalance>0){uint256usdcAllowance=_USDC.allowance(address(this),address(_CUSDC));if(usdcAllowance<usdcBalance){if(_setFullApproval(AssetType.USDC)){uint256remainingUsdc=_repayOnCompound(AssetType.USDC,usdcBalance);_depositOnCompound(AssetType.USDC,remainingUsdc);}}else{uint256remainingUsdc=_repayOnCompound(AssetType.USDC,usdcBalance);_depositOnCompound(AssetType.USDC,remainingUsdc);}}_depositEtherOnCompound();}functionwithdrawDai(uint256amount,addressrecipient,uint256minimumActionGas,bytescalldata<missing ')'>userSignature,bytescalldatadharmaSignature)externalreturns<missing ';'>(boolok){_validateActionAndIncrementNonce(ActionType.DAIWithdrawal,abi.encode(amount,recipient),minimumActionGas,userSignature,dharmaSignature);_selfCallContext=this.withdrawDai.selector;bytesmemoryreturnData;(ok,returnData)=address(this).call(abi.encodeWithSelector(this._withdrawDaiAtomic.selector,amount,recipient));if(!ok){_diagnoseAndEmitErrorRelatedToWithdrawal(AssetType.DAI);}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 32
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 37
+column: 10
+content: private
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 211
+column: 37
+content: call(abi.encodeWithSelector(this._withdrawDaiAtomic.selector,amount,recipient))
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 113
+column: 4
+content: assembly{ifextcodesize(address){revert(0,0)}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 186
+column: 2
+content: functionwithdrawDai(uint256amount,addressrecipient,uint256minimumActionGas,bytescalldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 190
+column: 19
+content: userSignature,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 191
+column: 4
+content: bytescalldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 192
+column: 21
+content: (boolok){_validateActionAndIncrementNonce
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 194
+column: 36
+content: (ActionType.DAIWithdrawal,abi.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 196
+column: 10
+content: encode(amount,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 196
+column: 25
+content: recipient),
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 197
+column: 6
+content: minimumActionGas,userSignature,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 199
+column: 6
+content: dharmaSignature);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 203
+column: 4
+content: _selfCallContext=this.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 203
+column: 28
+content: withdrawDai.selector;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 210
+column: 4
+content: bytesmemoryreturnData;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 211
+column: 4
+content: (ok,returnData)=address(this).call(abi.encodeWithSelector(this._withdrawDaiAtomic.selector,amount,recipient));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 216
+column: 7
+content: (!ok){_diagnoseAndEmitErrorRelatedToWithdrawal
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 218
+column: 46
+content: (AssetType.DAI);
+
+SOLIDITY_VISIBILITY :15
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_ADDRESS_HARDCODED :10
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_UNCHECKED_CALL :1

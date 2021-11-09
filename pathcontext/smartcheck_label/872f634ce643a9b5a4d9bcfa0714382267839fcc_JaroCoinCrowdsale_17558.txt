@@ -1,0 +1,335 @@
+C:\Users\hp\DataSet\contracts\mainnet\87\872f634ce643a9b5a4d9bcfa0714382267839fcc_JaroCoinCrowdsale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 95
+column: 51
+content: 0x991a1bcb077599290d7305493c9A630c20f8b798
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 556
+column: 37
+content: 0xefF42c79c0aBea9958432DC82FebC4d65f3d24A3
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 415
+column: 34
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 431
+column: 43
+content: 0x0
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 90
+column: 4
+content: functiongetInterfaceImplementer(addressaddr,bytes32iHash)publicconstantreturns(address);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 102
+column: 4
+content: functioninterfaceAddr(addressaddr,stringifaceLabel)internalconstantreturns(address){bytes32ifaceHash=keccak256(ifaceLabel);returnerc820Registry.getInterfaceImplementer(addr,ifaceHash);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 228
+column: 4
+content: functionisRegularAddress(address_addr)internalconstantreturns(bool){if(_addr==0){returnfalse;}uintsize;assembly{size:=extcodesize(_addr)}returnsize==0;}
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 220
+column: 16
+content: _amount.div(granularity).mul(granularity)
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 644
+column: 39
+content: excess.mul(100).div(100+_bonus).mul(conversionRate)
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 692
+column: 31
+content: MAX_AMOUNT.div(100).mul(40)
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 693
+column: 32
+content: MAX_AMOUNT.div(100).mul(25)
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 694
+column: 34
+content: MAX_AMOUNT.div(100).mul(15)
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 383
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){require(_spender!=msg.sender);if(_value>0){isOperatorFor[_spender][msg.sender]=true;emitAuthorizedOperator(_spender,msg.sender);}else{isOperatorFor[_spender][msg.sender]=false;emitRevokedOperator(_spender,msg.sender);}emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 441
+column: 0
+content: contractJaroSleepisERC820Implementer,ERC777TokensRecipient{usingSafeMathforuint256;uint256publiclastBurn;uint256publicdailyTime;JaroCoinTokenpublictoken;eventReceivedTokens(addressoperator,addressfrom,addressto,uintamount,bytesuserData,bytesoperatorData);constructor(address_token,uint256_dailyTime)public{setInterfaceImplementation("ERC777TokensRecipient",this);token=JaroCoinToken(_token);lastBurn=getNow();dailyTime=_dailyTime;}function()externalpayable{revert();}functionburnTokens()publicreturns(uint256){uint256sec=getNow().sub(lastBurn);uint256tokensToBurn=0;if(sec>=1days){uint256d=sec.div(86400);tokensToBurn=d.mul(dailyTime);token.burn(tokensToBurn,"");lastBurn=lastBurn.add(d.mul(86400));}returntokensToBurn;}functiongetNow()internalviewreturns(uint256){returnnow;}functiontokensReceived(addressoperator,addressfrom,addressto,uintamount,bytesuserData,bytesoperatorData)external{emitReceivedTokens(operator,from,to,amount,userData,operatorData);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 716
+column: 4
+content: functionsetExchangeRateOracle(address_exchangeRateOracle)publiconlyOwner{require(_exchangeRateOracle!=address(0));exchangeRateOracle=_exchangeRateOracle;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 721
+column: 4
+content: functionsetExchangeRate(uint256_exchangeRate)public{require(msg.sender==exchangeRateOracle||msg.sender==owner);require(_exchangeRate>0);uint256one=1e18;conversionRate=one.div(_exchangeRate);}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 131
+column: 51
+content: private
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 458
+column: 33
+content: {revert();}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 507
+column: 33
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 122
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 442
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 489
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 554
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 318
+column: 8
+content: callSender(_operator,_from,_to,_amount,_userData,_operatorData)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 326
+column: 8
+content: callRecipient(_operator,_from,_to,_amount,_userData,_operatorData,_preventLocking)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 415
+column: 8
+content: callRecipient(msg.sender,0x0,_to,_amount,"",_operatorData,true)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 431
+column: 8
+content: callSender(msg.sender,msg.sender,0x0,_amount,_userData,"")
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 169
+column: 23
+content: keccak256(prefix,keccak256(_to,_amount,_userData,_nonce))
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 169
+column: 41
+content: keccak256(_to,_amount,_userData,_nonce)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 622
+column: 23
+content: keccak256(prefix,keccak256(_timeStamp,_bonus))
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 622
+column: 41
+content: keccak256(_timeStamp,_bonus)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 97
+column: 40
+content: stringifaceLabel
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 102
+column: 41
+content: stringifaceLabel
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 153
+column: 48
+content: bytes_userData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 164
+column: 56
+content: bytes_userData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 209
+column: 71
+content: bytes_userData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 209
+column: 88
+content: bytes_operatorData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 252
+column: 8
+content: bytes_userData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 253
+column: 8
+content: bytes_operatorData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 280
+column: 8
+content: bytes_userData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 281
+column: 8
+content: bytes_operatorData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 309
+column: 8
+content: bytes_userData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 311
+column: 8
+content: bytes_operatorData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 408
+column: 48
+content: bytes_operatorData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 426
+column: 35
+content: bytes_userData
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 95
+column: 4
+content: ERC820Registryerc820Registry=ERC820Registry(0x991a1bcb077599290d7305493c9A630c20f8b798);
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :4
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_ADDRESS_HARDCODED :4
+SOLIDITY_UPGRADE_TO_050 :18
+SOLIDITY_UNCHECKED_CALL :4
+SOLIDITY_DIV_MUL :5
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :2
+SOLIDITY_ERC20_APPROVE :1

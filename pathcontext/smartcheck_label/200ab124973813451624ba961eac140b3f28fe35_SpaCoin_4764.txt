@@ -1,0 +1,124 @@
+C:\Users\hp\DataSet\contracts\mainnet\20\200ab124973813451624ba961eac140b3f28fe35_SpaCoin.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 18
+column: 4
+content: functiongetOwner()constantreturns(address){returnowner;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 56
+column: 4
+content: functionmyBalance()constantreturns(int64){returnholdings[msg.sender];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 60
+column: 4
+content: functionholderBalance(addressholder)constantreturns(int64){if(msg.sender!=owner)return;returnholdings[holder];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 65
+column: 4
+content: functionoutstandingValue()constantreturns(int64){if(msg.sender!=owner)return;returnoutstanding_coins;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractSpaCoin{int64constantTOTAL_UNITS=100000;int64outstanding_coins;addressowner;mapping(address=>int64)holdings;functionSpaCoin()payable{outstanding_coins=TOTAL_UNITS;owner=msg.sender;}eventCoinAllocation(addressholder,int64number,int64remaining);eventCoinMovement(addressfrom,addressto,int64v);eventInvalidCoinUsage(stringreason);functiongetOwner()constantreturns(address){returnowner;}functionallocate(addressnewHolder,int64value)payable{if(msg.sender!=owner){InvalidCoinUsage(&39;Onlyowner<missing ';'>canallocate<missing ';'>coins&39;);return;}if(value<0){InvalidCoinUsage(&39;Cannotallocate<missing ';'>negativevalue&39;);return;}if(value<=outstanding_coins){holdings[newHolder]+=value;outstanding_coins-=value;CoinAllocation(newHolder,value,outstanding_coins);}else{InvalidCoinUsage(&39;valueto<missing ';'>allocatelarger<missing ';'>thanoutstanding<missing ';'>coins&39;);}}functionmove(addressdestination,int64value){addresssource=msg.sender;if(value<=0){InvalidCoinUsage(&39;Mustmove<missing ';'>valuegreater<missing ';'>thanzero&39;);return;}if(holdings[source]>=value){holdings[destination]+=value;holdings[source]-=value;CoinMovement(source,destination,value);}else{InvalidCoinUsage(&39;valueto<missing ';'>movelarger<missing ';'>thanholdings&39;);}}functionmyBalance()constantreturns(int64){returnholdings[msg.sender];}functionholderBalance(addressholder)constantreturns(int64){if(msg.sender!=owner)return;returnholdings[holder];}functionoutstandingValue()constantreturns(int64){if(msg.sender!=owner)return;returnoutstanding_coins;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 9
+column: 4
+content: functionSpaCoin()payable{outstanding_coins=TOTAL_UNITS;owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 18
+column: 4
+content: functiongetOwner()constantreturns(address){returnowner;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 22
+column: 4
+content: functionallocate(addressnewHolder,int64value)payable{if(msg.sender!=owner){InvalidCoinUsage(&39;Onlyowner<missing ';'>canallocate<missing ';'>coins&39;);return;}if(value<0){InvalidCoinUsage(&39;Cannotallocate<missing ';'>negativevalue&39;);return;}if(value<=outstanding_coins){holdings[newHolder]+=value;outstanding_coins-=value;CoinAllocation(newHolder,value,outstanding_coins);}else{InvalidCoinUsage(&39;valueto<missing ';'>allocatelarger<missing ';'>thanoutstanding<missing ';'>coins&39;);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 41
+column: 4
+content: functionmove(addressdestination,int64value){addresssource=msg.sender;if(value<=0){InvalidCoinUsage(&39;Mustmove<missing ';'>valuegreater<missing ';'>thanzero&39;);return;}if(holdings[source]>=value){holdings[destination]+=value;holdings[source]-=value;CoinMovement(source,destination,value);}else{InvalidCoinUsage(&39;valueto<missing ';'>movelarger<missing ';'>thanholdings&39;);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 56
+column: 4
+content: functionmyBalance()constantreturns(int64){returnholdings[msg.sender];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 60
+column: 4
+content: functionholderBalance(addressholder)constantreturns(int64){if(msg.sender!=owner)return;returnholdings[holder];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 4
+content: functionoutstandingValue()constantreturns(int64){if(msg.sender!=owner)return;returnoutstanding_coins;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 4
+column: 4
+content: int64constantTOTAL_UNITS=100000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 5
+column: 4
+content: int64outstanding_coins;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 4
+content: addressowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 7
+column: 4
+content: mapping(address=>int64)holdings;
+
+SOLIDITY_VISIBILITY :11
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

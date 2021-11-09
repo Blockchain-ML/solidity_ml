@@ -1,0 +1,194 @@
+C:\Users\hp\DataSet\contracts\ropsten\98\9889ecea4eda1a3d1ff7b1d31aa36d6c0f1fdb0b_Wallet.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 13
+column: 0
+content: contractAccountisTools{addressowner;constructor()public{owner=msg.sender;}modifieronlyOwner(){require(msg.sender==owner);_;}functionchangeOwner(addressnewOwner)publiconlyOwner{require(newOwner!=address(0)&&address(this)!=newOwner);owner=newOwner;}functionbalanceOf(addresstoken)internalviewreturns(uint256){if(address(0)==token)returnaddress(this).balance;elsereturnERC20(token).balanceOf(address(this));}function()externalpayable{}functionreceive()publicpayable{require(msg.value>0);}functiontransfer(addresstoken,address<missing ')'>payableto,uint256amount)publiconlyOwner{require(to!=<missing ';'>address(0)&&address(this)!=to);require(amount>0&&amount<=balanceOf(token));if(address<missing ';'>(0)==token){if(isContract<missing ';'>(to)){(bool<missing ')'>success,)=to.call.gas(250000).value(amount)("");if(!success)revert();}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 7
+column: 4
+content: functionisContract(addressaddr)internalviewreturns(bool){uint256size;assembly{size:=extcodesize(addr)}returnsize>0;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 4
+content: functiontransfer(addresstoken,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 14
+column: 4
+content: addressowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 34
+column: 53
+content: to,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 34
+column: 57
+content: uint256amount)public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 34
+column: 80
+content: onlyOwner{require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 15
+content: (to!=<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 22
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 29
+content: (0)&&
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 36
+content: address(this)!=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 53
+content: to);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 36
+column: 8
+content: require(amount>0&&
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 36
+column: 30
+content: amount<=balanceOf
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 36
+column: 49
+content: (token));if
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 11
+content: (address<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 19
+content: (0)==token){if
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 15
+content: (isContract<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 26
+content: (to)){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 39
+column: 16
+content: (bool<missing ')'>success,)=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 39
+column: 34
+content: to.call.gas
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 39
+column: 45
+content: (250000).value
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 39
+column: 59
+content: (amount)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 39
+column: 67
+content: ("");if
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 40
+column: 19
+content: (!success)revert
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 40
+column: 36
+content: ();
+
+SOLIDITY_VISIBILITY :24
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

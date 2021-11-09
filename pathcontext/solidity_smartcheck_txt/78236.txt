@@ -1,0 +1,158 @@
+F:\Blockchain\dataset_new_byID\78236.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 65
+column: 25
+content: 0x12
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 71
+column: 23
+content: 0x12
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 90
+column: 19
+content: 0x0
+
+ruleId: SOLIDITY_BYTE_ARRAY_INSTEAD_BYTES
+patternId: f13a9f
+severity: 1
+line: 69
+column: 50
+content: byte[]
+
+ruleId: SOLIDITY_BYTE_ARRAY_INSTEAD_BYTES
+patternId: f13a9f
+severity: 1
+line: 70
+column: 8
+content: byte[]
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 42
+column: 4
+content: functiondoAssemblyDelegateCall(addressdelegateToAddress,stringbytes32FunctionToCall)publicviewreturns(bytes32){uint256callSuccessValue;bytes4functionSigBytes=getFunctionSigBytes(bytes32FunctionToCall);assembly{letfreeMemLocation:=mload(0x40)mstore(freeMemLocation,functionSigBytes)callSuccessValue:=delegatecall(sub(gas,500),delegateToAddress,freeMemLocation,4,freeMemLocation,32)return(freeMemLocation,32)}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 15
+column: 4
+content: functiongetFunctionSig()publicpurereturns(bytes4){bytes4func;assembly{func:=calldataload(0)}returnfunc;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 22
+column: 4
+content: functiongetMemory()publicpurereturns(bytes32){bytes32memoryData;assembly{memoryData:=mload(0x40)}returnmemoryData;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 76
+column: 4
+content: functionstringToBytes32(stringmemorysource)purereturns(bytes32result){bytesmemorytempEmptyStringTest=bytes(source);if(tempEmptyStringTest.length==0){return0x0;}assembly{result:=mload(add(source,32))}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 42
+column: 4
+content: functiondoAssemblyDelegateCall(addressdelegateToAddress,stringbytes32FunctionToCall)publicviewreturns(bytes32){uint256callSuccessValue;bytes4functionSigBytes=getFunctionSigBytes(bytes32FunctionToCall);assembly{letfreeMemLocation:=mload(0x40)mstore(freeMemLocation,functionSigBytes)callSuccessValue:=delegatecall(sub(gas,500),delegateToAddress,freeMemLocation,4,freeMemLocation,32)return(freeMemLocation,32)}}
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 39
+column: 26
+content: delegatecall(functionSigBytes)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 37
+column: 63
+content: stringfunctionToCall
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 42
+column: 63
+content: stringbytes32FunctionToCall
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 59
+column: 33
+content: stringfunctionSig
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 69
+column: 50
+content: byte[]
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 18
+column: 8
+content: assembly{func:=calldataload(0)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 24
+column: 8
+content: assembly{memoryData:=mload(0x40)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 50
+column: 8
+content: assembly{letfreeMemLocation:=mload(0x40)mstore(freeMemLocation,functionSigBytes)callSuccessValue:=delegatecall(sub(gas,500),delegateToAddress,freeMemLocation,4,freeMemLocation,32)return(freeMemLocation,32)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 96
+column: 8
+content: assembly{result:=mload(add(source,32))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 76
+column: 4
+content: functionstringToBytes32(stringmemorysource)purereturns(bytes32result){bytesmemorytempEmptyStringTest=bytes(source);if(tempEmptyStringTest.length==0){return0x0;}assembly{result:=mload(add(source,32))}}
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_BYTE_ARRAY_INSTEAD_BYTES :2
+SOLIDITY_USING_INLINE_ASSEMBLY :4
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1
+SOLIDITY_SHOULD_NOT_BE_PURE :3

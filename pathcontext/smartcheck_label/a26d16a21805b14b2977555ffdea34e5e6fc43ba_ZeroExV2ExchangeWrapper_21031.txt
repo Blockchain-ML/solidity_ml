@@ -1,0 +1,126 @@
+C:\Users\hp\DataSet\contracts\mainnet\a2\a26d16a21805b14b2977555ffdea34e5e6fc43ba_ZeroExV2ExchangeWrapper.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 869
+column: 8
+content: for(uint256i=0;i<trustedMsgSenders.length;i++){TRUSTED_MSG_SENDER[trustedMsgSenders[i]]=true;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 869
+column: 8
+content: for(uint256i=0;i<trustedMsgSenders.length;i++){TRUSTED_MSG_SENDER[trustedMsgSenders[i]]=true;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 533
+column: 15
+content: first<last
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 426
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 838
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 698
+column: 4
+content: functioncheckSuccess()privatepurereturns(bool){uint256returnValue=0;assembly{switchreturndatasizecase0x0{returnValue:=1}case0x20{returndatacopy(0x0,0x0,0x20)returnValue:=mload(0x0)}default{}}returnreturnValue!=0;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 1017
+column: 4
+content: functionparseSignature(bytesorderData)privatepurereturns(bytesmemory){bytesmemorysignature=newbytes(66);assembly{mstore(add(signature,32),mload(add(orderData,352)))mstore(add(signature,64),mload(add(orderData,384)))mstore(add(signature,66),mload(add(orderData,386)))}returnsignature;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 1036
+column: 4
+content: functionparseOrder(bytesorderData,addressmakerToken,addresstakerToken)privatepurereturns(Ordermemory){Ordermemoryorder;assembly{mstore(order,mload(add(orderData,32)))mstore(add(order,32),mload(add(orderData,64)))mstore(add(order,64),mload(add(orderData,96)))mstore(add(order,96),mload(add(orderData,128)))mstore(add(order,128),mload(add(orderData,160)))mstore(add(order,160),mload(add(orderData,192)))mstore(add(order,192),mload(add(orderData,224)))mstore(add(order,224),mload(add(orderData,256)))mstore(add(order,256),mload(add(orderData,288)))mstore(add(order,288),mload(add(orderData,320)))}order.makerAssetData=tokenAddressToAssetData(makerToken);order.takerAssetData=tokenAddressToAssetData(takerToken);returnorder;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 1067
+column: 4
+content: functiontokenAddressToAssetData(addresstokenAddress)privatepurereturns(bytes){bytesmemoryresult=newbytes(36);bytes32selector=0xf47261b000000000000000000000000000000000000000000000000000000000;assembly{mstore(add(result,32),selector)mstore(add(result,36),tokenAddress)}returnresult;}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 861
+column: 8
+content: address[]trustedMsgSenders
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1018
+column: 8
+content: bytesorderData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1037
+column: 8
+content: bytesorderData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1072
+column: 17
+content: bytes
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 707
+column: 8
+content: assembly{switchreturndatasizecase0x0{returnValue:=1}case0x20{returndatacopy(0x0,0x0,0x20)returnValue:=mload(0x0)}default{}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 1027
+column: 8
+content: assembly{mstore(add(signature,32),mload(add(orderData,352)))mstore(add(signature,64),mload(add(orderData,384)))mstore(add(signature,66),mload(add(orderData,386)))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 1048
+column: 8
+content: assembly{mstore(order,mload(add(orderData,32)))mstore(add(order,32),mload(add(orderData,64)))mstore(add(order,64),mload(add(orderData,96)))mstore(add(order,96),mload(add(orderData,128)))mstore(add(order,128),mload(add(orderData,160)))mstore(add(order,160),mload(add(orderData,192)))mstore(add(order,192),mload(add(orderData,224)))mstore(add(order,224),mload(add(orderData,256)))mstore(add(order,256),mload(add(orderData,288)))mstore(add(order,288),mload(add(orderData,320)))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 1080
+column: 8
+content: assembly{mstore(add(result,32),selector)mstore(add(result,36),tokenAddress)}
+
+SOLIDITY_SAFEMATH :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_USING_INLINE_ASSEMBLY :4
+SOLIDITY_SHOULD_NOT_BE_PURE :4

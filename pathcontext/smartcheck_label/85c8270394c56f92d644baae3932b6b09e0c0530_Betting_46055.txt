@@ -1,0 +1,79 @@
+C:\Users\hp\DataSet\contracts\ropsten\85\85c8270394c56f92d644baae3932b6b09e0c0530_Betting.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 85
+column: 6
+content: players.length=0
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 23
+column: 0
+content: functioncheckPlayerExists(addressplayer)publicconstantreturns(bool){for(uint256i=0;i<players.length;i++){if(players[i]==player)returntrue;}returnfalse;}
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 82
+column: 37
+content: bet*(10000+(LoserBet*10000/WinnerBet))
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 24
+column: 6
+content: for(uint256i=0;i<players.length;i++){if(players[i]==player)returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 57
+column: 6
+content: for(uint256i=0;i<players.length;i++){addressplayerAddress=players[i];if(playerInfo[playerAddress].teamSelected==teamWinner){winners[count]=playerAddress;count++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 24
+column: 6
+content: for(uint256i=0;i<players.length;i++){if(players[i]==player)returntrue;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 57
+column: 6
+content: for(uint256i=0;i<players.length;i++){addressplayerAddress=players[i];if(playerInfo[playerAddress].teamSelected==teamWinner){winners[count]=playerAddress;count++;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 76
+column: 6
+content: for(uint256j=0;j<count;j++){if(winners[j]!=address(0))addressadd=winners[j];uint256bet=playerInfo[add].amountBet;winners[j].transfer((bet*(10000+(LoserBet*10000/WinnerBet)))/10000);}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 15
+column: 14
+content: public
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_DIV_MUL :1
+SOLIDITY_TRANSFER_IN_LOOP :1

@@ -1,0 +1,105 @@
+C:\Users\hp\DataSet\contracts\ropsten\41\41a55c33aa9c161b3ee371b27077f8629c27ecf1_AmazingToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 52
+column: 26
+content: 0xf54f8439F5d9845b0f452Fe4F06d667c29921695
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 9
+column: 31
+content: 0x00
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 56
+column: 31
+content: 0x00
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 24
+column: 4
+content: functionbalanceOf(address_owner)constantpublicreturns(uint256){returnbalances[_owner];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 45
+column: 4
+content: functionbalanceOf(address_owner)constantpublicreturns(uint256);
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 2
+column: 0
+content: contractAmazingToken{uint256publictotalSupply;mapping(address=>uint256)balances;modifieronlyValidAddress(address_to){require(_to!=address(0x00));_;}modifieronlyValidValue(address_from,uint256_value){require(_value<=balances[_from]);_;}function()publicpayable{uint256_issued=(msg.value*100)/10**18;totalSupply+=_issued;balances[msg.sender]=_issued;}functionbalanceOf(address_owner)constantpublicreturns(uint256){returnbalances[_owner];}functiontransfer(address_to,uint256_value)onlyValidAddress(_to)onlyValidValue(msg.sender,_value)publicreturns(bool){balances[msg.sender]-=_value;balances[_to]+=_value;returntrue;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 42
+column: 0
+content: contractAmazingTokenInterface{uint256publictotalSupply;function()publicpayable;functionbalanceOf(address_owner)constantpublicreturns(uint256);functiontransfer(address_to,uint256_value)publicreturns(bool);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 41
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 18
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 44
+column: 16
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 4
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 51
+column: 4
+content: AmazingTokenInterfaceAmazingToken;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 4
+content: addressChiroWallet=0xf54f8439F5d9845b0f452Fe4F06d667c29921695;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_UPGRADE_TO_050 :2

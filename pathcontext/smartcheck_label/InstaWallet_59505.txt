@@ -1,0 +1,78 @@
+C:\Users\hp\DataSet\InstaWallet.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 110
+column: 8
+content: pendingOwner=address(0)
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 297
+column: 4
+content: functionexecute(address_target,bytesmemory_data,uintsrcNum,uintsessionNum)publicpayablenoteisExecutable(_target)returns(bytesmemoryresponse){lastActivity=block.timestamp;emitLogExecute(msg.sender,_target,srcNum,sessionNum);assembly{letsucceeded:=delegatecall(sub(gas,5000),_target,add(_data,0x20),mload(_data),0,0)letsize:=returndatasizeresponse:=mload(0x40)mstore(0x40,add(response,and(add(add(size,0x20),0x1f),not(0x1f))))mstore(response,size)returndatacopy(add(response,0x20),0,size)switchiszero(succeeded)case1{revert(add(response,0x20),size)}}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 275
+column: 0
+content: contractInstaWalletisUserManager,UserNote{eventLogExecute(addresssender,addresstarget,uintsrcNum,uintsessionNum);constructor()public{registry=msg.sender;owner=msg.sender;lastActivity=block.timestamp;activePeriod=30days;}function()externalpayable{}functionexecute(address_target,bytesmemory_data,uintsrcNum,uintsessionNum)publicpayablenoteisExecutable(_target)returns(bytesmemoryresponse){lastActivity=block.timestamp;emitLogExecute(msg.sender,_target,srcNum,sessionNum);assembly{letsucceeded:=delegatecall(sub(gas,5000),_target,add(_data,0x20),mload(_data),0,0)letsize:=returndatasizeresponse:=mload(0x40)mstore(0x40,add(response,and(add(add(size,0x20),0x1f),not(0x1f))))mstore(response,size)returndatacopy(add(response,0x20),0,size)switchiszero(succeeded)case1{revert(add(response,0x20),size)}}}modifierisExecutable(addressproxyTarget){require(proxyTarget!=address(0),"logic-proxy-address-required");(boolisLogic,boolisDefault)=isLogicAuthorised(proxyTarget);require(isLogic,"logic-proxy-address-not-allowed");boolenact=false;if(isAuth(msg.sender)){enact=true;}elseif(isManager(msg.sender)&&!isDefault){enact=true;}require(enact,"not-executable");_;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 4
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 63
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 64
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 12
+column: 66
+content: (bool,bool)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 40
+column: 70
+content: (bool,bool)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 263
+column: 8
+content: assembly{foo:=calldataload(4)bar:=calldataload(36)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 308
+column: 8
+content: assembly{letsucceeded:=delegatecall(sub(gas,5000),_target,add(_data,0x20),mload(_data),0,0)letsize:=returndatasizeresponse:=mload(0x40)mstore(0x40,add(response,and(add(add(size,0x20),0x1f),not(0x1f))))mstore(response,size)returndatacopy(add(response,0x20),0,size)switchiszero(succeeded)case1{revert(add(response,0x20),size)}}
+
+SOLIDITY_SAFEMATH :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_USING_INLINE_ASSEMBLY :2
+SOLIDITY_SHOULD_RETURN_STRUCT :2

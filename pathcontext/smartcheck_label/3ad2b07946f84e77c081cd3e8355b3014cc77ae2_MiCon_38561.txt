@@ -1,0 +1,53 @@
+C:\Users\hp\DataSet\contracts\ropsten\3a\3ad2b07946f84e77c081cd3e8355b3014cc77ae2_MiCon.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 2
+column: 0
+content: contractMiCon{stringpublicname="qwe";stringpublicsymbol="hsee";uintpublictotalSupply;uintpublicdecimals=10^18;mapping(address=>uint)balances;addresspublicowner;modifieronlyOwner{require(msg.sender==owner);_;}functionMyCoin(){owner=msg.sender;}functionmint(address_investor,uintamount)onlyOwner{balances[_investor]+=amount*decimals;totalSupply+=amount*decimals;}functionbuy()payable{balances[msg.sender]+=msg.value;totalSupply+=msg.value;}functiontransfer(address_to,uintamount){require(balances[msg.sender]>=amount);balances[_to]+=amount;balances[msg.sender]-=amount;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 17
+column: 4
+content: functionMyCoin(){owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 21
+column: 4
+content: functionmint(address_investor,uintamount)onlyOwner{balances[_investor]+=amount*decimals;totalSupply+=amount*decimals;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 26
+column: 4
+content: functionbuy()payable{balances[msg.sender]+=msg.value;totalSupply+=msg.value;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 31
+column: 4
+content: functiontransfer(address_to,uintamount){require(balances[msg.sender]>=amount);balances[_to]+=amount;balances[msg.sender]-=amount;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 8
+column: 4
+content: mapping(address=>uint)balances;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

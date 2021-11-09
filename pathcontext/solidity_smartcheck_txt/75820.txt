@@ -1,0 +1,47 @@
+F:\Blockchain\dataset_new_byID\75820.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractFoodCart{addressowner;uint8skuCount;enumState{ForSale,Sold}eventForSale(stringname,uint8sku,uint16price,uint8state,boolfoodItemExist);eventSold(stringname,uint8sku,uint16price,uint8state,boolfoodItemExist);structFoodItem{stringname;uint8sku;uint16price;Statestate;boolfoodItemExist;}mapping(uint8=>FoodItem)publicfoodItems;modifierdoesFoodItemExist(uint8_sku){require(foodItems[_sku].foodItemExist);_;}modifierisFoodItemForSale(uint8_sku){require(foodItems[_sku].state==State.ForSale);_;}modifierhasBuyerPaidEnough(uint16_price){require(msg.value>=_price);_;}constructor()public{owner=msg.sender;skuCount=0;}functionaddFoodItem(stringmemory_name,uint16_price)public{foodItems[skuCount]=FoodItem({name:_name,sku:skuCount,price:_price,state:State.ForSale,foodItemExist:true});emitForSale(_name,skuCount,_price,uint8(State.ForSale),true);skuCount=skuCount+1;}functionbuyFoodItem(uint8_sku)payablepublicdoesFoodItemExist(_sku)isFoodItemForSale(_sku)hasBuyerPaidEnough(foodItems[_sku].price){foodItems[_sku].state=State.Sold;foodItems[_sku].foodItemExist=false;emitSold(foodItems[_sku].name,foodItems[_sku].sku,foodItems[_sku].price,uint8(foodItems[_sku].state),foodItems[_sku].foodItemExist);}functionfetchFoodItem(uint8_sku)doesFoodItemExist(_sku)publicviewreturns(stringmemoryname,uint8sku,uint16price,uint8state,boolfoodItemExist){name=foodItems[_sku].name;sku=foodItems[_sku].sku;price=foodItems[_sku].price;state=uint8(foodItems[_sku].state);foodItemExist=foodItems[_sku].foodItemExist;return(name,sku,price,state,foodItemExist);}receive()externalpayable{<missing ';'>}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 85
+column: 9
+content: (stringmemoryname,uint8sku,uint16price,uint8state,boolfoodItemExist)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 5
+column: 1
+content: addressowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 8
+column: 1
+content: uint8skuCount;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 95
+column: 1
+content: receive
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

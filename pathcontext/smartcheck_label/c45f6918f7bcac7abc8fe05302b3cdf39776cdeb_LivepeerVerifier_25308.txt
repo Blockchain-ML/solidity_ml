@@ -1,0 +1,54 @@
+C:\Users\hp\DataSet\contracts\mainnet\c4\c45f6918f7bcac7abc8fe05302b3cdf39776cdeb_LivepeerVerifier.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 208
+column: 8
+content: for(uint256i=0;i<_solvers.length;i++){require(!isSolver[_solvers[i]]&&_solvers[i]!=address(0));isSolver[_solvers[i]]=true;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 208
+column: 8
+content: for(uint256i=0;i<_solvers.length;i++){require(!isSolver[_solvers[i]]&&_solvers[i]!=address(0));isSolver[_solvers[i]]=true;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 150
+column: 0
+content: contractIVerifier{functionverify(uint256_jobId,uint256_claimId,uint256_segmentNumber,string_transcodingOptions,string_dataStorageHash,bytes32[2]_dataHashes)externalpayable;functiongetPrice()publicviewreturns(uint256);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 173
+column: 0
+content: contractLivepeerVerifierisManager,IVerifier{stringpublicverificationCodeHash;address[]publicsolvers;mapping(address=>bool)publicisSolver;structRequest{uint256jobId;uint256claimId;uint256segmentNumber;bytes32commitHash;}mapping(uint256=>Request)publicrequests;uint256publicrequestCount;eventVerifyRequest(uint256indexedrequestId,uint256indexedjobId,uint256indexedclaimId,uint256segmentNumber,stringtranscodingOptions,stringdataStorageHash,bytes32dataHash,bytes32transcodedDataHash);eventCallback(uint256indexedrequestId,uint256indexedjobId,uint256indexedclaimId,uint256segmentNumber,boolresult);modifieronlyJobsManager(){require(msg.sender==controller.getContract(keccak256("JobsManager")));_;}modifieronlySolvers(){require(isSolver[msg.sender]);_;}functionLivepeerVerifier(address_controller,address[]_solvers,string_verificationCodeHash)publicManager(_controller){for(uint256i=0;i<_solvers.length;i++){require(!isSolver[_solvers[i]]&&_solvers[i]!=address(0));isSolver[_solvers[i]]=true;}solvers=_solvers;verificationCodeHash=_verificationCodeHash;}functionsetVerificationCodeHash(string_verificationCodeHash)externalonlyControllerOwner{verificationCodeHash=_verificationCodeHash;}functionaddSolver(address_solver)externalonlyControllerOwner{require(_solver!=address(0));require(!isSolver[_solver]);solvers.push(_solver);isSolver[_solver]=true;}functionverify(uint256_jobId,uint256_claimId,uint256_segmentNumber,string_transcodingOptions,string_dataStorageHash,bytes32[2]_dataHashes)externalpayableonlyJobsManagerwhenSystemNotPaused{requests[requestCount].jobId=_jobId;requests[requestCount].claimId=_claimId;requests[requestCount].segmentNumber=_segmentNumber;requests[requestCount].commitHash=keccak256(_dataHashes[0],_dataHashes[1]);VerifyRequest(requestCount,_jobId,_claimId,_segmentNumber,_transcodingOptions,_dataStorageHash,_dataHashes[0],_dataHashes[1]);requestCount++;}function__callback(uint256_requestId,bytes32_result)externalonlySolverswhenSystemNotPaused{Requestmemoryq=requests[_requestId];if(q.commitHash==_result){IVerifiable(controller.getContract(keccak256("JobsManager"))).receiveVerification(q.jobId,q.claimId,q.segmentNumber,true);Callback(_requestId,q.jobId,q.claimId,q.segmentNumber,true);}else{IVerifiable(controller.getContract(keccak256("JobsManager"))).receiveVerification(q.jobId,q.claimId,q.segmentNumber,false);Callback(_requestId,q.jobId,q.claimId,q.segmentNumber,false);}deleterequests[_requestId];}functiongetPrice()publicviewreturns(uint256){return0;}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 253
+column: 44
+content: keccak256(_dataHashes[0],_dataHashes[1])
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 206
+column: 51
+content: address[]_solvers
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 206
+column: 71
+content: string_verificationCodeHash
+
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

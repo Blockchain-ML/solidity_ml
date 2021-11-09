@@ -1,0 +1,122 @@
+C:\Users\hp\DataSet\contracts\ropsten\30\3055a011932360f944cea338511d9c9d9eba1eb3_UNIGENE.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 111
+column: 4
+content: functionisContract(addressfrom)privateconstantreturns(bool){uint256codeSize;assembly{codeSize:=extcodesize(from)}returncodeSize>0;}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 103
+column: 4
+content: functionapprove(addressspender,uint256value)publicreturns(bool){require(spender!=address(0));_allowed[msg.sender][spender]=value;emitApproval(msg.sender,spender,value);returntrue;}
+
+ruleId: SOLIDITY_ERC20_FUNCTIONS_ALWAYS_RETURN_FALSE
+patternId: b180ca
+severity: 2
+line: 69
+column: 4
+content: functiontransfer(addressto,uintvalue,bytesdata)publicreturns(bool){require(_balances[msg.sender]>=value&&value>0);_balances[msg.sender]=_balances[msg.sender].sub(value);_balances[to]=_balances[to].add(value);if(isContract(to)){ERC223ReceivingContractreceiver=ERC223ReceivingContract(to);receiver.tokenFallback(msg.sender,value,data);}emitTransfer(msg.sender,to,value);}
+
+ruleId: SOLIDITY_ERC20_FUNCTIONS_ALWAYS_RETURN_FALSE
+patternId: b180ca
+severity: 2
+line: 86
+column: 4
+content: functiontransfer(addressto,uintvalue)publicreturns(bool){bytesmemoryempty;require(_balances[msg.sender]>=value&&value>0);_balances[msg.sender]=_balances[msg.sender].sub(value);_balances[to]=_balances[to].add(value);if(isContract(to)){ERC223ReceivingContractreceiver=ERC223ReceivingContract(to);receiver.tokenFallback(msg.sender,value,empty);}emitTransfer(msg.sender,to,value);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 69
+column: 4
+content: functiontransfer(addressto,uintvalue,bytesdata)publicreturns(bool){require(_balances[msg.sender]>=value&&value>0);_balances[msg.sender]=_balances[msg.sender].sub(value);_balances[to]=_balances[to].add(value);if(isContract(to)){ERC223ReceivingContractreceiver=ERC223ReceivingContract(to);receiver.tokenFallback(msg.sender,value,data);}emitTransfer(msg.sender,to,value);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 86
+column: 4
+content: functiontransfer(addressto,uintvalue)publicreturns(bool){bytesmemoryempty;require(_balances[msg.sender]>=value&&value>0);_balances[msg.sender]=_balances[msg.sender].sub(value);_balances[to]=_balances[to].add(value);if(isContract(to)){ERC223ReceivingContractreceiver=ERC223ReceivingContract(to);receiver.tokenFallback(msg.sender,value,empty);}emitTransfer(msg.sender,to,value);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 33
+column: 33
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 35
+column: 54
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 37
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 133
+column: 20
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 31
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 22
+column: 49
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 27
+column: 53
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 69
+column: 46
+content: bytesdata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 23rt6g
+severity: 1
+line: 22
+column: 61
+content: public
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_ERC20_FUNCTIONS_ALWAYS_RETURN_FALSE :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :4
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_ERC20_APPROVE :1

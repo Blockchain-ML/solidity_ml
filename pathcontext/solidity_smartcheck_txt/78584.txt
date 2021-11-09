@@ -1,0 +1,25 @@
+F:\Blockchain\dataset_new_byID\78584.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 70
+column: 4
+content: functionsetResult(uint8_resultIndex)externalvalidResultIndex(_resultIndex)isNotFinished(){require(block.timestamp>=resultSettingStartTime);if(block.timestamp<resultSettingEndTime){require(msg.sender==oracle);}finished=true;resultIndex=_resultIndex;balances[_resultIndex].totalVotes=balances[_resultIndex].totalVotes.add(consensusThreshold);balances[_resultIndex].votes[msg.sender]=balances[_resultIndex].votes[msg.sender].add(consensusThreshold);ITopicEvent(eventAddress).centralizedOracleSetResult(msg.sender,_resultIndex,consensusThreshold);emitOracleResultVoted(version,address(this),msg.sender,_resultIndex,consensusThreshold,BOT);emitOracleResultSet(version,address(this),_resultIndex);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 47
+column: 32
+content: {revert();}
+
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

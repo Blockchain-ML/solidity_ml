@@ -1,0 +1,107 @@
+C:\Users\hp\DataSet\contracts\ropsten\5d\5d6ef618f68ab4ca65dff7722b1f28d6068bdbb9_CRYPTXToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 118
+column: 18
+content: 0xd8BD8f9727551f9020B2FB5f31fd70695a580E10
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 119
+column: 34
+content: 0xd8BD8f9727551f9020B2FB5f31fd70695a580E10
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 84
+column: 8
+content: newOwner=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 127
+column: 31
+content: balanceOf[address(0)]
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 46
+column: 4
+content: functiontotalSupply()publicconstantreturns(uint);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 47
+column: 4
+content: functionbalanceOf(addresstokenOwner)publicconstantreturns(uintbalance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 126
+column: 4
+content: functiontotalSupply()publicconstantreturns(uint){return_totalSupply-balanceOf[address(0)];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 134
+column: 4
+content: functionbalanceOf(addresstokenOwner)publicconstantreturns(uintbalance){returnbalanceOf[tokenOwner];}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 174
+column: 4
+content: functionapprove(addressspender,uinttokens)publicreturns(boolsuccess){require(tokens>0);allowance[msg.sender][spender]=tokens;emitApproval(msg.sender,spender,tokens);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 93
+column: 0
+content: contractCRYPTXTokenisInterface,Own,SafeMath{stringpublicsymbol;stringpublicname;uint8publicdecimals;uintpublic_totalSupply;mapping(address=>uint)publicbalanceOf;mapping(address=>mapping(address=>uint))publicallowance;mapping(address=>bool)publicfrozenAccount;mapping(address=>uint)storedAmount;eventBurn(addressindexedfrom,uint256value);eventFrozenFunds(addresstarget,boolfrozen);eventFixedDepositLog(addressindexedfrom,uint256amount,bytes32action);constructor()public{symbol="CRYPTX";name="CRYPTX Token";decimals=18;_totalSupply=100000000000000000000000000;balanceOf[0xd8BD8f9727551f9020B2FB5f31fd70695a580E10]=_totalSupply;emitTransfer(address(0),0xd8BD8f9727551f9020B2FB5f31fd70695a580E10,_totalSupply);}functiontotalSupply()publicconstantreturns(uint){return_totalSupply-balanceOf[address(0)];}functionbalanceOf(addresstokenOwner)publicconstantreturns(uintbalance){returnbalanceOf[tokenOwner];}functiontransfer(addressto,uinttokens)publicreturns(boolsuccess){require(to!=0x0);require(tokens>0);require(!frozenAccount[msg.sender]);require(!frozenAccount[to]);require(balanceOf[msg.sender]>=tokens);require(safeAdd(balanceOf[to],tokens)>=balanceOf[to]);uint256previousBalances=safeAdd(balanceOf[msg.sender],balanceOf[to]);balanceOf[msg.sender]=safeSub(balanceOf[msg.sender],tokens);balanceOf[to]=safeAdd(balanceOf[to],tokens);emitTransfer(msg.sender,to,tokens);require(balanceOf[msg.sender]+balanceOf[to]==previousBalances);returntrue;}functionapprove(addressspender,uinttokens)publicreturns(boolsuccess){require(tokens>0);allowance[msg.sender][spender]=tokens;emitApproval(msg.sender,spender,tokens);returntrue;}functiontransferFrom(addressfrom,addressto,uinttokens)publicreturns(boolsuccess){require(to!=0x0);require(tokens>0);require(balanceOf[msg.sender]>=tokens);require(safeAdd(balanceOf[to],tokens)>=balanceOf[to]);balanceOf[from]=safeSub(balanceOf[from],tokens);allowance[from][msg.sender]=safeSub(allowance[from][msg.sender],tokens);balanceOf[to]=safeAdd(balanceOf[to],tokens);emitTransfer(from,to,tokens);returntrue;}functionfreezeAccount(addresstarget,boolfreeze)onlyOwnerpublic{frozenAccount[target]=freeze;emitFrozenFunds(target,freeze);}functionburn(uint256amount)publicreturns(boolsuccess){require(balanceOf[msg.sender]>=amount);balanceOf[msg.sender]=safeSub(balanceOf[msg.sender],amount);_totalSupply=safeSub(_totalSupply,amount);emitBurn(msg.sender,amount);returntrue;}functionfixedDeposit(uint256amount)publicreturns(boolsuccess){require(amount>0);require(balanceOf[msg.sender]>=amount);storedAmount[msg.sender]=safeAdd(storedAmount[msg.sender],amount);balanceOf[msg.sender]=safeSub(balanceOf[msg.sender],amount);emitFixedDepositLog(msg.sender,amount,"Credit");returntrue;}functionWithdrawDeposit(uint256amount)publicreturns(boolsuccess){require(amount>0);require(storedAmount[msg.sender]>=amount);storedAmount[msg.sender]=safeSub(storedAmount[msg.sender],amount);balanceOf[msg.sender]=safeAdd(balanceOf[msg.sender],amount);emitFixedDepositLog(msg.sender,amount,"Debit");returntrue;}function()publicpayable{revert();}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 264
+column: 31
+content: {revert();}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 264
+column: 16
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 102
+column: 4
+content: mapping(address=>uint)storedAmount;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :4
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_ERC20_APPROVE :1

@@ -1,0 +1,153 @@
+C:\Users\hp\DataSet\contracts\mainnet\e9\e90fc6c4d8f7ef88a0e990f4e75eb01cdf443155_Exchange.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 86
+column: 4
+content: tokens[address(0)]
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 86
+column: 45
+content: tokens[address(0)]
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 41
+column: 26
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 56
+column: 20
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 79
+column: 62
+content: throw
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 41
+column: 4
+content: if(expiry>1000000)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 56
+column: 4
+content: if(!assertion)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 79
+column: 4
+content: if(!Token(token).transferFrom(msg.sender,this,amount))throw;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 12
+column: 4
+content: functiontransfer(address_to,uint256_value)returns(boolsuccess);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 13
+column: 4
+content: functionapproveAndCall(address_spender,uint256_value,bytes_extraData)returns(boolsuccess);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 14
+column: 4
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 15
+column: 4
+content: functiontransferFrom(address_from,address_to,uint256_value)returns(boolsuccess);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 40
+column: 2
+content: functionsetInactivityReleasePeriod(uint256expiry)returns(boolsuccess){if(expiry>1000000)throw;inactivityReleasePeriod=expiry;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 48
+column: 2
+content: functionExchange(addressfeeAccount_){owner=msg.sender;feeAccount=feeAccount_;inactivityReleasePeriod=100000;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 55
+column: 2
+content: functionassert(boolassertion){if(!assertion)throw;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 58
+column: 2
+content: functionsafeMul(uinta,uintb)returns(uint){uintc=a*b;assert(a==0||c/a==b);returnc;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 64
+column: 2
+content: functionsafeSub(uinta,uintb)returns(uint){assert(b<=a);returna-b;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 69
+column: 2
+content: functionsafeAdd(uinta,uintb)returns(uint){uintc=a+b;assert(c>=a&&c>=b);returnc;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 76
+column: 2
+content: functiondepositToken(addresstoken,uint256amount){tokens[token][msg.sender]=safeAdd(tokens[token][msg.sender],amount);lastActiveTransaction[msg.sender]=block.number;if(!Token(token).transferFrom(msg.sender,this,amount))throw;Deposit(token,msg.sender,amount,tokens[token][msg.sender]);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 85
+column: 2
+content: functiondeposit()payable{tokens[address(0)][msg.sender]=safeAdd(tokens[address(0)][msg.sender],msg.value);lastActiveTransaction[msg.sender]=block.number;Deposit(address(0),msg.sender,msg.value,tokens[address(0)][msg.sender]);}
+
+SOLIDITY_VISIBILITY :12
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :3
+SOLIDITY_ADDRESS_HARDCODED :2

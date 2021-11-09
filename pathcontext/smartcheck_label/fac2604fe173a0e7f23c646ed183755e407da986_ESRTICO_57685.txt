@@ -1,0 +1,48 @@
+C:\Users\hp\DataSet\contracts\ropsten\fa\fac2604fe173a0e7f23c646ed183755e407da986_ESRTICO.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 265
+column: 4
+content: functionapprove(addressspender_,uintvalue_)publicwhenNotLockedreturns(bool){if(value_!=0&&allowed[msg.sender][spender_]!=0){revert();}allowed[msg.sender][spender_]=value_;emitApproval(msg.sender,spender_,value_);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 532
+column: 0
+content: contractESRTICOisBaseICO{usingSafeMathforuint;uintpubliccollectedWei;uintpubliccollectedTokens;boolinternallowCapChecked=false;uintpubliclastStageStartAt=1554076800;constructor(addressicoToken_,addressteamWallet_)public{require(icoToken_!=address(0)&&teamWallet_!=address(0));token=BaseICOToken(icoToken_);teamWallet=teamWallet_;hardCapTokens=60e24;lowCapTokens=15e23;hardCapTxWei=1e30;lowCapTxWei=5e16;}function()externalpayable{buyTokens();}functiontouch()public{if(state!=State.Active&&state!=State.Suspended){return;}if(collectedTokens>=hardCapTokens){state=State.Completed;endAt=block.timestamp;emitICOCompleted(collectedTokens);}elseif(!lowCapChecked&&block.timestamp>=lastStageStartAt){lowCapChecked=true;if(collectedTokens<lowCapTokens){state=State.NotCompleted;emitICONotCompleted();}}elseif(block.timestamp>=endAt){state=State.Completed;emitICOCompleted(collectedTokens);}}functiontuneLastStageStartAt(uintlastStageStartAt_)onlyOwnerisSuspendedpublic{if(lastStageStartAt_>block.timestamp){require(lastStageStartAt_<lastStageStartAt);lastStageStartAt=lastStageStartAt_;}touch();}functionendAtCheck(uintendAt_)internalreturns(bool){returnendAt_<endAt;}functioncomputeBonus()internalviewreturns(uint8){if(block.timestamp<1538352000){return20;}elseif(block.timestamp<1546300800){return10;}elseif(block.timestamp<lastStageStartAt){return5;}else{return0;}}functionbuyTokens()publicpayable{require(state==State.Active&&block.timestamp<endAt&&msg.value>=lowCapTxWei&&msg.value<=hardCapTxWei&&whitelisted(msg.sender));uint8bonus=computeBonus();uintamountWei=msg.value;uintiwei=amountWei.mul(100+bonus).div(100);uintitokens=token.icoInvestmentWei(msg.sender,iwei);require(collectedTokens+itokens<=hardCapTokens);collectedTokens=collectedTokens.add(itokens);collectedWei=collectedWei.add(amountWei);emitICOInvestment(msg.sender,amountWei,itokens,bonus);forwardFunds();touch();}}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 205
+column: 49
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 266
+column: 8
+content: if(value_!=0&&allowed[msg.sender][spender_]!=0){revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 198
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 533
+column: 2
+content: usingSafeMathforuint;
+
+SOLIDITY_SAFEMATH :2
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_ERC20_APPROVE :1

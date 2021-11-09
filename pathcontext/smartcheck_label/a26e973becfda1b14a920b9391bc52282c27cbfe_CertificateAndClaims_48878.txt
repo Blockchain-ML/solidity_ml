@@ -1,0 +1,293 @@
+C:\Users\hp\DataSet\contracts\ropsten\a2\a26e973becfda1b14a920b9391bc52282c27cbfe_CertificateAndClaims.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 127
+column: 4
+content: functiongetCertificateById(string_id)publicconstantreturns(stringdataHash,addressissuer,addressrequester,stringcreatedDate,stringaction){Certificatememorycert=certificate[_id];return(cert.dataHash,cert.issuer,cert.requester,cert.createdDate,cert.action);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 132
+column: 4
+content: functiongetClaimById(string_id)publicconstantreturns(stringdataHash,addressissuer,addressrequester,stringcreatedDate,stringaction){Claimmemory_claim=claim[_id];return(_claim.dataHash,_claim.issuer,_claim.requester,_claim.createdDate,_claim.action);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 137
+column: 4
+content: functiongetOrganisationByAddress(address_publicKey)publicconstantreturns(stringid,stringname,stringdate){Organisationmemoryorg=organisation[_publicKey];return(org.id,org.name,org.registrationDate);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 142
+column: 4
+content: functiongetOrganisationCount()publicconstantreturns(uint256){returnorganisations.length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 146
+column: 4
+content: functiongetOrgClaimsCount(address_publicKey)publicconstantreturns(uint256){returnorgClaims[_publicKey].length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 150
+column: 4
+content: functiongetOrgCertificatesCount(address_publicKey)publicconstantreturns(uint256){returnorgCerts[_publicKey].length;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 1
+content: contractCertificateAndClaims{eventLog(stringeventMessage);structOrganisation{stringid;stringname;stringregistrationDate;boolexists;}structCertificate{stringid;addressissuer;addressrequester;stringaction;stringdataHash;stringcreatedDate;}structClaim{stringid;addressissuer;addressrequester;stringaction;stringdataHash;stringcreatedDate;}Organisation[]organisations;mapping(address=>Organisation)organisation;Certificate[]certificates;mapping(string=>Certificate)certificate;mapping(address=>Certificate[])orgCerts;mapping(address=>Claim[])orgClaims;Claim[]claims;mapping(string=>Claim)claim;stringcreatorName;addresscreatorAddress;constructor(string_creator)public{creatorName=_creator;creatorAddress=msg.sender;emitLog("Contract deployed successfully");}functionisOrganisationExits(address_publicKey)privateviewreturns(bool){if(organisation[_publicKey].exists){returntrue;}else{returnfalse;}}functionaddOrganisation(address_publicKey,string_id,string_name,string_date)publicpayablereturns(bool){if(!isOrganisationExits(_publicKey)){Organisationstorageorg=organisation[_publicKey];org.id=_id;org.name=_name;org.registrationDate=_date;organisations.push(org);organisation[_publicKey]=org;returntrue;}returnfalse;}functionissueCertificate(string_certId,string_dataHash,string_date,address_issuer,address_requester,string_action)publicpayablereturns(bool){Certificatestoragecert=certificate[_certId];cert.id=_certId;cert.dataHash=_dataHash;cert.createdDate=_date;cert.issuer=_issuer;cert.requester=_requester;cert.action=_action;certificates.push(cert);certificate[_certId]=cert;orgCerts[_issuer].push(cert);returntrue;}functionendorseClaim(string_claimId,string_dataHash,string_date,address_issuer,address_requester,string_action)publicpayablereturns(bool){Claimstorage_claims=claim[_claimId];_claims.id=_claimId;_claims.dataHash=_dataHash;_claims.createdDate=_date;_claims.issuer=_issuer;_claims.requester=_requester;_claims.action=_action;claims.push(_claims);claim[_claimId]=_claims;orgClaims[_issuer].push(_claims);returntrue;}functiongetCertificateById(string_id)publicconstantreturns(stringdataHash,addressissuer,addressrequester,stringcreatedDate,stringaction){Certificatememorycert=certificate[_id];return(cert.dataHash,cert.issuer,cert.requester,cert.createdDate,cert.action);}functiongetClaimById(string_id)publicconstantreturns(stringdataHash,addressissuer,addressrequester,stringcreatedDate,stringaction){Claimmemory_claim=claim[_id];return(_claim.dataHash,_claim.issuer,_claim.requester,_claim.createdDate,_claim.action);}functiongetOrganisationByAddress(address_publicKey)publicconstantreturns(stringid,stringname,stringdate){Organisationmemoryorg=organisation[_publicKey];return(org.id,org.name,org.registrationDate);}functiongetOrganisationCount()publicconstantreturns(uint256){returnorganisations.length;}functiongetOrgClaimsCount(address_publicKey)publicconstantreturns(uint256){returnorgClaims[_publicKey].length;}functiongetOrgCertificatesCount(address_publicKey)publicconstantreturns(uint256){returnorgCerts[_publicKey].length;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 15
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 60
+column: 18
+content: string_creator
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 76
+column: 49
+content: string_id
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 76
+column: 60
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 76
+column: 74
+content: string_date
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 90
+column: 31
+content: string_certId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 90
+column: 47
+content: string_dataHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 90
+column: 65
+content: string_date
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 91
+column: 31
+content: string_action
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 108
+column: 26
+content: string_claimId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 108
+column: 43
+content: string_dataHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 108
+column: 61
+content: string_date
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 109
+column: 31
+content: string_action
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 127
+column: 32
+content: string_id
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 127
+column: 69
+content: stringdataHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 127
+column: 121
+content: stringcreatedDate
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 127
+column: 141
+content: stringaction
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 132
+column: 26
+content: string_id
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 132
+column: 63
+content: stringdataHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 132
+column: 115
+content: stringcreatedDate
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 132
+column: 135
+content: stringaction
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 137
+column: 83
+content: stringid
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 137
+column: 94
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 137
+column: 107
+content: stringdate
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 34
+column: 6
+content: Organisation[]organisations;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 6
+content: mapping(address=>Organisation)organisation;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 40
+column: 6
+content: Certificate[]certificates;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 43
+column: 6
+content: mapping(string=>Certificate)certificate;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 6
+content: mapping(address=>Certificate[])orgCerts;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 49
+column: 6
+content: mapping(address=>Claim[])orgClaims;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 51
+column: 6
+content: Claim[]claims;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 53
+column: 6
+content: mapping(string=>Claim)claim;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 56
+column: 5
+content: stringcreatorName;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 57
+column: 5
+content: addresscreatorAddress;
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :23

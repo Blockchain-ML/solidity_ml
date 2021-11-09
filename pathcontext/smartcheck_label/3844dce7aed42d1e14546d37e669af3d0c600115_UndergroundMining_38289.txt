@@ -1,0 +1,54 @@
+C:\Users\hp\DataSet\contracts\ropsten\38\3844dce7aed42d1e14546d37e669af3d0c600115_UndergroundMining.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 14
+column: 18
+content: 0xbEEBbf0eeF410F09e978A3D8aB495a9482C6BBCD
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 15
+column: 23
+content: 0x310BdBa7E2c9501AC2B47ad1b93ca6E722bA9527
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 29
+column: 49
+content: 0x1
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 17
+column: 4
+content: functioninvestETH(addressreferral)publicpayablereturns(uint256){require(msg.value>=0.01ether);if(getProfit(msg.sender)>0){uint256profit=getProfit(msg.sender);lastInvest[msg.sender]=now;msg.sender.transfer(profit);}uint256amount=msg.value;uint256commision=SafeMath.div(amount,10);if(referral!=msg.sender&&referral!=0x1&&referral!=dev&&referral!=promoter){affiliateCommision[referral]=SafeMath.add(affiliateCommision[referral],commision);}affiliateCommision[dev]=SafeMath.div(amount,40);affiliateCommision[promoter]=SafeMath.div(amount,40);investedETH[msg.sender]=SafeMath.add(investedETH[msg.sender],amount);lastInvest[msg.sender]=now;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 14
+column: 4
+content: addressdev=0xbEEBbf0eeF410F09e978A3D8aB495a9482C6BBCD;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 4
+content: addresspromoter=0x310BdBa7E2c9501AC2B47ad1b93ca6E722bA9527;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_ADDRESS_HARDCODED :3

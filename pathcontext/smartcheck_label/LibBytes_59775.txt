@@ -1,0 +1,73 @@
+C:\Users\hp\DataSet\LibBytes.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 23
+column: 4
+content: functioncontentAddress(bytesmemoryinput)internalpurereturns(uint256memoryAddress){assembly{memoryAddress:=add(input,32)}returnmemoryAddress;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 38
+column: 4
+content: functionreadBytes4(bytesmemoryb,uint256index)internalpurereturns(bytes4result){require(b.length>=index+4,"GREATER_OR_EQUAL_TO_4_LENGTH_REQUIRED");assembly{result:=mload(add(b,32))result:=and(result,0xFFFFFFFF00000000000000000000000000000000000000000000000000000000)}returnresult;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 63
+column: 4
+content: functionreadBytes32(bytesmemoryb,uint256index)internalpurereturns(bytes32result){require(b.length>=index+32,"GREATER_OR_EQUAL_TO_32_LENGTH_REQUIRED");index+=32;assembly{result:=mload(add(b,index))}returnresult;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 90
+column: 4
+content: functionmemCopy(uint256dest,uint256source,uint256length)internalpure{if(length<32){assembly{letmask:=sub(exp(256,sub(32,length)),1)lets:=and(mload(source),not(mask))letd:=and(mload(dest),mask)mstore(dest,or(s,d))}}else{if(source==dest){return;}if(source>dest){assembly{length:=sub(length,32)letsEnd:=add(source,length)letdEnd:=add(dest,length)letlast:=mload(sEnd)for{}lt(source,sEnd){}{mstore(dest,mload(source))source:=add(source,32)dest:=add(dest,32)}mstore(dEnd,last)}}else{assembly{length:=sub(length,32)letsEnd:=add(source,length)letdEnd:=add(dest,length)letfirst:=mload(source)for{}slt(dest,dEnd){}{mstore(dEnd,mload(sEnd))sEnd:=sub(sEnd,32)dEnd:=sub(dEnd,32)}mstore(dest,first)}}}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 28
+column: 8
+content: assembly{memoryAddress:=add(input,32)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 49
+column: 8
+content: assembly{result:=mload(add(b,32))result:=and(result,0xFFFFFFFF00000000000000000000000000000000000000000000000000000000)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 80
+column: 8
+content: assembly{result:=mload(add(b,index))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 102
+column: 12
+content: assembly{letmask:=sub(exp(256,sub(32,length)),1)lets:=and(mload(source),not(mask))letd:=and(mload(dest),mask)mstore(dest,or(s,d))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 130
+column: 16
+content: assembly{length:=sub(length,32)letsEnd:=add(source,length)letdEnd:=add(dest,length)letlast:=mload(sEnd)for{}lt(source,sEnd){}{mstore(dest,mload(source))source:=add(source,32)dest:=add(dest,32)}mstore(dEnd,last)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 158
+column: 16
+content: assembly{length:=sub(length,32)letsEnd:=add(source,length)letdEnd:=add(dest,length)letfirst:=mload(source)for{}slt(dest,dEnd){}{mstore(dEnd,mload(sEnd))sEnd:=sub(sEnd,32)dEnd:=sub(dEnd,32)}mstore(dest,first)}
+
+SOLIDITY_USING_INLINE_ASSEMBLY :6
+SOLIDITY_SHOULD_NOT_BE_PURE :4

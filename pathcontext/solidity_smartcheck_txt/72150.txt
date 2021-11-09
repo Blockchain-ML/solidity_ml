@@ -1,0 +1,17 @@
+F:\Blockchain\dataset_new_byID\72150.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 91
+column: 4
+content: functiongetStructHash(Ordermemoryorder)internalpurereturns(bytes32result){bytes32schemaHash=_EIP712_ORDER_SCHEMA_HASH;bytesmemorymakerAssetData=order.makerAssetData;bytesmemorytakerAssetData=order.takerAssetData;bytesmemorymakerFeeAssetData=order.makerFeeAssetData;bytesmemorytakerFeeAssetData=order.takerFeeAssetData;assembly{iflt(order,32){invalid()}letpos1:=sub(order,32)letpos2:=add(order,320)letpos3:=add(order,352)letpos4:=add(order,384)letpos5:=add(order,416)lettemp1:=mload(pos1)lettemp2:=mload(pos2)lettemp3:=mload(pos3)lettemp4:=mload(pos4)lettemp5:=mload(pos5)mstore(pos1,schemaHash)mstore(pos2,keccak256(add(makerAssetData,32),mload(makerAssetData)))mstore(pos3,keccak256(add(takerAssetData,32),mload(takerAssetData)))mstore(pos4,keccak256(add(makerFeeAssetData,32),mload(makerFeeAssetData)))mstore(pos5,keccak256(add(takerFeeAssetData,32),mload(takerFeeAssetData)))result:=keccak256(pos1,480)mstore(pos1,temp1)mstore(pos2,temp2)mstore(pos3,temp3)mstore(pos4,temp4)mstore(pos5,temp5)}returnresult;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 121
+column: 8
+content: assembly{iflt(order,32){invalid()}letpos1:=sub(order,32)letpos2:=add(order,320)letpos3:=add(order,352)letpos4:=add(order,384)letpos5:=add(order,416)lettemp1:=mload(pos1)lettemp2:=mload(pos2)lettemp3:=mload(pos3)lettemp4:=mload(pos4)lettemp5:=mload(pos5)mstore(pos1,schemaHash)mstore(pos2,keccak256(add(makerAssetData,32),mload(makerAssetData)))mstore(pos3,keccak256(add(takerAssetData,32),mload(takerAssetData)))mstore(pos4,keccak256(add(makerFeeAssetData,32),mload(makerFeeAssetData)))mstore(pos5,keccak256(add(takerFeeAssetData,32),mload(takerFeeAssetData)))result:=keccak256(pos1,480)mstore(pos1,temp1)mstore(pos2,temp2)mstore(pos3,temp3)mstore(pos4,temp4)mstore(pos5,temp5)}
+
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

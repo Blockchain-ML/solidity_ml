@@ -1,0 +1,89 @@
+C:\Users\hp\DataSet\contracts\ropsten\37\37c43f2ec16ae9243b694007d53f7b772e01b2ff_Raffle.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 1
+column: 0
+content: contractRaffle{uintprivatechosenNumber;addressprivatewinnerParticipant;uint8maxParticipants;uint8minParticipants;uint8joinedParticipants;addressorganizer;boolraffleFinished=false;address[]participants;mapping(address=>bool)participantsMapping;eventChooseWinner(uint_chosenNumber,addresswinner);eventRandomNumberGenerated(uint);constructor()public{address_org=msg.sender;uint8_min=2;uint8_max=10;require(_min<_max&&_min>=2&&_max<=50);organizer=_org;chosenNumber=999;maxParticipants=_max;minParticipants=_min;}function()publicpayable{}functionjoinraffle()public{require(!raffleFinished);require(msg.sender!=organizer);require(joinedParticipants+1<maxParticipants);require(!participantsMapping[msg.sender]);participants.push(msg.sender);participantsMapping[msg.sender]=true;joinedParticipants++;}functionchooseWinner(uint_chosenNum)internal{chosenNumber=_chosenNum;winnerParticipant=participants[chosenNumber];emitChooseWinner(chosenNumber,participants[chosenNumber]);}functiongenerateRandomNum()public{require(!raffleFinished);require(joinedParticipants>=minParticipants&&joinedParticipants<=maxParticipants);raffleFinished=true;chooseWinner(0);}functiongetChosenNumber()publicviewreturns(uint){returnchosenNumber;}functiongetWinnerAddress()publicviewreturns(address){returnwinnerParticipant;}functiongetParticipants()publicviewreturns(address[]){returnparticipants;}}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 2
+column: 7
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 3
+column: 10
+content: private
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 23
+column: 11
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 51
+column: 48
+content: address[]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 4
+column: 2
+content: uint8maxParticipants;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 5
+column: 2
+content: uint8minParticipants;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 2
+content: uint8joinedParticipants;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 7
+column: 2
+content: addressorganizer;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 8
+column: 2
+content: boolraffleFinished=false;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 2
+content: address[]participants;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 2
+content: mapping(address=>bool)participantsMapping;
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_UPGRADE_TO_050 :2

@@ -1,0 +1,32 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\86453.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 11
+column: 0
+content: contractEthicHubPresaleisOwnable,Pausable,CappedCompositeCrowdsale,RefundableCompositeCrowdsale{uint256publicconstantminimumBidAllowed=0.1ether;uint256publicconstantmaximumBidAllowed=500ether;uint256publicconstantWHITELISTED_PREMIUM_TIME=1days;mapping(address=>uint)publicparticipated;functionEthicHubPresale(uint256_startTime,uint256_endTime,uint256_goal,uint256_cap,address_wallet,EthicHubTokenDistributionStrategy_tokenDistribution)CompositeCrowdsale(_startTime,_endTime,_wallet,_tokenDistribution)CappedCompositeCrowdsale(_cap)RefundableCompositeCrowdsale(_goal){require(_goal<=_cap);}functionclaimRefund()public{super.claimRefund();}functionbuyTokens(addressbeneficiary)whenNotPausedpayable{require(msg.value>=minimumBidAllowed);require(participated[msg.sender].add(msg.value)<=maximumBidAllowed);participated[msg.sender]=participated[msg.sender].add(msg.value);super.buyTokens(beneficiary);}functiongetInvestedAmount(addressinvestor)viewpublicreturns(uintinvestedAmount){investedAmount=participated[investor];}functionvalidPurchase()internalviewreturns(bool){if((now>=startTime.sub(WHITELISTED_PREMIUM_TIME))&&(now<=startTime)){uint256registeredAmount=tokenDistribution.whitelistRegisteredAmount(msg.sender);boolisWhitelisted=registeredAmount>0;boolwithinCap=weiRaised.add(msg.value)<=cap;boolnonZeroPurchase=msg.value!=0;returnisWhitelisted&&withinCap&&nonZeroPurchase;}else{returnsuper.validPurchase();}}functionfinalization()internal{super.finalization();tokenDistribution.returnUnsoldTokens(wallet);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 21
+column: 2
+content: functionEthicHubPresale(uint256_startTime,uint256_endTime,uint256_goal,uint256_cap,address_wallet,EthicHubTokenDistributionStrategy_tokenDistribution)CompositeCrowdsale(_startTime,_endTime,_wallet,_tokenDistribution)CappedCompositeCrowdsale(_cap)RefundableCompositeCrowdsale(_goal){require(_goal<=_cap);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 37
+column: 2
+content: functionbuyTokens(addressbeneficiary)whenNotPausedpayable{require(msg.value>=minimumBidAllowed);require(participated[msg.sender].add(msg.value)<=maximumBidAllowed);participated[msg.sender]=participated[msg.sender].add(msg.value);super.buyTokens(beneficiary);}
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

@@ -1,0 +1,121 @@
+C:\Users\hp\DataSet\contracts\ropsten\eb\eb918cedd410c41c3fc9f930235e09b681e9fc24_SkrumbleStaking.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_BALANCE_EQUALITY
+patternId: 5094ad
+severity: 1
+line: 136
+column: 8
+content: staker.balance==0
+
+ruleId: SOLIDITY_BALANCE_EQUALITY
+patternId: 5094ad
+severity: 1
+line: 164
+column: 13
+content: stakerMap[msg.sender].balance==0
+
+ruleId: SOLIDITY_BALANCE_EQUALITY
+patternId: 5094ad
+severity: 1
+line: 236
+column: 13
+content: stakerMap[_staker].balance==0
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 121
+column: 4
+content: for(uinti=1;i<_period.length;i++){require(_period[i]>_period[i.sub(1)]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 12cf32
+severity: 2
+line: 141
+column: 4
+content: for(uinti=reward.rewardEpochStart.length;i>0;i--){uintstart=staker.stakingSince.add(reward.rewardEpochStart[i.sub(1)]);if(start>=now){continue;}uintlength=min(now,periodEnd).sub(max(start,staker.lastClaim));unclaimed=unclaimed.add(reward.rewardAmounts[i.sub(1)].mul(length).div(86400));if(staker.lastClaim>=start){break;}periodEnd=start;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 114
+column: 2
+content: functionsetRewardWallet(address_rewardWallet)publiconlyOwner{rewardWallet=_rewardWallet;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 118
+column: 2
+content: functionsetRewardLevel(uint_level,uint_amount,uint_lockup,uint[]_reward,uint[]_period)publiconlyOwner{require(_reward.length==_period.length);require(_period[_period.length.sub(1)]<9999999999);for(uinti=1;i<_period.length;i++){require(_period[i]>_period[i.sub(1)]);}rewardLevels[_level]=Reward(_amount,_lockup,_reward,_period);emitRewardLevel(_level,_amount,_lockup,_reward,_period);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 49
+column: 2
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 118
+column: 68
+content: uint[]_reward
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 118
+column: 84
+content: uint[]_period
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 2
+content: addressowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 53
+column: 2
+content: addressrewardWallet;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 54
+column: 2
+content: uintbalance;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 57
+column: 2
+content: ERC20token;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 73
+column: 2
+content: mapping(address=>Staker)stakerMap;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_BALANCE_EQUALITY :3

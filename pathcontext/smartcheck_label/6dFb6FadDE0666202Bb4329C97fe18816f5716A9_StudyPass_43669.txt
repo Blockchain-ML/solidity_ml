@@ -1,0 +1,99 @@
+C:\Users\hp\DataSet\contracts\ropsten\6d\6dFb6FadDE0666202Bb4329C97fe18816f5716A9_StudyPass.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 85
+column: 19
+content: 0x0
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 2
+column: 0
+content: contractStudyPass{structStudent{bytes32fname;bytes32lname;bytes32qual;uintyear;bytes32school;}structSchool{bytes32school_name;bytes32school_loc;uintindex;}structDoc{uintstud_id;uintschool_id;bytes32doc;uintgrade;}mapping(uint=>Student)students;mapping(uint=>School)schools;mapping(uint=>Doc)docs;addressowner;uint[]schoolArray;modifierisOwner(){require(owner==msg.sender);_;}functionQuaLed()publicpayable{owner=msg.sender;}functionstringToBytes32(stringmemorysource)internalpurereturns(bytes32result){bytesmemorytempEmptyStringTest=bytes(source);if(tempEmptyStringTest.length==0){return0x0;}assembly{result:=mload(add(source,32))}}functionsetSchool(uint_address,stringmemory_school_name,stringmemory_school_loc)publicreturns(bool){schools[_address].school_name=stringToBytes32(_school_name);schools[_address].school_loc=stringToBytes32(_school_loc);schools[_address].index=schoolArray.push(_address)-1;returntrue;}functionsetDocs(uint_id,uint_school_id,uint_stud_id,stringmemory_doc,uint_grade)publicreturns(bool){docs[_id].school_id=_school_id;docs[_id].stud_id=_stud_id;docs[_id].doc=stringToBytes32(_doc);docs[_id].grade=_grade;returntrue;}functiongetDocs(uint_id)publicviewreturns(uint,uint,bytes32,uint){return(docs[_id].school_id,docs[_id].stud_id,docs[_id].doc,docs[_id].grade);}functiongetSchool(uint_address)publicviewreturns(bytes32,bytes32){return(schools[_address].school_name,schools[_address].school_loc);}functionsetStudent(uint_idno,stringmemory_fname,stringmemory_lname,stringmemory_qual,uint_year)publicreturns(bool){students[_idno].fname=stringToBytes32(_fname);students[_idno].lname=stringToBytes32(_lname);students[_idno].qual=stringToBytes32(_qual);students[_idno].year=_year;students[_idno].school=schools[_idno].school_name;returntrue;}functionviewStudent(uint_idnum)viewpublicreturns(uint,bytes32,bytes32,bytes32,uint,bytes32){return(_idnum,students[_idnum].fname,students[_idnum].lname,students[_idnum].qual,students[_idnum].year,students[_idnum].school);}functionupdateStudent(uint_idnum,stringmemory_fname,stringmemory_lname,stringmemory_qual,uint_year)publicreturns(bool){students[_idnum].fname=stringToBytes32(_fname);students[_idnum].lname=stringToBytes32(_lname);students[_idnum].qual=stringToBytes32(_qual);students[_idnum].year=_year;returntrue;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 82
+column: 4
+content: functionstringToBytes32(stringmemorysource)internalpurereturns(bytes32result){bytesmemorytempEmptyStringTest=bytes(source);if(tempEmptyStringTest.length==0){return0x0;}assembly{result:=mload(add(source,32))}}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 114
+column: 51
+content: (uint,uint,bytes32,uint)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 120
+column: 58
+content: (bytes32,bytes32)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 139
+column: 58
+content: (uint,bytes32,bytes32,bytes32,uint,bytes32)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 88
+column: 8
+content: assembly{result:=mload(add(source,32))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 25
+column: 4
+content: mapping(uint=>Student)students;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 4
+content: mapping(uint=>School)schools;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 27
+column: 4
+content: mapping(uint=>Doc)docs;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 4
+content: addressowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 29
+column: 4
+content: uint[]schoolArray;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_RETURN_STRUCT :3
+SOLIDITY_SHOULD_NOT_BE_PURE :1

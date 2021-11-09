@@ -1,0 +1,89 @@
+C:\Users\hp\DataSet\contracts\mainnet\89\89fd8971fef41923ee6f1416c1fbaf5fe6698eea_PlatoPresale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 32
+column: 28
+content: 0x432fFe79337cBaA1B921c7d0802e4ADe89F474E5
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 4
+column: 4
+content: functionbalanceOf(address_owner)constantreturns(uint256balance);
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 3
+column: 4
+content: functiontransfer(addressreceiver,uintamount);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 4
+column: 4
+content: functionbalanceOf(address_owner)constantreturns(uint256balance);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 25
+column: 4
+content: functionPlatoPresale(){beneficiary=msg.sender;min_fundingGoal=100*1ether;max_fundingGoal=2000*1ether;start=now+10*1hours;deadline=start+30*1days;rate=1500;tokenReward=token(0x432fFe79337cBaA1B921c7d0802e4ADe89F474E5);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 36
+column: 4
+content: function()payable{uintamount=msg.value;require(now>=start);require(!crowdsaleClosed);require(amountRaised+amount<=max_fundingGoal);require(amount>=5*1ether);balanceOf[msg.sender]+=amount;amountRaised+=amount;tokenReward.transfer(msg.sender,amount*rate*10**8/1ether);if(amountRaised>=min_fundingGoal){fundingGoalReached=true;GoalReached(beneficiary,amountRaised);}FundTransfer(msg.sender,amount,true);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 57
+column: 4
+content: functioncheckGoalReached()afterDeadline{if(amountRaised>=min_fundingGoal){fundingGoalReached=true;GoalReached(beneficiary,amountRaised);}crowdsaleClosed=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 4
+content: functionsafeWithdrawal()afterDeadline{if(!fundingGoalReached){uintamount=balanceOf[msg.sender];balanceOf[msg.sender]=0;if(amount>0){if(msg.sender.send(amount)){FundTransfer(msg.sender,amount,false);}else{balanceOf[msg.sender]=amount;}}}if(fundingGoalReached&&beneficiary==msg.sender){if(beneficiary.send(amountRaised)){FundTransfer(beneficiary,amountRaised,false);}else{fundingGoalReached=false;}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 88
+column: 4
+content: functionGoalHitWithdrawl()MaxGoalHit{require(msg.sender==beneficiary);if(beneficiary.send(amountRaised)){crowdsaleClosed=true;FundTransfer(beneficiary,amountRaised,false);}else{fundingGoalReached=false;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 17
+column: 4
+content: boolfundingGoalReached=false;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 20
+column: 4
+content: boolcrowdsaleClosed=false;
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :1

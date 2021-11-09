@@ -1,0 +1,25 @@
+F:\Blockchain\dataset_new_byID\81508.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 32
+column: 2
+content: functiongetProofFunctionality(bytes32key)internalviewreturns(uintbranchMask,bytes32[]memory_siblings){require(tree.root!=0,"colony-patricia-tree-zero-tree-root");Data.Labelmemoryk=Data.Label(key,256);Data.Edgememorye=tree.rootEdge;bytes32[256]memorysiblings;uintlength;uintnumSiblings;while(true){Data.Labelmemoryprefix;Data.Labelmemorysuffix;(prefix,suffix)=k.splitCommonPrefix(e.label);assert(prefix.length==e.label.length);if(suffix.length==0){break;}length+=prefix.length;branchMask|=uint(1)<<255-length;length+=1;uint256head;Data.Labelmemorytail;(head,tail)=suffix.chopFirstBit();siblings[numSiblings++]=tree.nodes[e.node].children[1-head].edgeHash();e=tree.nodes[e.node].children[head];k=tail;}if(numSiblings>0){_siblings=newbytes32[](numSiblings);for(uinti=0;i<numSiblings;i++){_siblings[i]=siblings[i];}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 39
+column: 11
+content: true
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 32
+column: 68
+content: (uintbranchMask,bytes32[]memory_siblings)
+
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

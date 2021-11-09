@@ -1,0 +1,117 @@
+C:\Users\hp\DataSet\contracts\ropsten\a1\a126124825bbe39381ede8c907430aad641021f1_Ethernity.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 69
+column: 2
+content: functiongetData(address_ethaddress)publicconstantreturns(bytes_data){returndata[_ethaddress];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 73
+column: 2
+content: functiongetName(address_ethaddress)publicconstantreturns(bytes32_name){returnname[_ethaddress];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 77
+column: 2
+content: functiongetIssuerStatus(address_ethaddress)publicconstantreturns(boolstatus){returnisIssuer[_ethaddress];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 81
+column: 2
+content: functionisRecipientActive(address_ethaddress)publicconstantreturns(boolstatus){returnrecipientActive[_ethaddress];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 85
+column: 2
+content: functiongetCurrentCertificateNonce(address_issuer,address_recipient)publicconstantreturns(uint256_certificateNonce){returnhashNonce[_issuer][_recipient];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 108
+column: 2
+content: functiongetCertificateHash(address_issuer,address_recipient,uint256_certificateNonce)publicconstantreturns(bytes32_hash){returnhashStore[_issuer][_recipient][_certificateNonce];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 147
+column: 2
+content: functionpermissionToChange(address_issuer,address_receiver,uint256_certificateNonce)publicconstantreturns(boolstatus){returnrecipientPermissionToChange[_issuer][_receiver][_certificateNonce];}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 32
+column: 4
+content: if(recipientActive[msg.sender]==true){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 46
+column: 4
+content: if(isIssuer[msg.sender]==true){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 91
+column: 4
+content: if(isIssuer[msg.sender]==false||isIssuer[_receiver]==true){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 113
+column: 4
+content: if(_certificateNonce>=hashNonce[_issuer][msg.sender]||_certificateNonce<0){revert();}else{recipientPermissionToChange[_issuer][msg.sender][_certificateNonce]=_permission;if(msg.value>0){forwardFunds(msg.sender);}emitpermissionToChangeGranted(_issuer,msg.sender,_certificateNonce+1,_permission);return_permission;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 130
+column: 4
+content: if(recipientPermissionToChange[msg.sender][_receiver][_certificateNonce]==false){revert();}else{hashStore[msg.sender][_receiver][_certificateNonce]=_hash;recipientPermissionToChange[msg.sender][_receiver][_certificateNonce]=false;if(msg.value>0){forwardFunds(_receiver);}emitnewIssue(msg.sender,_receiver,_certificateNonce+1);returntrue;}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 24
+column: 14
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 59
+column: 20
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 69
+column: 65
+content: bytes_data
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :7
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :5
+SOLIDITY_UPGRADE_TO_050 :3

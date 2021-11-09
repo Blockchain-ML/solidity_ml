@@ -1,0 +1,594 @@
+C:\Users\hp\DataSet\contracts\ropsten\a6\a6a314e3b61d6d4038521f4cf4a332962c8bb88a_ApplicationCreation.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 90
+column: 5
+content: functiongetOwner()publicconstantreturns(string,address){return(creatorName,creatorAddress);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 204
+column: 6
+content: functiongetVendorApplication(string_applicationVendorId)publicconstantreturns(stringid,stringstatus,stringdataHash,stringdate,stringgovtId,stringaction){VendorApplicationmemoryvapp=vendorApplicationIndex[_applicationVendorId];return(vapp.id,vapp.status,vapp.dataHash,vapp.createdDate,vapp.govtId,vapp.action);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 211
+column: 5
+content: functiongetVendorApplicationStatus(string_applicationVendorId)publicconstantreturns(stringstatus){VendorApplicationmemoryvApp=vendorApplicationIndex[_applicationVendorId];returnvApp.status;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 217
+column: 5
+content: functiongetVendorApplicationsCount(string_vendorId)publicconstantreturns(uint){returnvendorApplications[_vendorId].length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 224
+column: 5
+content: functiongetVendorApplicationStatusTrackCount(string_applicationVendorId)publicconstantreturns(uint256index){returnvendorApplicationStatusTrack[_applicationVendorId].length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 229
+column: 5
+content: functiongetVendorApplicationStatusTrack(string_applicationVendorId,uint_index)publicconstantreturns(stringstatus,stringdate,stringhash,stringsubmitter,stringaction){StatusTrackmemoryst=vendorApplicationStatusTrack[_applicationVendorId][_index-1];return(st.status,st.createdDate,st.dataHash,st.submitter,st.action);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 239
+column: 5
+content: functiongetVendorApplicationScoringTrackCount(string_applicationVendorId)publicconstantreturns(uint256index){returnvendorApplicationScoring[_applicationVendorId].length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 245
+column: 5
+content: functiongetVendorApplicationScoringTrack(string_applicationVendorId,uint_index)publicconstantreturns(uint256beeScore,uint256innovation,uint256bussinessModel,uint256scalability,stringdate,stringrecommendedAmount,stringsubmitter,stringaction){Scoringmemoryst=vendorApplicationScoring[_applicationVendorId][_index-1];return(st.beeScore,st.innovation,st.bussinessModel,st.scalability,st.createdDate,st.recommendedAmount,st.submitter,st.action);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 255
+column: 5
+content: functiongetGovtApplicationsCount(string_govtId)publicconstantreturns(uint){returnapplications[_govtId].length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 260
+column: 5
+content: functiongetGovtApplicationByIndex(string_govtId,uint_index)publicconstantreturns(stringapplicationId,stringhash,stringdate){Applicationmemoryapp=applications[_govtId][_index-1];return(app.id,app.dataHash,app.createdDate);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 267
+column: 5
+content: functiongetGovtApplication(string_govtId,string_applicationId)publicconstantreturns(stringapplicationId,stringhash,stringdate){Applicationmemoryapp=applicationIndex[_govtId][_applicationId];return(app.id,app.dataHash,app.createdDate);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 6
+column: 1
+content: contractApplicationCreation{eventLog(stringeventMessage);structApplication{stringid;stringnumber;stringdataHash;stringcreatedDate;boolexists;}structVendorApplication{stringid;stringstatus;stringdataHash;stringcreatedDate;stringgovtId;stringaction;}structStatusTrack{stringstatus;stringcreatedDate;stringdataHash;stringsubmitter;stringaction;}structScoring{stringsubmitter;uint256beeScore;uint256innovation;uint256bussinessModel;uint256scalability;stringcreatedDate;stringaction;stringrecommendedAmount;}stringvendorAppStatus;stringcreatorName;addresscreatorAddress;mapping(string=>Application[])applications;mapping(string=>mapping(string=>Application))applicationIndex;mapping(string=>VendorApplication[])vendorApplications;mapping(string=>VendorApplication)vendorApplicationIndex;mapping(string=>StatusTrack[])vendorApplicationStatusTrack;mapping(string=>Scoring[])vendorApplicationScoring;constructor(string_creator)public{creatorName=_creator;creatorAddress=msg.sender;emitLog("Contract deployed successfully");}functiongetOwner()publicconstantreturns(string,address){return(creatorName,creatorAddress);}functionisApplicationExits(string_govtId,string_applicationId)privateviewreturns(bool){if(applicationIndex[_govtId][_applicationId].exists){returntrue;}else{returnfalse;}}functionaddApplication(string_govtId,string_applicationId,string_createdDate,string_dataHash)publicpayablereturns(bool){if(!isApplicationExits(_govtId,_applicationId)){Applicationstorageapp=applicationIndex[_govtId][_applicationId];app.id=_applicationId;app.dataHash=_dataHash;app.createdDate=_createdDate;app.exists=true;applications[_govtId].push(app);applicationIndex[_govtId][_applicationId]=app;emitLog("New application added successfully");returntrue;}returnfalse;}functionsubmitApplication(string_govtId,string_vendorId,string_applicationVendorId,string_dataHash,string_date,string_status,string_submitter,string_action)publicpayablereturns(bool){VendorApplicationstoragevApp=vendorApplicationIndex[_applicationVendorId];vApp.status=_status;vApp.id=_applicationVendorId;vApp.dataHash=_dataHash;vApp.createdDate=_date;vApp.govtId=_govtId;vApp.action=_action;vendorApplications[_vendorId].push(vApp);vendorApplicationStatusTrack[_applicationVendorId].push(StatusTrack({status:_status,createdDate:_date,dataHash:_dataHash,submitter:_submitter,action:_action}));emitLog("Submitted application by vendor");returntrue;}functionupdateVendorApplicationStatus(string_applicationVendorId,string_status,string_date,string_dataHash,string_submitter,string_action)publicpayablereturns(bool){VendorApplicationstoragevApp=vendorApplicationIndex[_applicationVendorId];vApp.status=_status;vApp.action=_action;vApp.dataHash=_dataHash;vendorApplicationStatusTrack[_applicationVendorId].push(StatusTrack({status:_status,createdDate:_date,dataHash:_dataHash,submitter:_submitter,action:_action}));emitLog("updated vendor application status");returntrue;}functioncreateScore(string_applicationVendorId,string_submitter,uint256_beeScore,uint256_innovation,uint256_bussinessModel,uint256_scalability,string_date,string_recommendedAmount,string_applicationVendorHash,string_action,string_status)publicpayablereturns(bool){VendorApplicationstoragevApp=vendorApplicationIndex[_applicationVendorId];vApp.status=_status;vApp.dataHash=_applicationVendorHash;vendorApplicationScoring[_applicationVendorId].push(Scoring({submitter:_submitter,beeScore:_beeScore,innovation:_innovation,bussinessModel:_bussinessModel,scalability:_scalability,createdDate:_date,action:_action,recommendedAmount:_recommendedAmount}));vendorApplicationStatusTrack[_applicationVendorId].push(StatusTrack({status:_status,createdDate:_date,dataHash:_applicationVendorHash,submitter:_submitter,action:_action}));emitLog("Scoring created successfully");returntrue;}functiongetVendorApplication(string_applicationVendorId)publicconstantreturns(stringid,stringstatus,stringdataHash,stringdate,stringgovtId,stringaction){VendorApplicationmemoryvapp=vendorApplicationIndex[_applicationVendorId];return(vapp.id,vapp.status,vapp.dataHash,vapp.createdDate,vapp.govtId,vapp.action);}functiongetVendorApplicationStatus(string_applicationVendorId)publicconstantreturns(stringstatus){VendorApplicationmemoryvApp=vendorApplicationIndex[_applicationVendorId];returnvApp.status;}functiongetVendorApplicationsCount(string_vendorId)publicconstantreturns(uint){returnvendorApplications[_vendorId].length;}functiongetVendorApplicationStatusTrackCount(string_applicationVendorId)publicconstantreturns(uint256index){returnvendorApplicationStatusTrack[_applicationVendorId].length;}functiongetVendorApplicationStatusTrack(string_applicationVendorId,uint_index)publicconstantreturns(stringstatus,stringdate,stringhash,stringsubmitter,stringaction){StatusTrackmemoryst=vendorApplicationStatusTrack[_applicationVendorId][_index-1];return(st.status,st.createdDate,st.dataHash,st.submitter,st.action);}functiongetVendorApplicationScoringTrackCount(string_applicationVendorId)publicconstantreturns(uint256index){returnvendorApplicationScoring[_applicationVendorId].length;}functiongetVendorApplicationScoringTrack(string_applicationVendorId,uint_index)publicconstantreturns(uint256beeScore,uint256innovation,uint256bussinessModel,uint256scalability,stringdate,stringrecommendedAmount,stringsubmitter,stringaction){Scoringmemoryst=vendorApplicationScoring[_applicationVendorId][_index-1];return(st.beeScore,st.innovation,st.bussinessModel,st.scalability,st.createdDate,st.recommendedAmount,st.submitter,st.action);}functiongetGovtApplicationsCount(string_govtId)publicconstantreturns(uint){returnapplications[_govtId].length;}functiongetGovtApplicationByIndex(string_govtId,uint_index)publicconstantreturns(stringapplicationId,stringhash,stringdate){Applicationmemoryapp=applications[_govtId][_index-1];return(app.id,app.dataHash,app.createdDate);}functiongetGovtApplication(string_govtId,string_applicationId)publicconstantreturns(stringapplicationId,stringhash,stringdate){Applicationmemoryapp=applicationIndex[_govtId][_applicationId];return(app.id,app.dataHash,app.createdDate);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 15
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 83
+column: 18
+content: string_creator
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 90
+column: 50
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 95
+column: 33
+content: string_govtId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 95
+column: 49
+content: string_applicationId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 107
+column: 29
+content: string_govtId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 107
+column: 45
+content: string_applicationId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 107
+column: 68
+content: string_createdDate
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 107
+column: 89
+content: string_dataHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 127
+column: 32
+content: string_govtId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 127
+column: 48
+content: string_vendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 127
+column: 66
+content: string_applicationVendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 127
+column: 95
+content: string_dataHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 127
+column: 113
+content: string_date
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 128
+column: 32
+content: string_status
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 128
+column: 48
+content: string_submitter
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 128
+column: 67
+content: string_action
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 152
+column: 44
+content: string_applicationVendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 152
+column: 73
+content: string_status
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 152
+column: 89
+content: string_date
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 152
+column: 103
+content: string_dataHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 153
+column: 44
+content: string_submitter
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 153
+column: 63
+content: string_action
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 170
+column: 26
+content: string_applicationVendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 170
+column: 55
+content: string_submitter
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 171
+column: 78
+content: string_date
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 171
+column: 92
+content: string_recommendedAmount
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 172
+column: 12
+content: string_applicationVendorHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 172
+column: 43
+content: string_action
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 172
+column: 59
+content: string_status
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 204
+column: 36
+content: string_applicationVendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 204
+column: 90
+content: stringid
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 204
+column: 101
+content: stringstatus
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 205
+column: 41
+content: stringdataHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 205
+column: 58
+content: stringdate
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 205
+column: 71
+content: stringgovtId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 205
+column: 86
+content: stringaction
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 211
+column: 41
+content: string_applicationVendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 211
+column: 94
+content: stringstatus
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 217
+column: 41
+content: string_vendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 224
+column: 51
+content: string_applicationVendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 229
+column: 46
+content: string_applicationVendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 230
+column: 24
+content: stringstatus
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 230
+column: 38
+content: stringdate
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 230
+column: 51
+content: stringhash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 230
+column: 63
+content: stringsubmitter
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 230
+column: 81
+content: stringaction
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 239
+column: 52
+content: string_applicationVendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 245
+column: 47
+content: string_applicationVendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 246
+column: 136
+content: stringdate
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 246
+column: 149
+content: stringrecommendedAmount
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 247
+column: 46
+content: stringsubmitter
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 247
+column: 64
+content: stringaction
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 255
+column: 39
+content: string_govtId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 260
+column: 40
+content: string_govtId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 261
+column: 42
+content: stringapplicationId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 261
+column: 64
+content: stringhash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 261
+column: 77
+content: stringdate
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 267
+column: 33
+content: string_govtId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 267
+column: 49
+content: string_applicationId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 268
+column: 34
+content: stringapplicationId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 268
+column: 56
+content: stringhash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 268
+column: 69
+content: stringdate
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 58
+column: 5
+content: stringvendorAppStatus;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 61
+column: 5
+content: stringcreatorName;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 62
+column: 5
+content: addresscreatorAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 65
+column: 5
+content: mapping(string=>Application[])applications;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 68
+column: 5
+content: mapping(string=>mapping(string=>Application))applicationIndex;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 71
+column: 5
+content: mapping(string=>VendorApplication[])vendorApplications;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 74
+column: 5
+content: mapping(string=>VendorApplication)vendorApplicationIndex;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 77
+column: 5
+content: mapping(string=>StatusTrack[])vendorApplicationStatusTrack;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 80
+column: 5
+content: mapping(string=>Scoring[])vendorApplicationScoring;
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :11
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :62

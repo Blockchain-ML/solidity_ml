@@ -1,0 +1,89 @@
+F:\Blockchain\dataset_new_byID\81318.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 31
+column: 14
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 45
+column: 24
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 58
+column: 24
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 59
+column: 24
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 30
+column: 4
+content: functiongetPriceHash(ERC20sellToken,uintsellUnits,ERC20buyToken,uintbuyUnits)constantreturns(bytes32){returnsha3(sellToken,sellUnits,buyToken,buyUnits);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 22
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 30
+column: 4
+content: functiongetPriceHash(ERC20sellToken,uintsellUnits,ERC20buyToken,uintbuyUnits)constantreturns(bytes32){returnsha3(sellToken,sellUnits,buyToken,buyUnits);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 4
+content: functionapprove(bytes32priceHash,uintunitLots){approvals[msg.sender][priceHash]=unitLots;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 38
+column: 4
+content: functionblockApproval(bytes32priceHash,uintnonce){approvals[msg.sender][priceHash]=0;usedNonce[msg.sender][nonce]=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 43
+column: 4
+content: functiontrade(addressmaker,uintunitLots,ERC20sellToken,uintsellUnits,ERC20buyToken,uintbuyUnits){varpriceHash=sha3(sellToken,sellUnits,buyToken,buyUnits);approvals[msg.sender][priceHash]=approvals[msg.sender][priceHash].safeSub(unitLots);require(sellToken.transferFrom(maker,msg.sender,unitLots.safeMul(sellUnits)));require(buyToken.transferFrom(msg.sender,maker,unitLots.safeMul(buyUnits)));onTrade(priceHash,unitLots);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 54
+column: 4
+content: functionapproveAndtrade(bytessig,uintnonce,uintapprovedLots,addressmaker,uintunitLots,ERC20sellToken,uintsellUnits,ERC20buyToken,uintbuyUnits){require(usedNonce[maker][nonce]==false);varpriceHash=sha3(sellToken,sellUnits,buyToken,buyUnits);varsigHash=sha3(priceHash,nonce,approvedLots);require(maker==sigHash.checkSig(sig));usedNonce[maker][nonce]=true;approvals[msg.sender][priceHash]=approvals[msg.sender][priceHash].safeSub(unitLots);require(sellToken.transferFrom(maker,msg.sender,unitLots.safeMul(sellUnits)));require(buyToken.transferFrom(msg.sender,maker,unitLots.safeMul(buyUnits)));onTrade(priceHash,unitLots);}
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_PRAGMAS_VERSION :1

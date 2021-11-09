@@ -1,0 +1,305 @@
+C:\Users\hp\DataSet\contracts\ropsten\70\70170b8bca1c3d8fd84617a030106cd5794c1605_Evabot.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 152
+column: 6
+content: whitelists.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 174
+column: 6
+content: pendingUserlists.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 196
+column: 6
+content: activeUserlists.length--
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 31
+column: 4
+content: functiontotalSupply()publicconstantreturns(uint);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 32
+column: 4
+content: functionbalanceOf(addresstokenOwner)publicconstantreturns(uintbalance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 33
+column: 4
+content: functionallowance(addresstokenOwner,addressspender)publicconstantreturns(uintremaining);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 214
+column: 2
+content: functiongetWhitelists()publicconstantreturns(address[]){returnwhitelists;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 360
+column: 2
+content: functiongetEvotTokenAddress()publicconstantreturns(address){returntokenEVOT;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 365
+column: 2
+content: functionbalanceOfPendingToken(addressuser)publicconstantreturns(uint256){returnpendingToken[user];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 370
+column: 2
+content: functionbalanceOfActiveToken(addressuser)publicconstantreturns(uint256){returnactiveToken[user];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 375
+column: 2
+content: functionbalanceOfETH(addressuser)publicconstantreturns(uint256){returnmyEthBalance[user];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 380
+column: 2
+content: functiongetDailyProfitSumForAllUsers()publicconstantreturns(uint256){returndailyProfitSumForAllUsers;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 385
+column: 2
+content: functiongetReadyTime()publicconstantreturns(uint256){if(now>=readyTime){return0;}else{returnreadyTime.sub(now);}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 394
+column: 2
+content: functiongetSumActiveToken()publicconstantreturns(uint256){returnsumActiveToken;}
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 281
+column: 21
+content: (activeToken[activeUserlists[i]].div(sumActiveToken)).mul(eth_value_amount)
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 293
+column: 22
+content: (activeToken[activeUserlists[i]].div(sumActiveToken)).mul(eth_value_amount)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 261
+column: 6
+content: for(uint256i=0;i<pendingUserlists.length;i++){activeToken[pendingUserlists[i]]=pendingToken[pendingUserlists[i]];sumActiveToken=sumActiveToken.add(pendingToken[pendingUserlists[i]]);totalInvested[pendingUserlists[i]]=totalInvested[pendingUserlists[i]].add(pendingToken[pendingUserlists[i]]);pendingToken[pendingUserlists[i]]=0;activeUserlists.push(pendingUserlists[i]);_premoveByValue(pendingUserlists[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 278
+column: 6
+content: for(uint256i=0;i<activeUserlists.length;i++){if(isAutoInvest[activeUserlists[i]]){profit=(activeToken[activeUserlists[i]].div(sumActiveToken)).mul(eth_value_amount);dailyProfitSumForAllUsers=dailyProfitSumForAllUsers.add(profit);myEthBalance[activeUserlists[i]]=myEthBalance[activeUserlists[i]].add(profit);dailyEthProfit[activeUserlists[i]]=profit;totalProfit[activeUserlists[i]]=totalProfit[activeUserlists[i]].add(profit);pendingToken[activeUserlists[i]]=pendingToken[activeUserlists[i]].add(activeToken[activeUserlists[i]]);activeToken[activeUserlists[i]]=0;pendingUserlists.push(activeUserlists[i]);_aremoveByValue(activeUserlists[i]);}else{profit=(activeToken[activeUserlists[i]].div(sumActiveToken)).mul(eth_value_amount);dailyProfitSumForAllUsers=dailyProfitSumForAllUsers.add(profit);myEthBalance[activeUserlists[i]]=myEthBalance[activeUserlists[i]].add(profit);dailyEthProfit[activeUserlists[i]]=profit;totalProfit[activeUserlists[i]]=totalProfit[activeUserlists[i]].add(profit);if(!ERC20(tokenEVOT).transfer(wallet_contract,activeToken[activeUserlists[i]]))revert();Evoai(wallet_contract).recevedTokenFromEvabot(activeUserlists[i],activeToken[activeUserlists[i]]);activeToken[activeUserlists[i]]=0;_aremoveByValue(activeUserlists[i]);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 136
+column: 6
+content: while(whitelists[i]!=value){i++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 148
+column: 6
+content: while(i<whitelists.length-1){whitelists[i]=whitelists[i+1];i++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 158
+column: 6
+content: while(pendingUserlists[i]!=value){i++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 170
+column: 6
+content: while(i<pendingUserlists.length-1){pendingUserlists[i]=pendingUserlists[i+1];i++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 180
+column: 6
+content: while(activeUserlists[i]!=value){i++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 192
+column: 6
+content: while(i<activeUserlists.length-1){activeUserlists[i]=activeUserlists[i+1];i++;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 261
+column: 6
+content: for(uint256i=0;i<pendingUserlists.length;i++){activeToken[pendingUserlists[i]]=pendingToken[pendingUserlists[i]];sumActiveToken=sumActiveToken.add(pendingToken[pendingUserlists[i]]);totalInvested[pendingUserlists[i]]=totalInvested[pendingUserlists[i]].add(pendingToken[pendingUserlists[i]]);pendingToken[pendingUserlists[i]]=0;activeUserlists.push(pendingUserlists[i]);_premoveByValue(pendingUserlists[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 278
+column: 6
+content: for(uint256i=0;i<activeUserlists.length;i++){if(isAutoInvest[activeUserlists[i]]){profit=(activeToken[activeUserlists[i]].div(sumActiveToken)).mul(eth_value_amount);dailyProfitSumForAllUsers=dailyProfitSumForAllUsers.add(profit);myEthBalance[activeUserlists[i]]=myEthBalance[activeUserlists[i]].add(profit);dailyEthProfit[activeUserlists[i]]=profit;totalProfit[activeUserlists[i]]=totalProfit[activeUserlists[i]].add(profit);pendingToken[activeUserlists[i]]=pendingToken[activeUserlists[i]].add(activeToken[activeUserlists[i]]);activeToken[activeUserlists[i]]=0;pendingUserlists.push(activeUserlists[i]);_aremoveByValue(activeUserlists[i]);}else{profit=(activeToken[activeUserlists[i]].div(sumActiveToken)).mul(eth_value_amount);dailyProfitSumForAllUsers=dailyProfitSumForAllUsers.add(profit);myEthBalance[activeUserlists[i]]=myEthBalance[activeUserlists[i]].add(profit);dailyEthProfit[activeUserlists[i]]=profit;totalProfit[activeUserlists[i]]=totalProfit[activeUserlists[i]].add(profit);if(!ERC20(tokenEVOT).transfer(wallet_contract,activeToken[activeUserlists[i]]))revert();Evoai(wallet_contract).recevedTokenFromEvabot(activeUserlists[i],activeToken[activeUserlists[i]]);activeToken[activeUserlists[i]]=0;_aremoveByValue(activeUserlists[i]);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 136
+column: 13
+content: whitelists[i]!=value
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 148
+column: 13
+content: i<whitelists.length-1
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 158
+column: 13
+content: pendingUserlists[i]!=value
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 170
+column: 13
+content: i<pendingUserlists.length-1
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 180
+column: 13
+content: activeUserlists[i]!=value
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 192
+column: 13
+content: i<activeUserlists.length-1
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 74
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 75
+column: 12
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 299
+column: 12
+content: if(!ERC20(tokenEVOT).transfer(wallet_contract,activeToken[activeUserlists[i]]))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 320
+column: 4
+content: if(tokenEVOT==0)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 323
+column: 4
+content: if(!ERC20(tokenEVOT).transfer(wallet_contract,amount))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 404
+column: 6
+content: if(!ERC20(tokenEVOT).transfer(msg.sender,amount))revert();
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 52
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 127
+column: 21
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 214
+column: 51
+content: address[]
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :11
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :3
+SOLIDITY_REVERT_REQUIRE :4
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :8
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :8
+SOLIDITY_DIV_MUL :2

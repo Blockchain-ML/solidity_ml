@@ -1,0 +1,196 @@
+C:\Users\hp\DataSet\contracts\ropsten\43\438bc3d8d3d243084d3431be370219fb788be0c2_DecentralizedETHBank.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 376
+column: 8
+content: addressToFinishedDeposits[investorAddr].length=0
+
+ruleId: SOLIDITY_DO_WHILE_CONTINUE
+patternId: 94fra3
+severity: 1
+line: 623
+column: 8
+content: do{nextIndex=lastMultiplicatorIndex+index;index++;if(deposits[nextIndex].closed==true||deposits[nextIndex].invested==0)continue;total=total.add(deposits[nextIndex].invested);ready++;}while(ready<countDepositsForMultiplicator&&nextIndex<totalDeposits)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 123
+column: 8
+content: for(uinti=0;i<addresses.length;i++){emitTransfer(this,addresses[i],tokens);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 499
+column: 8
+content: for(uint256i=1;i<=totalDeposits;i++){DepositstoragecurrentDeposit=deposits[i];if(currentDeposit.closed==true){if(currentDeposit.withdraw>0){amount=amount.add(currentDeposit.withdraw).add(currentDeposit.gas);}}else{amount=amount.add(currentDeposit.multiplicator).add(CalculateDividents(currentDeposit.share)).add(currentDeposit.gas);}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 383
+column: 4
+content: functionwithdrawDepositById(uint_id)publicpayablereturns(bool){addressinvestorAddr=msg.sender;investorAddr.requireNotZero();require(addressToDeposits[investorAddr].length>0,"Investor not have deposits");DepositstoragecurrentDeposit=deposits[_id];require(currentDeposit.owner==investorAddr,"Access denided!");uint256ammountToWithdraw=0;if(currentDeposit.closed){require(currentDeposit.withdraw>0,"This deposit has already been withdrawn");ammountToWithdraw=currentDeposit.withdraw.add(currentDeposit.gas);currentDeposit.withdraw=0;investorAddr.transfer(ammountToWithdraw);}else{ammountToWithdraw=currentDeposit.multiplicator.add(CalculateDividents(currentDeposit.share)).add(currentDeposit.gas);require(ammountToWithdraw>0,"This deposit balance will be positive");currentDeposit.closed=true;currentDeposit.withdraw=0;closedDeposits++;investorAddr.transfer(ammountToWithdraw);}emitNewWithdraw(investorAddr,now,ammountToWithdraw);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 492
+column: 4
+content: functionCalculateBankCredit()publicviewreturns(uint256credit,uint256balance,uint256){uint256amount=0;for(uint256i=1;i<=totalDeposits;i++){DepositstoragecurrentDeposit=deposits[i];if(currentDeposit.closed==true){if(currentDeposit.withdraw>0){amount=amount.add(currentDeposit.withdraw).add(currentDeposit.gas);}}else{amount=amount.add(currentDeposit.multiplicator).add(CalculateDividents(currentDeposit.share)).add(currentDeposit.gas);}}credit=amount;balance=address(this).balance;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 123
+column: 8
+content: for(uinti=0;i<addresses.length;i++){emitTransfer(this,addresses[i],tokens);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 366
+column: 8
+content: for(uinti=0;i<depositLength;i++){DepositstoragecurrentDeposit=deposits[i];require(currentDeposit.owner==investorAddr,"Access denided!");if(currentDeposit.closed&&currentDeposit.withdraw>0){totalWithdrawAmount=totalWithdrawAmount.add(currentDeposit.withdraw).add(currentDeposit.gas);currentDeposit.withdraw=0;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 94
+column: 0
+content: contractERC20AdToken{stringpublicsymbol;stringpublicname;uint8publicdecimals=0;uint256publictotalSupply;mapping(address=>uint256)publicbalanceOf;eventTransfer(addressindexedfrom,addressindexedto,uinttokens);constructor(string_symbol,string_name)public{symbol=_symbol;name=_name;balanceOf[this]=10000000000;totalSupply=10000000000;emitTransfer(address(0),this,10000000000);}functiontransferToken(addressto,uinttokens)publicreturns(boolsuccess){emitTransfer(this,to,tokens);returntrue;}functionmassTransferTokens(address[]addresses,uinttokens)publicreturns(boolsuccess){for(uinti=0;i<addresses.length;i++){emitTransfer(this,addresses[i],tokens);}returntrue;}function()publicpayable{revert();}}
+
+ruleId: SOLIDITY_MSGVALUE_EQUALS_ZERO
+patternId: 1df89a
+severity: 1
+line: 345
+column: 11
+content: msg.value==0
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 130
+column: 31
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 142
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 270
+column: 4
+content: functionisContract(address_addr)privateviewreturns(bool){_addr.requireNotZero();uint32size;assembly{size:=extcodesize(_addr)}return(size>0);}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 130
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 344
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 107
+column: 16
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 107
+column: 32
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 122
+column: 32
+content: address[]addresses
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 298
+column: 24
+content: string_message
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 306
+column: 27
+content: string_url
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 155
+column: 4
+content: mapping(uint=>Deposit)deposits;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 161
+column: 4
+content: uint256closedDeposits=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 162
+column: 4
+content: uint256totalDeposits=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 165
+column: 4
+content: mapping(address=>uint256[])addressToDeposits;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 166
+column: 4
+content: mapping(address=>uint256[])addressToFinishedDeposits;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_UPGRADE_TO_050 :7
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_MSGVALUE_EQUALS_ZERO :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1
+SOLIDITY_DO_WHILE_CONTINUE :1

@@ -1,0 +1,81 @@
+C:\Users\hp\DataSet\ZeroExOrderLibrary.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 46
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 73
+column: 4
+content: functionparseOrderHeader(bytesmemory_ordersData,uint256_offset)internalpurereturns(OrderHeadermemory){OrderHeadermemoryheader;uint256orderDataStart=_ordersData.contentAddress().add(_offset);assembly{mstore(header,mload(orderDataStart))mstore(add(header,32),mload(add(orderDataStart,32)))}returnheader;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 115
+column: 4
+content: functionparseZeroExOrder(bytesmemory_ordersData,uint256_offset)internalpurereturns(LibOrder.Ordermemory){LibOrder.Ordermemoryorder;addressmakerTokenAddress;addresstakerTokenAddress;uint256orderDataStart=_ordersData.contentAddress().add(_offset);assembly{mstore(order,mload(orderDataStart))mstore(add(order,32),mload(add(orderDataStart,32)))mstore(add(order,64),mload(add(orderDataStart,64)))mstore(add(order,96),mload(add(orderDataStart,96)))mstore(add(order,128),mload(add(orderDataStart,128)))mstore(add(order,160),mload(add(orderDataStart,160)))mstore(add(order,192),mload(add(orderDataStart,192)))mstore(add(order,224),mload(add(orderDataStart,224)))mstore(add(order,256),mload(add(orderDataStart,256)))mstore(add(order,288),mload(add(orderDataStart,288)))makerTokenAddress:=mload(add(orderDataStart,320))takerTokenAddress:=mload(add(orderDataStart,352))}order.makerAssetData=tokenAddressToAssetData(makerTokenAddress);order.takerAssetData=tokenAddressToAssetData(takerTokenAddress);returnorder;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 156
+column: 4
+content: functionparseMakerTokenFromZeroExOrder(bytesmemory_ordersData,uint256_offset)internalpurereturns(address){addressmakerTokenAddress;uint256orderDataStart=_ordersData.contentAddress().add(_offset);assembly{makerTokenAddress:=mload(add(orderDataStart,320))}returnmakerTokenAddress;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 182
+column: 4
+content: functionparseTakerTokenFromZeroExOrder(bytesmemory_ordersData,uint256_offset)internalpurereturns(address){addresstakerTokenAddress;uint256orderDataStart=_ordersData.contentAddress().add(_offset);assembly{takerTokenAddress:=mload(add(orderDataStart,352))}returntakerTokenAddress;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 207
+column: 4
+content: functiontokenAddressToAssetData(address_tokenAddress)privatepurereturns(bytesmemory){bytesmemoryresult=newbytes(36);bytes32selector=0xf47261b000000000000000000000000000000000000000000000000000000000;assembly{mstore(add(result,32),selector)mstore(add(result,36),_tokenAddress)}returnresult;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 85
+column: 8
+content: assembly{mstore(header,mload(orderDataStart))mstore(add(header,32),mload(add(orderDataStart,32)))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 129
+column: 8
+content: assembly{mstore(order,mload(orderDataStart))mstore(add(order,32),mload(add(orderDataStart,32)))mstore(add(order,64),mload(add(orderDataStart,64)))mstore(add(order,96),mload(add(orderDataStart,96)))mstore(add(order,128),mload(add(orderDataStart,128)))mstore(add(order,160),mload(add(orderDataStart,160)))mstore(add(order,192),mload(add(orderDataStart,192)))mstore(add(order,224),mload(add(orderDataStart,224)))mstore(add(order,256),mload(add(orderDataStart,256)))mstore(add(order,288),mload(add(orderDataStart,288)))makerTokenAddress:=mload(add(orderDataStart,320))takerTokenAddress:=mload(add(orderDataStart,352))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 168
+column: 8
+content: assembly{makerTokenAddress:=mload(add(orderDataStart,320))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 194
+column: 8
+content: assembly{takerTokenAddress:=mload(add(orderDataStart,352))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 219
+column: 8
+content: assembly{mstore(add(result,32),selector)mstore(add(result,36),_tokenAddress)}
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_USING_INLINE_ASSEMBLY :5
+SOLIDITY_SHOULD_NOT_BE_PURE :5

@@ -1,0 +1,54 @@
+F:\Blockchain\dataset_new_byID\77675.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 20
+column: 2
+content: functionhasWon(uint_proposalID)bondPosted(_proposalID)publicconstantreturns(bool){BoardRoomboard=BoardRoom(msg.sender);uintnay=board.positionWeightOf(_proposalID,0);uintyea=board.positionWeightOf(_proposalID,1);uinttotalVoters=board.numVoters(_proposalID);if(totalVoters>0&&yea>nay){returntrue;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 32
+column: 2
+content: functioncanVote(address_sender,uint_proposalID)bondPosted(_proposalID)publicconstantreturns(bool){BoardRoomboard=BoardRoom(msg.sender);uintcreated=board.createdOn(_proposalID);uintdebatePeriod=board.debatePeriodOf(_proposalID);if(registry.isMember(_sender)&&now<created+debatePeriod&&!board.hasVoted(_proposalID,_sender)){returntrue;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 45
+column: 2
+content: functioncanPropose(address_sender)publicconstantreturns(bool){if(registry.isMember(_sender)){returntrue;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 51
+column: 2
+content: functionvotingWeightOf(address_sender,uint_proposalID)bondPosted(_proposalID)publicconstantreturns(uint){return1;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 9
+column: 0
+content: contractRequiredBondRulesisRules{modifierbondPosted(uint_proposalID){if(bonds[_proposalID]>0){_;}}functionRequiredBondRules(address_registry)public{registry=OpenRegistry(_registry);}functionhasWon(uint_proposalID)bondPosted(_proposalID)publicconstantreturns(bool){BoardRoomboard=BoardRoom(msg.sender);uintnay=board.positionWeightOf(_proposalID,0);uintyea=board.positionWeightOf(_proposalID,1);uinttotalVoters=board.numVoters(_proposalID);if(totalVoters>0&&yea>nay){returntrue;}}functioncanVote(address_sender,uint_proposalID)bondPosted(_proposalID)publicconstantreturns(bool){BoardRoomboard=BoardRoom(msg.sender);uintcreated=board.createdOn(_proposalID);uintdebatePeriod=board.debatePeriodOf(_proposalID);if(registry.isMember(_sender)&&now<created+debatePeriod&&!board.hasVoted(_proposalID,_sender)){returntrue;}}functioncanPropose(address_sender)publicconstantreturns(bool){if(registry.isMember(_sender)){returntrue;}}functionvotingWeightOf(address_sender,uint_proposalID)bondPosted(_proposalID)publicconstantreturns(uint){return1;}functiondepositBond(uint_proposalID)payable{bonds[_proposalID]+=msg.value;}mapping(uint=>uint)publicbonds;OpenRegistrypublicregistry;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 55
+column: 2
+content: functiondepositBond(uint_proposalID)payable{bonds[_proposalID]+=msg.value;}
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

@@ -1,0 +1,118 @@
+F:\Blockchain\solidity_dataset_work\4k_dataset\92052.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 199
+column: 26
+content: 0x0000
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 111
+column: 8
+content: for(uinti=0;i<timestampList.length-1;i++){uinttimestampDiff=(timestampList[i+1]-timestampList[i]);if((timestampDiff/1000)!=10){emitError("registerPoA","Timestamps should be spaced exactly 10 secounds");return;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 171
+column: 8
+content: for(uinti=0;i<nonces.length;i++){bytes8timestamp=bytes8(timestampList[i]);bytes8nonce=bytes8(nonces[i]);bytesmemorybyteList=newbytes(packageName.length+timestamp.length);for(uintj=0;j<packageName.length;j++){byteList[j]=packageName[j];}for(j=0;j<timestamp.length;j++){byteList[j+packageName.length]=timestamp[j];}bytes32result=sha256(byteList);bytesmemorynoncePlusHash=newbytes(result.length+nonce.length);for(j=0;j<nonce.length;j++){noncePlusHash[j]=nonce[j];}for(j=0;j<result.length;j++){noncePlusHash[j+nonce.length]=result[j];}result=sha256(noncePlusHash);bytes2[1]memoryleadingBytes=[bytes2(0)];bytes2comp=0x0000;assembly{mstore(leadingBytes,result)}if(comp!=leadingBytes[0]){returnfalse;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 176
+column: 12
+content: for(uintj=0;j<packageName.length;j++){byteList[j]=packageName[j];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 180
+column: 12
+content: for(j=0;j<timestamp.length;j++){byteList[j+packageName.length]=timestamp[j];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 188
+column: 12
+content: for(j=0;j<nonce.length;j++){noncePlusHash[j]=nonce[j];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 192
+column: 12
+content: for(j=0;j<result.length;j++){noncePlusHash[j+nonce.length]=result[j];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 171
+column: 8
+content: for(uinti=0;i<nonces.length;i++){bytes8timestamp=bytes8(timestampList[i]);bytes8nonce=bytes8(nonces[i]);bytesmemorybyteList=newbytes(packageName.length+timestamp.length);for(uintj=0;j<packageName.length;j++){byteList[j]=packageName[j];}for(j=0;j<timestamp.length;j++){byteList[j+packageName.length]=timestamp[j];}bytes32result=sha256(byteList);bytesmemorynoncePlusHash=newbytes(result.length+nonce.length);for(j=0;j<nonce.length;j++){noncePlusHash[j]=nonce[j];}for(j=0;j<result.length;j++){noncePlusHash[j+nonce.length]=result[j];}result=sha256(noncePlusHash);bytes2[1]memoryleadingBytes=[bytes2(0)];bytes2comp=0x0000;assembly{mstore(leadingBytes,result)}if(comp!=leadingBytes[0]){returnfalse;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 176
+column: 12
+content: for(uintj=0;j<packageName.length;j++){byteList[j]=packageName[j];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 180
+column: 12
+content: for(j=0;j<timestamp.length;j++){byteList[j+packageName.length]=timestamp[j];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 188
+column: 12
+content: for(j=0;j<nonce.length;j++){noncePlusHash[j]=nonce[j];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 192
+column: 12
+content: for(j=0;j<result.length;j++){noncePlusHash[j+nonce.length]=result[j];}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 168
+column: 29
+content: bytespackageName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 168
+column: 47
+content: uint64[]timestampList
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 168
+column: 71
+content: uint64[]nonces
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 201
+column: 12
+content: assembly{mstore(leadingBytes,result)}
+
+SOLIDITY_EXTRA_GAS_IN_LOOPS :6
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :5
+SOLIDITY_USING_INLINE_ASSEMBLY :1

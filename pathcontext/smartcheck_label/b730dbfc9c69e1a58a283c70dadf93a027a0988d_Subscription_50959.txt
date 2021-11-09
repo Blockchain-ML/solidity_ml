@@ -1,0 +1,55 @@
+C:\Users\hp\DataSet\contracts\ropsten\b7\b730dbfc9c69e1a58a283c70dadf93a027a0988d_Subscription.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 116
+column: 8
+content: _owner=address(0)
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 138
+column: 0
+content: contractSubscriptionisOwnable{usingSafeMathforuint256;addressprivate_wallet;uint256private_periodDuration;mapping(address=>bool)publicstatus;mapping(address=>uint256)publicendDate;constructor(addresswallet,uint256periodDuration)public{require(wallet!=address(0));require(periodDuration>0);_wallet=wallet;_periodDuration=periodDuration;}functionwallet()publicviewreturns(address){return_wallet;}functionupdateWallet(addressnewWallet)publiconlyOwner{require(newWallet!=address(0));_wallet=newWallet;}functionperiodDuration()publicviewreturns(uint256){return_periodDuration;}functionupdatePeriodDuration(uint256newPeriodDuration)publiconlyOwner{require(newPeriodDuration>0);_periodDuration=newPeriodDuration;}functionsubscribe()publicpayable{status[msg.sender]=true;endDate[msg.sender]=block.timestamp.add(_periodDuration);}functionupdateSubscription(address_subscriber,bool_status,uint256_endDate)publiconlyOwner{require(_subscriber!=address(0));require(_endDate>0);status[_subscriber]=_status;endDate[_subscriber]=_endDate;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 73
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 141
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 142
+column: 12
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 139
+column: 4
+content: usingSafeMathforuint256;
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :3
+SOLIDITY_ADDRESS_HARDCODED :1

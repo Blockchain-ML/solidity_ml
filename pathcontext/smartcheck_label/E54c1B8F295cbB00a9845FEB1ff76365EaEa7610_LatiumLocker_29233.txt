@@ -1,0 +1,196 @@
+C:\Users\hp\DataSet\contracts\mainnet\e5\E54c1B8F295cbB00a9845FEB1ff76365EaEa7610_LatiumLocker.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 43
+column: 46
+content: 0xBb31037f997553BEc50510a635d231A35F8EC640
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 81
+column: 4
+content: functionlatiumBalance()constantreturns(uint256balance){return_latium.balanceOf(address(this));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 87
+column: 4
+content: functionlockLimit()constantreturns(uint256limit){return_lockLimit;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 93
+column: 4
+content: functionlockedTokens()constantreturns(uint256locked){locked=0;uint256unlocked=0;for(uint8i=0;i<_timestamps.length;i++){if(now>=_timestamps[i]){unlocked+=_releaseTiers[_timestamps[i]];}else{locked+=_releaseTiers[_timestamps[i]];}}uint256balance=latiumBalance();if(unlocked>balance){locked=0;}else{balance-=unlocked;if(balance<locked){locked=balance;}}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 116
+column: 4
+content: functioncanBeWithdrawn()constantreturns(uint256unlockedTokens,uint256excessTokens){unlockedTokens=0;excessTokens=0;uint256tiersBalance=0;for(uint8i=0;i<_timestamps.length;i++){tiersBalance+=_releaseTiers[_timestamps[i]];if(now>=_timestamps[i]){unlockedTokens+=_releaseTiers[_timestamps[i]];}}uint256balance=latiumBalance();if(unlockedTokens>balance){unlockedTokens=balance;}elseif(balance>tiersBalance){excessTokens=(balance-tiersBalance);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 72
+column: 8
+content: for(uint8i=0;i<_timestamps.length;i++){_releaseTiers[_timestamps[i]]=_tokensToRelease[i]*10**uint256(_latium.decimals());_lockLimit+=_releaseTiers[_timestamps[i]];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 96
+column: 8
+content: for(uint8i=0;i<_timestamps.length;i++){if(now>=_timestamps[i]){unlocked+=_releaseTiers[_timestamps[i]];}else{locked+=_releaseTiers[_timestamps[i]];}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 120
+column: 8
+content: for(uint8i=0;i<_timestamps.length;i++){tiersBalance+=_releaseTiers[_timestamps[i]];if(now>=_timestamps[i]){unlockedTokens+=_releaseTiers[_timestamps[i]];}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 162
+column: 12
+content: while(unlockedToWithdraw>0&&i<_timestamps.length){if(now>=_timestamps[i]){uint256amountToReduce=unlockedToWithdraw>_releaseTiers[_timestamps[i]]?_releaseTiers[_timestamps[i]]:unlockedToWithdraw;_releaseTiers[_timestamps[i]]-=amountToReduce;unlockedToWithdraw-=amountToReduce;}i++;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 72
+column: 8
+content: for(uint8i=0;i<_timestamps.length;i++){_releaseTiers[_timestamps[i]]=_tokensToRelease[i]*10**uint256(_latium.decimals());_lockLimit+=_releaseTiers[_timestamps[i]];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 96
+column: 8
+content: for(uint8i=0;i<_timestamps.length;i++){if(now>=_timestamps[i]){unlocked+=_releaseTiers[_timestamps[i]];}else{locked+=_releaseTiers[_timestamps[i]];}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 120
+column: 8
+content: for(uint8i=0;i<_timestamps.length;i++){tiersBalance+=_releaseTiers[_timestamps[i]];if(now>=_timestamps[i]){unlockedTokens+=_releaseTiers[_timestamps[i]];}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 162
+column: 19
+content: unlockedToWithdraw>0&&i<_timestamps.length
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 43
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 44
+column: 11
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 47
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 50
+column: 13
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 56
+column: 13
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 62
+column: 32
+content: private
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 18
+column: 4
+content: functionLatium(){owner=msg.sender;balanceOf[owner]=totalSupply;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 24
+column: 4
+content: functiontransfer(address_to,uint256_value){require(_to!=0x0);require(msg.sender!=_to);require(_value>0&&balanceOf[msg.sender]>=_value);require(balanceOf[_to]+_value>balanceOf[_to]);balanceOf[msg.sender]-=_value;balanceOf[_to]+=_value;Transfer(msg.sender,_to,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 68
+column: 4
+content: functionLatiumLocker(){owner=msg.sender;for(uint8i=0;i<_timestamps.length;i++){_releaseTiers[_timestamps[i]]=_tokensToRelease[i]*10**uint256(_latium.decimals());_lockLimit+=_releaseTiers[_timestamps[i]];}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 81
+column: 4
+content: functionlatiumBalance()constantreturns(uint256balance){return_latium.balanceOf(address(this));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 87
+column: 4
+content: functionlockLimit()constantreturns(uint256limit){return_lockLimit;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 93
+column: 4
+content: functionlockedTokens()constantreturns(uint256locked){locked=0;uint256unlocked=0;for(uint8i=0;i<_timestamps.length;i++){if(now>=_timestamps[i]){unlocked+=_releaseTiers[_timestamps[i]];}else{locked+=_releaseTiers[_timestamps[i]];}}uint256balance=latiumBalance();if(unlocked>balance){locked=0;}else{balance-=unlocked;if(balance<locked){locked=balance;}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 116
+column: 4
+content: functioncanBeWithdrawn()constantreturns(uint256unlockedTokens,uint256excessTokens){unlockedTokens=0;excessTokens=0;uint256tiersBalance=0;for(uint8i=0;i<_timestamps.length;i++){tiersBalance+=_releaseTiers[_timestamps[i]];if(now>=_timestamps[i]){unlockedTokens+=_releaseTiers[_timestamps[i]];}}uint256balance=latiumBalance();if(unlockedTokens>balance){unlockedTokens=balance;}elseif(balance>tiersBalance){excessTokens=(balance-tiersBalance);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 146
+column: 4
+content: functionwithdraw(uint256_amount)onlyOwner{var(unlockedTokens,excessTokens)=canBeWithdrawn();uint256totalAmount=unlockedTokens+excessTokens;require(totalAmount>0);if(_amount==0){_amount=totalAmount;}require(totalAmount>=_amount);uint256unlockedToWithdraw=_amount>unlockedTokens?unlockedTokens:_amount;if(unlockedToWithdraw>0){uint8i=0;while(unlockedToWithdraw>0&&i<_timestamps.length){if(now>=_timestamps[i]){uint256amountToReduce=unlockedToWithdraw>_releaseTiers[_timestamps[i]]?_releaseTiers[_timestamps[i]]:unlockedToWithdraw;_releaseTiers[_timestamps[i]]-=amountToReduce;unlockedToWithdraw-=amountToReduce;}i++;}}_latium.transfer(msg.sender,_amount);}
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :6
+SOLIDITY_EXTRA_GAS_IN_LOOPS :4
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4

@@ -1,0 +1,70 @@
+F:\Blockchain\dataset_new_byID\82844.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 34
+column: 1
+content: functionfindGroupRewards(uinttotalVotesFor,uinttotalVotesAgainst,uinttotalReward)constantprivatereturns(uintminorityReward,uintmajorityReward){uintrprop=0;uintdiscountFactor=1;varscalingFactor=0;var(pMinDividend,pMinDivisor)=findPMinValues(totalVotesFor,totalVotesAgainst);minorityReward=(((totalReward-rprop)*pMinDividend)*discountFactor)/pMinDivisor*scalingFactor;majorityReward=totalReward-rprop-minorityReward;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 55
+column: 1
+content: functionfindScalingFactor(uintvotesFor,uintvotesAgainst)constantprivatereturns(uintscalingFactor){uintpMin=votesFor>votesAgainst?votesAgainst/votesFor:votesFor/votesAgainst;uintpMax=votesFor>votesAgainst?votesFor/votesAgainst:votesAgainst/votesFor;scalingFactor=1-(pMax/(1-pMin));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 68
+column: 1
+content: functionfindPMinValues(uintvotesFor,uintvotesAgainst)constantprivatereturns(uintpMinDividend,uintpMinDivisor){pMinDividend=votesFor>votesAgainst?votesAgainst:votesFor;pMinDivisor=votesFor>votesAgainst?votesFor:votesAgainst;}
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 51
+column: 19
+content: (((totalReward-rprop)*pMinDividend)*discountFactor)/pMinDivisor*scalingFactor
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 37
+column: 10
+content: (uintminorityReward,uintmajorityReward)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 71
+column: 10
+content: (uintpMinDividend,uintpMinDivisor)
+
+ruleId: SOLIDITY_VAR
+patternId: d28aa7
+severity: 2
+line: 46
+column: 2
+content: varscalingFactor=0
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 16
+column: 1
+content: functiongetRewardAmount(GroupRewardAmountsstorageself,uintvoterDecision,uintvoterVoteContribution,uinttotalVotesFor,uinttotalVotesAgainst,uinttotalReward)returns(uint){if(self.minorityGroupReward==0&&self.majorityGroupReward==0){(self.minorityGroupReward,self.majorityGroupReward)=findGroupRewards(totalVotesFor,totalVotesAgainst,totalReward);self.winningVote=totalVotesFor>totalVotesAgainst?0:1;self.winningVoteContribution=totalVotesFor>totalVotesAgainst?totalVotesFor:totalVotesAgainst;self.losingVoteContribution=totalVotesFor>totalVotesAgainst?totalVotesFor:totalVotesAgainst;}uintvoterGroupReward=voterDecision==self.winningVote?self.majorityGroupReward:self.minorityGroupReward;uintvoterGroupVoteContribution=voterDecision==self.winningVote?self.winningVoteContribution:self.losingVoteContribution;uintvoterReward=(voterGroupReward*voterVoteContribution)/voterGroupVoteContribution;returnvoterReward;}
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_VAR :1
+SOLIDITY_DIV_MUL :1
+SOLIDITY_SHOULD_RETURN_STRUCT :2

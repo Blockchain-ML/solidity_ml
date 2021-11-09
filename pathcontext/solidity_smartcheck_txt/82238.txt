@@ -1,0 +1,74 @@
+F:\Blockchain\dataset_new_byID\82238.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 72
+column: 4
+content: functiongetProductCount()publicconstantreturns(uint){returnproducts.length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 76
+column: 4
+content: functiongetOrderCount()publicconstantreturns(uint){returnorders.length;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 60
+column: 4
+content: functionStore(string_name,address_owner,Mall_mall,string_publicKey){name=_name;owner=_owner;mall=_mall;publicKey=_publicKey;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 67
+column: 4
+content: functionaddProduct(stringname,boolavailable,uintprice)onlyOwner{products.push(Product({name:name,available:available,price:price,nRatings:0,ratingsSum:0}));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 80
+column: 4
+content: functionbuyProduct(uintproductIndex,stringmessage)validProduct(productIndex)payableatMinimumPrice(products[productIndex].price){varproduct=products[productIndex];require(product.available==true);mall.deposit.value(product.price/10)();orders.push(Order(msg.sender,productIndex,product.price,message,false,false));mall.notifyOrderFrom(msg.sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 88
+column: 4
+content: functionwithdraw(addressto,uintamount)onlyOwner{to.transfer(amount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 92
+column: 4
+content: functionrateOrder(uintorderIndex,uintrating,stringcomment)validOrder(orderIndex){varorder=orders[orderIndex];require(order.buyer==msg.sender);require(order.hasBuyerRatedVendor==false);require(rating<=10&&rating>=0);order.hasBuyerRatedVendor=true;varproduct=products[order.productIndex];product.ratingsSum+=rating;product.nRatings+=1;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 104
+column: 4
+content: functionrateBuyer(uintorderIndex,uintrating)onlyOwner{varorder=orders[orderIndex];require(order.hasVendorRatedBuyer==false);require(rating<=10&&rating>=0);order.hasVendorRatedBuyer=true;mall.rateBuyer(order.buyer,rating);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 4
+content: Mallmall;
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1

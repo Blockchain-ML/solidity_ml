@@ -1,0 +1,120 @@
+C:\Users\hp\DataSet\contracts\ropsten\ca\ca0f3e97d7c41c320237bbc1fd67cd8fbb80bc15_Crowdsale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 91
+column: 4
+content: owner=address(0)
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 197
+column: 2
+content: functionsetPreIcoStart(uint256_timestamp)publiconlyOwner{require(_timestamp>0);preIcoStartTime=_timestamp;if(preIcoEndTime<_timestamp)preIcoEndTime=_timestamp;if(icoStartTime<_timestamp)icoStartTime=_timestamp;if(icoEndTime<_timestamp)icoEndTime=_timestamp;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 210
+column: 2
+content: functionsetPreIcoEnd(uint256_timestamp)publiconlyOwner{require(_timestamp>preIcoStartTime);preIcoEndTime=_timestamp;if(icoStartTime<_timestamp)icoStartTime=_timestamp;if(icoEndTime<_timestamp)icoEndTime=_timestamp;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 222
+column: 2
+content: functionsetIcoStart(uint256_timestamp)publiconlyOwner{require(_timestamp>preIcoEndTime);icoStartTime=_timestamp;if(icoEndTime<_timestamp)icoEndTime=_timestamp;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 233
+column: 2
+content: functionsetIcoEnd(uint256_timestamp)publiconlyOwner{require(_timestamp>icoStartTime);icoEndTime=_timestamp;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 243
+column: 2
+content: functionsetPreIcoCap(uint256_cap)publiconlyOwner{preIcoCap=_cap.mul(1ether);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 252
+column: 2
+content: functionsetIcoCap(uint256_cap)publiconlyOwner{icoCap=_cap.mul(1ether);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 261
+column: 2
+content: functionsetPreIcoDiscount(uint256_discount)publiconlyOwner{require(_discount>=0);require(_discount<100);preIcoDiscount=_discount;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 272
+column: 2
+content: functionsetIcoDiscount(uint256_discount)publiconlyOwner{require(_discount>=0);require(_discount<100);icoDiscount=_discount;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 283
+column: 2
+content: functionsetPreIcoMin(uint256_min)publiconlyOwner{preIcoMin=_min.mul(1finney);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 292
+column: 2
+content: functionsetIcoMin(uint256_min)publiconlyOwner{icoMin=_min.mul(1finney);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 383
+column: 9
+content: if(_stageIndex==2)require(_weiAmount>=icoMin);elserevert();
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 113
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 311
+column: 43
+content: string
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 152
+column: 2
+content: boolicoEnd=false;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :10
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :1

@@ -1,0 +1,282 @@
+C:\Users\hp\DataSet\contracts\ropsten\10\10c3179b793d9e56dc30739e342582cdfc3c0f08_TrustRank.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 39
+column: 8
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 7
+column: 4
+content: functionbalanceOf(address_owner)constantreturns(uint256balance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 15
+column: 4
+content: functionallowance(address_owner,address_spender)constantreturns(uint256remaining);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 61
+column: 4
+content: functionbalanceOf(address_owner)constantreturns(uint256balance){returnbalances[_owner];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 71
+column: 4
+content: functionallowance(address_owner,address_spender)constantreturns(uint256remaining){returnallowed[_owner][_spender];}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 65
+column: 4
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess){allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 110
+column: 8
+content: for(uinti=0;i<_channelIdsList.length;i++){userTrustRank[_userId][_channelIdsList[i]]=_pointsList[i];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 147
+column: 8
+content: for(uinti=0;i<storiesDetail[_storyId].claimsCount;i++){if(storiesDetail[_storyId].claimList[i].credibilityScore>0){userTrustRank[storiesDetail[_storyId].claimList[i].claimCreatorId][storiesDetail[_storyId].channelId]+=5;require(tokenContract.transfer(storiesDetail[_storyId].claimList[i].claimCreatorId,10),"Insufficient No of Trust Rank Tokens");for(uintj=0;j<storiesDetail[_storyId].claimList[i].upVotersList.length;j++){userTrustRank[storiesDetail[_storyId].claimList[i].upVotersList[j]][storiesDetail[_storyId].channelId]+=1;require(tokenContract.transfer(storiesDetail[_storyId].claimList[i].upVotersList[j],2),"Insufficient No of Trust Rank Tokens");}for(uintk=0;k<storiesDetail[_storyId].claimList[i].downVotersList.length;k++){userTrustRank[storiesDetail[_storyId].claimList[i].downVotersList[k]][storiesDetail[_storyId].channelId]-=1;}}else{userTrustRank[storiesDetail[_storyId].claimList[i].claimCreatorId][storiesDetail[_storyId].channelId]-=5;for(uintl=0;l<storiesDetail[_storyId].claimList[i].upVotersList.length;l++){userTrustRank[storiesDetail[_storyId].claimList[i].upVotersList[l]][storiesDetail[_storyId].channelId]-=1;}for(uintm=0;m<storiesDetail[_storyId].claimList[i].downVotersList.length;m++){userTrustRank[storiesDetail[_storyId].claimList[i].downVotersList[m]][storiesDetail[_storyId].channelId]+=1;require(tokenContract.transfer(storiesDetail[_storyId].claimList[i].downVotersList[m],2),"Insufficient No of Trust Rank Tokens");}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 153
+column: 16
+content: for(uintj=0;j<storiesDetail[_storyId].claimList[i].upVotersList.length;j++){userTrustRank[storiesDetail[_storyId].claimList[i].upVotersList[j]][storiesDetail[_storyId].channelId]+=1;require(tokenContract.transfer(storiesDetail[_storyId].claimList[i].upVotersList[j],2),"Insufficient No of Trust Rank Tokens");}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 158
+column: 16
+content: for(uintk=0;k<storiesDetail[_storyId].claimList[i].downVotersList.length;k++){userTrustRank[storiesDetail[_storyId].claimList[i].downVotersList[k]][storiesDetail[_storyId].channelId]-=1;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 166
+column: 16
+content: for(uintl=0;l<storiesDetail[_storyId].claimList[i].upVotersList.length;l++){userTrustRank[storiesDetail[_storyId].claimList[i].upVotersList[l]][storiesDetail[_storyId].channelId]-=1;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 170
+column: 16
+content: for(uintm=0;m<storiesDetail[_storyId].claimList[i].downVotersList.length;m++){userTrustRank[storiesDetail[_storyId].claimList[i].downVotersList[m]][storiesDetail[_storyId].channelId]+=1;require(tokenContract.transfer(storiesDetail[_storyId].claimList[i].downVotersList[m],2),"Insufficient No of Trust Rank Tokens");}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 184
+column: 8
+content: for(uinti=0;i<_usersId.length;i++){require(tokenContract.transfer(_usersId[i],_noOfTokens[i]),"Insufficient No of Trust Rank Tokens");}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 110
+column: 8
+content: for(uinti=0;i<_channelIdsList.length;i++){userTrustRank[_userId][_channelIdsList[i]]=_pointsList[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 153
+column: 16
+content: for(uintj=0;j<storiesDetail[_storyId].claimList[i].upVotersList.length;j++){userTrustRank[storiesDetail[_storyId].claimList[i].upVotersList[j]][storiesDetail[_storyId].channelId]+=1;require(tokenContract.transfer(storiesDetail[_storyId].claimList[i].upVotersList[j],2),"Insufficient No of Trust Rank Tokens");}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 158
+column: 16
+content: for(uintk=0;k<storiesDetail[_storyId].claimList[i].downVotersList.length;k++){userTrustRank[storiesDetail[_storyId].claimList[i].downVotersList[k]][storiesDetail[_storyId].channelId]-=1;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 166
+column: 16
+content: for(uintl=0;l<storiesDetail[_storyId].claimList[i].upVotersList.length;l++){userTrustRank[storiesDetail[_storyId].claimList[i].upVotersList[l]][storiesDetail[_storyId].channelId]-=1;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 170
+column: 16
+content: for(uintm=0;m<storiesDetail[_storyId].claimList[i].downVotersList.length;m++){userTrustRank[storiesDetail[_storyId].claimList[i].downVotersList[m]][storiesDetail[_storyId].channelId]+=1;require(tokenContract.transfer(storiesDetail[_storyId].claimList[i].downVotersList[m],2),"Insufficient No of Trust Rank Tokens");}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 184
+column: 8
+content: for(uinti=0;i<_usersId.length;i++){require(tokenContract.transfer(_usersId[i],_noOfTokens[i]),"Insufficient No of Trust Rank Tokens");}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 37
+column: 17
+content: {throw;}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 107
+column: 68
+content: uint[]_channelIdsList
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 107
+column: 92
+content: int[]_pointsList
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 180
+column: 39
+content: address[]_usersId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 180
+column: 61
+content: uint[]_noOfTokens
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 7
+column: 4
+content: functionbalanceOf(address_owner)constantreturns(uint256balance);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 9
+column: 4
+content: functiontransfer(address_to,uint256_value)returns(boolsuccess);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 11
+column: 4
+content: functiontransferFrom(address_from,address_to,uint256_value)returns(boolsuccess);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 13
+column: 4
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 15
+column: 4
+content: functionallowance(address_owner,address_spender)constantreturns(uint256remaining);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 37
+column: 5
+content: function(){throw;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 42
+column: 4
+content: functiontransfer(address_to,uint256_value)returns(boolsuccess){if(balances[msg.sender]>=_value&&_value>0){balances[msg.sender]-=_value;balances[_to]+=_value;Transfer(msg.sender,_to,_value);returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 51
+column: 4
+content: functiontransferFrom(address_from,address_to,uint256_value)returns(boolsuccess){if(balances[_from]>=_value&&allowed[_from][msg.sender]>=_value&&_value>0){balances[_to]+=_value;balances[_from]-=_value;allowed[_from][msg.sender]-=_value;Transfer(_from,_to,_value);returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 61
+column: 4
+content: functionbalanceOf(address_owner)constantreturns(uint256balance){returnbalances[_owner];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 4
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess){allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 71
+column: 4
+content: functionallowance(address_owner,address_spender)constantreturns(uint256remaining){returnallowed[_owner][_spender];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 4
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 29
+column: 4
+content: mapping(address=>mapping(address=>uint256))allowed;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 95
+column: 4
+content: addressadmin;
+
+SOLIDITY_VISIBILITY :14
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :7
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :6
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_ERC20_APPROVE :1

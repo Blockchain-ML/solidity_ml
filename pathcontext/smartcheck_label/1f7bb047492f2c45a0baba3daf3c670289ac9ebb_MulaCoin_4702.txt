@@ -1,0 +1,135 @@
+C:\Users\hp\DataSet\contracts\mainnet\1f\1f7bb047492f2c45a0baba3daf3c670289ac9ebb_MulaCoin.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 6
+column: 1
+content: functiontotalSupply()constantpublicreturns(uint256supply);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 10
+column: 1
+content: functionbalanceOf(address_owner)constantpublicreturns(uint256balance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 34
+column: 1
+content: functionallowance(address_owner,address_spender)publicconstantreturns(uint256remaining);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 74
+column: 1
+content: functionbalanceOf(address_owner)publicconstantreturns(uint256balance){returnbalances[_owner];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 86
+column: 1
+content: functionallowance(address_owner,address_spender)publicconstantreturns(uint256remaining){returnallowed[_owner][_spender];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 91
+column: 8
+content: functiontotalSupply()constantpublicreturns(uint256supply){return_totalSupply;}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 79
+column: 1
+content: functionapprove(address_spender,uint256_value)publicreturns(boolsuccess){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_ERC20_TRANSFER_SHOULD_THROW
+patternId: 550a42
+severity: 1
+line: 42
+column: 1
+content: functiontransfer(address_to,uint256_value)publicreturns(boolsuccess){if(balances[msg.sender]>=_value&&_value>0){balances[msg.sender]-=_value;balances[_to]+=_value;emitTransfer(msg.sender,_to,_value);returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_ERC20_TRANSFER_SHOULD_THROW
+patternId: 550a42
+severity: 1
+line: 61
+column: 1
+content: functiontransferFrom(address_from,address_to,uint256_value)publicreturns(boolsuccess){if(balances[_from]>=_value&&allowed[_from][msg.sender]>=_value&&_value>0){balances[_to]+=_value;balances[_from]-=_value;allowed[_from][msg.sender]-=_value;emitTransfer(_from,_to,_value);returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 106
+column: 0
+content: contractMulaCoinisStandardToken{stringpublicname;uint8publicdecimals;stringpublicsymbol;stringpublicversion=&39;1.0&39;;uint256publicunitsOneEthCanBuy;uint256publictotalEthInWei;addresspublicfundsWallet;modifieronlyFundOwner(){require(msg.sender==fundsWallet);_;}constructor()public{_totalSupply=3000000000000000000000000000;balances[msg.sender]=_totalSupply;name="MULA COIN";decimals=18;symbol="MUT";unitsOneEthCanBuy=4356;fundsWallet=msg.sender;}function()payablepublic{totalEthInWei=totalEthInWei+msg.value;uint256amount=msg.value*unitsOneEthCanBuy;if(balances[fundsWallet]<amount){revert();}balances[fundsWallet]=balances[fundsWallet]-amount;balances[msg.sender]=balances[msg.sender]+amount;emitTransfer(fundsWallet,msg.sender,amount);fundsWallet.transfer(msg.value);}functionchangePrice(uint256_newPrice)publiconlyFundOwner{unitsOneEthCanBuy=_newPrice;}functionapproveAndCall(address_spender,uint256_value,bytes_extraData)publicreturns(boolsuccess){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);ApproveAndCallFallBack(_spender).receiveApproval(msg.sender,_value,this,_extraData);returntrue;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 150
+column: 2
+content: if(balances[fundsWallet]<amount){revert();}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 145
+column: 20
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 103
+column: 74
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 171
+column: 59
+content: bytes_extraData
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 96
+column: 1
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 97
+column: 1
+content: mapping(address=>mapping(address=>uint256))allowed;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 98
+column: 1
+content: uint256_totalSupply;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_ERC20_TRANSFER_SHOULD_THROW :2
+SOLIDITY_ERC20_APPROVE :1

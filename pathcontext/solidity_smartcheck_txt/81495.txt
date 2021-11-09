@@ -1,0 +1,245 @@
+F:\Blockchain\dataset_new_byID\81495.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 80
+column: 4
+content: for(uint256i=0;i<keys.length;i++){rawKeys[i]=bytes32(namespace)|bytes32(keys[i])>>(8*namespaceSize);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 88
+column: 4
+content: for(uint256i=0;i<rawKeys.length;i++){params[rawKeys[i]].existed=true;params[rawKeys[i]].value=values[i];emitParameterChanged(rawKeys[i],values[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 80
+column: 4
+content: for(uint256i=0;i<keys.length;i++){rawKeys[i]=bytes32(namespace)|bytes32(keys[i])>>(8*namespaceSize);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 88
+column: 4
+content: for(uint256i=0;i<rawKeys.length;i++){params[rawKeys[i]].existed=true;params[rawKeys[i]].value=values[i];emitParameterChanged(rawKeys[i],values[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 65
+column: 11
+content: namespaceSize<8&&namespace[namespaceSize]!=byte(0)
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 79
+column: 11
+content: namespaceSize<8&&namespace[namespaceSize]!=byte(0)
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 75
+column: 2
+content: functionset(bytes8namespace,bytes24[]memorykeys,uint256[]memoryvalues)publiconlyOwner{require(keys.length==values.length);bytes32[]memoryrawKeys=newbytes32[](keys.length);uint8namespaceSize=0;while(namespaceSize<8&&namespace[namespaceSize]!=byte(0))++namespaceSize;for(uint256i=0;i<keys.length;i++){rawKeys[i]=bytes32(namespace)|bytes32(keys[i])>>(8*namespaceSize);}setRaw(rawKeys,values);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 86
+column: 2
+content: functionsetRaw(bytes32[]memoryrawKeys,uint256[]memoryvalues)publiconlyOwner{require(rawKeys.length==values.length);for(uint256i=0;i<rawKeys.length;i++){params[rawKeys[i]].existed=true;params[rawKeys[i]].value=values[i];emitParameterChanged(rawKeys[i],values[i]);}}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 27
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 95
+column: 90
+content: (bytes32,uint256)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 100
+column: 2
+content: functionpropose(bytes32reasonHash,bytes32[]calldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 100
+column: 58
+content: keys,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 100
+column: 64
+content: uint256[]calldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 101
+column: 11
+content: (keys.length==values.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 101
+column: 34
+content: length);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 102
+column: 4
+content: uint256proposalId=proposals.length;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 103
+column: 4
+content: proposals.push(Proposal
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 103
+column: 27
+content: ({changesCount:keys.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 104
+column: 25
+content: length,snapshotNonce:
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 105
+column: 21
+content: token.votingPowerChangeNonce
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 105
+column: 49
+content: (),expirationTime:
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 106
+column: 22
+content: now.add(getRaw
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 106
+column: 36
+content: ("params:expiration_time")),
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 107
+column: 6
+content: voteSupportRequiredPct:getRaw
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 107
+column: 36
+content: ("params:support_required_pct"),voteMinParticipation:
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 108
+column: 28
+content: getRaw
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 108
+column: 34
+content: ("params:min_participation_pct").mulFrac
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 108
+column: 74
+content: (token.totalSupply()),
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 109
+column: 6
+content: totalVotingPower:token.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 109
+column: 30
+content: totalSupply
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 109
+column: 41
+content: (),yesCount:0,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 111
+column: 6
+content: noCount:0,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 112
+column: 6
+content: proposalState:ProposalState.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 112
+column: 35
+content: OPEN
+
+SOLIDITY_VISIBILITY :24
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4
+SOLIDITY_SHOULD_RETURN_STRUCT :1

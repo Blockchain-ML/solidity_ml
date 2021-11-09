@@ -1,0 +1,33 @@
+C:\Users\hp\DataSet\Safe.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 26
+column: 19
+content: 0x100000000000000000000000000000000
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 4
+column: 0
+content: contractSafe{functionsafeAdd(uinta,uintb)internalreturns(uint){uintc=a+b;assert(c>=a&&c>=b);returnc;}functionsafeSubtract(uinta,uintb)internalreturns(uint){uintc=a-b;assert(b<=a&&c<=a);returnc;}functionsafeMultiply(uinta,uintb)internalreturns(uint){uintc=a*b;assert(a==0||(c/a)==b);returnc;}functionshrink128(uinta)internalreturns(uint128){assert(a<0x100000000000000000000000000000000);returnuint128(a);}modifieronlyPayloadSize(uintnumWords){assert(msg.data.length==numWords*32+4);_;}function()payable{}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 37
+column: 4
+content: function()payable{}
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :1

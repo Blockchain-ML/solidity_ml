@@ -1,0 +1,70 @@
+C:\Users\hp\DataSet\contracts\ropsten\77\770ea8f3b70d0e435c31d02fabeb9e254b460c39_AdrealmToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 351
+column: 4
+content: owner=address(0)
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 214
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 450
+column: 2
+content: functionapprove(address_spender,uint256_value)publicwhenNotPausedreturns(bool){returnsuper.approve(_spender,_value);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 486
+column: 0
+content: contractAdrealmTokenisStandardBurnableToken,PausableToken{stringpublicname="AdrealmToken";stringpublicsymbol="ARM";uint8publicdecimals=18;uint256constantINITIAL_SUPPLY=10**9;constructor()public{totalSupply_=INITIAL_SUPPLY*(10**uint256(decimals));balances[msg.sender]=totalSupply_;}function()payableexternal{revert();}}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 499
+column: 31
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 76
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 78
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 80
+column: 2
+content: uint256totalSupply_;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 491
+column: 4
+content: uint256constantINITIAL_SUPPLY=10**9;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_SAFEMATH :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_ERC20_APPROVE :2

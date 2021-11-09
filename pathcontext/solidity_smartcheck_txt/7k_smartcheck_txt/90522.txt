@@ -1,0 +1,153 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\90522.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 180
+column: 2
+content: functioncheckTreesWatered(uint256[]_treeIds)publicconstantreturns(bool[]){bool[]memoryresults=newbool[](_treeIds.length);uint256timeSinceLastWater;for(uint256i=0;i<_treeIds.length;i++){uint256[]memorywaterDates=treeDetails[_treeIds[i]].waterTreeDates;if(waterDates.length>0){timeSinceLastWater=now-waterDates[waterDates.length-1];results[i]=timeSinceLastWater<timeBetweenRewards;}else{results[i]=false;}}returnresults;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 203
+column: 2
+content: functioncheckRewards(uint256[]_treeIds)publicconstantreturns(uint256[]){uint256amountInTreasuryToDistribute=this.balance/10;uint256[]memoryresults=newuint256[](_treeIds.length);for(uint256i=0;i<_treeIds.length;i++){uint256yourPercentage=treeDetails[_treeIds[i]].treePower*1ether/totalTreePower;uint256amountYouGet=yourPercentage*amountInTreasuryToDistribute/1ether;results[i]=amountYouGet;}returnresults;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 216
+column: 2
+content: functiongetTreeIds(address_account)publicconstantreturns(uint256[]){if(_account!=address(0))returnownerTreesIds[_account];elsereturnownerTreesIds[msg.sender];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 222
+column: 2
+content: functiongetTreesOnSale()publicconstantreturns(uint256[]){returntreesOnSale;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 107
+column: 4
+content: for(uint256i=0;i<ownerTreesIds[_originalOwner].length;i++){if(ownerTreesIds[_originalOwner][i]==_treeNumber)deleteownerTreesIds[_originalOwner][i];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 111
+column: 4
+content: for(uint256a=0;a<treesOnSale.length;a++){if(treesOnSale[a]==_treeNumber){deletetreesOnSale[a];break;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 134
+column: 4
+content: for(uint256a=0;a<treesOnSale.length;a++){if(treesOnSale[a]==_treeId){deletetreesOnSale[a];break;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 183
+column: 4
+content: for(uint256i=0;i<_treeIds.length;i++){uint256[]memorywaterDates=treeDetails[_treeIds[i]].waterTreeDates;if(waterDates.length>0){timeSinceLastWater=now-waterDates[waterDates.length-1];results[i]=timeSinceLastWater<timeBetweenRewards;}else{results[i]=false;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 206
+column: 4
+content: for(uint256i=0;i<_treeIds.length;i++){uint256yourPercentage=treeDetails[_treeIds[i]].treePower*1ether/totalTreePower;uint256amountYouGet=yourPercentage*amountInTreasuryToDistribute/1ether;results[i]=amountYouGet;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 107
+column: 4
+content: for(uint256i=0;i<ownerTreesIds[_originalOwner].length;i++){if(ownerTreesIds[_originalOwner][i]==_treeNumber)deleteownerTreesIds[_originalOwner][i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 111
+column: 4
+content: for(uint256a=0;a<treesOnSale.length;a++){if(treesOnSale[a]==_treeNumber){deletetreesOnSale[a];break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 134
+column: 4
+content: for(uint256a=0;a<treesOnSale.length;a++){if(treesOnSale[a]==_treeId){deletetreesOnSale[a];break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 183
+column: 4
+content: for(uint256i=0;i<_treeIds.length;i++){uint256[]memorywaterDates=treeDetails[_treeIds[i]].waterTreeDates;if(waterDates.length>0){timeSinceLastWater=now-waterDates[waterDates.length-1];results[i]=timeSinceLastWater<timeBetweenRewards;}else{results[i]=false;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 206
+column: 4
+content: for(uint256i=0;i<_treeIds.length;i++){uint256yourPercentage=treeDetails[_treeIds[i]].treePower*1ether/totalTreePower;uint256amountYouGet=yourPercentage*amountInTreasuryToDistribute/1ether;results[i]=amountYouGet;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 180
+column: 29
+content: uint256[]_treeIds
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 180
+column: 73
+content: bool[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 203
+column: 24
+content: uint256[]_treeIds
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 203
+column: 68
+content: uint256[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 216
+column: 64
+content: uint256[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 222
+column: 52
+content: uint256[]
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :5
+SOLIDITY_UPGRADE_TO_050 :6
+SOLIDITY_GAS_LIMIT_IN_LOOPS :5

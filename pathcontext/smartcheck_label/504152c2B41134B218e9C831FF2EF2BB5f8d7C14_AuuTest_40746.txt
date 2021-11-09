@@ -1,0 +1,105 @@
+C:\Users\hp\DataSet\contracts\ropsten\50\504152c2B41134B218e9C831FF2EF2BB5f8d7C14_AuuTest.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 159
+column: 12
+content: for(uint256i=0;i<_childs.length;i++){address_child=_userid[_childs[i]];if(_user[_child].inversttime>0){uint256_interval=computeinterval(_user[_child].inversttime,now);if(_user[_child].inversttime<=_user[_inituser].inversttime){_interval=computeinterval(_user[_inituser].inversttime,now);}uint256_staticprofis=static_income(_child,_interval).mul(_dyrates[_deep]).div(100);_profits=_profits.add(_staticprofis);if(_profits>=_user[_inituser].inverst.mul(3)){_profits=_user[_inituser].inverst.mul(3);break;}}if(_user[_child].childs.length>0){_profits=_profits.add(dynamic_profits2(_inituser,_child,_deep.add(1)));}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 191
+column: 4
+content: functionuserinverst(uint256_amount,address_from)publicreturns(bool){invert(msg.sender,_amount,_from);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 218
+column: 4
+content: functioninvert(addressuser,uint256_amount,address_from)privatereturns(bool){require(_user[user].inverst==0,"user has inversted yet");require(_from!=address(this)&&_from!=address(0));addressparent;if(_user[user].parent!=address(0)){_from=_user[user].parent;}else{_user[user].id=id;_userid[id]=user;id=id.add(1);if(_from!=user){require(_user[_from].id>0);_user[user].parent=_from;parent=_from;_user[parent].childs.push(_user[user].id);}}_user[user].inverst=_amount;_user[user].inversttime=now;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 253
+column: 4
+content: functionupdateparentdynamicprofis(addressuser)privatereturns(bool){addressparent=_user[user].parent;uint256_stprofis=static_income(user,computeinterval(_user[user].inversttime,now));for(uint256i=0;i<_max;i++){if(parent==address(0)){break;}if(_user[parent].inversttime==0||_user[parent].childs.length<=i){parent=_user[parent].parent;continue;}if(_user[user].inversttime<=_user[parent].inversttime){uint256_interval=computeinterval(_user[parent].inversttime,now);_user[parent].accumulate_dynamicprofis=_user[parent].accumulate_dynamicprofis.add(static_income(user,_interval).mul(_dyrates[i]).div(100));}else{_user[parent].accumulate_dynamicprofis=_user[parent].accumulate_dynamicprofis.add(_stprofis.mul(_dyrates[i]).div(100));}parent=_user[parent].parent;}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 275
+column: 4
+content: functionuserreinverst()publicreturns(bool){reinverst(msg.sender);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 278
+column: 4
+content: functionreinverst(addressuser)privatereturns(bool){require(_user[user].inverst>0,"user has no inverst");uint256_dyprofis=dynamic_profits2(user,user,0);uint256_stprofis=static_income(user,computeinterval(_user[user].inversttime,now));updateparentdynamicprofis(user);_user[user].inverst=_user[user].inverst.add(_dyprofis).add(_stprofis);_user[user].accumulate_dynamicprofis=0;_user[user].accumulate_staticprofis=0;_user[user].inversttime=now;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 291
+column: 4
+content: functionuseraddinverst(uint256_amount)publicreturns(bool){addinverst(msg.sender,_amount);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 295
+column: 4
+content: functionaddinverst(addressuser,uint256_amount)privatereturns(bool){require(_user[user].inverst>0,"user has no inverst yet");uint256_staticprofis=static_income(user,computeinterval(_user[user].inversttime,now));_user[user].accumulate_staticprofis=_staticprofis;updateparentdynamicprofis(user);_user[user].inversttime=now;_user[user].inverst=_user[user].inverst.add(_amount);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 304
+column: 4
+content: functiondraw()publicreturns(bool){exitinverst(msg.sender);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 308
+column: 4
+content: functionexitinverst(addressuser)privatereturns(bool){require(_user[user].inversttime>0,"user has not invesrt");updateparentdynamicprofis(user);_user[user].inversttime=0;_user[user].inverst=0;_user[user].accumulate_dynamicprofis=0;_user[user].accumulate_staticprofis=0;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 159
+column: 12
+content: for(uint256i=0;i<_childs.length;i++){address_child=_userid[_childs[i]];if(_user[_child].inversttime>0){uint256_interval=computeinterval(_user[_child].inversttime,now);if(_user[_child].inversttime<=_user[_inituser].inversttime){_interval=computeinterval(_user[_inituser].inversttime,now);}uint256_staticprofis=static_income(_child,_interval).mul(_dyrates[_deep]).div(100);_profits=_profits.add(_staticprofis);if(_profits>=_user[_inituser].inverst.mul(3)){_profits=_user[_inituser].inverst.mul(3);break;}}if(_user[_child].childs.length>0){_profits=_profits.add(dynamic_profits2(_inituser,_child,_deep.add(1)));}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 51
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 194
+column: 49
+content: (uint256_inverst,address_parent,uint256_inversttime,uint256_id,uint256_accumulate_dynamicprofis,uint256_accumulate_staticprofis)
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :9
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

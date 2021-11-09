@@ -1,0 +1,69 @@
+C:\Users\hp\DataSet\contracts\ropsten\4c\4cd8ee75ce56306f56b43c412860e710007c1868_BalanceFaucet.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 102
+column: 0
+content: contractFaucetI{functiongiveMe()payablepublic;functiongiveTo(addresswho)payablepublic;function()payablepublic{}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 111
+column: 0
+content: contractBasicFaucetisFaucetI,Trigger{uintpublicgiveAway;eventGiveAwayChanged(uintindexedgiveAway);eventPaid(addressindexedwho,uintindexedgiveAway);eventSponsored(addressindexedsender,uintindexedamount);constructor(uint_giveAway)public{giveAway=_giveAway;}functionsetGiveAway(uint_giveAway)onlyOwnerpublic{giveAway=_giveAway;emitGiveAwayChanged(giveAway);}functiongiveMe()payablepublic{returngiveTo(msg.sender);}functiongiveForce(addresswho)onlyOwnerpublicpayable{returngive(who);}functiongive(addresswho)internal;function()payablepublic{emitSponsored(msg.sender,msg.value);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 95
+column: 2
+content: functionsetTrigger(addresstrigger,boolisEnabled)publiconlyOwner{_triggers[trigger]=isEnabled;emitTriggerSetting(trigger,isEnabled);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 123
+column: 2
+content: functionsetGiveAway(uint_giveAway)onlyOwnerpublic{giveAway=_giveAway;emitGiveAwayChanged(giveAway);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 9
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 66
+column: 28
+content: private
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 108
+column: 21
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 139
+column: 21
+content: public
+
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_UPGRADE_TO_050 :2

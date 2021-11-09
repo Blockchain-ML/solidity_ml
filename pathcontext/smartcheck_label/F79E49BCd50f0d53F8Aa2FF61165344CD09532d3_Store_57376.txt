@@ -1,0 +1,431 @@
+C:\Users\hp\DataSet\contracts\ropsten\f7\F79E49BCd50f0d53F8Aa2FF61165344CD09532d3_Store.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 144
+column: 12
+content: self.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 121
+column: 8
+content: self.length++
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 136
+column: 8
+content: for(uinti=startPos;i<self.length;i++){if(self[i]!=index)continue;for(uintj=i;j<self.length-1;j++){self[j]=self[j+1];}deleteself[self.length-1];self.length--;returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 139
+column: 12
+content: for(uintj=i;j<self.length-1;j++){self[j]=self[j+1];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 580
+column: 8
+content: for(uinti=0;i<DR.m_DynamicCard.length;i++){uint32iCard=DR.m_DynamicCard[i];uintnum=DR.m_CardNum[iCard];CardstorageoCard=GetCard(iCard);tempRatio+=num*oCard.m_DP*oCard.m_DPK/(oCard.m_DPK+num);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 608
+column: 8
+content: for(uintidx=0;idx<cards.length;idx++){uint32iCard=cards[idx];uintnum=DR.m_CardNum[iCard];CardstorageoCard=GetCard(iCard);tempRatio+=oCard.m_DP*oCard.m_DPK/(oCard.m_DPK+num);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 900
+column: 12
+content: for(i=0;i<oCard.m_Parts.length;i++){iChip=oCard.m_Parts[i];AddChipTempTime(iChip,expireTime);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 909
+column: 12
+content: for(i=0;i<oCard.m_Parts.length;i++){iChip=oCard.m_Parts[i];ObtainChip(iChip);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1297
+column: 8
+content: for(uinti=0;i<idxList.length;i++){main.GainStuff(msg.sender,idxList[i],numList[i]);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 577
+column: 4
+content: functionGetDynamicRatio(uintdayNo)internalviewreturns(uinttempRatio){DayRatiostorageDR=g_Bonus.m_DayRatio[dayNo];for(uinti=0;i<DR.m_DynamicCard.length;i++){uint32iCard=DR.m_DynamicCard[i];uintnum=DR.m_CardNum[iCard];CardstorageoCard=GetCard(iCard);tempRatio+=num*oCard.m_DP*oCard.m_DPK/(oCard.m_DPK+num);}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 589
+column: 4
+content: functionGenDayRatio(uintdayNo)internalviewreturns(uintdr){DayRatiostorageDR=g_Bonus.m_DayRatio[dayNo];dr+=DR.m_Permanent;dr+=DR.m_Static;dr+=GetDynamicRatio(dayNo);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 603
+column: 4
+content: functionGetPlayerDynamicRatio(addressacc,uintdayNo)internalviewreturns(uinttempRatio){PlayerBonusstoragePB=g_Bonus.m_PlayerBonus[acc];DayRatiostorageDR=g_Bonus.m_DayRatio[dayNo];uint32[]storagecards=PB.m_DayDynamic[dayNo];for(uintidx=0;idx<cards.length;idx++){uint32iCard=cards[idx];uintnum=DR.m_CardNum[iCard];CardstorageoCard=GetCard(iCard);tempRatio+=oCard.m_DP*oCard.m_DPK/(oCard.m_DPK+num);}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 617
+column: 4
+content: functionGenPlayerRatio(addressacc,uintdayNo)internalviewreturns(uinttempRatio){PlayerBonusstoragePB=g_Bonus.m_PlayerBonus[acc];tempRatio+=PB.m_DayPermanent[dayNo];tempRatio+=PB.m_DayStatic[dayNo];tempRatio+=GetPlayerDynamicRatio(acc,dayNo);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 218
+column: 8
+content: for(uinti=0;i<len;i++){uint32key=self.m_List[i];values[i]=self.m_Maps[key];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 580
+column: 8
+content: for(uinti=0;i<DR.m_DynamicCard.length;i++){uint32iCard=DR.m_DynamicCard[i];uintnum=DR.m_CardNum[iCard];CardstorageoCard=GetCard(iCard);tempRatio+=num*oCard.m_DP*oCard.m_DPK/(oCard.m_DPK+num);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 608
+column: 8
+content: for(uintidx=0;idx<cards.length;idx++){uint32iCard=cards[idx];uintnum=DR.m_CardNum[iCard];CardstorageoCard=GetCard(iCard);tempRatio+=oCard.m_DP*oCard.m_DPK/(oCard.m_DPK+num);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 900
+column: 12
+content: for(i=0;i<oCard.m_Parts.length;i++){iChip=oCard.m_Parts[i];AddChipTempTime(iChip,expireTime);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 909
+column: 12
+content: for(i=0;i<oCard.m_Parts.length;i++){iChip=oCard.m_Parts[i];ObtainChip(iChip);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 959
+column: 8
+content: for(uinti=0;i<len;i++){uint32iCard=oBag.m_TempCards.m_List[i];amountList[i]=GetDynamicCardNum(iCard,GetDayCount(now));}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1297
+column: 8
+content: for(uinti=0;i<idxList.length;i++){main.GainStuff(msg.sender,idxList[i],numList[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 12cf32
+severity: 2
+line: 122
+column: 8
+content: for(uinti=self.length;i>pos;i++){self[i+1]=self[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 12cf32
+severity: 2
+line: 469
+column: 12
+content: for(uinti=PM.m_UnableList.length;i>0;i--){uint32iChip=PM.m_UnableList[i-1];if(CanObtainChip(iChip)){PM.m_IndexList.push(iChip);PM.m_UnableList.remove(iChip,i-1);}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 1202
+column: 0
+content: contractStoreisChild{uintconstantBONUS_PERCENT_PURCHASE=60;uintconstantCHIPGIFT_NORMALCHIP_RATE=10000;uint32constantCHIPGIFT_ITEMINDEX=24001;uint8constantEXCHANGE_OK=0;uint8constantEXCHANGE_KEYERR=1;uint8constantEXCHANGE_HADGOT=2;StoreGoodsg_Goods;StoreGiftsg_Gifts;constructor(Main_main,StoreGoodsgoods,StoreGiftsgifts)publicChild(_main){g_Goods=goods;g_Gifts=gifts;g_Goods.SetAuth(this);g_Gifts.SetAuth(this);}functionkill()externalMasterAble{g_Goods.ClearAuth(this);}functionGenExtWeightList(uint8level)internalpurereturns(uint[]extList){uintpartNum=GetPartNum(level);extList=newuint[](partNum);for(uinti=0;i<partNum;i++){uintiPart=i+1;if(!IsLimitPart(level,iPart)){extList[i]=GetPartWeight(level,iPart)*CHIPGIFT_NORMALCHIP_RATE;}}}functionGiveChipGitf()internal{for(uint8level=HEROLEVEL_MIN;level<=HEROLEVEL_MAX;level++){(uintrandom,)=GenRandom(level,0);uint32iChip=main.GenChipByRandomWeight(random,level,GenExtWeightList(level));main.GainChip(msg.sender,iChip,true);}}functionBuyGoods(uint32iGoods)externalpayable{require(g_Goods.HasGoods(iGoods));require(g_Goods.CheckPurchaseCount(msg.sender,iGoods));(,uint32iCostItem,uint32iItemRef,uint32iAmount,uint32iDuration,,,,)=g_Goods.GetGoodsInfo(iGoods);uintiCostNum=g_Goods.GetRealCost(msg.sender,iGoods);if(iCostItem==0){require(msg.value==iCostNum);AddBonus(BONUS_PERCENT_PURCHASE);}else{main.CostStuff(msg.sender,iCostItem,iCostNum);}g_Goods.BuyGoods(msg.sender,iGoods);if(iItemRef==CHIPGIFT_ITEMINDEX){GiveChipGitf();}else{if(iDuration==0){main.GainStuff(msg.sender,iItemRef,iAmount);}else{main.GainTempStuff(msg.sender,iItemRef,iDuration);}}}functionGetPurchaseInfo()externalviewreturns(uint32[]goodsList,uint[]purchaseCountList){(goodsList,purchaseCountList)=g_Goods.GetPurchaseInfo(msg.sender);}functionCheckExchange(stringkey)publicviewreturns(uint8){if(!g_Gifts.HasGift(key))returnEXCHANGE_KEYERR;if(g_Gifts.IsExchanged(msg.sender,key))returnEXCHANGE_HADGOT;returnEXCHANGE_OK;}functionExchangeGift(stringkey)external{require(CheckExchange(key)==EXCHANGE_OK);g_Gifts.Exchange(msg.sender,key);(,uint32[]memoryidxList,uint[]memorynumList)=g_Gifts.GetGiftInfo(key);for(uinti=0;i<idxList.length;i++){main.GainStuff(msg.sender,idxList[i],numList[i]);}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 648
+column: 78
+content: (uintaccBonus,uint16accPR)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 1190
+column: 65
+content: (uint,uint)
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 84
+column: 23
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 101
+column: 30
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 107
+column: 30
+content: tx.origin
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 480
+column: 55
+content: uint[]extWeight
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1007
+column: 21
+content: stringkey
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1228
+column: 65
+content: uint[]extList
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1285
+column: 27
+content: stringkey
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 7
+column: 4
+content: uint8constantHEROLEVEL_MIN=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 8
+column: 4
+content: uint8constantHEROLEVEL_MAX=5;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: uint8constantLIMITCHIP_MINLEVEL=3;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 11
+column: 4
+content: uintconstantPARTWEIGHT_NORMAL=100;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 4
+content: uintconstantPARTWEIGHT_LIMIT=40;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 14
+column: 4
+content: addresscreator;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 50
+column: 4
+content: uintconstantDAY_IN_SECONDS=60*60*24;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 67
+column: 4
+content: addressmaster;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 68
+column: 4
+content: mapping(address=>bool)auth_list;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 285
+column: 4
+content: CardLibg_CardLib;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 357
+column: 4
+content: ChipLibg_ChipLib;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 523
+column: 4
+content: uintconstantBASERATIO=10000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 553
+column: 4
+content: BonusDatag_Bonus;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 816
+column: 4
+content: mapping(address=>Bag)g_BagList;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 999
+column: 4
+content: mapping(address=>mapping(string=>bool))g_Exchange;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1000
+column: 4
+content: mapping(string=>Gift)g_Gifts;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1070
+column: 4
+content: mapping(uint32=>Goods)g_Goods;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1071
+column: 4
+content: mapping(address=>ItemList.Data)g_PurchaseInfo;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1169
+column: 4
+content: Mainmain;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1204
+column: 4
+content: uintconstantBONUS_PERCENT_PURCHASE=60;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1205
+column: 4
+content: uintconstantCHIPGIFT_NORMALCHIP_RATE=10000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1206
+column: 4
+content: uint32constantCHIPGIFT_ITEMINDEX=24001;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1208
+column: 4
+content: uint8constantEXCHANGE_OK=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1209
+column: 4
+content: uint8constantEXCHANGE_KEYERR=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1210
+column: 4
+content: uint8constantEXCHANGE_HADGOT=2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1212
+column: 4
+content: StoreGoodsg_Goods;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1213
+column: 4
+content: StoreGiftsg_Gifts;
+
+SOLIDITY_VISIBILITY :27
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :4
+SOLIDITY_EXTRA_GAS_IN_LOOPS :7
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :9
+SOLIDITY_SHOULD_RETURN_STRUCT :2
+SOLIDITY_TX_ORIGIN :3

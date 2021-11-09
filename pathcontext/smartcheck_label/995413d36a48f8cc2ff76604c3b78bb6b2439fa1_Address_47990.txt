@@ -1,0 +1,153 @@
+C:\Users\hp\DataSet\contracts\ropsten\99\995413d36a48f8cc2ff76604c3b78bb6b2439fa1_Address.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 13
+column: 0
+content: contractAddressisChecked{InfopublicContractDetails;structInfo{addressContract;addressOwner;addressCreator;uintBlock;uintTimestamp;bytes32Hash;}constructor(address_owner)public{ContractDetails.Contract=address(this);ContractDetails.Owner=_owner;ContractDetails.Creator=msg.sender;ContractDetails.Block=block.number;ContractDetails.Timestamp=now;ContractDetails.Hash=keccak256(abi.encodePacked(address(this),_owner,msg.sender,block.number,now));}modifieronlyOwner(){require(msg.sender==ContractDetails.Owner);_;}functionchangeOwner(addressnewOwner)publiconlyOwner{require(newOwner!=address(0)&&address(this)!=newOwner);ContractDetails.Owner=newOwner;}function()externalpayable{}functionreceive()publicpayable{if(msg.value<1)revert();}functiontransfer(addresstoken,address<missing ')'>payableto,uintamount)publiconlyOwner{require(to!=token&&to!=address(0)&&address(this)!=to);require(amount>0);if(address<missing ';'>(0)==token){require(amount<=address(this).balance);to.transfer(amount);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 41
+column: 8
+content: if(msg.value<1)revert();
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 7
+column: 4
+content: functionisContract(addressaddr)internalviewreturns(bool){uint256size;assembly{size:=extcodesize(addr)}returnsize>0;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 43
+column: 4
+content: functiontransfer(addresstoken,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 43
+column: 53
+content: to,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 43
+column: 57
+content: uintamount)public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 43
+column: 77
+content: onlyOwner{require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 15
+content: (to!=token&&
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 31
+content: to!=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 37
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 44
+content: (0)&&
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 51
+content: address(this)!=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 68
+content: to);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 45
+column: 8
+content: require(amount>0);if
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 11
+content: (address<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 19
+content: (0)==token){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 47
+column: 12
+content: require(amount<=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 47
+column: 30
+content: address(this).
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 47
+column: 44
+content: balance);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 48
+column: 12
+content: to.transfer(amount);
+
+SOLIDITY_VISIBILITY :17
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

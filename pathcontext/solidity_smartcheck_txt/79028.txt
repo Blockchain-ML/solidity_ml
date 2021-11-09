@@ -1,0 +1,123 @@
+F:\Blockchain\dataset_new_byID\79028.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 8
+column: 0
+content: contractDelayedProxyAdminisModule{usingSafeMathforuint256;eventUpgradeProposed(addressindexedproxy,addressimplementation,bytesdata);eventUpgradeCancelled(addressindexedproxy);eventUpgraded(addressindexedproxy,addressoldImpl,addressnewImpl,bytesdata);structRequest{addressimplementation;bytesdata;uint256timestamp;}uint256publicconstantUPGRADE_DELAY=1weeks;mapping(address=>Request)publicrequests;constructor(address_nexus)publicModule(_nexus){}functionproposeUpgrade(address_proxy,address_implementation,bytescalldata_data)externalonlyGovernor{require(_proxy!=address(0),"Proxy address is zero");require(_implementation!=address(0),"Implementation address is zero");require(requests[_proxy].implementation==address(0),"Upgrade already proposed");validateProxy(_proxy,_implementation);Requeststoragerequest=requests[_proxy];request.implementation=_implementation;request.data=_data;request.timestamp=now;emitUpgradeProposed(_proxy,_implementation,_data);}functioncancelUpgrade(address_proxy)externalonlyGovernor{require(_proxy!=address(0),"Proxy address is zero");require(requests[_proxy].implementation!=address(0),"No request found");deleterequests[_proxy];emitUpgradeCancelled(_proxy);}functionacceptUpgradeRequest(addresspayable_proxy)externalpayableonlyGovernor{require(_proxy!=address(0),"Proxy address is zero");Requestmemoryrequest=requests[_proxy];require(_isDelayOver(request.timestamp),"Delay not over");addressnewImpl=request.implementation;bytesmemorydata=request.data;addressoldImpl=getProxyImplementation(_proxy);deleterequests[_proxy];if(data.length==0){require(msg.value==0,"msg.value should be zero");AdminUpgradeabilityProxy(_proxy).upgradeTo(newImpl);}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 9
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 62
+column: 4
+content: functionacceptUpgradeRequest(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 64
+column: 8
+content: require(_proxy!=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 64
+column: 26
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 64
+column: 33
+content: (0),"Proxy address is zero");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 65
+column: 8
+content: Requestmemoryrequest=requests[_proxy];
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 66
+column: 8
+content: require(_isDelayOver
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 66
+column: 28
+content: (request.timestamp),"Delay not over");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 68
+column: 8
+content: addressnewImpl=request.implementation;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 69
+column: 8
+content: bytesmemorydata=request.data;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 71
+column: 8
+content: addressoldImpl=getProxyImplementation(_proxy);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 74
+column: 15
+content: requests[_proxy];if
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 76
+column: 10
+content: (data.length==0){require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 77
+column: 19
+content: (msg.value==0,"msg.value should be zero");AdminUpgradeabilityProxy
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 78
+column: 36
+content: (_proxy).upgradeTo
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 78
+column: 54
+content: (newImpl);
+
+SOLIDITY_VISIBILITY :15
+SOLIDITY_SAFEMATH :1
+SOLIDITY_LOCKED_MONEY :1

@@ -1,0 +1,204 @@
+C:\Users\hp\DataSet\contracts\mainnet\a7\a79ebc75ac9cab762c807054a96615b213e42cd6_SellPayee.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 75
+column: 4
+content: _owner=address(0)
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 28
+column: 0
+content: contractOwnable{addresspayablepublic_owner;eventOwnershipTransferred(addressindexedpreviousOwner,addressindexednewOwner);constructor()internal{_owner=tx.origin;emitOwnershipTransferred(address(0),_owner);}functionowner()publicviewreturns(address){return_owner;}modifieronlyOwner(){require(isOwner());_;}functionisOwner()publicviewreturns(bool){returnmsg.sender==_owner;}functionrenounceOwnership()publiconlyOwner{emitOwnershipTransferred(_owner,address(0));_owner=address(0);}functiontransferOwnership(addresspayablenewOwner)publiconlyOwner{_transferOwnership(newOwner);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 143
+column: 0
+content: contractSellPayeeisOwnable{IERC20TokenpublictokenContract;IAssetSplitContractspublicassetSplitContract;IShareManagerpublicshareManagerContract;stringpublicconstantcreatedBy="AssetSplit.org - the guys who cut the pizza";uint256priceInEther=500finney;uint256priceInToken=1;usingSafeMathforuint256;constructor(address_tokenContract,address_AssetSplitContracts,address_shareManager)public{tokenContract=IERC20Token(_tokenContract);assetSplitContract=IAssetSplitContracts(_AssetSplitContracts);shareManagerContract=IShareManager(_shareManager);}functiongetShareAddressFromId(uint_id)internalviewreturns(address){addressshareAddress;(shareAddress,)=shareManagerContract.shares(_id);returnshareAddress;}functionisAllowed(addresspayable_contractAddress)publicviewreturns<missing ';'>(bool){uint[]memoryresult=shareManagerContract.getSharesByShareOwner(msg.sender);uintcounter=0;for(uint<missing ')'>i=0;i<result.length;i++){if(getShareAddressFromId<missing ';'>(result[i])==_contractAddress){counter++;returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: >
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 25
+content: <
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 155
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 18
+column: 52
+content: (addressshareholder,uint256sharePercentage)
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 41
+column: 13
+content: tx.origin
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 13
+column: 1
+content: functionaddContract(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 82
+column: 2
+content: functiontransferOwnership(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 170
+column: 4
+content: functionisAllowed(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 38
+content: _contractAddress,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 56
+content: addresspayable_creatorAddress,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 89
+content: uint256_contractType)externalreturns
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 129
+content: (boolsuccess);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 23
+column: 60
+content: shareowner);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 83
+column: 4
+content: _transferOwnership(newOwner);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 152
+column: 4
+content: uint256priceInEther=500finney;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 153
+column: 4
+content: uint256priceInToken=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 170
+column: 77
+content: (bool){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 171
+column: 8
+content: uint[]memoryresult=shareManagerContract.getSharesByShareOwner(msg.sender);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 172
+column: 8
+content: uintcounter=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 173
+column: 12
+content: (uint<missing ')'>i=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 173
+column: 25
+content: i<result.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 173
+column: 36
+content: length;i++){if
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 174
+column: 13
+content: (getShareAddressFromId<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 174
+column: 35
+content: (result[i])==_contractAddress){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 175
+column: 12
+content: counter++;returntrue;
+
+SOLIDITY_VISIBILITY :20
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_TX_ORIGIN :1

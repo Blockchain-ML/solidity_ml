@@ -1,0 +1,170 @@
+C:\Users\hp\DataSet\contracts\mainnet\0a\0a58508723737061b5b464dcf0e840f760c50db9_Array64Lib.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 252
+column: 8
+content: self.length--
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 43
+column: 26
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 70
+column: 26
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 98
+column: 26
+content: sha3
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 147
+column: 6
+content: for(uint256i=0;i<self.length;i++){if(self[i]==value){found=true;index=i;i=self.length;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 243
+column: 4
+content: for(uint256i=0;i<self.length;i++){(contains,index)=indexOf(self,self[i],false);if(i>index){for(uint256j=i;j<self.length-1;j++){self[j]=self[j+1];}deleteself[self.length-1];self.length--;i--;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 247
+column: 8
+content: for(uint256j=i;j<self.length-1;j++){self[j]=self[j+1];}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 35
+column: 2
+content: functionsumElements(uint64[]storageself)publicviewreturns(uint256sum){uint256term;uint8remainder;assembly{mstore(0x60,self_slot)for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,4)))remainder:=mod(i,4)for{letj:=0}lt(j,mul(remainder,2)){j:=add(j,1)}{term:=div(term,4294967296)}term:=and(0x000000000000000000000000000000000000000000000000ffffffffffffffff,term)sum:=add(term,sum)}}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 61
+column: 2
+content: functiongetMax(uint64[]storageself)publicviewreturns(uint64maxValue){uint256term;uint8remainder;assembly{mstore(0x60,self_slot)maxValue:=0for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,4)))remainder:=mod(i,4)for{letj:=0}lt(j,mul(remainder,2)){j:=add(j,1)}{term:=div(term,4294967296)}term:=and(0x000000000000000000000000000000000000000000000000ffffffffffffffff,term)switchlt(maxValue,term)case1{maxValue:=term}}}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 90
+column: 2
+content: functiongetMin(uint64[]storageself)publicviewreturns(uint64minValue){uint256term;uint8remainder;assembly{mstore(0x60,self_slot)for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,4)))remainder:=mod(i,4)for{letj:=0}lt(j,mul(remainder,2)){j:=add(j,1)}{term:=div(term,4294967296)}term:=and(0x000000000000000000000000000000000000000000000000ffffffffffffffff,term)switcheq(i,0)case1{minValue:=term}switchgt(minValue,term)case1{minValue:=term}}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 147
+column: 6
+content: for(uint256i=0;i<self.length;i++){if(self[i]==value){found=true;index=i;i=self.length;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 243
+column: 4
+content: for(uint256i=0;i<self.length;i++){(contains,index)=indexOf(self,self[i],false);if(i>index){for(uint256j=i;j<self.length-1;j++){self[j]=self[j+1];}deleteself[self.length-1];self.length--;i--;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 134
+column: 15
+content: low<=high
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 187
+column: 14
+content: lChild<=end
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 216
+column: 14
+content: lChild<=end
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 35
+column: 2
+content: functionsumElements(uint64[]storageself)publicviewreturns(uint256sum){uint256term;uint8remainder;assembly{mstore(0x60,self_slot)for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,4)))remainder:=mod(i,4)for{letj:=0}lt(j,mul(remainder,2)){j:=add(j,1)}{term:=div(term,4294967296)}term:=and(0x000000000000000000000000000000000000000000000000ffffffffffffffff,term)sum:=add(term,sum)}}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 61
+column: 2
+content: functiongetMax(uint64[]storageself)publicviewreturns(uint64maxValue){uint256term;uint8remainder;assembly{mstore(0x60,self_slot)maxValue:=0for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,4)))remainder:=mod(i,4)for{letj:=0}lt(j,mul(remainder,2)){j:=add(j,1)}{term:=div(term,4294967296)}term:=and(0x000000000000000000000000000000000000000000000000ffffffffffffffff,term)switchlt(maxValue,term)case1{maxValue:=term}}}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 90
+column: 2
+content: functiongetMin(uint64[]storageself)publicviewreturns(uint64minValue){uint256term;uint8remainder;assembly{mstore(0x60,self_slot)for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,4)))remainder:=mod(i,4)for{letj:=0}lt(j,mul(remainder,2)){j:=add(j,1)}{term:=div(term,4294967296)}term:=and(0x000000000000000000000000000000000000000000000000ffffffffffffffff,term)switcheq(i,0)case1{minValue:=term}switchgt(minValue,term)case1{minValue:=term}}}}
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 11ca45b
+severity: 3
+line: 184
+column: 12
+content: start>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: d48ac4
+severity: 2
+line: 184
+column: 12
+content: start>=0
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 39
+column: 4
+content: assembly{mstore(0x60,self_slot)for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,4)))remainder:=mod(i,4)for{letj:=0}lt(j,mul(remainder,2)){j:=add(j,1)}{term:=div(term,4294967296)}term:=and(0x000000000000000000000000000000000000000000000000ffffffffffffffff,term)sum:=add(term,sum)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 65
+column: 4
+content: assembly{mstore(0x60,self_slot)maxValue:=0for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,4)))remainder:=mod(i,4)for{letj:=0}lt(j,mul(remainder,2)){j:=add(j,1)}{term:=div(term,4294967296)}term:=and(0x000000000000000000000000000000000000000000000000ffffffffffffffff,term)switchlt(maxValue,term)case1{maxValue:=term}}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 94
+column: 4
+content: assembly{mstore(0x60,self_slot)for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,4)))remainder:=mod(i,4)for{letj:=0}lt(j,mul(remainder,2)){j:=add(j,1)}{term:=div(term,4294967296)}term:=and(0x000000000000000000000000000000000000000000000000ffffffffffffffff,term)switcheq(i,0)case1{minValue:=term}switchgt(minValue,term)case1{minValue:=term}}}
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :3
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_UINT_CANT_BE_NEGATIVE :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :5
+SOLIDITY_USING_INLINE_ASSEMBLY :3
+SOLIDITY_SHOULD_NOT_BE_VIEW :3

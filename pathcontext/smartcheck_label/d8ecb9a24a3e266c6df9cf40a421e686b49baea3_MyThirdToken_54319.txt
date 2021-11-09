@@ -1,0 +1,62 @@
+C:\Users\hp\DataSet\contracts\ropsten\d8\d8ecb9a24a3e266c6df9cf40a421e686b49baea3_MyThirdToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 64
+column: 2
+content: functionapprove(address_spender,uint_value)publicreturns(boolsuccess){__allowances[msg.sender][_spender]=_value;returntrue;}
+
+ruleId: SOLIDITY_ERC20_TRANSFER_SHOULD_THROW
+patternId: 550a42
+severity: 1
+line: 50
+column: 2
+content: functiontransferFrom(address_from,address_to,uint_value)publicreturns(boolsuccess){if(__allowances[_from][msg.sender]>0&&_value>0&&__allowances[_from][msg.sender]>=_value&&__balanceOf[_from]>=_value){__balanceOf[_from]-=_value;__balanceOf[_to]+=_value;__allowances[_from][msg.sender]-=_value;returntrue;}returnfalse;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 22
+column: 28
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 23
+column: 49
+content: private
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 25
+column: 15
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 25
+column: 29
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 25
+column: 64
+content: string_icon
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_ERC20_TRANSFER_SHOULD_THROW :1
+SOLIDITY_ERC20_APPROVE :1

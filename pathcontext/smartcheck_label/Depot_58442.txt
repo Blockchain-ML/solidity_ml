@@ -1,0 +1,98 @@
+C:\Users\hp\DataSet\Depot.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 154
+column: 8
+content: for(uinti=depositStartIndex;remainingToFulfill>0&&i<depositEndIndex;i++){synthDepositmemorydeposit=deposits[i];if(deposit.user==address(0)){depositStartIndex=depositStartIndex.add(1);}else{if(deposit.amount>remainingToFulfill){uintnewAmount=deposit.amount.sub(remainingToFulfill);deposits[i]=synthDeposit({user:deposit.user,amount:newAmount});totalSellableDeposits=totalSellableDeposits.sub(remainingToFulfill);ethToSend=remainingToFulfill.divideDecimal(exchangeRates().rateForCurrency(ETH));if(!deposit.user.send(ethToSend)){fundsWallet.transfer(ethToSend);emitNonPayableContract(deposit.user,ethToSend);}else{emitClearedDeposit(msg.sender,deposit.user,ethToSend,remainingToFulfill,i);}synthsUSD().transfer(msg.sender,remainingToFulfill);remainingToFulfill=0;}elseif(deposit.amount<=remainingToFulfill){deletedeposits[i];depositStartIndex=depositStartIndex.add(1);totalSellableDeposits=totalSellableDeposits.sub(deposit.amount);ethToSend=deposit.amount.divideDecimal(exchangeRates().rateForCurrency(ETH));if(!deposit.user.send(ethToSend)){fundsWallet.transfer(ethToSend);emitNonPayableContract(deposit.user,ethToSend);}else{emitClearedDeposit(msg.sender,deposit.user,ethToSend,deposit.amount,i);}synthsUSD().transfer(msg.sender,deposit.amount);remainingToFulfill=remainingToFulfill.sub(deposit.amount);}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 398
+column: 8
+content: for(uinti=depositStartIndex;i<depositEndIndex;i++){synthDepositmemorydeposit=deposits[i];if(deposit.user==msg.sender){synthsToSend=synthsToSend.add(deposit.amount);deletedeposits[i];emitSynthDepositRemoved(deposit.user,deposit.amount,i);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 98
+column: 4
+content: functionsetMaxEthPurchase(uint_maxEthPurchase)externalonlyOwner{maxEthPurchase=_maxEthPurchase;emitMaxEthPurchaseUpdated(maxEthPurchase);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 107
+column: 4
+content: functionsetFundsWallet(address_fundsWallet)externalonlyOwner{fundsWallet=_fundsWallet;emitFundsWalletUpdated(fundsWallet);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 116
+column: 4
+content: functionsetMinimumDepositAmount(uint_amount)externalonlyOwner{require(_amount>SafeDecimalMath.unit(),"Minimum deposit amount must be greater than UNIT");minimumDepositAmount=_amount;emitMinimumDepositAmountUpdated(minimumDepositAmount);}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 71
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 72
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 73
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 75
+column: 16
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 15
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 154
+column: 8
+content: for(uinti=depositStartIndex;remainingToFulfill>0&&i<depositEndIndex;i++){synthDepositmemorydeposit=deposits[i];if(deposit.user==address(0)){depositStartIndex=depositStartIndex.add(1);}else{if(deposit.amount>remainingToFulfill){uintnewAmount=deposit.amount.sub(remainingToFulfill);deposits[i]=synthDeposit({user:deposit.user,amount:newAmount});totalSellableDeposits=totalSellableDeposits.sub(remainingToFulfill);ethToSend=remainingToFulfill.divideDecimal(exchangeRates().rateForCurrency(ETH));if(!deposit.user.send(ethToSend)){fundsWallet.transfer(ethToSend);emitNonPayableContract(deposit.user,ethToSend);}else{emitClearedDeposit(msg.sender,deposit.user,ethToSend,remainingToFulfill,i);}synthsUSD().transfer(msg.sender,remainingToFulfill);remainingToFulfill=0;}elseif(deposit.amount<=remainingToFulfill){deletedeposits[i];depositStartIndex=depositStartIndex.add(1);totalSellableDeposits=totalSellableDeposits.sub(deposit.amount);ethToSend=deposit.amount.divideDecimal(exchangeRates().rateForCurrency(ETH));if(!deposit.user.send(ethToSend)){fundsWallet.transfer(ethToSend);emitNonPayableContract(deposit.user,ethToSend);}else{emitClearedDeposit(msg.sender,deposit.user,ethToSend,deposit.amount,i);}synthsUSD().transfer(msg.sender,deposit.amount);remainingToFulfill=remainingToFulfill.sub(deposit.amount);}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 18
+column: 4
+content: bytes32constantSNX="SNX";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 4
+content: bytes32constantETH="ETH";
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :3
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :4
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_TRANSFER_IN_LOOP :1

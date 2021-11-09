@@ -1,0 +1,111 @@
+C:\Users\hp\DataSet\contracts\mainnet\d8\D80dF9C12982e1746c4F3Dfc75E267d404527Ffc_FixedCeiling.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 31
+column: 2
+content: functionmax64(uint64a,uint64b)internalconstantreturns(uint64){returna>=b?a:b;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 35
+column: 2
+content: functionmin64(uint64a,uint64b)internalconstantreturns(uint64){returna<b?a:b;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 39
+column: 2
+content: functionmax256(uinta,uintb)internalconstantreturns(uint){returna>=b?a:b;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 43
+column: 2
+content: functionmin256(uinta,uintb)internalconstantreturns(uint){returna<b?a:b;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 54
+column: 2
+content: functionisCeilingStrategy()publicconstantreturns(bool){returntrue;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 68
+column: 2
+content: functionweiAllowedToReceive(uint_value,uint_weiRaised,uint_weiInvestedBySender,uint_weiFundingCap)publicconstantreturns(uintamount);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 70
+column: 2
+content: functionisCrowdsaleFull(uint_weiRaised,uint_weiFundingCap)publicconstantreturns(bool);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 80
+column: 2
+content: functionrelaxFundingCap(uint_newCap,uint_weiRaised)publicconstantreturns(uint);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 100
+column: 4
+content: functionweiAllowedToReceive(uinttentativeAmount,uintweiRaised,uintweiInvestedBySender,uintweiFundingCap)publicconstantreturns(uint){uinttotalOfSender=tentativeAmount.add(weiInvestedBySender);if(totalOfSender>weiLimitPerAddress)tentativeAmount=weiLimitPerAddress.sub(weiInvestedBySender);if(weiFundingCap==0)returntentativeAmount;uinttotal=tentativeAmount.add(weiRaised);if(total<weiFundingCap)returntentativeAmount;elsereturnweiFundingCap.sub(weiRaised);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 111
+column: 4
+content: functionisCrowdsaleFull(uintweiRaised,uintweiFundingCap)publicconstantreturns(bool){returnweiFundingCap>0&&weiRaised>=weiFundingCap;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 116
+column: 4
+content: functionrelaxFundingCap(uintnewCap,uintweiRaised)publicconstantreturns(uint){if(newCap>weiRaised)returnnewCap;elsereturnweiRaised.div(chunkedWeiMultiple).add(1).mul(chunkedWeiMultiple);}
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 118
+column: 20
+content: weiRaised.div(chunkedWeiMultiple).add(1).mul(chunkedWeiMultiple)
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 88
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 95
+column: 4
+content: functionFixedCeiling(uintmultiple,uintlimit){chunkedWeiMultiple=multiple;weiLimitPerAddress=limit;}
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :11
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_DIV_MUL :1

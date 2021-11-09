@@ -1,0 +1,117 @@
+F:\Blockchain\dataset_new_byID\81853.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractRockPaperScissors{enumState{IDLE,CREATED,JOINED,COMMITED,REVEALED}structGame{uintid;uintbet;addresspayable[]players;Statestate;}structMove{bytes32hash;uintvalue;}mapping(uint=>Game)publicgames;mapping(uint=>mapping(address=>Move))publicmoves;mapping(uint=>uint)publicwinningMoves;uintpublicgameId;constructor()public{winningMoves[1]=3;winningMoves[2]=1;winningMoves[3]=2;}functiongetGame(uint_gameId)externalviewreturns(uint,uint,address[]memory,State){Gamestoragegame=games[_gameId];address[]memoryplayers=newaddress[](2);players[0]=game.players[0];players[1]=game.players[1];return(game.id,game.bet,players,game.state);}functioncreateGame(addresspayableparticipant)externalpayable{require(msg.value>0,'have to send some ether');<missing ';'>addresspayable[]memoryplayers=newaddresspayable[](2);players[0]=msg.sender;players[1]=participant;games[gameId]=Game(gameId,msg.value,players,State.CREATED);gameId++;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 35
+column: 11
+content: (uint,uint,address[]memory,State)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 48
+column: 2
+content: functioncreateGame(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 49
+column: 11
+content: (msg.value>0,'have to send some ether');<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 50
+column: 4
+content: addresspayable[]memory
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 50
+column: 29
+content: players=new
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 50
+column: 43
+content: addresspayable[]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 50
+column: 60
+content: (2);players[0]=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 51
+column: 17
+content: msg.sender;players[1]=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 17
+content: participant;games[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 54
+column: 10
+content: gameId]=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 54
+column: 20
+content: Game(gameId,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 56
+column: 6
+content: msg.value,players,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 58
+column: 6
+content: State.CREATED);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 60
+column: 4
+content: gameId++;
+
+SOLIDITY_VISIBILITY :13
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

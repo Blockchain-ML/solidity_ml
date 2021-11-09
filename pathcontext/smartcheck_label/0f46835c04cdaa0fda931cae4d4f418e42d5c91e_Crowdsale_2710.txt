@@ -1,0 +1,160 @@
+C:\Users\hp\DataSet\contracts\mainnet\0f\0f46835c04cdaa0fda931cae4d4f418e42d5c91e_Crowdsale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 82
+column: 22
+content: 0x0677f6a5383b10dc4ac253b4d56d8f69df76f548
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 84
+column: 28
+content: 0xfACfB7aaD014f30f06E67cBeE8d3308C69aeD37a
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 85
+column: 18
+content: 0x69F8C1604f27475AF9f872E07c2E6a56b485DAcf
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 28
+column: 2
+content: functionmax64(uint64a,uint64b)internalconstantreturns(uint64){returna>=b?a:b;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 32
+column: 2
+content: functionmin64(uint64a,uint64b)internalconstantreturns(uint64){returna<b?a:b;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 36
+column: 2
+content: functionmax256(uint256a,uint256b)internalconstantreturns(uint256){returna>=b?a:b;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 40
+column: 2
+content: functionmin256(uint256a,uint256b)internalconstantreturns(uint256){returna<b?a:b;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 99
+column: 8
+content: if(tokenBalance<offChainTokens){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 100
+column: 8
+content: if(amount<minimumSpend){revert();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 46
+column: 4
+content: functiontransfer(addressreceiver,uintamount);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 47
+column: 4
+content: functionbalanceOf(address)returns(uint256);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 76
+column: 4
+content: functionCrowdsale(){offChainTokens=0;amountRaised=0;tokenBalance=30000000;minimumSpend=0.01*1ether;beneficiary=0x0677f6a5383b10dc4ac253b4d56d8f69df76f548;start_time=now;tokenReward=token(0xfACfB7aaD014f30f06E67cBeE8d3308C69aeD37a);master=0x69F8C1604f27475AF9f872E07c2E6a56b485DAcf;paused=false;price=953584813430000;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 94
+column: 4
+content: function()payablenotPaused{uintamount=msg.value;amountRaised+=amount;tokenBalance=SafeMath.sub(tokenBalance,SafeMath.div(amount,price));if(tokenBalance<offChainTokens){revert();}if(amount<minimumSpend){revert();}tokenReward.transfer(msg.sender,SafeMath.div(amount*1ether,price));FundTransfer(msg.sender,amount,true);balanceOf[msg.sender]+=amount;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 107
+column: 4
+content: functionsafeWithdrawal()isMaster{if(beneficiary.send(amountRaised)){FundTransfer(beneficiary,amountRaised,false);tokenReward.transfer(beneficiary,tokenReward.balanceOf(this));tokenBalance=0;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 116
+column: 4
+content: functionpause()notPausedisMaster{paused=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 120
+column: 4
+content: functionunPause()isPausedisMaster{paused=false;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 124
+column: 4
+content: functionupdatePrice(uint_price)isMaster{price=_price;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 128
+column: 4
+content: functionupdateMinSpend(uint_minimumSpend)isMaster{minimumSpend=_minimumSpend;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 132
+column: 4
+content: functionupdateOffChainTokens(uint_offChainTokens)isMaster{offChainTokens=_offChainTokens;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 4
+content: addressmaster;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 55
+column: 4
+content: uintstart_time;
+
+SOLIDITY_VISIBILITY :12
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_ADDRESS_HARDCODED :3

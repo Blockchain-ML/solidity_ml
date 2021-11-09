@@ -1,0 +1,154 @@
+C:\Users\hp\DataSet\contracts\ropsten\8a\8a9c968c1fdddfc89b816c909d9b0da109261e35_DigiOptions.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 469
+column: 12
+content: market.users.length-=1
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 274
+column: 8
+content: for(cnt=1;cnt<marketBaseData.strikes.length;cnt++){assert(marketBaseData.strikes[cnt-1]<marketBaseData.strikes[cnt]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 280
+column: 8
+content: for(cnt=0;cnt<marketBaseData.strikes.length;cnt++){assert((marketBaseData.strikes[cnt]%int256(10**uint256((int256(marketBaseData.baseUnitExp)-marketBaseData.ndigit))))==0);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 381
+column: 8
+content: for(uint16optionID=0;optionID<=markets[marketFactHash].marketBaseData.strikes.length;optionID++){positionsOptionID[optionID]=markets[marketFactHash].userData[user].positions[optionID];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 428
+column: 8
+content: for(uint16cnt=0;cnt<market.marketBaseData.strikes.length;cnt++){if(value<market.marketBaseData.strikes[cnt]){winningOptionID=cnt;break;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 606
+column: 8
+content: for(uint256orderOfferIdx=0;orderOfferIdx<orderOfferSignedList.length;orderOfferIdx++){OrderOffermemoryorderOffer=orderOfferSignedList[orderOfferIdx].orderOffer;bytes32offerHash;uint256sizeAcceptPossible;addressbuyer;addressseller;if(orderOffer.buy){buyer=orderOffer.offerOwner;seller=msg.sender;}else{buyer=msg.sender;seller=orderOffer.offerOwner;}int256liquidityOfferOwner;int256liquidityOfferTaker;uint256transactionFeeAmount;(sizeAcceptPossible,offerHash,liquidityOfferOwner,liquidityOfferTaker,transactionFeeAmount)=orderExecuteTest(orderOfferSignedList[orderOfferIdx],sizeAcceptMax_);if(sizeAcceptPossible!=0){liquidityUser[orderOffer.offerOwner]=liquidityOfferOwner.castToUint();liquidityUser[msg.sender]=liquidityOfferTaker.castToUint();liquidityUser[owner]=liquidityUser[owner].add(transactionFeeAmount);markets[orderOffer.marketFactHash].userData[buyer].positions[orderOffer.optionID]=markets[orderOffer.marketFactHash].userData[buyer].positions[orderOffer.optionID].add(int256(sizeAcceptPossible));markets[orderOffer.marketFactHash].userData[seller].positions[orderOffer.optionID]=markets[orderOffer.marketFactHash].userData[seller].positions[orderOffer.optionID].sub(int256(sizeAcceptPossible));offersAccepted[offerHash]=offersAccepted[offerHash].add(sizeAcceptPossible);if(markets[orderOffer.marketFactHash].userData[msg.sender].state==UserState.USER_NONE){markets[orderOffer.marketFactHash].userData[msg.sender].state=UserState.USER_EXISTS;markets[orderOffer.marketFactHash].users.push(msg.sender);userMarkets[msg.sender].push(orderOffer.marketFactHash);}if(markets[orderOffer.marketFactHash].userData[orderOffer.offerOwner].state==UserState.USER_NONE){markets[orderOffer.marketFactHash].userData[orderOffer.offerOwner].state=UserState.USER_EXISTS;markets[orderOffer.marketFactHash].users.push(orderOffer.offerOwner);userMarkets[orderOffer.offerOwner].push(orderOffer.marketFactHash);}emitPositionChange(buyer,orderOffer.marketFactHash,block.timestamp,true,orderOffer.optionID,orderOffer.pricePerOption,sizeAcceptPossible,offerHash);emitPositionChange(seller,orderOffer.marketFactHash,block.timestamp,false,orderOffer.optionID,orderOffer.pricePerOption,sizeAcceptPossible,bytes32(0));sizeAcceptMax_=sizeAcceptMax_.sub(sizeAcceptPossible);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 698
+column: 8
+content: for(uint16s=0;s<=markets[marketFactHash].marketBaseData.strikes.length;s++){int256position=markets[marketFactHash].userData[userAddr].positions[s];if(position<minPositionBeforeTrade)minPositionBeforeTrade=position;if(s==optionID)position=position.add(positionChange);if(position<minPositionAfterTrade)minPositionAfterTrade=position;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 345
+column: 8
+content: while((idx<len)&&(markets[market.previous].marketBaseData.expirationDatetime>0)&&(markets[market.previous].marketBaseData.expirationDatetime>=expirationDatetime)){if(!((filterTestMarkets&&markets[market.previous].data.testMarket)||(filterNoTradedMarkets&&(markets[market.previous].userData[msg.sender].state!=UserState.USER_NONE)))){marketList[idx]=getMarketData(market.previous);idx++;}market=markets[market.previous];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 280
+column: 8
+content: for(cnt=0;cnt<marketBaseData.strikes.length;cnt++){assert((marketBaseData.strikes[cnt]%int256(10**uint256((int256(marketBaseData.baseUnitExp)-marketBaseData.ndigit))))==0);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 381
+column: 8
+content: for(uint16optionID=0;optionID<=markets[marketFactHash].marketBaseData.strikes.length;optionID++){positionsOptionID[optionID]=markets[marketFactHash].userData[user].positions[optionID];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 428
+column: 8
+content: for(uint16cnt=0;cnt<market.marketBaseData.strikes.length;cnt++){if(value<market.marketBaseData.strikes[cnt]){winningOptionID=cnt;break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 606
+column: 8
+content: for(uint256orderOfferIdx=0;orderOfferIdx<orderOfferSignedList.length;orderOfferIdx++){OrderOffermemoryorderOffer=orderOfferSignedList[orderOfferIdx].orderOffer;bytes32offerHash;uint256sizeAcceptPossible;addressbuyer;addressseller;if(orderOffer.buy){buyer=orderOffer.offerOwner;seller=msg.sender;}else{buyer=msg.sender;seller=orderOffer.offerOwner;}int256liquidityOfferOwner;int256liquidityOfferTaker;uint256transactionFeeAmount;(sizeAcceptPossible,offerHash,liquidityOfferOwner,liquidityOfferTaker,transactionFeeAmount)=orderExecuteTest(orderOfferSignedList[orderOfferIdx],sizeAcceptMax_);if(sizeAcceptPossible!=0){liquidityUser[orderOffer.offerOwner]=liquidityOfferOwner.castToUint();liquidityUser[msg.sender]=liquidityOfferTaker.castToUint();liquidityUser[owner]=liquidityUser[owner].add(transactionFeeAmount);markets[orderOffer.marketFactHash].userData[buyer].positions[orderOffer.optionID]=markets[orderOffer.marketFactHash].userData[buyer].positions[orderOffer.optionID].add(int256(sizeAcceptPossible));markets[orderOffer.marketFactHash].userData[seller].positions[orderOffer.optionID]=markets[orderOffer.marketFactHash].userData[seller].positions[orderOffer.optionID].sub(int256(sizeAcceptPossible));offersAccepted[offerHash]=offersAccepted[offerHash].add(sizeAcceptPossible);if(markets[orderOffer.marketFactHash].userData[msg.sender].state==UserState.USER_NONE){markets[orderOffer.marketFactHash].userData[msg.sender].state=UserState.USER_EXISTS;markets[orderOffer.marketFactHash].users.push(msg.sender);userMarkets[msg.sender].push(orderOffer.marketFactHash);}if(markets[orderOffer.marketFactHash].userData[orderOffer.offerOwner].state==UserState.USER_NONE){markets[orderOffer.marketFactHash].userData[orderOffer.offerOwner].state=UserState.USER_EXISTS;markets[orderOffer.marketFactHash].users.push(orderOffer.offerOwner);userMarkets[orderOffer.offerOwner].push(orderOffer.marketFactHash);}emitPositionChange(buyer,orderOffer.marketFactHash,block.timestamp,true,orderOffer.optionID,orderOffer.pricePerOption,sizeAcceptPossible,offerHash);emitPositionChange(seller,orderOffer.marketFactHash,block.timestamp,false,orderOffer.optionID,orderOffer.pricePerOption,sizeAcceptPossible,bytes32(0));sizeAcceptMax_=sizeAcceptMax_.sub(sizeAcceptPossible);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 698
+column: 8
+content: for(uint16s=0;s<=markets[marketFactHash].marketBaseData.strikes.length;s++){int256position=markets[marketFactHash].userData[userAddr].positions[s];if(position<minPositionBeforeTrade)minPositionBeforeTrade=position;if(s==optionID)position=position.add(positionChange);if(position<minPositionAfterTrade)minPositionAfterTrade=position;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 286
+column: 15
+content: previous.marketBaseData.expirationDatetime>marketBaseData.expirationDatetime
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 346
+column: 12
+content: (idx<len)&&(markets[market.previous].marketBaseData.expirationDatetime>0)&&(markets[market.previous].marketBaseData.expirationDatetime>=expirationDatetime)
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 363
+column: 4
+content: functionsetTestMarket(bytes32marketFactHash,booltestMarket)publiconlyOwner{markets[marketFactHash].data.testMarket=testMarket;}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 100
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 101
+column: 4
+content: usingSafeMathforint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 377
+column: 16
+content: (uint256liquidity,int256[]memorypositions,UserStateuserState)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 494
+column: 26
+content: (uint256sizeAcceptPossible,bytes32offerHash,int256liquidityOfferOwner,int256liquidityOfferTaker,uint256transactionFeeAmount)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 693
+column: 28
+content: (int256minPositionBeforeTrade_,int256minPositionAfterTrade_)
+
+SOLIDITY_SAFEMATH :2
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :7
+SOLIDITY_GAS_LIMIT_IN_LOOPS :7
+SOLIDITY_SHOULD_RETURN_STRUCT :3

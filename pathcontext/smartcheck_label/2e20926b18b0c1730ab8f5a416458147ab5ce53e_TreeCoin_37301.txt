@@ -1,0 +1,190 @@
+C:\Users\hp\DataSet\contracts\ropsten\2e\2e20926b18b0c1730ab8f5a416458147ab5ce53e_TreeCoin.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 247
+column: 17
+content: 0xb1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 258
+column: 24
+content: 0xb1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 281
+column: 25
+content: 0xb1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 283
+column: 17
+content: 0xb1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 283
+column: 42
+content: 0xb1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 306
+column: 17
+content: 0xb1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 306
+column: 42
+content: 0xb1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 327
+column: 72
+content: 0xb1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 328
+column: 17
+content: 0xb1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 158
+column: 8
+content: newOwner=address(0)
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 262
+column: 4
+content: functiongetRateAt(uint256at)constantreturns(uint256){if(at<startDate){return0;}elseif(at<(startDate+30days)){return30000;}elseif(at<(startDate+90days)){return25000;}else{return0;}}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 108
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(boolsuccess){require(_value==0||allowance[msg.sender][_spender]==0);allowance[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 36
+column: 4
+content: functionbalanceOf(address_owner)publicviewreturns(uint256balance){_owner;balance;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 37
+column: 4
+content: functionallowance(address_owner,address_spender)publicviewreturns(uint256remaining){_owner;_spender;remaining;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 236
+column: 4
+content: functioninitializeTreeCoinProject(address_fundsWallet,uint256_startDate,uint256_endDate,addresstreeTeamAddress,addressadvisorAddress)onlyOwnerprojectUninitialized{require(_fundsWallet!=0x0);require(_startDate>=getCurrentTimestamp());require(_startDate<_endDate);startDate=_startDate;endDate=_endDate;fundsWallet=_fundsWallet;balances[0xb1]=safeMul(safeDiv(totalSupply,100),50);balances[fundsWallet]=safeMul(safeDiv(totalSupply,100),50);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 124
+column: 4
+content: functionallowance(address_owner,address_spender)viewreturns(uint256remaining){returnallowance[_owner][_spender];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 232
+column: 4
+content: functionTreeCoin(){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 236
+column: 4
+content: functioninitializeTreeCoinProject(address_fundsWallet,uint256_startDate,uint256_endDate,addresstreeTeamAddress,addressadvisorAddress)onlyOwnerprojectUninitialized{require(_fundsWallet!=0x0);require(_startDate>=getCurrentTimestamp());require(_startDate<_endDate);startDate=_startDate;endDate=_endDate;fundsWallet=_fundsWallet;balances[0xb1]=safeMul(safeDiv(totalSupply,100),50);balances[fundsWallet]=safeMul(safeDiv(totalSupply,100),50);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 252
+column: 4
+content: function()payable{buyTreeTokens(msg.sender,msg.value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 262
+column: 4
+content: functiongetRateAt(uint256at)constantreturns(uint256){if(at<startDate){return0;}elseif(at<(startDate+30days)){return30000;}elseif(at<(startDate+90days)){return25000;}else{return0;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 280
+column: 4
+content: functionpush(addressbuyer,uint256amount)onlyOwner{require(balances[0xb1]>=amount);balances[0xb1]=safeSub(balances[0xb1],amount);balances[buyer]=safeAdd(balances[buyer],amount);PrivateSaleTokenPushed(buyer,amount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 324
+column: 4
+content: functionfinalize()onlyOwner{require(!saleActive());balances[fundsWallet]=safeAdd(balances[fundsWallet],balances[0xb1]);balances[0xb1]=0;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 333
+column: 4
+content: functionreleaseAdvisorTokens()advisorTimelockonlyOwnerreturns(bool){require(totalAllocatedToAdvisors==0);balances[fundsWallet]=safeSub(balances[fundsWallet],advisorsAllocation);balances[advisorAddress]=safeAdd(balances[advisorAddress],advisorsAllocation);totalAllocatedToAdvisors=advisorsAllocation;Transfer(fundsWallet,advisorAddress,advisorsAllocation);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 345
+column: 4
+content: functionreleaseTeamTokens()treeTeamTimelockonlyOwnerreturns(bool){require(totalAllocatedToTeam<treeTeamAllocation);uint256alloc=treeTeamAllocation/1000;uint256currentTranche=uint256(now-endDate)/4weeks;if(teamTranchesReleased<maxTeamTranches&&currentTranche>teamTranchesReleased){teamTranchesReleased++;uint256amount=safeMul(alloc,125);balances[fundsWallet]=safeSub(balances[fundsWallet],amount);balances[treeTeamAddress]=safeAdd(balances[treeTeamAddress],amount);Transfer(fundsWallet,treeTeamAddress,amount);totalAllocatedToTeam=safeAdd(totalAllocatedToTeam,amount);returntrue;}revert();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 364
+column: 4
+content: functionallowTransfers()onlyOwner{isReleasedToPublic=true;}
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_ADDRESS_HARDCODED :10
+SOLIDITY_ERC20_APPROVE :1

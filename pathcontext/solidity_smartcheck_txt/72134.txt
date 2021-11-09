@@ -1,0 +1,67 @@
+F:\Blockchain\dataset_new_byID\72134.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 20
+column: 0
+content: contractMixinForwarderCoreisLibConstants,IAssets,IForwarderCore,MixinWeth,MixinExchangeWrapper{usingLibBytesforbytes;usingLibSafeMathforuint256;constructor()public{addressproxyAddress=EXCHANGE.getAssetProxy(IAssetData(address(0)).ERC20Token.selector);if(proxyAddress==address(0)){revert();}ETHER_TOKEN.approve(proxyAddress,MAX_UINT);addressprotocolFeeCollector=EXCHANGE.protocolFeeCollector();if(protocolFeeCollector!=address(0)){ETHER_TOKEN.approve(protocolFeeCollector,MAX_UINT);}}functionmarketSellOrdersWithEth(LibOrder.Order[]memoryorders,bytes[]memorysignatures,uint256[]memoryethFeeAmounts,address<missing ')'>payable[]memoryfeeRecipients)publicpayablereturns<missing ';'>(uint256<missing ')'>wethSpentAmount,uint256makerAssetAcquiredAmount){uint256wethRemaining=_transferEthFeesAndWrapRemaining(ethFeeAmounts,feeRecipients);(wethSpentAmount,makerAssetAcquiredAmount)=_marketSellNoThrow(orders,wethRemaining,signatures);_transferEthRefund(wethRemaining,wethSpentAmount);}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 35
+column: 8
+content: if(proxyAddress==address(0)){revert();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 54
+column: 4
+content: functionmarketSellOrdersWithEth(LibOrder.Order[]memoryorders,bytes[]memorysignatures,uint256[]memoryethFeeAmounts,address<missing ')'>payable[]memory
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 62
+column: 16
+content: (uint256<missing ')'>wethSpentAmount,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 64
+column: 12
+content: uint256makerAssetAcquiredAmount){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 68
+column: 8
+content: uint256wethRemaining=_transferEthFeesAndWrapRemaining(ethFeeAmounts,feeRecipients);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 74
+column: 8
+content: (wethSpentAmount,makerAssetAcquiredAmount)=_marketSellNoThrow(orders,wethRemaining,signatures);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 84
+column: 8
+content: _transferEthRefund(wethRemaining,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 84
+column: 42
+content: wethSpentAmount);
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1

@@ -1,0 +1,157 @@
+C:\Users\hp\DataSet\contracts\ropsten\62\622c2cf9413a0c0f5627e68c2385b504ca82ef0a_Dutchwrapper.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 79
+column: 45
+content: 0x0348B55AbD6E1A99C6EBC972A6A4582Ec0bcEb5c
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 43
+column: 4
+content: functiontotalSupply()externalconstantreturns(uint256supply);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 44
+column: 4
+content: functionbalanceOf(addressowner)externalconstantreturns(uint256balance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 45
+column: 4
+content: functionallowance(addressowner,addressspender)externalconstantreturns(uint256remaining);
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 232
+column: 22
+content: (MAX_TOKENS_SOLD/10**18)*calcTokenPrice()
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 665
+column: 19
+content: SafeMath.mul(SafeMath.div(SafeMath.sub(_amount,_amount%100),100),_percent)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 453
+column: 5
+content: for(uinti=0;i<SocialCampaigns[_campaignHash].SocialLinkProfile.length;i++){if(SocialCampaigns[_campaignHash].SocialLinkProfile[i].username==_userName){revert();}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 650
+column: 10
+content: for(uinti=0;i<_batchList.length;i++){addresstempAddr=_batchList[i];uintuserIndex=SocialCampaigns[_campaignHash].index[tempAddr];deleteSocialCampaigns[_campaignHash].SocialLinkProfile[userIndex];SocialCampaigns[_campaignHash].disqualified[tempAddr]=true;claimedSocial-=SocialCampaigns[_campaignHash].tokenAmountForEach;emitAdminRemoveBatch(_campaignHash,tempAddr,SocialCampaigns[_campaignHash].SocialLinkProfile[userIndex].username);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 619
+column: 1
+content: functionconfirmSocial(bytes4_campaignHash,bytes32_userName,bytes32_retweetOrdiscord)publicSocialCampaignLimitcheckSocialDuplicates(_campaignHash,_userName)returns(uint){uintid=SocialCampaigns[_campaignHash].index[msg.sender];if(SocialCampaigns[_campaignHash].SocialLinkProfile.length!=0){require(msg.sender!=SocialCampaigns[_campaignHash].SocialLinkProfile[id].addr);}require(SocialCampaigns[_campaignHash].SocialLinkProfile.length<=SocialCampaigns[_campaignHash].maxParticipators);SocialProfilememorytempProfile;tempProfile.addr=msg.sender;tempProfile.socialAction=_retweetOrdiscord;tempProfile.tokensEarned=SocialCampaigns[_campaignHash].tokenAmountForEach;tempProfile.approved=true;tempProfile.username=_userName;SocialCampaigns[_campaignHash].SocialLinkProfile.push(tempProfile);SocialCampaigns[_campaignHash].index[msg.sender]=SocialCampaigns[_campaignHash].SocialLinkProfile.length;claimedSocial+=SocialCampaigns[_campaignHash].tokenAmountForEach;emitConfirmSocial(_campaignHash,msg.sender,_userName);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 646
+column: 4
+content: functionadminRemoveBatch(bytes4_campaignHash,address[]_batchList)publicisAdminSocialCampaignLimitreturns(uint){for(uinti=0;i<_batchList.length;i++){addresstempAddr=_batchList[i];uintuserIndex=SocialCampaigns[_campaignHash].index[tempAddr];deleteSocialCampaigns[_campaignHash].SocialLinkProfile[userIndex];SocialCampaigns[_campaignHash].disqualified[tempAddr]=true;claimedSocial-=SocialCampaigns[_campaignHash].tokenAmountForEach;emitAdminRemoveBatch(_campaignHash,tempAddr,SocialCampaigns[_campaignHash].SocialLinkProfile[userIndex].username);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 453
+column: 5
+content: for(uinti=0;i<SocialCampaigns[_campaignHash].SocialLinkProfile.length;i++){if(SocialCampaigns[_campaignHash].SocialLinkProfile[i].username==_userName){revert();}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 650
+column: 10
+content: for(uinti=0;i<_batchList.length;i++){addresstempAddr=_batchList[i];uintuserIndex=SocialCampaigns[_campaignHash].index[tempAddr];deleteSocialCampaigns[_campaignHash].SocialLinkProfile[userIndex];SocialCampaigns[_campaignHash].disqualified[tempAddr]=true;claimedSocial-=SocialCampaigns[_campaignHash].tokenAmountForEach;emitAdminRemoveBatch(_campaignHash,tempAddr,SocialCampaigns[_campaignHash].SocialLinkProfile[userIndex].username);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 145
+column: 8
+content: if(_pWallet==0||_ceiling==0||_priceFactor==0)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 163
+column: 8
+content: if(_kittieToken==0)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 168
+column: 8
+content: if(KittieFightToken.balanceOf(this)!=MAX_TOKENS_SOLD)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 240
+column: 12
+content: if(!receiver.send(msg.value-amount))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 245
+column: 8
+content: if(amount==0||!address(pWallet).send(amount))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 454
+column: 6
+content: if(SocialCampaigns[_campaignHash].SocialLinkProfile[i].username==_userName){revert();}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 484
+column: 17
+content: stringsuccessmessage
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 646
+column: 52
+content: address[]_batchList
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :6
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_DIV_MUL :2

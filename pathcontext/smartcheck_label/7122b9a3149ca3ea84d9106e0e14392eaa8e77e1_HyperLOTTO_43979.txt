@@ -1,0 +1,24 @@
+C:\Users\hp\DataSet\contracts\ropsten\71\7122b9a3149ca3ea84d9106e0e14392eaa8e77e1_HyperLOTTO.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 105
+column: 0
+content: contractHyperLOTTOisowned{usingSafeMathforuint256;address[]publicplayers;functionenter()publicpayable{require(msg.value>.01ether);players.push(msg.sender);}functionrandom()privateviewreturns(uint){returnuint(keccak256(abi.encodePacked(block.difficulty,now,players)));}functionpickWinner()publiconlyOwner{addresswinner=players[random()%players.length];players=newaddress[](0);}functiongetPlayers()publicviewreturns(address[]memory){returnplayers;}}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 87
+column: 5
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 107
+column: 4
+content: usingSafeMathforuint256;
+
+SOLIDITY_SAFEMATH :2
+SOLIDITY_LOCKED_MONEY :1

@@ -1,0 +1,62 @@
+C:\Users\hp\DataSet\AuthereumEnsResolverProxy.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 80
+column: 4
+content: functionimplementation()publicviewreturns(addressimpl){bytes32slot=IMPLEMENTATION_SLOT;assembly{impl:=sload(slot)}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 12
+column: 0
+content: contractAuthereumEnsResolverProxyisOwned{stringconstantpublicauthereumEnsResolverProxyVersion="2019111500";bytes32internalconstantIMPLEMENTATION_SLOT=0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc;constructor(address_logic)publicpayable{bytes32slot=IMPLEMENTATION_SLOT;assembly{sstore(slot,_logic)}}function()externalpayable{if(msg.data.length==0)return;address_implementation=implementation();assembly{calldatacopy(0,0,calldatasize)letresult:=delegatecall(gas,_implementation,0,calldatasize,0,0)returndatacopy(0,0,returndatasize)switchresultcase0{revert(0,returndatasize)}default{return(0,returndatasize)}}}functionsetImplementation(address_logic)publiconlyOwner{bytes32slot=IMPLEMENTATION_SLOT;assembly{sstore(slot,_logic)}}functionimplementation()publicviewreturns(addressimpl){bytes32slot=IMPLEMENTATION_SLOT;assembly{impl:=sload(slot)}}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 67
+column: 4
+content: functionsetImplementation(address_logic)publiconlyOwner{bytes32slot=IMPLEMENTATION_SLOT;assembly{sstore(slot,_logic)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 80
+column: 4
+content: functionimplementation()publicviewreturns(addressimpl){bytes32slot=IMPLEMENTATION_SLOT;assembly{impl:=sload(slot)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 24
+column: 8
+content: assembly{sstore(slot,_logic)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 41
+column: 8
+content: assembly{calldatacopy(0,0,calldatasize)letresult:=delegatecall(gas,_implementation,0,calldatasize,0,0)returndatacopy(0,0,returndatasize)switchresultcase0{revert(0,returndatasize)}default{return(0,returndatasize)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 69
+column: 8
+content: assembly{sstore(slot,_logic)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 82
+column: 8
+content: assembly{impl:=sload(slot)}
+
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_USING_INLINE_ASSEMBLY :4
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

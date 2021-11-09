@@ -1,0 +1,154 @@
+C:\Users\hp\DataSet\contracts\ropsten\b1\b16c767f064f4bca26c89c7b309eb689130b1d4b_items.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 5
+column: 20
+content: 0xca35b7d915458ef540ade6068dfe2f44e8fa733c
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractitems{addressadmin=0xca35b7d915458ef540ade6068dfe2f44e8fa733c;structproducto{uintno_qr;uintlote;stringdescription;stringfecha_fab;stringmodelo;stringmarca;stringtest_qa;addressowner;}mapping(uint=>producto)privatePRODUCTOS;mapping(address=>uint)privatePRODUCTO_OWNER;uint[]publicproductosList;constructor()payable{}functionadd_product(uint_qr,uint_lote,string_description,string_fecha_fab,string_modelo,string_marca,string_test_qa)returns(string,uint){require(msg.sender==admin,"No esta autorizado");varPRODUCTO=PRODUCTOS[_qr];PRODUCTO.no_qr=_qr;PRODUCTO.lote=_lote;PRODUCTO.description=_description;PRODUCTO.fecha_fab=_fecha_fab;PRODUCTO.modelo=_modelo;PRODUCTO.marca=_marca;PRODUCTO.test_qa=_test_qa;productosList.push(_qr)-1;return("Producto agregado ok QR_ID:",_qr);}functiondel_product(uint_qr)publicreturns(string,uint){require(msg.sender==admin,"No esta autorizado");delete(PRODUCTOS[_qr]);return("PRODUCTO BORRADO:",_qr);}functionmod_product(uint_qr,uint_lote,string_description,string_fecha_fab,string_modelo,string_marca,string_test_qa)publicreturns(string,uint){require(msg.sender==admin||msg.sender==PRODUCTOS[_qr].owner,"No esta autorizado");varPRODUCTO=PRODUCTOS[_qr];PRODUCTO.no_qr=_qr;PRODUCTO.lote=_lote;PRODUCTO.description=_description;PRODUCTO.fecha_fab=_fecha_fab;PRODUCTO.modelo=_modelo;PRODUCTO.marca=_marca;PRODUCTO.test_qa=_test_qa;return("PRODUCTO MODIFICADO:",_qr);}functionview_product(uint_qr)viewpublicreturns(string,uint,uint,string,string,string,address){return("INFO DEL PRODUCTO:",PRODUCTOS[_qr].no_qr,PRODUCTOS[_qr].lote,PRODUCTOS[_qr].description,PRODUCTOS[_qr].fecha_fab,PRODUCTOS[_qr].modelo,PRODUCTOS[_qr].owner);}functiontransferir(uint_qr,address_new_owner)returns(string,uint,address){require(msg.sender==admin||msg.sender==PRODUCTOS[_qr].owner,"No esta autorizado");varPRODUCTO=PRODUCTOS[_qr];PRODUCTO.owner=_new_owner;return("New owner de:",_qr,_new_owner);}functionlist_products()viewpublicreturns(uint[]){require(msg.sender==admin,"No esta autorizado");return(productosList);}functioncount_products()viewpublicreturns(uint){returnproductosList.length;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 17
+column: 31
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 18
+column: 30
+content: private
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 42
+column: 52
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 47
+column: 46
+content: string_description
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 47
+column: 66
+content: string_fecha_fab
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 48
+column: 11
+content: string_modelo
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 48
+column: 26
+content: string_marca
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 48
+column: 40
+content: string_test_qa
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 49
+column: 1
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 64
+column: 1
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 64
+column: 18
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 64
+column: 25
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 64
+column: 32
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 77
+column: 51
+content: uint[]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 23
+column: 5
+content: constructor()payable{}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 26
+column: 5
+content: functionadd_product(uint_qr,uint_lote,string_description,string_fecha_fab,string_modelo,string_marca,string_test_qa)returns(string,uint){require(msg.sender==admin,"No esta autorizado");varPRODUCTO=PRODUCTOS[_qr];PRODUCTO.no_qr=_qr;PRODUCTO.lote=_lote;PRODUCTO.description=_description;PRODUCTO.fecha_fab=_fecha_fab;PRODUCTO.modelo=_modelo;PRODUCTO.marca=_marca;PRODUCTO.test_qa=_test_qa;productosList.push(_qr)-1;return("Producto agregado ok QR_ID:",_qr);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 69
+column: 4
+content: functiontransferir(uint_qr,address_new_owner)returns(string,uint,address){require(msg.sender==admin||msg.sender==PRODUCTOS[_qr].owner,"No esta autorizado");varPRODUCTO=PRODUCTOS[_qr];PRODUCTO.owner=_new_owner;return("New owner de:",_qr,_new_owner);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 5
+column: 4
+content: addressadmin=0xca35b7d915458ef540ade6068dfe2f44e8fa733c;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :12

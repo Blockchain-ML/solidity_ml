@@ -1,0 +1,73 @@
+C:\Users\hp\DataSet\circuit_breaker_test.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 10
+column: 4
+content: called_me('stopped in emergency')
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 14
+column: 4
+content: called_me('only in emergency')
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 27
+column: 4
+content: called_me('stopped in emergency')
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 37
+column: 4
+content: called_me('only in emergency')
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 9
+column: 2
+content: functionstopped_in_emergency()stop_if_emergency{called_me('stopped in emergency');}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 13
+column: 2
+content: functiononly_in_emergency()emergency_only{called_me('only in emergency');}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 21
+column: 2
+content: functionsetUp(){target=newCircuitBreakerMock();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 25
+column: 2
+content: functiontestStopInEmergency(){expectEventsExact(target);called_me('stopped in emergency');target.stopped_in_emergency();target.toggle_active();target.stopped_in_emergency();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 35
+column: 2
+content: functiontestOnlyInEmergency(){expectEventsExact(target);called_me('only in emergency');target.toggle_active();target.only_in_emergency();target.toggle_active();target.only_in_emergency();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 2
+content: CircuitBreakerMocktarget;
+
+SOLIDITY_VISIBILITY :6
+SOLIDITY_UNCHECKED_CALL :4

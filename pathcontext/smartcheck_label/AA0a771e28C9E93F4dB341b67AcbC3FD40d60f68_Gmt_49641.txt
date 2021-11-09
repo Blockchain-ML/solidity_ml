@@ -1,0 +1,183 @@
+C:\Users\hp\DataSet\contracts\ropsten\aa\AA0a771e28C9E93F4dB341b67AcbC3FD40d60f68_Gmt.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 421
+column: 4
+content: functionallBalance()publicconstantreturns(uint){returnaddress(this).balance;}
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 207
+column: 50
+content: ((now.sub(startTime)).div(period)).mul(period)
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 345
+column: 21
+content: periodCount.mul(betsDatabase[_address].value).div(10000).mul(percent)
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 407
+column: 33
+content: betsDatabase[msg.sender].sidesDatabase[jacPotRoundNow].value.div(jackPotLoserDatabase[jacPotRoundNow].value).mul(10000)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 401
+column: 12
+content: for(uinti=0;i<jackPotRound;i++){if(betsDatabase[msg.sender].sidesDatabase[jacPotRoundNow].paid==true){break;}if(jackPotLoserDatabase[jacPotRoundNow].side==betsDatabase[msg.sender].sidesDatabase[jacPotRoundNow].side){uinttoPay=betsDatabase[msg.sender].sidesDatabase[jacPotRoundNow].value.div(jackPotLoserDatabase[jacPotRoundNow].value).mul(10000);betsDatabase[msg.sender].sidesDatabase[jacPotRoundNow].paid=true;if(toPay>=address(this).balance){toPay=address(this).balance;}_address.transfer(toPay);}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 174
+column: 1
+content: functionbytesToAddress(bytesbys)privatepurereturns(addressaddr){assembly{addr:=mload(add(bys,20))}}
+
+ruleId: SOLIDITY_MSGVALUE_EQUALS_ZERO
+patternId: 1df89a
+severity: 1
+line: 296
+column: 11
+content: msg.value==0
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 56
+column: 2
+content: functionsetManager(address_manager)publiconlyOwner{require(_manager!=address(0));manager=_manager;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 170
+column: 1
+content: functionsetContractProtection(bool_contractProtection)publiconlyOwner{contractProtection=_contractProtection;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 78
+column: 6
+content: if((size>0)&&(contractProtection==true)){revert("call from contract");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 183
+column: 8
+content: if((_referrerID>=currBetID)&&(_referrerID!=0)){revert("Incorrect _referrerID");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 187
+column: 8
+content: if(msg.value<minBet){revert("Amount beyond acceptable limits");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 326
+column: 8
+content: if(gameRound!=1){revert("The first round end");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 330
+column: 8
+content: if(!betsDatabase[_address].isExist){revert("Address are not an investor");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 334
+column: 8
+content: if(betsDatabase[_address].nextPayAfterTime>=now){revert("The payout time has not yet come");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 361
+column: 8
+content: if(now<=jackpotTime){revert("Jackpot did not come");}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 68
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 174
+column: 1
+content: functionbytesToAddress(bytesbys)privatepurereturns(addressaddr){assembly{addr:=mload(add(bys,20))}}
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 401
+column: 12
+content: for(uinti=0;i<jackPotRound;i++){if(betsDatabase[msg.sender].sidesDatabase[jacPotRoundNow].paid==true){break;}if(jackPotLoserDatabase[jacPotRoundNow].side==betsDatabase[msg.sender].sidesDatabase[jacPotRoundNow].side){uinttoPay=betsDatabase[msg.sender].sidesDatabase[jacPotRoundNow].value.div(jackPotLoserDatabase[jacPotRoundNow].value).mul(10000);betsDatabase[msg.sender].sidesDatabase[jacPotRoundNow].paid=true;if(toPay>=address(this).balance){toPay=address(this).balance;}_address.transfer(toPay);}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 294
+column: 14
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 174
+column: 25
+content: bytesbys
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 175
+column: 4
+content: assembly{addr:=mload(add(bys,20))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 70
+column: 4
+content: boolcontractProtection=true;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_DIV_MUL :3
+SOLIDITY_SHOULD_NOT_BE_PURE :1
+SOLIDITY_MSGVALUE_EQUALS_ZERO :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_REVERT_REQUIRE :7
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_TRANSFER_IN_LOOP :1

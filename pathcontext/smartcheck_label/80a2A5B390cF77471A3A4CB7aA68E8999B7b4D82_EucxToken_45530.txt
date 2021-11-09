@@ -1,0 +1,41 @@
+C:\Users\hp\DataSet\contracts\ropsten\80\80a2A5B390cF77471A3A4CB7aA68E8999B7b4D82_EucxToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 107
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 54
+column: 0
+content: contractEucxToken{usingSafeMathforuint256;stringpublicname;stringpublicsymbol;stringpublicstandard;uint8publicdecimals;eventTransfer(addressindexed_from,addressindexed_to,uint256_value);eventApproval(addressindexed_owner,addressindexed_spender,uint256_value);addressinternalowner;uint256internalsupply;mapping(address=>uint256)internalbalances;mapping(address=>mapping(address=>uint256))internalallowed;constructor()public{owner=msg.sender;name="EUCX Token";symbol="EUCX";standard="EUCX Token v1.0";decimals=18;supply=1000000000*10**uint(decimals);balances[owner]=supply;emitTransfer(address(0),owner,supply);}functiontotalSupply()publicviewreturns(uint256){returnsupply.sub(balances[owner]);}functionbalanceOf(address_owner)publicviewreturns(uint256){require(_owner!=address(0),"owner is 0");returnbalances[_owner];}functionallowance(address_owner,address_spender)publicviewreturns(uint256){require(_owner!=address(0),"owner is 0");require(_spender!=address(0),"spender is 0");returnallowed[_owner][_spender];}functiontransfer(address_to,uint256_value)publicreturns(bool){require(_to!=address(0),"to is 0");require(balances[msg.sender]>=_value,"tnsufficient balance");balances[msg.sender]=balances[msg.sender].sub(_value);balances[_to]=balances[_to].add(_value);emitTransfer(msg.sender,_to,_value);returntrue;}functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}functionincreaseApproval(address_spender,uint256_addedValue)publicreturns(bool){require(_spender!=address(0),"spender is 0");require(_addedValue!=0,"addedValue is 0");require(balances[msg.sender]>=_addedValue,"insufficient balance");allowed[msg.sender][_spender]=allowed[msg.sender][_spender].add(_addedValue);emitApproval(msg.sender,_spender,allowed[msg.sender][_spender]);returntrue;}functiondecreaseApproval(address_spender,uint256_subtractedValue)publicreturns(bool){require(_spender!=address(0),"spender is 0");require(_subtractedValue!=0,"subtractedValue is 0");require(allowed[msg.sender][_spender]>=_subtractedValue,"insufficient allowance");uint256oldValue=allowed[msg.sender][_spender];if(_subtractedValue>=oldValue){allowed[msg.sender][_spender]=0;}else{allowed[msg.sender][_spender]=oldValue.sub(_subtractedValue);}emitApproval(msg.sender,_spender,allowed[msg.sender][_spender]);returntrue;}functiontransferFrom(address_from,address_to,uint256_value)publicreturns(bool){require(balances[_from]>=_value,"insufficient balance");balances[_from]=balances[_from].sub(_value);require(allowed[_from][msg.sender]>=_value,"insufficient allowance");allowed[_from][msg.sender]=allowed[_from][msg.sender].sub(_value);balances[_to]=balances[_to].add(_value);emitTransfer(_from,_to,_value);returntrue;}function()externalpayable{revert();}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 175
+column: 32
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 55
+column: 1
+content: usingSafeMathforuint256;
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_ERC20_APPROVE :1

@@ -1,0 +1,96 @@
+F:\Blockchain\dataset_new_byID\82385.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 11
+column: 27
+content: 0xF1B86108ed80B4c376eeC633506a8f2d8599C3a7
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 12
+column: 29
+content: 0x428F70ED3F1c2Ac7f5C811Fd1bc6F2b38f14c8BA
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 33
+column: 52
+content: sha3
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 14
+column: 1
+content: functionbeforeEach(){escrow=newEscrow(sender,receiver);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 18
+column: 1
+content: functiontestArbiterAddressIsTheContractCreator(){addressexpectedArbiter=this;Assert.equal(escrow.arbiter(),expectedArbiter,"Arbiter should be the address creator");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 23
+column: 1
+content: functiontestSenderAddressIsCorrectlySet(){Assert.equal(escrow.sender(),sender,"Sender should be the first argument from the contract's constructor");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 27
+column: 1
+content: functiontestReceiverAddressIsCorrectlySet(){Assert.equal(escrow.receiver(),receiver,"Receiver should be the second argument from the contract's constructor");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 31
+column: 1
+content: functiontestLockPaymentThrowsWhenCalledFromNonSenderAddress(){boollockThrowsError=escrow.call(bytes4(bytes32(sha3("lockPayment()"))));Assert.isFalse(lockThrowsError,"Escrow lockPayment should throw an error if called from non-sender address");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 37
+column: 1
+content: functiontestTransferThrowsWhenCalledFromNonSenderAddress(){boolsendThrowsError=escrow.send(1000);Assert.isFalse(sendThrowsError,"Escrow send should throw an error if funds sent from non-sender address");Assert.equal(escrow.balance,0,"Escrow should not receive funds from address other than sender");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 1
+content: Escrowescrow;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 11
+column: 1
+content: addressconstantsender=0xF1B86108ed80B4c376eeC633506a8f2d8599C3a7;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 1
+content: addressconstantreceiver=0x428F70ED3F1c2Ac7f5C811Fd1bc6F2b38f14c8BA;
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :2

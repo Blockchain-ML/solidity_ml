@@ -1,0 +1,77 @@
+C:\Users\hp\DataSet\contracts\ropsten\69\69ad73545a6fb6364b1a3502e89d87da09c1c456_DisclosureAgreementTracker.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 133
+column: 8
+content: for(uinti=0;i<signatories.length;i++){addresssignatory=signatories[i];if(agreement.requiredSignatures[signatory]){revert("signatories must not contain duplicates");}agreement.requiredSignatures[signatory]=true;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 133
+column: 8
+content: for(uinti=0;i<signatories.length;i++){addresssignatory=signatories[i];if(agreement.requiredSignatures[signatory]){revert("signatories must not contain duplicates");}agreement.requiredSignatures[signatory]=true;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 8
+column: 0
+content: contractDisclosureAgreementTracker{structAgreement{bytes32previous;uintdisclosureIndex;uintsignedCount;address[]signatories;mapping(address=>bool)requiredSignatures;}structLatest{bytes32agreementHash;uintagreementCount;}addresspublicowner;addresspublicdisclosureManager;mapping(bytes32=>Agreement)publicagreementMap;mapping(uint=>Latest)publiclatestMap;eventagreementAdded(bytes32agreementHash,uintdisclosureIndex,address[]signatories);eventagreementSigned(bytes32agreementHash,uintdisclosureIndex,addresssignatory);eventagreementFullySigned(bytes32agreementHash,uintdisclosureIndex);constructor(addressdisclosureManagerAddress)public{owner=msg.sender;disclosureManager=disclosureManagerAddress;}modifierisOwner(){if(msg.sender!=owner)revert("sender must be owner");_;}function_agreementExists(Agreementagreement)privatepurereturns(bool){returnagreement.disclosureIndex!=0;}functionagreementExists(bytes32agreementHash)publicviewreturns(bool){return_agreementExists(agreementMap[agreementHash]);}functionhasAgreement(uintdisclosureIndex)publicviewreturns(bool){returnlatestMap[disclosureIndex].agreementCount!=0;}function_isAgreementSigned(Agreementagreement)privatepurereturns(bool){returnagreement.signedCount==agreement.signatories.length;}functionisAgreementSigned(bytes32agreementHash)publicviewreturns(bool){Agreementstorageagreement=agreementMap[agreementHash];return_agreementExists(agreement)&&_isAgreementSigned(agreement);}functionisDisclosureSigned(uintdisclosureIndex)publicviewreturns(bool){returnisAgreementSigned(latestMap[disclosureIndex].agreementHash);}functionaddAgreement(bytes32agreementHash,uintdisclosureIndex,address[]signatories)publicisOwner{require(disclosureIndex>0,"disclosureIndex must be greater than 0");require(agreementHash!=0,"agreementHash must not be 0");require(signatories.length>0,"signatories must not be empty");Agreementstorageagreement=agreementMap[agreementHash];agreement.disclosureIndex=disclosureIndex;agreement.signatories=signatories;Lateststoragelatest=latestMap[disclosureIndex];agreement.previous=latest.agreementHash;latest.agreementHash=agreementHash;latest.agreementCount++;for(uinti=0;i<signatories.length;i++){addresssignatory=signatories[i];if(agreement.requiredSignatures[signatory]){revert("signatories must not contain duplicates");}agreement.requiredSignatures[signatory]=true;}emitagreementAdded(agreementHash,disclosureIndex,signatories);}functionsignAgreement(bytes32agreementHash)publicreturns(boolsigned){require(agreementExists(agreementHash),"agreeement must exist");Agreementstorageagreement=agreementMap[agreementHash];signed=agreement.requiredSignatures[msg.sender];if(signed){agreement.requiredSignatures[msg.sender]=false;agreement.signedCount++;emitagreementSigned(agreementHash,agreement.disclosureIndex,msg.sender);if(_isAgreementSigned(agreement)){emitagreementFullySigned(agreementHash,agreement.disclosureIndex);}}}function()publicpayable{revert("payment not supported");}}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 171
+column: 31
+content: {revert("payment not supported");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 72
+column: 8
+content: if(msg.sender!=owner)revert("sender must be owner");
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 135
+column: 12
+content: if(agreement.requiredSignatures[signatory]){revert("signatories must not contain duplicates");}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 171
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 76
+column: 30
+content: Agreementagreement
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 90
+column: 32
+content: Agreementagreement
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 118
+column: 8
+content: address[]signatories
+
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

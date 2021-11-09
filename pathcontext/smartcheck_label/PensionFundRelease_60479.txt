@@ -1,0 +1,139 @@
+C:\Users\hp\DataSet\PensionFundRelease.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 87
+column: 4
+content: functionisReleaseApproved()constantreturns(boolapproved){uintnum=0;for(uinti=1;i<votes.length;i++){if(votes[i].approve)num++;}returnnum==validators.length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 98
+column: 4
+content: functionisFundFreezePeriodEnded()constantreturns(boolended){return(block.timestamp>paymentTime);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 103
+column: 4
+content: functionisBurnApproved()constantreturns(boolapproved){uintnum=0;for(uinti=1;i<votes.length;i++){if(!votes[i].approve)num++;}returnnum==validators.length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 114
+column: 4
+content: functiongetPaymentAmount()constantreturns(uintamount){if(!firtPaymentReleased){returninitialFunds*firstPaymentPercent/100;}else{returninitialFunds*recurrentPaymentPercent/100;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 123
+column: 4
+content: functionbalance()constantreturns(uintamount){returnroots.balanceOf(this);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 64
+column: 8
+content: for(uinti=0;i<validators.length;i++){isValidator=isValidator||(msg.sender==validators[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 89
+column: 8
+content: for(uinti=1;i<votes.length;i++){if(votes[i].approve)num++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 105
+column: 8
+content: for(uinti=1;i<votes.length;i++){if(!votes[i].approve)num++;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 64
+column: 8
+content: for(uinti=0;i<validators.length;i++){isValidator=isValidator||(msg.sender==validators[i]);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 33
+column: 4
+content: functionPensionFundRelease(address[]_validators,address_worker,address_master,uint8_firstPaymentPercent,uint_firstPaymentTime,uint_recurrentPaymentInterval,uint8_recurrentPaymentPercent,address_rootsAddress){require(_validators.length>0);require(_worker!=0x0);require(_master!=0x0);require(_firstPaymentPercent<=100);require(_recurrentPaymentPercent<=100);validators=_validators;worker=_worker;master=_master;firstPaymentPercent=_firstPaymentPercent;paymentTime=_firstPaymentTime;recurrentPaymentInterval=_recurrentPaymentInterval;roots=ERC20Basic(_rootsAddress);recurrentPaymentPercent=_recurrentPaymentPercent;votes.push(Vote(false,0x0,""));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 72
+column: 4
+content: functionvote(boolapprove,stringjustification)onlyValidatorreturns(uintindex){index=voteIndex[msg.sender];Votememoryvote=Vote(approve,msg.sender,justification);if(index==0){index=votes.length;voteIndex[msg.sender]=index;votes.push(vote);}else{votes[index]=vote;}Voted(approve,msg.sender,justification);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 87
+column: 4
+content: functionisReleaseApproved()constantreturns(boolapproved){uintnum=0;for(uinti=1;i<votes.length;i++){if(votes[i].approve)num++;}returnnum==validators.length;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 98
+column: 4
+content: functionisFundFreezePeriodEnded()constantreturns(boolended){return(block.timestamp>paymentTime);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 103
+column: 4
+content: functionisBurnApproved()constantreturns(boolapproved){uintnum=0;for(uinti=1;i<votes.length;i++){if(!votes[i].approve)num++;}returnnum==validators.length;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 114
+column: 4
+content: functiongetPaymentAmount()constantreturns(uintamount){if(!firtPaymentReleased){returninitialFunds*firstPaymentPercent/100;}else{returninitialFunds*recurrentPaymentPercent/100;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 123
+column: 4
+content: functionbalance()constantreturns(uintamount){returnroots.balanceOf(this);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 128
+column: 4
+content: functionreleaseRoots()returns(uintreleasedAmount){require(isReleaseApproved());require(isFundFreezePeriodEnded());if(!firtPaymentReleased){initialFunds=balance();releasedAmount=getPaymentAmount();firtPaymentReleased=true;}else{releasedAmount=getPaymentAmount();}if(releasedAmount>balance())releasedAmount=balance();paymentTime=paymentTime+recurrentPaymentInterval;roots.transfer(worker,releasedAmount);Released(releasedAmount,worker);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 148
+column: 4
+content: functionrefundRoots()returns(uintrefundedAmount){require(isBurnApproved());refundedAmount=balance();roots.transfer(master,refundedAmount);Refunded(refundedAmount,master);}
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

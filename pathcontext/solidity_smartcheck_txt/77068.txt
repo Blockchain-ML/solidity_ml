@@ -1,0 +1,816 @@
+F:\Blockchain\dataset_new_byID\77068.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 783
+column: 28
+content: 0x5a8aAD505a44165813ECDFa213d0615293e33671
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 784
+column: 33
+content: 0x845B3e01052e76a0F201E51f4611d4d23a069AEe
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 2473
+column: 33
+content: 0xFF
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 157
+column: 8
+content: initList.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 1025
+column: 8
+content: ownedUnicorns[_from].length--
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 861
+column: 4
+content: functiontotalSupply()publicconstantreturns(uint);
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 681
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 2953
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 163
+column: 8
+content: for(uinti=0;i<initList.length;i++){UnicornInit(initList[i]).init();}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 2471
+column: 4
+content: functionbytesToBytes4(bytesb)internalpurereturns(bytes4out){for(uinti=0;i<4;i++){out|=bytes4(b[i]&0xFF)>>(i<<3);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 163
+column: 8
+content: for(uinti=0;i<initList.length;i++){UnicornInit(initList[i]).init();}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 37
+column: 0
+content: contractDividendManagerInterface{functionpayDividend()externalpayable;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 633
+column: 0
+content: contractBlackBoxInterface{functioncreateGen0(uint_unicornId)publicpayable;functiongeneCore(uint_childUnicornId,uint_parent1UnicornId,uint_parent2UnicornId)publicpayable;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 781
+column: 0
+content: contractBlackBoxControllerisUnicornAccessControl{UnicornTokenInterfacepublicunicornToken;addresspublicoracle=0x5a8aAD505a44165813ECDFa213d0615293e33671;addresspublicresurrector=0x845B3e01052e76a0F201E51f4611d4d23a069AEe;eventGene0Request(uintindexedunicornId);eventGeneHybritizationRequest(uintindexedunicornId,uintfirstAncestorUnicornId,uintsecondAncestorUnicornId);functionBlackBoxController(address_unicornManagementAddress)UnicornAccessControl(_unicornManagementAddress)public{}functioninit()onlyManagementwhenPausedexternal{unicornToken=UnicornTokenInterface(unicornManagement.unicornTokenAddress());}function()publicpayable{}functionoracleCallback(uintunicornId,stringgene)external{require(msg.sender==oracle);unicornToken.setGene(unicornId,bytes(gene));}functiongeneCore(uint_childUnicornId,uint_parent1UnicornId,uint_parent2UnicornId)onlyBreedingOrGen0publicpayable{emitGeneHybritizationRequest(_childUnicornId,_parent1UnicornId,_parent2UnicornId);}functioncreateGen0(uint_unicornId)onlyBreedingOrGen0publicpayable{emitGene0Request(_unicornId);}functionsetOracle(address_oracle)publiconlyOwner{oracle=_oracle;}functionsetResurrector(address_resurrector)publiconlyOwner{resurrector=_resurrector;}functionresurrectorCallback(uintunicornId,stringgene)external{require(msg.sender==resurrector);unicornToken.setGene(unicornId,bytes(gene));}functionsetGeneManual(uintunicornId,stringgene)publiconlyOwner{unicornToken.setGene(unicornId,bytes(gene));}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 1123
+column: 0
+content: contractUnicornTokenisUnicornBase{stringpublicconstantname="UnicornGO";stringpublicconstantsymbol="UNG";functionUnicornToken(address_unicornManagementAddress)UnicornAccessControl(_unicornManagementAddress)public{}functioninit()onlyManagementwhenPausedexternal{unicornBreeding=UnicornBreedingInterface(unicornManagement.unicornBreedingAddress());unicornMarket=UnicornMarketInterface(unicornManagement.unicornMarketAddress());}function()publicpayable{revert();}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 1688
+column: 0
+content: contractUnicornFreezingisUnicornAccessControl{usingSafeMathforuint;TrustedTokenInterfacepublicmegaCandyToken;BreedingDataBaseInterfacepublicbreedingDB;UnicornTokenInterfacepublicunicornToken;UnicornPricesInterfacepublicunicornPrices;uint32[8]internalfreezing=[uint32(1hours),uint32(2hours),uint32(8hours),uint32(16hours),uint32(36hours),uint32(72hours),uint32(120hours),uint32(168hours)];uint32[8]internalfreezingPlusCount=[0,3,5,9,13,25,25,0];eventUnicornFreezingTimeSet(uintindexedunicornId,uinttime);eventMinusFreezingTime(uintindexedunicornId,uintcount);functionUnicornFreezing(address_unicornManagementAddress)UnicornAccessControl(_unicornManagementAddress)public{}function()publicpayable{revert();}functioninit()onlyManagementwhenPausedexternal{unicornToken=UnicornTokenInterface(unicornManagement.unicornTokenAddress());megaCandyToken=TrustedTokenInterface(unicornManagement.megaCandy());breedingDB=BreedingDataBaseInterface(unicornManagement.unicornBreedingDBAddress());unicornPrices=UnicornPricesInterface(unicornManagement.unicornPricesAddress());}function_getFreezeTime(uintfreezingIndex)internalviewreturns(uinttime){time=freezing[freezingIndex];if(freezingPlusCount[freezingIndex]!=0){time+=(uint(block.blockhash(block.number-1))%freezingPlusCount[freezingIndex])*1hours;}}function_getRarity(uint8_b)internalpurereturns(uint8){return_b<1?0:_b<189?1:_b<224?2:_b<244?3:_b<254?4:5;}function_getStatsSumHours(uint_unicornId)internalviewreturns(uint){uint8[5]memoryphysStatBytes=[112,117,122,127,132];uint8[10]memoryrarity1Bytes=[13,18,23,28,33,38,43,48,53,58];uint8[10]memoryrarity2Bytes=[87,92,97,102,107,137,142,147,152,157];uintsum=0;uinti;for(i=0;i<5;i++){sum+=unicornToken.getUnicornGenByte(_unicornId,physStatBytes[i]);}for(i=0;i<10;i++){uintrarity=unicornToken.getUnicornGenByte(_unicornId,rarity2Bytes[i]);if(rarity==0){rarity=_getRarity(unicornToken.getUnicornGenByte(_unicornId,rarity1Bytes[i]));}sum+=rarity;}returnsum*1hours;}functionplusFreezingTime(uint_unicornId)externalonlyBreeding{checkFreeze(_unicornId);if(breedingDB.freezeHybridizationsCount(_unicornId)<1){breedingDB.incFreezeHybridizationsCount(_unicornId);}else{if(breedingDB.freezeIndex(_unicornId)<freezing.length-1){breedingDB.incFreezeIndex(_unicornId);breedingDB.setFreezeHybridizationsCount(_unicornId,0);}}uint_time=_getFreezeTime(breedingDB.freezeIndex(_unicornId))+now;breedingDB.setFreezeEndTime(_unicornId,_time);emitUnicornFreezingTimeSet(_unicornId,_time);}functioncheckFreeze(uint_unicornId)public{if(!breedingDB.freezeExists(_unicornId)){breedingDB.createFreeze(_unicornId,unicornToken.getUnicornGenByte(_unicornId,163));}if(breedingDB.freezeMustCalculate(_unicornId)){breedingDB.setFreezeMustCalculate(_unicornId,false);breedingDB.setStatsSumHours(_unicornId,_getStatsSumHours(_unicornId));}}functionisUnfreezed(uint_unicornId)externalviewreturns(bool){returnbreedingDB.freezeEndTime(_unicornId)<=now;}functionenableFreezePriceRateRecalc(uint_unicornId)onlyGeneLabexternal{breedingDB.setFreezeMustCalculate(_unicornId,true);}functiongetUnfreezingPrice(uint_unicornId)publicviewreturns(uint){uint32freezeHours=freezing[breedingDB.freezeIndex(_unicornId)];returnunicornPrices.subFreezingPrice().mul(breedingDB.freezeStatsSumHours(_unicornId).add(freezeHours)).div(freezeHours);}functionminusFreezingTime(uint_unicornId,uint_count)public{uintprice=getUnfreezingPrice(_unicornId);require(megaCandyToken.burn(msg.sender,price.mul(_count)));require(breedingDB.freezeEndTime(_unicornId)>now);breedingDB.minusFreezeEndTime(_unicornId,uint(unicornPrices.subFreezingTime()).mul(_count));emitMinusFreezingTime(_unicornId,_count);}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 2197
+column: 0
+content: contractUnicornGetInfoisUnicornAccessControl{BreedingDataBaseInterfacepublicbreedingDB;UnicornTokenInterfacepublicunicornToken;UnicornMarketpublicmarket;UnicornBreedingpublicbreeding;UnicornFreezingpublicfreezing;functionUnicornGetInfo(address_unicornManagementAddress)UnicornAccessControl(_unicornManagementAddress)public{}function()publicpayable{revert();}functioninit()onlyManagementwhenPausedexternal{unicornToken=UnicornTokenInterface(unicornManagement.unicornTokenAddress());breedingDB=BreedingDataBaseInterface(unicornManagement.unicornBreedingDBAddress());market=UnicornMarket(unicornManagement.unicornMarketAddress());breeding=UnicornBreeding(unicornManagement.unicornBreedingAddress());freezing=UnicornFreezing(unicornManagement.unicornFreezingAddress());}functiongetUnicornInfo(uint_unicornId)externalviewreturns(address,bool[3],uint[6]){bool[3]memoryboolVars=[breedingDB.offerExists(_unicornId),breedingDB.hybridizationExists(_unicornId),freezing.isUnfreezed(_unicornId)];uint[6]memoryuintVars=[breedingDB.offerPrice(_unicornId),market.getOfferPrice(_unicornId),breedingDB.hybridizationPrice(_unicornId),breeding.getHybridizationPrice(_unicornId),breedingDB.freezeEndTime(_unicornId),freezing.getUnfreezingPrice(_unicornId)];return(unicornToken.ownerOf(_unicornId),boolVars,uintVars);}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 2698
+column: 0
+content: contractCandyTreesisUnicornAccessControl{usingSafeMathforuint256;structGardener{uintperiod;uintprice;boolexists;}structGarden{uintcount;uintstartTime;addressowner;uintgardenerId;uintlastCropTime;uintplantationIndex;uintownerPlantationIndex;}uintpublicplantedTime=1hours;uintpublicplantedRate=1ether;mapping(uint=>Gardener)publicgardeners;mapping(uint=>Garden)publicgardens;mapping(uint=>uint)publicplantation;uintpublicplantationSize=0;mapping(address=>mapping(uint=>uint))publicownerPlantation;mapping(address=>uint)publicownerPlantationSize;uintgardenerId=0;uintgardenId=0;eventNewGardenerAdded(uintgardenerId,uint_period,uint_price);eventGardenerChange(uintgardenerId,uint_period,uint_price);functionCandyTrees(address_unicornManagementAddress)UnicornAccessControl(_unicornManagementAddress)public{addGardener(24,700000000000000000);addGardener(120,3000000000000000000);addGardener(240,5000000000000000000);addGardener(720,12000000000000000000);}functioninit()onlyManagementwhenPausedexternalview{}function()publicpayable{revert();}functiongardenerExists(uint_gardenerId)externalviewreturns(bool){returngardeners[_gardenerId].exists;}functiongardenerPrice(uint_gardenerId)externalviewreturns(uint){require(gardeners[_gardenerId].exists);returngardeners[_gardenerId].price;}functionownerOf(uint_gardenId)externalviewreturns(address){returngardens[_gardenId].owner;}functionlastCropTime(uint_gardenId)externalviewreturns(uint){returngardens[_gardenId].lastCropTime;}functiongardenCount(uint_gardenId)externalviewreturns(uint){returngardens[_gardenId].count;}functionmakePlant(address_owner,uint_count,uint_gardenerId)onlyCandyLandexternalreturns(uint){gardens[++gardenId]=Garden({count:_count,startTime:now,owner:_owner,gardenerId:_gardenerId,lastCropTime:now,plantationIndex:plantationSize,ownerPlantationIndex:ownerPlantationSize[_owner]});plantation[plantationSize++]=gardenId;ownerPlantation[_owner][ownerPlantationSize[_owner]++]=gardenId;returngardenId;}functiongetCrop(address_owner,uint_gardenId)onlyCandyLandexternalreturns(uint,uint){uintcrop=0;uintcropCount=1;uintremainingCrops=0;if(gardens[_gardenId].gardenerId>0){uintfinishTime=gardens[_gardenId].startTime.add(gardeners[gardens[_gardenId].gardenerId].period);uintcurrentCropTime=now<finishTime?now:finishTime;cropCount=currentCropTime.sub(gardens[_gardenId].lastCropTime).div(plantedTime);gardens[_gardenId].lastCropTime=gardens[_gardenId].lastCropTime.add(cropCount.mul(plantedTime));remainingCrops=finishTime.sub(gardens[_gardenId].lastCropTime).div(plantedTime);}crop=gardens[_gardenId].count.mul(plantedRate).mul(cropCount);if(remainingCrops==0){gardens[plantation[--plantationSize]].plantationIndex=gardens[_gardenId].plantationIndex;plantation[gardens[_gardenId].plantationIndex]=plantation[plantationSize];deleteplantation[plantationSize];gardens[ownerPlantation[_owner][--ownerPlantationSize[_owner]]].ownerPlantationIndex=gardens[_gardenId].ownerPlantationIndex;ownerPlantation[_owner][gardens[_gardenId].ownerPlantationIndex]=ownerPlantation[_owner][ownerPlantationSize[_owner]];deleteownerPlantation[_owner][ownerPlantationSize[_owner]];deletegardens[_gardenId];}return(crop,remainingCrops);}functionaddGardener(uint_period,uint_price)onlyOwnerpublic{gardeners[++gardenerId]=Gardener({period:_period*1hours,price:_price,exists:true});emitNewGardenerAdded(gardenerId,_period,_price);}functioneditGardener(uint_gardenerId,uint_period,uint_price)onlyOwnerpublic{require(gardeners[_gardenerId].exists);Gardenerstorageg=gardeners[_gardenerId];g.period=_period;g.price=_price;emitGardenerChange(_gardenerId,_period,_price);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 169
+column: 4
+content: functionsetMegaCandy(address_megaCandy)externalonlyOwnerwhenPausedwhenUnlocked{require(_megaCandy!=address(0));megaCandy=_megaCandy;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 174
+column: 4
+content: functionsetCandy(address_Candy)externalonlyOwnerwhenPausedwhenUnlocked{require(_Candy!=address(0));candyToken=_Candy;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 179
+column: 4
+content: functionsetUnicornToken(address_unicornTokenAddress)externalonlyOwnerwhenPausedwhenUnlocked{require(_unicornTokenAddress!=address(0));unicornTokenAddress=_unicornTokenAddress;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 184
+column: 4
+content: functionsetBlackBox(address_blackBoxAddress)externalonlyOwnerwhenPaused{require(_blackBoxAddress!=address(0));blackBoxAddress=_blackBoxAddress;emitNewBlackBoxAddress(_blackBoxAddress);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 190
+column: 4
+content: functionsetUnicornBreeding(address_unicornBreedingAddress)externalonlyOwnerwhenPausedwhenUnlocked{require(_unicornBreedingAddress!=address(0));unicornBreedingAddress=_unicornBreedingAddress;setUnicornContract(_unicornBreedingAddress);emitNewBreedingAddress(_unicornBreedingAddress);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 197
+column: 4
+content: functionsetUnicornGen0(address_unicornGen0Address)externalonlyOwnerwhenPausedwhenUnlocked{require(_unicornGen0Address!=address(0));unicornGen0Address=_unicornGen0Address;setUnicornContract(_unicornGen0Address);emitNewGen0Address(_unicornGen0Address);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 204
+column: 4
+content: functionsetUnicornMarket(address_unicornMarketAddress)externalonlyOwnerwhenPausedwhenUnlocked{require(_unicornMarketAddress!=address(0));unicornMarketAddress=_unicornMarketAddress;setUnicornContract(_unicornMarketAddress);emitNewMarketAddress(_unicornMarketAddress);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 212
+column: 4
+content: functionsetUnicornBalances(address_unicornBalancesAddress)externalonlyOwnerwhenPausedwhenUnlocked{require(_unicornBalancesAddress!=address(0));unicornBalancesAddress=_unicornBalancesAddress;setUnicornContract(_unicornBalancesAddress);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 219
+column: 4
+content: functionsetUnicornFreezing(address_unicornFreezingAddress)externalonlyOwnerwhenPausedwhenUnlocked{require(_unicornFreezingAddress!=address(0));unicornFreezingAddress=_unicornFreezingAddress;setUnicornContract(_unicornFreezingAddress);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 226
+column: 4
+content: functionsetBreedingDB(address_unicornBreedingDBAddress)externalonlyOwnerwhenPausedwhenUnlocked{require(_unicornBreedingDBAddress!=address(0));unicornBreedingDBAddress=_unicornBreedingDBAddress;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 233
+column: 4
+content: functionsetPrices(address_unicornPricesAddress)externalonlyOwnerwhenPausedwhenUnlocked{require(_unicornPricesAddress!=address(0));unicornPricesAddress=_unicornPricesAddress;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 240
+column: 4
+content: functionsetUserRank(address_userRankAddress)externalonlyOwnerwhenPausedwhenUnlocked{require(_userRankAddress!=address(0));userRankAddress=_userRankAddress;setUnicornContract(_userRankAddress);emitNewUserRankAddress(userRankAddress);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 247
+column: 4
+content: functionsetCandyLand(address_candyLandAddress)externalonlyOwnerwhenPausedwhenUnlocked{require(_candyLandAddress!=address(0));candyLandAddress=_candyLandAddress;setUnicornContract(candyLandAddress);emitNewCandyLandAddress(candyLandAddress);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 254
+column: 4
+content: functionsetCandyLandSale(address_candyLandSaleAddress)externalonlyOwnerwhenPausedwhenUnlocked{require(_candyLandSaleAddress!=address(0));candyLandSaleAddress=_candyLandSaleAddress;setUnicornContract(candyLandSaleAddress);emitNewCandyLandSaleAddress(candyLandSaleAddress);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 261
+column: 4
+content: functionsetGeneLab(address_geneLabAddress)externalonlyOwnerwhenPaused{require(_geneLabAddress!=address(0));geneLabAddress=_geneLabAddress;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 266
+column: 4
+content: functionsetUnicornContract(address_unicornContractAddress)publiconlyOwnerwhenUnlocked{require(_unicornContractAddress!=address(0));unicornContracts[_unicornContractAddress]=true;emitAddUnicornContract(_unicornContractAddress);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 278
+column: 4
+content: functionsetDividendManager(address_dividendManagerAddress)externalonlyOwnerwhenUnlocked{require(_dividendManagerAddress!=address(0));dividendManagerAddress=_dividendManagerAddress;emitNewDividendManagerAddress(_dividendManagerAddress);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 297
+column: 4
+content: functionsetManagerAddress(address_managerAddress)externalonlyOwner{require(_managerAddress!=address(0));managerAddress=_managerAddress;emitNewManagerAddress(_managerAddress);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 555
+column: 4
+content: functionsetFirstRankForFree(bool_firstRankForFree)externalonlyOwner{require(firstRankForFree!=_firstRankForFree);firstRankForFree=_firstRankForFree;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 835
+column: 4
+content: functionsetOracle(address_oracle)publiconlyOwner{oracle=_oracle;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 839
+column: 4
+content: functionsetResurrector(address_resurrector)publiconlyOwner{resurrector=_resurrector;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 848
+column: 4
+content: functionsetGeneManual(uintunicornId,stringgene)publiconlyOwner{unicornToken.setGene(unicornId,bytes(gene));}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1569
+column: 4
+content: functionsetTrustedTokens(address_token,bool_trusted)externalonlyOwner{trustedTokens[_token]=_trusted;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1963
+column: 4
+content: functionsetForSaleimit(uint_limit)externalonlyOwner{breedingDB.incForSaleLimit(_limit);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1967
+column: 4
+content: functionsetSellerAddress(address_newSellerAddress)publiconlyOwner{require(_newSellerAddress!=address(0));sellerAddress=_newSellerAddress;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 2272
+column: 4
+content: functionsetTokenWithoutFee(address_token,bool_takeFee)externalonlyOwner{tokensWithoutFee[_token]=_takeFee;}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 137
+column: 34
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 138
+column: 14
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 898
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 901
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 907
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 910
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 913
+column: 34
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 917
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 920
+column: 29
+content: private
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 1136
+column: 29
+content: {revert();}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 1417
+column: 30
+content: {revert();}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 1719
+column: 29
+content: {revert();}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 1901
+column: 29
+content: {revert();}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 1996
+column: 30
+content: {revert();}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 2123
+column: 29
+content: {revert();}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 2208
+column: 29
+content: {revert();}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 2258
+column: 29
+content: {revert();}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 2525
+column: 29
+content: {revert();}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 2753
+column: 30
+content: {revert();}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 2908
+column: 30
+content: {revert();}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 3088
+column: 31
+content: {revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 1465
+column: 8
+content: if(depositingTokenFlag){returntrue;}else{revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 466
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 640
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 876
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 1396
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 1689
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 1871
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 1976
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 2104
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 2244
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 2482
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 2699
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 2870
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 3060
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 3102
+column: 109
+content: (uint,uint)
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 141
+column: 46
+content: tx.origin
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 2285
+column: 22
+content: keccak256(keccak256("bytes32 Order hash"),keccak256(hash))
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 797
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 1136
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 1417
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 1719
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 1901
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 1996
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 2123
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 2208
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 2258
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 2525
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 2753
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 2908
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 3088
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 736
+column: 62
+content: bytes_extraData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 848
+column: 43
+content: stringgene
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 942
+column: 61
+content: uint256[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1080
+column: 41
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1100
+column: 41
+content: bytes_gene
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1512
+column: 76
+content: bytes_extraData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 2471
+column: 27
+content: bytesb
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 2536
+column: 56
+content: string_title
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 2657
+column: 60
+content: string
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 75
+column: 4
+content: mapping(address=>bool)unicornContracts;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 642
+column: 4
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 644
+column: 4
+content: uint256totalSupply_;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1398
+column: 4
+content: booldepositingTokenFlag=false;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 2458
+column: 4
+content: mapping(bytes4=>bool)allowedFuncs;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 2735
+column: 4
+content: uintgardenerId=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 2736
+column: 4
+content: uintgardenId=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 2883
+column: 4
+content: uint256totalSupply_;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 2886
+column: 4
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 2888
+column: 4
+content: mapping(address=>uint256)planted;
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_OVERPOWERED_ROLE :26
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :2
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :9
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_UPGRADE_TO_050 :23
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :12
+SOLIDITY_TX_ORIGIN :1
+SOLIDITY_ERC20_APPROVE :2
+SOLIDITY_SAFEMATH :13
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :7

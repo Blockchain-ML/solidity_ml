@@ -1,0 +1,55 @@
+C:\Users\hp\DataSet\contracts\ropsten\74\74e2b46fa6787dd2e4cf03d971c0cf9244825d15_Card.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 61
+column: 0
+content: contractCard{usingSafeMathforuint256;Room[]publicroomcount;structPlayer{uint[5]card;uintmoney;uinttotalmoney;}structRoom{uintroomid;mapping(address=>Player)mapself;mapping(address=>Player)mapother;}structRoomPrice{uintroomid;address[2]playeraddr;mapping(address=>uint)playerA;mapping(address=>uint)playerB;}address[]publicplayerpool;Roompublicrm;Playerpublicpr;RoomPrice[]publicroommoney;uintindex=0;uintfirstplayer;eventsubmitRoomdata(uintroomid,address_self,address_other,uint[5]_selfcard,uint[5]_othercard,uint_selfmoney,uint_totalmoney);functiongetselfaddress()publicpayable{require(msg.value>=1*10**16);playerpool.push(msg.sender);if(playerpool.length<=1||playerpool.length%2!=0){firstplayer=msg.value;return;}rm.roomid=playerpool.length;RoomPricerp;rp.roomid=rm.roomid;rp.playeraddr[0]=playerpool[index];rp.playeraddr[1]=playerpool[index+1];rp.playerA[playerpool[index]]=firstplayer;rp.playerB[playerpool[index+1]]=msg.value;roommoney[index/2]=rp;}functionstatisticaldata(uintroomid,address_self,address_other,uint[5]_selfcard,uint[5]_othercard)public{if(_self==roommoney[roomid].playeraddr[0]){uinttotalprice=roommoney[roomid].playerA[_self].add(roommoney[roomid].playerB[_other]);uintprice=roommoney[roomid].playerA[_self];pr=Player(_selfcard,price,totalprice);roomcount[roomid].mapself[_self]=pr;uint_othermoney=roommoney[roomid].playerB[_other];pr=Player(_othercard,_othermoney,totalprice);roomcount[roomid].mapother[_other]=pr;}else{uinttotalprice1=roommoney[roomid].playerB[_self].add(roommoney[roomid].playerA[_other]);uintprice1=roommoney[roomid].playerB[_self];pr=Player(_selfcard,price1,totalprice1);roomcount[roomid].mapself[_self]=pr;uint_othermoney1=roommoney[roomid].playerA[_other];pr=Player(_othercard,_othermoney1,totalprice);roomcount[roomid].mapother[_other]=pr;}emitsubmitRoomdata(roomid,_self,_other,_selfcard,_othercard,price,totalprice);}functionsetroommoney(uint_roomid)publicpayable{require(msg.value>1*10*15,"??????10**15");if(msg.sender==roommoney[_roomid].playeraddr[0]){roommoney[_roomid].playerA[msg.sender]=roommoney[_roomid].playerA[msg.sender].add(msg.value);}else{roommoney[_roomid].playerB[msg.sender]=roommoney[_roomid].playerB[msg.sender].add(msg.value);}}functiongetplaypool()publicviewreturns(uint){returnplayerpool.length;}functiongetplayerpool()publicviewreturns(address[]){returnplayerpool;}functiongetrm()publicviewreturns(uint){return(rm.roomid);}functiongetroommoney()publicviewreturns(uint){returnroommoney[roommoney.length-1].roomid;}functiongetindex()publicviewreturns(uint){returnindex;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 62
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 176
+column: 48
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 103
+column: 6
+content: RoomPricerp
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 90
+column: 4
+content: uintindex=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 91
+column: 4
+content: uintfirstplayer;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :2

@@ -1,0 +1,197 @@
+C:\Users\hp\DataSet\contracts\ropsten\44\44eabca6a1d9a2c85a6cfcef3086ad57bf9ebc77_PublicTokenRegister.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 115
+column: 19
+content: 0x0
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 41
+column: 0
+content: contractPublicTokenRegisterisIPublicTokenRegister,Ownable{mapping(bytes4=>Coin)internalcoin;mapping(address=>bool)internalregisteredSecurity;address[]internalregisteredCoins;modifieronlySecurity{require(registeredSecurity[msg.sender]==true);_;}structCoin{stringname;stringsymbol;addresscoinTokenContract;bytes4hexSymbol;boolisReg;}function()publicpayable{revert();}constructor()public{}functionregisterCoin(bytes4_coin,string_name,string_symbol,address_coinTokenContract)publiconlySecurity{require(coin[_coin].isReg==false);coin[_coin]=Coin({name:_name,symbol:_symbol,coinTokenContract:_coinTokenContract,hexSymbol:_coin,isReg:true});registeredCoins.push(_coinTokenContract);emitRegisterCoin(_coin,_name,_symbol,_coinTokenContract);}functionsecurityReg(address_securityWallet)publiconlyOwner{require(registeredSecurity[_securityWallet]==false);registeredSecurity[_securityWallet]=true;emitSecurityReg(_securityWallet,true);}functiongetName(string_coin)publicviewreturns(string_name){returncoin[convertStringToBytes(_coin)].name;}functiongetSymbol(string_coin)publicviewreturns(string_symbol){returncoin[convertStringToBytes(_coin)].symbol;}functiongetHexSymbol(string_coin)publicviewreturns(bytes4_hexSymbol){returncoin[convertStringToBytes(_coin)].hexSymbol;}functiongetCoinAddress(bytes4_coin)publicviewreturns(address_coinTokenContract){returncoin[_coin].coinTokenContract;}functiongetIsCoinReg(bytes4_coin)publicviewreturns(bool_isReg){returncoin[_coin].isReg;}functiongetCoinInfo(string_coin)publicviewreturns(string_name,string_symbol,addresscoinAddress,bytes4_hexSymbol,bool_isReg){return(getName(_coin),getSymbol(_coin),getCoinAddress(getHexSymbol(_coin)),getHexSymbol(_coin),getIsCoinReg(getHexSymbol(_coin)));}functionconvertStringToBytes(stringmemorysource)publicpurereturns(bytes4result){bytesmemorytempEmptyStringTest=bytes(source);if(tempEmptyStringTest.length==0){return0x0;}assembly{result:=mload(add(source,32))}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 3
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 61
+column: 30
+content: {revert();}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 112
+column: 4
+content: functionconvertStringToBytes(stringmemorysource)publicpurereturns(bytes4result){bytesmemorytempEmptyStringTest=bytes(source);if(tempEmptyStringTest.length==0){return0x0;}assembly{result:=mload(add(source,32))}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 61
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 7
+column: 36
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 7
+column: 49
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 9
+column: 18
+content: string_coin
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 9
+column: 52
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 10
+column: 20
+content: string_coin
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 10
+column: 54
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 12
+column: 23
+content: string_coin
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 14
+column: 22
+content: string_coin
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 14
+column: 56
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 14
+column: 70
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 68
+column: 40
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 68
+column: 54
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 88
+column: 18
+content: string_coin
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 88
+column: 52
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 92
+column: 20
+content: string_coin
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 92
+column: 54
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 96
+column: 23
+content: string_coin
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 108
+column: 22
+content: string_coin
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 108
+column: 56
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 108
+column: 70
+content: string_symbol
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 117
+column: 8
+content: assembly{result:=mload(add(source,32))}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :21
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

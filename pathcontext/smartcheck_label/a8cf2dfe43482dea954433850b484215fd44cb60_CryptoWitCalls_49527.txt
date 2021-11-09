@@ -1,0 +1,273 @@
+C:\Users\hp\DataSet\contracts\ropsten\a8\a8cf2dfe43482dea954433850b484215fd44cb60_CryptoWitCalls.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 13
+column: 4
+content: functiontotalSupply()publicconstantreturns(uint);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 14
+column: 4
+content: functionbalanceOf(addresstokenOwner)publicconstantreturns(uintbalance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 15
+column: 4
+content: functionallowance(addresstokenOwner,addressspender)publicconstantreturns(uintremaining);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 26
+column: 3
+content: functionname()constantreturns(stringname);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 27
+column: 3
+content: functionsymbol()constantreturns(stringsymbol);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 28
+column: 3
+content: functiontotalSupply()constantreturns(uint256totalSupply);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 29
+column: 3
+content: functionbalanceOf(address_owner)constantreturns(uintbalance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 31
+column: 3
+content: functionownerOf(uint256_tokenId)constantreturns(addressowner);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 35
+column: 3
+content: functiontokenOfOwnerByIndex(address_owner,uint256_index)constantreturns(uinttokenId);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 37
+column: 3
+content: functiontokenMetadata(uint256_tokenId)constantreturns(stringinfoUrl);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 174
+column: 2
+content: functionname()constantreturns(string_name){returnToken_name;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 177
+column: 4
+content: functionsymbol()constantreturns(stringsymbol){returnToken_symbol;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 43
+column: 0
+content: contractCryptoWitCalls{stringpublicconstantToken_name="CryptoWIT Call Option";stringpublicconstantToken_symbol="CWIT";addressoptionWriter;uintoptionsId=1;structcwt{stringname;addresswriter;addressbuyer;uintunderlying;uintPremium;uintstrikePrice;uintcontractDate;uinteffectiveDate;uintexpiryDate;}eventlogString(string);eventTransfer(addressindexed_from,addressindexed_to,uint256_tokenId);eventApproval(addressindexed_owner,addressindexed_approved,uint256_tokenId);cwt[]options;mapping(uint256=>address)publicoptionsIndexToOwner;mapping(address=>uint256)ownershipOptionCount;mapping(uint256=>address)publicoptionsIndexToApproved;constructor(){optionWriter=msg.sender;emitlogString("Constructor is executed");}function()publicpayable{uinteth=msg.value;if(eth<=1){createOption("Option for ETH 1",99,100,1,200,400,600);}elseif(eth==2){createOption("Option for ETH 2",98,100,2,200,400,600);}elseif(eth==3){createOption("Option for ETH 3",97,100,3,200,400,600);}}functiongetOptionholderbyId(uintid)publicviewreturns(address){returnoptions[id].buyer;}functiongetOptionWriterrbyId(uintid)publicviewreturns(address){returnoptions[id].writer;}functiongetOptionNameholderbyId(uintid)publicviewreturns(string){returnoptions[id].name;}functioncreateOption(string_name,uint_strikePrice,uint_underlying,uint_premium,uint_contractDate,uint_effectiveDate,uint_expiryDate){addressoptionBuyer=tx.origin;cwtmemorycwit=cwt(_name,optionWriter,optionBuyer,_underlying,_premium,_strikePrice,_contractDate,_effectiveDate,_expiryDate);options.push(cwit);optionsIndexToOwner[optionsId]=optionBuyer;ownershipOptionCount[optionBuyer]++;optionsId++;emitlogString("Option is Created");}functionisExpired(uint_otionId)returns(bool){returnoptions[_otionId].expiryDate<now;}functionexcercise(uintoptionId,uintprice)returns(bool){cwtmemoryopt=options[optionId];require(tx.origin==opt.buyer);require(!isExpired(optionId));emitlogString("optionis excercised");returntrue;}function_owns(address_claimant,uint256_tokenId)internalviewreturns(bool){returnoptionsIndexToOwner[_tokenId]==_claimant;emitlogString("confirmed that token is owned by Claimant");}function_approvedFor(address_claimant,uint256_tokenId)internalviewreturns(bool){returnoptionsIndexToApproved[_tokenId]==_claimant;emitlogString("confirmed that Claimant is authorized");}function_approve(address_to,uint256_tokenId)internal{optionsIndexToApproved[_tokenId]=_to;emitlogString("Approved for transfer of Option");}function_transfer(address_from,address_to,uint256_optionId)internal{ownershipOptionCount[_to]++;optionsIndexToOwner[_optionId]=_to;if(_from!=address(0)){ownershipOptionCount[_from]--;deleteoptionsIndexToApproved[_optionId];}}functionname()constantreturns(string_name){returnToken_name;}functionsymbol()constantreturns(stringsymbol){returnToken_symbol;}functiontotalSupply()publicviewreturns(uint256){returnoptions.length;}functionbalanceOf(address_owner)publicviewreturns(uint256){returnownershipOptionCount[_owner];}functionownerOf(uint256_optionId)externalviewreturns(addressowner){owner=optionsIndexToOwner[_optionId];require(owner!=address(0));}functionapprove(address_to,uint256_optionId)external{require(_owns(msg.sender,_optionId));_approve(_to,_optionId);}functiontransfer(address_to,uint256_optionId)external{require(_to!=address(0));require(_to!=address(this));require(_owns(msg.sender,_optionId));_transfer(msg.sender,_to,_optionId);}functiontransferFrom(address_from,address_to,uint256_tokenId)external{require(_to!=address(0));require(_to!=address(this));require(_approvedFor(msg.sender,_tokenId));require(_owns(_from,_tokenId));_transfer(_from,_to,_tokenId);}functiontokensOfOwner(address_owner)externalviewreturns(uint256[]){uint256balance=balanceOf(_owner);if(balance==0){returnnewuint256[](0);}else{uint256[]memoryresult=newuint256[](balance);uint256maxOptionId=totalSupply();uint256idx=0;uint256tokenId;for(tokenId=1;tokenId<=maxOptionId;tokenId++){if(optionsIndexToOwner[tokenId]==_owner){result[idx]=tokenId;idx++;}}}returnresult;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 108
+column: 28
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 125
+column: 16
+content: tx.origin
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 84
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 103
+column: 66
+content: string
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 26
+column: 3
+content: functionname()constantreturns(stringname);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 27
+column: 3
+content: functionsymbol()constantreturns(stringsymbol);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 28
+column: 3
+content: functiontotalSupply()constantreturns(uint256totalSupply);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 29
+column: 3
+content: functionbalanceOf(address_owner)constantreturns(uintbalance);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 31
+column: 3
+content: functionownerOf(uint256_tokenId)constantreturns(addressowner);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 32
+column: 3
+content: functionapprove(address_to,uint256_tokenId);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 33
+column: 3
+content: functiontakeOwnership(uint256_tokenId);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 3
+content: functiontransfer(address_to,uint256_tokenId);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 35
+column: 3
+content: functiontokenOfOwnerByIndex(address_owner,uint256_index)constantreturns(uinttokenId);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 37
+column: 3
+content: functiontokenMetadata(uint256_tokenId)constantreturns(stringinfoUrl);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 79
+column: 4
+content: constructor(){optionWriter=msg.sender;emitlogString("Constructor is executed");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 107
+column: 4
+content: functioncreateOption(string_name,uint_strikePrice,uint_underlying,uint_premium,uint_contractDate,uint_effectiveDate,uint_expiryDate){addressoptionBuyer=tx.origin;cwtmemorycwit=cwt(_name,optionWriter,optionBuyer,_underlying,_premium,_strikePrice,_contractDate,_effectiveDate,_expiryDate);options.push(cwit);optionsIndexToOwner[optionsId]=optionBuyer;ownershipOptionCount[optionBuyer]++;optionsId++;emitlogString("Option is Created");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 119
+column: 6
+content: functionisExpired(uint_otionId)returns(bool){returnoptions[_otionId].expiryDate<now;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 123
+column: 4
+content: functionexcercise(uintoptionId,uintprice)returns(bool){cwtmemoryopt=options[optionId];require(tx.origin==opt.buyer);require(!isExpired(optionId));emitlogString("optionis excercised");returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 174
+column: 2
+content: functionname()constantreturns(string_name){returnToken_name;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 177
+column: 4
+content: functionsymbol()constantreturns(stringsymbol){returnToken_symbol;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 50
+column: 2
+content: addressoptionWriter;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 51
+column: 2
+content: uintoptionsId=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 72
+column: 2
+content: cwt[]options;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 75
+column: 2
+content: mapping(address=>uint256)ownershipOptionCount;
+
+SOLIDITY_VISIBILITY :20
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :12
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_TX_ORIGIN :2

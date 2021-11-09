@@ -1,0 +1,24 @@
+C:\Users\hp\DataSet\Payment.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 12
+column: 4
+content: functionrefund()whenRefundablenotTeamMember{uinttokensMintedSum=SafeMath.add(tokensMintedByEther,tokensMintedByDXC);uintetherPerDXCRate=SafeMath.mul(tokensMintedByEther,percentMultiplier)/tokensMintedSum;uintdxcPerEtherRate=SafeMath.mul(tokensMintedByDXC,percentMultiplier)/tokensMintedSum;uinttokensAmount=token.balanceOf(msg.sender);token.burn(msg.sender);if(etherPerDXCRate!=0)msg.sender.transfer(DAOLib.countRefundSum(etherPerDXCRate*tokensAmount,etherRate,newEtherRate,multiplier));if(dxcPerEtherRate!=0)DXC.transfer(msg.sender,DAOLib.countRefundSum(dxcPerEtherRate*tokensAmount,DXCRate,newDXCRate,multiplier));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 30
+column: 4
+content: functionrefundSoftCap()whenRefundableSoftCap{require(depositedWei[msg.sender]!=0||depositedDXC[msg.sender]!=0);token.burn(msg.sender);uintweiAmount=depositedWei[msg.sender];uinttokensAmount=depositedDXC[msg.sender];deletedepositedWei[msg.sender];deletedepositedDXC[msg.sender];DXC.transfer(msg.sender,tokensAmount);msg.sender.transfer(weiAmount);}
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_PRAGMAS_VERSION :1

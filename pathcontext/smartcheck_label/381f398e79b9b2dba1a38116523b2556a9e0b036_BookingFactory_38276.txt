@@ -1,0 +1,63 @@
+C:\Users\hp\DataSet\contracts\ropsten\38\381f398e79b9b2dba1a38116523b2556a9e0b036_BookingFactory.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_BALANCE_EQUALITY
+patternId: 5094ad
+severity: 1
+line: 159
+column: 12
+content: address(this).balance==price
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 210
+column: 4
+content: functiongetFundsStatus()externalviewreturns(bool,uint){revert();}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 4
+column: 0
+content: contractIBooking{enumStatus{New,Requested,Confirmed,Rejected,Cancelled,Booked,Started,Finished}functiongetStatus()externalviewreturns(Status);functionsendAllFunds()external;functionreject()external;functioncancel()external;functionlistingId()externalviewreturns(uint128);functionbookingId()externalviewreturns(uint128);functiondateFrom()externalviewreturns(uint32);functiondateTo()externalviewreturns(uint32);functionprice()externalviewreturns(uint256);functionhost()externalviewreturns(address);functionguest()externalviewreturns(address);functiondepositPpm()externalviewreturns(uint32);functionfeePpm()externalviewreturns(uint32);functionfeeBeneficiary()externalviewreturns(address);functiongetBalance()externalviewreturns(uint);functiongetFundsStatus()externalviewreturns(bool,uint);function()externalpayable;eventStatusChanged(Statusindexed_from,Statusindexed_to);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 260
+column: 4
+content: functionsetDepositPpm(uint32_depositPpm)publiconlyOwner{require(_depositPpm<1000000);depositPpm=_depositPpm;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 265
+column: 4
+content: functionsetFee(uint32_feePpm,address_feeBeneficiary)publiconlyOwner{require(_feePpm<1000000);feePpm=_feePpm;feeBeneficiary=_feeBeneficiary;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 218
+column: 29
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 222
+column: 12
+content: private
+
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_BALANCE_EQUALITY :1

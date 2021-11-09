@@ -1,0 +1,135 @@
+C:\Users\hp\DataSet\contracts\ropsten\f5\f5553f539476286b684d760b33f804168b6f1c0a_MoonToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 61
+column: 15
+content: mul(div(d,m),m)
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 179
+column: 4
+content: functionapprove(addressspender,uint256value)publicreturns(bool){require(spender!=address(0));_allowed[msg.sender][spender]=value;emitApproval(msg.sender,spender,value);returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 167
+column: 8
+content: for(uint256i=0;i<receivers.length;i++)_executeTransfer(msg.sender,receivers[i],values[i]);
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 167
+column: 8
+content: for(uint256i=0;i<receivers.length;i++)_executeTransfer(msg.sender,receivers[i],values[i]);
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 90
+column: 0
+content: contractMoonTokenisERC20Detailed{usingSafeMathforuint256;mapping(address=>uint256)private_balances;mapping(address=>mapping(address=>uint256))private_allowed;stringconstanttokenName="MoonToken";stringconstanttokenSymbol="MT3";uint8constanttokenDecimals=18;uint256_totalSupply=0;addresspubliccontractOwner;uint256publicfullUnitsStaked_total=0;mapping(address=>bool)publicexcludedFromStaking;uint256_totalRewardsPerUnit=0;mapping(address=>uint256)private_totalRewardsPerUnit_positions;mapping(address=>uint256)private_savedRewards;eventOwnershipTransferred(addressindexedpreviousOwner,addressindexednewOwner);constructor()publicpayableERC20Detailed(tokenName,tokenSymbol,tokenDecimals){contractOwner=msg.sender;_mint(msg.sender,1000000*(10**uint256(tokenDecimals)));}functiontransferOwnership(addressnewOwner)public{require(msg.sender==contractOwner);require(newOwner!=address(0));emitOwnershipTransferred(contractOwner,newOwner);contractOwner=newOwner;}functiontotalSupply()publicviewreturns(uint256){return_totalSupply;}functionbalanceOf(addressowner)publicviewreturns(uint256){return_balances[owner];}functionfullUnitsStaked(addressowner)publicviewreturns(uint256){returntoFullUnits(_balances[owner]);}functiontoFullUnits(uint256valueWithDecimals)publicpurereturns(uint256){returnvalueWithDecimals.div(10**uint256(tokenDecimals));}functionallowance(addressowner,addressspender)publicviewreturns(uint256){return_allowed[owner][spender];}functiontransfer(addressto,uint256value)publicreturns(bool){_executeTransfer(msg.sender,to,value);returntrue;}functionmultiTransfer(address[]memoryreceivers,uint256[]memoryvalues)public{require(receivers.length==values.length);for(uint256i=0;i<receivers.length;i++)_executeTransfer(msg.sender,receivers[i],values[i]);}functiontransferFrom(addressfrom,addressto,uint256value)publicreturns(bool){require(value<=_allowed[from][msg.sender]);_allowed[from][msg.sender]=_allowed[from][msg.sender].sub(value);_executeTransfer(from,to,value);returntrue;}functionapprove(addressspender,uint256value)publicreturns(bool){require(spender!=address(0));_allowed[msg.sender][spender]=value;emitApproval(msg.sender,spender,value);returntrue;}functionapproveAndCall(addressspender,uinttokens,bytesmemorydata)publicreturns(boolsuccess){_allowed[msg.sender][spender]=tokens;emitApproval(msg.sender,spender,tokens);ApproveAndCallFallBack(spender).receiveApproval(msg.sender,tokens,address(this),data);returntrue;}functionincreaseAllowance(addressspender,uint256addedValue)publicreturns(bool){require(spender!=address(0));_allowed[msg.sender][spender]=(_allowed[msg.sender][spender].add(addedValue));emitApproval(msg.sender,spender,_allowed[msg.sender][spender]);returntrue;}functiondecreaseAllowance(addressspender,uint256subtractedValue)publicreturns(bool){require(spender!=address(0));_allowed[msg.sender][spender]=(_allowed[msg.sender][spender].sub(subtractedValue));emitApproval(msg.sender,spender,_allowed[msg.sender][spender]);returntrue;}function_mint(addressaccount,uint256value)internal{require(value!=0);uint256initalBalance=_balances[account];uint256newBalance=initalBalance.add(value);_balances[account]=newBalance;_totalSupply=_totalSupply.add(value);if(!excludedFromStaking[account]){uint256fus_total=fullUnitsStaked_total;fus_total=fus_total.sub(toFullUnits(initalBalance));fus_total=fus_total.add(toFullUnits(newBalance));fullUnitsStaked_total=fus_total;}emitTransfer(address(0),account,value);}functionburn(uint256value)external{_burn(msg.sender,value);}functionburnFrom(addressaccount,uint256value)external{require(value<=_allowed[account][msg.sender]);_allowed[account][msg.sender]=_allowed[account][msg.sender].sub(value);_burn(account,value);}function_burn(addressaccount,uint256value)internal{require(value!=0);require(value<=_balances[account]);uint256initalBalance=_balances[account];uint256newBalance=initalBalance.sub(value);_balances[account]=newBalance;_totalSupply=_totalSupply.sub(value);if(!excludedFromStaking[account]){uint256fus_total=fullUnitsStaked_total;fus_total=fus_total.sub(toFullUnits(initalBalance));fus_total=fus_total.add(toFullUnits(newBalance));fullUnitsStaked_total=fus_total;}emitTransfer(account,address(0),value);}function_executeTransfer(addressfrom,addressto,uint256value)private{require(value<=_balances[from]);require(to!=address(0));updateRewardsFor(from);updateRewardsFor(to);uint256sixPercent=value.mul(6).div(100);if(sixPercent==0&&value>0)sixPercent=1;uint256initalBalance_from=_balances[from];uint256newBalance_from=initalBalance_from.sub(value);value=value.sub(sixPercent);uint256initalBalance_to=_balances[to];uint256newBalance_to=initalBalance_to.add(value);_balances[from]=newBalance_from;_balances[to]=newBalance_to;emitTransfer(from,to,value);uint256fus_total=fullUnitsStaked_total;if(!excludedFromStaking[from]){fus_total=fus_total.sub(toFullUnits(initalBalance_from));fus_total=fus_total.add(toFullUnits(newBalance_from));}if(!excludedFromStaking[to]){fus_total=fus_total.sub(toFullUnits(initalBalance_to));fus_total=fus_total.add(toFullUnits(newBalance_to));}fullUnitsStaked_total=fus_total;uint256stakingRewards=sixPercent.div(2);uint256rewardsPerUnit=stakingRewards.div(fus_total);stakingRewards=rewardsPerUnit.mul(fus_total);_totalRewardsPerUnit=_totalRewardsPerUnit.add(rewardsPerUnit);_balances[address(this)]=_balances[address(this)].add(stakingRewards);emitTransfer(msg.sender,address(this),stakingRewards);uint256amountToBurn=sixPercent.sub(stakingRewards);_totalSupply=_totalSupply.sub(amountToBurn);emitTransfer(msg.sender,address(0),amountToBurn);}functionupdateRewardsFor(addressstaker)private{_savedRewards[staker]=viewUnpaidRewards(staker);_totalRewardsPerUnit_positions[staker]=_totalRewardsPerUnit;}functionviewUnpaidRewards(addressstaker)publicviewreturns(uint256){if(excludedFromStaking[staker])return_savedRewards[staker];uint256newRewardsPerUnit=_totalRewardsPerUnit.sub(_totalRewardsPerUnit_positions[staker]);uint256newRewards=newRewardsPerUnit.mul(fullUnitsStaked(staker));return_savedRewards[staker].add(newRewards);}functionpayoutRewards()public{payoutRewardsFor(msg.sender);}functionpayoutRewardsFor(addressstaker)public{updateRewardsFor(staker);uint256rewards=_savedRewards[staker];if(rewards==0)return;_savedRewards[staker]=0;uint256initalBalance_staker=_balances[staker];uint256newBalance_staker=initalBalance_staker.add(rewards);if(!excludedFromStaking[staker]){uint256fus_total=fullUnitsStaked_total;fus_total=fus_total.sub(toFullUnits(initalBalance_staker));fus_total=fus_total.add(toFullUnits(newBalance_staker));fullUnitsStaked_total=fus_total;}_balances[address(this)]=_balances[address(this)].sub(rewards);_balances[staker]=newBalance_staker;emitTransfer(address(this),staker,rewards);}functionexcludeAddressFromStaking(addressexcludeAddress,boolexclude)public{require(msg.sender==contractOwner);require(exclude!=excludedFromStaking[excludeAddress]);updateRewardsFor(excludeAddress);excludedFromStaking[excludeAddress]=exclude;fullUnitsStaked_total=exclude?fullUnitsStaked_total.sub(fullUnitsStaked(excludeAddress)):fullUnitsStaked_total.add(fullUnitsStaked(excludeAddress));}}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 67
+column: 11
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 68
+column: 11
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 69
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 94
+column: 33
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 95
+column: 54
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 110
+column: 33
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 111
+column: 33
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 92
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 97
+column: 4
+content: stringconstanttokenName="MoonToken";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 98
+column: 4
+content: stringconstanttokenSymbol="MT3";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 99
+column: 4
+content: uint8constanttokenDecimals=18;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 100
+column: 4
+content: uint256_totalSupply=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 109
+column: 4
+content: uint256_totalRewardsPerUnit=0;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_SAFEMATH :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :7
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_DIV_MUL :1
+SOLIDITY_ERC20_APPROVE :1

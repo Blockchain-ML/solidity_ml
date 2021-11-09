@@ -1,0 +1,118 @@
+F:\Blockchain\dataset_new_byID\78469.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 83
+column: 8
+content: for(i=0;i<_ercToErcBridgesAllowed.length;i++){_ercToErcBridgeAllowed[_ercToErcBridgesAllowed[i]]=false;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 89
+column: 8
+content: for(i=0;i<_bridgesAllowed.length;i++){_ercToErcBridgeAllowed[_bridgesAllowed[i]]=true;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 100
+column: 8
+content: for(i=0;i<_nativeToErcBridgesAllowed.length;i++){_nativeToErcBridgeAllowed[_nativeToErcBridgesAllowed[i]]=false;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 106
+column: 8
+content: for(i=0;i<_bridgesAllowed.length;i++){_nativeToErcBridgeAllowed[_bridgesAllowed[i]]=true;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 83
+column: 8
+content: for(i=0;i<_ercToErcBridgesAllowed.length;i++){_ercToErcBridgeAllowed[_ercToErcBridgesAllowed[i]]=false;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 89
+column: 8
+content: for(i=0;i<_bridgesAllowed.length;i++){_ercToErcBridgeAllowed[_bridgesAllowed[i]]=true;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 100
+column: 8
+content: for(i=0;i<_nativeToErcBridgesAllowed.length;i++){_nativeToErcBridgeAllowed[_nativeToErcBridgesAllowed[i]]=false;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 106
+column: 8
+content: for(i=0;i<_bridgesAllowed.length;i++){_nativeToErcBridgeAllowed[_bridgesAllowed[i]]=true;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 8
+column: 0
+content: contractBlockRewardAuRaTokensisBlockRewardAuRaBase,IBlockRewardAuRaTokens{mapping(address=>bool)internal_ercToErcBridgeAllowed;mapping(address=>bool)internal_nativeToErcBridgeAllowed;address[]internal_ercToErcBridgesAllowed;address[]internal_nativeToErcBridgesAllowed;uint256publicbridgeTokenReward;mapping(uint256=>mapping(address=>uint256))publicepochPoolTokenReward;uint256publictokenRewardUndistributed;uint256publicconstantSTAKE_TOKEN_INFLATION_RATE=3125000000000000;eventBridgeTokenRewardAdded(uint256amount,uint256cumulativeAmount,addressindexedbridge);modifieronlyXToErcBridge{require(_ercToErcBridgeAllowed[msg.sender]||_nativeToErcBridgeAllowed[msg.sender]);_;}functionaddBridgeTokenFeeReceivers(uint256_amount)external{addBridgeTokenRewardReceivers(_amount);}functionaddBridgeTokenRewardReceivers(uint256_amount)publiconlyXToErcBridge{require(_amount!=0);bridgeTokenReward=bridgeTokenReward.add(_amount);emitBridgeTokenRewardAdded(_amount,bridgeTokenReward,msg.sender);}functionsetErcToErcBridgesAllowed(address[]calldata_bridgesAllowed)externalonlyOwneronlyInitialized{uint256i;for(i=0;i<_ercToErcBridgesAllowed.length;i++){_ercToErcBridgeAllowed[_ercToErcBridgesAllowed[i]]=false;}_ercToErcBridgesAllowed=_bridgesAllowed;for(i=0;i<_bridgesAllowed.length;i++){_ercToErcBridgeAllowed[_bridgesAllowed[i]]=true;}}functionsetNativeToErcBridgesAllowed(address[]calldata_bridgesAllowed)externalonlyOwneronlyInitialized{uint256i;for(i=0;i<_nativeToErcBridgesAllowed.length;i++){_nativeToErcBridgeAllowed[_nativeToErcBridgesAllowed[i]]=false;}_nativeToErcBridgesAllowed=_bridgesAllowed;for(i=0;i<_bridgesAllowed.length;i++){_nativeToErcBridgeAllowed[_bridgesAllowed[i]]=true;}}functiontransferReward(uint256_tokens,uint256_nativeCoins,address<missing ')'>payable_to)externalonlyStakingContract{if(_tokens!=0){IStakingAuRaTokensstakingContract=IStakingAuRaTokens(msg.sender);IERC677Mintingerc677TokenContract=IERC677Minting(stakingContract.erc677TokenContract());erc677TokenContract.transfer(_to,_tokens);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 80
+column: 4
+content: functionsetErcToErcBridgesAllowed(address[]calldata_bridgesAllowed)externalonlyOwneronlyInitialized{uint256i;for(i=0;i<_ercToErcBridgesAllowed.length;i++){_ercToErcBridgeAllowed[_ercToErcBridgesAllowed[i]]=false;}_ercToErcBridgesAllowed=_bridgesAllowed;for(i=0;i<_bridgesAllowed.length;i++){_ercToErcBridgeAllowed[_bridgesAllowed[i]]=true;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 97
+column: 4
+content: functionsetNativeToErcBridgesAllowed(address[]calldata_bridgesAllowed)externalonlyOwneronlyInitialized{uint256i;for(i=0;i<_nativeToErcBridgesAllowed.length;i++){_nativeToErcBridgeAllowed[_nativeToErcBridgesAllowed[i]]=false;}_nativeToErcBridgesAllowed=_bridgesAllowed;for(i=0;i<_bridgesAllowed.length;i++){_nativeToErcBridgeAllowed[_bridgesAllowed[i]]=true;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 116
+column: 4
+content: functiontransferReward(uint256_tokens,uint256_nativeCoins,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 117
+column: 11
+content: (_tokens!=0){IStakingAuRaTokensstakingContract=IStakingAuRaTokens(msg.sender);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 119
+column: 12
+content: IERC677Mintingerc677TokenContract=IERC677Minting(stakingContract.erc677TokenContract());
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 120
+column: 12
+content: erc677TokenContract.transfer(_to,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 120
+column: 46
+content: _tokens);
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4

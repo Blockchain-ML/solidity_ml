@@ -1,0 +1,81 @@
+F:\Blockchain\dataset_new_byID\73761.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractSecretMultiSigisPublicMultiSig{structSecretTransaction{bytes32hash;boolrevealed;}mapping(uint256=>SecretTransaction)internalprivateTransactions;constructor(uint256_threshold,uint256_duration,address[]memory_participants,uint256[]memory_weights)publicPublicMultiSig(_threshold,_duration,_participants,_weights){}functionisRevealed(uint256_transactionId)publicviewreturns(bool){returnprivateTransactions[_transactionId].revealed;}functionisExecutable(uint256_transactionId)publicoverrideviewreturns(bool){returnisRevealed(_transactionId)&&super.isExecutable(_transactionId);}functionexecute(uint256_transactionId)publicoverridereturns(bool){require(isRevealed(_transactionId),"SMS01");returnsuper.execute(_transactionId);}functionbuildHash(uint256_transactionId,uint256_salt,address_destination,uint256_value,bytesmemory_data)publicpurereturns(bytes32){returnkeccak256(abi.encode(_transactionId,_salt,_destination,_value,_data));}functionexecuteHash(uint256_transactionId,uint256_salt,address<missing ')'>payable_destination,uint256_value,bytesmemory_data)publicreturns(bool){revealHash(_transactionId,_salt,_destination,_value,_data);execute(_transactionId);returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 61
+column: 2
+content: functionexecuteHash(uint256_transactionId,uint256_salt,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 64
+column: 20
+content: _destination,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 65
+column: 4
+content: uint256_value,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 66
+column: 4
+content: bytesmemory_data)publicreturns
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 67
+column: 19
+content: (bool){revealHash
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 69
+column: 14
+content: (_transactionId,_salt,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 72
+column: 6
+content: _destination,_value,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 74
+column: 6
+content: _data);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 76
+column: 4
+content: execute(_transactionId);
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

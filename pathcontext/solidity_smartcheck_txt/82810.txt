@@ -1,0 +1,188 @@
+F:\Blockchain\dataset_new_byID\82810.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 10
+column: 15
+content: 0x014c2e29Ee6781bc854627bc04C29Cfc45bBD5Ac
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 90
+column: 90
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 93
+column: 55
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 99
+column: 56
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 100
+column: 49
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 101
+column: 61
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 45
+column: 4
+content: functiongetChallange(uint256challangeID)constantreturns(addressowner,uint256expiry,uint256reward,bytes20mask,bytes20target,uint256qx,uint256qy,uint256offsetKey){owner=challanges[challangeID].owner;expiry=challanges[challangeID].expiry;reward=challanges[challangeID].reward;mask=challanges[challangeID].mask;target=challanges[challangeID].target;qx=challanges[challangeID].qx;qy=challanges[challangeID].qy;offsetKey=challanges[challangeID].offsetKey;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 65
+column: 4
+content: functiongetOffsetKey(addressaddr,uint256nonce)constantreturns(uint256){returnuint256(sha256(addr,nonce));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 70
+column: 4
+content: functionpub2hash(uint256qx,uintqy)constantreturns(bytes20){returnripemd160(sha256("\x04",qx,qy));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 75
+column: 4
+content: functionchallangeHash(uint256nonce,uint256challangeID)constantreturns(bytes20){varoffsetKey=getOffsetKey(msg.sender,nonce);var(qx,qy)=ec.deriveKey(offsetKey,challanges[challangeID].qx,challanges[challangeID].qy);returnpub2hash(qx,qy);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 4
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 90
+column: 8
+content: if((hashResult&challanges[challangeID].mask)>challanges[challangeID].target)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 93
+column: 8
+content: if(!addr.send(challanges[challangeID].reward))throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 99
+column: 8
+content: if(msg.sender!=challanges[challangeID].owner)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 100
+column: 8
+content: if(now<challanges[challangeID].expiry)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 101
+column: 8
+content: if(!msg.sender.send(challanges[challangeID].reward))throw;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 27
+column: 4
+content: functiongetChallangeID()returns(uint256){last_challange_id++;returnlast_challange_id;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 32
+column: 4
+content: functionmakeChallange(uint256qx,uintqy,bytes20mask,bytes20target,uint256timeLimit)payable{challanges[getChallangeID()]=CHALLANGE(msg.sender,now+timeLimit,msg.value,mask,target,qx,qy,0);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 45
+column: 4
+content: functiongetChallange(uint256challangeID)constantreturns(addressowner,uint256expiry,uint256reward,bytes20mask,bytes20target,uint256qx,uint256qy,uint256offsetKey){owner=challanges[challangeID].owner;expiry=challanges[challangeID].expiry;reward=challanges[challangeID].reward;mask=challanges[challangeID].mask;target=challanges[challangeID].target;qx=challanges[challangeID].qx;qy=challanges[challangeID].qy;offsetKey=challanges[challangeID].offsetKey;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 4
+content: functiongetOffsetKey(addressaddr,uint256nonce)constantreturns(uint256){returnuint256(sha256(addr,nonce));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 70
+column: 4
+content: functionpub2hash(uint256qx,uintqy)constantreturns(bytes20){returnripemd160(sha256("\x04",qx,qy));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 75
+column: 4
+content: functionchallangeHash(uint256nonce,uint256challangeID)constantreturns(bytes20){varoffsetKey=getOffsetKey(msg.sender,nonce);var(qx,qy)=ec.deriveKey(offsetKey,challanges[challangeID].qx,challanges[challangeID].qy);returnpub2hash(qx,qy);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 82
+column: 4
+content: functionclaimReward(addressaddr,uint256nonce,uint256challangeID){if(challanges[challangeID].offsetKey!=0)return;varoffsetKey=getOffsetKey(addr,nonce);var(qx,qy)=ec.deriveKey(offsetKey,challanges[challangeID].qx,challanges[challangeID].qy);varhashResult=pub2hash(qx,qy);if((hashResult&challanges[challangeID].mask)>challanges[challangeID].target)throw;challanges[challangeID].offsetKey=offsetKey;if(!addr.send(challanges[challangeID].reward))throw;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 96
+column: 4
+content: functioncancelChallange(uint256challangeID){if(challanges[challangeID].offsetKey!=0)return;if(msg.sender!=challanges[challangeID].owner)throw;if(now<challanges[challangeID].expiry)throw;if(!msg.sender.send(challanges[challangeID].reward))throw;deletechallanges[challangeID];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: ECec=EC(0x014c2e29Ee6781bc854627bc04C29Cfc45bBD5Ac);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 25
+column: 4
+content: mapping(uint=>CHALLANGE)challanges;
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :9
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :5
+SOLIDITY_ADDRESS_HARDCODED :1

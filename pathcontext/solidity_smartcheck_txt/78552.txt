@@ -1,0 +1,138 @@
+F:\Blockchain\dataset_new_byID\78552.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 42
+column: 16
+content: 0xe92476a6
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 43
+column: 16
+content: 0xb3f73c40
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 37
+column: 4
+content: functioninitialize(address_target)publiconlyOwner{targets[0xe92476a6]=_target;targets[0xb3f73c40]=_target;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 61
+column: 8
+content: if(loanOrder.loanTokenAddress==address(0)){revert("BZxTradePlacing::tradePositionWith0x: loanOrder.loanTokenAddress == address(0)");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 66
+column: 8
+content: if(loanPosition.loanTokenAmountFilled==0||!loanPosition.active){revert("BZxTradePlacing::tradePositionWith0x: loanPosition.loanTokenAmountFilled == 0 || !loanPosition.active");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 70
+column: 8
+content: if(block.timestamp>=loanPosition.loanEndUnixTimestampSec){revert("BZxTradePlacing::tradePositionWith0x: block.timestamp >= loanPosition.loanEndUnixTimestampSec");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 75
+column: 8
+content: if(!BZxVault(vaultContract).withdrawToken(loanPosition.positionTokenAddressFilled,bZxTo0xContract,loanPosition.positionTokenAmountFilled)){revert("BZxTradePlacing::tradePositionWith0x: BZxVault.withdrawToken failed");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 92
+column: 8
+content: if(tradeTokenAmount==0||positionTokenUsedAmount!=loanPosition.positionTokenAmountFilled){revert("BZxTradePlacing::tradePositionWith0x: tradeTokenAmount == 0 || positionTokenUsedAmount != loanPosition.positionTokenAmountFilled");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 101
+column: 8
+content: if(tradeTokenAddress!=loanOrder.loanTokenAddress&&OracleInterface(oracleAddresses[loanOrder.oracleAddress]).shouldLiquidate(loanOrderHash,msg.sender,loanOrder.loanTokenAddress,loanPosition.positionTokenAddressFilled,loanPosition.collateralTokenAddressFilled,loanPosition.loanTokenAmountFilled,loanPosition.positionTokenAmountFilled,loanPosition.collateralTokenAmountFilled,loanOrder.maintenanceMarginAmount)){revert("BZxTradePlacing::tradePositionWith0x: liquidation required");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 127
+column: 8
+content: if(!OracleInterface(oracleAddresses[loanOrder.oracleAddress]).didTradePosition(loanOrderHash,msg.sender,tradeTokenAddress,tradeTokenAmount,gasUsed)){revert("BZxTradePlacing::tradePositionWith0x: OracleInterface.didTradePosition failed");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 153
+column: 8
+content: if(loanOrder.loanTokenAddress==address(0)){revert("BZxTradePlacing::tradePositionWithOracle: loanOrder.loanTokenAddress == address(0)");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 158
+column: 8
+content: if(loanPosition.loanTokenAmountFilled==0||!loanPosition.active){revert("BZxTradePlacing::tradePositionWithOracle: loanPosition.loanTokenAmountFilled == 0 || !loanPosition.active");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 162
+column: 8
+content: if(block.timestamp>=loanPosition.loanEndUnixTimestampSec){revert("BZxTradePlacing::tradePositionWithOracle: block.timestamp >= loanPosition.loanEndUnixTimestampSec");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 166
+column: 8
+content: if(tradeTokenAddress==loanPosition.positionTokenAddressFilled){revert("BZxTradePlacing::tradePositionWithOracle: tradeTokenAddress == loanPosition.positionTokenAddressFilled");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 175
+column: 8
+content: if(tradeTokenAddress!=loanOrder.loanTokenAddress&&OracleInterface(oracleAddresses[loanOrder.oracleAddress]).shouldLiquidate(loanOrderHash,msg.sender,loanOrder.loanTokenAddress,loanPosition.positionTokenAddressFilled,loanPosition.collateralTokenAddressFilled,loanPosition.loanTokenAmountFilled,loanPosition.positionTokenAmountFilled,loanPosition.collateralTokenAmountFilled,loanOrder.maintenanceMarginAmount)){revert("BZxTradePlacing::tradePositionWithOracle: liquidation required");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 201
+column: 8
+content: if(balanceBeforeTrade<EIP20(loanPosition.positionTokenAddressFilled).balanceOf.gas(4999)(oracleAddresses[loanOrder.oracleAddress])){revert("BZxTradePlacing::tradePositionWithOracle: balanceBeforeTrade is less");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 205
+column: 8
+content: if(tradeTokenAmount==0){revert("BZxTradePlacing::tradePositionWithOracle: tradeTokenAmount == 0");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 222
+column: 8
+content: if(!OracleInterface(oracleAddresses[loanOrder.oracleAddress]).didTradePosition(loanOrderHash,msg.sender,tradeTokenAddress,tradeTokenAmount,gasUsed)){revert("BZxTradePlacing::tradePositionWithOracle: OracleInterface.didTradePosition");}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 33
+column: 4
+content: usingSafeMathforuint256;
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_REVERT_REQUIRE :15
+SOLIDITY_ADDRESS_HARDCODED :2

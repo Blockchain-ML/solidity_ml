@@ -1,0 +1,170 @@
+F:\Blockchain\dataset_new_byID\76310.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 133
+column: 8
+content: owners.length-=1
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 158
+column: 16
+content: pendingsIndex.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 204
+column: 16
+content: pendingsIndex.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 244
+column: 8
+content: pendingsIndex.length=0
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 190
+column: 12
+content: pendingsIndex.length++
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 191
+column: 28
+content: pendingsIndex.length++
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 167
+column: 4
+content: functionhasConfirmed(bytes32_operation,address_owner)constantaddressNotNull(_owner)onlyOwnerreturns(bool){returnpendings[_operation].ownersDone[_owner];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 79
+column: 8
+content: for(uinti=0;i<_additionalOwners.length;i++){require(!isOwner[_additionalOwners[i]]&&_additionalOwners[i]!=address(0));owners.push(_additionalOwners[i]);isOwner[_additionalOwners[i]]=true;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 126
+column: 8
+content: for(uint256i=0;i<owners.length-1;i++){if(owners[i]==_owner){owners[i]=owners[owners.length-1];break;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 150
+column: 12
+content: for(uint256i=0;i<owners.length;i++){if(hasConfirmed(_operation,owners[i])){count++;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 225
+column: 8
+content: for(uint256i=0;i<owners.length;i++){if(pendings[_operation].ownersDone[owners[i]]){pendings[_operation].ownersDone[owners[i]]=false;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 79
+column: 8
+content: for(uinti=0;i<_additionalOwners.length;i++){require(!isOwner[_additionalOwners[i]]&&_additionalOwners[i]!=address(0));owners.push(_additionalOwners[i]);isOwner[_additionalOwners[i]]=true;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 150
+column: 12
+content: for(uint256i=0;i<owners.length;i++){if(hasConfirmed(_operation,owners[i])){count++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 225
+column: 8
+content: for(uint256i=0;i<owners.length;i++){if(pendings[_operation].ownersDone[owners[i]]){pendings[_operation].ownersDone[owners[i]]=false;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 239
+column: 8
+content: for(uint256i=0;i<length;++i){clearOwnersDone(pendingsIndex[i]);deletependings[pendingsIndex[i]];}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 196
+column: 8
+content: if(!hasConfirmed(_operation,msg.sender)){Confirmation(msg.sender,_operation);if(pending.yetNeeded<=1){clearOwnersDone(_operation);pendingsIndex[pending.index]=pendingsIndex[pendingsIndex.length-1];pendingsIndex.length--;deletependings[_operation];returntrue;}else{pending.yetNeeded--;pending.ownersDone[msg.sender]=true;}}else{revert();}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 93
+column: 23
+content: keccak256("change-requirement",_required)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 105
+column: 23
+content: keccak256("add-owner",_owner)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 118
+column: 23
+content: keccak256("remove-owner",_owner)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 73
+column: 4
+content: functionShareable(address[]_additionalOwners,uint256_required)validRequirement(_additionalOwners.length+1,_required){owners.push(msg.sender);isOwner[msg.sender]=true;for(uinti=0;i<_additionalOwners.length;i++){require(!isOwner[_additionalOwners[i]]&&_additionalOwners[i]!=address(0));owners.push(_additionalOwners[i]);isOwner[_additionalOwners[i]]=true;}required=_required;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 167
+column: 4
+content: functionhasConfirmed(bytes32_operation,address_owner)constantaddressNotNull(_owner)onlyOwnerreturns(bool){returnpendings[_operation].ownersDone[_owner];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 24
+column: 4
+content: address[]owners;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :6
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :4
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4

@@ -1,0 +1,184 @@
+C:\Users\hp\DataSet\contracts\mainnet\cd\CD52b34a42E8302050e8Df012E286493e371196B_Array128Lib.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 285
+column: 8
+content: self.length--
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 43
+column: 26
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 70
+column: 26
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 98
+column: 26
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 139
+column: 28
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 169
+column: 28
+content: sha3
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 276
+column: 4
+content: for(uint256i=0;i<self.length;i++){(contains,index)=indexOf(self,self[i],false);if(i>index){for(uint256j=i;j<self.length-1;j++){self[j]=self[j+1];}deleteself[self.length-1];self.length--;i--;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 280
+column: 8
+content: for(uint256j=i;j<self.length-1;j++){self[j]=self[j+1];}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 35
+column: 2
+content: functionsumElements(uint128[]storageself)publicviewreturns(uint256sum){uint256term;uint8remainder;assembly{mstore(0x60,self_slot)for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,2)))remainder:=mod(i,2)for{letj:=0}lt(j,mul(remainder,4)){j:=add(j,1)}{term:=div(term,4294967296)}term:=and(0x00000000000000000000000000000000ffffffffffffffffffffffffffffffff,term)sum:=add(term,sum)}}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 61
+column: 2
+content: functiongetMax(uint128[]storageself)publicviewreturns(uint128maxValue){uint256term;uint8remainder;assembly{mstore(0x60,self_slot)maxValue:=0for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,2)))remainder:=mod(i,2)for{letj:=0}lt(j,mul(remainder,4)){j:=add(j,1)}{term:=div(term,4294967296)}term:=and(0x00000000000000000000000000000000ffffffffffffffffffffffffffffffff,term)switchlt(maxValue,term)case1{maxValue:=term}}}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 90
+column: 2
+content: functiongetMin(uint128[]storageself)publicviewreturns(uint128minValue){uint256term;uint8remainder;assembly{mstore(0x60,self_slot)for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,2)))remainder:=mod(i,2)for{letj:=0}lt(j,mul(remainder,4)){j:=add(j,1)}{term:=div(term,4294967296)}term:=and(0x00000000000000000000000000000000ffffffffffffffffffffffffffffffff,term)switcheq(i,0)case1{minValue:=term}switchgt(minValue,term)case1{minValue:=term}}}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 125
+column: 2
+content: functionindexOf(uint128[]storageself,uint128value,boolisSorted)publicviewreturns(boolfound,uint256index){uint256term;assembly{mstore(0x60,self_slot)switchisSortedcase1{lethigh:=sub(sload(self_slot),1)letmid:=0letlow:=0for{}iszero(gt(low,high)){}{mid:=div(add(low,high),2)term:=sload(add(sha3(0x60,0x20),div(mid,2)))switchmod(mid,2)case1{for{letj:=0}lt(j,4){j:=add(j,1)}{term:=div(term,4294967296)}}term:=and(term,0x00000000000000000000000000000000ffffffffffffffffffffffffffffffff)switchlt(term,value)case1{low:=add(mid,1)}case0{switchgt(term,value)case1{high:=sub(mid,1)}case0{found:=1index:=midlow:=add(high,1)}}}}case0{for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,2)))switchmod(i,2)case1{for{letj:=0}lt(j,4){j:=add(j,1)}{term:=div(term,4294967296)}}term:=and(term,0x00000000000000000000000000000000ffffffffffffffffffffffffffffffff)switcheq(term,value)case1{found:=1index:=ii:=sload(self_slot)}}}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 276
+column: 4
+content: for(uint256i=0;i<self.length;i++){(contains,index)=indexOf(self,self[i],false);if(i>index){for(uint256j=i;j<self.length-1;j++){self[j]=self[j+1];}deleteself[self.length-1];self.length--;i--;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 220
+column: 14
+content: lChild<=end
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 249
+column: 14
+content: lChild<=end
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 35
+column: 2
+content: functionsumElements(uint128[]storageself)publicviewreturns(uint256sum){uint256term;uint8remainder;assembly{mstore(0x60,self_slot)for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,2)))remainder:=mod(i,2)for{letj:=0}lt(j,mul(remainder,4)){j:=add(j,1)}{term:=div(term,4294967296)}term:=and(0x00000000000000000000000000000000ffffffffffffffffffffffffffffffff,term)sum:=add(term,sum)}}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 61
+column: 2
+content: functiongetMax(uint128[]storageself)publicviewreturns(uint128maxValue){uint256term;uint8remainder;assembly{mstore(0x60,self_slot)maxValue:=0for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,2)))remainder:=mod(i,2)for{letj:=0}lt(j,mul(remainder,4)){j:=add(j,1)}{term:=div(term,4294967296)}term:=and(0x00000000000000000000000000000000ffffffffffffffffffffffffffffffff,term)switchlt(maxValue,term)case1{maxValue:=term}}}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 90
+column: 2
+content: functiongetMin(uint128[]storageself)publicviewreturns(uint128minValue){uint256term;uint8remainder;assembly{mstore(0x60,self_slot)for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,2)))remainder:=mod(i,2)for{letj:=0}lt(j,mul(remainder,4)){j:=add(j,1)}{term:=div(term,4294967296)}term:=and(0x00000000000000000000000000000000ffffffffffffffffffffffffffffffff,term)switcheq(i,0)case1{minValue:=term}switchgt(minValue,term)case1{minValue:=term}}}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 125
+column: 2
+content: functionindexOf(uint128[]storageself,uint128value,boolisSorted)publicviewreturns(boolfound,uint256index){uint256term;assembly{mstore(0x60,self_slot)switchisSortedcase1{lethigh:=sub(sload(self_slot),1)letmid:=0letlow:=0for{}iszero(gt(low,high)){}{mid:=div(add(low,high),2)term:=sload(add(sha3(0x60,0x20),div(mid,2)))switchmod(mid,2)case1{for{letj:=0}lt(j,4){j:=add(j,1)}{term:=div(term,4294967296)}}term:=and(term,0x00000000000000000000000000000000ffffffffffffffffffffffffffffffff)switchlt(term,value)case1{low:=add(mid,1)}case0{switchgt(term,value)case1{high:=sub(mid,1)}case0{found:=1index:=midlow:=add(high,1)}}}}case0{for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,2)))switchmod(i,2)case1{for{letj:=0}lt(j,4){j:=add(j,1)}{term:=div(term,4294967296)}}term:=and(term,0x00000000000000000000000000000000ffffffffffffffffffffffffffffffff)switcheq(term,value)case1{found:=1index:=ii:=sload(self_slot)}}}}}
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 11ca45b
+severity: 3
+line: 217
+column: 12
+content: start>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: d48ac4
+severity: 2
+line: 217
+column: 12
+content: start>=0
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 39
+column: 4
+content: assembly{mstore(0x60,self_slot)for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,2)))remainder:=mod(i,2)for{letj:=0}lt(j,mul(remainder,4)){j:=add(j,1)}{term:=div(term,4294967296)}term:=and(0x00000000000000000000000000000000ffffffffffffffffffffffffffffffff,term)sum:=add(term,sum)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 65
+column: 4
+content: assembly{mstore(0x60,self_slot)maxValue:=0for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,2)))remainder:=mod(i,2)for{letj:=0}lt(j,mul(remainder,4)){j:=add(j,1)}{term:=div(term,4294967296)}term:=and(0x00000000000000000000000000000000ffffffffffffffffffffffffffffffff,term)switchlt(maxValue,term)case1{maxValue:=term}}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 94
+column: 4
+content: assembly{mstore(0x60,self_slot)for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,2)))remainder:=mod(i,2)for{letj:=0}lt(j,mul(remainder,4)){j:=add(j,1)}{term:=div(term,4294967296)}term:=and(0x00000000000000000000000000000000ffffffffffffffffffffffffffffffff,term)switcheq(i,0)case1{minValue:=term}switchgt(minValue,term)case1{minValue:=term}}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 130
+column: 4
+content: assembly{mstore(0x60,self_slot)switchisSortedcase1{lethigh:=sub(sload(self_slot),1)letmid:=0letlow:=0for{}iszero(gt(low,high)){}{mid:=div(add(low,high),2)term:=sload(add(sha3(0x60,0x20),div(mid,2)))switchmod(mid,2)case1{for{letj:=0}lt(j,4){j:=add(j,1)}{term:=div(term,4294967296)}}term:=and(term,0x00000000000000000000000000000000ffffffffffffffffffffffffffffffff)switchlt(term,value)case1{low:=add(mid,1)}case0{switchgt(term,value)case1{high:=sub(mid,1)}case0{found:=1index:=midlow:=add(high,1)}}}}case0{for{leti:=0}lt(i,sload(self_slot)){i:=add(i,1)}{term:=sload(add(sha3(0x60,0x20),div(i,2)))switchmod(i,2)case1{for{letj:=0}lt(j,4){j:=add(j,1)}{term:=div(term,4294967296)}}term:=and(term,0x00000000000000000000000000000000ffffffffffffffffffffffffffffffff)switcheq(term,value)case1{found:=1index:=ii:=sload(self_slot)}}}}
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :4
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_UINT_CANT_BE_NEGATIVE :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_USING_INLINE_ASSEMBLY :4
+SOLIDITY_SHOULD_NOT_BE_VIEW :4

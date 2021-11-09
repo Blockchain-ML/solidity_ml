@@ -1,0 +1,56 @@
+C:\Users\hp\DataSet\contracts\mainnet\a2\a2d5178e5f43ffeba4c61d73e5252df47c7480f5_BSPVesting.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 50
+column: 31
+content: 0xb790f6DBd477C7125b13a8Bb3a67771027Abd402
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 52
+column: 42
+content: 0x5d551fA77ec2C7dd1387B626c4f33235c3885199
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 43
+column: 0
+content: contractBSPVesting{usingSafeMathforuint256;usingSafeERC20forERC20Basic;eventReleased(uint256amount);addresspublicbeneficiary=0xb790f6DBd477C7125b13a8Bb3a67771027Abd402;ERC20BasicpublicBSPToken=ERC20Basic(0x5d551fA77ec2C7dd1387B626c4f33235c3885199);uint256publicstart=1577808000;uint256publicduration=15*30days;uint256publicreleased;functionrelease()public{uint256unreleased=releasableAmount();require(unreleased>0);released=released.add(unreleased);BSPToken.safeTransfer(beneficiary,unreleased);emitReleased(unreleased);}functionreleasableAmount()publicviewreturns(uint256){returnvestedAmount().sub(released);}functionvestedAmount()publicviewreturns(uint256){uint256currentBalance=BSPToken.balanceOf(this);uint256totalBalance=currentBalance.add(released);if(block.timestamp>=start.add(duration)){returntotalBalance;}else{returntotalBalance.mul(block.timestamp.sub(start)).div(duration);}}function()publicpayable{revert();}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 87
+column: 29
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 44
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 87
+column: 14
+content: public
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

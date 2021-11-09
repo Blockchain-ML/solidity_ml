@@ -1,0 +1,147 @@
+F:\Blockchain\dataset_new_byID\74064.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 14
+column: 6
+content: 0x00000000005280B515004B998a944630B6C663f8
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractAdharmaSmartWalletImplementation{addressprivate_key;MinimalEscapeHatchRegistryInterfaceprivateconstant_ESCAPE_HATCH=(MinimalEscapeHatchRegistryInterface(0x00000000005280B515004B998a944630B6C663f8));function()externalpayable{}functioninitialize(addresskey)external{assembly{ifextcodesize(address){revert(0,0)}}require(key!=address(0),"No key provided.");_key=key;}functionperformCall(addresspayableto,uint256amount,bytescalldatadata)externalpayablereturns<missing ';'>(bool<missing ')'>ok,bytesmemoryreturnData){(bool<missing ')'>escapeHatchSet,addressescapeHatch)=_ESCAPE_HATCH.getEscapeHatch();addressauthority=escapeHatchSet?escapeHatch:_key;require(msg.sender==authority,"Caller prohibited.");(ok,returnData)=to.call.value(amount)(data);require(ok,string(returnData));}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 9
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 12
+column: 38
+content: private
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 51
+column: 26
+content: call.value(amount)(data)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 25
+column: 4
+content: assembly{ifextcodesize(address){revert(0,0)}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 36
+column: 2
+content: functionperformCall(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 20
+content: to,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 24
+content: uint256amount,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 40
+content: bytescalldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 29
+content: (bool<missing ')'>ok,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 39
+column: 13
+content: bytesmemoryreturnData){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 42
+column: 4
+content: (bool<missing ')'>escapeHatchSet,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 42
+column: 26
+content: addressescapeHatch)=_ESCAPE_HATCH.getEscapeHatch();
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 45
+column: 4
+content: addressauthority=escapeHatchSet?escapeHatch:_key;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 48
+column: 4
+content: require(msg.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 48
+column: 16
+content: sender==authority,"Caller prohibited.");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 51
+column: 4
+content: (ok,returnData)=to.call.value(amount)(data);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 54
+column: 4
+content: require(ok,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 54
+column: 16
+content: string(returnData));
+
+SOLIDITY_VISIBILITY :14
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_UNCHECKED_CALL :1

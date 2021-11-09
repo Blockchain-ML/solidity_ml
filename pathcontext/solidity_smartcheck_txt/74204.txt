@@ -1,0 +1,62 @@
+F:\Blockchain\dataset_new_byID\74204.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 114
+column: 4
+content: functionretrieveData(uint_date)publicconstantreturns(uint){QueryInfostoragecurrentQuery=info[queryIds[_date]];returncurrentQuery.value;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 4
+column: 0
+content: contractTest_Oracle2{addressprivateowner;bytes32privatequeryID;stringpublicusedAPI;stringpublicAPI;stringpublicAPI2;structQueryInfo{uintvalue;boolqueried;uintdate;uintcalledTime;boolcalled;}mapping(uint=>bytes32)publicqueryIds;mapping(bytes32=>QueryInfo)publicinfo;mapping(uint=>uint)internaloracle_values;mapping(uint=>bool)publicqueried;eventDocumentStored(uint_key,uint_value);eventnewOraclizeQuery(stringdescription);eventcalled(bool_wascalled);modifieronlyOwner{require(msg.sender==owner);_;}constructor(string_api,string_api2)public{owner=msg.sender;API=_api;API2=_api2;}functionStoreDocument(uint_key,uint_value)publiconlyOwner(){if(_value==0){_value=1;}oracle_values[_key]=_value;emitDocumentStored(_key,_value);queried[_key]=true;}functionpushData(uint_key,uint_bal,uint_cost,bytes32_queryID)publicpayable{uint_calledTime=now;QueryInfostoragecurrentQuery=info[queryIds[_key]];require(currentQuery.queried==false&&currentQuery.calledTime==0||currentQuery.calledTime!=0&&currentQuery.value==0);if(_cost>_bal){emitnewOraclizeQuery("Oraclize query was NOT sent, please add some ETH");}else{emitnewOraclizeQuery("Oraclize queries sent");emitcalled(currentQuery.called);if(currentQuery.called==false){usedAPI=API;}elseif(currentQuery.called==true){usedAPI=API2;}queryID=_queryID;queryIds[_key]=queryID;currentQuery=info[queryIds[_key]];currentQuery.queried=true;currentQuery.date=_key;currentQuery.calledTime=_calledTime;currentQuery.called=!currentQuery.called;}}functioncallback(uint_result,bytes32_oraclizeID)public{QueryInfostoragecurrentQuery=info[_oraclizeID];require(_oraclizeID==queryID);currentQuery.value=_result;currentQuery.called=false;if(currentQuery.value==0){currentQuery.value=1;}emitDocumentStored(currentQuery.date,currentQuery.value);}functiongetusedAPI()publicviewreturns(string){returnusedAPI;}functiongetQuery(uint_date)publicviewreturns(bool){QueryInfostoragecurrentQuery=info[queryIds[_date]];returncurrentQuery.queried;}functionretrieveData(uint_date)publicconstantreturns(uint){QueryInfostoragecurrentQuery=info[queryIds[_date]];returncurrentQuery.value;}functionsetOwner(address_new_owner)publiconlyOwner(){owner=_new_owner;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 8
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 9
+column: 12
+content: private
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 43
+column: 17
+content: string_api
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 43
+column: 30
+content: string_api2
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 103
+column: 46
+content: string
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_UPGRADE_TO_050 :3

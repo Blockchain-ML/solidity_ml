@@ -1,0 +1,82 @@
+C:\Users\hp\DataSet\contracts\ropsten\73\73988239ba1887908fd02c63b7eae63c9482c6e2_AquaPay.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 33
+column: 6
+content: throw
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 32
+column: 4
+content: if(!assertion){throw;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 62
+column: 4
+content: functionAquaPay(stringtokenName,uint256tokenSupply,uint8decimalUnits,stringtokenSymbol){owner=msg.sender;totalSupply=tokenSupply;balanceOf[msg.sender]=totalSupply;name=tokenName;symbol=tokenSymbol;decimals=decimalUnits;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 73
+column: 4
+content: functiontransfer(address_to,uint256_value){require(balanceOf[_to]+_value>balanceOf[_to]);require(_to!=0x0);require(_value>0);require(balanceOf[msg.sender]>_value);balanceOf[msg.sender]=SafeMath.safeSub(balanceOf[msg.sender],_value);balanceOf[_to]=SafeMath.safeAdd(balanceOf[_to],_value);Transfer(msg.sender,_to,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 86
+column: 4
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess){require(_value>0);allowance[msg.sender][_spender]=_value;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 95
+column: 4
+content: functiontransferFrom(address_from,address_to,uint256_value)returns(boolsuccess){require(balanceOf[_to]+_value>balanceOf[_to]);require(_to!=0x0);require(_value>0);require(balanceOf[_from]>_value);require(_value<allowance[_from][msg.sender]);balanceOf[_from]=SafeMath.safeSub(balanceOf[_from],_value);balanceOf[_to]=SafeMath.safeAdd(balanceOf[_to],_value);allowance[_from][msg.sender]=SafeMath.safeSub(allowance[_from][msg.sender],_value);Transfer(_from,_to,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 109
+column: 4
+content: functionburn(uint256_value)returns(boolsuccess){require(balanceOf[msg.sender]>_value);require(_value>0);balanceOf[msg.sender]=SafeMath.safeSub(balanceOf[msg.sender],_value);totalSupply=SafeMath.safeSub(totalSupply,_value);Burn(msg.sender,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 119
+column: 1
+content: functionfreeze(uint256_value)returns(boolsuccess){require(balanceOf[msg.sender]>_value);require(_value>0);balanceOf[msg.sender]=SafeMath.safeSub(balanceOf[msg.sender],_value);freezeOf[msg.sender]=SafeMath.safeAdd(freezeOf[msg.sender],_value);Freeze(msg.sender,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 129
+column: 1
+content: functionunfreeze(uint256_value)returns(boolsuccess){require(freezeOf[msg.sender]>_value);require(_value>0);freezeOf[msg.sender]=SafeMath.safeSub(freezeOf[msg.sender],_value);balanceOf[msg.sender]=SafeMath.safeAdd(balanceOf[msg.sender],_value);Unfreeze(msg.sender,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 140
+column: 1
+content: function(){}
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1

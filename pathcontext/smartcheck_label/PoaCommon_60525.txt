@@ -1,0 +1,142 @@
+C:\Users\hp\DataSet\PoaCommon.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 168
+column: 33
+content: 0x51
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 169
+column: 33
+content: 0x6D
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 331
+column: 41
+content: 0x00
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 365
+column: 41
+content: 0x00
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 238
+column: 2
+content: functionpayFee(uint256_value)internalreturns(bool){require(getContractAddress("FeeManager").call.value(_value)(abi.encodeWithSignature("payFee()")));}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 277
+column: 2
+content: functionisWhitelisted(address_address)publicviewreturns(bool_isWhitelisted){bytes4_signature=bytes4(keccak256("whitelisted(address)"));address_whitelistContract=getContractAddress("Whitelist");assembly{let_pointer:=mload(0x40)mstore(_pointer,_signature)mstore(add(_pointer,0x04),_address)letresult:=staticcall(gas,_whitelistContract,_pointer,0x24,_pointer,0x20)ifiszero(result){revert(0,0)}_isWhitelisted:=mload(_pointer)mstore(0x40,add(_pointer,0x24))}}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 21
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 314
+column: 2
+content: functionto32LengthString(bytes32_data)internalpurereturns(string){bytesmemory_bytesString=newbytes(32);assembly{mstore(add(_bytesString,0x20),_data)}for(uint256_bytesCounter=0;_bytesCounter<32;_bytesCounter++){if(_bytesString[_bytesCounter]==0x00){break;}}assembly{mstore(_bytesString,_bytesCounter)}returnstring(_bytesString);}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 347
+column: 2
+content: functionto64LengthString(bytes32[2]_data)internalpurereturns(string){bytesmemory_bytesString=newbytes(64);assembly{mstore(add(_bytesString,0x20),mload(_data))mstore(add(_bytesString,0x40),mload(add(_data,0x20)))}for(uint256_bytesCounter=0;_bytesCounter<64;_bytesCounter++){if(_bytesString[_bytesCounter]==0x00){break;}}assembly{mstore(_bytesString,_bytesCounter)}returnstring(_bytesString);}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 277
+column: 2
+content: functionisWhitelisted(address_address)publicviewreturns(bool_isWhitelisted){bytes4_signature=bytes4(keccak256("whitelisted(address)"));address_whitelistContract=getContractAddress("Whitelist");assembly{let_pointer:=mload(0x40)mstore(_pointer,_signature)mstore(add(_pointer,0x04),_address)letresult:=staticcall(gas,_whitelistContract,_pointer,0x24,_pointer,0x20)ifiszero(result){revert(0,0)}_isWhitelisted:=mload(_pointer)mstore(0x40,add(_pointer,0x24))}}
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 210
+column: 36
+content: call(abi.encodeWithSignature("logStage(uint256)",uint256(_stage)))
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 190
+column: 13
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 319
+column: 13
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 352
+column: 13
+content: string
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 287
+column: 4
+content: assembly{let_pointer:=mload(0x40)mstore(_pointer,_signature)mstore(add(_pointer,0x04),_address)letresult:=staticcall(gas,_whitelistContract,_pointer,0x24,_pointer,0x20)ifiszero(result){revert(0,0)}_isWhitelisted:=mload(_pointer)mstore(0x40,add(_pointer,0x24))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 325
+column: 4
+content: assembly{mstore(add(_bytesString,0x20),_data)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 337
+column: 4
+content: assembly{mstore(_bytesString,_bytesCounter)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 358
+column: 4
+content: assembly{mstore(add(_bytesString,0x20),mload(_data))mstore(add(_bytesString,0x40),mload(add(_data,0x20)))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 371
+column: 4
+content: assembly{mstore(_bytesString,_bytesCounter)}
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_ADDRESS_HARDCODED :4
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_USING_INLINE_ASSEMBLY :5
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1
+SOLIDITY_SHOULD_NOT_BE_PURE :2

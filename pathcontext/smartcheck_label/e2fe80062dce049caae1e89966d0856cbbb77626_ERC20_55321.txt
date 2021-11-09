@@ -1,0 +1,63 @@
+C:\Users\hp\DataSet\contracts\ropsten\e2\e2fe80062dce049caae1e89966d0856cbbb77626_ERC20.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 193
+column: 2
+content: functionapprove(addressspender,uint256value)publicreturns(bool){require(spender!=address(0));_allowed[msg.sender][spender]=value;emitApproval(msg.sender,spender,value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 107
+column: 0
+content: contractERC20isIERC20{usingSafeMathforuint256;mapping(address=>uint256)private_balances;mapping(address=>mapping(address=>uint256))private_allowed;uint256private_totalSupply=uint(10000).mul(10**18);stringconstantpublicname="Faston";stringconstantpublicsymbol="FST";uint256constantpublicdecimals=18;uintpublictokenSum=0;function()publicpayable{_transfer(address(this),msg.sender,msg.value.mul(2));}functiongetTokenSum()external{_transfer(address(this),msg.sender,tokenSum);tokenSum=0;}functiontransfer(addressto,uint256value)publicreturns(bool){if(to==address(this)){_transfer(msg.sender,to,value);tokenSum=tokenSum.add(value);}else{_transfer(msg.sender,to,value);}returntrue;}functiontotalSupply()publicviewreturns(uint256){return_totalSupply;}functionbalanceOf(addressowner)publicviewreturns(uint256){return_balances[owner];}functionallowance(addressowner,addressspender)publicviewreturns(uint256){return_allowed[owner][spender];}functionapprove(addressspender,uint256value)publicreturns(bool){require(spender!=address(0));_allowed[msg.sender][spender]=value;emitApproval(msg.sender,spender,value);returntrue;}functiontransferFrom(addressfrom,addressto,uint256value)publicreturns(bool){_allowed[from][msg.sender]=_allowed[from][msg.sender].sub(value);_transfer(from,to,value);returntrue;}function_transfer(addressfrom,addressto,uint256value)internal{require(to!=address(0));_balances[from]=_balances[from].sub(value);_balances[to]=_balances[to].add(value);emitTransfer(from,to,value);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 110
+column: 31
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 112
+column: 52
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 114
+column: 10
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 108
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 127
+column: 14
+content: public
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :3
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_ERC20_APPROVE :1

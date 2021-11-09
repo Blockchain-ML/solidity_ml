@@ -1,0 +1,233 @@
+C:\Users\hp\DataSet\contracts\ropsten\30\3042ff897c6a0300cc95d0511d0b50041fde690e_SkyscraperHistoryBuild.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 181
+column: 39
+content: 0x1bF4e46F68B40B97237C47696cd9334bDE5b621B
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 181
+column: 108
+content: 0x15686ae97C475a09b3c8E0eDC92C7cAD979FF517
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 31
+column: 28
+content: 0x20
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 31
+column: 58
+content: 0x20
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 33
+column: 24
+content: 0x30
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 35
+column: 32
+content: 0x78
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 36
+column: 32
+content: 0x58
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 46
+column: 27
+content: 0x40
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 46
+column: 46
+content: 0x5b
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 58
+column: 32
+content: 0x20
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 60
+column: 28
+content: 0x60
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 60
+column: 47
+content: 0x7b
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 62
+column: 28
+content: 0x2f
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 62
+column: 47
+content: 0x3a
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 66
+column: 32
+content: 0x20
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 67
+column: 44
+content: 0x20
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 70
+column: 58
+content: 0x30
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 70
+column: 77
+content: 0x39
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 43
+column: 8
+content: for(uint256i=0;i<_length;i++){if(_temp[i]>0x40&&_temp[i]<0x5b){_temp[i]=byte(uint(_temp[i])+32);if(_hasNonNumber==false)_hasNonNumber=true;}else{require(_temp[i]==0x20||(_temp[i]>0x60&&_temp[i]<0x7b)||(_temp[i]>0x2f&&_temp[i]<0x3a),"string contains invalid characters");if(_temp[i]==0x20)require(_temp[i+1]!=0x20,"string cannot contain consecutive spaces");if(_hasNonNumber==false&&(_temp[i]<0x30||_temp[i]>0x39))_hasNonNumber=true;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 122
+column: 0
+content: contractSkyscraperHistoryBuild{usingNameFilterforstring;structMsgHistory{uintlayer;uintreward;uinttimestamp;uintrebackToVaults;uintrebackType;uintgameRound;}structPlayerHistory{uintmsgNum;mapping(uint=>MsgHistory)history;}structBuildingInfo{addresswinner;uint256topFund;uint256winGet;uint256lnum;uint256buildTime;boolisEdit;bytes32name;}eventonEditBuildName(addressplayers,uint256blockTime);boolprivateisSetGame=false;addressprivategameAddr;mapping(uint256=>BuildingInfo)privateallBuildingInfo;mapping(address=>uint)privateplayerLR;mapping(address=>PlayerHistory)privateplayerH;modifierisGameContract(){address_addr=msg.sender;require(_addr==gameAddr,"is not Skyscraper contract");_;}modifierisHuman(){address_addr=msg.sender;uint256_codeLength;assembly{_codeLength:=extcodesize(_addr)}require(_codeLength==0,"sorry humans only");_;}constructor()public{}functionsetGame(address_addr)public{require((msg.sender==address(0x1bF4e46F68B40B97237C47696cd9334bDE5b621B)||msg.sender==address(0x15686ae97C475a09b3c8E0eDC92C7cAD979FF517)),"not developer");require(isSetGame==false,"has set game");gameAddr=_addr;isSetGame=true;}function()publicpayable{require(false,"no payable");}functionaddHistory(address_winner,uint256[4]_infos)isGameContract()public{uint256_now=now;allBuildingInfo[_infos[0]].winner=_winner;allBuildingInfo[_infos[0]].topFund=_infos[1];allBuildingInfo[_infos[0]].winGet=_infos[2];allBuildingInfo[_infos[0]].lnum=_infos[3];allBuildingInfo[_infos[0]].buildTime=_now;allBuildingInfo[_infos[0]].isEdit=false;allBuildingInfo[_infos[0]].name="someone";}functionaddPlayerHistory(address_addr,uint_gameRound,uintcR,uintsL,uintsR,uintrebackToVaults,uintrebackType)isGameContract()public{if(playerLR[_addr]!=0&&playerLR[_addr]!=_gameRound){deleteplayerH[_addr];}playerLR[_addr]=_gameRound;if(cR>0){playerH[_addr].history[playerH[_addr].msgNum].reward=cR;playerH[_addr].history[playerH[_addr].msgNum].timestamp=now;playerH[_addr].history[playerH[_addr].msgNum].gameRound=_gameRound;playerH[_addr].msgNum++;}if(sR>0&&sL>0){playerH[_addr].history[playerH[_addr].msgNum].layer=sL;playerH[_addr].history[playerH[_addr].msgNum].reward=sR;playerH[_addr].history[playerH[_addr].msgNum].timestamp=now;playerH[_addr].history[playerH[_addr].msgNum].gameRound=_gameRound;playerH[_addr].msgNum++;}if(rebackToVaults>0){playerH[_addr].history[playerH[_addr].msgNum].rebackToVaults=rebackToVaults;playerH[_addr].history[playerH[_addr].msgNum].rebackType=rebackType;playerH[_addr].history[playerH[_addr].msgNum].timestamp=now;if(rebackType==2){playerH[_addr].history[playerH[_addr].msgNum].gameRound=_gameRound;}else{playerH[_addr].history[playerH[_addr].msgNum].gameRound=_gameRound-1;}playerH[_addr].msgNum++;}if(rebackType==3){playerH[_addr].history[playerH[_addr].msgNum].rebackToVaults=rebackToVaults;playerH[_addr].history[playerH[_addr].msgNum].rebackType=rebackType;playerH[_addr].history[playerH[_addr].msgNum].timestamp=now;playerH[_addr].history[playerH[_addr].msgNum].gameRound=_gameRound-1;playerH[_addr].msgNum++;}}functioneditName(stringname,uint256_gameRound)isHuman()public{require(allBuildingInfo[_gameRound].isEdit==false,"name has edit");bytes32_name=name.nameFilter();allBuildingInfo[_gameRound].name=_name;allBuildingInfo[_gameRound].isEdit=true;emitonEditBuildName(msg.sender,block.timestamp);}functiongetBuildingInfo(uint256_gameRound)publicviewreturns(address,uint256[],bool,bytes32){uint256[]memoryinfo=newuint256[](4);info[0]=allBuildingInfo[_gameRound].topFund;info[1]=allBuildingInfo[_gameRound].winGet;info[2]=allBuildingInfo[_gameRound].lnum;info[3]=allBuildingInfo[_gameRound].buildTime;return(allBuildingInfo[_gameRound].winner,info,allBuildingInfo[_gameRound].isEdit,allBuildingInfo[_gameRound].name);}functiongetPlayerHistory(uintidx)publicviewreturns(uintlayer,uintreward,uinttimestamp,uintrebackToVaults,uintrebackType,uintgameRound){layer=playerH[msg.sender].history[idx].layer;reward=playerH[msg.sender].history[idx].reward;timestamp=playerH[msg.sender].history[idx].timestamp;rebackToVaults=playerH[msg.sender].history[idx].rebackToVaults;rebackType=playerH[msg.sender].history[idx].rebackType;gameRound=playerH[msg.sender].history[idx].gameRound;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 155
+column: 9
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 156
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 158
+column: 37
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 159
+column: 29
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 160
+column: 38
+content: private
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 20
+column: 4
+content: functionnameFilter(string_input)internalpurereturns(bytes32){bytesmemory_temp=bytes(_input);uint256_length=_temp.length;require(_length<=32&&_length>0,"string must be between 1 and 32 characters");require(_temp[0]!=0x20&&_temp[_length-1]!=0x20,"string cannot start or end with space");if(_temp[0]==0x30){require(_temp[1]!=0x78,"string cannot start with 0x");require(_temp[1]!=0x58,"string cannot start with 0X");}bool_hasNonNumber;for(uint256i=0;i<_length;i++){if(_temp[i]>0x40&&_temp[i]<0x5b){_temp[i]=byte(uint(_temp[i])+32);if(_hasNonNumber==false)_hasNonNumber=true;}else{require(_temp[i]==0x20||(_temp[i]>0x60&&_temp[i]<0x7b)||(_temp[i]>0x2f&&_temp[i]<0x3a),"string contains invalid characters");if(_temp[i]==0x20)require(_temp[i+1]!=0x20,"string cannot contain consecutive spaces");if(_hasNonNumber==false&&(_temp[i]<0x30||_temp[i]>0x39))_hasNonNumber=true;}}require(_hasNonNumber==true,"string cannot be only numbers");bytes32_ret;assembly{_ret:=mload(add(_temp,32))}return(_ret);}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 187
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 20
+column: 24
+content: string_input
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 243
+column: 22
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 260
+column: 8
+content: uint256[]
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 78
+column: 8
+content: assembly{_ret:=mload(add(_temp,32))}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :5
+SOLIDITY_ADDRESS_HARDCODED :18
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

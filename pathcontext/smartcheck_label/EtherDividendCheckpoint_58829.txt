@@ -1,0 +1,146 @@
+C:\Users\hp\DataSet\EtherDividendCheckpoint.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 152
+column: 8
+content: for(uint256j=0;j<_excluded.length;j++){require(_excluded[j]!=address(0),"Invalid address");require(!dividends[dividendIndex].dividendExcluded[_excluded[j]],"duped exclude address");excludedSupply=excludedSupply.add(securityToken.balanceOfAt(_excluded[j],_checkpointId));dividends[dividendIndex].dividendExcluded[_excluded[j]]=true;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 152
+column: 8
+content: for(uint256j=0;j<_excluded.length;j++){require(_excluded[j]!=address(0),"Invalid address");require(!dividends[dividendIndex].dividendExcluded[_excluded[j]],"duped exclude address");excludedSupply=excludedSupply.add(securityToken.balanceOfAt(_excluded[j],_checkpointId));dividends[dividendIndex].dividendExcluded[_excluded[j]]=true;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 9
+column: 0
+content: contractEtherDividendCheckpointisDividendCheckpoint{usingSafeMathforuint256;eventEtherDividendDeposited(addressindexed_depositor,uint256_checkpointId,uint256_maturity,uint256_expiry,uint256_amount,uint256_totalSupply,uint256indexed_dividendIndex,bytes32indexed_name);eventEtherDividendClaimed(addressindexed_payee,uint256indexed_dividendIndex,uint256_amount,uint256_withheld);eventEtherDividendReclaimed(addressindexed_claimer,uint256indexed_dividendIndex,uint256_claimedAmount);eventEtherDividendClaimFailed(addressindexed_payee,uint256indexed_dividendIndex,uint256_amount,uint256_withheld);eventEtherDividendWithholdingWithdrawn(addressindexed_claimer,uint256indexed_dividendIndex,uint256_withheldAmount);constructor(address_securityToken,address_polyToken)publicModule(_securityToken,_polyToken){}functioncreateDividend(uint256_maturity,uint256_expiry,bytes32_name)externalpayablewithPerm(ADMIN){createDividendWithExclusions(_maturity,_expiry,excluded,_name);}functioncreateDividendWithCheckpoint(uint256_maturity,uint256_expiry,uint256_checkpointId,bytes32_name)externalpayablewithPerm(ADMIN){_createDividendWithCheckpointAndExclusions(_maturity,_expiry,_checkpointId,excluded,_name);}functioncreateDividendWithExclusions(uint256_maturity,uint256_expiry,address[]memory_excluded,bytes32_name)publicpayablewithPerm(ADMIN){uint256checkpointId=securityToken.createCheckpoint();_createDividendWithCheckpointAndExclusions(_maturity,_expiry,checkpointId,_excluded,_name);}functioncreateDividendWithCheckpointAndExclusions(uint256_maturity,uint256_expiry,uint256_checkpointId,address[]memory_excluded,bytes32_name)publicpayablewithPerm(ADMIN){_createDividendWithCheckpointAndExclusions(_maturity,_expiry,_checkpointId,_excluded,_name);}function_createDividendWithCheckpointAndExclusions(uint256_maturity,uint256_expiry,uint256_checkpointId,address[]memory_excluded,bytes32_name)internal{require(_excluded.length<=EXCLUDED_ADDRESS_LIMIT,"Too many addresses excluded");require(_expiry>_maturity,"Expiry is before maturity");require(_expiry>now,"Expiry is in the past");require(msg.value>0,"No dividend sent");require(_checkpointId<=securityToken.currentCheckpointId());require(_name[0]!=bytes32(0));uint256dividendIndex=dividends.length;uint256currentSupply=securityToken.totalSupplyAt(_checkpointId);require(currentSupply>0,"Invalid supply");uint256excludedSupply=0;dividends.push(Dividend(_checkpointId,now,_maturity,_expiry,msg.value,0,0,false,0,0,_name));for(uint256j=0;j<_excluded.length;j++){require(_excluded[j]!=address(0),"Invalid address");require(!dividends[dividendIndex].dividendExcluded[_excluded[j]],"duped exclude address");excludedSupply=excludedSupply.add(securityToken.balanceOfAt(_excluded[j],_checkpointId));dividends[dividendIndex].dividendExcluded[_excluded[j]]=true;}require(currentSupply>excludedSupply,"Invalid supply");dividends[dividendIndex].totalSupply=currentSupply-excludedSupply;emitEtherDividendDeposited(msg.sender,_checkpointId,_maturity,_expiry,msg.value,currentSupply,dividendIndex,_name);}function_payDividend(addresspayable_payee,Dividendstorage_dividend,uint256_dividendIndex)internal{(uint256<missing ')'>claim,uint256withheld)=calculateDividend(_dividendIndex,_payee);_dividend.claimed[_payee]=true;uint256claimAfterWithheld=claim.sub(withheld);if(_payee.send<missing ';'>(claimAfterWithheld)){_dividend.claimedAmount=_dividend.claimedAmount.add(claim);if(withheld>0){_dividend.totalWithheld=_dividend.totalWithheld.add(withheld);_dividend.withheld[_payee]=withheld;}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 10
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 170
+column: 4
+content: function_payDividend(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 170
+column: 42
+content: _payee,Dividendstorage
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 170
+column: 67
+content: _dividend,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 170
+column: 78
+content: uint256_dividendIndex)internal{
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 171
+column: 8
+content: (uint256<missing ')'>claim,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 171
+column: 24
+content: uint256withheld)=calculateDividend(_dividendIndex,_payee);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 172
+column: 8
+content: _dividend.claimed[_payee]=true;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 173
+column: 8
+content: uint256claimAfterWithheld=claim.sub(withheld);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 175
+column: 11
+content: (_payee.send<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 175
+column: 23
+content: (claimAfterWithheld)){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 176
+column: 12
+content: _dividend.claimedAmount=_dividend.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 176
+column: 48
+content: claimedAmount.add(claim);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 177
+column: 15
+content: (withheld>0){_dividend.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 178
+column: 26
+content: totalWithheld=_dividend.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 178
+column: 52
+content: totalWithheld.add(withheld);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 179
+column: 16
+content: _dividend.withheld[_payee]=withheld;
+
+SOLIDITY_VISIBILITY :16
+SOLIDITY_SAFEMATH :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

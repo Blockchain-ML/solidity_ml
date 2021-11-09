@@ -1,0 +1,90 @@
+F:\Blockchain\solidity_dataset_work\4k_dataset\94505.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 54
+column: 42
+content: 0xcd740db5
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 99
+column: 46
+content: 0xed81cdda
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 120
+column: 46
+content: 0x43a61a8e
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 137
+column: 50
+content: 0x6352211e
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 147
+column: 50
+content: 0xed81cdda
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 72
+column: 15
+content: rootOwnerAddress==address(this)
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 66
+column: 4
+content: functionrootOwnerOf(uint256_tokenId)publicviewreturns(bytes32rootOwner){addressrootOwnerAddress=address(mokens[_tokenId].data);require(rootOwnerAddress!=address(0),"tokenId not found.");uint256parentTokenId;boolisParent;while(rootOwnerAddress==address(this)){parentTokenId=mokens[_tokenId].parentTokenId;isParent=parentTokenId>0;if(isParent){_tokenId=parentTokenId-1;}else{_tokenId=childTokenOwner[rootOwnerAddress][_tokenId]-1;}rootOwnerAddress=address(mokens[_tokenId].data);}parentTokenId=mokens[_tokenId].parentTokenId;isParent=parentTokenId>0;if(isParent){parentTokenId--;}bytesmemorycalldata;boolcallSuccess;if(isParent==false){calldata=abi.encodeWithSelector(0xed81cdda,address(this),_tokenId);assembly{callSuccess:=staticcall(gas,rootOwnerAddress,add(calldata,0x20),mload(calldata),calldata,0x20)ifcallSuccess{rootOwner:=mload(calldata)}}if(callSuccess==true&&rootOwner>>224==ERC998_MAGIC_VALUE){returnrootOwner;}else{returnERC998_MAGIC_VALUE<<224|bytes32(rootOwnerAddress);}}else{calldata=abi.encodeWithSelector(0x43a61a8e,parentTokenId);assembly{callSuccess:=staticcall(gas,rootOwnerAddress,add(calldata,0x20),mload(calldata),calldata,0x20)ifcallSuccess{rootOwner:=mload(calldata)}}if(callSuccess==true&&rootOwner>>224==ERC998_MAGIC_VALUE){returnrootOwner;}else{addresschildContract=rootOwnerAddress;calldata=abi.encodeWithSelector(0x6352211e,parentTokenId);assembly{callSuccess:=staticcall(gas,rootOwnerAddress,add(calldata,0x20),mload(calldata),calldata,0x20)ifcallSuccess{rootOwnerAddress:=mload(calldata)}}require(callSuccess,"Call to ownerOf failed");calldata=abi.encodeWithSelector(0xed81cdda,childContract,parentTokenId);assembly{callSuccess:=staticcall(gas,rootOwnerAddress,add(calldata,0x20),mload(calldata),calldata,0x20)ifcallSuccess{rootOwner:=mload(calldata)}}if(callSuccess==true&&rootOwner>>224==ERC998_MAGIC_VALUE){returnrootOwner;}else{returnERC998_MAGIC_VALUE<<224|bytes32(rootOwnerAddress);}}}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 100
+column: 12
+content: assembly{callSuccess:=staticcall(gas,rootOwnerAddress,add(calldata,0x20),mload(calldata),calldata,0x20)ifcallSuccess{rootOwner:=mload(calldata)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 121
+column: 12
+content: assembly{callSuccess:=staticcall(gas,rootOwnerAddress,add(calldata,0x20),mload(calldata),calldata,0x20)ifcallSuccess{rootOwner:=mload(calldata)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 138
+column: 16
+content: assembly{callSuccess:=staticcall(gas,rootOwnerAddress,add(calldata,0x20),mload(calldata),calldata,0x20)ifcallSuccess{rootOwnerAddress:=mload(calldata)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 148
+column: 16
+content: assembly{callSuccess:=staticcall(gas,rootOwnerAddress,add(calldata,0x20),mload(calldata),calldata,0x20)ifcallSuccess{rootOwner:=mload(calldata)}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 54
+column: 4
+content: bytes32constantERC998_MAGIC_VALUE=0xcd740db5;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_ADDRESS_HARDCODED :5
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :4
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

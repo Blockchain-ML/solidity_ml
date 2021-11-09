@@ -1,0 +1,66 @@
+C:\Users\hp\DataSet\EstimateGas.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 26
+column: 8
+content: tests[pos].balances.length=2
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 16
+column: 8
+content: tests.length++
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 23
+column: 19
+content: tests.length++
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 51
+column: 26
+content: tests[pos].balances.length++
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 15
+column: 4
+content: functionEstimateGas(){tests.length++;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 19
+column: 4
+content: functionadd(bytes32_name,bytes32_description,uint_value)returns(bool){if(index[_name]!=0){returnfalse;}uintpos=tests.length++;tests[pos].name=_name;tests[pos].description=_description;tests[pos].balances.length=2;tests[pos].balances[1]=_value;tests[pos].owners[msg.sender]=1;index[_name]=pos;Add(_name,_description,_value,msg.sender);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 4
+content: functiontransfer(address_to,uint_value,bytes32_name)returns(bool){uintpos=index[_name];if(pos==0){returnfalse;}uintposFrom=tests[pos].owners[msg.sender];if(posFrom==0){returnfalse;}if(tests[pos].balances[posFrom]<_value){returnfalse;}uintposTo=tests[pos].owners[_to];if(posTo==0){uintposBal=tests[pos].balances.length++;tests[pos].owners[_to]=posBal;posTo=posBal;}if(tests[pos].balances[posTo]+_value<tests[pos].balances[posTo]){returnfalse;}tests[pos].balances[posFrom]-=_value;tests[pos].balances[posTo]+=_value;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 4
+content: mapping(bytes32=>uint)index;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 4
+content: Test[]tests;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :4

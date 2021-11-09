@@ -1,0 +1,185 @@
+C:\Users\hp\DataSet\contracts\ropsten\34\34c0c2ef55ca27d6abdecd1b08444df9bd2434ea_Name.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 460
+column: 29
+content: 0x9de76932550fb143abf2af063afee83e2075e25d
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 293
+column: 30
+content: 0x0
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 488
+column: 27
+content: (block.timestamp.sub(lastTimeWithdraw[_address]).sub((block.timestamp.sub(lastTimeWithdraw[_address])).mod(1days))).mul(deposit[_address].div(25))
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 524
+column: 36
+content: (block.timestamp.sub(lastTimeWithdraw[msg.sender]).sub((block.timestamp.sub(lastTimeWithdraw[msg.sender])).mod(1days))).mul(deposit[msg.sender].div(25))
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 563
+column: 32
+content: (block.timestamp.sub(lastTimeWithdraw[msg.sender]).sub((block.timestamp.sub(lastTimeWithdraw[msg.sender])).mod(1days))).mul(deposit[msg.sender].div(25))
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 137
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 272
+column: 2
+content: functionapprove(address_spender,uint256_value)publicwhenNotPausedreturns(bool){returnsuper.approve(_spender,_value);}
+
+ruleId: SOLIDITY_MSGVALUE_EQUALS_ZERO
+patternId: 1df89a
+severity: 1
+line: 497
+column: 12
+content: msg.value==0
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 440
+column: 9
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 238
+column: 6
+content: if(!pausedOwnerAdmin){require(msg.sender==admin||msg.sender==owner);}else{revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 566
+column: 8
+content: if(amountToWithdraw==0){revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 66
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 298
+column: 4
+content: functionZilliqaToken(address_admin,uint_totalTokenAmount){admin=_admin;totalSupply=_totalTokenAmount;balances[msg.sender]=_totalTokenAmount;Transfer(address(0x0),msg.sender,_totalTokenAmount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 309
+column: 4
+content: functiontransfer(address_to,uint_value)validDestination(_to)returns(bool){returnsuper.transfer(_to,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 314
+column: 4
+content: functiontransferFrom(address_from,address_to,uint_value)validDestination(_to)returns(bool){returnsuper.transferFrom(_from,_to,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 321
+column: 4
+content: functionburn(uint_value)returns(bool){balances[msg.sender]=balances[msg.sender].sub(_value);totalSupply=totalSupply.sub(_value);Burn(msg.sender,_value);Transfer(msg.sender,address(0x0),_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 331
+column: 4
+content: functionburnFrom(address_from,uint256_value)returns(bool){assert(transferFrom(_from,msg.sender,_value));returnburn(_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 337
+column: 4
+content: functionemergencyERC20Drain(ERC20token,uintamount)onlyOwner{token.transfer(owner,amount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 344
+column: 4
+content: functionchangeAdmin(addressnewAdmin)onlyOwner{AdminTransferred(admin,newAdmin);admin=newAdmin;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 68
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 434
+column: 4
+content: addressowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 444
+column: 4
+content: mapping(address=>uint)deposit;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 447
+column: 4
+content: mapping(address=>uint)withdrawn;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 450
+column: 4
+content: mapping(address=>uint)lastTimeWithdraw;
+
+SOLIDITY_VISIBILITY :12
+SOLIDITY_MSGVALUE_EQUALS_ZERO :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_DIV_MUL :3
+SOLIDITY_ERC20_APPROVE :2

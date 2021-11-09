@@ -1,0 +1,157 @@
+C:\Users\hp\DataSet\ERC20BridgeSampler.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 39
+column: 46
+content: 0xf47261b0
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 132
+column: 8
+content: for(uint256i=0;i!=orders.length;i++){if(orderSignatures[i].length==0||orders[i].makerAssetAmount==0||orders[i].takerAssetAmount==0){orderFillableTakerAssetAmounts[i]=0;continue;}(LibOrder.OrderInfomemoryorderInfo,uint256fillableTakerAssetAmount,boolisValidSignature)=IDevUtils(_getDevUtilsAddress()).getOrderRelevantState(orders[i],orderSignatures[i]);if(orderInfo.orderStatus!=LibOrder.OrderStatus.FILLABLE||!isValidSignature){orderFillableTakerAssetAmounts[i]=0;}else{orderFillableTakerAssetAmounts[i]=fillableTakerAssetAmount;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 179
+column: 8
+content: for(uint256i=0;i<orders.length;++i){if(orderFillableMakerAssetAmounts[i]!=0){orderFillableMakerAssetAmounts[i]=LibMath.getPartialAmountCeil(orderFillableMakerAssetAmounts[i],orders[i].takerAssetAmount,orders[i].makerAssetAmount);}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 583
+column: 4
+content: function_assetDataToTokenAddress(bytesmemoryassetData)privatepurereturns(addresstokenAddress){require(assetData.length==36,"ERC20BridgeSampler/INVALID_ASSET_DATA");bytes4selector;assembly{selector:=and(mload(add(assetData,0x20)),0xFFFFFFFF00000000000000000000000000000000000000000000000000000000)tokenAddress:=mload(add(assetData,0x24))}require(selector==ERC20_PROXY_ID,"ERC20BridgeSampler/UNSUPPORTED_ASSET_PROXY");}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 179
+column: 8
+content: for(uint256i=0;i<orders.length;++i){if(orderFillableMakerAssetAmounts[i]!=0){orderFillableMakerAssetAmounts[i]=LibMath.getPartialAmountCeil(orderFillableMakerAssetAmounts[i],orders[i].takerAssetAmount,orders[i].makerAssetAmount);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 210
+column: 8
+content: for(uint256i=0;i<numSources;i++){makerTokenAmountsBySource[i]=_sampleSellSource(sources[i],takerToken,makerToken,takerTokenAmounts);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 240
+column: 8
+content: for(uint256i=0;i<numSources;i++){takerTokenAmountsBySource[i]=_sampleBuySource(sources[i],takerToken,makerToken,makerTokenAmounts);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 272
+column: 8
+content: for(uint256i=0;i<numSamples;i++){(booldidSucceed,bytesmemoryresultData)=_getKyberNetworkProxyAddress().staticcall.gas(KYBER_SAMPLE_CALL_GAS)(abi.encodeWithSelector(IKyberNetwork(0).getExpectedRate.selector,_takerToken,_makerToken,takerTokenAmounts[i]));uint256rate=0;if(didSucceed){rate=abi.decode(resultData,<missing ')'>(uint256));}makerTokenAmounts[i]=rate*takerTokenAmounts[i]*10**makerTokenDecimals/10**takerTokenDecimals/10**18;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 312
+column: 8
+content: for(uint256i=0;i<numSamples;i++){(booldidSucceed,bytesmemoryresultData)=_getEth2DaiAddress().staticcall.gas(ETH2DAI_SAMPLE_CALL_GAS)(abi.encodeWithSelector(IEth2Dai(0).getBuyAmount.selector,makerToken,takerToken,takerTokenAmounts[i]));uint256buyAmount=0;if(didSucceed){buyAmount=abi.decode(resultData,<missing ')'>(uint256));}makerTokenAmounts[i]=buyAmount;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 347
+column: 8
+content: for(uint256i=0;i<numSamples;i++){(booldidSucceed,bytesmemoryresultData)=_getEth2DaiAddress().staticcall.gas(ETH2DAI_SAMPLE_CALL_GAS)(abi.encodeWithSelector(IEth2Dai(0).getPayAmount.selector,takerToken,makerToken,makerTokenAmounts[i]));uint256sellAmount=0;if(didSucceed){sellAmount=abi.decode(resultData,<missing ')'>(uint256));}takerTokenAmounts[i]=sellAmount;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 386
+column: 8
+content: for(uint256i=0;i<numSamples;i++){if(makerToken==_getWethAddress()){makerTokenAmounts[i]=_callUniswapExchangePriceFunction(address(takerTokenExchange),takerTokenExchange.getTokenToEthInputPrice.selector,takerTokenAmounts[i]);}elseif(takerToken==_getWethAddress()){makerTokenAmounts[i]=_callUniswapExchangePriceFunction(address(makerTokenExchange),makerTokenExchange.getEthToTokenInputPrice.selector,takerTokenAmounts[i]);}else{uint256ethBought=_callUniswapExchangePriceFunction(address(takerTokenExchange),takerTokenExchange.getTokenToEthInputPrice.selector,takerTokenAmounts[i]);if(ethBought!=0){makerTokenAmounts[i]=_callUniswapExchangePriceFunction(address(makerTokenExchange),makerTokenExchange.getEthToTokenInputPrice.selector,ethBought);}else{makerTokenAmounts[i]=0;}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 440
+column: 8
+content: for(uint256i=0;i<numSamples;i++){if(makerToken==_getWethAddress()){takerTokenAmounts[i]=_callUniswapExchangePriceFunction(address(takerTokenExchange),takerTokenExchange.getTokenToEthOutputPrice.selector,makerTokenAmounts[i]);}elseif(takerToken==_getWethAddress()){takerTokenAmounts[i]=_callUniswapExchangePriceFunction(address(makerTokenExchange),makerTokenExchange.getEthToTokenOutputPrice.selector,makerTokenAmounts[i]);}else{uint256ethSold=_callUniswapExchangePriceFunction(address(makerTokenExchange),makerTokenExchange.getEthToTokenOutputPrice.selector,makerTokenAmounts[i]);if(ethSold!=0){takerTokenAmounts[i]=_callUniswapExchangePriceFunction(address(takerTokenExchange),takerTokenExchange.getTokenToEthOutputPrice.selector,ethSold);}else{takerTokenAmounts[i]=0;}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 19
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 583
+column: 4
+content: function_assetDataToTokenAddress(bytesmemoryassetData)privatepurereturns(addresstokenAddress){require(assetData.length==36,"ERC20BridgeSampler/INVALID_ASSET_DATA");bytes4selector;assembly{selector:=and(mload(add(assetData,0x20)),0xFFFFFFFF00000000000000000000000000000000000000000000000000000000)tokenAddress:=mload(add(assetData,0x24))}require(selector==ERC20_PROXY_ID,"ERC20BridgeSampler/UNSUPPORTED_ASSET_PROXY");}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 62
+column: 16
+content: (uint256[]memoryorderFillableTakerAssetAmounts,uint256[][]memorymakerTokenAmountsBySource)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 98
+column: 16
+content: (uint256[]memoryorderFillableMakerAssetAmounts,uint256[][]memorymakerTokenAmountsBySource)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 274
+column: 47
+content: staticcall.gas(KYBER_SAMPLE_CALL_GAS)(abi.encodeWithSelector(IKyberNetwork(0).getExpectedRate.selector,_takerToken,_makerToken,takerTokenAmounts[i]))
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 314
+column: 37
+content: staticcall.gas(ETH2DAI_SAMPLE_CALL_GAS)(abi.encodeWithSelector(IEth2Dai(0).getBuyAmount.selector,makerToken,takerToken,takerTokenAmounts[i]))
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 349
+column: 37
+content: staticcall.gas(ETH2DAI_SAMPLE_CALL_GAS)(abi.encodeWithSelector(IEth2Dai(0).getPayAmount.selector,takerToken,makerToken,makerTokenAmounts[i]))
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 502
+column: 35
+content: staticcall.gas(UNISWAP_SAMPLE_CALL_GAS)(abi.encodeWithSelector(functionSelector,inputAmount))
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 590
+column: 8
+content: assembly{selector:=and(mload(add(assetData,0x20)),0xFFFFFFFF00000000000000000000000000000000000000000000000000000000)tokenAddress:=mload(add(assetData,0x24))}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :8
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_UNCHECKED_CALL :4
+SOLIDITY_SHOULD_RETURN_STRUCT :2
+SOLIDITY_SHOULD_NOT_BE_PURE :1

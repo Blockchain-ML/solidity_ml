@@ -1,0 +1,106 @@
+C:\Users\hp\DataSet\contracts\ropsten\b0\b021e2bb783d74bb6c5d8433fdbedf8f499e016a_GuessSizeControl.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 367
+column: 8
+content: for(uint8i=0;i<players.length;i++){uint256p_bet;uint8p_cardType;(p_bet,p_cardType)=GuessSizeData.GetBetInfo(_roomIndex,roundIndex,players[i]);if(CardType(p_cardType)==cardType){if(players[i]==bankerCandidate){candidateIsWin=true;}uint256afterTax;uint256tax;(afterTax,tax)=CollectTaxes(p_bet);uint256total=afterTax.add(p_bet);token.safeTransfer(players[i],total);emitevent_winner(_roomIndex,players[i],p_bet);total_tax+=tax;GuessSizeData.SubBankerPrincipal(_roomIndex,p_bet);GuessSizeData.SubBankerProfit(_roomIndex,p_bet);}else{GuessSizeData.AddBankerPrincipal(_roomIndex,p_bet);GuessSizeData.AddBankerProfit(_roomIndex,p_bet);emitevent_underdog(_roomIndex,players[i],p_bet);}SetLastRoomAndRound(players[i],_roomIndex,roundIndex,false);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 367
+column: 8
+content: for(uint8i=0;i<players.length;i++){uint256p_bet;uint8p_cardType;(p_bet,p_cardType)=GuessSizeData.GetBetInfo(_roomIndex,roundIndex,players[i]);if(CardType(p_cardType)==cardType){if(players[i]==bankerCandidate){candidateIsWin=true;}uint256afterTax;uint256tax;(afterTax,tax)=CollectTaxes(p_bet);uint256total=afterTax.add(p_bet);token.safeTransfer(players[i],total);emitevent_winner(_roomIndex,players[i],p_bet);total_tax+=tax;GuessSizeData.SubBankerPrincipal(_roomIndex,p_bet);GuessSizeData.SubBankerProfit(_roomIndex,p_bet);}else{GuessSizeData.AddBankerPrincipal(_roomIndex,p_bet);GuessSizeData.AddBankerProfit(_roomIndex,p_bet);emitevent_underdog(_roomIndex,players[i],p_bet);}SetLastRoomAndRound(players[i],_roomIndex,roundIndex,false);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 233
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 468
+column: 62
+content: (uint256_afterTax,uint256_tax)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 196
+column: 62
+content: address[]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 238
+column: 4
+content: GuessSizeDataInterfaceGuessSizeData;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 240
+column: 4
+content: addressdeveloper;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 244
+column: 4
+content: uint8constantdecimals=18;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 245
+column: 4
+content: uint256minLimitBet=1*(10**3)*(10**uint256(decimals));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 246
+column: 4
+content: uint256maximalBet=1*(10**4)*(10**uint256(decimals));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 248
+column: 4
+content: uint256minLimitBankerPrincipal=6*(10**4)*(10**uint256(decimals));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 250
+column: 4
+content: uint8RoomMaxPlayerNumber=6;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 252
+column: 4
+content: uint16minlimitBankerRound=6;
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

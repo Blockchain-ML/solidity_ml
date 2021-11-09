@@ -1,0 +1,532 @@
+C:\Users\hp\DataSet\contracts\mainnet\ce\ceda8318522d348f1d1aca48b24629b8fbf09020_RebalancingSetIssuanceModule.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 1934
+column: 8
+content: A.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 1953
+column: 8
+content: A.length--
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 2140
+column: 42
+content: _rebalancingSetQuantity.div(naturalUnit).mul(unitShares)
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 2728
+column: 47
+content: _baseSetQuantity.div(baseSetNaturalUnit).mul(currentUnit)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1751
+column: 8
+content: for(uint256i=0;i<A.length;i++){newAddresses[i]=A[i];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1818
+column: 8
+content: for(uint256i=0;i<A.length;i++){includeMap[i]=true;count++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1822
+column: 8
+content: for(uint256j=0;j<B.length;j++){if(!contains(A,B[j])){includeMap[A.length+j]=true;count++;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1830
+column: 8
+content: for(uint256m=0;m<A.length;m++){if(includeMap[m]){newAddresses[k]=A[m];k++;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1836
+column: 8
+content: for(uint256n=0;n<B.length;n++){if(includeMap[A.length+n]){newAddresses[k]=B[n];k++;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1981
+column: 8
+content: for(uint256i=0;i<A.length-1;i++){for(uint256j=i+1;j<A.length;j++){if(A[i]==A[j]){returntrue;}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1982
+column: 12
+content: for(uint256j=i+1;j<A.length;j++){if(A[i]==A[j]){returntrue;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 2001
+column: 8
+content: for(uint256i=0;i<A.length;i++){if(A[i]!=B[i]){returnfalse;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 2021
+column: 8
+content: for(uint256i=0;i<indexArray.length;i++){array[i]=A[indexArray[i]];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 2723
+column: 8
+content: for(uint256i=0;i<baseSetComponents.length;i++){addresscurrentComponent=baseSetComponents[i];uint256currentUnit=baseSetUnits[i];uint256currentComponentQuantity=_baseSetQuantity.div(baseSetNaturalUnit).mul(currentUnit);if(currentComponent==address(weth)){require(msg.value>=currentComponentQuantity,"RebalancingSetIssuanceModule.depositComponentsAndHandleEth: Not enough ether included for base SetToken");weth.deposit.value(currentComponentQuantity)();ERC20Wrapper.ensureAllowance(address(weth),address(this),transferProxy,currentComponentQuantity);}else{coreInstance.depositModule(msg.sender,address(this),currentComponent,currentComponentQuantity);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 2774
+column: 8
+content: for(uint256i=0;i<baseSetComponents.length;i++){addresscurrentComponent=baseSetComponents[i];uint256currentComponentQuantity=vaultInstance.getOwnerBalance(currentComponent,address(this));if(currentComponent==address(weth)){coreInstance.withdrawModule(address(this),address(this),address(weth),currentComponentQuantity);weth.withdraw(currentComponentQuantity);msg.sender.transfer(currentComponentQuantity);}else{coreInstance.withdrawModule(address(this),msg.sender,currentComponent,currentComponentQuantity);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1692
+column: 8
+content: for(uint256i=0;i<length;i++){if(A[i]==a){return(i,true);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1734
+column: 8
+content: for(uint256i=0;i<aLength;i++){newAddresses[i]=A[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1737
+column: 8
+content: for(uint256j=0;j<bLength;j++){newAddresses[aLength+j]=B[j];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1751
+column: 8
+content: for(uint256i=0;i<A.length;i++){newAddresses[i]=A[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1766
+column: 8
+content: for(uint256i=0;i<length;i++){A.push(B[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1781
+column: 8
+content: for(uint256i=0;i<length;i++){if(contains(B,A[i])){includeMap[i]=true;newLength++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1789
+column: 8
+content: for(uint256k=0;k<length;k++){if(includeMap[k]){newAddresses[j]=A[k];j++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1818
+column: 8
+content: for(uint256i=0;i<A.length;i++){includeMap[i]=true;count++;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1822
+column: 8
+content: for(uint256j=0;j<B.length;j++){if(!contains(A,B[j])){includeMap[A.length+j]=true;count++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1830
+column: 8
+content: for(uint256m=0;m<A.length;m++){if(includeMap[m]){newAddresses[k]=A[m];k++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1836
+column: 8
+content: for(uint256n=0;n<B.length;n++){if(includeMap[A.length+n]){newAddresses[k]=B[n];k++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1856
+column: 8
+content: for(uint256i=0;i<length;i++){addresse=A[i];if(!contains(B,e)){includeMap[i]=true;count++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1865
+column: 8
+content: for(uint256k=0;k<length;k++){if(includeMap[k]){newAddresses[j]=A[k];j++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 2001
+column: 8
+content: for(uint256i=0;i<A.length;i++){if(A[i]!=B[i]){returnfalse;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 2021
+column: 8
+content: for(uint256i=0;i<indexArray.length;i++){array[i]=A[indexArray[i]];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 2723
+column: 8
+content: for(uint256i=0;i<baseSetComponents.length;i++){addresscurrentComponent=baseSetComponents[i];uint256currentUnit=baseSetUnits[i];uint256currentComponentQuantity=_baseSetQuantity.div(baseSetNaturalUnit).mul(currentUnit);if(currentComponent==address(weth)){require(msg.value>=currentComponentQuantity,"RebalancingSetIssuanceModule.depositComponentsAndHandleEth: Not enough ether included for base SetToken");weth.deposit.value(currentComponentQuantity)();ERC20Wrapper.ensureAllowance(address(weth),address(this),transferProxy,currentComponentQuantity);}else{coreInstance.depositModule(msg.sender,address(this),currentComponent,currentComponentQuantity);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 2774
+column: 8
+content: for(uint256i=0;i<baseSetComponents.length;i++){addresscurrentComponent=baseSetComponents[i];uint256currentComponentQuantity=vaultInstance.getOwnerBalance(currentComponent,address(this));if(currentComponent==address(weth)){coreInstance.withdrawModule(address(this),address(this),address(weth),currentComponentQuantity);weth.withdraw(currentComponentQuantity);msg.sender.transfer(currentComponentQuantity);}else{coreInstance.withdrawModule(address(this),msg.sender,currentComponent,currentComponentQuantity);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 7
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 42
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 17
+column: 12
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 1917
+column: 8
+content: if(!isIn){revert();}else{(address[]memory_A,)=pop(A,index);return_A;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 1927
+column: 8
+content: if(index>=length){revert("Error: index out of bounds");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 1945
+column: 8
+content: if(index>=length){revert("Error: index out of bounds");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 1964
+column: 8
+content: if(!isIn){revert("Error: entry not found");}else{sPopCheap(A,index);return;}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 139
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 539
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 2066
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 2332
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 862
+column: 4
+content: functioncheckSuccess()privatepurereturns(bool){uint256returnValue=0;assembly{switchreturndatasizecase0x0{returnValue:=1}case0x20{returndatacopy(0x0,0x0,0x20)returnValue:=mload(0x0)}default{}}returnreturnValue==1;}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 320
+column: 16
+content: (address[]memory,uint256[]memory,uint256[]memory)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 1690
+column: 74
+content: (uint256,bool)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 1714
+column: 81
+content: (uint256,bool)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 1895
+column: 16
+content: (address[]memory,address)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 2652
+column: 16
+content: (address,uint256)
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 2774
+column: 8
+content: for(uint256i=0;i<baseSetComponents.length;i++){addresscurrentComponent=baseSetComponents[i];uint256currentComponentQuantity=vaultInstance.getOwnerBalance(currentComponent,address(this));if(currentComponent==address(weth)){coreInstance.withdrawModule(address(this),address(this),address(weth),currentComponentQuantity);weth.withdraw(currentComponentQuantity);msg.sender.transfer(currentComponentQuantity);}else{coreInstance.withdrawModule(address(this),msg.sender,currentComponent,currentComponentQuantity);}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 871
+column: 8
+content: assembly{switchreturndatasizecase0x0{returnValue:=1}case0x20{returndatacopy(0x0,0x0,0x20)returnValue:=mload(0x0)}default{}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 1169
+column: 4
+content: functioncreateSet(address_factory,address[]calldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 1225
+column: 4
+content: functionbatchDepositModule(address_from,address_to,address[]calldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 1242
+column: 4
+content: functionbatchWithdrawModule(address_from,address_to,address[]calldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 1357
+column: 4
+content: functionbatchTransferModule(address[]calldata_tokens,uint256[]calldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 1423
+column: 4
+content: functionbatchTransfer(address[]calldata_tokens,uint256[]calldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1171
+column: 27
+content: _components,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1172
+column: 8
+content: uint256[]calldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1172
+column: 27
+content: _units,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1173
+column: 8
+content: uint256_naturalUnit,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1174
+column: 8
+content: bytes32_name,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1175
+column: 8
+content: bytes32_symbol,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1176
+column: 8
+content: bytescalldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1179
+column: 16
+content: (address);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1228
+column: 27
+content: _tokens,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1229
+column: 8
+content: uint256[]calldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1245
+column: 27
+content: _tokens,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1246
+column: 8
+content: uint256[]calldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1359
+column: 27
+content: _quantities,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1360
+column: 8
+content: address_from,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1361
+column: 8
+content: address_to)external;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1425
+column: 27
+content: _quantities,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1426
+column: 8
+content: address_from,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1427
+column: 8
+content: address_to)external;
+
+SOLIDITY_VISIBILITY :23
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :11
+SOLIDITY_GAS_LIMIT_IN_LOOPS :17
+SOLIDITY_DIV_MUL :2
+SOLIDITY_SHOULD_RETURN_STRUCT :5
+SOLIDITY_SHOULD_NOT_BE_PURE :1
+SOLIDITY_SAFEMATH :4
+SOLIDITY_REVERT_REQUIRE :4
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_TRANSFER_IN_LOOP :1

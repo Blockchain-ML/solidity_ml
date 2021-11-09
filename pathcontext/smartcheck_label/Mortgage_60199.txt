@@ -1,0 +1,76 @@
+C:\Users\hp\DataSet\Mortgage.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 16
+column: 4
+content: for(i=0;i<owners.length;i++){if(owners[i]==msg.sender)return;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 16
+column: 4
+content: for(i=0;i<owners.length;i++){if(owners[i]==msg.sender)return;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 23
+column: 4
+content: for(i=0;i<count;i++){if(mortgageMap[msg.sender][i]==document)return;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 14
+column: 4
+content: address[]owners=ownerMap[document]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 9
+column: 2
+content: functionMortgage(){owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 13
+column: 2
+content: functionaddData(bytes32document){address[]owners=ownerMap[document];uinti;for(i=0;i<owners.length;i++){if(owners[i]==msg.sender)return;}ownerMap[document].push(msg.sender);uintcount=mortgageMap[msg.sender].length;for(i=0;i<count;i++){if(mortgageMap[msg.sender][i]==document)return;}mortgageMap[msg.sender].push(document);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 31
+column: 2
+content: functiongetMortgageCount(addressperson)viewreturns(uint){returnmortgageMap[person].length;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 35
+column: 2
+content: functiongetOwnerCount(bytes32hash)viewreturns(uint){returnownerMap[hash].length;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 39
+column: 2
+content: functiongetOwnerByPosition(bytes32hash,uintindex)viewreturns(address){returnownerMap[hash][index];}
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2

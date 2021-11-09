@@ -1,0 +1,182 @@
+F:\Blockchain\dataset_new_byID\73697.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 173
+column: 4
+content: currentWinner=address(0)
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 2
+column: 0
+content: contractLARVA_SmartAuctionHouse{modifierLARVA_Constructor{_;{LARVA_EnableContract();}}modifierLARVA_DEA_2_handle_after_fulfillOffer__parameters__id(uint_id){if((LARVA_STATE_2==0)){LARVA_STATE_2=0;unfulfilled[_id]=false;}_;}modifierLARVA_DEA_2_handle_after_auctionOffItem__parameters__offerID__startingOffer(uint_offerID,uint_startingOffer){if((LARVA_STATE_2==0)&&(areAnyUnfullfilled(msg.sender)&&attemptsBeforeFullfillment[msg.sender]<3)){LARVA_STATE_2=0;attemptsBeforeFullfillment[msg.sender]++;}else{if((LARVA_STATE_2==0)&&(areAnyUnfullfilled(msg.sender)&&attemptsBeforeFullfillment[msg.sender]>3)){LARVA_STATE_2=1;attemptsBeforeFullfillment[msg.sender]++;LARVA_reparation();}else{if((LARVA_STATE_2==0)&&(!areAnyUnfullfilled(msg.sender))){LARVA_STATE_2=0;attemptsBeforeFullfillment[msg.sender]=0;}}}_;}modifierLARVA_DEA_2_handle_before_fulfillOffer__parameters__id(uint_id){if((LARVA_STATE_2==0)&&(cancelledItems[_id])){LARVA_STATE_2=1;LARVA_reparation();}_;}modifierLARVA_DEA_2_handle_before_declareWinningOffer__parameters_(){if((LARVA_STATE_2==0)){LARVA_STATE_2=0;unfulfilled[currentItem]=true;}_;}modifierLARVA_DEA_1_handle_after_makeOffer__parameters__offer(uint_offer){if((LARVA_STATE_1==1)){LARVA_STATE_1=1;timeSinceLastOffer=now;}_;}modifierLARVA_DEA_1_handle_after_declareWinningOffer__parameters_(){if((LARVA_STATE_1==1)){LARVA_STATE_1=0;}_;}modifierLARVA_DEA_1_handle_after_auctionOffItem__parameters__offerID__startingOffer(uint_offerID,uint_startingOffer){if((LARVA_STATE_1==0)){LARVA_STATE_1=1;}_;}modifierLARVA_DEA_1_handle_before_auctionOffItem__parameters__offerID__startingOffer(uint_offerID,uint_startingOffer){if((LARVA_STATE_1==1)&&(now-timeSinceLastOffer<15minutes)){LARVA_STATE_1=2;LARVA_reparation();}else{if((LARVA_STATE_1==1)&&(now-timeSinceLastOffer>=15minutes)){LARVA_STATE_1=1;forceDeclareWinner();}}_;}int8LARVA_STATE_1=0;int8LARVA_STATE_2=0;functionLARVA_reparation()private{revert();}mapping(address=>uint)attemptsBeforeFullfillment;mapping(uint=>bool)cancelledItems;mapping(uint=>bool)unfulfilled;mapping(address=>uint[])wonBids;uinttimeSinceLastOffer;functionforceDeclareWinner()private{ticks=3;declareWinningOffer();timeSinceLastOffer=0;}functioncancelAnyUnfulfilledBids(address_bidder)private{for(uinti=wonBids[_bidder].length-1;i>=0;(i)--){if(unfulfilled[wonBids[_bidder][i]]){cancelledItems[wonBids[_bidder][i]]=false;}}}functionareAnyUnfullfilled(address_bidder)privatereturns(bool){for(uinti=wonBids[_bidder].length-1;i>=0;(i)--){if(unfulfilled[wonBids[_bidder][i]]){returntrue;}}returnfalse;}enumLARVA_STATUS{RUNNING,STOPPED}functionLARVA_EnableContract()private{LARVA_Status=LARVA_STATUS.RUNNING;}functionLARVA_DisableContract()private{LARVA_Status=LARVA_STATUS.STOPPED;}LARVA_STATUSprivateLARVA_Status=LARVA_STATUS.STOPPED;modifierLARVA_ContractIsEnabled{require(LARVA_Status==LARVA_STATUS.RUNNING);_;}uintcurrentItem;uintstartingOffer;uintcurrentOffer;addresscurrentWinner;uintticks;mapping(uint=>address)winners;mapping(uint=>uint)winningOffer;mapping(uint=>bool)fulfilled;addressowner;functionLARVA_SmartAuctionHouse()LARVA_Constructor{owner=msg.sender;}modifieronlyOwner(){require(msg.sender==owner);_;}modifieronlyOwnerOrInternal(){require(msg.sender==owner||msg.sender==address(this));_;}functionauctionOffItem(uint_offerID,uint_startingOffer)LARVA_DEA_2_handle_after_auctionOffItem__parameters__offerID__startingOffer(_offerID,_startingOffer)LARVA_DEA_1_handle_after_auctionOffItem__parameters__offerID__startingOffer(_offerID,_startingOffer)LARVA_DEA_1_handle_before_auctionOffItem__parameters__offerID__startingOffer(_offerID,_startingOffer)LARVA_ContractIsEnabledpublic{require(!ongoingAuction());currentItem=_offerID;startingOffer=_startingOffer;}functiontick()LARVA_ContractIsEnabledpubliconlyOwner{require(ongoingAuction());ticks++;if(ticks>2)declareWinningOffer();}functionmakeOffer(uint_offer)LARVA_DEA_1_handle_after_makeOffer__parameters__offer(_offer)LARVA_ContractIsEnabledpublic{require(_offer>currentOffer);currentOffer=_offer;currentWinner=msg.sender;}functiondeclareWinningOffer()LARVA_DEA_2_handle_before_declareWinningOffer__parameters_LARVA_DEA_1_handle_after_declareWinningOffer__parameters_LARVA_ContractIsEnabledpubliconlyOwnerOrInternal{require(ticks>2);winners[currentItem]=currentWinner;winningOffer[currentItem]=currentOffer;reset();}functionfulfillOffer(uint_id)LARVA_DEA_2_handle_after_fulfillOffer__parameters__id(_id)LARVA_DEA_2_handle_before_fulfillOffer__parameters__id(_id)LARVA_ContractIsEnabledpayablepublic{require(winners[_id]==msg.sender&&winningOffer[_id]==msg.value&&!fulfilled[_id]);fulfilled[_id]=true;}functionongoingAuction()LARVA_ContractIsEnabledinternalreturns(bool){returnstartingOffer==0&&currentOffer==0;}functionreset()LARVA_ContractIsEnabledinternal{currentItem=0;startingOffer=0;currentOffer=0;currentWinner=address(0);ticks=0;}functiongetItemWinningOffer(uint_id)LARVA_ContractIsEnabledpublicreturns(address,uint){return(winners[_id],winningOffer[_id]);}functiongetItemWinningBidder(uint_id)LARVA_ContractIsEnabledpublicreturns(address){(addressbidder,)=(getItemWinningOffer(_id));returnbidder;}functiongetItemWinningOffer(uint_id)LARVA_ContractIsEnabledpublicreturns(uint){(,uintwinningOffer)=(getItemWinningOffer(_id));returnwinningOffer;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 116
+column: 15
+content: private
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 11ca45b
+severity: 3
+line: 95
+column: 47
+content: i>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 11ca45b
+severity: 3
+line: 102
+column: 47
+content: i>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: d48ac4
+severity: 2
+line: 95
+column: 47
+content: i>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: d48ac4
+severity: 2
+line: 102
+column: 47
+content: i>=0
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 130
+column: 2
+content: functionLARVA_SmartAuctionHouse()LARVA_Constructor{owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 79
+column: 2
+content: int8LARVA_STATE_1=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 80
+column: 2
+content: int8LARVA_STATE_2=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 84
+column: 2
+content: mapping(address=>uint)attemptsBeforeFullfillment;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 85
+column: 2
+content: mapping(uint=>bool)cancelledItems;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 86
+column: 2
+content: mapping(uint=>bool)unfulfilled;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 87
+column: 2
+content: mapping(address=>uint[])wonBids;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 88
+column: 2
+content: uinttimeSinceLastOffer;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 121
+column: 2
+content: uintcurrentItem;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 122
+column: 2
+content: uintstartingOffer;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 123
+column: 2
+content: uintcurrentOffer;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 124
+column: 2
+content: addresscurrentWinner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 125
+column: 2
+content: uintticks;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 126
+column: 2
+content: mapping(uint=>address)winners;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 127
+column: 2
+content: mapping(uint=>uint)winningOffer;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 128
+column: 2
+content: mapping(uint=>bool)fulfilled;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 129
+column: 2
+content: addressowner;
+
+SOLIDITY_VISIBILITY :17
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UINT_CANT_BE_NEGATIVE :4

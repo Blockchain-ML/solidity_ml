@@ -1,0 +1,55 @@
+C:\Users\hp\DataSet\NOIAVaultFactory.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 42
+column: 8
+content: for(uint256i=0;i<addrs.length;i++){NOIAVaultvault=NOIAVault(addrs[i]);if(vault.lockTill()<now){total=total.add(IERC20(NOIA_TOKEN_ADDRESS).balanceOf(addrs[i]));}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 54
+column: 8
+content: for(uint256i=0;i<addrs.length;i++){total=total.add(IERC20(NOIA_TOKEN_ADDRESS).balanceOf(addrs[i]));}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 71
+column: 4
+content: functioncreateClone(addresstarget)internalreturns(addressresult){bytes20targetBytes=bytes20(target);assembly{letclone:=mload(0x40)mstore(clone,0x3d602d80600a3d3981f3363d3d373d3d3d363d73000000000000000000000000)mstore(add(clone,0x14),targetBytes)mstore(add(clone,0x28),0x5af43d82803e903d91602b57fd5bf30000000000000000000000000000000000)result:=create(0,clone,0x37)}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 42
+column: 8
+content: for(uint256i=0;i<addrs.length;i++){NOIAVaultvault=NOIAVault(addrs[i]);if(vault.lockTill()<now){total=total.add(IERC20(NOIA_TOKEN_ADDRESS).balanceOf(addrs[i]));}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 54
+column: 8
+content: for(uint256i=0;i<addrs.length;i++){total=total.add(IERC20(NOIA_TOKEN_ADDRESS).balanceOf(addrs[i]));}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 10
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 73
+column: 8
+content: assembly{letclone:=mload(0x40)mstore(clone,0x3d602d80600a3d3981f3363d3d373d3d3d363d73000000000000000000000000)mstore(add(clone,0x14),targetBytes)mstore(add(clone,0x28),0x5af43d82803e903d91602b57fd5bf30000000000000000000000000000000000)result:=create(0,clone,0x37)}
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_USING_INLINE_ASSEMBLY :1

@@ -1,0 +1,74 @@
+C:\Users\hp\DataSet\contracts\mainnet\ab\ab7f12a452f44ff040ff25b0ad66a1d784438d70_FidgETHSpinner.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 39
+column: 2
+content: functionbalanceOf(address_address)constantreturns(uint){returnbalanceOf[_address];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 43
+column: 2
+content: functionicoActive()constantreturns(bool){returnblock.number<=endBlock;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 27
+column: 2
+content: functionFidgETHSpinner(){wallet=msg.sender;startBlock=block.number;endBlock=startBlock+150000;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 2
+content: functionchangeWallet(address_wallet){require(msg.sender==wallet);wallet=_wallet;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 39
+column: 2
+content: functionbalanceOf(address_address)constantreturns(uint){returnbalanceOf[_address];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 43
+column: 2
+content: functionicoActive()constantreturns(bool){returnblock.number<=endBlock;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 49
+column: 2
+content: function()payable{fidget(msg.sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 54
+column: 2
+content: functionfidget(address_to)payable{require(_to!=0x0);require(_to!=address(0));require(block.number<=endBlock);require(msg.value>=0.03ether);uintrate=normalRate*juicyBonus--;uinttokens=msg.value*rate;weiRaised+=msg.value;juicyBonus=(juicyBonus<1)?1:juicyBonus;spin(_to,tokens);Fidget(msg.sender,_to,msg.value,juicyBonus,rate,tokens);wallet.transfer(msg.value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 84
+column: 2
+content: functiontransfer(address_to,uint_tokens){require(_to!=0x0);require(_to!=address(0));require(balanceOf[msg.sender]>=_tokens);require(balanceOf[_to]+_tokens>balanceOf[_to]);balanceOf[msg.sender]-=_tokens;balanceOf[_to]+=_tokens;Transfer(msg.sender,_to,_tokens);}
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1

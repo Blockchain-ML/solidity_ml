@@ -1,0 +1,168 @@
+F:\Blockchain\solidity_dataset_work\4k_dataset\94414.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 7
+column: 2
+content: functionmul(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a*b;assert(a==0||c/a==b);returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 13
+column: 2
+content: functiondiv(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a/b;returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 20
+column: 2
+content: functionsub(uint256a,uint256b)internalconstantreturns(uint256){assert(b<=a);returna-b;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 25
+column: 2
+content: functionadd(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a+b;assert(c>=a);returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 36
+column: 2
+content: functionbalanceOf(addresswho)publicconstantreturns(uint256);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 59
+column: 2
+content: functionbalanceOf(address_owner)publicconstantreturns(uint256balance){returnbalances[_owner];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 123
+column: 4
+content: functiongetBalance()constantreturns(uint){if(address(baseToken)!=0){returnbaseToken.balanceOf(this);}else{returnthis.balance;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 195
+column: 0
+content: contractMexicoMatcherisEscapable{addresspublicbeneficiary;functionMexicoMatcher(address_beneficiary,address_escapeHatchCaller,address_escapeHatchDestination)Escapable(0x0,_escapeHatchCaller,_escapeHatchDestination){beneficiary=_beneficiary;}functiondepositETH()payable{DonationDeposited4Matching(msg.sender,msg.value);}function()payable{uint256amount;if(this.balance>=msg.value*2){amount=msg.value*2;require(beneficiary.send(amount));DonationMatched(msg.sender,amount);}else{amount=this.balance;require(beneficiary.send(amount));DonationSentButNotMatched(msg.sender,amount);}}eventDonationDeposited4Matching(addressindexedsender,uintamount);eventDonationMatched(addressindexedsender,uintamount);eventDonationSentButNotMatched(addressindexedsender,uintamount);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 43
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 138
+column: 26
+content: send(_amount)
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 235
+column: 33
+content: send(amount)
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 239
+column: 33
+content: send(amount)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 87
+column: 4
+content: functionEscapable(address_baseToken,address_escapeHatchCaller,address_escapeHatchDestination){baseToken=BasicToken(_baseToken);escapeHatchCaller=_escapeHatchCaller;escapeHatchDestination=_escapeHatchDestination;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 105
+column: 4
+content: functionescapeHatch()onlyEscapeHatchCaller{uinttotal=getBalance();transfer(escapeHatchDestination,total);EscapeHatchCalled(total);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 116
+column: 4
+content: functionchangeEscapeHatchCaller(address_newEscapeHatchCaller)onlyEscapeHatchCaller{escapeHatchCaller=_newEscapeHatchCaller;EscapeHatchCallerChanged(escapeHatchCaller);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 123
+column: 4
+content: functiongetBalance()constantreturns(uint){if(address(baseToken)!=0){returnbaseToken.balanceOf(this);}else{returnthis.balance;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 149
+column: 4
+content: functionreceiveEther()payable{require(address(baseToken)==0);EtherReceived(msg.sender,msg.value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 177
+column: 4
+content: function()payable{receiveEther();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 209
+column: 4
+content: functionMexicoMatcher(address_beneficiary,address_escapeHatchCaller,address_escapeHatchDestination)Escapable(0x0,_escapeHatchCaller,_escapeHatchDestination){beneficiary=_beneficiary;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 221
+column: 4
+content: functiondepositETH()payable{DonationDeposited4Matching(msg.sender,msg.value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 227
+column: 4
+content: function()payable{uint256amount;if(this.balance>=msg.value*2){amount=msg.value*2;require(beneficiary.send(amount));DonationMatched(msg.sender,amount);}else{amount=this.balance;require(beneficiary.send(amount));DonationSentButNotMatched(msg.sender,amount);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 45
+column: 2
+content: mapping(address=>uint256)balances;
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :7
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_SEND :3

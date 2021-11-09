@@ -1,0 +1,56 @@
+C:\Users\hp\DataSet\contracts\mainnet\1c\1c4f85e7bbddf3ee92e2999c63a7b85d64d57663_MultiToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 260
+column: 4
+content: functionapprove(address_spender,uint_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 134
+column: 0
+content: contractMultiTokenisERC20,Ownable{usingSafeMathforuint;stringpublicname;stringpublicsymbol;uintpublicdecimals;stringpublicversion;uintpublictotalSupply;uintpublictokenPrice;boolpublicexchangeEnabled;addresspublicparentContract;boolpubliccodeExportEnabled;mapping(address=>uint)publicbalances;mapping(address=>mapping(address=>uint))publicallowed;modifieronlyAuthorized(){if(msg.sender!=parentContract)revert();_;}functionMultiToken()public{totalSupply=10000*(10**8);name="ICO";symbol="ICO";decimals=8;version="1.0";tokenPrice=1ether/100;codeExportEnabled=true;exchangeEnabled=true;balances[owner]=totalSupply;parentContract=msg.sender;}eventTransferSold(addressindexedto,uintvalue);functionenableExchange(uint_tokenPrice)publiconlyAuthorized()returns(bool){exchangeEnabled=true;tokenPrice=_tokenPrice;returntrue;}functionenableCodeExport()publiconlyAuthorized()returns(bool){codeExportEnabled=true;returntrue;}functionswapTokens()publicpayable{require(exchangeEnabled);uinttokensToSend;tokensToSend=(msg.value*(10**decimals))/tokenPrice;require(balances[owner]>=tokensToSend);balances[msg.sender]+=tokensToSend;balances[owner]-=tokensToSend;Transfer(owner,msg.sender,tokensToSend);TransferSold(msg.sender,tokensToSend);}functionmintToken(address_target,uint256_mintedAmount)publiconlyOwner(){balances[_target]+=_mintedAmount;totalSupply+=_mintedAmount;Transfer(0,_target,_mintedAmount);}functiontransfer(address_to,uint_value)publicreturns(bool){require(_to!=address(0));require(balances[msg.sender]>=_value);balances[msg.sender]-=_value;balances[_to]+=_value;Transfer(msg.sender,_to,_value);returntrue;}functiontransferFrom(address_from,address_to,uint256_value)publicreturns(boolsuccess){require(_to!=address(0));require(balances[_from]>=_value);require(_value<=allowed[_from][msg.sender]);balances[_from]-=_value;balances[_to]+=_value;allowed[_from][msg.sender]-=_value;Transfer(_from,_to,_value);returntrue;}functionbalanceOf(address_owner)publicviewreturns(uintbalance){returnbalances[_owner];}functionapprove(address_spender,uint_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}functionallowance(address_owner,address_spender)publicviewreturns(uintremaining){returnallowed[_owner][_spender];}functionincreaseApproval(address_spender,uint_addedValue)publicreturns(boolsuccess){allowed[msg.sender][_spender]=allowed[msg.sender][_spender].add(_addedValue);Approval(msg.sender,_spender,allowed[msg.sender][_spender]);returntrue;}functiondecreaseApproval(address_spender,uint_subtractedValue)publicreturns(boolsuccess){uintoldValue=allowed[msg.sender][_spender];if(_subtractedValue>oldValue){allowed[msg.sender][_spender]=0;}else{allowed[msg.sender][_spender]=oldValue.sub(_subtractedValue);}Approval(msg.sender,_spender,allowed[msg.sender][_spender]);returntrue;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 124
+column: 8
+content: if(!multiToken.enableCodeExport())revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 152
+column: 8
+content: if(msg.sender!=parentContract)revert();
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 136
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 95
+column: 4
+content: MultiTokenmultiToken;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ERC20_APPROVE :1

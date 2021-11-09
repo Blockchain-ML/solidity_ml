@@ -1,0 +1,98 @@
+F:\Blockchain\dataset_new_byID\76025.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 66
+column: 47
+content: 0x00
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 107
+column: 37
+content: 0x00
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 14
+column: 8
+content: for(uinti=0;i<length1;i++){returnArray[i]=arr1[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 18
+column: 8
+content: for(uintj=0;j<length2;j++){returnArray[length1+j]=arr2[j];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 29
+column: 8
+content: for(uinti=0;i<length;i++){if(arr[i]==value)returntrue;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 41
+column: 8
+content: for(uinti=0;i<length;i++){(boolsuccess,bytesmemorydata)=msg.sender.staticcall(abi.encodeWithSelector(cb,arr[i]));require(success,"callback failed");boolkeep=bytesToBool(data);if(keep){filterArray[i-offset]=arr[i];}else{offset++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 62
+column: 8
+content: for(uinti=0;i<length;i++){(boolsuccess,bytesmemorydata)=msg.sender.staticcall(abi.encodeWithSelector(cb,arr[i]));require(success,"callback failed");returnArray[i]=bytesToUint(data,0x00);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 91
+column: 8
+content: for(uinti=0;i<length;i++){uintvalue=arr[i];uintnextSlot=i-offset;if(i==0||!contains(slice(returnArray,0,nextSlot),value)){returnArray[nextSlot]=value;}else{offset++;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 114
+column: 4
+content: functionbytesToUint(bytesmemorydata,uintstart)internalpurereturns(uint){require(data.length>=start+32,"slicing out of range");uintval;assembly{val:=mload(add(data,add(0x20,start)))}returnval;}
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 42
+column: 59
+content: staticcall(abi.encodeWithSelector(cb,arr[i]))
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 63
+column: 59
+content: staticcall(abi.encodeWithSelector(cb,arr[i]))
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 118
+column: 8
+content: assembly{val:=mload(add(data,add(0x20,start)))}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :6
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_UNCHECKED_CALL :2
+SOLIDITY_SHOULD_NOT_BE_PURE :1

@@ -1,0 +1,67 @@
+C:\Users\hp\DataSet\AirSwapToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 92
+column: 4
+content: functionavailableBalance(address_owner)constantreturns(uint256){if(balanceLocks[_owner].unlockDate<now){returnbalances[_owner];}else{assert(balances[_owner]>=balanceLocks[_owner].amount);returnbalances[_owner]-balanceLocks[_owner].amount;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 59
+column: 4
+content: functionAirSwapToken(address_deployer,address_owner,uint256_balance)Pausable(){transferOwnership(_owner);balances[_deployer]=totalSupply-_balance;balances[_owner]=_balance;Transfer(0x0,_deployer,totalSupply);Transfer(_deployer,_owner,_balance);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 73
+column: 4
+content: functionlockBalance(uint256_value){if(balanceLocks[msg.sender].unlockDate>now){require(_value>=balanceLocks[msg.sender].amount);}require(balances[msg.sender]>=_value);uint256_expiry=now+lockingPeriod;BalanceLocked(msg.sender,balanceLocks[msg.sender].amount,_value,_expiry);balanceLocks[msg.sender]=BalanceLock(_value,_expiry);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 92
+column: 4
+content: functionavailableBalance(address_owner)constantreturns(uint256){if(balanceLocks[_owner].unlockDate<now){returnbalances[_owner];}else{assert(balances[_owner]>=balanceLocks[_owner].amount);returnbalances[_owner]-balanceLocks[_owner].amount;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 107
+column: 4
+content: functiontransfer(address_to,uint256_value)onlyAfter(becomesTransferable)whenNotPausedreturns(boolsuccess){require(availableBalance(msg.sender)>=_value);returnsuper.transfer(_to,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 121
+column: 4
+content: functiontransferFrom(address_from,address_to,uint256_value)onlyAfterOrOwner(becomesTransferable,_from)whenNotPausedreturns(boolsuccess){require(availableBalance(_from)>=_value);returnsuper.transferFrom(_from,_to,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 21
+column: 4
+content: uint256becomesTransferable=1508249410;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 25
+column: 4
+content: uint256lockingPeriod=604800;
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1

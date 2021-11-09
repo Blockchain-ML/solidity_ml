@@ -1,0 +1,136 @@
+C:\Users\hp\DataSet\DAOLib.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: lr991l
+severity: 1
+line: 30
+column: 24
+content: call.gas(200000).value(commission)()
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 81
+column: 4
+content: functioncountTokens(uintvalue,uint[]bonusPeriods,uint[]bonusRates,uintrate)constantreturns(uint){if(bonusRates.length==0)returnvalue*rate;for(uinti=0;i<bonusPeriods.length;i++){if(now<bonusPeriods[i]){rate=bonusRates[i];break;}}uinttokensAmount=SafeMath.mul(value,rate);returntokensAmount;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 103
+column: 4
+content: functioncountRefundSum(uinttokensAmount,uintetherRate,uintnewRate,uintmultiplier)constantreturns(uint){uintfromPercentDivider=100;return(tokensAmount*newRate/fromPercentDivider)/(multiplier*etherRate);}
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 29
+column: 26
+content: (commissionRaised/100)*4
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 33
+column: 8
+content: for(uinti=0;i<team.length;i++){uintteamMemberTokensAmount=SafeMath.mul(totalSupply,teamBonuses[i]);teamTokensAmount+=teamMemberTokensAmount;token.mint(team[i],teamMemberTokensAmount);token.hold(team[i],teamHold[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 84
+column: 8
+content: for(uinti=0;i<bonusPeriods.length;i++){if(now<bonusPeriods[i]){rate=bonusRates[i];break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 33
+column: 8
+content: for(uinti=0;i<team.length;i++){uintteamMemberTokensAmount=SafeMath.mul(totalSupply,teamBonuses[i]);teamTokensAmount+=teamMemberTokensAmount;token.mint(team[i],teamMemberTokensAmount);token.hold(team[i],teamHold[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 84
+column: 8
+content: for(uinti=0;i<bonusPeriods.length;i++){if(now<bonusPeriods[i]){rate=bonusRates[i];break;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 30
+column: 24
+content: call.gas(200000).value(commission)()
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 30
+column: 24
+content: call.gas(200000).value(commission)()
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 28
+column: 4
+content: functionhandleFinishedCrowdsale(TokenInterfacetoken,uintcommissionRaised,addressserviceContract,uint[]teamBonuses,address[]team,uint[]teamHold)returns(uint){uintcommission=(commissionRaised/100)*4;serviceContract.call.gas(200000).value(commission)();uinttotalSupply=token.totalSupply()/100;uintteamTokensAmount=0;for(uinti=0;i<team.length;i++){uintteamMemberTokensAmount=SafeMath.mul(totalSupply,teamBonuses[i]);teamTokensAmount+=teamMemberTokensAmount;token.mint(team[i],teamMemberTokensAmount);token.hold(team[i],teamHold[i]);}returnteamTokensAmount;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 43
+column: 4
+content: functiondelegatedCreateRegular(VotingFactoryInterface_votingFactory,string_name,string_description,uint_duration,bytes32[]_options,address_dao)returns(address){address_votingAddress=_votingFactory.createRegular(msg.sender,_name,_description,_duration,_options);VotingCreated(_votingAddress,"Regular",_dao,_name,_description,_duration,msg.sender);return_votingAddress;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 50
+column: 4
+content: functiondelegatedCreateWithdrawal(VotingFactoryInterface_votingFactory,string_name,string_description,uint_duration,uint_sum,addresswithdrawalWallet,bool_dxc,address_dao)returns(address){address_votingAddress=_votingFactory.createWithdrawal(msg.sender,_name,_description,_duration,_sum,withdrawalWallet,_dxc);VotingCreated(_votingAddress,"Withdrawal",_dao,_name,_description,_duration,msg.sender);return_votingAddress;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 59
+column: 4
+content: functiondelegatedCreateRefund(VotingFactoryInterface_votingFactory,string_name,string_description,uint_duration,address_dao)returns(address){address_votingAddress=_votingFactory.createRefund(msg.sender,_name,_description,_duration);VotingCreated(_votingAddress,"Refund",_dao,_name,_description,_duration,msg.sender);return_votingAddress;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 66
+column: 4
+content: functiondelegatedCreateModule(VotingFactoryInterface_votingFactory,string_name,string_description,uint_duration,uint_module,address_newAddress,address_dao)returns(address){address_votingAddress=_votingFactory.createModule(msg.sender,_name,_description,_duration,_module,_newAddress);VotingCreated(_votingAddress,"Module",_dao,_name,_description,_duration,msg.sender);return_votingAddress;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 81
+column: 4
+content: functioncountTokens(uintvalue,uint[]bonusPeriods,uint[]bonusRates,uintrate)constantreturns(uint){if(bonusRates.length==0)returnvalue*rate;for(uinti=0;i<bonusPeriods.length;i++){if(now<bonusPeriods[i]){rate=bonusRates[i];break;}}uinttokensAmount=SafeMath.mul(value,rate);returntokensAmount;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 103
+column: 4
+content: functioncountRefundSum(uinttokensAmount,uintetherRate,uintnewRate,uintmultiplier)constantreturns(uint){uintfromPercentDivider=100;return(tokensAmount*newRate/fromPercentDivider)/(multiplier*etherRate);}
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_DIV_MUL :1
+SOLIDITY_CALL_WITHOUT_DATA :1

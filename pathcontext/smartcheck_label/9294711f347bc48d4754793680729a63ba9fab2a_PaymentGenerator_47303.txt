@@ -1,0 +1,47 @@
+C:\Users\hp\DataSet\contracts\ropsten\92\9294711f347bc48d4754793680729a63ba9fab2a_PaymentGenerator.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: 111ttt
+severity: 1
+line: 33
+column: 36
+content: call.gas(250000).value(msg.value)("")
+
+ruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: 111ttt
+severity: 1
+line: 44
+column: 36
+content: call.gas(250000).value(amount)("")
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 53
+column: 0
+content: contractPaymentisGateway{constructor(address_owner,bool_paused)public{owner=address(uint160(_owner));paused=_paused;}function()externalpayable{if(msg.value>0)receive();}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 62
+column: 0
+content: contractPaymentGeneratorisGateway{mapping(address=>address[])publicAddresses;eventAddressGenerated(addressindexed_contractAddress,addressindexed_contractOwner);constructor(address_owner,bool_paused)public{owner=address(uint160(_owner));paused=_paused;}function()externalpayable{if(msg.value>0)receive();}functiongenerate(addresscontractOwner,boolcontractPaused)publicreturns(address){require(contractOwner!=address(0)&&address(this)!=contractOwner);addressn=address(newPayment(contractOwner,contractPaused));Addresses[msg.sender].push(n);emitAddressGenerated(n,contractOwner);returnn;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 48
+column: 12
+content: if(!ERC20(token).transfer(owner,amount))revert();
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_CALL_WITHOUT_DATA :2

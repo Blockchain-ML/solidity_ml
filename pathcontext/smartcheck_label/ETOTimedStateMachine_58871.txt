@@ -1,0 +1,87 @@
+C:\Users\hp\DataSet\ETOTimedStateMachine.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 95
+column: 4
+content: functionfinalized()publicconstantreturns(bool){return(_state==ETOState.Refund||_state==ETOState.Payout||_state==ETOState.Claim);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 104
+column: 4
+content: functionsuccess()publicconstantreturns(bool){return(_state==ETOState.Claim||_state==ETOState.Payout);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 113
+column: 4
+content: functionfailed()publicconstantreturns(bool){return_state==ETOState.Refund;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 125
+column: 4
+content: functionstate()publicconstantreturns(ETOState){return_state;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 133
+column: 4
+content: functionstartOf(ETOStates)publicconstantreturns(uint256){returnstartOfInternal(s);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 142
+column: 4
+content: functiontimedState()externalconstantreturns(ETOState){advanceTimedState();return_state;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 152
+column: 4
+content: functionstartOfStates()publicconstantreturns(uint256[7]startOfs){for(uint256ii=0;ii<ETO_STATES_COUNT;ii+=1){startOfs[ii]=startOfInternal(ETOState(ii));}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 163
+column: 4
+content: functioncommitmentObserver()publicconstantreturns(IETOCommitmentObserver){returnCOMMITMENT_OBSERVER;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 191
+column: 4
+content: functionstartOfInternal(ETOStates)internalconstantreturns(uint256){if(s==ETOState.Setup){return0;}if(s==ETOState.Refund){return_state==s?_pastStateTransitionTimes[uint32(_state)]:0;}if(uint32(s)-1<=uint32(_state)){return_pastStateTransitionTimes[uint32(s)-1];}uint256currStateExpiration=_pastStateTransitionTimes[uint32(_state)];for(uint256stateIdx=uint32(_state)+1;stateIdx<uint32(s);stateIdx++){currStateExpiration+=ETO_STATE_DURATIONS[stateIdx];}returncurrStateExpiration;}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 31
+column: 13
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 34
+column: 27
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 41
+column: 13
+content: private
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :9
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :3

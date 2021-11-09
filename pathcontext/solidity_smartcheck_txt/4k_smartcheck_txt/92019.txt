@@ -1,0 +1,62 @@
+F:\Blockchain\solidity_dataset_work\4k_dataset\92019.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 163
+column: 4
+content: functionapprove(addresstokensSpender,uint256newTokensNumber)publiccheckPayloadSize(2*32)returns(bool){safeApprove(msg.sender,tokensSpender,newTokensNumber);returntrue;}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 177
+column: 4
+content: functionapprove(addresstokensSpender,uint256oldTokensNumber,uint256newTokensNumber)publiccheckPayloadSize(3*32)returns(bool){require(allowance[msg.sender][tokensSpender]==oldTokensNumber);unsafeApprove(msg.sender,tokensSpender,newTokensNumber);Approval(msg.sender,tokensSpender,oldTokensNumber,newTokensNumber);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 112
+column: 4
+content: functionsetOwner(address_owner)publiconlyOwnerreturns(bool){owner=_owner;returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 118
+column: 4
+content: functionsetMinter(address_minter)publiconlyOwnerreturns(bool){safeApprove(this,minter,0);minter=_minter;safeApprove(this,minter,balanceOf[this]);returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 4
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 42
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 99
+column: 22
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 99
+column: 36
+content: string_symbol
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_ERC20_APPROVE :2

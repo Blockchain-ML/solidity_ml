@@ -1,0 +1,48 @@
+C:\Users\hp\DataSet\contracts\ropsten\f5\f5b4f3d77d957a4a1e1e00d78b9d70c8d72ee1e0_SlotMachine.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 65
+column: 0
+content: contractSlotMachineisOwnable{usingSafeMathforuint256;addresspublicowner;eventRoulette(addressindexedfrom,uint256value,uint256[]randoms);constructor()payablepublic{owner=msg.sender;contractPrice=999999e18;}function()payablepublic{addressfrom=msg.sender;uint256value=msg.value;require(from!=0x0);if(value<1e17){return;}uintcount=value/1e16;boolresult;uint256[]memoryrandoms;(result,randoms)=roulette(count);if(result){uint256award=jackpot().div(2);uint256tax=award.div(5);owner.transfer(tax);from.transfer(award.sub(tax));emitRoulette(from,value,randoms);}}functionroulette(uintcount)publicviewreturns(bool,uint256[]){uint256[]memoryrandoms=newuint256[](count);uint256rand=uint256(keccak256(abi.encodePacked(now,msg.sender)));for(uinti=1;i<count+1;i++){uint256_rand=uint256(rand/(i*33))%100;randoms[i]=_rand;if(_rand==88){return(true,randoms);}}return(false,randoms);}functionjackpot()publicviewreturns(uint256){returnaddress(this).balance;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 51
+column: 4
+content: functionsetContractPrice(uint256price)publiconlyOwner{contractPrice=price*1e18;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 67
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 88
+column: 23
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 113
+column: 59
+content: uint256[]
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :2

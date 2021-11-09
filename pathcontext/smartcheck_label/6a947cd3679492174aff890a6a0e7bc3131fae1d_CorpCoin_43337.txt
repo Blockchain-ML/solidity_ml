@@ -1,0 +1,91 @@
+C:\Users\hp\DataSet\contracts\ropsten\6a\6a947cd3679492174aff890a6a0e7bc3131fae1d_CorpCoin.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 89
+column: 4
+content: owner=address(0)
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 123
+column: 4
+content: functionsetTenant(bytes32_tenantHash,address_userAddress,uint256_timestamp,string_tenantId)onlyOwnerpublic{if(!userAddressExists(_userAddress)&&!userTenantHashExists(_tenantHash)){UsermemorynewUser=User(_tenantHash,_timestamp,_tenantId);tenantAddressMapping[_userAddress]=newUser;tenantHashMapping[_tenantHash]=_userAddress;return;}if(userAddressExists(_userAddress)&&!userTenantHashExists(_tenantHash)){bytes32oldHash=tenantAddressMapping[_userAddress].tenantHash;updateHash(oldHash,_tenantHash,_timestamp);return;}if(userTenantHashExists(_tenantHash)&&!userAddressExists(_userAddress)){addressoldAddress=tenantHashMapping[_tenantHash];updateAddress(oldAddress,_userAddress);return;}if(userTenantHashExists(_tenantHash)&&userAddressExists(_userAddress)){updateTimestamp(_tenantHash,_timestamp);return;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 120
+column: 29
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 121
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 258
+column: 21
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 261
+column: 30
+content: private
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 127
+column: 8
+content: string_tenantId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 161
+column: 8
+content: string_tenantId
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 255
+column: 4
+content: IdentityStoreidStore;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 256
+column: 4
+content: uint256expiration=30days;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 257
+column: 4
+content: uintnumberOfCoins=4;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :4
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :2

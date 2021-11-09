@@ -1,0 +1,40 @@
+C:\Users\hp\DataSet\contracts\mainnet\03\038758e98f3a764f928ea82e39b7ac78db333fad_LockedTokens.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 51
+column: 4
+content: functionbalanceOf(address_owner)publicconstantreturns(uint256balance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 55
+column: 4
+content: functionallowance(address_owner,address_spender)publicconstantreturns(uint256remaining);
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 107
+column: 8
+content: for(uint256i=0;i<walletTokens[msg.sender].length;i++){if(!walletTokens[msg.sender][i].released&&now>=walletTokens[msg.sender][i].lockEndTime){walletTokens[msg.sender][i].released=true;token.transfer(msg.sender,walletTokens[msg.sender][i].amount);TokensUnlocked(msg.sender,walletTokens[msg.sender][i].amount);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 107
+column: 8
+content: for(uint256i=0;i<walletTokens[msg.sender].length;i++){if(!walletTokens[msg.sender][i].released&&now>=walletTokens[msg.sender][i].lockEndTime){walletTokens[msg.sender][i].released=true;token.transfer(msg.sender,walletTokens[msg.sender][i].amount);TokensUnlocked(msg.sender,walletTokens[msg.sender][i].amount);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

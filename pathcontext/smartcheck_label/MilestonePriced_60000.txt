@@ -1,0 +1,196 @@
+C:\Users\hp\DataSet\MilestonePriced.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 62
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 66
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 72
+column: 16
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 81
+column: 16
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 98
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 103
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 161
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 86
+column: 4
+content: functiongetMilestoneCount()publicconstantreturns(uint){returnmilestones.length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 90
+column: 4
+content: functiongetMilestone(uintn)publicconstantreturns(uint,uint){return(milestones[n].time,milestones[n].price);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 111
+column: 4
+content: functiongetStartTime()requireMilestonespublicconstantreturns(uint){returnmilestones[0].time;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 116
+column: 4
+content: functiongetEndTime()requireMilestonespublicconstantreturns(uint){varlastMilestone=milestones[milestones.length-1];returnlastMilestone.time;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 122
+column: 4
+content: functionhasStarted()requireMilestonespublicconstantreturns(bool){returngetNow()>=milestones[1].time;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 126
+column: 4
+content: functionhasEnded()requireMilestonespublicconstantreturns(bool){returngetNow()>=milestones[milestones.length-1].time;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 138
+column: 4
+content: functiongetCurrentMilestone()privateconstantreturns(Milestone){uintnow=getNow();uinti;for(i=milestones.length-1;i>0;i--){if(now>=milestones[i].time){returnmilestones[i];}}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 154
+column: 4
+content: functiongetPrice()publicrequireMilestonesconstantreturns(uintresult){returngetCurrentMilestone().price;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 12
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 61
+column: 8
+content: if(milestonesSealed){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 65
+column: 8
+content: if(milestones.length>=MAX_MILESTONES){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 71
+column: 12
+content: if(price!=0||time!=0){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 80
+column: 12
+content: if(time<=milestones[milestones.length-2].time){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 97
+column: 8
+content: if(milestonesSealed){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 102
+column: 8
+content: if(milestones[milestones.length-1].price!=0){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 160
+column: 8
+content: if(!milestonesSealed){throw;}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 138
+column: 61
+content: Milestone
+
+ruleId: SOLIDITY_VAR
+patternId: d28aa7
+severity: 2
+line: 117
+column: 8
+content: varlastMilestone=milestones[milestones.length-1]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 95
+column: 4
+content: functionsealMilestones()onlyOwner{if(milestonesSealed){throw;}if(milestones[milestones.length-1].price!=0){throw;}milestonesSealed=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 54
+column: 4
+content: Milestone[]milestones;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :15
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :7
+SOLIDITY_VAR :1
+SOLIDITY_UPGRADE_TO_050 :1

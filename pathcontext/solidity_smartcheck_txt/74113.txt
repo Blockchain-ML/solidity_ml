@@ -1,0 +1,46 @@
+F:\Blockchain\dataset_new_byID\74113.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 28
+column: 2
+content: functionsetGlobalKey(addressglobalKey,bytescalldatasignature)externalonlyOwner{require(globalKey!=address(0),"A global key must be supplied.");bytes32messageHash=keccak256(abi.encodePacked(address(this),globalKey,"This signature demonstrates that the supplied signing key is valid."));addresssigner=messageHash.toEthSignedMessageHash().recover(signature);require(globalKey==signer,"Invalid signature for supplied global key.");_globalKey=globalKey;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 55
+column: 2
+content: functionsetSpecificKey(addressaccount,addressspecificKey)externalonlyOwner{_specificKeys[account]=specificKey;}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 13
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 16
+column: 31
+content: private
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 21
+column: 17
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 24
+column: 23
+content: tx.origin
+
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_TX_ORIGIN :2

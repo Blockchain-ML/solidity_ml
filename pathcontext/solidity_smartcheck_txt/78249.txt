@@ -1,0 +1,55 @@
+F:\Blockchain\dataset_new_byID\78249.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 125
+column: 4
+content: functiongetPersonDetails(uintid)publicconstantreturns(uint,uint,address){return(bidders[id].remainingTokens,bidders[id].personId,bidders[id].addr);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 2
+column: 0
+content: contractAuction{structItem{uintitemId;uint[]itemTokens;}structPerson{uintremainingTokens;uintpersonId;addressaddr;}mapping(address=>Person)tokenDetails;Person[4]bidders;Item[3]publicitems;address[3]publicwinners;addresspublicbeneficiary;uintbidderCount=0;functionAuction()publicpayable{beneficiary=msg.sender;uint[]memoryemptyArray;items[0]=Item({itemId:0,itemTokens:emptyArray});items[1]=Item({itemId:1,itemTokens:emptyArray});items[2]=Item({itemId:2,itemTokens:emptyArray});}functionregister()publicpayable{bidders[bidderCount].personId=bidderCount;bidders[bidderCount].addr=msg.sender;bidders[bidderCount].remainingTokens=5;tokenDetails[msg.sender]=bidders[bidderCount];bidderCount++;}functionbid(uint_itemId,uint_count)publicpayable{if(tokenDetails[msg.sender].remainingTokens<_count||tokenDetails[msg.sender].remainingTokens==0||_itemId>2)revert();uintbalance=tokenDetails[msg.sender].remainingTokens-_count;tokenDetails[msg.sender].remainingTokens=balance;bidders[tokenDetails[msg.sender].personId].remainingTokens=balance;ItemstoragebidItem=items[_itemId];for(uinti=0;i<_count;i++){bidItem.itemTokens.push(tokenDetails[msg.sender].personId);}}modifieronlyOwner{require(msg.sender==beneficiary);_;}functionrevealWinners()publiconlyOwner{for(uintid=0;id<3;id++){ItemstoragecurrentItem=items[id];if(currentItem.itemTokens.length!=0){uintrandomIndex=(block.number/currentItem.itemTokens.length)%currentItem.itemTokens.length;uintwinnerId=currentItem.itemTokens[randomIndex];winners[id]=bidders[winnerId].addr;}}}functiongetPersonDetails(uintid)publicconstantreturns(uint,uint,address){return(bidders[id].remainingTokens,bidders[id].personId,bidders[id].addr);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 71
+column: 8
+content: if(tokenDetails[msg.sender].remainingTokens<_count||tokenDetails[msg.sender].remainingTokens==0||_itemId>2)revert();
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 4
+content: mapping(address=>Person)tokenDetails;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 20
+column: 4
+content: Person[4]bidders;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 4
+content: uintbidderCount=0;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1

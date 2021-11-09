@@ -1,0 +1,269 @@
+F:\Blockchain\dataset_new_byID\78492.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 121
+column: 4
+content: functiongenerateUrl(stringbase,stringjsonPath)constantreturns(string){strings.slice[]memoryparts=newstrings.slice[](5);parts[0]='json('.toSlice();parts[1]=base.toSlice();parts[2]=')'.toSlice();parts[3]=jsonPath.toSlice();return''.toSlice().join(parts);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 151
+column: 4
+content: functiongetAllBets()publicconstantreturns(uint256[],uint256[]){uint256[]memoryuserIDs=newuint256[](numUserBets);uint256[]memoryuserTips=newuint256[](numUserBets);for(uint256i=0;i<numUserBets;i++){userIDs[i]=userBets[i].userID;userTips[i]=userBets[i].userTip;}return(userIDs,userTips);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 200
+column: 4
+content: functionshowWinners()publicconstantreturns(uint256[],uint256[]){uint256[]memorywinnerID=newuint256[](numWinners);uint256[]memorywinnerPrize=newuint256[](numWinners);for(uint256i=0;i<numWinners;i++){winnerID[i]=winners[i].winID;winnerPrize[i]=winners[i].winPoints;}return(winnerID,winnerPrize);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 222
+column: 4
+content: functionstringToUint(strings)constantreturns(uint){bytesmemoryb=bytes(s);uintresult=0;for(uinti=0;i<b.length;i++){if(b[i]>=48&&b[i]<=57){result=result*10+(uint(b[i])-48);}}returnresult;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 143
+column: 8
+content: for(uint256i=0;i<userIDs.length;i++){userBets[numUserBets]=UserBet(userIDs[i],userTips[i]);numUserBets++;pot+=winPot;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 156
+column: 8
+content: for(uint256i=0;i<numUserBets;i++){userIDs[i]=userBets[i].userID;userTips[i]=userBets[i].userTip;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 173
+column: 8
+content: for(uint256i=0;i<numUserBets;i++){if(parsedHomeScore>parsedAwayScore){if(userBets[i].userTip==rule_for_home){userWinID=numWinners++;winners[userWinID]=Winner(userBets[i].userID,0);}}elseif(parsedHomeScore==parsedAwayScore){if(userBets[i].userTip==rule_for_draw){userWinID=numWinners++;winners[userWinID]=Winner(userBets[i].userID,0);}}else{if(userBets[i].userTip==rule_for_away){userWinID=numWinners++;winners[userWinID]=Winner(userBets[i].userID,0);}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 194
+column: 8
+content: for(uint256x=0;x<numWinners;x++){winners[x].winPoints=winPot;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 204
+column: 8
+content: for(uint256i=0;i<numWinners;i++){winnerID[i]=winners[i].winID;winnerPrize[i]=winners[i].winPoints;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 225
+column: 8
+content: for(uinti=0;i<b.length;i++){if(b[i]>=48&&b[i]<=57){result=result*10+(uint(b[i])-48);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 143
+column: 8
+content: for(uint256i=0;i<userIDs.length;i++){userBets[numUserBets]=UserBet(userIDs[i],userTips[i]);numUserBets++;pot+=winPot;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 225
+column: 8
+content: for(uinti=0;i<b.length;i++){if(b[i]>=48&&b[i]<=57){result=result*10+(uint(b[i])-48);}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractBountyUserBetisusingOraclize{usingSafeMathforuint256;usingstringsfor*;addresspublicowner;uint256publicpot;uint256winPot;uint256numUserBets;uint256numWinners;stringpublicmatch_status;stringpublicmatch_home_score;stringpublicmatch_away_score;stringpublicapi_url;stringpublicapi_url_input_base;stringpublicapi_url_input_match_status;stringpublicapi_url_input_home;stringpublicapi_url_input_away;uintpublicreqKey;uint256rule_for_home;uint256rule_for_away;uint256rule_for_draw;uint256[]publicuserIDs;uint256[]publicuserTips;mapping(uint=>UserBet)userBets;mapping(uint=>Winner)winners;mapping(bytes32=>Request)requests;eventnewOraclizeQuery(stringdescPartOne,stringdescPartTwo,stringdescPartThree);eventnewAPIResult(stringresult);enumPhase{CheckHomeScore,CheckAwayScore}PhasepubliccurrentPhase=Phase.CheckHomeScore;structUserBet{uint256userID;uint256userTip;}structWinner{uint256winID;uint256winPoints;}structRequest{boolinitialized;boolprocessed;uintkey;}modifieronlyOwner{require(msg.sender==owner);_;}function()payablepublic{}functionBountyUserBet(uint256_minBuyIn,string_api_url_input_base,string_api_url_input_home,string_api_url_input_away,address_creator){owner=_creator;winPot=_minBuyIn;api_url_input_base=_api_url_input_base;api_url_input_home=_api_url_input_home;api_url_input_away=_api_url_input_away;reqKey=0;numUserBets=0;rule_for_home=0;rule_for_away=1;rule_for_draw=2;}function__callback(bytes32myid,stringresult){require(msg.sender==oraclize_cbAddress());newAPIResult(result);Requestmemoryr=requests[myid];if(r.initialized&&!r.processed){if(currentPhase==Phase.CheckAwayScore){match_away_score=result;}else{match_home_score=result;setApiDataPhase(Phase.CheckAwayScore);reqKey+=reqKey++;update(api_url_input_away,reqKey);}requests[myid].processed=true;}}functiongetDataFromAPI()publiconlyOwnerpayable{reqKey+=reqKey++;update(api_url_input_home,reqKey);}functiongenerateUrl(stringbase,stringjsonPath)constantreturns(string){strings.slice[]memoryparts=newstrings.slice[](5);parts[0]='json('.toSlice();parts[1]=base.toSlice();parts[2]=')'.toSlice();parts[3]=jsonPath.toSlice();return''.toSlice().join(parts);}functionupdate(string_getData,uintkey)payable{api_url=generateUrl(api_url_input_base,_getData);bytes32requestId=oraclize_query('URL',api_url,500000);requests[requestId]=Request(true,false,key);newOraclizeQuery('Oraclize query for ',_getData,' was sent, standing by for the answer..');}functionsetDataInBet(uint256[]_userIDs,uint256[]_userTips)publiconlyOwner{userIDs=_userIDs;userTips=_userTips;for(uint256i=0;i<userIDs.length;i++){userBets[numUserBets]=UserBet(userIDs[i],userTips[i]);numUserBets++;pot+=winPot;}}functiongetAllBets()publicconstantreturns(uint256[],uint256[]){uint256[]memoryuserIDs=newuint256[](numUserBets);uint256[]memoryuserTips=newuint256[](numUserBets);for(uint256i=0;i<numUserBets;i++){userIDs[i]=userBets[i].userID;userTips[i]=userBets[i].userTip;}return(userIDs,userTips);}functionsetWinners()publiconlyOwner{uint256userWinID;uintparsedHomeScore=stringToUint(match_home_score);uintparsedAwayScore=stringToUint(match_away_score);for(uint256i=0;i<numUserBets;i++){if(parsedHomeScore>parsedAwayScore){if(userBets[i].userTip==rule_for_home){userWinID=numWinners++;winners[userWinID]=Winner(userBets[i].userID,0);}}elseif(parsedHomeScore==parsedAwayScore){if(userBets[i].userTip==rule_for_draw){userWinID=numWinners++;winners[userWinID]=Winner(userBets[i].userID,0);}}else{if(userBets[i].userTip==rule_for_away){userWinID=numWinners++;winners[userWinID]=Winner(userBets[i].userID,0);}}}winPot=pot.div(numWinners);for(uint256x=0;x<numWinners;x++){winners[x].winPoints=winPot;}}functionshowWinners()publicconstantreturns(uint256[],uint256[]){uint256[]memorywinnerID=newuint256[](numWinners);uint256[]memorywinnerPrize=newuint256[](numWinners);for(uint256i=0;i<numWinners;i++){winnerID[i]=winners[i].winID;winnerPrize[i]=winners[i].winPoints;}return(winnerID,winnerPrize);}functionsetApiDataPhase(Phase_nextPhase)internal{boolcanSwitchPhase=(currentPhase==Phase.CheckHomeScore&&_nextPhase==Phase.CheckAwayScore);require(canSwitchPhase);currentPhase=_nextPhase;}functionstringToUint(strings)constantreturns(uint){bytesmemoryb=bytes(s);uintresult=0;for(uinti=0;i<b.length;i++){if(b[i]>=48&&b[i]<=57){result=result*10+(uint(b[i])-48);}}returnresult;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 139
+column: 4
+content: functionsetDataInBet(uint256[]_userIDs,uint256[]_userTips)publiconlyOwner{userIDs=_userIDs;userTips=_userTips;for(uint256i=0;i<userIDs.length;i++){userBets[numUserBets]=UserBet(userIDs[i],userTips[i]);numUserBets++;pot+=winPot;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 9
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 72
+column: 23
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 139
+column: 26
+content: uint256[]_userIDs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 139
+column: 46
+content: uint256[]_userTips
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 151
+column: 51
+content: uint256[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 151
+column: 62
+content: uint256[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 200
+column: 52
+content: uint256[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 200
+column: 63
+content: uint256[]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 75
+column: 4
+content: functionBountyUserBet(uint256_minBuyIn,string_api_url_input_base,string_api_url_input_home,string_api_url_input_away,address_creator){owner=_creator;winPot=_minBuyIn;api_url_input_base=_api_url_input_base;api_url_input_home=_api_url_input_home;api_url_input_away=_api_url_input_away;reqKey=0;numUserBets=0;rule_for_home=0;rule_for_away=1;rule_for_draw=2;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 95
+column: 4
+content: function__callback(bytes32myid,stringresult){require(msg.sender==oraclize_cbAddress());newAPIResult(result);Requestmemoryr=requests[myid];if(r.initialized&&!r.processed){if(currentPhase==Phase.CheckAwayScore){match_away_score=result;}else{match_home_score=result;setApiDataPhase(Phase.CheckAwayScore);reqKey+=reqKey++;update(api_url_input_away,reqKey);}requests[myid].processed=true;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 121
+column: 4
+content: functiongenerateUrl(stringbase,stringjsonPath)constantreturns(string){strings.slice[]memoryparts=newstrings.slice[](5);parts[0]='json('.toSlice();parts[1]=base.toSlice();parts[2]=')'.toSlice();parts[3]=jsonPath.toSlice();return''.toSlice().join(parts);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 131
+column: 4
+content: functionupdate(string_getData,uintkey)payable{api_url=generateUrl(api_url_input_base,_getData);bytes32requestId=oraclize_query('URL',api_url,500000);requests[requestId]=Request(true,false,key);newOraclizeQuery('Oraclize query for ',_getData,' was sent, standing by for the answer..');}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 222
+column: 4
+content: functionstringToUint(strings)constantreturns(uint){bytesmemoryb=bytes(s);uintresult=0;for(uinti=0;i<b.length;i++){if(b[i]>=48&&b[i]<=57){result=result*10+(uint(b[i])-48);}}returnresult;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 4
+content: uint256winPot;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 16
+column: 4
+content: uint256numUserBets;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 17
+column: 4
+content: uint256numWinners;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 30
+column: 4
+content: uint256rule_for_home;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 31
+column: 4
+content: uint256rule_for_away;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 32
+column: 4
+content: uint256rule_for_draw;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 4
+content: mapping(uint=>UserBet)userBets;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 4
+content: mapping(uint=>Winner)winners;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 39
+column: 4
+content: mapping(bytes32=>Request)requests;
+
+SOLIDITY_VISIBILITY :14
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :6
+SOLIDITY_UPGRADE_TO_050 :7
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2

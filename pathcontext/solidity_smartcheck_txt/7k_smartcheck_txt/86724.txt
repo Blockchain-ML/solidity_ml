@@ -1,0 +1,68 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\86724.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 97
+column: 3
+content: functioncurrentTime()publicconstantreturns(uint256){returnnow;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 104
+column: 3
+content: functioninitialize(FinalizableToken_token)externalonlyOwnerreturns(bool){require(address(token)==address(0));require(address(_token)!=address(0));require(address(_token)!=address(this));require(address(_token)!=address(walletAddress));require(isOwnerOrOps(address(_token))==false);token=_token;tokenConversionFactor=10**(uint256(18).sub(_token.decimals()).add(3).add(4));require(tokenConversionFactor>0);Initialized();returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 132
+column: 3
+content: functionsetWalletAddress(address_walletAddress)externalonlyOwnerreturns(bool){require(_walletAddress!=address(0));require(_walletAddress!=address(this));require(_walletAddress!=address(token));require(isOwnerOrOps(_walletAddress)==false);walletAddress=_walletAddress;WalletAddressUpdated(_walletAddress);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 148
+column: 3
+content: functionsetMaxTokensPerAccount(uint256_maxTokens)externalonlyOwnerreturns(bool){maxTokensPerAccount=_maxTokens;MaxTokensPerAccountUpdated(_maxTokens);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 160
+column: 3
+content: functionsetTokensPerKEther(uint256_tokensPerKEther)externalonlyOwnerreturns(bool){require(_tokensPerKEther>0);tokensPerKEther=_tokensPerKEther;TokensPerKEtherUpdated(_tokensPerKEther);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 174
+column: 3
+content: functionsetBonus(uint256_bonus)externalonlyOwnerreturns(bool){require(_bonus<=10000);bonus=_bonus;BonusUpdated(_bonus);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 188
+column: 3
+content: functionsetSaleWindow(uint256_startTime,uint256_endTime)externalonlyOwnerreturns(bool){require(_startTime>0);require(_endTime>_startTime);startTime=_startTime;endTime=_endTime;SaleWindowUpdated(_startTime,_endTime);returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 234
+column: 23
+content: public
+
+SOLIDITY_OVERPOWERED_ROLE :6
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :1

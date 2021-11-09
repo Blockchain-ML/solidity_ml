@@ -1,0 +1,83 @@
+F:\Blockchain\dataset_new_byID\74245.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 27
+column: 2
+content: functionselect(stringmemorytableName,stringmemorywhereClause,stringmemoryorderClause)internalviewreturns(bytes32o){bytesmemoryinput=abi.encodeWithSignature("select(string,string,string)",tableName,whereClause,orderClause);assembly{letsize:=mload(input)letx:=add(input,0x20)ifiszero(staticcall(not(0),0x102,x,size,o,0x20)){revert(0,0)}o:=mload(o)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 61
+column: 2
+content: functiongetBytes(bytesmemoryinput)privateviewreturns(bytesmemoryo){assembly{letsize:=mload(input)letx:=add(input,0x20)ifiszero(staticcall(not(0),0x102,x,size,o,0xffff)){revert(0,0)}letosize:=mload(o)mstore(0x40,add(mload(0x40),add(osize,0x20)))}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 76
+column: 2
+content: functiongetBool(bytesmemoryinput)privatereturns(boolo){assembly{letsize:=mload(input)letx:=add(input,0x20)ifiszero(call(not(0),0x102,0,x,size,o,0x20)){revert(0,0)}o:=mload(o)}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 27
+column: 2
+content: functionselect(stringmemorytableName,stringmemorywhereClause,stringmemoryorderClause)internalviewreturns(bytes32o){bytesmemoryinput=abi.encodeWithSignature("select(string,string,string)",tableName,whereClause,orderClause);assembly{letsize:=mload(input)letx:=add(input,0x20)ifiszero(staticcall(not(0),0x102,x,size,o,0x20)){revert(0,0)}o:=mload(o)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 61
+column: 2
+content: functiongetBytes(bytesmemoryinput)privateviewreturns(bytesmemoryo){assembly{letsize:=mload(input)letx:=add(input,0x20)ifiszero(staticcall(not(0),0x102,x,size,o,0xffff)){revert(0,0)}letosize:=mload(o)mstore(0x40,add(mload(0x40),add(osize,0x20)))}}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 54
+column: 52
+content: (bytesmemoryo,boolfound)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 10
+column: 4
+content: assembly{letsize:=mload(input)letx:=add(input,0x20)ifiszero(call(not(0),0x102,0,x,size,x,0x00)){revert(0,0)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 30
+column: 4
+content: assembly{letsize:=mload(input)letx:=add(input,0x20)ifiszero(staticcall(not(0),0x102,x,size,o,0x20)){revert(0,0)}o:=mload(o)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 62
+column: 4
+content: assembly{letsize:=mload(input)letx:=add(input,0x20)ifiszero(staticcall(not(0),0x102,x,size,o,0xffff)){revert(0,0)}letosize:=mload(o)mstore(0x40,add(mload(0x40),add(osize,0x20)))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 77
+column: 4
+content: assembly{letsize:=mload(input)letx:=add(input,0x20)ifiszero(call(not(0),0x102,0,x,size,o,0x20)){revert(0,0)}o:=mload(o)}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :3
+SOLIDITY_USING_INLINE_ASSEMBLY :4
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :2

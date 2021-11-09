@@ -1,0 +1,47 @@
+C:\Users\hp\DataSet\contracts\mainnet\7d\7dc12f1d5730271cb9617bacadc309ffc56ae3aa_EthereumPepe.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 5
+column: 0
+content: contractEthereumPepe{stringpublictokenName;stringpublictokenSymbol;uint256publictotalSupply;uint8publicdecimals=18;mapping(address=>uint256)publicbalances;mapping(address=>mapping(address=>uint256))publicallowed;eventTransfer(addressindexed_from,addressindexed_to,uint256_value);eventApproval(addressindexed_owner,addressindexed_spender,uint256_value);eventBurn(addressindexed_from,uint256_value);constructor()public{tokenName="The Emperor&#39;s Coin";tokenSymbol="WH40K";uint256initSupply=40000;totalSupply=initSupply*10**uint256(decimals);balances[msg.sender]=totalSupply;}function_transfer(address_from,address_to,uint256_value)internal{require(_to!=0x0);require(balances[_from]>=_value);require(balances[_to]+_value>=balances[_to]);uint256previousBalances=balances[_from]+balances[_to];balances[_from]-=_value;balances[_to]+=_value;emitTransfer(_from,_to,_value);assert(balances[_from]+balances[_to]==previousBalances);}functiontransfer(address_to,uint256_value)publicreturns(boolsuccess){_transfer(msg.sender,_to,_value);returntrue;}functiontransferFrom(address_from,address_to,uint256_value)publicreturns(boolsuccess){require(allowed[_from][msg.sender]>=_value);allowed[_from][msg.sender]-=_value;_transfer(_from,_to,_value);returntrue;}functionapprove(address_spender,uint256_value)publicreturns(boolsuccess){require(_value<=totalSupply);allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}functionburn(uint256_value)publicreturns(boolsuccess){require(balances[msg.sender]>=_value);balances[msg.sender]-=_value;totalSupply-=_value;emitBurn(msg.sender,_value);returntrue;}functionburnFrom(address_from,uint256_value)publicreturns(boolsuccess){require(balances[_from]>=_value);require(allowed[_from][msg.sender]>=_value);balances[_from]-=_value;allowed[_from][msg.sender]-=_value;totalSupply-=_value;emitBurn(_from,_value);returntrue;}functionname()publicviewreturns(stringtext){returntokenName;}functionsymbol()publicviewreturns(stringtext){returntokenSymbol;}functiondecimals()publicviewreturns(uint8value){returndecimals;}functiontotalSupply()publicviewreturns(uint256value){returntotalSupply;}functionbalanceOf(address_owner)publicviewreturns(uint256value){returnbalances[_owner];}functionallowance(address_owner,address_spender)publicviewreturns(uint256value){returnallowed[_owner][_spender];}function()publicpayable{revert();}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 126
+column: 31
+content: {revert();}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 126
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 95
+column: 41
+content: stringtext
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 100
+column: 43
+content: stringtext
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

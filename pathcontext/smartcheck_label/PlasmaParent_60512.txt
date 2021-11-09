@@ -1,0 +1,178 @@
+C:\Users\hp\DataSet\PlasmaParent.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 173
+column: 24
+content: 0xFFfFfFffFFfffFFfFFfFFFFFffFFFffffFfFFFfF
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 380
+column: 8
+content: for(uint256j=0;j<publishedTransaction.inputIndexes.length;j++){UTXOstorageutxo=publishedUTXOs[publishedTransaction.inputIndexes[j]];if(utxo.collateralHolder==msg.sender){totalToSend+=WithdrawCollateral;deleteutxo.collateralHolder;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 380
+column: 8
+content: for(uint256j=0;j<publishedTransaction.inputIndexes.length;j++){UTXOstorageutxo=publishedUTXOs[publishedTransaction.inputIndexes[j]];if(utxo.collateralHolder==msg.sender){totalToSend+=WithdrawCollateral;deleteutxo.collateralHolder;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 140
+column: 4
+content: functionsetOperator(address_op,uint256_status)publicreturns(boolsuccess){require(msg.sender==owner);returnblockStorage.setOperator(_op,_status);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 145
+column: 4
+content: functionsetDelegates(address_challenger,address_buyouts)publicreturns(boolsuccess){require(msg.sender==owner);require(_challenger!=address(0));require(_buyouts!=address(0));require(buyoutsContract==address(0));require(challengesContract==address(0));buyoutsContract=_buyouts;challengesContract=_challenger;returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 222
+column: 8
+content: if(size>0){revert();}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 180
+column: 32
+content: bytes_headers
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 446
+column: 8
+content: assembly{letmemoryPointer:=mload(0x40)calldatacopy(memoryPointer,0,calldatasize)letnewFreeMemoryPointer:=add(memoryPointer,calldatasize)mstore(0x40,newFreeMemoryPointer)letretVal:=delegatecall(sub(gas,10000),callee,memoryPointer,calldatasize,newFreeMemoryPointer,0x40)letretDataSize:=returndatasizereturndatacopy(newFreeMemoryPointer,0,retDataSize)switchretValcase0{revert(0,0)}default{return(newFreeMemoryPointer,retDataSize)}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 34
+column: 4
+content: uint256constantTxTypeNull=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 4
+content: uint256constantTxTypeSplit=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 36
+column: 4
+content: uint256constantTxTypeMerge=2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 4
+content: uint256constantTxTypeFund=4;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 41
+column: 4
+content: uint8constantDepositStatusNoRecord=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 42
+column: 4
+content: uint8constantDepositStatusDeposited=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 43
+column: 4
+content: uint8constantDepositStatusWithdrawStarted=2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 4
+content: uint8constantDepositStatusWithdrawCompleted=3;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 45
+column: 4
+content: uint8constantDepositStatusDepositConfirmed=4;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 87
+column: 4
+content: uint8constantUTXOstatusNull=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 88
+column: 4
+content: uint8constantUTXOstatusUnspent=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 4
+content: uint8constantUTXOstatusSpent=2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 105
+column: 4
+content: uint8constantPublishedTXstatusNull=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 106
+column: 4
+content: uint8constantPublishedTXstatusWaitingForInputChallenges=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 107
+column: 4
+content: uint8constantPublishedTXstatusWaitingForOutputChallenges=2;
+
+SOLIDITY_VISIBILITY :15
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1

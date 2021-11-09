@@ -1,0 +1,147 @@
+C:\Users\hp\DataSet\ETOTerms.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 204
+column: 4
+content: functioncalculateTokenAmount(uint256,uint256committedEurUlps)publicconstantreturns(uint256tokenAmount){returnmul(committedEurUlps,EQUITY_TOKEN_POWER)/FULL_TOKEN_PRICE_FRACTION;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 214
+column: 4
+content: functioncalculateEurUlpsAmount(uint256,uint256tokenAmount)publicconstantreturns(uint256committedEurUlps){returnproportion(tokenAmount,FULL_TOKEN_PRICE_FRACTION,EQUITY_TOKEN_POWER);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 225
+column: 4
+content: functioncalculatePriceFraction(uint256priceFrac)publicconstantreturns(uint256){if(priceFrac==1){returnTOKEN_PRICE_EUR_ULPS;}else{returndecimalFraction(priceFrac,TOKEN_PRICE_EUR_ULPS);}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 235
+column: 4
+content: functioncalculateTokenEurPrice(uint256amountEurUlps,uint256equityTokenAmount)publicconstantreturns(uint256){returnproportion(amountEurUlps,EQUITY_TOKEN_POWER,equityTokenAmount);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 240
+column: 4
+content: functionequityTokensToSharesFrac(uint256amount)publicconstantreturns(uint256){returnproportion(amount,10**18,EQUITY_TOKENS_PER_SHARE);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 264
+column: 4
+content: functionwhitelistTicket(addressinvestor)publicconstantreturns(boolisWhitelisted,uint256discountAmountEurUlps,uint256fullTokenPriceFrac){WhitelistTicketstoragewlTicket=_whitelist[investor];isWhitelisted=wlTicket.fullTokenPriceFrac>0;discountAmountEurUlps=wlTicket.discountAmountEurUlps;fullTokenPriceFrac=wlTicket.fullTokenPriceFrac;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 276
+column: 4
+content: functioncalculateContribution(addressinvestor,uint256totalContributedEurUlps,uint256existingInvestorContributionEurUlps,uint256newInvestorContributionEurUlps,boolapplyWhitelistDiscounts)publicconstantreturns(boolisWhitelisted,boolisEligible,uint256minTicketEurUlps,uint256maxTicketEurUlps,uint256equityTokenAmount,uint256fixedSlotEquityTokenAmount){(isWhitelisted,minTicketEurUlps,maxTicketEurUlps,equityTokenAmount,fixedSlotEquityTokenAmount)=calculateContributionPrivate(investor,totalContributedEurUlps,existingInvestorContributionEurUlps,newInvestorContributionEurUlps,applyWhitelistDiscounts);IdentityClaimsmemoryclaims=deserializeClaims(IDENTITY_REGISTRY.getClaims(investor));isEligible=claims.isVerified&&!claims.accountFrozen&&!claims.requiresRegDAccreditation;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 313
+column: 4
+content: functionrequireValidTerms()publicconstantreturns(bool){uint256minTokens=TOKEN_TERMS.MIN_NUMBER_OF_TOKENS();require(MAX_AVAILABLE_TOKENS>=minTokens,"NF_AVAILABLE_TOKEN_LT_MIN_TOKENS");require(MIN_TICKET_EUR_ULPS>=TOKEN_TERMS.TOKEN_PRICE_EUR_ULPS(),"NF_MIN_TICKET_LT_TOKEN_PRICE");uint256estimatedMaxCap=calculateEurUlpsAmount(0,MAX_AVAILABLE_TOKENS);require(estimatedMaxCap>=MIN_TICKET_EUR_ULPS,"NF_MAX_FUNDS_LT_MIN_TICKET");uint256constraintsMaxInvestment=ETO_TERMS_CONSTRAINTS.MAX_INVESTMENT_AMOUNT_EUR_ULPS();uint256estimatedMinCap=calculateEurUlpsAmount(0,minTokens);require(constraintsMaxInvestment==0||estimatedMinCap<=constraintsMaxInvestment,"NF_MIN_CAP_GT_PROD_MAX_CAP");require(MIN_TICKET_EUR_ULPS>=ETO_TERMS_CONSTRAINTS.MIN_TICKET_SIZE_EUR_ULPS(),"NF_ETO_TERMS_MIN_TICKET_EUR_ULPS");uint256constraintsMaxTicket=ETO_TERMS_CONSTRAINTS.MAX_TICKET_SIZE_EUR_ULPS();require(constraintsMaxTicket==0||(MAX_TICKET_EUR_ULPS<=constraintsMaxTicket),"NF_ETO_TERMS_MAX_TICKET_EUR_ULPS");require(!ENABLE_TRANSFERS_ON_SUCCESS||ETO_TERMS_CONSTRAINTS.CAN_SET_TRANSFERABILITY(),"NF_ETO_TERMS_ENABLE_TRANSFERS_ON_SUCCESS");require(DURATION_TERMS.WHITELIST_DURATION()>=ETO_TERMS_CONSTRAINTS.MIN_WHITELIST_DURATION(),"NF_ETO_TERMS_WL_D_MIN");require(DURATION_TERMS.WHITELIST_DURATION()<=ETO_TERMS_CONSTRAINTS.MAX_WHITELIST_DURATION(),"NF_ETO_TERMS_WL_D_MAX");require(DURATION_TERMS.PUBLIC_DURATION()>=ETO_TERMS_CONSTRAINTS.MIN_PUBLIC_DURATION(),"NF_ETO_TERMS_PUB_D_MIN");require(DURATION_TERMS.PUBLIC_DURATION()<=ETO_TERMS_CONSTRAINTS.MAX_PUBLIC_DURATION(),"NF_ETO_TERMS_PUB_D_MAX");uint256totalDuration=DURATION_TERMS.WHITELIST_DURATION()+DURATION_TERMS.PUBLIC_DURATION();require(totalDuration>=ETO_TERMS_CONSTRAINTS.MIN_OFFER_DURATION(),"NF_ETO_TERMS_TOT_O_MIN");require(totalDuration<=ETO_TERMS_CONSTRAINTS.MAX_OFFER_DURATION(),"NF_ETO_TERMS_TOT_O_MAX");require(DURATION_TERMS.SIGNING_DURATION()>=ETO_TERMS_CONSTRAINTS.MIN_SIGNING_DURATION(),"NF_ETO_TERMS_SIG_MIN");require(DURATION_TERMS.SIGNING_DURATION()<=ETO_TERMS_CONSTRAINTS.MAX_SIGNING_DURATION(),"NF_ETO_TERMS_SIG_MAX");require(DURATION_TERMS.CLAIM_DURATION()>=ETO_TERMS_CONSTRAINTS.MIN_CLAIM_DURATION(),"NF_ETO_TERMS_CLAIM_MIN");require(DURATION_TERMS.CLAIM_DURATION()<=ETO_TERMS_CONSTRAINTS.MAX_CLAIM_DURATION(),"NF_ETO_TERMS_CLAIM_MAX");returntrue;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 374
+column: 4
+content: functioncalculateContributionPrivate(addressinvestor,uint256totalContributedEurUlps,uint256existingInvestorContributionEurUlps,uint256newInvestorContributionEurUlps,boolapplyWhitelistDiscounts)privateconstantreturns(boolisWhitelisted,uint256minTicketEurUlps,uint256maxTicketEurUlps,uint256equityTokenAmount,uint256fixedSlotEquityTokenAmount){uint256discountedAmount;minTicketEurUlps=MIN_TICKET_EUR_ULPS;maxTicketEurUlps=MAX_TICKET_EUR_ULPS;WhitelistTicketstoragewlTicket=_whitelist[investor];isWhitelisted=wlTicket.fullTokenPriceFrac>0;if(applyWhitelistDiscounts){maxTicketEurUlps=max(wlTicket.discountAmountEurUlps,maxTicketEurUlps);if(wlTicket.discountAmountEurUlps>0){minTicketEurUlps=min(wlTicket.discountAmountEurUlps,minTicketEurUlps);}if(existingInvestorContributionEurUlps<wlTicket.discountAmountEurUlps){discountedAmount=min(newInvestorContributionEurUlps,wlTicket.discountAmountEurUlps-existingInvestorContributionEurUlps);if(discountedAmount>0){uint256fixedSlotPrice=calculatePriceFraction(wlTicket.fullTokenPriceFrac);fixedSlotEquityTokenAmount=mul(discountedAmount,EQUITY_TOKEN_POWER)/fixedSlotPrice;}}}uint256remainingAmount=newInvestorContributionEurUlps-discountedAmount;if(remainingAmount>0){if(applyWhitelistDiscounts&&WHITELIST_DISCOUNT_FRAC>0){equityTokenAmount=mul(remainingAmount,EQUITY_TOKEN_POWER)/calculatePriceFraction(10**18-WHITELIST_DISCOUNT_FRAC);}else{equityTokenAmount=calculateTokenAmount(totalContributedEurUlps+discountedAmount,remainingAmount);}}equityTokenAmount+=fixedSlotEquityTokenAmount;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 455
+column: 4
+content: functioncalculateAvailableTokens(uint256amountWithFee)privateconstantreturns(uint256){returnPlatformTerms(UNIVERSE.platformTerms()).calculateAmountWithoutFee(amountWithFee);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 259
+column: 8
+content: for(uint256i=0;i<investors.length;i+=1){addWhitelistInvestorPrivate(investors[i],discountAmountsEurUlps[i],discountsFrac[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 259
+column: 8
+content: for(uint256i=0;i<investors.length;i+=1){addWhitelistInvestorPrivate(investors[i],discountAmountsEurUlps[i],discountsFrac[i]);}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 55
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 107
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 109
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 111
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 119
+column: 41
+content: private
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 383
+column: 16
+content: (boolisWhitelisted,uint256minTicketEurUlps,uint256maxTicketEurUlps,uint256equityTokenAmount,uint256fixedSlotEquityTokenAmount)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 140
+column: 8
+content: stringshareCapitalCurrencyCode
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 145
+column: 8
+content: stringinvestorOfferingDocumentUrl
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :10
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :5
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

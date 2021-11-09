@@ -1,0 +1,62 @@
+C:\Users\hp\DataSet\contracts\ropsten\c7\c765ea0c581f4dff9f77927c231d3d408ec33053_ERC721_token.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 50
+column: 2
+content: functionapprove(address_approved,uint256_tokenId)externalpayable{eggApprovals[_tokenId]=_approved;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractERC721_interface{eventTransfer(addressindexed_to,uint256indexed_tokenId);eventNewEgg(uinteggId,stringname,uintdna);functionbalanceOf(address_owner)externalviewreturns(uint256);functionownerOf(uint256_tokenId)externalviewreturns(address);functiontransfer(address_to,uint256_tokenId)externalpayable;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 17
+column: 0
+content: contractERC721_tokenisERC721_interface,Owned{stringpublicname;stringpublicsymbol;uint8publicdecimals=0;uintid=0;mapping(address=>uint)eggBalances;mapping(uint=>address)publiceggToOwner;mapping(uint=>address)eggApprovals;functioncreate(string_name)public{id++;bytes32_dna=keccak256(abi.encodePacked(_name));uintdna=uint(_dna)%1000000;eggToOwner[id]=msg.sender;eggBalances[msg.sender]++;emitNewEgg(id,_name,dna);}functionbalanceOf(address_owner)externalviewreturns(uint256){returneggBalances[_owner];}functionownerOf(uint256_tokenId)externalviewreturns(address){returneggToOwner[_tokenId];}functionapprove(address_approved,uint256_tokenId)externalpayable{eggApprovals[_tokenId]=_approved;}functiontransfer(address_to,uint256_tokenId)externalpayable{require(eggToOwner[_tokenId]==msg.sender||eggApprovals[_tokenId]==msg.sender);_transfer(_to,_tokenId);}function_transfer(address_to,uint256_tokenId)private{eggBalances[_to]++;eggBalances[msg.sender]--;eggToOwner[_tokenId]=_to;emitTransfer(_to,_tokenId);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 29
+column: 18
+content: string_name
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 21
+column: 4
+content: uintid=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 23
+column: 4
+content: mapping(address=>uint)eggBalances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 25
+column: 4
+content: mapping(uint=>address)eggApprovals;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_ERC20_APPROVE :1

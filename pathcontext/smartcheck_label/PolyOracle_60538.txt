@@ -1,0 +1,134 @@
+C:\Users\hp\DataSet\PolyOracle.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 249
+column: 15
+content: 0x9992eC3cF6A55b00978cdDF2b27BC6882d88D1eC
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 95
+column: 12
+content: for(uint256i=0;i<_times.length;i++){require(_times[i]>=now,"Past scheduling is not allowed and scheduled time should be absolute timestamp");requestId=oraclize_query(_times[i],oracleQueryType,oracleURL,gasLimit);requestIds[requestId]=_times[i];if(maximumScheduledUpdated<requestIds[requestId]){maximumScheduledUpdated=requestIds[requestId];}emitNewOraclizeQuery(_times[i],requestId,oracleURL);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 221
+column: 8
+content: for(uint256i=0;i<_requestIds.length;i++){ignoreRequestIds[_requestIds[i]]=_ignore[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 95
+column: 12
+content: for(uint256i=0;i<_times.length;i++){require(_times[i]>=now,"Past scheduling is not allowed and scheduled time should be absolute timestamp");requestId=oraclize_query(_times[i],oracleQueryType,oracleURL,gasLimit);requestIds[requestId]=_times[i];if(maximumScheduledUpdated<requestIds[requestId]){maximumScheduledUpdated=requestIds[requestId];}emitNewOraclizeQuery(_times[i],requestId,oracleURL);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 221
+column: 8
+content: for(uint256i=0;i<_requestIds.length;i++){ignoreRequestIds[_requestIds[i]]=_ignore[i];}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 139
+column: 4
+content: functionsetPOLYUSD(uint256_price)publiconlyOwner{emitPriceUpdated(_price,POLYUSD,0,now);POLYUSD=_price;latestUpdate=now;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 151
+column: 4
+content: functionsetFreezeOracle(bool_frozen)publiconlyOwner{freezeOracle=_frozen;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 159
+column: 4
+content: functionsetOracleURL(stringmemory_oracleURL)publiconlyOwner{oracleURL=_oracleURL;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 167
+column: 4
+content: functionsetOracleQueryType(stringmemory_oracleQueryType)publiconlyOwner{oracleQueryType=_oracleQueryType;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 175
+column: 4
+content: functionsetSanityBounds(uint256_sanityBounds)publiconlyOwner{sanityBounds=_sanityBounds;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 184
+column: 4
+content: functionsetGasPrice(uint256_gasPrice)publiconlyOwner{oraclize_setCustomGasPrice(_gasPrice);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 210
+column: 4
+content: functionsetStaleTime(uint256_staleTime)publiconlyOwner{staleTime=_staleTime;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 219
+column: 4
+content: functionsetIgnoreRequestIds(bytes32[]memory_requestIds,bool[]memory_ignore)publiconlyOwner{require(_requestIds.length==_ignore.length,"Incorrect parameter lengths");for(uint256i=0;i<_requestIds.length;i++){ignoreRequestIds[_requestIds[i]]=_ignore[i];}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 231
+column: 4
+content: functionsetAdmin(address_admin,bool_valid)publiconlyOwner{admin[_admin]=_valid;emitAdminSet(_admin,_valid);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 241
+column: 4
+content: functionsetOraclizeTimeTolerance(uint256_oraclizeTimeTolerance)publiconlyOwner{oraclizeTimeTolerance=_oraclizeTimeTolerance;}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 20
+column: 12
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 9
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 193
+column: 50
+content: (uint256,uint256)
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :10
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_SHOULD_RETURN_STRUCT :1

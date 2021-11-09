@@ -1,0 +1,75 @@
+C:\Users\hp\DataSet\ShifterRegistry.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 42
+column: 57
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 44
+column: 49
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 67
+column: 42
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 87
+column: 40
+content: 0x0
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 39
+column: 4
+content: functionsetShifter(address_tokenAddress,address_shifterAddress)externalonlyOwner{require(!LinkedList.isInList(shifterList,_shifterAddress),"ShifterRegistry: shifter already registered");require(shifterByToken[_tokenAddress]==address(0x0),"ShifterRegistry: token already registered");stringmemorysymbol=ERC20Shifted(_tokenAddress).symbol();require(tokenBySymbol[symbol]==address(0x0),"ShifterRegistry: symbol already registered");LinkedList.append(shifterList,_shifterAddress);LinkedList.append(shiftedTokenList,_tokenAddress);tokenBySymbol[symbol]=_tokenAddress;shifterByToken[_tokenAddress]=_shifterAddress;numShifters+=1;emitLogShifterRegistered(symbol,symbol,_tokenAddress,_shifterAddress);}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 23
+column: 20
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 26
+column: 20
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 29
+column: 31
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 32
+column: 30
+content: private
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 20
+column: 4
+content: uint256numShifters=0;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :4
+SOLIDITY_ADDRESS_HARDCODED :4

@@ -1,0 +1,64 @@
+C:\Users\hp\DataSet\contracts\mainnet\63\63899b021a4b436f3c81a7b7191985f576fcd6bb_CompressedCaller.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 25
+column: 44
+content: 0x7F
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 27
+column: 26
+content: 0x80
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 23
+column: 8
+content: for(uinti=0;i<zip.length;i++){uintlen=uint(uint8(zip[i])&0x7F);if((zip[i]&0x80)==0){memcpy(data,index,zip,i,len);i+=len;}else{memcpy(data,index,zeros,0,len);}index+=len;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 23
+column: 8
+content: for(uinti=0;i<zip.length;i++){uintlen=uint(uint8(zip[i])&0x7F);if((zip[i]&0x80)==0){memcpy(data,index,zip,i,len);i+=len;}else{memcpy(data,index,zeros,0,len);}index+=len;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 44
+column: 4
+content: functionmemcpy(bytesmemorydestMem,uintdest,bytesmemorysrcMem,uintsrc,uintlen)privatepure{assembly{dest:=add(add(destMem,32),dest)src:=add(add(srcMem,32),src)for{}not(lt(len,32)){len:=sub(len,32)}{mstore(dest,mload(src))dest:=add(dest,32)src:=add(src,32)}letmask:=sub(shl(1,mul(8,sub(32,len))),1)letsrcpart:=and(mload(src),not(mask))letdestpart:=and(mload(dest),mask)mstore(dest,or(destpart,srcpart))}}
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 40
+column: 35
+content: call.value(msg.value)(data)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 54
+column: 8
+content: assembly{dest:=add(add(destMem,32),dest)src:=add(add(srcMem,32),src)for{}not(lt(len,32)){len:=sub(len,32)}{mstore(dest,mload(src))dest:=add(dest,32)src:=add(src,32)}letmask:=sub(shl(1,mul(8,sub(32,len))),1)letsrcpart:=and(mload(src),not(mask))letdestpart:=and(mload(dest),mask)mstore(dest,or(destpart,srcpart))}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

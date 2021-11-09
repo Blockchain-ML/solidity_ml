@@ -1,0 +1,67 @@
+C:\Users\hp\DataSet\contracts\ropsten\d2\d22818d7717c1c52a5d98cf348ca99f39c50c4f1_Trustery.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 30
+column: 22
+content: attributes.length++
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 42
+column: 22
+content: signatures.length++
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 52
+column: 27
+content: revocations.length++
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 31
+column: 8
+content: Attributeattribute=attributes[attributeID]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 43
+column: 8
+content: Signaturesignature=signatures[signatureID]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 53
+column: 12
+content: Revocationrevocation=revocations[revocationID]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 29
+column: 4
+content: functionaddAttribute(stringattributeType,boolhas_proof,bytes32identifier,stringdata,stringdatahash)returns(uintattributeID){attributeID=attributes.length++;Attributeattribute=attributes[attributeID];attribute.owner=msg.sender;attribute.attributeType=attributeType;attribute.has_proof=has_proof;attribute.identifier=identifier;attribute.data=data;attribute.datahash=datahash;AttributeAdded(attributeID,msg.sender,attributeType,has_proof,identifier,data,datahash);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 41
+column: 4
+content: functionsignAttribute(uintattributeID,uintexpiry)returns(uintsignatureID){signatureID=signatures.length++;Signaturesignature=signatures[signatureID];signature.signer=msg.sender;signature.attributeID=attributeID;signature.expiry=expiry;AttributeSigned(signatureID,msg.sender,attributeID,expiry);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 50
+column: 4
+content: functionrevokeSignature(uintsignatureID)returns(uintrevocationID){if(signatures[signatureID].signer==msg.sender){revocationID=revocations.length++;Revocationrevocation=revocations[revocationID];revocation.signatureID=signatureID;SignatureRevoked(revocationID,signatureID);}}
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :3
+SOLIDITY_UPGRADE_TO_050 :3

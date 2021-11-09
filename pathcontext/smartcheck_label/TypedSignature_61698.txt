@@ -1,0 +1,68 @@
+C:\Users\hp\DataSet\TypedSignature.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 35
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 36
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 37
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 38
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 41
+column: 19
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 44
+column: 19
+content: private
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 53
+column: 4
+content: functionrecover(bytes32hash,bytessignatureWithType)internalpurereturns(address){require(signatureWithType.length==66,"SignatureValidator#validateSignature: invalid signature length");uint8sigType=uint8(signatureWithType[0]);require(sigType>uint8(SIGTYPE_INVALID),"SignatureValidator#validateSignature: invalid signature type");require(sigType<uint8(SIGTYPE_UNSUPPORTED),"SignatureValidator#validateSignature: unsupported signature type");uint8v=uint8(signatureWithType[1]);bytes32r;bytes32s;assembly{r:=mload(add(signatureWithType,34))s:=mload(add(signatureWithType,66))}bytes32signedHash;if(sigType==SIGTYPE_ECRECOVER_DEC){signedHash=keccak256(abi.encodePacked(PREPEND_DEC,hash));}else{assert(sigType==SIGTYPE_ECRECOVER_HEX);signedHash=keccak256(abi.encodePacked(PREPEND_HEX,hash));}returnecrecover(signedHash,v,r,s);}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 55
+column: 8
+content: bytessignatureWithType
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 82
+column: 8
+content: assembly{r:=mload(add(signatureWithType,34))s:=mload(add(signatureWithType,66))}
+
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :6
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

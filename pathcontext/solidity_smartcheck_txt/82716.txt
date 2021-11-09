@@ -1,0 +1,95 @@
+F:\Blockchain\dataset_new_byID\82716.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 6
+column: 4
+content: functionaddressToBytes(uint_offst,address_input,bytesmemory_output)internalpure{assembly{mstore(add(_output,_offst),_input)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 13
+column: 4
+content: functionbytes32ToBytes(uint_offst,bytes32_input,bytesmemory_output)internalpure{assembly{mstore(add(_output,_offst),_input)mstore(add(add(_output,_offst),32),add(_input,32))}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 21
+column: 4
+content: functionboolToBytes(uint_offst,bool_input,bytesmemory_output)internalpure{uint8x=_input==false?0:1;assembly{mstore(add(_output,_offst),x)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 28
+column: 4
+content: functionstringToBytes(uint_offst,bytesmemory_input,bytesmemory_output)internalpure{uint256stack_size=_input.length/32;if(_input.length%32>0)stack_size++;assembly{stack_size:=add(stack_size,1)for{letindex:=0}lt(index,stack_size){index:=add(index,1)}{mstore(add(_output,_offst),mload(add(_input,mul(index,32))))_offst:=sub(_offst,32)}}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 42
+column: 4
+content: functionintToBytes(uint_offst,int_input,bytesmemory_output)internalpure{assembly{mstore(add(_output,_offst),_input)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 49
+column: 4
+content: functionuintToBytes(uint_offst,uint_input,bytesmemory_output)internalpure{assembly{mstore(add(_output,_offst),_input)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 8
+column: 8
+content: assembly{mstore(add(_output,_offst),_input)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 15
+column: 8
+content: assembly{mstore(add(_output,_offst),_input)mstore(add(add(_output,_offst),32),add(_input,32))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 23
+column: 8
+content: assembly{mstore(add(_output,_offst),x)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 32
+column: 8
+content: assembly{stack_size:=add(stack_size,1)for{letindex:=0}lt(index,stack_size){index:=add(index,1)}{mstore(add(_output,_offst),mload(add(_input,mul(index,32))))_offst:=sub(_offst,32)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 44
+column: 8
+content: assembly{mstore(add(_output,_offst),_input)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 51
+column: 8
+content: assembly{mstore(add(_output,_offst),_input)}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_USING_INLINE_ASSEMBLY :6
+SOLIDITY_SHOULD_NOT_BE_PURE :6

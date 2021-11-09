@@ -1,0 +1,68 @@
+C:\Users\hp\DataSet\contracts\ropsten\c3\c3def20909611196d94836c2d4f7af8b72e01ec7_Bidding.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractBidding{addresspublicbidder;uintpubliccurrent_bid_val;uintpubliclast_bid_val=0;addresspubliclast_bidder;addresspublicadmin;boolpublicactive_bid;mapping(address=>uint)publicbalance;constructor(){admin=tx.origin;}functionplaceBid(uintamount)publicpayable{last_bidder=bidder;current_bid_val=amount;if(current_bid_val>last_bid_val){bidder=msg.sender;balance[admin]+=amount;balance[msg.sender]-=amount;return;}else{bidder=last_bidder;return;}}functiontakeBackMoney()public{if(msg.sender==last_bidder){balance[msg.sender]+=last_bid_val;balance[admin]-=last_bid_val;return;}elsereturn;}functionshowAdmin()returns(address){returnadmin;}functionshowBidder()returns(address){returnbidder;}functionshowLastBidder()returns(address){returnlast_bidder;}functionshowCurrentBidValue()returns(uint){returncurrent_bid_val;}functionshowLastBidValue()returns(uint){returnlast_bid_val;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 15
+column: 10
+content: tx.origin
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 13
+column: 1
+content: constructor(){admin=tx.origin;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 48
+column: 1
+content: functionshowAdmin()returns(address){returnadmin;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 52
+column: 1
+content: functionshowBidder()returns(address){returnbidder;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 56
+column: 1
+content: functionshowLastBidder()returns(address){returnlast_bidder;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 60
+column: 1
+content: functionshowCurrentBidValue()returns(uint){returncurrent_bid_val;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 64
+column: 1
+content: functionshowLastBidValue()returns(uint){returnlast_bid_val;}
+
+SOLIDITY_VISIBILITY :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_TX_ORIGIN :1

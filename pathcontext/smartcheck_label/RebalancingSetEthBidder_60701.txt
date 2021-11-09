@@ -1,0 +1,39 @@
+C:\Users\hp\DataSet\RebalancingSetEthBidder.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 191
+column: 8
+content: for(uint256i=0;i<_combinedTokenArray.length;i++){addresscurrentComponent=_combinedTokenArray[i];uint256currentComponentQuantity=_inflowArray[i];if(currentComponentQuantity>0){ERC20Wrapper.ensureAllowance(address(currentComponent),address(this),address(transferProxy),currentComponentQuantity);if(currentComponent!=address(weth)){ERC20Wrapper.transferFrom(address(currentComponent),msg.sender,address(this),currentComponentQuantity);}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 231
+column: 8
+content: for(uint256i=0;i<_combinedTokenArray.length;i++){addresscurrentComponent=_combinedTokenArray[i];uint256currentComponentBalance=ERC20Wrapper.balanceOf(currentComponent,address(this));if(currentComponentBalance>0&&currentComponent!=address(weth)){ERC20Wrapper.transfer(address(currentComponent),msg.sender,currentComponentBalance);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 191
+column: 8
+content: for(uint256i=0;i<_combinedTokenArray.length;i++){addresscurrentComponent=_combinedTokenArray[i];uint256currentComponentQuantity=_inflowArray[i];if(currentComponentQuantity>0){ERC20Wrapper.ensureAllowance(address(currentComponent),address(this),address(transferProxy),currentComponentQuantity);if(currentComponent!=address(weth)){ERC20Wrapper.transferFrom(address(currentComponent),msg.sender,address(this),currentComponentQuantity);}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 231
+column: 8
+content: for(uint256i=0;i<_combinedTokenArray.length;i++){addresscurrentComponent=_combinedTokenArray[i];uint256currentComponentBalance=ERC20Wrapper.balanceOf(currentComponent,address(this));if(currentComponentBalance>0&&currentComponent!=address(weth)){ERC20Wrapper.transfer(address(currentComponent),msg.sender,currentComponentBalance);}}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 41
+column: 4
+content: usingSafeMathforuint256;
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2

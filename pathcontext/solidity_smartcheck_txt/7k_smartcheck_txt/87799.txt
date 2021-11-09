@@ -1,0 +1,123 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\87799.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 48
+column: 4
+content: functionbuildUrl(addresstarget,uintstartBlock,uintendBlock)internalconstantreturns(string){strings.slicememorystrAddress=toHex(target).toSlice();uint8i=0;varparts=newstrings.slice[](9);parts[i++]="json(https://api.etherscan.io/api?module=account&action=txlist&address=0x".toSlice();parts[i++]=strAddress;parts[i++]="&startblock=".toSlice();parts[i++]=uint2str(startBlock).toSlice();parts[i++]="&endblock=".toSlice();parts[i++]=uint2str(endBlock).toSlice();parts[i++]="&sort=desc&apikey=FJ39P2DIU8IX8U9N2735SUKQWG3HPPGPX8).result[?(@.from=='0x".toSlice();parts[i++]=strAddress;parts[i++]="')].timeStamp".toSlice();return"".toSlice().join(parts);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 67
+column: 4
+content: functionparseJsonArrayAndGetFirstElementAsNumber(stringjson)internalconstantreturns(uint){varjsonSlice=json.toSlice();strings.slicememoryfirstResult;jsonSlice.split(", ".toSlice(),firstResult);varts=firstResult.beyond("[\"".toSlice()).toString();returnparseInt(ts);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 75
+column: 4
+content: functiontoHex(addressadr)internalconstantreturns(string){varss=newbytes(40);for(uinti=0;i<40;i++){uintc;assembly{c:=and(adr,0xf)adr:=div(adr,0x10)c:=add(add(c,0x30),mul(0x27,gt(c,9)))}ss[39-i]=byte(c);}returnstring(ss);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 8
+column: 0
+content: contractLastWillOraclizeProxyisusingOraclize,LastWillOraclizeProxyI{usingstringsfor*;mapping(bytes32=>function(bool)external)privatevalidIds;eventPrice(uint);functiongetPrice()returns(uint){returnoraclize_getPrice("URL");}functionquery(addresstarget,uintstartBlock,uintendBlock,function(bool)externalcallback)publicpayablereturns(bool){stringmemoryurl=buildUrl(target,startBlock,endBlock);bytes32queryId=oraclize_query("URL",url);if(queryId==0){returnfalse;}validIds[queryId]=callback;returntrue;}function__callback(bytes32queryId,stringresult,bytes){if(msg.sender!=oraclize_cbAddress())revert();function(boolwasTransactions)externalcallback=validIds[queryId];deletevalidIds[queryId];callback(bytes(result).length!=0);}functionbuildUrl(addresstarget,uintstartBlock,uintendBlock)internalconstantreturns(string){strings.slicememorystrAddress=toHex(target).toSlice();uint8i=0;varparts=newstrings.slice[](9);parts[i++]="json(https://api.etherscan.io/api?module=account&action=txlist&address=0x".toSlice();parts[i++]=strAddress;parts[i++]="&startblock=".toSlice();parts[i++]=uint2str(startBlock).toSlice();parts[i++]="&endblock=".toSlice();parts[i++]=uint2str(endBlock).toSlice();parts[i++]="&sort=desc&apikey=FJ39P2DIU8IX8U9N2735SUKQWG3HPPGPX8).result[?(@.from=='0x".toSlice();parts[i++]=strAddress;parts[i++]="')].timeStamp".toSlice();return"".toSlice().join(parts);}functionparseJsonArrayAndGetFirstElementAsNumber(stringjson)internalconstantreturns(uint){varjsonSlice=json.toSlice();strings.slicememoryfirstResult;jsonSlice.split(", ".toSlice(),firstResult);varts=firstResult.beyond("[\"".toSlice()).toString();returnparseInt(ts);}functiontoHex(addressadr)internalconstantreturns(string){varss=newbytes(40);for(uinti=0;i<40;i++){uintc;assembly{c:=and(adr,0xf)adr:=div(adr,0x10)c:=add(add(c,0x30),mul(0x27,gt(c,9)))}ss[39-i]=byte(c);}returnstring(ss);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 12
+column: 49
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 38
+column: 8
+content: if(msg.sender!=oraclize_cbAddress())revert();
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 42
+column: 8
+content: callback(bytes(result).length!=0)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 48
+column: 97
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 67
+column: 54
+content: stringjson
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 75
+column: 59
+content: string
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 79
+column: 12
+content: assembly{c:=and(adr,0xf)adr:=div(adr,0x10)c:=add(add(c,0x30),mul(0x27,gt(c,9)))}
+
+ruleId: SOLIDITY_VAR
+patternId: d28aa7
+severity: 2
+line: 51
+column: 8
+content: varparts=newstrings.slice[](9)
+
+ruleId: SOLIDITY_VAR
+patternId: d28aa7
+severity: 2
+line: 76
+column: 8
+content: varss=newbytes(40)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 17
+column: 4
+content: functiongetPrice()returns(uint){returnoraclize_getPrice("URL");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 37
+column: 4
+content: function__callback(bytes32queryId,stringresult,bytes){if(msg.sender!=oraclize_cbAddress())revert();function(boolwasTransactions)externalcallback=validIds[queryId];deletevalidIds[queryId];callback(bytes(result).length!=0);}
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_VAR :2
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_UNCHECKED_CALL :1

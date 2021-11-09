@@ -1,0 +1,169 @@
+F:\Blockchain\dataset_new_byID\76774.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 73
+column: 8
+content: for(uint256i=0;i<payees.length;i++){_addPayee(payees[i],shares[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 73
+column: 8
+content: for(uint256i=0;i<payees.length;i++){_addPayee(payees[i],shares[i]);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 54
+column: 0
+content: contractPaymentSplitter{usingSafeMathforuint256;eventPayeeAdded(addressaccount,uint256shares);eventPaymentReleased(addressto,uint256amount);eventPaymentReceived(addressfrom,uint256amount);uint256private_totalShares;uint256private_totalReleased;mapping(address=>uint256)private_shares;mapping(address=>uint256)private_released;address[]private_payees;constructor(address[]memorypayees,uint256[]memoryshares)publicpayable{require(payees.length==shares.length);require(payees.length>0);for(uint256i=0;i<payees.length;i++){_addPayee(payees[i],shares[i]);}}function()externalpayable{emitPaymentReceived(msg.sender,msg.value);}functiontotalShares()publicviewreturns(uint256){return_totalShares;}functiontotalReleased()publicviewreturns(uint256){return_totalReleased;}functionshares(addressaccount)publicviewreturns(uint256){return_shares[account];}functionreleased(addressaccount)publicviewreturns(uint256){return_released[account];}functionpayee(uint256index)publicviewreturns(address){return_payees[index];}functionrelease(addresspayableaccount)public{require(_shares[account]>0);<missing ';'>uint256totalReceived=address(this).balance.add(_totalReleased);uint256payment=totalReceived.mul(_shares[account]).div(_totalShares).sub(_released[account]);require(payment!=0);_released[account]=_released[account].add(payment);_totalReleased=_totalReleased.add(payment);account.transfer(payment);emitPaymentReleased(account,payment);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 61
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 62
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 64
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 65
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 66
+column: 14
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 55
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 109
+column: 4
+content: functionrelease(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 110
+column: 15
+content: (_shares[account]>0);<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 112
+column: 8
+content: uint256totalReceived=address(this).balance.add(_totalReleased);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 113
+column: 8
+content: uint256payment=totalReceived.mul(_shares[account]).div(_totalShares).sub(_released[account]);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 115
+column: 8
+content: require(payment!=0);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 117
+column: 8
+content: _released[account]=_released[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 117
+column: 39
+content: account].
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 117
+column: 48
+content: add(payment);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 118
+column: 8
+content: _totalReleased=_totalReleased.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 118
+column: 40
+content: add(payment);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 120
+column: 8
+content: account.transfer(payment);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 121
+column: 8
+content: emitPaymentReleased
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 121
+column: 28
+content: (account,payment);
+
+SOLIDITY_VISIBILITY :13
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :5
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

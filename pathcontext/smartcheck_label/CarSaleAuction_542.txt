@@ -1,0 +1,106 @@
+C:\Users\hp\DataSet\CarSaleAuction.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 107
+column: 16
+content: tokenIds.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 131
+column: 20
+content: tokenIds.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 147
+column: 16
+content: tokenIds.length--
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 94
+column: 8
+content: for(uinti=0;i<tokenIds.length;i++){if(limiter>_carLimitation)break;uint256tokenId=tokenIds[i];Auctionstorageauction=tokenIdToAuction[tokenId];if(auction.startedAt>0&&now>auction.startedAt+auction.duration){if(auction.seller==_seller){_cancelAuction(tokenId,_seller);}tokenIds[i]=tokenIds[tokenIds.length-1];tokenIds.length--;i--;}limiter++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 120
+column: 8
+content: for(uinti=0;i<tokenIds.length;i++){uint256tokenId=tokenIds[i];if(tokenId==_tokenId){Auctionstorageauction=tokenIdToAuction[tokenId];if(auction.startedAt>0&&now>auction.startedAt+auction.duration){if(auction.seller==_seller){_cancelAuction(tokenId,_seller);}tokenIds[i]=tokenIds[tokenIds.length-1];tokenIds.length--;break;}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 143
+column: 8
+content: for(uinti=0;i<tokenIds.length;i++){if(tokenIds[i]==_tokenId){tokenIds[i]=tokenIds[tokenIds.length-1];tokenIds.length--;break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 94
+column: 8
+content: for(uinti=0;i<tokenIds.length;i++){if(limiter>_carLimitation)break;uint256tokenId=tokenIds[i];Auctionstorageauction=tokenIdToAuction[tokenId];if(auction.startedAt>0&&now>auction.startedAt+auction.duration){if(auction.seller==_seller){_cancelAuction(tokenId,_seller);}tokenIds[i]=tokenIds[tokenIds.length-1];tokenIds.length--;i--;}limiter++;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 120
+column: 8
+content: for(uinti=0;i<tokenIds.length;i++){uint256tokenId=tokenIds[i];if(tokenId==_tokenId){Auctionstorageauction=tokenIdToAuction[tokenId];if(auction.startedAt>0&&now>auction.startedAt+auction.duration){if(auction.seller==_seller){_cancelAuction(tokenId,_seller);}tokenIds[i]=tokenIds[tokenIds.length-1];tokenIds.length--;break;}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 143
+column: 8
+content: for(uinti=0;i<tokenIds.length;i++){if(tokenIds[i]==_tokenId){tokenIds[i]=tokenIds[tokenIds.length-1];tokenIds.length--;break;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractCarSaleAuctionisICarSaleAuction,CommonAuction{functionisCarSaleAuction()publicreturns(bool){returntrue;}IRacersCarprivatecarContract;mapping(address=>uint256[])sellerToTokenIds;modifieronlyOtherGameContracts(){require(msg.sender==address(carContract),"Not Game Contract");_;}functioninit(address_carContract,uint256_treasurerCommission)isInitializer("CarSaleAuction","1.0.0")public{CommonAuction.initialize(_carContract,_treasurerCommission);carContract=IRacersCar(_carContract);}functioncreateAuction(uint256_tokenId,uint256_startingPrice,uint256_endingPrice,uint256_duration,address_seller)externalonlyOtherGameContracts{require(_startingPrice==uint256(uint128(_startingPrice)),"Incorrect change to dimension");require(_endingPrice==uint256(uint128(_endingPrice)),"Incorrect change to dimension");require(_duration==uint256(uint64(_duration)),"Incorrect change to dimension");_escrow(_seller,_tokenId);Auctionmemoryauction=Auction(_seller,uint128(_startingPrice),uint128(_endingPrice),uint64(_duration),uint64(now));_addAuction(_tokenId,auction);sellerToTokenIds[_seller].push(_tokenId);}functionbid(uint256_tokenId)externalpayable{addressseller=tokenIdToAuction[_tokenId].seller;uint256price=_bid(_tokenId,msg.value);_transfer(msg.sender,_tokenId);uintrarity;(,rarity,)=carContract.getCar(_tokenId);deleteSellerToTokenId(seller,_tokenId);}functioncancelAuction(uint256_tokenId)external{Auctionstorageauction=tokenIdToAuction[_tokenId];require(_isOnAuction(auction));addressseller=auction.seller;require(msg.sender==seller);_cancelAuction(_tokenId,seller);deleteSellerToTokenId(seller,_tokenId);}functionclearAll(address_seller,uint_carLimitation)externalonlyOtherGameContracts{uint256[]storagetokenIds=sellerToTokenIds[_seller];uint256limiter;for(uinti=0;i<tokenIds.length;i++){if(limiter>_carLimitation)break;uint256tokenId=tokenIds[i];Auctionstorageauction=tokenIdToAuction[tokenId];if(auction.startedAt>0&&now>auction.startedAt+auction.duration){if(auction.seller==_seller){_cancelAuction(tokenId,_seller);}tokenIds[i]=tokenIds[tokenIds.length-1];tokenIds.length--;i--;}limiter++;}}functionclearOne(address_seller,uint_tokenId)externalonlyOtherGameContracts{uint256[]storagetokenIds=sellerToTokenIds[_seller];for(uinti=0;i<tokenIds.length;i++){uint256tokenId=tokenIds[i];if(tokenId==_tokenId){Auctionstorageauction=tokenIdToAuction[tokenId];if(auction.startedAt>0&&now>auction.startedAt+auction.duration){if(auction.seller==_seller){_cancelAuction(tokenId,_seller);}tokenIds[i]=tokenIds[tokenIds.length-1];tokenIds.length--;break;}}}}functiondeleteSellerToTokenId(address_seller,uint256_tokenId)internal{uint256[]storagetokenIds=sellerToTokenIds[_seller];for(uinti=0;i<tokenIds.length;i++){if(tokenIds[i]==_tokenId){tokenIds[i]=tokenIds[tokenIds.length-1];tokenIds.length--;break;}}}uint256[50]private______gap;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 13
+column: 15
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 153
+column: 16
+content: private
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 4
+content: mapping(address=>uint256[])sellerToTokenIds;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :3
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3

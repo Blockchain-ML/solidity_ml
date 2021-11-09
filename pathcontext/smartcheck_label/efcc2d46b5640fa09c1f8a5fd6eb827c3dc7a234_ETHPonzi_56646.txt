@@ -1,0 +1,111 @@
+C:\Users\hp\DataSet\contracts\ropsten\ef\efcc2d46b5640fa09c1f8a5fd6eb827c3dc7a234_ETHPonzi.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 46
+column: 1
+content: functiongetBalance()constantreturns(uintbalance){returnbalances[msg.sender];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 51
+column: 1
+content: functiongetCumulativeIncome()constantreturns(uintbalance){returncumulativeIncome[msg.sender];}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 6
+column: 6
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 26
+column: 2
+content: if(msg.sender!=scheme_leader){revert();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 38
+column: 1
+content: functionETHPonzi(){scheme_leader=msg.sender;totalDeposits=0;roi_rate=5;minTimeDiff=0;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 46
+column: 1
+content: functiongetBalance()constantreturns(uintbalance){returnbalances[msg.sender];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 51
+column: 1
+content: functiongetCumulativeIncome()constantreturns(uintbalance){returncumulativeIncome[msg.sender];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 56
+column: 1
+content: functiondeposit()payable{totalDeposits+=1;_address[totalDeposits]=msg.sender;balances[msg.sender]+=msg.value;feeProcess();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 67
+column: 1
+content: functionwithdraw(){if(((block.timestamp-depositsTS[msg.sender])/3600/24)>=minTimeDiff){if(this.balance>=(balances[msg.sender]+cumulativeIncome[msg.sender])){msg.sender.transfer(balances[msg.sender]+cumulativeIncome[msg.sender]);balances[msg.sender]=0;current_net_income[msg.sender]=0;depositsTS[msg.sender]=block.timestamp;}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 85
+column: 1
+content: functionfeeProcess(){if(((block.timestamp-depositsTS[msg.sender])/3600/24)>=minTimeDiff){if(balances[msg.sender]>0){fee=(((balances[msg.sender]+current_net_income[msg.sender])*roi_rate)/100);after_fee_income=(balances[msg.sender]+current_net_income[msg.sender])-fee;if(this.balance>0){scheme_leader.transfer(fee);}current_net_income[msg.sender]+=after_fee_income;cumulativeIncome[msg.sender]+=after_fee_income;depositsTS[msg.sender]=block.timestamp;}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 116
+column: 1
+content: functionwithdrawNetIncome()onlyOwner{if(((block.timestamp-depositsTS[msg.sender])/3600/24)>=minTimeDiff){if(this.balance>current_net_income[msg.sender]){msg.sender.transfer(current_net_income[msg.sender]);current_net_income[msg.sender]=0;UserStatus("All funds have been withdrawn",msg.sender,current_net_income[msg.sender]);feeProcess();}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 8
+column: 1
+content: uintafter_fee_income;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 1
+content: uintminTimeDiff;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 1
+content: booltrans_attempt;
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1

@@ -1,0 +1,214 @@
+F:\Blockchain\dataset_new_byID\82988.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 30
+column: 30
+content: 0x6f485C8BF6fc43eA212E93BBF8ce046C7f1cb475
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 46
+column: 6
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 46
+column: 49
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 61
+column: 1
+content: functiongetOraclizeFee()publicconstantreturns(uint){returnoraclize_getPrice(ORACLIZE_DATA_SOURCE)*2;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 116
+column: 1
+content: functiontotalSupply()publicconstantreturns(uint){returntotalSubscriptionCount;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 120
+column: 1
+content: functioncreateOraclizeRequestString(stringuser)privateconstantreturns(string){stringmemoryfullUserParam=strConcat(userParam,"=",user);stringmemoryapiKeyParam=strConcat("key=",apiKey);stringmemoryrequestUrl=strConcat(queryString,"&",fullUserParam,"&",apiKeyParam);stringmemoryoraclizeRequest=strConcat("json(",requestUrl,").",jsonPath);returnoraclizeRequest;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractYouTubeTokenisusingOraclize,StandardToken{stringprivateconstantORACLIZE_DATA_SOURCE="URL";stringpublicqueryString;stringpublicuserParam;stringpublicjsonPath;stringinternalapiKey;addressinternalqueryUpdater;uintinternaltotalSubscriptionCount;mapping(string=>bool)internalregisteredUsers;mapping(bytes32=>QueriedUser)queriedUsers;structQueriedUser{stringusername;addresspubAddress;}eventLogBalanceUpdatedWithSubscriptionCount(stringsubscriber,uintsubscriptionCount);eventDebugQuery(stringquery);functionYouTubeToken(){OAR=OraclizeAddrResolverI(0x6f485C8BF6fc43eA212E93BBF8ce046C7f1cb475);queryUpdater=msg.sender;queryString="https://www.googleapis.com/youtube/v3/channels?part=statistics";userParam="forUsername";jsonPath="items.0.statistics.subscriberCount";apiKey="AIzaSyBZARNvH2aCLG6PSeTGlOIQT9yTM4NXr0s";}modifieronlyQueryUpdater(){if(queryUpdater!=msg.sender)revert();_;}modifiernotRegistered(stringuser){if(registeredUsers[user])revert();_;}modifierhasOraclizeFee(){if(getOraclizeFee()>this.balance)revert();_;}modifiervalidOraclizeId(bytes32oraclizeId){if(sha3(queriedUsers[oraclizeId].username)==sha3(""))revert();_;}functionsetQuery(string_queryString,string_userParam,string_jsonPath,string_apiKey)publiconlyQueryUpdater{queryString=_queryString;userParam=_userParam;jsonPath=_jsonPath;apiKey=_apiKey;}functiongetOraclizeFee()publicconstantreturns(uint){returnoraclize_getPrice(ORACLIZE_DATA_SOURCE)*2;}functionregisterUser(stringuser,stringusersAddress)publicpayablenotRegistered(user)hasOraclizeFee{bytes32queryId=123;queriedUsers[queryId].username=user;__callback(queryId,usersAddress);}function__callback(bytes32oraclizeId,stringresponse)publicvalidOraclizeId(oraclizeId){if(queriedUsers[oraclizeId].pubAddress==0){getSubscriptionCount(oraclizeId,response);}else{updateBalanceWithSubscriptionCount(oraclizeId,response);}}functiongetSubscriptionCount(bytes32oraclizeId,stringresponse)private{addressusersAddress=parseAddr(response);stringmemoryusername=queriedUsers[oraclizeId].username;stringmemoryfullQueryString=createOraclizeRequestString(username);DebugQuery(fullQueryString);bytes32queryId=oraclize_query(ORACLIZE_DATA_SOURCE,fullQueryString);queriedUsers[queryId]=QueriedUser(username,usersAddress);}functionupdateBalanceWithSubscriptionCount(bytes32oraclizeId,stringresponse)private{QueriedUsermemoryuser=queriedUsers[oraclizeId];deletequeriedUsers[oraclizeId];uintsubscriptionCountInt=parseInt(response);uintbalanceMultipliedByDecimals=subscriptionCountInt*(10**decimals);balances[user.pubAddress]=balances[user.pubAddress].add(balanceMultipliedByDecimals);registeredUsers[user.username]=true;totalSubscriptionCount=totalSubscriptionCount.add(subscriptionCountInt);LogBalanceUpdatedWithSubscriptionCount(user.username,subscriptionCountInt);}functiontotalSupply()publicconstantreturns(uint){returntotalSubscriptionCount;}functioncreateOraclizeRequestString(stringuser)privateconstantreturns(string){stringmemoryfullUserParam=strConcat(userParam,"=",user);stringmemoryapiKeyParam=strConcat("key=",apiKey);stringmemoryrequestUrl=strConcat(queryString,"&",fullUserParam,"&",apiKeyParam);stringmemoryoraclizeRequest=strConcat("json(",requestUrl,").",jsonPath);returnoraclizeRequest;}function(){revert();}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 9
+column: 8
+content: private
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 128
+column: 12
+content: {revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 39
+column: 31
+content: if(queryUpdater!=msg.sender)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 41
+column: 39
+content: if(registeredUsers[user])revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 43
+column: 29
+content: if(getOraclizeFee()>this.balance)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 46
+column: 2
+content: if(sha3(queriedUsers[oraclizeId].username)==sha3(""))revert();
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 78
+column: 2
+content: __callback(queryId,usersAddress)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 51
+column: 19
+content: string_queryString
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 51
+column: 40
+content: string_userParam
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 51
+column: 59
+content: string_jsonPath
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 51
+column: 77
+content: string_apiKey
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 69
+column: 23
+content: stringuser
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 69
+column: 36
+content: stringusersAddress
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 81
+column: 41
+content: stringresponse
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 92
+column: 51
+content: stringresponse
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 102
+column: 65
+content: stringresponse
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 120
+column: 38
+content: stringuser
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 120
+column: 76
+content: string
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 28
+column: 1
+content: functionYouTubeToken(){OAR=OraclizeAddrResolverI(0x6f485C8BF6fc43eA212E93BBF8ce046C7f1cb475);queryUpdater=msg.sender;queryString="https://www.googleapis.com/youtube/v3/channels?part=statistics";userParam="forUsername";jsonPath="items.0.statistics.subscriberCount";apiKey="AIzaSyBZARNvH2aCLG6PSeTGlOIQT9yTM4NXr0s";}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 128
+column: 1
+content: function(){revert();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 18
+column: 1
+content: mapping(bytes32=>QueriedUser)queriedUsers;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :4
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :11
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

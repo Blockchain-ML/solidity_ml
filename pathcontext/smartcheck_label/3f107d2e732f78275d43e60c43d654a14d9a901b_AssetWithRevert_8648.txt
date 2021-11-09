@@ -1,0 +1,272 @@
+C:\Users\hp\DataSet\contracts\mainnet\3f\3f107d2e732f78275d43e60c43d654a14d9a901b_AssetWithRevert.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 37
+column: 4
+content: function_bytes32(string_input)internalpurereturns(bytes32result){assembly{result:=mload(add(_input,32))}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 53
+column: 4
+content: function_assemblyCall(address_destination,uint_value,bytes_data)internalreturns(boolsuccess){assembly{success:=call(gas,_destination,_value,add(_data,32),mload(_data),0,0)}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractAssetInterface{function_performTransferWithReference(address_to,uint_value,string_reference,address_sender)publicreturns(bool);function_performTransferToICAPWithReference(bytes32_icap,uint_value,string_reference,address_sender)publicreturns(bool);function_performApprove(address_spender,uint_value,address_sender)publicreturns(bool);function_performTransferFromWithReference(address_from,address_to,uint_value,string_reference,address_sender)publicreturns(bool);function_performTransferFromToICAPWithReference(address_from,bytes32_icap,uint_value,string_reference,address_sender)publicreturns(bool);function_performGeneric(bytes,address)publicpayable{revert();}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 70
+column: 0
+content: contractAssetisAssetInterface,Bytes32,ReturnData{AssetProxyInterfacepublicproxy;modifieronlyProxy(){if(proxy==msg.sender){_;}}functioninit(AssetProxyInterface_proxy)publicreturns(bool){if(address(proxy)!=0x0){returnfalse;}proxy=_proxy;returntrue;}function_performTransferWithReference(address_to,uint_value,string_reference,address_sender)publiconlyProxy()returns(bool){if(isICAP(_to)){return_transferToICAPWithReference(bytes32(_to)<<96,_value,_reference,_sender);}return_transferWithReference(_to,_value,_reference,_sender);}function_transferWithReference(address_to,uint_value,string_reference,address_sender)internalreturns(bool){returnproxy._forwardTransferFromWithReference(_sender,_to,_value,_reference,_sender);}function_performTransferToICAPWithReference(bytes32_icap,uint_value,string_reference,address_sender)publiconlyProxy()returns(bool){return_transferToICAPWithReference(_icap,_value,_reference,_sender);}function_transferToICAPWithReference(bytes32_icap,uint_value,string_reference,address_sender)internalreturns(bool){returnproxy._forwardTransferFromToICAPWithReference(_sender,_icap,_value,_reference,_sender);}function_performTransferFromWithReference(address_from,address_to,uint_value,string_reference,address_sender)publiconlyProxy()returns(bool){if(isICAP(_to)){return_transferFromToICAPWithReference(_from,bytes32(_to)<<96,_value,_reference,_sender);}return_transferFromWithReference(_from,_to,_value,_reference,_sender);}function_transferFromWithReference(address_from,address_to,uint_value,string_reference,address_sender)internalreturns(bool){returnproxy._forwardTransferFromWithReference(_from,_to,_value,_reference,_sender);}function_performTransferFromToICAPWithReference(address_from,bytes32_icap,uint_value,string_reference,address_sender)publiconlyProxy()returns(bool){return_transferFromToICAPWithReference(_from,_icap,_value,_reference,_sender);}function_transferFromToICAPWithReference(address_from,bytes32_icap,uint_value,string_reference,address_sender)internalreturns(bool){returnproxy._forwardTransferFromToICAPWithReference(_from,_icap,_value,_reference,_sender);}function_performApprove(address_spender,uint_value,address_sender)publiconlyProxy()returns(bool){return_approve(_spender,_value,_sender);}function_approve(address_spender,uint_value,address_sender)internalreturns(bool){returnproxy._forwardApprove(_spender,_value,_sender);}function_performGeneric(bytes_data,address_sender)publicpayableonlyProxy(){_generic(_data,msg.value,_sender);}modifieronlyMe(){if(this==msg.sender){_;}}addresspublicgenericSender;function_generic(bytes_data,uint_value,address_msgSender)internal{require(genericSender==0x0);genericSender=_msgSender;boolsuccess=_assemblyCall(address(this),_value,_data);deletegenericSender;_returnReturnData(success);}function_sender()internalviewreturns(address){returnthis==msg.sender?genericSender:msg.sender;}functiontransferToICAP(string_icap,uint_value)publicreturns(bool){returntransferToICAPWithReference(_icap,_value,&39<missing ')'>;&39;);}functiontransferToICAPWithReference(string_icap,uint_value,string_reference)publicreturns(bool){return_transferToICAPWithReference(_bytes32(_icap),_value,_reference,_sender());}functiontransferFromToICAP(address_from,string_icap,uint_value)publicreturns(bool){returntransferFromToICAPWithReference(_from,_icap,_value,&39<missing ')'>;&39;);}functiontransferFromToICAPWithReference(address_from,string_icap,uint_value,string_reference)publicreturns(bool){return_transferFromToICAPWithReference(_from,_bytes32(_icap),_value,_reference,_sender());}functionisICAP(address_address)publicpurereturns(bool){bytes32a=bytes32(_address)<<96;if(a[0]!=&39;X&39;||a[1]!=&39;E&39;){returnfalse;}if(a[2]<48||a[2]>57||a[3]<48||a[3]>57){returnfalse;}for(uinti=4;i<20;i++){uintchar=uint(a[i]);if(char<48||char>90||(char>57&&char<65)){returnfalse;}}returntrue;}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 37
+column: 4
+content: function_bytes32(string_input)internalpurereturns(bytes32result){assembly{result:=mload(add(_input,32))}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 45
+column: 4
+content: function_returnReturnData(bool_success)internalpure{assembly{letreturndatastart:=0returndatacopy(returndatastart,0,returndatasize)switch_successcase0{revert(returndatastart,returndatasize)}default{return(returndatastart,returndatasize)}}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 4
+column: 69
+content: string_reference
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 5
+column: 77
+content: string_reference
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 7
+column: 88
+content: string_reference
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 8
+column: 96
+content: string_reference
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 9
+column: 29
+content: bytes
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 32
+column: 88
+content: string_reference
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 33
+column: 96
+content: string_reference
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 37
+column: 22
+content: string_input
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 53
+column: 62
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 109
+column: 69
+content: string_reference
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 122
+column: 62
+content: string_reference
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 134
+column: 77
+content: string_reference
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 144
+column: 70
+content: string_reference
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 156
+column: 88
+content: string_reference
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 169
+column: 81
+content: string_reference
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 181
+column: 96
+content: string_reference
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 191
+column: 89
+content: string_reference
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 225
+column: 29
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 237
+column: 22
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 252
+column: 28
+content: string_icap
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 256
+column: 41
+content: string_icap
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 256
+column: 68
+content: string_reference
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 260
+column: 47
+content: string_icap
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 264
+column: 60
+content: string_icap
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 264
+column: 87
+content: string_reference
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 300
+column: 62
+content: string_reference
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 308
+column: 70
+content: string_reference
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 316
+column: 81
+content: string_reference
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 325
+column: 89
+content: string_reference
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 38
+column: 8
+content: assembly{result:=mload(add(_input,32))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 46
+column: 8
+content: assembly{letreturndatastart:=0returndatacopy(returndatastart,0,returndatasize)switch_successcase0{revert(returndatastart,returndatasize)}default{return(returndatastart,returndatasize)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 54
+column: 8
+content: assembly{success:=call(gas,_destination,_value,add(_data,32),mload(_data),0,0)}
+
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_UPGRADE_TO_050 :29
+SOLIDITY_USING_INLINE_ASSEMBLY :3
+SOLIDITY_SHOULD_NOT_BE_PURE :2

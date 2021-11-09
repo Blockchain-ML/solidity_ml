@@ -1,0 +1,39 @@
+C:\Users\hp\DataSet\contracts\ropsten\46\4638427558378ad637a0dd3214c456e6820f6184_game.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 37
+column: 8
+content: if(nodes[_last_node].next_node_amount<nodes[_last_node].own_pyramid*2){nodes[msg.sender].last_node=_last_node;nodes[_last_node].next_node_amount++;nodes[msg.sender].own_pyramid=1;if(nodes[_last_node].own_pyramid>1||_last_node==initial){nodes[msg.sender].last_node.transfer(amount*2);}elseif(nodes[_last_node].own_pyramid==1&&_last_node!=initial){if(nodes[nodes[_last_node].last_node].n_next_node_amount<nodes[_last_node].own_pyramid*4){nodes[msg.sender].l_last_node==nodes[_last_node].last_node;nodes[nodes[msg.sender].l_last_node].n_next_node_amount++;nodes[msg.sender].last_node.transfer(amount);nodes[msg.sender].l_last_node.transfer(amount);}else{nodes[msg.sender].last_node.transfer(amount*2);}}elserevert();}elserevert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 51
+column: 17
+content: if(nodes[_last_node].own_pyramid==1&&_last_node!=initial){if(nodes[nodes[_last_node].last_node].n_next_node_amount<nodes[_last_node].own_pyramid*4){nodes[msg.sender].l_last_node==nodes[_last_node].last_node;nodes[nodes[msg.sender].l_last_node].n_next_node_amount++;nodes[msg.sender].last_node.transfer(amount);nodes[msg.sender].l_last_node.transfer(amount);}else{nodes[msg.sender].last_node.transfer(amount*2);}}elserevert();
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 5
+column: 4
+content: uintamount=1ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 4
+content: mapping(address=>node)nodes;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2

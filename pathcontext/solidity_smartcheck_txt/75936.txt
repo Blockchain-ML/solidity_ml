@@ -1,0 +1,151 @@
+F:\Blockchain\dataset_new_byID\75936.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 142
+column: 33
+content: 0x1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 143
+column: 47
+content: 0x1
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 17
+column: 2
+content: functionbeforeAll(){factory=address(newMiniMeTokenFactory());}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 21
+column: 2
+content: functionbeforeEach(){throwProxy=newThrowProxy(address(this));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 25
+column: 2
+content: functiontestCantFinalizeNotEndedSale(){TestTokenSaleCap(throwProxy).throwsWhenFinalizingNotEndedSale();throwProxy.assertThrows("Should have thrown when sale is ended");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 30
+column: 2
+content: functionthrowsWhenFinalizingNotEndedSale(){MultisigMockms=newMultisigMock();AragonTokenSaleMocksale=newAragonTokenSaleMock(10,20,address(ms),address(ms),3,1,2);ms.deployAndSetANT(sale);ms.activateSale(sale);sale.setMockedBlockNumber(19);ms.finalizeSale(sale);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 39
+column: 2
+content: functiontestCantFinalizeIfNotMultisig(){TestTokenSaleCap(throwProxy).throwsWhenFinalizingIfNotMultisig();throwProxy.assertThrows("Should have thrown if not multisig");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 44
+column: 2
+content: functionthrowsWhenFinalizingIfNotMultisig(){MultisigMockms=newMultisigMock();AragonTokenSaleMocksale=newAragonTokenSaleMock(10,20,address(ms),address(ms),3,1,2);ms.deployAndSetANT(sale);ms.activateSale(sale);sale.setMockedBlockNumber(30);sale.finalizeSale(1,1);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 53
+column: 2
+content: functiontestCantFinalizeWithIncorrectCap(){TestTokenSaleCap(throwProxy).throwsWhenFinalizingWithIncorrectCap();throwProxy.assertThrows("Should have thrown if incorrect cap");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 58
+column: 2
+content: functionthrowsWhenFinalizingWithIncorrectCap(){MultisigMockms=newMultisigMock();AragonTokenSaleMocksale=newAragonTokenSaleMock(10,20,address(ms),address(ms),5,1,2);ms.deployAndSetANT(sale);ms.activateSale(sale);sale.setMockedBlockNumber(21);ms.finalizeSale(sale,101finney);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 67
+column: 2
+content: functiontestCanFinalizeOnCap(){MultisigMockms=newMultisigMock();AragonTokenSaleMocksale=newAragonTokenSaleMock(10,20,address(ms),address(ms),5,1,2);ms.deployAndSetANT(sale);ms.activateSale(sale);sale.setMockedBlockNumber(12);sale.proxyPayment.value(100finney)(address(this));sale.revealCap(100finney,sale.mock_capSecret());Assert.isTrue(sale.saleFinalized(),'Sale should be finished after revealing cap');}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 80
+column: 2
+content: functiontestFinalizingBeforeCapChangesHardCap(){MultisigMockms=newMultisigMock();AragonTokenSaleMocksale=newAragonTokenSaleMock(10,20,address(ms),address(ms),5,1,2);ms.deployAndSetANT(sale);ms.activateSale(sale);sale.setMockedBlockNumber(12);sale.proxyPayment.value(98finney)(address(this));sale.revealCap(100finney,sale.mock_capSecret());Assert.equal(sale.hardCap(),100finney,'Revealing cap should change hard cap');Assert.isFalse(sale.saleFinalized(),'Revealing cap shouldnt end sale if not reached yet');}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 94
+column: 2
+content: functiontestHardCap(){TestTokenSaleCap(throwProxy).throwsWhenHittingHardCap();throwProxy.assertThrows("Should have thrown when hitting hard cap");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 99
+column: 2
+content: functionthrowsWhenHittingHardCap(){MultisigMockms=newMultisigMock();AragonTokenSaleMocksale=newAragonTokenSaleMock(10,20,address(ms),address(ms),5,1,2);ms.deployAndSetANT(sale);ms.activateSale(sale);sale.setMockedBlockNumber(12);sale.setMockedTotalCollected(999999ether+950finney);sale.proxyPayment.value(60finney)(address(this));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 109
+column: 2
+content: functiontestCanFinalizeEndedSale(){MultisigMockms=newMultisigMock();AragonTokenSaleMocksale=newAragonTokenSaleMock(10,20,address(ms),address(ms),5,1,2);ms.deployAndSetANT(sale);ms.activateSale(sale);sale.setMockedBlockNumber(12);sale.proxyPayment.value(14finney)(address(this));Assert.equal(ERC20(sale.token()).balanceOf(address(this)),70finney,'Should have correct balance after allocation');Assert.equal(ERC20(sale.token()).totalSupply(),70finney,'Should have correct supply before ending sale');sale.setMockedBlockNumber(21);ms.finalizeSale(sale);Assert.equal(ERC20(sale.token()).balanceOf(address(ms)),30finney,'Should have correct balance after ending sale');Assert.equal(ERC20(sale.token()).totalSupply(),100finney,'Should have correct supply after ending sale');}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 127
+column: 2
+content: functiontestTokensAreTransferrableAfterSale(){MultisigMockms=newMultisigMock();AragonTokenSaleMocksale=newAragonTokenSaleMock(10,20,address(ms),address(ms),3,1,2);ms.deployAndSetANT(sale);ms.activateSale(sale);Assert.equal(ANT(sale.token()).controller(),address(sale),"Sale is controller during sale");sale.setMockedBlockNumber(12);sale.proxyPayment.value(15finney)(address(this));sale.setMockedBlockNumber(22);ms.finalizeSale(sale);Assert.equal(ANT(sale.token()).controller(),sale.networkPlaceholder(),"Network placeholder is controller after sale");ERC20(sale.token()).transfer(0x1,10finney);Assert.equal(ERC20(sale.token()).balanceOf(0x1),10finney,'Should have correct balance after receiving tokens');}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 146
+column: 2
+content: functiontestFundsAreTransferrableAfterSale(){MultisigMockms=newMultisigMock();AragonTokenSaleMocksale=newAragonTokenSaleMock(1000000,60000000,address(ms),address(ms),3,1,2);ms.deployAndSetANT(sale);ms.activateSale(sale);Assert.equal(ANT(sale.token()).controller(),address(sale),"Sale is controller during sale");sale.setMockedBlockNumber(1000000);sale.proxyPayment.value(15finney)(address(this));sale.setMockedBlockNumber(60000000);ms.finalizeSale(sale);ms.withdrawWallet(sale);Assert.equal(ms.balance,15finney,"Funds are collected after sale");Assert.equal(sale.saleWallet().balance,0finney,"Funds shouldnt have been transfered");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 164
+column: 2
+content: functiontestFundsAreLockedDuringSale(){MultisigMockms=newMultisigMock();AragonTokenSaleMocksale=newAragonTokenSaleMock(1000000,60000000,address(ms),address(ms),3,1,2);ms.deployAndSetANT(sale);ms.activateSale(sale);Assert.equal(ANT(sale.token()).controller(),address(sale),"Sale is controller during sale");sale.setMockedBlockNumber(1000000);sale.proxyPayment.value(15finney)(address(this));ms.withdrawWallet(sale);Assert.equal(ms.balance,0finney,"Funds shouldnt have been transfered");Assert.equal(sale.saleWallet().balance,15finney,"Funds shouldnt have been transfered");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 2
+content: addressfactory;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 2
+content: ThrowProxythrowProxy;
+
+SOLIDITY_VISIBILITY :18
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :2

@@ -1,0 +1,39 @@
+F:\Blockchain\dataset_new_byID\72116.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 17
+column: 0
+content: contractMixinWrapperFunctionsisIWrapperFunctions,MixinExchangeCore{usingLibSafeMathforuint256;functionfillOrKillOrder(LibOrder.Ordermemoryorder,uint256takerAssetFillAmount,bytesmemorysignature)publicpayablerefundFinalBalanceNoReentryreturns(LibFillResults.FillResultsmemoryfillResults){fillResults=_fillOrKillOrder(order,takerAssetFillAmount,signature);returnfillResults;}functionbatchFillOrders(LibOrder.Order[]memoryorders,uint256[]memorytakerAssetFillAmounts,bytes[]memorysignatures)publicpayablerefundFinalBalanceNoReentryreturns(LibFillResults.FillResults[]memoryfillResults){uint256ordersLength=orders.length;fillResults=newLibFillResults.FillResults[](ordersLength);for(uint256i=0;i!=ordersLength;i++){fillResults[i]=_fillOrder(orders[i],takerAssetFillAmounts[i],signatures[i]);}returnfillResults;}functionbatchFillOrKillOrders(LibOrder.Order[]memoryorders,uint256[]memorytakerAssetFillAmounts,bytes[]memorysignatures)publicpayablerefundFinalBalanceNoReentryreturns(LibFillResults.FillResults[]memoryfillResults){uint256ordersLength=orders.length;fillResults=newLibFillResults.FillResults[](ordersLength);for(uint256i=0;i!=ordersLength;i++){fillResults[i]=_fillOrKillOrder(orders[i],takerAssetFillAmounts[i],signatures[i]);}returnfillResults;}functionbatchFillOrdersNoThrow(LibOrder.Order[]memoryorders,uint256[]memorytakerAssetFillAmounts,bytes[]memorysignatures)publicpayabledisableRefundUntilEndreturns(LibFillResults.FillResults[]memoryfillResults){uint256ordersLength=orders.length;fillResults=newLibFillResults.FillResults[](ordersLength);for(uint256i=0;i!=ordersLength;i++){fillResults[i]=_fillOrderNoThrow(orders[i],takerAssetFillAmounts[i],signatures[i]);}returnfillResults;}functionmarketSellOrdersNoThrow(LibOrder.Order[]memoryorders,uint256takerAssetFillAmount,bytes[]memorysignatures)publicpayabledisableRefundUntilEndreturns(LibFillResults.FillResultsmemoryfillResults){uint256ordersLength=orders.length;for(uint256i=0;i!=ordersLength;i++){uint256remainingTakerAssetFillAmount=takerAssetFillAmount.safeSub(fillResults.takerAssetFilledAmount);LibFillResults.FillResultsmemorysingleFillResults=_fillOrderNoThrow(orders[i],remainingTakerAssetFillAmount,signatures[i]);fillResults=LibFillResults.addFillResults(fillResults,singleFillResults);if(fillResults.takerAssetFilledAmount>=takerAssetFillAmount){break;}}returnfillResults;}functionmarketBuyOrdersNoThrow(LibOrder.Order[]memoryorders,uint256makerAssetFillAmount,bytes[]memorysignatures)publicpayabledisableRefundUntilEndreturns(LibFillResults.FillResultsmemoryfillResults){uint256ordersLength=orders.length;for(uint256i=0;i!=ordersLength;i++){uint256remainingMakerAssetFillAmount=makerAssetFillAmount.safeSub(fillResults.makerAssetFilledAmount);uint256remainingTakerAssetFillAmount=LibMath.getPartialAmountCeil(orders[i].takerAssetAmount,orders[i].makerAssetAmount,remainingMakerAssetFillAmount);LibFillResults.FillResultsmemorysingleFillResults=_fillOrderNoThrow(orders[i],remainingTakerAssetFillAmount,signatures[i]);fillResults=LibFillResults.addFillResults(fillResults,singleFillResults);if(fillResults.makerAssetFilledAmount>=makerAssetFillAmount){break;}}returnfillResults;}functionmarketSellOrdersFillOrKill(LibOrder.Order[]memoryorders,uint256takerAssetFillAmount,bytes[]memorysignatures)publicpayablereturns(LibFillResults.FillResultsmemoryfillResults){fillResults=marketSellOrdersNoThrow(orders,takerAssetFillAmount,signatures);if(fillResults.takerAssetFilledAmount<takerAssetFillAmount){revert();}}functionmarketBuyOrdersFillOrKill(LibOrder.Order[]memoryorders,uint256makerAssetFillAmount,bytes[]memorysignatures)publicpayablereturns(LibFillResults.FillResultsmemoryfillResults){fillResults=marketBuyOrdersNoThrow(orders,makerAssetFillAmount,signatures);if(fillResults.makerAssetFilledAmount<makerAssetFillAmount){revert();}}functionbatchCancelOrders(LibOrder.Order[]memoryorders)publicpayablerefundFinalBalanceNoReentry{uint256ordersLength=orders.length;for(uint256i=0;i!=ordersLength;i++){_cancelOrder(orders[i]);}}function_fillOrKillOrder(LibOrder.Ordermemoryorder,uint256takerAssetFillAmount,bytesmemorysignature)internalreturns(LibFillResults.FillResultsmemoryfillResults){fillResults=_fillOrder(order,takerAssetFillAmount,signature);if(fillResults.takerAssetFilledAmount!=takerAssetFillAmount){revert();}returnfillResults;}function_fillOrderNoThrow(LibOrder.Ordermemoryorder,uint256takerAssetFillAmount,bytesmemorysignature)internalreturns(LibFillResults.FillResultsmemoryfillResults){bytesmemoryfillOrderCalldata=abi.encodeWithSelector(IExchangeCore(address(0)).fillOrder.selector,order,takerAssetFillAmount,signature);(booldidSucceed,bytesmemoryreturnData)=address(this).delegatecall(fillOrderCalldata);if(didSucceed){assert(returnData.length==160);fillResults=abi.decode(returnData,(LibFillResults.FillResults));}returnfillResults;}}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 233
+column: 8
+content: if(fillResults.takerAssetFilledAmount<takerAssetFillAmount){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 254
+column: 8
+content: if(fillResults.makerAssetFilledAmount<makerAssetFillAmount){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 289
+column: 8
+content: if(fillResults.takerAssetFilledAmount!=takerAssetFillAmount){revert();}
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 317
+column: 67
+content: delegatecall(fillOrderCalldata)
+
+SOLIDITY_REVERT_REQUIRE :3
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UNCHECKED_CALL :1

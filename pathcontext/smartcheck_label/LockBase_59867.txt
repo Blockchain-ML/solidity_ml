@@ -1,0 +1,169 @@
+C:\Users\hp\DataSet\LockBase.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 264
+column: 4
+content: functiongetParentsOfLock(uint256lockId)constantexternalreturns(uint256[]){LockstoragereferencedLock=locks[lockId];returnreferencedLock.parentArray;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 154
+column: 8
+content: for(uint256i=0;i<_parents.length;i++){require(lockIndexToOwner[_parents[i]]==msg.sender);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 7
+column: 4
+content: functiontransferFrom(address_from,address_to,uint256_value)returns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 8
+column: 4
+content: functionapprove(address_spender,uint256_value)returns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 9
+column: 4
+content: functionallowance(address_owner,address_spender)viewreturns(uint256){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 10
+column: 4
+content: functionincreaseApproval(address_spender,uint_addedValue)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 11
+column: 4
+content: functiondecreaseApproval(address_spender,uint_subtractedValue)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 12
+column: 4
+content: functionbalanceOf(address_owner)publicviewreturns(uint256){}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 154
+column: 8
+content: for(uint256i=0;i<_parents.length;i++){require(lockIndexToOwner[_parents[i]]==msg.sender);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 152
+column: 34
+content: uint256[]_parents
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 7
+column: 4
+content: functiontransferFrom(address_from,address_to,uint256_value)returns(bool){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 8
+column: 4
+content: functionapprove(address_spender,uint256_value)returns(bool){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 9
+column: 4
+content: functionallowance(address_owner,address_spender)viewreturns(uint256){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 18
+column: 4
+content: functionLockBase(){LockedLockmemoryfirstLockedLock=LockedLock({partner:"none",message:"none"});lockedLocks[0]=firstLockedLock;checkIfFilled[0]=true;lockedLocksCount=0;uint256[]memoryb;Lockmemory_lock=Lock({lockBlueprint:"null",creationTime:uint64(now),parentArray:b,lockStatus:0,lettersLimit:0,picsLimit:0});locks.push(_lock);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 90
+column: 4
+content: functionaddRateAndTime(uint64time,uint256rateInErc20)onlyCLevel{timeToRateMapping[time]=rateInErc20;LicenseRateTimeAdded(time,timeToRateMapping[time]);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 95
+column: 4
+content: functionremoveRateAndTime(uint64time)onlyCLevel{LicenseRateTimeRemoved(time,timeToRateMapping[time]);deletetimeToRateMapping[time];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 100
+column: 4
+content: functionAddMaxNumberOfParents(uintnumberOfParents)onlyCLevel{maxNumberOfParents=numberOfParents;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 103
+column: 4
+content: functionaddLimitAndRate(uint256limit,uint256rate)onlyCLevel{require((limit%5)==0);limitIncreaseToRate[limit]=rate;LimitPlanAdded(limit,rate);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 109
+column: 4
+content: functionremoveLimitAndRate(uint256limit)onlyCLevel{require(limitIncreaseToRate[limit]!=uint256(0));LimitPlanRemoved(limit,limitIncreaseToRate[limit]);deletelimitIncreaseToRate[limit];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 126
+column: 4
+content: function_generationCEO(string_blueprint,uint256[]_parents,uint256_lettersLimit,uint256_picsLimit)onlyCLevelreturns(uint256){Lockmemory_lock=Lock({lockBlueprint:_blueprint,creationTime:uint64(now),parentArray:_parents,lockStatus:0,lettersLimit:_lettersLimit,picsLimit:_picsLimit});uint256newLockId=locks.push(_lock)-1;_transfer(0,ceoAddress,newLockId);LockCreated(ceoAddress,newLockId,_blueprint);returnnewLockId;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 178
+column: 4
+content: functionthrowLockCreatedEvent(addressowner,uint256newLockId,string_blueprint)RWAccess{LockCreated(owner,newLockId,_blueprint);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 79
+column: 4
+content: mapping(address=>uint256)ownershipTokenCount;
+
+SOLIDITY_VISIBILITY :12
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :6
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

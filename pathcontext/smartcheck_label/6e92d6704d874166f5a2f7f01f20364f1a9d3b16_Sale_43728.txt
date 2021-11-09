@@ -1,0 +1,490 @@
+C:\Users\hp\DataSet\contracts\ropsten\6e\6e92d6704d874166f5a2f7f01f20364f1a9d3b16_Sale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 68
+column: 25
+content: 0x80
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 116
+column: 25
+content: 0x80
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 152
+column: 19
+content: 0x180
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 167
+column: 20
+content: 0x180
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 170
+column: 38
+content: 0x180
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 177
+column: 2
+content: functionbuffPtr()privatepurereturns(bytes32ptr){assembly{ptr:=mload(0xc0)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 182
+column: 2
+content: functionfreeMem()privatepurereturns(bytes32ptr){assembly{ptr:=mload(0x40)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 270
+column: 2
+content: functionexecID()internalpurereturns(bytes32exec_id){assembly{exec_id:=mload(0x80)}require(exec_id!=bytes32(0),"Execution id overwritten, or not read");}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 276
+column: 2
+content: functionsender()internalpurereturns(addressaddr){assembly{addr:=mload(0xa0)}require(addr!=address(0),"Sender address overwritten, or not read");}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 1076
+column: 11
+content: now>=_ends_at&&++_current_tier<_num_tiers
+
+ruleId: SOLIDITY_MSGVALUE_EQUALS_ZERO
+patternId: 1df89a
+severity: 1
+line: 1258
+column: 8
+content: msg.value==0
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 100
+column: 4
+content: if(!authorized)revert("Sender is not authorized as a script exec address");
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 44
+column: 2
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 878
+column: 2
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 149
+column: 2
+content: functioncommit()conditions(validState,none)internalpure{bytes32ptr=buffPtr();require(ptr>=0x180,"Invalid buffer pointer");assembly{letsize:=mload(add(0x20,ptr))mstore(ptr,0x20)revert(ptr,add(0x40,size))}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 166
+column: 2
+content: functionvalidState()privatepure{if(freeMem()<0x180)revert<missing ';'>(&39;ExpectedContract.execute()&39;);if(buffPtr()!=0&&buffPtr()<0x180)revert<missing ';'>(&39;Invalidbuffer<missing ';'>pointer&39;);assert(execID()!=bytes32(0)&&sender()!=address(0));}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 177
+column: 2
+content: functionbuffPtr()privatepurereturns(bytes32ptr){assembly{ptr:=mload(0xc0)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 182
+column: 2
+content: functionfreeMem()privatepurereturns(bytes32ptr){assembly{ptr:=mload(0x40)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 187
+column: 2
+content: functioncurrentAction()privatepurereturns(bytes4action){if(buffPtr()==bytes32(0))returnbytes4(0);assembly{action:=mload(0xe0)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 213
+column: 2
+content: functionstartBuffer()privatepure{assembly{letptr:=msize()mstore(0xc0,ptr)mstore(ptr,0)mstore(add(0x20,ptr),0)mstore(0x40,add(0x40,ptr))mstore(0x100,1)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 270
+column: 2
+content: functionexecID()internalpurereturns(bytes32exec_id){assembly{exec_id:=mload(0x80)}require(exec_id!=bytes32(0),"Execution id overwritten, or not read");}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 276
+column: 2
+content: functionsender()internalpurereturns(addressaddr){assembly{addr:=mload(0xa0)}require(addr!=address(0),"Sender address overwritten, or not read");}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 65
+column: 2
+content: functionauthorize(address_script_exec)internalview{require(freeMem()==0x80,"Memory allocated prior to execution");bytes32perms=EXEC_PERMISSIONS;assembly{mstore(0x80,sload(0))mstore(0xa0,sload(1))mstore(0xc0,0)mstore(0xe0,0)mstore(0x100,0)mstore(0x120,0)mstore(0x140,0)mstore(0x160,0)mstore(0x40,0x180)}assert(execID()!=bytes32(0)&&sender()!=address(0));boolauthorized;assembly{mstore(0,_script_exec)mstore(0x20,perms)mstore(0,keccak256(0x0c,0x34))mstore(0x20,mload(0x80))authorized:=sload(keccak256(0,0x40))}if(!authorized)revert("Sender is not authorized as a script exec address");}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 113
+column: 2
+content: functioninitialize()internalview{require(freeMem()==0x80,"Memory allocated prior to execution");assembly{mstore(0x80,sload(0))mstore(0xa0,sload(1))mstore(0xc0,0)mstore(0xe0,0)mstore(0x100,0)mstore(0x120,0)mstore(0x140,0)mstore(0x160,0)mstore(0x40,0x180)}assert(execID()!=bytes32(0)&&sender()!=address(0));}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 285
+column: 2
+content: functionread(bytes32_location)internalviewreturns(bytes32data){data=keccak256(_location,execID());assembly{data:=sload(data)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 888
+column: 2
+content: functionbuy()internalview{uintcurrent_tier;uinttokens_remaining;uintpurchase_price;uinttier_ends_at;booltier_is_whitelisted;boolupdated_tier;(current_tier,tokens_remaining,purchase_price,tier_ends_at,tier_is_whitelisted,updated_tier)=getCurrentTier();uintamount_spent;uintamount_purchased;if(tier_is_whitelisted){if(Contract.read(Sale.hasContributed(Contract.sender()))==bytes32(1)){(amount_spent,amount_purchased)=getPurchaseInfo(uint(Contract.read(Sale.tokenDecimals())),purchase_price,tokens_remaining,uint(Contract.read(Sale.whitelistMaxTok(current_tier,Contract.sender()))),0,tier_is_whitelisted);}else{(amount_spent,amount_purchased)=getPurchaseInfo(uint(Contract.read(Sale.tokenDecimals())),purchase_price,tokens_remaining,uint(Contract.read(Sale.whitelistMaxTok(current_tier,Contract.sender()))),uint(Contract.read(Sale.whitelistMinTok(current_tier,Contract.sender()))),tier_is_whitelisted);}}else{if(Contract.read(Sale.hasContributed(Contract.sender()))!=0){(amount_spent,amount_purchased)=getPurchaseInfo(uint(Contract.read(Sale.tokenDecimals())),purchase_price,tokens_remaining,0,0,tier_is_whitelisted);}else{(amount_spent,amount_purchased)=getPurchaseInfo(uint(Contract.read(Sale.tokenDecimals())),purchase_price,tokens_remaining,0,uint(Contract.read(Sale.tierMin(current_tier))),tier_is_whitelisted);}}Contract.paying();Contract.pay(amount_spent).toAcc(address(Contract.read(Sale.wallet())));Contract.storing();Contract.increase(Sale.balances(Contract.sender())).by(amount_purchased);Contract.increase(Sale.tokensSold()).by(amount_purchased);Contract.increase(Sale.tokenTotalSupply()).by(amount_purchased);Contract.increase(Sale.totalWeiRaised()).by(amount_spent);if(Contract.read(Sale.hasContributed(Contract.sender()))==0){Contract.increase(Sale.contributors()).by(1);Contract.set(Sale.hasContributed(Contract.sender())).to(true);}if(tier_is_whitelisted){Contract.set(Sale.whitelistMinTok(current_tier,Contract.sender())).to(uint(0));Contract.decrease(Sale.whitelistMaxTok(current_tier,Contract.sender())).by(amount_purchased);}if(updated_tier){Contract.set(Sale.currentTier()).to(current_tier.add(1));Contract.set(Sale.currentEndsAt()).to(tier_ends_at);Contract.set(Sale.currentTokensRemaining()).to(tokens_remaining.sub(amount_purchased));}else{Contract.decrease(Sale.currentTokensRemaining()).by(amount_purchased);}Contract.emitting();Contract.log(PURCHASE(Contract.sender(),current_tier),bytes32(amount_purchased));}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 1015
+column: 10
+content: (uintcurrent_tier,uinttokens_remaining,uintpurchase_price,uinttier_ends_at,booltier_is_whitelisted,boolupdated_tier)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 1057
+column: 10
+content: (uintpurchase_price,booltier_is_whitelisted)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 1067
+column: 10
+content: (uinttokens_remaining,uintpurchase_price,booltier_is_whitelisted,uinttier_ends_at,uintcurrent_tier)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 1110
+column: 25
+content: (uintamount_spent,uintamount_purchased)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 286
+column: 11
+content: keccak256(_location,execID())
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 1168
+column: 13
+content: keccak256(_purchaser,contributors())
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 1178
+column: 13
+content: keccak256(_idx,"cap",saleTierList())
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 1182
+column: 13
+content: keccak256(_idx,"price",saleTierList())
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 1186
+column: 13
+content: keccak256(_idx,"minimum",saleTierList())
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 1190
+column: 13
+content: keccak256(_idx,"duration",saleTierList())
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 1194
+column: 13
+content: keccak256(_idx,"wl_stat",saleTierList())
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 1222
+column: 13
+content: keccak256(_idx,"tier_whitelists")
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 1226
+column: 13
+content: keccak256(_spender,"max_tok",tierWhitelist(_idx))
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 1230
+column: 13
+content: keccak256(_spender,"min_tok",tierWhitelist(_idx))
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 1246
+column: 13
+content: keccak256(_owner,TOKEN_BALANCES)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 71
+column: 4
+content: assembly{mstore(0x80,sload(0))mstore(0xa0,sload(1))mstore(0xc0,0)mstore(0xe0,0)mstore(0x100,0)mstore(0x120,0)mstore(0x140,0)mstore(0x160,0)mstore(0x40,0x180)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 89
+column: 4
+content: assembly{mstore(0,_script_exec)mstore(0x20,perms)mstore(0,keccak256(0x0c,0x34))mstore(0x20,mload(0x80))authorized:=sload(keccak256(0,0x40))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 118
+column: 4
+content: assembly{mstore(0x80,sload(0))mstore(0xa0,sload(1))mstore(0xc0,0)mstore(0xe0,0)mstore(0x100,0)mstore(0x120,0)mstore(0x140,0)mstore(0x160,0)mstore(0x40,0x180)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 154
+column: 4
+content: assembly{letsize:=mload(add(0x20,ptr))mstore(ptr,0x20)revert(ptr,add(0x40,size))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 178
+column: 4
+content: assembly{ptr:=mload(0xc0)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 183
+column: 4
+content: assembly{ptr:=mload(0x40)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 191
+column: 4
+content: assembly{action:=mload(0xe0)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 214
+column: 4
+content: assembly{letptr:=msize()mstore(0xc0,ptr)mstore(ptr,0)mstore(add(0x20,ptr),0)mstore(0x40,add(0x40,ptr))mstore(0x100,1)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 271
+column: 4
+content: assembly{exec_id:=mload(0x80)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 277
+column: 4
+content: assembly{addr:=mload(0xa0)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 287
+column: 4
+content: assembly{data:=sload(data)}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 55
+column: 62
+content: script_exec_permissions&39;);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 292
+column: 57
+content: Emit
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 292
+column: 61
+content: ((bytes32[],bytes)[])&39;));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 293
+column: 58
+content: Store
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 293
+column: 63
+content: (bytes32<missing ')'>[])&39;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 294
+column: 56
+content: Pay
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 294
+column: 59
+content: (bytes32<missing ')'>[])&39;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 295
+column: 58
+content: Error
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 295
+column: 63
+content: (string)&39;));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 352
+column: 4
+content: isEmitting
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 352
+column: 14
+content: ();
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 881
+column: 53
+content: Purchase
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 881
+column: 61
+content: (address,<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 881
+column: 70
+content: uint256,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 881
+column: 78
+content: uint256)&39;);
+
+SOLIDITY_VISIBILITY :15
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :4
+SOLIDITY_ADDRESS_HARDCODED :5
+SOLIDITY_UPGRADE_TO_050 :11
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_SHOULD_RETURN_STRUCT :4
+SOLIDITY_SHOULD_NOT_BE_PURE :8
+SOLIDITY_MSGVALUE_EQUALS_ZERO :1
+SOLIDITY_SAFEMATH :2
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_USING_INLINE_ASSEMBLY :11
+SOLIDITY_SHOULD_NOT_BE_VIEW :4

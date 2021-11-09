@@ -1,0 +1,39 @@
+C:\Users\hp\DataSet\ExternalFunctions.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 43
+column: 0
+content: contractExternalFunctionsisGlobalStore{functionbatch(BatchActions.Action[]memoryactions)publicpayable{BatchActions.batch(state,actions,msg.value);}functionisValidSignature(bytes32hash,addresssignerAddress,Types.Signaturecalldatasignature)externalpurereturns(boolisValid){isValid=Signature.isValidSignature(hash,signerAddress,signature);}functiongetAllMarketsCount()externalviewreturns(uint256count){count=state.marketsCount;}functiongetAsset(addressassetAddress)externalviewreturns(Types.Assetmemoryasset){Requires.requireAssetExist(state,assetAddress);asset=state.assets[assetAddress];}functiongetAssetOraclePrice(addressassetAddress)externalviewreturns(uint256price){Requires.requireAssetExist(state,assetAddress);price=AssemblyCall.getAssetPriceFromPriceOracle(address(state.assets[assetAddress].priceOracle),assetAddress);}functiongetMarket(uint16marketID)externalviewreturns(Types.Marketmemorymarket){Requires.requireMarketIDExist(state,marketID);market=state.markets[marketID];}functionisAccountLiquidatable(addressuser,uint16marketID)externalviewreturns(boolisLiquidatable){Requires.requireMarketIDExist(state,marketID);isLiquidatable=CollateralAccounts.getDetails(state,user,marketID).liquidatable;}functiongetAccountDetails(addressuser,uint16marketID)externalviewreturns(Types.CollateralAccountDetailsmemorydetails){Requires.requireMarketIDExist(state,marketID);details=CollateralAccounts.getDetails(state,user,marketID);}functiongetAuctionsCount()externalviewreturns(uint32count){count=state.auction.auctionsCount;}functiongetCurrentAuctions()externalviewreturns(uint32[]memory){returnstate.auction.currentAuctions;}functiongetAuctionDetails(uint32auctionID)externalviewreturns(Types.AuctionDetailsmemorydetails){Requires.requireAuctionExist(state,auctionID);details=Auctions.getAuctionDetails(state,auctionID);}functionfillAuctionWithAmount(uint32auctionID,uint256amount)external{Requires.requireAuctionExist(state,auctionID);Requires.requireAuctionNotFinished(state,auctionID);Auctions.fillAuctionWithAmount(state,auctionID,amount);}functionliquidateAccount(addressuser,uint16marketID)externalreturns(boolhasAuction,uint32auctionID){Requires.requireMarketIDExist(state,marketID);(hasAuction,auctionID)=Auctions.liquidate(state,user,marketID);}functiongetPoolCashableAmount(addressasset)externalviewreturns(uint256cashableAmount){if(asset==Consts.ETHEREUM_TOKEN_ADDRESS()){cashableAmount=address(this).balance-uint256(state.cash[asset]);}else{cashableAmount=IStandardToken(asset).balanceOf(address(this))-uint256(state.cash[asset]);}}functiongetIndex(addressasset)externalviewreturns(uint256supplyIndex,uint256borrowIndex){returnLendingPool.getCurrentIndex(state,asset);}functiongetTotalBorrow(addressasset)externalviewreturns(uint256amount){Requires.requireAssetExist(state,asset);amount=LendingPool.getTotalBorrow(state,asset);}functiongetTotalSupply(addressasset)externalviewreturns(uint256amount){Requires.requireAssetExist(state,asset);amount=LendingPool.getTotalSupply(state,asset);}functiongetAmountBorrowed(addressasset,addressuser,uint16marketID)externalviewreturns(uint256amount){Requires.requireMarketIDExist(state,marketID);Requires.requireMarketIDAndAssetMatch(state,marketID,asset);amount=LendingPool.getAmountBorrowed(state,asset,user,marketID);}functiongetAmountSupplied(addressasset,addressuser)externalviewreturns(uint256amount){Requires.requireAssetExist(state,asset);amount=LendingPool.getAmountSupplied(state,asset,user);}functiongetInterestRates(addressasset,uint256extraBorrowAmount)externalviewreturns(uint256borrowInterestRate,uint256supplyInterestRate){Requires.requireAssetExist(state,asset);(borrowInterestRate,supplyInterestRate)=LendingPool.getInterestRates(state,asset,extraBorrowAmount);}functiongetInsuranceBalance(addressasset)externalviewreturns(uint256amount){Requires.requireAssetExist(state,asset);amount=state.pool.insuranceBalances[asset];}functionapproveDelegate(addressdelegate)external{Relayer.approveDelegate(state,delegate);}functionrevokeDelegate(addressdelegate)external{Relayer.revokeDelegate(state,delegate);}functionjoinIncentiveSystem()external{Relayer.joinIncentiveSystem(state);}functionexitIncentiveSystem()external{Relayer.exitIncentiveSystem(state);}functioncanMatchOrdersFrom(addressrelayer)externalviewreturns(boolcanMatch){canMatch=Relayer.canMatchOrdersFrom(state,relayer);}functionisParticipant(addressrelayer)externalviewreturns(boolresult){result=Relayer.isParticipant(state,relayer);}functionbalanceOf(addressasset,addressuser)externalviewreturns(uint256balance){balance=Transfer.balanceOf(state,BalancePath.getCommonPath(user),asset);}functionmarketBalanceOf(uint16marketID,addressasset,addressuser)externalviewreturns(uint256balance){Requires.requireMarketIDExist(state,marketID);Requires.requireMarketIDAndAssetMatch(state,marketID,asset);balance=Transfer.balanceOf(state,BalancePath.getMarketPath(user,marketID),asset);}functiongetMarketTransferableAmount(uint16marketID,addressasset,addressuser)externalviewreturns(uint256amount){Requires.requireMarketIDExist(state,marketID);Requires.requireMarketIDAndAssetMatch(state,marketID,asset);amount=CollateralAccounts.getTransferableAmount(state,marketID,user,asset);}function()externalpayable{Transfer.deposit(state,Consts.ETHEREUM_TOKEN_ADDRESS(),msg.value);}functioncancelOrder(Types.Ordercalldataorder)external{Exchange.cancelOrder(state,order);}functionisOrderCancelled(bytes32orderHash)externalviewreturns(boolisCancelled){isCancelled=state.exchange.cancelled[orderHash];}functionmatchOrders(Types.MatchParamsmemoryparams)public{Exchange.matchOrders(state,params);}functiongetDiscountedRate(addressuser)externalviewreturns(uint256rate){rate=Discount.getDiscountedRate(state,user);}functiongetHydroTokenAddress()externalviewreturns(addresshydroTokenAddress){hydroTokenAddress=state.exchange.hotTokenAddress;}functiongetOrderFilledAmount(bytes32orderHash)externalviewreturns(uint256amount){amount=state.exchange.filled[orderHash];}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 19
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 184
+column: 16
+content: (boolhasAuction,uint32auctionID)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 209
+column: 16
+content: (uint256supplyIndex,uint256borrowIndex)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 264
+column: 16
+content: (uint256borrowInterestRate,uint256supplyInterestRate)
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_SHOULD_RETURN_STRUCT :3

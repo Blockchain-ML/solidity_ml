@@ -1,0 +1,41 @@
+C:\Users\hp\DataSet\contracts\ropsten\97\97e855d6f67973e647f8472fbbd26fe5dc41d38e_Bidding.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 25
+column: 8
+content: for(uintbiddersIndex=1;biddersIndex<bidders.length;biddersIndex++){if(bidderValue[biddersIndex]>bidderValue[winner]){winner=biddersIndex;}bidderWinner=bidders[winner];}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractBidding{addresspublicsupervisor;address[]publicbidders;uint[]privatebidderValue;addresspublicbidderWinner;functionBidding()public{supervisor=msg.sender;}functionenter()publicpayable{require(msg.value>0.01ether);bidders.push(msg.sender);bidderValue.push(msg.value);}functionpickWinner()publiconlyHeCan()returns(address){uintwinner=0;for(uintbiddersIndex=1;biddersIndex<bidders.length;biddersIndex++){if(bidderValue[biddersIndex]>bidderValue[winner]){winner=biddersIndex;}bidderWinner=bidders[winner];}returnbidders[winner];}modifieronlyHeCan(){require(msg.sender==supervisor);_;}functionseeBidders()publicviewreturns(address[]){returnbidders;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 7
+column: 11
+content: private
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 43
+column: 46
+content: address[]
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :1

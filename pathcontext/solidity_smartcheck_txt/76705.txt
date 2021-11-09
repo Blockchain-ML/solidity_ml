@@ -1,0 +1,125 @@
+F:\Blockchain\dataset_new_byID\76705.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 87
+column: 0
+content: contractEscrowisSecondary{usingSafeMathforuint256;eventDeposited(addressindexedpayee,uint256weiAmount);eventWithdrawn(addressindexedpayee,uint256weiAmount);mapping(address=>uint256)private_deposits;functiondepositsOf(addresspayee)publicviewreturns(uint256){return_deposits[payee];}functiondeposit(addresspayee)publiconlyPrimarypayable{uint256amount=msg.value;_deposits[payee]=_deposits[payee].add(amount);emitDeposited(payee,amount);}functionwithdraw(addresspayablepayee)publiconlyPrimary{uint256payment=_deposits[payee];_deposits[payee]=0;payee.transfer(payment);emitWithdrawn(payee,payment);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 120
+column: 0
+content: contractConditionalEscrowisEscrow{functionwithdrawalAllowed(addresspayee)publicviewreturns(bool);functionwithdraw(addresspayablepayee)public{require(withdrawalAllowed<missing ';'>(payee));super.withdraw(payee);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 55
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 93
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 132
+column: 29
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 88
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 108
+column: 4
+content: functionwithdraw(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 124
+column: 4
+content: functionwithdraw(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 109
+column: 8
+content: uint256payment=_deposits[payee];
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 111
+column: 8
+content: _deposits[payee]=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 113
+column: 8
+content: payee.transfer(payment);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 115
+column: 8
+content: emitWithdrawn
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 115
+column: 22
+content: (payee,payment);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 125
+column: 15
+content: (withdrawalAllowed<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 125
+column: 33
+content: (payee));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 126
+column: 8
+content: super.withdraw(payee);
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :3

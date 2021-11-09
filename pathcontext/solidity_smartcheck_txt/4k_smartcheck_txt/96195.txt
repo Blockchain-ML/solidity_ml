@@ -1,0 +1,63 @@
+F:\Blockchain\solidity_dataset_work\4k_dataset\96195.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 106
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 159
+column: 0
+content: contractZooPromoisStandardToken{stringpublicconstantname="ZOO Promo";stringpublicconstantsymbol="ZX";uint8publicconstantdecimals=6;uint256publicconstantcap=100000*10**6;constructor()public{totalSupply_=cap;balances[msg.sender]=cap;emitTransfer(address(0),msg.sender,totalSupply_);}functionapproveAndCall(address_spender,uint256_amount,bytes_extraData)publicreturns(boolsuccess){require(approve(_spender,_amount));ApproveAndCallFallBack(_spender).receiveApproval(msg.sender,_amount,this,_extraData);returntrue;}function()publicpayable{revert();}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 185
+column: 28
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 57
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 185
+column: 13
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 155
+column: 76
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 172
+column: 60
+content: bytes_extraData
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_ERC20_APPROVE :1

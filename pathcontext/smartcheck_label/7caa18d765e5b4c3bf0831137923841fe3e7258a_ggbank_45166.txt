@@ -1,0 +1,56 @@
+C:\Users\hp\DataSet\contracts\ropsten\7c\7caa18d765e5b4c3bf0831137923841fe3e7258a_ggbank.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 135
+column: 4
+content: functionPayForFlag(stringb64email)publicpayableauthenticatereturns(boolsuccess){require(balances[msg.sender]>200000);emitGetFlag(b64email,"Get flag!");}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 83
+column: 0
+content: contractggbankisggToken{addresspublicowner;mapping(uint=>bool)locknumber;eventGetFlag(stringb64email,stringback);modifierauthenticate{require(checkfriend(msg.sender));_;}constructor()public{owner=msg.sender;}functioncheckfriend(address_addr)internalpurereturns(boolsuccess){bytes20addr=bytes20(_addr);bytes20id=hex"000000000000000000000000000000000007d7ec";bytes20gg=hex"00000000000000000000000000000000000fffff";for(uint256i=0;i<34;i++){if(addr&gg==id){returntrue;}gg<<=4;id<<=4;}returnfalse;}functiongetAirdrop()publicauthenticatereturns(boolsuccess){if(!initialized[msg.sender]){initialized[msg.sender]=true;balances[msg.sender]=_airdropAmount;_totalSupply+=_airdropAmount;}returntrue;}functiongoodluck()publicpayableauthenticatereturns(boolsuccess){require(!locknumber[block.number]);require(balances[msg.sender]>=100);balances[msg.sender]-=100;uintrandom=uint(keccak256(abi.encodePacked(block.number)))%100;if(uint(keccak256(abi.encodePacked(msg.sender)))%100==random){balances[msg.sender]+=20000;_totalSupply+=20000;locknumber[block.number]=true;}returntrue;}functionPayForFlag(stringb64email)publicpayableauthenticatereturns(boolsuccess){require(balances[msg.sender]>200000);emitGetFlag(b64email,"Get flag!");}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 40
+column: 1
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 135
+column: 24
+content: stringb64email
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 71
+column: 1
+content: mapping(address=>bool)initialized;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 85
+column: 4
+content: mapping(uint=>bool)locknumber;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_UPGRADE_TO_050 :1

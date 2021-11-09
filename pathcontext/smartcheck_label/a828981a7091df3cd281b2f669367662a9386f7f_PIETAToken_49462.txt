@@ -1,0 +1,149 @@
+C:\Users\hp\DataSet\contracts\ropsten\a8\a828981a7091df3cd281b2f669367662a9386f7f_PIETAToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 85
+column: 41
+content: 0x73193200105449c144281C9E5b4c39B255e13d80
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 284
+column: 25
+content: 0xa5adabc88d6abbfebf9b9348bd53090ab4f5df1b
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 302
+column: 37
+content: 0xa5adabc88d6abbfebf9b9348bd53090ab4f5df1b
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 315
+column: 43
+content: 0x73193200105449c144281C9E5b4c39B255e13d80
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 353
+column: 4
+content: functiongetBonus(uinttime,uint256tokens,uint256weiAmount)publicconstantreturns(uint256){uint256bonus=0;if(state==States.ICO){if(time>=icoStart&&time<=(icoStart+5days)){bonus=tokens.mul(15).div(100);}elseif(time>=(icoStart+6days)&&time<=(icoStart+10days)){bonus=tokens.mul(10).div(100);}elseif(time>=(icoStart+11days)&&time<=(icoStart+15days)){bonus=tokens.mul(5).div(100);}elseif(time>=(icoStart+16days)&&time<=(icoStart+22days)){bonus=tokens.mul(3).div(100);}elseif(time>=(icoStart+22days)&&time<icoEnd){bonus=tokens.mul(1).div(100);}if(weiAmount>=260ether){bonus=bonus.add(tokens.mul(15).div(100));}elseif(weiAmount>=130ether){bonus=bonus.add(tokens.mul(10).div(100));}elseif(weiAmount>=26ether){bonus=bonus.add(tokens.mul(5).div(100));}elseif(weiAmount>=12500finney){bonus=bonus.add(tokens.mul(3).div(100));}}returnbonus;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 406
+column: 4
+content: functionisValidPeriod(uinttime)publicconstantreturns(bool){if(state==States.ICO){if(time>=icoStart&&time<=icoEnd)returntrue;}returnfalse;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 416
+column: 4
+content: functionisReachedHardCap(uint256weiAmount)publicconstantreturns(bool){addresscontractAddress=this;returnweiAmount.add(contractAddress.balance)>hardCap;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 422
+column: 4
+content: functioncheckSaleLimit(uint256tokensAmount)publicconstant{if(state==States.PreICO){require(soldTokens.add(tokensAmount)<=preIcoSaleLimit);}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 442
+column: 4
+content: functioncalcTokens(uint256weiAmount)publicconstantreturns(uint256){returnweiAmount.mul(rate);}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 174
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 104
+column: 4
+content: if(msg.sender==restOfTokens&&now<endOfFreezing){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 152
+column: 4
+content: if(_from==restOfTokens&&now<endOfFreezing){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 453
+column: 8
+content: if(state==States.ICO&&msg.value<minIcoPurchase){revert("too small a sum for ico");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 458
+column: 8
+content: if(state==States.ICO&&msg.value>maxIcoPurchase){revert("too big a sum for ico");}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 77
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 293
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 447
+column: 16
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 79
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 82
+column: 2
+content: uint256totalSupply_;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :4
+SOLIDITY_ADDRESS_HARDCODED :4
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_ERC20_APPROVE :1

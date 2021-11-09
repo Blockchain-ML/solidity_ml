@@ -1,0 +1,96 @@
+F:\Blockchain\dataset_new_byID\72169.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 14
+column: 0
+content: contractStakingProxyisIStakingProxy,MixinStorage,MixinConstants{usingLibSafeDowncastforuint256;constructor(address_stakingContract)publicMixinStorage(){_addAuthorizedAddress(msg.sender);_attachStakingContract(_stakingContract);_removeAuthorizedAddressAtIndex(msg.sender,0);}function()externalpayable{addressstakingContract_=stakingContract;if(stakingContract_==NIL_ADDRESS){revert();}(boolsuccess,bytesmemoryreturnData)=stakingContract_.delegatecall(msg.data);assembly{switchsuccesscase0{revert(add(0x20,returnData),mload(returnData))}default{return(add(0x20,returnData),mload(returnData))}}}functionattachStakingContract(address_stakingContract)externalonlyAuthorized{_attachStakingContract(_stakingContract);}functiondetachStakingContract()externalonlyAuthorized{stakingContract=NIL_ADDRESS;emitStakingContractDetachedFromProxy();}functionbatchExecute(bytes[]calldatadata)externalreturns(bytes[]memorybatchReturnData){boolsuccess;bytesmemoryreturnData;uint256dataLength=data.length;batchReturnData=newbytes[](dataLength);addressstaking=stakingContract;if(staking==NIL_ADDRESS){revert();}for(uint256i=0;i!=dataLength;i++){(success,returnData)=staking.delegatecall(data[i]);if(!success){assembly{revert(add(0x20,returnData),mload(returnData))}}batchReturnData[i]=returnData;}returnbatchReturnData;}functionassertValidStorageParams()publicview{uint256_epochDurationInSeconds=epochDurationInSeconds;if(_epochDurationInSeconds<5days||_epochDurationInSeconds>30days){revert();}uint32_cobbDouglasAlphaDenominator=cobbDouglasAlphaDenominator;if(cobbDouglasAlphaNumerator>_cobbDouglasAlphaDenominator||_cobbDouglasAlphaDenominator==0){revert();}if(rewardDelegatedStakeWeight>PPM_DENOMINATOR){revert();}if(minimumPoolStake<2){revert();}}function_attachStakingContract(address_stakingContract)internal{stakingContract=_stakingContract;emitStakingContractAttachedToProxy(_stakingContract);(booldidInitSucceed,bytesmemoryinitReturnData)=stakingContract.delegatecall(abi.encodeWithSelector(IStorageInit(0).init.selector));if(!didInitSucceed){assembly{revert(add(initReturnData,0x20),mload(initReturnData))}}assertValidStorageParams();}}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 44
+column: 8
+content: if(stakingContract_==NIL_ADDRESS){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 98
+column: 8
+content: if(staking==NIL_ADDRESS){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 132
+column: 8
+content: if(_epochDurationInSeconds<5days||_epochDurationInSeconds>30days){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 138
+column: 8
+content: if(cobbDouglasAlphaNumerator>_cobbDouglasAlphaDenominator||_cobbDouglasAlphaDenominator==0){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 143
+column: 8
+content: if(rewardDelegatedStakeWeight>PPM_DENOMINATOR){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 148
+column: 8
+content: if(minimumPoolStake<2){revert();}
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 49
+column: 67
+content: delegatecall(msg.data)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 105
+column: 44
+content: delegatecall(data[i])
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 163
+column: 77
+content: delegatecall(abi.encodeWithSelector(IStorageInit(0).init.selector))
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 52
+column: 8
+content: assembly{switchsuccesscase0{revert(add(0x20,returnData),mload(returnData))}default{return(add(0x20,returnData),mload(returnData))}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 109
+column: 16
+content: assembly{revert(add(0x20,returnData),mload(returnData))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 168
+column: 12
+content: assembly{revert(add(initReturnData,0x20),mload(initReturnData))}
+
+SOLIDITY_REVERT_REQUIRE :6
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_USING_INLINE_ASSEMBLY :3
+SOLIDITY_UNCHECKED_CALL :3

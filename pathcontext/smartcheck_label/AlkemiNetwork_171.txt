@@ -1,0 +1,76 @@
+C:\Users\hp\DataSet\AlkemiNetwork.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 74
+column: 8
+content: for(uint256i=0;i<_reserves.length;i++){if(ILiquidityReserve(_reserves[i]).isActive()){_activeReserves[j]=_reserves[i];j++;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 98
+column: 8
+content: for(uint256i=0;i<_reserves.length;i++){if(ILiquidityReserve(_reserves[i]).isActive()&&(ILiquidityReserve(_reserves[i]).asset()==_asset)){_activeReserves[j]=_reserves[i];j++;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 121
+column: 8
+content: for(uint256i=0;i<_reserves.length;i++){if(ILiquidityReserve(_reserves[i]).isActive()){_activeReserves[i]=_reserves[i];j++;}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 139
+column: 4
+content: functioncreateLiquidityReserve(address_linkToken,address_beneficiary,address_asset,uint256_createdAt,uint256_lockingPeriod,uint256_lockingPrice,uint8_lockingPricePosition)publicreturns(address){addressr=_createLiquidityReserve(_linkToken,msg.sender,address(this),_beneficiary,_asset,_createdAt,_lockingPeriod,_lockingPrice,_lockingPricePosition);providerReserves[msg.sender].push(r);tokenReserves[_asset].push(r);emitReserveCreate(r,msg.sender,_beneficiary,_lockingPeriod,_lockingPrice,_lockingPricePosition);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 74
+column: 8
+content: for(uint256i=0;i<_reserves.length;i++){if(ILiquidityReserve(_reserves[i]).isActive()){_activeReserves[j]=_reserves[i];j++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 98
+column: 8
+content: for(uint256i=0;i<_reserves.length;i++){if(ILiquidityReserve(_reserves[i]).isActive()&&(ILiquidityReserve(_reserves[i]).asset()==_asset)){_activeReserves[j]=_reserves[i];j++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 121
+column: 8
+content: for(uint256i=0;i<_reserves.length;i++){if(ILiquidityReserve(_reserves[i]).isActive()){_activeReserves[i]=_reserves[i];j++;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 178
+column: 4
+content: functionsetNewOwner(address_owner)publiconlyOwner{_setOwner(_owner);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 187
+column: 4
+content: functionsetAlkemiOracle(address_oracle)publiconlyOwner{_setAlkemiOracle(_oracle);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3

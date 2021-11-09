@@ -1,0 +1,75 @@
+C:\Users\hp\DataSet\NeumarkIssuanceCurve.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 145
+column: 15
+content: max>min
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 11
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 14
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 17
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 20
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 21
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 23
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 24
+column: 12
+content: private
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 86
+column: 4
+content: functioncumulative(uint256euroUlps)publicpurereturns(uint256neumarkUlps){if(euroUlps>=ISSUANCE_LIMIT_EUR_ULPS){returnNEUMARK_CAP;}if(euroUlps>=LINEAR_APPROX_LIMIT_EUR_ULPS){returnNEUMARKS_AT_LINEAR_LIMIT_ULPS+(TOT_LINEAR_NEUMARKS_ULPS*(euroUlps-LINEAR_APPROX_LIMIT_EUR_ULPS))/TOT_LINEAR_EUR_ULPS;}uint256d=230769230769230769230769231;uint256term=NEUMARK_CAP;uint256sum=0;uint256denom=d;doassembly{term:=div(mul(term,euroUlps),denom)sum:=add(sum,term)denom:=add(denom,d)term:=div(mul(term,euroUlps),denom)sum:=sub(sum,term)denom:=add(denom,d)}while(term!=0);returnsum;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 112
+column: 11
+content: assembly{term:=div(mul(term,euroUlps),denom)sum:=add(sum,term)denom:=add(denom,d)term:=div(mul(term,euroUlps),denom)sum:=sub(sum,term)denom:=add(denom,d)}
+
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :7
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

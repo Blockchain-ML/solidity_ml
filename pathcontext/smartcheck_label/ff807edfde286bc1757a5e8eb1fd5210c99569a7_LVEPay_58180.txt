@@ -1,0 +1,84 @@
+C:\Users\hp\DataSet\contracts\ropsten\ff\ff807edfde286bc1757a5e8eb1fd5210c99569a7_LVEPay.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 53
+column: 0
+content: contractLVEPay{usingSafeMathforuint256;LVECoinprivatetokenContr;eventWithdrawalEther(addressindexed_to,uint256_amount);eventPay(addressindexed_from,addressindexed_to,uint256_amount);structPayOrder{stringpayID;uint256payAmt;}addresspublicwalletAddr;mapping(string=>PayOrder)payOrderMap;string[]publicpayOrders;constructor(address_tokenAddr,address_walletAddr)public{require(_tokenAddr!=address(0),"");require(_walletAddr!=address(0),"");walletAddr=_walletAddr;tokenContr=LVECoin(_tokenAddr);}modifierisCORRFormat(string_arg){require(bytes(_arg).length>0,"");_;}modifierexcludeRepeatOrder(string_payOrderKey){PayOrdermemorypayOrder;payOrder=payOrderMap[_payOrderKey];require(bytes(_payOrderKey).length>0,"");require(bytes(payOrder.payID).length==0,"");_;}modifierenoughTokenAmt(uint256_payAmt){uint256tokenAmt=tokenContr.balanceOf(msg.sender);if(tokenAmt>=_payAmt){_;}}functionlvePay(string_payOrderKey,string_payID,uint256_payAmt)publicenoughTokenAmt(_payAmt)isCORRFormat(_payOrderKey)isCORRFormat(_payID)excludeRepeatOrder(_payOrderKey)returns(bool){require(msg.sender!=address(0),"");require(_payAmt>0,"");PayOrdermemorypayOrder;payOrder.payID=_payID;payOrder.payAmt=_payAmt;payOrderMap[_payOrderKey]=payOrder;payOrders.push(_payOrderKey);emitPay(msg.sender,walletAddr,_payAmt);returntrue;}functioncountPayOrder()publicviewreturns(uint256_orderNums){returnpayOrders.length;}functiongetPayOrderKey(uint256_index)publicviewreturns(string_payOrderKey){returnpayOrders[_index];}functiongetPaidInfo(string_payOrderKey)publicviewisCORRFormat(_payOrderKey)returns(string_payID,uint256_payAmt){PayOrdermemorypayOrder;payOrder=payOrderMap[_payOrderKey];return(payOrder.payID,payOrder.payAmt);}function()publicpayable{require(msg.value>0,"");walletAddr.transfer(msg.value);emitWithdrawalEther(walletAddr,msg.value);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 57
+column: 12
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 55
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 148
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 112
+column: 20
+content: string_payOrderKey
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 112
+column: 41
+content: string_payID
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 136
+column: 64
+content: string_payOrderKey
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 141
+column: 25
+content: string_payOrderKey
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 141
+column: 93
+content: string_payID
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 74
+column: 4
+content: mapping(string=>PayOrder)payOrderMap;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_UPGRADE_TO_050 :6

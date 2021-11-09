@@ -1,0 +1,120 @@
+C:\Users\hp\DataSet\walletlibrarydemo.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 54
+column: 36
+content: 0xCAfEcAfeCAfECaFeCaFecaFecaFECafECafeCaFe
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 112
+column: 4
+content: for(uinti=0;i<_owners.length;++i){m_owners[2+i]=uint(_owners[i]);m_ownerIndex[uint(_owners[i])]=2+i;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 112
+column: 4
+content: for(uinti=0;i<_owners.length;++i){m_owners[2+i]=uint(_owners[i]);m_ownerIndex[uint(_owners[i])]=2+i;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 11
+column: 0
+content: contractWalletLibraryDemo{eventConfirmation(addressowner,bytes32operation);eventRevoke(addressowner,bytes32operation);eventOwnerChanged(addressoldOwner,addressnewOwner);eventOwnerAdded(addressnewOwner);eventOwnerRemoved(addressoldOwner);eventRequirementChanged(uintnewRequirement);eventDeposit(address_from,uintvalue);eventSingleTransact(addressowner,uintvalue,addressto,bytesdata,addresscreated);eventMultiTransact(addressowner,bytes32operation,uintvalue,addressto,bytesdata,addresscreated);eventConfirmationNeeded(bytes32operation,addressinitiator,uintvalue,addressto,bytesdata);structPendingState{uintyetNeeded;uintownersDone;uintindex;}structTransaction{addressto;uintvalue;bytesdata;}addressconstant_walletLibrary=0xCAfEcAfeCAfECaFeCaFecaFecaFECafECafeCaFe;uintpublicm_required;uintpublicm_numOwners;uintpublicm_dailyLimit;uintpublicm_spentToday;uintpublicm_lastDay;uint[256]m_owners;uintconstantc_maxOwners=250;mapping(uint=>uint)m_ownerIndex;mapping(bytes32=>PendingState)m_pending;bytes32[]m_pendingIndex;mapping(bytes32=>Transaction)m_txs;modifieronlyowner{if(isOwner(msg.sender))_;}functioninitDaylimit(uint_limit)internalonly_uninitialized{m_dailyLimit=_limit;}modifieronly_uninitialized{if(m_numOwners>0)revert();_;}functioninitWallet(address[]memory_owners,uint_required,uint_daylimit)publiconly_uninitialized{initDaylimit(_daylimit);initMultiowned(_owners,_required);}functioninitMultiowned(address[]memory_owners,uint_required)internalonly_uninitialized{require(_owners.length<=2);m_numOwners=_owners.length+1;m_owners[1]=uint(msg.sender);m_ownerIndex[uint(msg.sender)]=1;for(uinti=0;i<_owners.length;++i){m_owners[2+i]=uint(_owners[i]);m_ownerIndex[uint(_owners[i])]=2+i;}m_required=_required;}function()externalpayable{if(msg.value>0)emitDeposit(msg.sender,msg.value);}functionisOwner(address_addr)publicviewreturns(bool){returnm_ownerIndex[uint(_addr)]>0;}functionkill(addresspayable_to)onlyownerexternal{selfdestruct(_to);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 8
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 92
+column: 32
+content: if(m_numOwners>0)revert();
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 134
+column: 2
+content: functionkill(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 54
+column: 2
+content: addressconstant_walletLibrary=0xCAfEcAfeCAfECaFeCaFecaFecaFECafECafeCaFe;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 66
+column: 2
+content: uint[256]m_owners;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 68
+column: 2
+content: uintconstantc_maxOwners=250;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 70
+column: 2
+content: mapping(uint=>uint)m_ownerIndex;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 72
+column: 2
+content: mapping(bytes32=>PendingState)m_pending;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 73
+column: 2
+content: bytes32[]m_pendingIndex;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 76
+column: 2
+content: mapping(bytes32=>Transaction)m_txs;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 134
+column: 32
+content: _to)onlyownerexternal{
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 135
+column: 4
+content: selfdestruct(_to);
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

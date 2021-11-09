@@ -1,0 +1,263 @@
+C:\Users\hp\DataSet\contracts\mainnet\52\52d35e8f0ffa18337b093aec3dfff40445d8f4f4_KyberSwapLimitOrder.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 9
+column: 0
+content: contractKyberSwapLimitOrderisWithdrawable{mapping(address=>mapping(uint256=>uint256))publicnonces;boolpublictradeEnabled;KyberNetworkProxyInterfacepublickyberNetworkProxy;uint256publicconstantMAX_DEST_AMOUNT=2**256-1;uint256publicconstantPRECISION=10**4;usingSafeMathforuint256;usingSafeERC20forERC20;constructor(address_admin,KyberNetworkProxyInterface_kyberNetworkProxy)publicWithdrawable(_admin){require(_admin!=address(0));require(address(_kyberNetworkProxy)!=address(0));kyberNetworkProxy=_kyberNetworkProxy;}eventTradeEnabled(booltradeEnabled);functionenableTrade()externalonlyAdmin{tradeEnabled=true;emitTradeEnabled(tradeEnabled);}functiondisableTrade()externalonlyAdmin{tradeEnabled=false;emitTradeEnabled(tradeEnabled);}functionlistToken(ERC20token)externalonlyAdmin{require(address(token)!=address(0));token.safeApprove(address(kyberNetworkProxy),MAX_DEST_AMOUNT);}structVerifyParams{addressuser;uint8v;uint256concatenatedTokenAddresses;uint256nonce;bytes32hashedParams;bytes32r;bytes32s;}structTradeInput{ERC20srcToken;uint256srcQty;ERC20destToken;addresspayabledestAddress;uint256minConversionRate;uint256feeInPrecision;}eventLimitOrderExecute(addressindexeduser,uint256nonce,addressindexedsrcToken,uint256actualSrcQty,uint256destAmount,addressindexeddestToken,addressdestAddress,uint256feeInSrcTokenWei);functionexecuteLimitOrder(addressuser,uint256nonce,ERC20srcToken,uint256srcQty,ERC20destToken,address<missing ')'>payabledestAddress,uint256minConversionRate,uint256feeInPrecision,uint8v,bytes32r,bytes32s)onlyOperatorexternal{require(tradeEnabled);VerifyParamsmemoryverifyParams;verifyParams.user=user;verifyParams.concatenatedTokenAddresses=concatTokenAddresses(address<missing ';'>(srcToken),address(destToken));verifyParams.nonce=nonce;verifyParams.hashedParams=keccak256(abi.encodePacked<missing ';'>(user,nonce,srcToken,srcQty,destToken,destAddress,minConversionRate,feeInPrecision));verifyParams.v=v;verifyParams.r=r;verifyParams.s=s;require(verifyTradeParams(verifyParams));TradeInputmemorytradeInput;tradeInput.srcToken=srcToken;tradeInput.srcQty=srcQty;tradeInput.destToken=destToken;tradeInput.destAddress=destAddress;tradeInput.minConversionRate=minConversionRate;tradeInput.feeInPrecision=feeInPrecision;trade(tradeInput,verifyParams);}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 17
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 80
+column: 4
+content: functionexecuteLimitOrder(addressuser,uint256nonce,ERC20srcToken,uint256srcQty,ERC20destToken,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 86
+column: 24
+content: destAddress,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 87
+column: 8
+content: uint256minConversionRate,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 88
+column: 8
+content: uint256feeInPrecision,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 8
+content: uint8v,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 90
+column: 8
+content: bytes32r,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 91
+column: 8
+content: bytes32s)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 96
+column: 15
+content: (tradeEnabled);VerifyParamsmemory
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 98
+column: 28
+content: verifyParams;verifyParams.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 99
+column: 21
+content: user=user;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 100
+column: 8
+content: verifyParams.concatenatedTokenAddresses=concatTokenAddresses
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 100
+column: 70
+content: (address<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 100
+column: 78
+content: (srcToken),
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 100
+column: 90
+content: address(destToken));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 101
+column: 8
+content: verifyParams.nonce=nonce;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 102
+column: 8
+content: verifyParams.hashedParams=keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 102
+column: 45
+content: (abi.encodePacked<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 102
+column: 62
+content: (user,nonce,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 103
+column: 25
+content: srcToken,srcQty,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 103
+column: 43
+content: destToken,destAddress,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 103
+column: 67
+content: minConversionRate,feeInPrecision));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 104
+column: 8
+content: verifyParams.v=v;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 105
+column: 8
+content: verifyParams.r=r;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 106
+column: 8
+content: verifyParams.s=s;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 107
+column: 8
+content: require(verifyTradeParams
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 107
+column: 33
+content: (verifyParams));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 109
+column: 8
+content: TradeInputmemorytradeInput;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 110
+column: 8
+content: tradeInput.srcToken=srcToken;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 111
+column: 8
+content: tradeInput.srcQty=srcQty;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 112
+column: 8
+content: tradeInput.destToken=destToken;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 113
+column: 8
+content: tradeInput.destAddress=destAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 114
+column: 8
+content: tradeInput.minConversionRate=minConversionRate;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 115
+column: 8
+content: tradeInput.feeInPrecision=feeInPrecision;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 116
+column: 8
+content: trade(tradeInput,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 116
+column: 26
+content: verifyParams);
+
+SOLIDITY_VISIBILITY :35
+SOLIDITY_SAFEMATH :1
+SOLIDITY_LOCKED_MONEY :1

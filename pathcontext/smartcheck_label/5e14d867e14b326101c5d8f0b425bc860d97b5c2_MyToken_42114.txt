@@ -1,0 +1,91 @@
+C:\Users\hp\DataSet\contracts\ropsten\5e\5e14d867e14b326101c5d8f0b425bc860d97b5c2_MyToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 50
+column: 4
+content: functionapprove(address_spender,uint_value)public{allowance[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 66
+column: 0
+content: contractTokenSale{uintetherInToken;addresstokenPool;MyTokentokenInstance;addressowner;constructor(addresstokenAddress,address_tokenPool,uint_rate)public{tokenInstance=MyToken(tokenAddress);tokenPool=_tokenPool;etherInToken=_rate;owner=msg.sender;}eventRateUpdated(uintnewRate);functionupdateRate(uintnewRate)public{require(msg.sender==owner);etherInToken=newRate;emitRateUpdated(newRate);}function()publicpayable{addressbuyer=msg.sender;uintvalue=msg.value;tokenInstance.transferFrom(tokenPool,buyer,value*etherInToken);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 30
+column: 4
+content: functionsetAuthorizedSpender(address_authorizedSpender)public{require(msg.sender==owner);authorizedSpender=_authorizedSpender;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 87
+column: 16
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 14
+column: 4
+content: boolactive=false;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 16
+column: 4
+content: addressowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 18
+column: 4
+content: addressauthorizedSpender;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 67
+column: 4
+content: uintetherInToken;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 68
+column: 4
+content: addresstokenPool;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 69
+column: 4
+content: MyTokentokenInstance;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 70
+column: 4
+content: addressowner;
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_ERC20_APPROVE :1

@@ -1,0 +1,680 @@
+C:\Users\hp\DataSet\contracts\ropsten\42\426055da82001a64e36a7d69031f6de569a7845a_HpbBallot.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 521
+column: 9
+content: voteStages[voteStageIndex].voterArray[voterIndex].candidateMapAddrs.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 531
+column: 8
+content: voteStages[voteStageIndex].candidateArray.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 313
+column: 9
+content: voteStages.length++
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 366
+column: 8
+content: voteStages.length++
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 772
+column: 4
+content: functionfechAllCandidatesBySnapshotBlock(uint_snapshotBlock)onlyVoteAfterStartpublicconstantreturns(address[]addrs,bytes32[]names,bytes32[]facilityIds){uintvoteStageIndex=voteStageIndexMap[_snapshotBlock];if(voteStageIndex==0){require(_snapshotBlock==voteStages[0].snapshotBlock);}require(voteStages[voteStageIndex].candidateArray.length>1);uintcl=voteStages[voteStageIndex].candidateArray.length-1;address[]memory_addrs=newaddress[](cl);bytes32[]memory_names=newbytes32[](cl);bytes32[]memory_facilityIds=newbytes32[](cl);for(uinti=1;i<=cl;i++){_addrs[i-1]=voteStages[voteStageIndex].candidateArray[i].candidateAddr;_names[i-1]=stringToBytes32(voteStages[voteStageIndex].candidateArray[i].name);_facilityIds[i-1]=stringToBytes32(voteStages[voteStageIndex].candidateArray[i].facilityId);}return(_addrs,_names,_facilityIds);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 806
+column: 4
+content: functionfechAllVotersBySnapshotBlock(uint_snapshotBlock)onlyVoteAfterStartpublicconstantreturns(address[]voterAddrs,uint[]snapshotBalances,uint[]voteNumbers){uintvoteStageIndex=voteStageIndexMap[_snapshotBlock];if(voteStageIndex==0){require(_snapshotBlock==voteStages[0].snapshotBlock);}require(voteStages[voteStageIndex].voterArray.length>1);uintcl=voteStages[voteStageIndex].voterArray.length-1;address[]memory_addrs=newaddress[](cl);uint[]memory_snapshotBalances=newuint[](cl);uint[]memory_voteNumbers=newuint[](cl);for(uinti=1;i<=cl;i++){_addrs[i-1]=voteStages[voteStageIndex].voterArray[i].voterAddr;_snapshotBalances[i-1]=voteStages[voteStageIndex].voterArray[i].snapshotBalance;_voteNumbers[i-1]=voteStages[voteStageIndex].voterArray[i].voteNumber;}return(_addrs,_snapshotBalances,_voteNumbers);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 836
+column: 4
+content: functiongetVoteResult()onlyVoteAfterStartpublicconstantreturns(address[]addr,bytes32[]facilityIds,uint[]nums){uintcl=candidateIndexArray.length;address[]memory_addrs=newaddress[](cl);bytes32[]memory_facilityIds=newbytes32[](cl);uint[]memory_nums=newuint[](cl);for(uintm=0;m<cl;m++){_addrs[m]=voteStages[0].candidateArray[candidateIndexArray[m]].candidateAddr;_facilityIds[m]=stringToBytes32(voteStages[0].candidateArray[candidateIndexArray[m]].facilityId);_nums[m]=voteStages[0].candidateArray[candidateIndexArray[m]].numberOfVotes;}return(_addrs,_facilityIds,_nums);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 853
+column: 4
+content: functiongetCandidateIndexArray()onlyVoteAfterStartpublicconstantreturns(uint[]nums){returncandidateIndexArray;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 859
+column: 4
+content: functiongetCandidateIndexArrayLength()onlyVoteAfterStartpublicconstantreturns(uintnums){returncandidateIndexArray.length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 964
+column: 4
+content: functionfechVoteMainInfoBySnapshotBlock(uint_snapshotBlock)onlyVoteAfterStartpublicconstantreturns(uintsnapshotBalance,uintvoteNumber){uintvoteStageIndex=voteStageIndexMap[_snapshotBlock];if(voteStageIndex==0){require(_snapshotBlock==voteStages[0].snapshotBlock);}uintindex=voteStages[voteStageIndex].voterIndexMap[msg.sender];if(index==0){return(0,0);}return(voteStages[voteStageIndex].voterArray[index].snapshotBalance,voteStages[voteStageIndex].voterArray[index].voteNumber);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 987
+column: 4
+content: functionfechVoteMainInfo()onlyVoteAfterStartpublicconstantreturns(uintsnapshotBalance,uintvoteNumber){returnfechVoteMainInfoBySnapshotBlock(currentSnapshotBlock);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 998
+column: 4
+content: functionfechVoteInfoForVoterBySnapshotBlock(addressvoterAddr,uint_snapshotBlock)onlyVoteAfterStartpublicconstantreturns(address[]addrs,uint[]nums){uintvoteStageIndex=voteStageIndexMap[_snapshotBlock];if(voteStageIndex==0){require(_snapshotBlock==voteStages[0].snapshotBlock);}uintindex=voteStages[voteStageIndex].voterIndexMap[voterAddr];if(index==0){return(newaddress[](0),newuint[](0));}uintvvcl=voteStages[voteStageIndex].voterArray[index].candidateMapAddrs.length-1;address[]memory_addrs=newaddress[](vvcl);uint[]memory_nums=newuint[](vvcl);for(uinti=1;i<=vvcl;i++){_nums[i-1]=voteStages[voteStageIndex].voterArray[index].candidateMap[voteStages[voteStageIndex].voterArray[index].candidateMapAddrs[i]];_addrs[i-1]=voteStages[voteStageIndex].voterArray[index].candidateMapAddrs[i];}return(_addrs,_nums);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1029
+column: 4
+content: functionfechVoteInfoForVoter(addressvoterAddr)onlyVoteAfterStartpublicconstantreturns(address[]addrs,uint[]nums){returnfechVoteInfoForVoterBySnapshotBlock(voterAddr,currentSnapshotBlock);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1040
+column: 4
+content: functionfechSnapshotBlockByIndex(uint_index)onlyVoteAfterStartpublicconstantreturns(uint_snapshotBlock){returnvoteStages[_index].snapshotBlock;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1050
+column: 4
+content: functionfechStageIndexBySnapshotBlock(uint_snapshotBlock)onlyVoteAfterStartpublicconstantreturns(uint_index){returnvoteStageIndexMap[_snapshotBlock];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1060
+column: 4
+content: functionfechCurrentSnapshotBlockIndex()onlyVoteAfterStartpublicconstantreturns(uint_index){returnvoteStageIndexMap[currentSnapshotBlock];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1071
+column: 4
+content: functionfechVoteNumForCandidateBySnapshotBlock(addresscandidateAddr,uint_snapshotBlock)onlyVoteAfterStartpublicconstantreturns(uintnum){uintvoteStageIndex=voteStageIndexMap[_snapshotBlock];if(voteStageIndex==0){require(_snapshotBlock==voteStages[0].snapshotBlock);}uintindex=voteStages[voteStageIndex].candidateIndexMap[candidateAddr];require(index>0);returnvoteStages[voteStageIndex].candidateArray[index].numberOfVotes;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1089
+column: 4
+content: functionfechVoteNumForCandidate(addresscandidateAddr)onlyVoteAfterStartpublicconstantreturns(uintnum){returnfechVoteNumForCandidateBySnapshotBlock(candidateAddr,currentSnapshotBlock);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1100
+column: 4
+content: functionfechVoteResultForCandidateBySnapshotBlock(addresscandidateAddr,uint_snapshotBlock)onlyVoteAfterStartpublicconstantreturns(address[]addrs,uint[]nums){uintvoteStageIndex=voteStageIndexMap[_snapshotBlock];if(voteStageIndex==0){require(_snapshotBlock==voteStages[0].snapshotBlock);}uintindex=voteStages[voteStageIndex].candidateIndexMap[candidateAddr];require(index>0);uintvcvl=voteStages[voteStageIndex].candidateArray[index].voterMapAddrs.length-1;address[]memory_addrs=newaddress[](vcvl);uint[]memory_nums=newuint[](vcvl);for(uinti=1;i<=vcvl;i++){_nums[i-1]=voteStages[voteStageIndex].candidateArray[index].voterMap[voteStages[voteStageIndex].candidateArray[index].voterMapAddrs[i]];_addrs[i-1]=voteStages[voteStageIndex].candidateArray[index].voterMapAddrs[i];}return(_addrs,_nums);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1128
+column: 4
+content: functionfechVoteResultForCandidate(addresscandidateAddr)onlyVoteAfterStartpublicconstantreturns(address[]addr,uint[]nums){returnfechVoteResultForCandidateBySnapshotBlock(candidateAddr,currentSnapshotBlock);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1140
+column: 4
+content: functionfechAllVoteResultBySnapshotBlock(uint_snapshotBlock)onlyVoteAfterStartpublicconstantreturns(address[]addrs,uint[]nums){uintvoteStageIndex=voteStageIndexMap[_snapshotBlock];if(voteStageIndex==0){require(_snapshotBlock==voteStages[0].snapshotBlock);}require(voteStages[voteStageIndex].candidateArray.length>1);uintvcl=voteStages[voteStageIndex].candidateArray.length-1;address[]memory_addrs=newaddress[](vcl);uint[]memory_nums=newuint[](vcl);for(uinti=1;i<=vcl;i++){_addrs[i-1]=voteStages[voteStageIndex].candidateArray[i].candidateAddr;_nums[i-1]=voteStages[voteStageIndex].candidateArray[i].numberOfVotes;}return(_addrs,_nums);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1164
+column: 4
+content: functionfechAllVoteResultPreStageByBlock(uint_block)onlyVoteAfterStartpublicconstantreturns(uintfromBlock,uinttoBlock,address[]addrs,uint[]nums){uintvoteStageIndex=voteStageIndexMap[currentSnapshotBlock];if(voteStageIndex<=round){return(0,0,newaddress[](0),newuint[](0));}if(_block>=voteStages[voteStageIndex].createSnapshotBlock){if(voteStageIndex<2){return(0,0,newaddress[](0),newuint[](0));}elseif(voteStages[voteStageIndex-1].candidateArray.length<2){return(0,0,newaddress[](0),newuint[](0));}else{uintvcl=voteStages[voteStageIndex-1].candidateArray.length-1;address[]memory_addrs=newaddress[](vcl);uint[]memory_nums=newuint[](vcl);for(uinti=1;i<=vcl;i++){_addrs[i-1]=voteStages[voteStageIndex-1].candidateArray[i].candidateAddr;_nums[i-1]=voteStages[voteStageIndex-1].candidateArray[i].numberOfVotes;}return(voteStages[voteStageIndex-1].createSnapshotBlock,voteStages[voteStageIndex].createSnapshotBlock,_addrs,_nums);}}else{return(0,0,newaddress[](0),newuint[](0));}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1203
+column: 4
+content: functionfechAllVoteResultForCurrent()onlyVoteAfterStartpublicconstantreturns(address[]addrs,uint[]nums){returnfechAllVoteResultBySnapshotBlock(currentSnapshotBlock);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 391
+column: 9
+content: for(uintm=0;m<candidateIndexArray.length;m++){voteStages[_voteStageIndex].candidateArray.push(Candidate(voteStages[0].candidateArray[candidateIndexArray[m]].candidateAddr,voteStages[0].candidateArray[candidateIndexArray[m]].name,voteStages[0].candidateArray[candidateIndexArray[m]].facilityId,0,newaddress[](0)));voteStages[_voteStageIndex].candidateIndexMap[voteStages[0].candidateArray[candidateIndexArray[m]].candidateAddr]=safeAdd(m,1);voteStages[_voteStageIndex].candidateArray[safeAdd(m,1)].voterMapAddrs.push(msg.sender);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 409
+column: 12
+content: for(uintk=0;k<voteStages[0].candidateArray.length;k++){voteStages[_voteStageIndex].candidateArray.push(Candidate(voteStages[0].candidateArray[k].candidateAddr,voteStages[0].candidateArray[k].name,voteStages[0].candidateArray[k].facilityId,0,newaddress[](0)));voteStages[_voteStageIndex].candidateIndexMap[voteStages[0].candidateArray[k].candidateAddr]=k;voteStages[_voteStageIndex].candidateArray[k].voterMapAddrs.push(msg.sender);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 493
+column: 8
+content: for(uintn=1;n<voteStages[voteStageIndex].candidateArray[index].voterMapAddrs.length;n++){uintvoterIndex=voteStages[voteStageIndex].voterIndexMap[voteStages[voteStageIndex].candidateArray[index].voterMapAddrs[i]];uintcindex=0;for(uintk=1;k<voteStages[voteStageIndex].voterArray[voterIndex].candidateMapAddrs.length-1;k++){if(voteStages[voteStageIndex].voterArray[voterIndex].candidateMapAddrs[k]==_candidateAddr){cindex=k;}if(cindex>0&&k>=cindex){voteStages[voteStageIndex].voterArray[voterIndex].candidateMapAddrs[k]=voteStages[voteStageIndex].voterArray[voterIndex].candidateMapAddrs[k+1];}}voteStages[voteStageIndex].voterArray[voterIndex].voteNumber=safeSub(voteStages[voteStageIndex].voterArray[voterIndex].voteNumber,voteStages[voteStageIndex].voterArray[voterIndex].candidateMap[_candidateAddr]);voteStages[voteStageIndex].voterArray[voterIndex].candidateMap[_candidateAddr]=0;deletevoteStages[voteStageIndex].voterArray[voterIndex].candidateMapAddrs[voteStages[voteStageIndex].voterArray[voterIndex].candidateMapAddrs.length-1];voteStages[voteStageIndex].voterArray[voterIndex].candidateMapAddrs.length--;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 500
+column: 8
+content: for(uintk=1;k<voteStages[voteStageIndex].voterArray[voterIndex].candidateMapAddrs.length-1;k++){if(voteStages[voteStageIndex].voterArray[voterIndex].candidateMapAddrs[k]==_candidateAddr){cindex=k;}if(cindex>0&&k>=cindex){voteStages[voteStageIndex].voterArray[voterIndex].candidateMapAddrs[k]=voteStages[voteStageIndex].voterArray[voterIndex].candidateMapAddrs[k+1];}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 525
+column: 8
+content: for(uinti=index;i<voteStages[voteStageIndex].candidateArray.length-1;i++){voteStages[voteStageIndex].candidateArray[i]=voteStages[voteStageIndex].candidateArray[i+1];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 625
+column: 8
+content: for(uinti=0;i<voterAddrs.length;i++){setSnapshotBalance(voterAddrs[i],_snapshotBalances[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 658
+column: 9
+content: for(uinti=0;i<voterAddrs.length;i++){voteNoLockByAdmin(voterAddrs[i],candidateAddrs[i],nums[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 703
+column: 8
+content: for(uinti=0;i<candidateAddrs.length;i++){voteNoLock(candidateAddrs[i],nums[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 915
+column: 9
+content: for(uintp=0;p<_candidates.length;p++){if(p<capacity){_addrs[p]=_candidates[p].candidateAddr;_facilityIds[p]=stringToBytes32(_candidates[p].facilityId);_nums[p]=_candidates[p].numberOfVotes;if(_nums[p]<min){min=_nums[p];minIndex=p;}}else{if(_candidates[p].numberOfVotes==min){}elseif(_candidates[p].numberOfVotes>min){_addrs[minIndex]=_candidates[p].candidateAddr;_facilityIds[minIndex]=stringToBytes32(_candidates[p].facilityId);_nums[minIndex]=_candidates[p].numberOfVotes;for(uintj=0;j<_addrs.length;j++){if(_nums[j]<min){min=_nums[j];minIndex=j;}}min=_nums[minIndex];}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 943
+column: 16
+content: for(uintj=0;j<_addrs.length;j++){if(_nums[j]<min){min=_nums[j];minIndex=j;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 954
+column: 8
+content: for(uintn=0;n<_addrs.length;n++){candidateIndexArray.push(voteStages[0].candidateIndexMap[_addrs[n]]);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 762
+column: 4
+content: functionstringToBytes32(stringmemorysource)internalpurereturns(bytes32result){assembly{result:=mload(add(source,32))}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 391
+column: 9
+content: for(uintm=0;m<candidateIndexArray.length;m++){voteStages[_voteStageIndex].candidateArray.push(Candidate(voteStages[0].candidateArray[candidateIndexArray[m]].candidateAddr,voteStages[0].candidateArray[candidateIndexArray[m]].name,voteStages[0].candidateArray[candidateIndexArray[m]].facilityId,0,newaddress[](0)));voteStages[_voteStageIndex].candidateIndexMap[voteStages[0].candidateArray[candidateIndexArray[m]].candidateAddr]=safeAdd(m,1);voteStages[_voteStageIndex].candidateArray[safeAdd(m,1)].voterMapAddrs.push(msg.sender);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 409
+column: 12
+content: for(uintk=0;k<voteStages[0].candidateArray.length;k++){voteStages[_voteStageIndex].candidateArray.push(Candidate(voteStages[0].candidateArray[k].candidateAddr,voteStages[0].candidateArray[k].name,voteStages[0].candidateArray[k].facilityId,0,newaddress[](0)));voteStages[_voteStageIndex].candidateIndexMap[voteStages[0].candidateArray[k].candidateAddr]=k;voteStages[_voteStageIndex].candidateArray[k].voterMapAddrs.push(msg.sender);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 625
+column: 8
+content: for(uinti=0;i<voterAddrs.length;i++){setSnapshotBalance(voterAddrs[i],_snapshotBalances[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 658
+column: 9
+content: for(uinti=0;i<voterAddrs.length;i++){voteNoLockByAdmin(voterAddrs[i],candidateAddrs[i],nums[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 703
+column: 8
+content: for(uinti=0;i<candidateAddrs.length;i++){voteNoLock(candidateAddrs[i],nums[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 846
+column: 8
+content: for(uintm=0;m<cl;m++){_addrs[m]=voteStages[0].candidateArray[candidateIndexArray[m]].candidateAddr;_facilityIds[m]=stringToBytes32(voteStages[0].candidateArray[candidateIndexArray[m]].facilityId);_nums[m]=voteStages[0].candidateArray[candidateIndexArray[m]].numberOfVotes;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 915
+column: 9
+content: for(uintp=0;p<_candidates.length;p++){if(p<capacity){_addrs[p]=_candidates[p].candidateAddr;_facilityIds[p]=stringToBytes32(_candidates[p].facilityId);_nums[p]=_candidates[p].numberOfVotes;if(_nums[p]<min){min=_nums[p];minIndex=p;}}else{if(_candidates[p].numberOfVotes==min){}elseif(_candidates[p].numberOfVotes>min){_addrs[minIndex]=_candidates[p].candidateAddr;_facilityIds[minIndex]=stringToBytes32(_candidates[p].facilityId);_nums[minIndex]=_candidates[p].numberOfVotes;for(uintj=0;j<_addrs.length;j++){if(_nums[j]<min){min=_nums[j];minIndex=j;}}min=_nums[minIndex];}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 943
+column: 16
+content: for(uintj=0;j<_addrs.length;j++){if(_nums[j]<min){min=_nums[j];minIndex=j;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 954
+column: 8
+content: for(uintn=0;n<_addrs.length;n++){candidateIndexArray.push(voteStages[0].candidateIndexMap[_addrs[n]]);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractHpbBallot{uint256constantpublicMAX_UINT256=0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF;functionsafeAdd(uint256x,uint256y)internalpurereturns(uint256z){if(x>MAX_UINT256-y){revert();}returnx+y;}functionsafeSub(uint256x,uint256y)internalpurereturns(uint256z){if(x<y){revert();}returnx-y;}functionsafeMul(uint256x,uint256y)internalpurereturns(uint256z){if(y==0){return0;}if(x>MAX_UINT256/y){revert();}returnx*y;}stringpublicname="HpbBallot-2018-09-20";uintpublicstartBlock=0;uintpublicendBlock=0;uintpublicversion=1;uintpublicround=6;structCandidate{addresscandidateAddr;stringname;stringfacilityId;uintnumberOfVotes;address[]voterMapAddrs;mapping(address=>uint)voterMap;mapping(address=>uint)voterMapAddrsIndex;}structVoter{addressvoterAddr;uintsnapshotBalance;uintvoteNumber;address[]candidateMapAddrs;mapping(address=>uint)candidateMap;}structVoteStage{uintsnapshotBlock;uintcreateSnapshotBlock;Candidate[]candidateArray;mapping(address=>uint)candidateIndexMap;Voter[]voterArray;mapping(address=>uint)voterIndexMap;}VoteStage[]publicvoteStages;mapping(uint=>uint)voteStageIndexMap;uintpubliccurrentSnapshotBlock;uint[]publiccandidateIndexArray;uintpubliccapacity;boolpublichasAutoVote=true;modifieronlyAutoVoteAfter{require(hasAutoVote==true);_;}eventCandidateAdded(addressindexedcandidateAddr,stringindexedfacilityId,stringname);eventCandidateUpdated(addressindexedcandidateAddr,stringindexedfacilityId,stringname);eventCandidateDeleted(addressindexedcandidateAddr);eventDoVoted(uintindexedindex,addressindexedvoteAddr,addressindexedcandidateAddr,uintnum,uintflag);eventUpdateContract(uintindexedversion,uintstartBlock,uintendBlock,uintcapacity);eventChangeStageBlock(uintindexedpreStageBlock,uintindexedstageBlock);eventSetSnapshotBalance(uintindexedvoteStageIndex,addressindexedvoterAddr,uint_snapshotBalance);eventVoteNoLockByAdminInvokeDoVoted(addressvoterAddr,addresscandidateAddr,uintnum);eventReceivedHpb(addressindexedsender,uintamount);function()payableexternal{emitReceivedHpb(msg.sender,msg.value);}mapping(address=>address)publicadminMap;modifieronlyAdmin{require(adminMap[msg.sender]!=0);_;}functionresetHasAutoVote()onlyAdminpublic{hasAutoVote=true;}functionaddAdmin(addressaddr)onlyOwnerpublic{adminMap[addr]=addr;}functiondeleteAdmin(addressaddr)onlyOwnerpublic{require(adminMap[addr]!=0);adminMap[addr]=0;}functionsetRound(uint_round)onlyOwnerpublic{round=_round;}addresspublicowner;modifieronlyOwner{require(msg.sender==owner);_;}functiontransferOwnership(addressnewOwner)onlyOwnerpublic{owner=newOwner;}functionbeginVote()onlyOwnerpublic{startBlock=block.number;}functionendVote()onlyOwnerpublic{endBlock=block.number;}modifieronlyVoteAfterStart{require(block.number>=startBlock);_;}modifieronlyVoteInProgress{require(block.number>=startBlock);require(block.number<=endBlock);_;}constructor(uint_startBlock,uint_endBlock,uint_capacity,uint_version)payablepublic{require(_startBlock<_endBlock);owner=msg.sender;startBlock=_startBlock;endBlock=_endBlock;capacity=_capacity;version=_version;adminMap[owner]=owner;currentSnapshotBlock=_startBlock;voteStages.length++;voteStageIndexMap[currentSnapshotBlock]=0;voteStages[0].snapshotBlock=currentSnapshotBlock;voteStages[0].createSnapshotBlock=block.number;voteStages[0].voterIndexMap[msg.sender]=0;voteStages[0].voterArray.push(Voter(msg.sender,0,0,newaddress[](0)));voteStages[0].candidateIndexMap[msg.sender]=0;voteStages[0].candidateArray.push(Candidate(msg.sender,&39<missing ')'>;0&39;,&39;0&39;,0,newaddress[](0)));emitUpdateContract(_version,startBlock,_endBlock,_capacity);}functionupdateContract(uint_startBlock,uint_endBlock,uint_capacity,uint_version)onlyOwnerpublic{require(_startBlock<_endBlock);startBlock=_startBlock;endBlock=_endBlock;capacity=_capacity;version=_version;emitUpdateContract(_version,_startBlock,_endBlock,_capacity);}functionchangeStageBlock(uint_snapshotBlock)onlyVoteAfterStartonlyAdminpublic{require(currentSnapshotBlock<_snapshotBlock);uint_voteStageIndex=voteStageIndexMap[currentSnapshotBlock];currentSnapshotBlock=_snapshotBlock;voteStages.length++;_voteStageIndex=_voteStageIndex+1;voteStageIndexMap[currentSnapshotBlock]=_voteStageIndex;voteStages[_voteStageIndex].snapshotBlock=currentSnapshotBlock;voteStages[_voteStageIndex].createSnapshotBlock=block.number;voteStages[_voteStageIndex].voterIndexMap[msg.sender]=0;voteStages[_voteStageIndex].voterArray.push(Voter(msg.sender,0,0,newaddress[](0)));if(_voteStageIndex>round){voteResult();require(candidateIndexArray.length>0);voteStages[_voteStageIndex].candidateArray.push(Candidate(msg.sender,&39<missing ')'>;0&39;,&39;0&39;,0,newaddress[](0)));voteStages[_voteStageIndex].candidateIndexMap[msg.sender]=0;for(uintm=0;m<candidateIndexArray.length;m++){voteStages[_voteStageIndex].candidateArray.push(Candidate(voteStages[0].candidateArray[candidateIndexArray[m]].candidateAddr,voteStages[0].candidateArray[candidateIndexArray[m]].name,voteStages[0].candidateArray[candidateIndexArray[m]].facilityId,0,newaddress[](0)));voteStages[_voteStageIndex].candidateIndexMap[voteStages[0].candidateArray[candidateIndexArray[m]].candidateAddr]=safeAdd(m,1);voteStages[_voteStageIndex].candidateArray[safeAdd(m,1)].voterMapAddrs.push(msg.sender);}}else{for(uintk=0;k<voteStages[0].candidateArray.length;k++){voteStages[_voteStageIndex].candidateArray.push(Candidate(voteStages[0].candidateArray[k].candidateAddr,voteStages[0].candidateArray[k].name,voteStages[0].candidateArray[k].facilityId,0,newaddress[](0)));voteStages[_voteStageIndex].candidateIndexMap[voteStages[0].candidateArray[k].candidateAddr]=k;voteStages[_voteStageIndex].candidateArray[k].voterMapAddrs.push(msg.sender);}}hasAutoVote=false;emitChangeStageBlock(voteStages[_voteStageIndex-1].snapshotBlock,_snapshotBlock);}functionaddCandidate(address_candidateAddr,string_facilityId,string_name)onlyAdminonlyVoteAfterStartpublic{require(voteStageIndexMap[currentSnapshotBlock]==0);uintindex=voteStages[0].candidateIndexMap[_candidateAddr];require(index==0);index=voteStages[0].candidateArray.length;voteStages[0].candidateIndexMap[_candidateAddr]=index;voteStages[0].candidateArray.push(Candidate(_candidateAddr,_name,_facilityId,0,newaddress[](0)));voteStages[0].candidateArray[index].voterMapAddrs.push(msg.sender);emitCandidateAdded(_candidateAddr,_facilityId,_name);}functionupdateCandidate(address_candidateAddr,string_facilityId,string_name)onlyOwneronlyVoteAfterStartpublic{require(voteStageIndexMap[currentSnapshotBlock]==0);uintindex=voteStages[0].candidateIndexMap[_candidateAddr];require(index!=0);voteStages[0].candidateArray[index].facilityId=_facilityId;voteStages[0].candidateArray[index].name=_name;emitCandidateUpdated(_candidateAddr,_facilityId,_name);}functiondeleteCandidateBySnapshotBlock(address_candidateAddr,uint_snapshotBlock)onlyOwneronlyVoteAfterStartpublic{uintvoteStageIndex=voteStageIndexMap[_snapshotBlock];uintindex=voteStages[voteStageIndex].candidateIndexMap[_candidateAddr];require(index!=0);for(uintn=1;n<voteStages[voteStageIndex].candidateArray[index].voterMapAddrs.length;n++){uintvoterIndex=voteStages[voteStageIndex].voterIndexMap[voteStages[voteStageIndex].candidateArray[index].voterMapAddrs[i]];uintcindex=0;for(uintk=1;k<voteStages[voteStageIndex].voterArray[voterIndex].candidateMapAddrs.length-1;k++){if(voteStages[voteStageIndex].voterArray[voterIndex].candidateMapAddrs[k]==_candidateAddr){cindex=k;}if(cindex>0&&k>=cindex){voteStages[voteStageIndex].voterArray[voterIndex].candidateMapAddrs[k]=voteStages[voteStageIndex].voterArray[voterIndex].candidateMapAddrs[k+1];}}voteStages[voteStageIndex].voterArray[voterIndex].voteNumber=safeSub(voteStages[voteStageIndex].voterArray[voterIndex].voteNumber,voteStages[voteStageIndex].voterArray[voterIndex].candidateMap[_candidateAddr]);voteStages[voteStageIndex].voterArray[voterIndex].candidateMap[_candidateAddr]=0;deletevoteStages[voteStageIndex].voterArray[voterIndex].candidateMapAddrs[voteStages[voteStageIndex].voterArray[voterIndex].candidateMapAddrs.length-1];voteStages[voteStageIndex].voterArray[voterIndex].candidateMapAddrs.length--;}for(uinti=index;i<voteStages[voteStageIndex].candidateArray.length-1;i++){voteStages[voteStageIndex].candidateArray[i]=voteStages[voteStageIndex].candidateArray[i+1];}deletevoteStages[voteStageIndex].candidateArray[voteStages[voteStageIndex].candidateArray.length-1];voteStages[voteStageIndex].candidateArray.length--;voteStages[voteStageIndex].candidateIndexMap[_candidateAddr]=0;emitCandidateDeleted(_candidateAddr);}functiondeleteCandidates(address_candidateAddr)onlyOwneronlyVoteAfterStartpublic{deleteCandidateBySnapshotBlock(_candidateAddr,currentSnapshotBlock);}functioncancelVoteForCandidateBySnapshotBlock(addresscandidateAddr,uintnum,uint_snapshotBlock)onlyVoteAfterStartinternal{addressvoterAddr=msg.sender;uintvoteStageIndex=voteStageIndexMap[_snapshotBlock];if(voteStageIndex==0){require(_snapshotBlock==voteStages[0].snapshotBlock);}uintindex=voteStages[voteStageIndex].voterIndexMap[voterAddr];require(index!=0);uintcandidateIndex=voteStages[voteStageIndex].candidateIndexMap[candidateAddr];require(candidateIndex!=0);uintcnum=voteStages[voteStageIndex].voterArray[index].candidateMap[candidateAddr];require(cnum>=num);voteStages[voteStageIndex].candidateArray[candidateIndex].voterMap[voterAddr]=safeSub(cnum,num);voteStages[voteStageIndex].candidateArray[candidateIndex].numberOfVotes=safeSub(voteStages[voteStageIndex].candidateArray[candidateIndex].numberOfVotes,num);voteStages[voteStageIndex].voterArray[index].candidateMap[candidateAddr]=safeSub(cnum,num);voteStages[voteStageIndex].voterArray[index].voteNumber=safeSub(voteStages[voteStageIndex].voterArray[index].voteNumber,num);emitDoVoted(voteStageIndex,voterAddr,candidateAddr,num,0);}functioncancelVoteForCandidate(addresscandidateAddr,uintnum)onlyVoteAfterStartpublic{returncancelVoteForCandidateBySnapshotBlock(candidateAddr,num,currentSnapshotBlock);}functionsetSnapshotBalance(addressvoterAddr,uint_snapshotBalance)onlyAdminonlyVoteAfterStartpublic{require(_snapshotBalance>0);uintvoteStageIndex=voteStageIndexMap[currentSnapshotBlock];uintindex=voteStages[voteStageIndex].voterIndexMap[voterAddr];if(index==0){index=voteStages[voteStageIndex].voterArray.length;voteStages[voteStageIndex].voterIndexMap[voterAddr]=index;voteStages[voteStageIndex].voterArray.push(Voter(voterAddr,_snapshotBalance,0,newaddress[](0)));voteStages[voteStageIndex].voterArray[index].candidateMapAddrs.push(msg.sender);}else{voteStages[voteStageIndex].voterArray[index].snapshotBalance=_snapshotBalance;}emitSetSnapshotBalance(voteStageIndex,voterAddr,_snapshotBalance);}functionsetSnapshotBalanceBatch(address[]voterAddrs,uint[]_snapshotBalances)onlyAdminonlyVoteAfterStartpublic{for(uinti=0;i<voterAddrs.length;i++){setSnapshotBalance(voterAddrs[i],_snapshotBalances[i]);}}functionvoteNoLockByAdmin(addressvoterAddr,addresscandidateAddr,uintnum)onlyAdminonlyVoteAfterStartpublic{uintvoteStageIndex=voteStageIndexMap[currentSnapshotBlock];uintindex=voteStages[voteStageIndex].voterIndexMap[voterAddr];require(index!=0);require(safeSub(voteStages[voteStageIndex].voterArray[index].snapshotBalance,voteStages[voteStageIndex].voterArray[index].voteNumber)>=num);emitVoteNoLockByAdminInvokeDoVoted(voterAddr,candidateAddr,num);doVote(candidateAddr,index,num);}functionvoteNoLockByAdminBatch(address[]voterAddrs,address[]candidateAddrs,uint[]nums)onlyAdminonlyVoteAfterStartpublic{for(uinti=0;i<voterAddrs.length;i++){voteNoLockByAdmin(voterAddrs[i],candidateAddrs[i],nums[i]);}hasAutoVote=true;}functionvoteNoLock(addresscandidateAddr,uintnum)onlyVoteAfterStartonlyAutoVoteAfterpublic{addressvoterAddr=msg.sender;require(voterAddr!=0);require(candidateAddr!=0);uintvoterAddrSize;assembly{voterAddrSize:=extcodesize(voterAddr)}require(voterAddrSize==0);uintcandidateAddrSize;assembly{candidateAddrSize:=extcodesize(candidateAddr)}require(candidateAddrSize==0);uintvoteStageIndex=voteStageIndexMap[currentSnapshotBlock];uintindex=voteStages[voteStageIndex].voterIndexMap[voterAddr];require(index!=0);require(safeSub(voteStages[voteStageIndex].voterArray[index].snapshotBalance,voteStages[voteStageIndex].voterArray[index].voteNumber)>=num);doVote(candidateAddr,index,num);}functionvoteNoLockBatch(address[]candidateAddrs,uint[]nums)onlyVoteAfterStartpublic{for(uinti=0;i<candidateAddrs.length;i++){voteNoLock(candidateAddrs[i],nums[i]);}}functiondoVote(addresscandidateAddr,uintindex,uintnum)onlyVoteAfterStartinternal{require(num>0);uintvoteStageIndex=voteStageIndexMap[currentSnapshotBlock];uintcandidateIndex=voteStages[voteStageIndex].candidateIndexMap[candidateAddr];require(candidateIndex!=0);if(voteStages[voteStageIndex].candidateArray[candidateIndex].voterMapAddrsIndex[voteStages[voteStageIndex].voterArray[index].voterAddr]<1){voteStages[voteStageIndex].candidateArray[candidateIndex].voterMapAddrsIndex[voteStages[voteStageIndex].voterArray[index].voterAddr]=1;voteStages[voteStageIndex].candidateArray[candidateIndex].voterMapAddrs.push(voteStages[voteStageIndex].voterArray[index].voterAddr);voteStages[voteStageIndex].candidateArray[candidateIndex].voterMap[voteStages[voteStageIndex].voterArray[index].voterAddr]=num;voteStages[voteStageIndex].voterArray[index].candidateMapAddrs.push(candidateAddr);voteStages[voteStageIndex].voterArray[index].candidateMap[candidateAddr]=num;}else{voteStages[voteStageIndex].candidateArray[candidateIndex].voterMap[voteStages[voteStageIndex].voterArray[index].voterAddr]=safeAdd(voteStages[voteStageIndex].candidateArray[candidateIndex].voterMap[voteStages[voteStageIndex].voterArray[index].voterAddr],num);voteStages[voteStageIndex].voterArray[index].candidateMap[candidateAddr]=safeAdd(voteStages[voteStageIndex].voterArray[index].candidateMap[candidateAddr],num);}voteStages[voteStageIndex].voterArray[index].voteNumber=safeAdd(voteStages[voteStageIndex].voterArray[index].voteNumber,num);voteStages[voteStageIndex].candidateArray[candidateIndex].numberOfVotes=safeAdd(voteStages[voteStageIndex].candidateArray[candidateIndex].numberOfVotes,num);emitDoVoted(voteStageIndex,voteStages[voteStageIndex].voterArray[index].voterAddr,candidateAddr,num,1);}functionstringToBytes32(stringmemorysource)internalpurereturns(bytes32result){assembly{result:=mload(add(source,32))}}functionfechAllCandidatesBySnapshotBlock(uint_snapshotBlock)onlyVoteAfterStartpublicconstantreturns(address[]addrs,bytes32[]names,bytes32[]facilityIds){uintvoteStageIndex=voteStageIndexMap[_snapshotBlock];if(voteStageIndex==0){require(_snapshotBlock==voteStages[0].snapshotBlock);}require(voteStages[voteStageIndex].candidateArray.length>1);uintcl=voteStages[voteStageIndex].candidateArray.length-1;address[]memory_addrs=newaddress[](cl);bytes32[]memory_names=newbytes32[](cl);bytes32[]memory_facilityIds=newbytes32[](cl);for(uinti=1;i<=cl;i++){_addrs[i-1]=voteStages[voteStageIndex].candidateArray[i].candidateAddr;_names[i-1]=stringToBytes32(voteStages[voteStageIndex].candidateArray[i].name);_facilityIds[i-1]=stringToBytes32(voteStages[voteStageIndex].candidateArray[i].facilityId);}return(_addrs,_names,_facilityIds);}functionfechAllVotersBySnapshotBlock(uint_snapshotBlock)onlyVoteAfterStartpublicconstantreturns(address[]voterAddrs,uint[]snapshotBalances,uint[]voteNumbers){uintvoteStageIndex=voteStageIndexMap[_snapshotBlock];if(voteStageIndex==0){require(_snapshotBlock==voteStages[0].snapshotBlock);}require(voteStages[voteStageIndex].voterArray.length>1);uintcl=voteStages[voteStageIndex].voterArray.length-1;address[]memory_addrs=newaddress[](cl);uint[]memory_snapshotBalances=newuint[](cl);uint[]memory_voteNumbers=newuint[](cl);for(uinti=1;i<=cl;i++){_addrs[i-1]=voteStages[voteStageIndex].voterArray[i].voterAddr;_snapshotBalances[i-1]=voteStages[voteStageIndex].voterArray[i].snapshotBalance;_voteNumbers[i-1]=voteStages[voteStageIndex].voterArray[i].voteNumber;}return(_addrs,_snapshotBalances,_voteNumbers);}functiongetVoteResult()onlyVoteAfterStartpublicconstantreturns(address[]addr,bytes32[]facilityIds,uint[]nums){uintcl=candidateIndexArray.length;address[]memory_addrs=newaddress[](cl);bytes32[]memory_facilityIds=newbytes32[](cl);uint[]memory_nums=newuint[](cl);for(uintm=0;m<cl;m++){_addrs[m]=voteStages[0].candidateArray[candidateIndexArray[m]].candidateAddr;_facilityIds[m]=stringToBytes32(voteStages[0].candidateArray[candidateIndexArray[m]].facilityId);_nums[m]=voteStages[0].candidateArray[candidateIndexArray[m]].numberOfVotes;}return(_addrs,_facilityIds,_nums);}functiongetCandidateIndexArray()onlyVoteAfterStartpublicconstantreturns(uint[]nums){returncandidateIndexArray;}functiongetCandidateIndexArrayLength()onlyVoteAfterStartpublicconstantreturns(uintnums){returncandidateIndexArray.length;}functionvoteResult()onlyVoteAfterStartpublicreturns(address[]addr,bytes32[]facilityIds,uint[]nums){uint_stageIndex=voteStageIndexMap[currentSnapshotBlock];require(_stageIndex>round);if(candidateIndexArray.length>0){returngetVoteResult();}else{require(voteStages[round].candidateArray.length>1);uintvcl=voteStages[round].candidateArray.length-1;Candidate[]memory_candidates=newCandidate[](vcl);for(uinti=1;i<=vcl;i++){_candidates[i-1]=Candidate(voteStages[round].candidateArray[i].candidateAddr,voteStages[round].candidateArray[i].name,voteStages[round].candidateArray[i].facilityId,voteStages[round].candidateArray[i].numberOfVotes,newaddress[](0));}returncalVoteResult(_candidates);}}functioncalVoteResult(Candidate[]memory_candidates)onlyVoteAfterStartinternalreturns(address[]addr,bytes32[]facilityIds,uint[]nums){require(capacity<=_candidates.length);address[]memory_addrs=newaddress[](capacity);bytes32[]memory_facilityIds=newbytes32[](capacity);uint[]memory_nums=newuint[](capacity);uintmin=_candidates[0].numberOfVotes;uintminIndex=0;for(uintp=0;p<_candidates.length;p++){if(p<capacity){_addrs[p]=_candidates[p].candidateAddr;_facilityIds[p]=stringToBytes32(_candidates[p].facilityId);_nums[p]=_candidates[p].numberOfVotes;if(_nums[p]<min){min=_nums[p];minIndex=p;}}else{if(_candidates[p].numberOfVotes==min){}elseif(_candidates[p].numberOfVotes>min){_addrs[minIndex]=_candidates[p].candidateAddr;_facilityIds[minIndex]=stringToBytes32(_candidates[p].facilityId);_nums[minIndex]=_candidates[p].numberOfVotes;for(uintj=0;j<_addrs.length;j++){if(_nums[j]<min){min=_nums[j];minIndex=j;}}min=_nums[minIndex];}}}for(uintn=0;n<_addrs.length;n++){candidateIndexArray.push(voteStages[0].candidateIndexMap[_addrs[n]]);}return(_addrs,_facilityIds,_nums);}functionfechVoteMainInfoBySnapshotBlock(uint_snapshotBlock)onlyVoteAfterStartpublicconstantreturns(uintsnapshotBalance,uintvoteNumber){uintvoteStageIndex=voteStageIndexMap[_snapshotBlock];if(voteStageIndex==0){require(_snapshotBlock==voteStages[0].snapshotBlock);}uintindex=voteStages[voteStageIndex].voterIndexMap[msg.sender];if(index==0){return(0,0);}return(voteStages[voteStageIndex].voterArray[index].snapshotBalance,voteStages[voteStageIndex].voterArray[index].voteNumber);}functionfechVoteMainInfo()onlyVoteAfterStartpublicconstantreturns(uintsnapshotBalance,uintvoteNumber){returnfechVoteMainInfoBySnapshotBlock(currentSnapshotBlock);}functionfechVoteInfoForVoterBySnapshotBlock(addressvoterAddr,uint_snapshotBlock)onlyVoteAfterStartpublicconstantreturns(address[]addrs,uint[]nums){uintvoteStageIndex=voteStageIndexMap[_snapshotBlock];if(voteStageIndex==0){require(_snapshotBlock==voteStages[0].snapshotBlock);}uintindex=voteStages[voteStageIndex].voterIndexMap[voterAddr];if(index==0){return(newaddress[](0),newuint[](0));}uintvvcl=voteStages[voteStageIndex].voterArray[index].candidateMapAddrs.length-1;address[]memory_addrs=newaddress[](vvcl);uint[]memory_nums=newuint[](vvcl);for(uinti=1;i<=vvcl;i++){_nums[i-1]=voteStages[voteStageIndex].voterArray[index].candidateMap[voteStages[voteStageIndex].voterArray[index].candidateMapAddrs[i]];_addrs[i-1]=voteStages[voteStageIndex].voterArray[index].candidateMapAddrs[i];}return(_addrs,_nums);}functionfechVoteInfoForVoter(addressvoterAddr)onlyVoteAfterStartpublicconstantreturns(address[]addrs,uint[]nums){returnfechVoteInfoForVoterBySnapshotBlock(voterAddr,currentSnapshotBlock);}functionfechSnapshotBlockByIndex(uint_index)onlyVoteAfterStartpublicconstantreturns(uint_snapshotBlock){returnvoteStages[_index].snapshotBlock;}functionfechStageIndexBySnapshotBlock(uint_snapshotBlock)onlyVoteAfterStartpublicconstantreturns(uint_index){returnvoteStageIndexMap[_snapshotBlock];}functionfechCurrentSnapshotBlockIndex()onlyVoteAfterStartpublicconstantreturns(uint_index){returnvoteStageIndexMap[currentSnapshotBlock];}functionfechVoteNumForCandidateBySnapshotBlock(addresscandidateAddr,uint_snapshotBlock)onlyVoteAfterStartpublicconstantreturns(uintnum){uintvoteStageIndex=voteStageIndexMap[_snapshotBlock];if(voteStageIndex==0){require(_snapshotBlock==voteStages[0].snapshotBlock);}uintindex=voteStages[voteStageIndex].candidateIndexMap[candidateAddr];require(index>0);returnvoteStages[voteStageIndex].candidateArray[index].numberOfVotes;}functionfechVoteNumForCandidate(addresscandidateAddr)onlyVoteAfterStartpublicconstantreturns(uintnum){returnfechVoteNumForCandidateBySnapshotBlock(candidateAddr,currentSnapshotBlock);}functionfechVoteResultForCandidateBySnapshotBlock(addresscandidateAddr,uint_snapshotBlock)onlyVoteAfterStartpublicconstantreturns(address[]addrs,uint[]nums){uintvoteStageIndex=voteStageIndexMap[_snapshotBlock];if(voteStageIndex==0){require(_snapshotBlock==voteStages[0].snapshotBlock);}uintindex=voteStages[voteStageIndex].candidateIndexMap[candidateAddr];require(index>0);uintvcvl=voteStages[voteStageIndex].candidateArray[index].voterMapAddrs.length-1;address[]memory_addrs=newaddress[](vcvl);uint[]memory_nums=newuint[](vcvl);for(uinti=1;i<=vcvl;i++){_nums[i-1]=voteStages[voteStageIndex].candidateArray[index].voterMap[voteStages[voteStageIndex].candidateArray[index].voterMapAddrs[i]];_addrs[i-1]=voteStages[voteStageIndex].candidateArray[index].voterMapAddrs[i];}return(_addrs,_nums);}functionfechVoteResultForCandidate(addresscandidateAddr)onlyVoteAfterStartpublicconstantreturns(address[]addr,uint[]nums){returnfechVoteResultForCandidateBySnapshotBlock(candidateAddr,currentSnapshotBlock);}functionfechAllVoteResultBySnapshotBlock(uint_snapshotBlock)onlyVoteAfterStartpublicconstantreturns(address[]addrs,uint[]nums){uintvoteStageIndex=voteStageIndexMap[_snapshotBlock];if(voteStageIndex==0){require(_snapshotBlock==voteStages[0].snapshotBlock);}require(voteStages[voteStageIndex].candidateArray.length>1);uintvcl=voteStages[voteStageIndex].candidateArray.length-1;address[]memory_addrs=newaddress[](vcl);uint[]memory_nums=newuint[](vcl);for(uinti=1;i<=vcl;i++){_addrs[i-1]=voteStages[voteStageIndex].candidateArray[i].candidateAddr;_nums[i-1]=voteStages[voteStageIndex].candidateArray[i].numberOfVotes;}return(_addrs,_nums);}functionfechAllVoteResultPreStageByBlock(uint_block)onlyVoteAfterStartpublicconstantreturns(uintfromBlock,uinttoBlock,address[]addrs,uint[]nums){uintvoteStageIndex=voteStageIndexMap[currentSnapshotBlock];if(voteStageIndex<=round){return(0,0,newaddress[](0),newuint[](0));}if(_block>=voteStages[voteStageIndex].createSnapshotBlock){if(voteStageIndex<2){return(0,0,newaddress[](0),newuint[](0));}elseif(voteStages[voteStageIndex-1].candidateArray.length<2){return(0,0,newaddress[](0),newuint[](0));}else{uintvcl=voteStages[voteStageIndex-1].candidateArray.length-1;address[]memory_addrs=newaddress[](vcl);uint[]memory_nums=newuint[](vcl);for(uinti=1;i<=vcl;i++){_addrs[i-1]=voteStages[voteStageIndex-1].candidateArray[i].candidateAddr;_nums[i-1]=voteStages[voteStageIndex-1].candidateArray[i].numberOfVotes;}return(voteStages[voteStageIndex-1].createSnapshotBlock,voteStages[voteStageIndex].createSnapshotBlock,_addrs,_nums);}}else{return(0,0,newaddress[](0),newuint[](0));}}functionfechAllVoteResultForCurrent()onlyVoteAfterStartpublicconstantreturns(address[]addrs,uint[]nums){returnfechAllVoteResultBySnapshotBlock(currentSnapshotBlock);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 227
+column: 3
+content: functionsetRound(uint_round)onlyOwnerpublic{round=_round;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 8
+column: 8
+content: if(x>MAX_UINT256-y){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 15
+column: 8
+content: if(x<y){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 25
+column: 8
+content: if(x>MAX_UINT256/y){revert();}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 762
+column: 4
+content: functionstringToBytes32(stringmemorysource)internalpurereturns(bytes32result){assembly{result:=mload(add(source,32))}}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 903
+column: 41
+content: (address[]addr,bytes32[]facilityIds,uint[]nums)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 438
+column: 8
+content: string_facilityId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 439
+column: 8
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 465
+column: 8
+content: string_facilityId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 466
+column: 8
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 622
+column: 5
+content: address[]voterAddrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 623
+column: 5
+content: uint[]_snapshotBalances
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 654
+column: 5
+content: address[]voterAddrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 655
+column: 5
+content: address[]candidateAddrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 656
+column: 5
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 700
+column: 5
+content: address[]candidateAddrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 701
+column: 5
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 775
+column: 8
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 776
+column: 8
+content: bytes32[]names
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 777
+column: 8
+content: bytes32[]facilityIds
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 809
+column: 8
+content: address[]voterAddrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 810
+column: 8
+content: uint[]snapshotBalances
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 811
+column: 8
+content: uint[]voteNumbers
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 838
+column: 8
+content: address[]addr
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 839
+column: 8
+content: bytes32[]facilityIds
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 840
+column: 8
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 855
+column: 8
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 871
+column: 8
+content: address[]addr
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 872
+column: 8
+content: bytes32[]facilityIds
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 873
+column: 8
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 904
+column: 8
+content: address[]addr
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 905
+column: 8
+content: bytes32[]facilityIds
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 906
+column: 8
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1002
+column: 8
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1003
+column: 8
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1032
+column: 8
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1033
+column: 8
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1104
+column: 8
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1105
+column: 8
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1131
+column: 8
+content: address[]addr
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1132
+column: 8
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1143
+column: 8
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1144
+column: 8
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1169
+column: 7
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1170
+column: 7
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1205
+column: 8
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1206
+column: 8
+content: uint[]nums
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 763
+column: 7
+content: assembly{result:=mload(add(source,32))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 148
+column: 4
+content: mapping(uint=>uint)voteStageIndexMap;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :4
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :11
+SOLIDITY_UPGRADE_TO_050 :41
+SOLIDITY_GAS_LIMIT_IN_LOOPS :9
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :19
+SOLIDITY_REVERT_REQUIRE :3
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1

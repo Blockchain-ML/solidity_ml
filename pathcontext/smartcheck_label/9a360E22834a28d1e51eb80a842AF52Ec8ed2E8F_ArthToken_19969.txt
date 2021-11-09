@@ -1,0 +1,100 @@
+C:\Users\hp\DataSet\contracts\mainnet\9a\9a360E22834a28d1e51eb80a842AF52Ec8ed2E8F_ArthToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 246
+column: 22
+content: 0xc1a72cda51a243f76aaa9d7e72c080ca58c62c09
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 182
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 237
+column: 0
+content: contractArthTokenisStandardToken,Ownable{usingSafeMathforuint;stringconstantpublicsymbol="ARTH";stringconstantpublicname="Arth Token";uint8constantpublicdecimals=18;uint256INITIAL_SUPPLY=2500000000e18;addresscompany=0xc1a72cda51a243f76aaa9d7e72c080ca58c62c09;uintconstantcompanyTokens=1300000000e18;uint256publicbuyPrice;functionArthToken(uint256newBuyPrice)public{balances[msg.sender]=INITIAL_SUPPLY;totalSupply_=INITIAL_SUPPLY;preSale(company,companyTokens);setPrices(newBuyPrice);}functionpreSale(address_address,uint_amount)internalreturns(bool){balances[_address]=_amount;balances[msg.sender]=balances[msg.sender].sub(_amount);emitTransfer(msg.sender,_address,_amount);returntrue;}functionsetPrices(uint256newBuyPrice)onlyOwnerpublicreturns(bool){require(newBuyPrice!=0);buyPrice=newBuyPrice;returntrue;}functionassignTokens(address_to,uint256_value)onlyOwnerpublic{require(_to!=address(0));require(_value!=0);uintamount=(_value*1e18).div(buyPrice);assert(balances[msg.sender]>amount);balances[_to]=balances[_to].add(amount);balances[msg.sender]=balances[msg.sender].sub(amount);emitTransfer(msg.sender,_to,amount);}function()publicpayable{company.transfer(msg.value);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 272
+column: 4
+content: functionsetPrices(uint256newBuyPrice)onlyOwnerpublicreturns(bool){require(newBuyPrice!=0);buyPrice=newBuyPrice;returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 88
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 238
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 288
+column: 16
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 90
+column: 4
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 92
+column: 4
+content: uint256totalSupply_;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 244
+column: 4
+content: uint256INITIAL_SUPPLY=2500000000e18;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 246
+column: 4
+content: addresscompany=0xc1a72cda51a243f76aaa9d7e72c080ca58c62c09;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 248
+column: 4
+content: uintconstantcompanyTokens=1300000000e18;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_SAFEMATH :2
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_ERC20_APPROVE :1

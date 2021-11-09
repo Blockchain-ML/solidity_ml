@@ -1,0 +1,164 @@
+C:\Users\hp\DataSet\contracts\mainnet\1e\1ed22db0016f7c5fb25d0987e8b3758be8afa19b_IncomeSplit.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 23
+column: 20
+content: 0x00cf7440B6E554EC5EeCfA8306761EBc5Bf412b8
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 89
+column: 8
+content: index.length--
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 50
+column: 4
+content: functiongetTotalShares()publicconstantreturns(uint){returntotalShares;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 54
+column: 4
+content: functiongetMember(address_address)publicconstantreturns(uint_index,uint_shares,uint_balance){_index=Members[_address].memberIndex;_shares=Members[_address].memberShares;_balance=Members[_address].memberBalance;return(_index,_shares,_balance);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 62
+column: 4
+content: functiongetMemberCount()publicconstantreturns(uint){returnindex.length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 66
+column: 4
+content: functiongetMemberAtIndex(uint_index)publicconstantreturns(address){returnindex[_index];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 95
+column: 8
+content: for(uinti=0;i<index.length;i++){uintallocationRatio=Members[index[i]].memberShares*1000000000/totalShares;Members[index[i]].memberBalance+=(toBeAllocated*allocationRatio/1000000000);LogIncomeAllocation(index[i],Members[index[i]].memberBalance);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 95
+column: 8
+content: for(uinti=0;i<index.length;i++){uintallocationRatio=Members[index[i]].memberShares*1000000000/totalShares;Members[index[i]].memberBalance+=(toBeAllocated*allocationRatio/1000000000);LogIncomeAllocation(index[i],Members[index[i]].memberBalance);}
+
+ruleId: SOLIDITY_MSGVALUE_EQUALS_ZERO
+patternId: 1df89a
+severity: 1
+line: 120
+column: 12
+content: msg.value==0
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 7
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 25
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 26
+column: 14
+content: private
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 44
+column: 4
+content: functionchangeOwner(address_newOwner)onlyBy(OWNER)returns(boolsuccess){OWNER=_newOwner;LogNewOwner(_newOwner);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 70
+column: 4
+content: functionaddMember(address_address,uint_shares)onlyBy(OWNER)returns(boolsuccess){Members[_address].memberShares=_shares;Members[_address].memberIndex=index.push(_address)-1;totalShares+=_shares;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 77
+column: 4
+content: functionupdateMember(address_address,uint_shares)onlyBy(OWNER)isUser(_address)returns(boolsuccess){uintoldShares=Members[_address].memberShares;Members[_address].memberShares=_shares;totalShares+=(_shares-oldShares);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 84
+column: 4
+content: functiondeleteMember(address_address)onlyBy(OWNER)isUser(_address)returns(boolsuccess){uintrowToDelete=Members[_address].memberIndex;addresskeyToMove=index[index.length-1];index[rowToDelete]=keyToMove;Members[keyToMove].memberIndex=rowToDelete;index.length--;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 93
+column: 4
+content: functionincomeAllocation()payable{uinttoBeAllocated=msg.value;for(uinti=0;i<index.length;i++){uintallocationRatio=Members[index[i]].memberShares*1000000000/totalShares;Members[index[i]].memberBalance+=(toBeAllocated*allocationRatio/1000000000);LogIncomeAllocation(index[i],Members[index[i]].memberBalance);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 103
+column: 4
+content: functionselfWithdrawBalance()isUser(msg.sender)returns(boolsuccess){uintamount=Members[msg.sender].memberBalance;Members[msg.sender].memberBalance=0;msg.sender.transfer(amount);LogWithdrawal(msg.sender,amount);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 111
+column: 4
+content: functionwithdrawBalance(address_address)onlyBy(OWNER)isUser(_address)returns(boolsuccess){uintamount=Members[_address].memberBalance;Members[msg.sender].memberBalance=0;_address.transfer(amount);LogWithdrawal(_address,amount);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 119
+column: 4
+content: function()payable{if(msg.value==0){selfWithdrawBalance();}else{incomeAllocation();}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 23
+column: 4
+content: addressOWNER=0x00cf7440B6E554EC5EeCfA8306761EBc5Bf412b8;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 27
+column: 4
+content: uinttotalShares;
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_MSGVALUE_EQUALS_ZERO :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

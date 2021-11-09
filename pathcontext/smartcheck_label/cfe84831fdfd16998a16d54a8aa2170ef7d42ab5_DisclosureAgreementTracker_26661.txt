@@ -1,0 +1,126 @@
+C:\Users\hp\DataSet\contracts\mainnet\cf\cfe84831fdfd16998a16d54a8aa2170ef7d42ab5_DisclosureAgreementTracker.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 131
+column: 8
+content: for(uinti=0;i<signatories.length;i++){addresssignatory=signatories[i];requiredSignatureArray[i]=agreement.requiredSignatures[signatory];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 184
+column: 8
+content: for(uinti=0;i<signatories.length;i++){addresssignatory=signatories[i];if(agreement.requiredSignatures[signatory]){revert("signatories must not contain duplicates");}agreement.requiredSignatures[signatory]=true;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 131
+column: 8
+content: for(uinti=0;i<signatories.length;i++){addresssignatory=signatories[i];requiredSignatureArray[i]=agreement.requiredSignatures[signatory];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 184
+column: 8
+content: for(uinti=0;i<signatories.length;i++){addresssignatory=signatories[i];if(agreement.requiredSignatures[signatory]){revert("signatories must not contain duplicates");}agreement.requiredSignatures[signatory]=true;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 8
+column: 0
+content: contractDisclosureAgreementTracker{structAgreement{bytes32previous;uintdisclosureIndex;uintblockNumber;uintsignedCount;address[]signatories;mapping(address=>bool)requiredSignatures;}structLatest{bytes32agreementHash;uintagreementCount;}addresspublicowner;addresspublicdisclosureManager;uintpublicagreementCount;uintpublicdisclosureCount;mapping(bytes32=>Agreement)publicagreementMap;mapping(uint=>Latest)publiclatestMap;eventagreementAdded(bytes32agreementHash,uintdisclosureIndex,address[]signatories);eventagreementSigned(bytes32agreementHash,uintdisclosureIndex,addresssignatory);eventagreementFullySigned(bytes32agreementHash,uintdisclosureIndex);constructor(addressdisclosureManagerAddress)public{owner=msg.sender;disclosureManager=disclosureManagerAddress;}modifierisOwner(){if(msg.sender!=owner)revert("sender must be owner");_;}function_hasAgreement(Agreementagreement)privatepurereturns(bool){returnagreement.disclosureIndex!=0;}functionhasAgreement(bytes32agreementHash)publicviewreturns(bool){return_hasAgreement(agreementMap[agreementHash]);}function_hasDisclosureAgreement(Latestlatest)privatepurereturns(bool){returnlatest.agreementCount!=0;}functionhasDisclosureAgreement(uintdisclosureIndex)publicviewreturns(bool){return_hasDisclosureAgreement(latestMap[disclosureIndex]);}function_isAgreementFullySigned(Agreementagreement)privatepurereturns(bool){returnagreement.signedCount==agreement.signatories.length;}functionisAgreementFullySigned(bytes32agreementHash)publicviewreturns(bool){Agreementstorageagreement=agreementMap[agreementHash];return_hasAgreement(agreement)&&_isAgreementFullySigned(agreement);}functionisDisclosureFullySigned(uintdisclosureIndex)publicviewreturns(bool){returnisAgreementFullySigned(latestMap[disclosureIndex].agreementHash);}function_getRequiredSignaturesArray(Agreementstorageagreement)privateviewreturns(bool[]){address[]storagesignatories=agreement.signatories;bool[]memoryrequiredSignatureArray=newbool[](signatories.length);for(uinti=0;i<signatories.length;i++){addresssignatory=signatories[i];requiredSignatureArray[i]=agreement.requiredSignatures[signatory];}returnrequiredSignatureArray;}functiongetAgreement(bytes32agreementHash)publicviewreturns(bytes32previous,uintdisclosureIndex,uintblockNumber,uintsignedCount,address[]signatories,bool[]requiredSignatures){Agreementstorageagreement=agreementMap[agreementHash];previous=agreement.previous;disclosureIndex=agreement.disclosureIndex;blockNumber=agreement.blockNumber;signedCount=agreement.signedCount;signatories=agreement.signatories;requiredSignatures=_getRequiredSignaturesArray(agreement);}functionaddAgreement(bytes32agreementHash,uintdisclosureIndex,address[]signatories)publicisOwner{require(disclosureIndex>0,"disclosureIndex must be greater than 0");require(agreementHash!=0,"agreementHash must not be 0");require(signatories.length>0,"signatories must not be empty");Agreementstorageagreement=agreementMap[agreementHash];if(_hasAgreement(agreement)){revert("Agreement already exists");}agreementCount++;agreement.disclosureIndex=disclosureIndex;agreement.blockNumber=block.number;agreement.signatories=signatories;Lateststoragelatest=latestMap[disclosureIndex];if(!_hasDisclosureAgreement(latest)){disclosureCount++;}agreement.previous=latest.agreementHash;latest.agreementHash=agreementHash;latest.agreementCount++;for(uinti=0;i<signatories.length;i++){addresssignatory=signatories[i];if(agreement.requiredSignatures[signatory]){revert("signatories must not contain duplicates");}agreement.requiredSignatures[signatory]=true;}emitagreementAdded(agreementHash,disclosureIndex,signatories);}functionsignAgreement(bytes32agreementHash)public{require(hasAgreement(agreementHash),"agreeement must exist");Agreementstorageagreement=agreementMap[agreementHash];boolsigned=agreement.requiredSignatures[msg.sender];require(signed,"sender already signed or not a signatory");agreement.requiredSignatures[msg.sender]=false;agreement.signedCount++;emitagreementSigned(agreementHash,agreement.disclosureIndex,msg.sender);if(_isAgreementFullySigned(agreement)){emitagreementFullySigned(agreementHash,agreement.disclosureIndex);}}function()publicpayable{revert("payment not supported");}}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 223
+column: 31
+content: {revert("payment not supported");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 80
+column: 8
+content: if(msg.sender!=owner)revert("sender must be owner");
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 168
+column: 8
+content: if(_hasAgreement(agreement)){revert("Agreement already exists");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 186
+column: 12
+content: if(agreement.requiredSignatures[signatory]){revert("signatories must not contain duplicates");}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 223
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 84
+column: 27
+content: Agreementagreement
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 93
+column: 37
+content: Latestlatest
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 102
+column: 37
+content: Agreementagreement
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 128
+column: 26
+content: bool[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 142
+column: 26
+content: address[]signatories
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 142
+column: 49
+content: bool[]requiredSignatures
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 161
+column: 8
+content: address[]signatories
+
+SOLIDITY_REVERT_REQUIRE :3
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_UPGRADE_TO_050 :8
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

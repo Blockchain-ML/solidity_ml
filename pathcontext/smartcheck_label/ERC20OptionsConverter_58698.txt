@@ -1,0 +1,126 @@
+C:\Users\hp\DataSet\ERC20OptionsConverter.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 23
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 30
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 58
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 69
+column: 4
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 35
+column: 2
+content: functiongetESOP()publicconstantreturns(address){returnesopAddress;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 39
+column: 2
+content: functiongetExercisePeriodDeadline()publicconstantreturns(uint32){returnexercisePeriodDeadline;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 64
+column: 2
+content: functionbalanceOf(address_owner)constantpublicreturns(uintbalance){returnbalances[_owner];}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 6
+column: 0
+content: contractERC20OptionsConverterisBaseOptionsConverter,TimeSource,Math{addressesopAddress;uint32exercisePeriodDeadline;mapping(address=>uint)internalbalances;uintpublictotalSupply;uint32publicoptionsConversionDeadline;eventTransfer(addressindexedfrom,addressindexedto,uintvalue);modifierconverting(){if(currentTime()>=exercisePeriodDeadline)throw;_;}modifierconverted(){if(currentTime()<optionsConversionDeadline)throw;_;}functiongetESOP()publicconstantreturns(address){returnesopAddress;}functiongetExercisePeriodDeadline()publicconstantreturns(uint32){returnexercisePeriodDeadline;}functionexerciseOptions(addressemployee,uintpoolOptions,uintextraOptions,uintbonusOptions,boolagreeToAcceleratedVestingBonusConditions)publiconlyESOPconverting{uintoptions=safeAdd(safeAdd(poolOptions,extraOptions),bonusOptions);totalSupply=safeAdd(totalSupply,options);balances[employee]+=options;Transfer(0,employee,options);}functiontransfer(address_to,uint_value)convertedpublic{if(balances[msg.sender]<_value)throw;balances[msg.sender]-=_value;balances[_to]+=_value;Transfer(msg.sender,_to,_value);}functionbalanceOf(address_owner)constantpublicreturns(uintbalance){returnbalances[_owner];}function()payable{throw;}functionERC20OptionsConverter(addressesop,uint32exerciseDeadline,uint32conversionDeadline){esopAddress=esop;exercisePeriodDeadline=exerciseDeadline;optionsConversionDeadline=conversionDeadline;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 68
+column: 22
+content: {throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 22
+column: 4
+content: if(currentTime()>=exercisePeriodDeadline)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 29
+column: 4
+content: if(currentTime()<optionsConversionDeadline)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 57
+column: 4
+content: if(balances[msg.sender]<_value)throw;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 68
+column: 2
+content: function()payable{throw;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 72
+column: 2
+content: functionERC20OptionsConverter(addressesop,uint32exerciseDeadline,uint32conversionDeadline){esopAddress=esop;exercisePeriodDeadline=exerciseDeadline;optionsConversionDeadline=conversionDeadline;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 8
+column: 2
+content: addressesopAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 2
+content: uint32exercisePeriodDeadline;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :7
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :3
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

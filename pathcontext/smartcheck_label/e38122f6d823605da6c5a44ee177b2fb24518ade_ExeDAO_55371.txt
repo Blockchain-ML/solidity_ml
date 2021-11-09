@@ -1,0 +1,277 @@
+C:\Users\hp\DataSet\contracts\ropsten\e3\e38122f6d823605da6c5a44ee177b2fb24518ade_ExeDAO.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 425
+column: 4
+content: for(uint256i=0;i<funcSigs.length;i++){uint8approvalRequirement=requirements[i];require(approvalRequirement<101||approvalRequirement==255,"Can not set empty requirement");_approvalRequirements[funcSigs[i]]=approvalRequirement;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 735
+column: 6
+content: for(uint256i=0;i<ext.functionSignatures.length;i++){bytes4funcSig=ext.functionSignatures[i];delete_extensionFor[funcSig];if(_approvalRequirements[funcSig]!=0)delete_approvalRequirements[funcSig];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 757
+column: 6
+content: for(uint256i=0;i<funcSigs.length;i++){require(!_extensionFor[funcSigs[i]].exists,"ExeDAO: Approval already set for function");_extensionFor[funcSigs[i]]=Indices.Index(true,uint248(index));}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 870
+column: 6
+content: for(uint256i=0;i<application.tokenTributes.length;i++){_transferToken(application.tokenTributes[i],msg.sender,application.tokenTributeValues[i]);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 627
+column: 2
+content: functiondeploy(bytesmemorybytecode)internalreturns(addressextAddress){uint256size=bytecode.length;assembly{letstart:=add(bytecode,0x20)extAddress:=create(0,start,size)}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 166
+column: 4
+content: for(uint256i=0;i<size;i++)daoists[i]=_daoists[i];
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 178
+column: 4
+content: for(uint256i=0;i<size;i++){uint256balance=_tokens[i].balanceOf(address(this));tokenBalances[i]=DaoLib.TokenValue(address(_tokens[i]),balance);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 239
+column: 4
+content: for(uint256i=0;i<numTokens;i++){IERC20token=_tokens[i];balance=token.balanceOf(address(this));shareValue=relativeShare.mul(balance).div(_multiplier);token.transfer(msg.sender,shareValue);tokenBurnValues[i]=DaoLib.TokenValue(address(token),shareValue);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 344
+column: 4
+content: for(uint256i=0;i<size;i++)requirements[i]=_approvalRequirements[funcSigs[i]];
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 425
+column: 4
+content: for(uint256i=0;i<funcSigs.length;i++){uint8approvalRequirement=requirements[i];require(approvalRequirement<101||approvalRequirement==255,"Can not set empty requirement");_approvalRequirements[funcSigs[i]]=approvalRequirement;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 735
+column: 6
+content: for(uint256i=0;i<ext.functionSignatures.length;i++){bytes4funcSig=ext.functionSignatures[i];delete_extensionFor[funcSig];if(_approvalRequirements[funcSig]!=0)delete_approvalRequirements[funcSig];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 757
+column: 6
+content: for(uint256i=0;i<funcSigs.length;i++){require(!_extensionFor[funcSigs[i]].exists,"ExeDAO: Approval already set for function");_extensionFor[funcSigs[i]]=Indices.Index(true,uint248(index));}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 836
+column: 4
+content: for(uint256i=0;i<tokenCount;i++){DaoLib.TokenValuememorytokenTribute=tokenTributes[i];_receiveToken(tokenTribute.tokenAddress,msg.sender,tokenTribute.value);lockedTokens[i]=tokenTribute.tokenAddress;lockedTokenValues[i]=tokenTribute.value;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 870
+column: 6
+content: for(uint256i=0;i<application.tokenTributes.length;i++){_transferToken(application.tokenTributes[i],msg.sender,application.tokenTributeValues[i]);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 382
+column: 0
+content: contractIPermissionedisIBaseDAO{functiontransferEther(addresspayablerecipient,uint256weiToSend)external;functiongetApprovalRequirement(bytes4funcSig)externalviewreturns(uint8requirement);functiongetApprovalRequirements(bytes4[]calldatafuncSigs)externalviewreturns(uint8[]memoryrequirements);functiongetOpenProposals()externalviewreturns(Proposals.ProposalOutput[]memoryproposals);functiongetProposal(bytes32proposalHash)externalviewreturns(Proposals.ProposalOutputmemoryret);functionsetProposalDuration(uint64duration)external;functionmintShares(addressrecipient,uint64amount)external;functionsetApprovalRequirement(bytes4funcSig,uint8approvalRequirement)external;functionsubmitOrVote(bytes32proposalHash)externalreturns(uint,uint);functionsubmitWithMetaHash(bytes32proposalHash,bytes32metaHash)externalreturns(uint256index);functioncloseProposal(bytes32proposalHash)external;functionaddToken(addresstokenAddress)external;functionremoveToken(addresstokenAddress)external;functionapproveTokenTransfer(addresstokenAddress,addressspender,uint256amount)external;functiontransferToken(addresstokenAddress,addressrecipient,uint256amount)external;functionreceiveToken(addresstokenAddress,addresssender,uint256amount)external;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 412
+column: 0
+content: contractPermissionedisIPermissioned,BaseDAO,PermissionedStorage{eventProposalSubmission(addressindexedsubmitter,bytes32indexedproposalHash,bytes32metaHash,uint64votesCast);eventProposalVote(addressindexedvoter,bytes32indexedproposalHash,uint64votesCast);eventProposalApproval(addressindexedvoter,bytes32indexedproposalHash);eventProposalExpiration(bytes32indexedproposalHash);constructor(uint64shares,uint64proposalDuration,bytes4[]memoryfuncSigs,uint8[]memoryrequirements)publicpayableBaseDAO(shares){require(funcSigs.length==requirements.length,"Inconsistent inputs");for(uint256i=0;i<funcSigs.length;i++){uint8approvalRequirement=requirements[i];require(approvalRequirement<101||approvalRequirement==255,"Can not set empty requirement");_approvalRequirements[funcSigs[i]]=approvalRequirement;}_proposalDuration=proposalDuration;}functionsetProposalDuration(uint64duration)external{if(_voteAndContinue())_proposalDuration=duration;}functionmintShares(addressrecipient,uint64amount)external{if(_voteAndContinue())_mintShares(recipient,amount);}functionaddToken(addresstokenAddress)external{if(_voteAndContinue())_addToken(tokenAddress);}functionremoveToken(addresstokenAddress)external{if(_voteAndContinue())_removeToken(tokenAddress);}functionapproveTokenTransfer(addresstokenAddress,addressspender,uint256amount)external{if(_voteAndContinue())_approveTokenTransfer(tokenAddress,spender,amount);}functiontransferToken(addresstokenAddress,addressrecipient,uint256amount)external{if(_voteAndContinue())_transferToken(tokenAddress,recipient,amount);}functionreceiveToken(addresstokenAddress,addresssender,uint256amount)external{if(_voteAndContinue())_receiveToken(tokenAddress,sender,amount);}functiontransferEther(addresspayablerecipient,uint256weiToSend)external{if(_voteAndContinue())recipient.transfer(weiToSend);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 713
+column: 0
+content: contractExtendableisIExtendable,Permissioned,ExtendableStorage{eventExtensionAdded(uint256extensionIndex,bytes32metaHash);constructor(uint64shares,uint64_proposalDuration,bytes4[]memoryfuncSigs,uint8[]memoryrequirements)publicpayablePermissioned(shares,_proposalDuration,funcSigs,requirements){}function()externalpayable{Indices.Indexmemoryindex=_extensionFor[msg.sig];if(index.exists){if(_voteAndContinue()){ExeLib.Extensionmemoryextension=_extensions[index.index];if(extension.useDelegate)extension.extensionAddress.delegateExecute();elseextension.extensionAddress.doCall();}}}functionremoveExtension(uint256extIndex)external{if(_voteAndContinue()){ExeLib.Extensionmemoryext=_extensions[extIndex];for(uint256i=0;i<ext.functionSignatures.length;i++){bytes4funcSig=ext.functionSignatures[i];delete_extensionFor[funcSig];if(_approvalRequirements[funcSig]!=0)delete_approvalRequirements[funcSig];}delete_extensions[extIndex];}}functionaddExtension(ExeLib.Extensionmemoryextension)public{if(extension.useDelegate)require(extension.bytecode.length>0&&extension.bytecode.isPermissible(),"ExeDAO: Bytecode not allowed");if(_voteAndContinue()){if(extension.useDelegate){extension.extensionAddress=extension.bytecode.deploy();deleteextension.bytecode;}uint256index=_extensions.length;_extensions.push(extension);bytes4[]memoryfuncSigs=extension.functionSignatures;for(uint256i=0;i<funcSigs.length;i++){require(!_extensionFor[funcSigs[i]].exists,"ExeDAO: Approval already set for function");_extensionFor[funcSigs[i]]=Indices.Index(true,uint248(index));}emitExtensionAdded(index,extension.metaHash);}}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 796
+column: 0
+content: contractIExeDAOisIExtendable{functiongetApplication(addressapplicant)externalviewreturns(DaoLib.Applicationmemoryapplication);functiongetOpenApplications()externalviewreturns(DaoLib.Application[]memoryapplications);functiongetMinimumTribute()externalviewreturns(uint256minimum);functionsetMinimumTribute(uint256minimum)external;functionsafeExecute(bytescalldatabytecode)external;functionsubmitApplication(bytes32metaHash,uint64shares,DaoLib.TokenValue[]calldatatokenTributes)externalpayable;functionexecuteApplication(addressapplicant)external;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 142
+column: 2
+content: usingSafeMathforuint64;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 143
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 605
+column: 2
+content: functionisPermissible(bytesmemorybytecode)internalpurereturns(bool){uint256size=bytecode.length;uint256permissible=1;assembly{letptr:=add(bytecode,0x20)for{leti:=0}and(lt(i,size),permissible){i:=add(i,0x1)}{letop:=shr(0xf8,mload(add(ptr,i)))switchopcase0xf2{permissible:=0}case0xf4{permissible:=0}case0x55{permissible:=0}case0xff{permissible:=0}default{letisPush:=and(lt(op,0x80),gt(op,0x5f))ifeq(isPush,0x1){i:=add(i,sub(op,0x5f))}}}}returnpermissible==1;}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 196
+column: 53
+content: (uint256weiValue,DaoLib.TokenValue[]memorytokenBurnValues)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 227
+column: 9
+content: (uint256weiValue,DaoLib.TokenValue[]memorytokenBurnValues)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 391
+column: 62
+content: (uint,uint)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 609
+column: 4
+content: assembly{letptr:=add(bytecode,0x20)for{leti:=0}and(lt(i,size),permissible){i:=add(i,0x1)}{letop:=shr(0xf8,mload(add(ptr,i)))switchopcase0xf2{permissible:=0}case0xf4{permissible:=0}case0x55{permissible:=0}case0xff{permissible:=0}default{letisPush:=and(lt(op,0x80),gt(op,0x5f))ifeq(isPush,0x1){i:=add(i,sub(op,0x5f))}}}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 629
+column: 4
+content: assembly{letstart:=add(bytecode,0x20)extAddress:=create(0,start,size)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 637
+column: 4
+content: assembly{letretptr:=mload(0x40)letstart:=add(bytecode,0x20)letdelegateTo:=create(0,start,size)ifiszero(delegateTo){returndatacopy(retptr,0,returndatasize)revert(retptr,returndatasize)}letdelegateSuccess:=delegatecall(gas,delegateTo,0,0,retptr,0)returndatacopy(retptr,0,returndatasize)ifiszero(delegateSuccess){revert(retptr,returndatasize)}return(retptr,returndatasize)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 653
+column: 4
+content: assembly{letstartCalldata:=mload(0x40)calldatacopy(startCalldata,0,calldatasize)letretptr:=add(startCalldata,calldatasize)letdelegateSuccess:=delegatecall(gas,delegateTo,startCalldata,calldatasize,retptr,0)returndatacopy(retptr,0,returndatasize)ifdelegateSuccess{return(retptr,returndatasize)}revert(retptr,returndatasize)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 665
+column: 4
+content: assembly{letstartCalldata:=mload(0x40)calldatacopy(startCalldata,0,calldatasize)letretptr:=add(startCalldata,calldatasize)letcallSuccess:=call(gas,callAddress,callvalue,startCalldata,calldatasize,retptr,0)returndatacopy(retptr,0,returndatasize)ifcallSuccess{return(retptr,returndatasize)}revert(retptr,returndatasize)}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 383
+column: 2
+content: functiontransferEther(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 464
+column: 2
+content: functiontransferEther(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 383
+column: 41
+content: recipient,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 383
+column: 52
+content: uint256weiToSend)external;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 464
+column: 41
+content: recipient,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 464
+column: 52
+content: uint256weiToSend)external{if
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 465
+column: 7
+content: (_voteAndContinue())recipient.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 465
+column: 38
+content: transfer(weiToSend);
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_SAFEMATH :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :4
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :9
+SOLIDITY_USING_INLINE_ASSEMBLY :5
+SOLIDITY_SHOULD_RETURN_STRUCT :3
+SOLIDITY_SHOULD_NOT_BE_PURE :1

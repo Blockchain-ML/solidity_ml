@@ -1,0 +1,338 @@
+C:\Users\hp\DataSet\contracts\ropsten\45\4580a1a059da20744e3b6650546d941a602b49ee_network.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 16
+column: 19
+content: 0xAbC7Ea7892bFEaE4f6e9210454256040C484c504
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 5
+column: 4
+content: functionbalanceOf(address_owner)externalconstantreturns(uint256balance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 121
+column: 4
+content: functioncountAllProposals()publicconstantreturns(uintcount){count=proposal_n;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 125
+column: 4
+content: functiongetProposalByID(uintid)publicconstantreturns(addresssmartOwner,bytes32smartHash){smartOwner=ProposalBy_Id[id].proprietary;smartHash=ProposalBy_Id[id].proposalHash;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 130
+column: 4
+content: functiongetProposalByHash(bytes32hash)publicconstantreturns(addresssmartOwner,stringsmartWebsite,bytes32smartHash,uinttarget,uintduration,stringtags,stringipfs,uintnumAcc,stringothers,uintamount,boolfinalized){smartOwner=ProposalBy_Hash[hash].proprietary;smartWebsite=ProposalBy_Hash[hash].website;smartHash=ProposalBy_Hash[hash].proposalHash;target=ProposalBy_Hash[hash].target;ipfs=ProposalBy_Hash[hash].ipfs;numAcc=ProposalBy_Hash[hash].acceptances;duration=ProposalBy_Hash[hash].end;others=ProposalBy_Hash[hash].info;tags=ProposalBy_Hash[hash].tag;amount=ProposalBy_Hash[hash].amount;finalized=ProposalBy_Hash[hash].finalized;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 144
+column: 4
+content: functiongetAcceptance(addressaddr,uinty)publicconstantreturns(stringdLink,bytes32smartHash,stringothers){dLink=myAcceptance[addr][y].dLink;smartHash=myAcceptance[addr][y].proposalHash;others=myAcceptance[addr][y].info;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 150
+column: 4
+content: functiongetDelegate(uintd)publicconstantreturns(stringwebservice,addresswallet,uintamount,boolcert){webservice=DelegatesById[d].webservice;wallet=DelegatesById[d].wallet;amount=DelegatesByAddr[wallet].amount;cert=DelegatesByAddr[wallet].cert;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 157
+column: 4
+content: functiongetNumAcceptance(addressaddr)publicconstantreturns(uintnum){num=Acceptances[addr].numAcceptancesBywallet;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 161
+column: 4
+content: functiongetProposalHash(string_dLink)publicconstantreturns(bytes32smartHash){smartHash=acceptByIpfs[_dLink].proposalHash;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 165
+column: 1
+content: functiongetAdvertisers(bytes32hash,uintx)publicconstantreturns(addressadv,stringdLink){adv=advertisers[hash][x].advertiser;dLink=advertisers[hash][x].dLink;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 170
+column: 1
+content: functionisAlreadyDelegate()publicconstantreturns(bool){returnmsg.sender==DelegatesByAddr[msg.sender].wallet;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 174
+column: 1
+content: functionisActiveDelegate()publicconstantreturns(bool){returntrue==DelegatesByAddr[msg.sender].cert;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 178
+column: 1
+content: functionisProposalEnded(bytes32smarthash)publicconstantreturns(bool){returntrue==ProposalBy_Hash[smarthash].finalized;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 182
+column: 1
+content: functioncheckDelegation(addressaddr)publicconstantreturns(boolinProgress,boolcert){addressdelegate=DelegatesByAddr[addr].wallet;if(delegate==addr)inProgress=true;cert=DelegatesByAddr[addr].cert;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 188
+column: 1
+content: functiongetEpmBalance(addressdelegate)publicconstantreturns(uint256balance){balance=epm.balanceOf(delegate);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 200
+column: 15
+content: i<numAcc
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 69
+column: 8
+content: if((getEpmBalance(msg.sender)<1000000*10**18))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 76
+column: 8
+content: if((getEpmBalance(msg.sender)<=1000000*10**18)&&(!isActiveDelegate()))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 193
+column: 5
+content: if((getEpmBalance(msg.sender)<1000000*10**18)&&(!isActiveDelegate()))revert();
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 200
+column: 8
+content: while(i<numAcc){addressadv=advertisers[smarthash][i].advertiser;if(adv==addr[i])uintreward=costForVisit*visits[i];adv.transfer(reward);epm.transfer(msg.sender,50*10**18);ProposalBy_Hash[smarthash].finalized=true;status=true;i+=1;}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 81
+column: 24
+content: keccak256(msg.sender,_website,proposal_n)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 62
+column: 25
+content: stringwebservice
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 80
+column: 14
+content: string_website
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 80
+column: 57
+content: stringtags
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 80
+column: 69
+content: stringothers
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 98
+column: 38
+content: string_dLink
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 130
+column: 88
+content: stringsmartWebsite
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 130
+column: 152
+content: stringtags
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 130
+column: 165
+content: stringipfs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 130
+column: 189
+content: stringothers
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 144
+column: 72
+content: stringdLink
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 144
+column: 103
+content: stringothers
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 150
+column: 57
+content: stringwebservice
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 161
+column: 29
+content: string_dLink
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 165
+column: 84
+content: stringdLink
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 192
+column: 32
+content: address[]addr
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 192
+column: 48
+content: uint[]visits
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 4
+content: mapping(uint=>Delegate)DelegatesById;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 53
+column: 4
+content: mapping(address=>Delegate)DelegatesByAddr;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 54
+column: 4
+content: mapping(uint=>Proposal)ProposalBy_Id;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 55
+column: 4
+content: mapping(bytes32=>Proposal)ProposalBy_Hash;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 56
+column: 4
+content: mapping(address=>mapping(bytes32=>Acceptance))acceptByAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 57
+column: 4
+content: mapping(address=>mapping(uint=>Acceptance))myAcceptance;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 58
+column: 4
+content: mapping(bytes32=>mapping(uint=>Acceptance))advertisers;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 59
+column: 4
+content: mapping(string=>Acceptance)acceptByIpfs;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 60
+column: 4
+content: mapping(address=>Acceptance)Acceptances;
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :14
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :3
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :17
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_TRANSFER_IN_LOOP :1

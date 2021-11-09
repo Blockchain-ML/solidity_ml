@@ -1,0 +1,314 @@
+F:\Blockchain\dataset_new_byID\82150.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 12
+column: 0
+content: contractStakingAuRaBaseisUpgradeableOwned,IStakingAuRa{usingSafeMathforuint256;address[]internal_pools;address[]internal_poolsInactive;address[]internal_poolsToBeElected;address[]internal_poolsToBeRemoved;uint256[]internal_poolsLikelihood;uint256internal_poolsLikelihoodSum;mapping(address=>address[])internal_poolDelegators;mapping(address=>address[])internal_poolDelegatorsInactive;mapping(address=>address[])internal_stakerPools;mapping(address=>mapping(address=>uint256))internal_stakerPoolsIndexes;mapping(address=>mapping(address=>mapping(uint256=>uint256)))internal_stakeAmountByEpoch;uint256[25]private______gapForInternal;uint256publiccandidateMinStake;uint256publicdelegatorMinStake;mapping(address=>mapping(address=>mapping(uint256=>uint256)))publicdelegatorStakeSnapshot;mapping(address=>mapping(address=>uint256))publicorderedWithdrawAmount;mapping(address=>uint256)publicorderedWithdrawAmountTotal;mapping(address=>mapping(address=>uint256))publicorderWithdrawEpoch;mapping(address=>mapping(address=>uint256))publicpoolDelegatorIndex;mapping(address=>mapping(address=>uint256))publicpoolDelegatorInactiveIndex;mapping(address=>uint256)publicpoolInactiveIndex;mapping(address=>uint256)publicpoolIndex;mapping(address=>uint256)publicpoolToBeElectedIndex;mapping(address=>uint256)publicpoolToBeRemovedIndex;mapping(address=>mapping(address=>mapping(uint256=>bool)))publicrewardWasTaken;mapping(address=>mapping(address=>uint256))publicstakeAmount;mapping(address=>mapping(address=>uint256))publicstakeFirstEpoch;mapping(address=>mapping(address=>uint256))publicstakeLastEpoch;uint256publicstakeWithdrawDisallowPeriod;uint256publicstakingEpoch;uint256publicstakingEpochDuration;uint256publicstakingEpochStartBlock;mapping(address=>uint256)publicstakeAmountTotal;IValidatorSetAuRapublicvalidatorSetContract;uint256[25]private______gapForPublic;uint256publicconstantMAX_CANDIDATES=3000;eventAddedPool(addressindexedpoolStakingAddress);eventClaimedOrderedWithdrawal(addressindexedfromPoolStakingAddress,addressindexedstaker,uint256indexedstakingEpoch,uint256amount);eventMovedStake(addressfromPoolStakingAddress,addressindexedtoPoolStakingAddress,addressindexedstaker,uint256indexedstakingEpoch,uint256amount);eventOrderedWithdrawal(addressindexedfromPoolStakingAddress,addressindexedstaker,uint256indexedstakingEpoch,int256amount);eventPlacedStake(addressindexedtoPoolStakingAddress,addressindexedstaker,uint256indexedstakingEpoch,uint256amount);eventRemovedPool(addressindexedpoolStakingAddress);eventWithdrewStake(addressindexedfromPoolStakingAddress,addressindexedstaker,uint256indexedstakingEpoch,uint256amount);modifiergasPriceIsValid(){require(tx.gasprice!=0);_;}modifieronlyBlockRewardContract(){require(msg.sender==validatorSetContract.blockRewardContract());_;}modifieronlyInitialized{require(isInitialized());_;}modifieronlyValidatorSetContract(){require(msg.sender==address(validatorSetContract));_;}function()payableexternal{revert();}functionaddPool(uint256_amount,address_miningAddress)externalpayable{addressstakingAddress=msg.sender;validatorSetContract.setStakingAddress(_miningAddress,stakingAddress);_stake(stakingAddress,_amount);}functionclearUnremovableValidator(address_unremovableStakingAddress)externalonlyValidatorSetContract{require(_unremovableStakingAddress!=address(0));if(stakeAmount[_unremovableStakingAddress][_unremovableStakingAddress]!=0){_addPoolToBeElected(_unremovableStakingAddress);_setLikelihood(_unremovableStakingAddress);}else{_addPoolToBeRemoved(_unremovableStakingAddress);}}functionincrementStakingEpoch()externalonlyValidatorSetContract{stakingEpoch++;}functioninitialize(address_validatorSetContract,address[]calldata<missing ')'>_initialStakingAddresses,uint256_delegatorMinStake,uint256_candidateMinStake,uint256_stakingEpochDuration,uint256_stakingEpochStartBlock,uint256_stakeWithdrawDisallowPeriod)external{require(_validatorSetContract!=address(0));require(_initialStakingAddresses.length>0);require(_delegatorMinStake!=0);require(_candidateMinStake!=0);require(_stakingEpochDuration!=0);require(_stakingEpochDuration>_stakeWithdrawDisallowPeriod);require(_stakeWithdrawDisallowPeriod!=0);require(_getCurrentBlockNumber()==0||msg.sender==_admin());require(!isInitialized());validatorSetContract=IValidatorSetAuRa(_validatorSetContract);addressunremovableStakingAddress=validatorSetContract.unremovableValidator();for(uint256<missing ')'>i=0;i<_initialStakingAddresses.length;i++){require(_initialStakingAddresses[i]!=address(0));_addPoolActive(_initialStakingAddresses[i],false);if(_initialStakingAddresses[i]!=unremovableStakingAddress){_addPoolToBeRemoved(_initialStakingAddresses[i]);}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 34
+column: 16
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 146
+column: 16
+content: private
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 262
+column: 33
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 13
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 314
+column: 4
+content: functioninitialize(address_validatorSetContract,address[]calldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 316
+column: 27
+content: _initialStakingAddresses,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 317
+column: 8
+content: uint256_delegatorMinStake,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 318
+column: 8
+content: uint256_candidateMinStake,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 319
+column: 8
+content: uint256_stakingEpochDuration,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 320
+column: 8
+content: uint256_stakingEpochStartBlock,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 321
+column: 8
+content: uint256_stakeWithdrawDisallowPeriod)external{
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 323
+column: 8
+content: require(_validatorSetContract!=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 323
+column: 41
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 323
+column: 48
+content: (0));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 324
+column: 8
+content: require(_initialStakingAddresses.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 324
+column: 41
+content: length>0);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 325
+column: 8
+content: require(_delegatorMinStake!=0);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 326
+column: 8
+content: require(_candidateMinStake!=0);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 327
+column: 8
+content: require(_stakingEpochDuration!=0);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 328
+column: 8
+content: require(_stakingEpochDuration>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 328
+column: 40
+content: _stakeWithdrawDisallowPeriod);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 329
+column: 8
+content: require(_stakeWithdrawDisallowPeriod!=0);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 330
+column: 8
+content: require(_getCurrentBlockNumber
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 330
+column: 38
+content: ()==0||
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 330
+column: 49
+content: msg.sender==_admin
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 330
+column: 69
+content: ());
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 331
+column: 8
+content: require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 331
+column: 15
+content: (!isInitialized());
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 333
+column: 8
+content: validatorSetContract=IValidatorSetAuRa
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 333
+column: 48
+content: (_validatorSetContract);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 335
+column: 8
+content: addressunremovableStakingAddress=validatorSetContract.unremovableValidator();
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 337
+column: 12
+content: (uint256<missing ')'>i=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 337
+column: 28
+content: i<_initialStakingAddresses.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 337
+column: 57
+content: length;i++){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 338
+column: 12
+content: require(_initialStakingAddresses[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 338
+column: 45
+content: i]!=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 338
+column: 51
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 338
+column: 58
+content: (0));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 339
+column: 12
+content: _addPoolActive(_initialStakingAddresses[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 339
+column: 52
+content: i],false);if
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 340
+column: 15
+content: (_initialStakingAddresses[i]!=unremovableStakingAddress){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 341
+column: 16
+content: _addPoolToBeRemoved(_initialStakingAddresses[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 341
+column: 61
+content: i]);
+
+SOLIDITY_VISIBILITY :39
+SOLIDITY_SAFEMATH :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

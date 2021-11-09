@@ -1,0 +1,333 @@
+C:\Users\hp\DataSet\contracts\ropsten\50\503f31fc1c73883851f29cb2545ee1dbd892ee55_BasketFactory.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 136
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 269
+column: 4
+content: for(uinti=0;i<tokens.length;i++){addresst=tokens[i];uintw=weights[i];assert(ERC20(t).transferFrom(msg.sender,this,w.mul(_quantity).div(10**decimals)));}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 319
+column: 4
+content: for(uinti=0;i<tokens.length;i++){addresst=tokens[i];uintw=weights[i];ERC20(t).transfer(_recipient,w.mul(_quantity).div(10**decimals));}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 337
+column: 4
+content: for(uinti=0;i<tokens.length;i++){addresst=tokens[i];uintw=weights[i];outstandingBalance[msg.sender][t]=outstandingBalance[msg.sender][t].add(w.mul(_quantity).div(10**decimals));}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 392
+column: 2
+content: functionregisterBasket(address,address,string,string,address[],uint[])publicreturns(uint){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 393
+column: 2
+content: functioncheckBasketExists(address)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 394
+column: 2
+content: functiongetBasketArranger(address)publicreturns(address){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 397
+column: 2
+content: functionincrementBasketsMinted(uint,address)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 398
+column: 2
+content: functionincrementBasketsBurned(uint,address)publicreturns(bool){}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 269
+column: 4
+content: for(uinti=0;i<tokens.length;i++){addresst=tokens[i];uintw=weights[i];assert(ERC20(t).transferFrom(msg.sender,this,w.mul(_quantity).div(10**decimals)));}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 319
+column: 4
+content: for(uinti=0;i<tokens.length;i++){addresst=tokens[i];uintw=weights[i];ERC20(t).transfer(_recipient,w.mul(_quantity).div(10**decimals));}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 337
+column: 4
+content: for(uinti=0;i<tokens.length;i++){addresst=tokens[i];uintw=weights[i];outstandingBalance[msg.sender][t]=outstandingBalance[msg.sender][t].add(w.mul(_quantity).div(10**decimals));}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 401
+column: 0
+content: contractBasketRegistry{usingSafeMathforuint;addresspublicadmin;mapping(address=>bool)publicbasketFactoryMap;uintpublicbasketIndex;address[]publicbasketList;mapping(address=>BasketStruct)publicbasketMap;mapping(address=>uint)publicbasketIndexFromAddress;uintpublicarrangerIndex;address[]publicarrangerList;mapping(address=>uint)publicarrangerBasketCount;mapping(address=>uint)publicarrangerIndexFromAddress;structBasketStruct{addressbasketAddress;addressarranger;stringname;stringsymbol;address[]tokens;uint[]weights;uinttotalMinted;uinttotalBurned;}modifieronlyBasket{require(basketIndexFromAddress[msg.sender]>0);_;}modifieronlyBasketFactory{require(basketFactoryMap[msg.sender]==true);_;}eventLogWhitelistBasketFactory(addressbasketFactory);eventLogBasketRegistration(addressbasketAddress,uintbasketIndex);eventLogIncrementBasketsMinted(addressbasketAddress,uintquantity,addresssender);eventLogIncrementBasketsBurned(addressbasketAddress,uintquantity,addresssender);functionBasketRegistry()public{basketIndex=1;arrangerIndex=1;admin=msg.sender;}functionwhitelistBasketFactory(address_basketFactory)publicreturns(boolsuccess){require(msg.sender==admin);basketFactoryMap[_basketFactory]=true;emitLogWhitelistBasketFactory(_basketFactory);returntrue;}functionregisterBasket(address_basketAddress,address_arranger,string_name,string_symbol,address[]_tokens,uint[]_weights)publiconlyBasketFactoryreturns(uintindex){basketMap[_basketAddress]=BasketStruct(_basketAddress,_arranger,_name,_symbol,_tokens,_weights,0,0);basketList.push(_basketAddress);basketIndexFromAddress[_basketAddress]=basketIndex;if(arrangerBasketCount[_arranger]==0){arrangerList.push(_arranger);arrangerIndexFromAddress[_arranger]=arrangerIndex;arrangerIndex=arrangerIndex.add(1);}arrangerBasketCount[_arranger]=arrangerBasketCount[_arranger].add(1);emitLogBasketRegistration(_basketAddress,basketIndex);basketIndex=basketIndex.add(1);returnbasketIndex.sub(1);}functioncheckBasketExists(address_basketAddress)publicviewreturns(boolbasketExists){returnbasketIndexFromAddress[_basketAddress]>0;}functiongetBasketDetails(address_basketAddress)publicviewreturns(addressbasketAddress,addressarranger,stringname,stringsymbol,address[]tokens,uint[]weights,uinttotalMinted,uinttotalBurned){BasketStructmemoryb=basketMap[_basketAddress];return(b.basketAddress,b.arranger,b.name,b.symbol,b.tokens,b.weights,b.totalMinted,b.totalBurned);}functiongetBasketArranger(address_basketAddress)publicviewreturns(address){returnbasketMap[_basketAddress].arranger;}functionincrementBasketsMinted(uint_quantity,address_sender)publiconlyBasketreturns(bool){basketMap[msg.sender].totalMinted=basketMap[msg.sender].totalMinted.add(_quantity);emitLogIncrementBasketsMinted(msg.sender,_quantity,_sender);returntrue;}functionincrementBasketsBurned(uint_quantity,address_sender)publiconlyBasketreturns(bool){basketMap[msg.sender].totalBurned=basketMap[msg.sender].totalBurned.add(_quantity);emitLogIncrementBasketsBurned(msg.sender,_quantity,_sender);returntrue;}function()publicpayable{revert();}}
+
+ruleId: SOLIDITY_MSGVALUE_EQUALS_ZERO
+patternId: 1df89a
+severity: 1
+line: 283
+column: 14
+content: msg.value==0
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 386
+column: 29
+content: {revert();}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 558
+column: 29
+content: {revert();}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 672
+column: 29
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 62
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 195
+column: 2
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 402
+column: 2
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 567
+column: 2
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 386
+column: 14
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 558
+column: 14
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 672
+column: 14
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 239
+column: 4
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 240
+column: 4
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 241
+column: 4
+content: address[]_tokens
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 242
+column: 4
+content: uint[]_weights
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 392
+column: 44
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 392
+column: 52
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 392
+column: 60
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 392
+column: 71
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 474
+column: 4
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 475
+column: 4
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 476
+column: 4
+content: address[]_tokens
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 477
+column: 4
+content: uint[]_weights
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 517
+column: 6
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 518
+column: 6
+content: stringsymbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 519
+column: 6
+content: address[]tokens
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 520
+column: 6
+content: uint[]weights
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 614
+column: 4
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 615
+column: 4
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 616
+column: 4
+content: address[]_tokens
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 617
+column: 4
+content: uint[]_weights
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 64
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 66
+column: 2
+content: uint256totalSupply_;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_MSGVALUE_EQUALS_ZERO :1
+SOLIDITY_SAFEMATH :4
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :5
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_UPGRADE_TO_050 :23
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :3
+SOLIDITY_ERC20_APPROVE :1

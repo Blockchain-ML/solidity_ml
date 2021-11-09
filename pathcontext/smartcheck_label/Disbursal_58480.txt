@@ -1,0 +1,105 @@
+C:\Users\hp\DataSet\Disbursal.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 76
+column: 4
+content: functionclaimables(addressbeneficiary,uint256from)publicconstantreturns(uint256[100]){uint256[100]memoryresult;uint256j=0;for(uint256i=from;i<_disbursments.length;++i){if(claimable(beneficiary,i)){result[j]=i;j+=1;if(j==100){break;}}}returnresult;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 95
+column: 4
+content: functionclaimable(addressbeneficiary,uint256index)publicconstantreturns(bool){if(index>=_disbursments.length){returnfalse;}if(_claimed[beneficiary][index]==true){returnfalse;}Disbursmentstoragedisbursment=_disbursments[index];uint256shares=SHARE_TOKEN.balanceOfAt(beneficiary,disbursment.snapshot);returnshares>0;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 209
+column: 4
+content: functionshareToken()publicconstantreturns(ISnapshotableToken){returnSHARE_TOKEN;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 83
+column: 8
+content: for(uint256i=from;i<_disbursments.length;++i){if(claimable(beneficiary,i)){result[j]=i;j+=1;if(j==100){break;}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 125
+column: 8
+content: for(uint256i=0;i<_disbursments.length;++i){if(_claimed[beneficiary][i]==false){claim(beneficiary,i);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 135
+column: 8
+content: for(uint256i=0;i<indices.length;++i){claim(beneficiary,indices[i]);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 195
+column: 4
+content: functionreceiveApproval(addressfrom,uint256amount,addresstoken,bytesdata)publicreturns(bool){require(msg.sender==token);require(data.length==0);disburseAllowance(IERC20Token(token),from,amount);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 125
+column: 8
+content: for(uint256i=0;i<_disbursments.length;++i){if(_claimed[beneficiary][i]==false){claim(beneficiary,i);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 135
+column: 8
+content: for(uint256i=0;i<indices.length;++i){claim(beneficiary,indices[i]);}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 31
+column: 23
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 37
+column: 18
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 39
+column: 49
+content: private
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 132
+column: 40
+content: uint256[]indices
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 199
+column: 8
+content: bytesdata
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :3
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2

@@ -1,0 +1,263 @@
+C:\Users\hp\DataSet\contracts\ropsten\3b\3b1ae637ef2b7c635f0e8388a87e9aed5628d27a_Forwarder.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: om991k
+severity: 2
+line: 76
+column: 23
+content: call.value(address(this).balance)()
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 11
+column: 2
+content: functionbalanceOf(address_owner)constantpublicreturns(uint256balance);
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 276
+column: 4
+content: for(uinti=0;i<signers.length;i++){if(signers[i]==signer){returntrue;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 318
+column: 4
+content: for(uinti=0;i<SEQUENCE_ID_WINDOW_SIZE;i++){if(recentSequenceIds[i]==sequenceId){revert();}if(recentSequenceIds[i]<recentSequenceIds[lowestValueIndex]){lowestValueIndex=i;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 346
+column: 4
+content: for(uinti=0;i<SEQUENCE_ID_WINDOW_SIZE;i++){if(recentSequenceIds[i]>highestSequenceId){highestSequenceId=recentSequenceIds[i];}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 276
+column: 4
+content: for(uinti=0;i<signers.length;i++){if(signers[i]==signer){returntrue;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 38
+column: 4
+content: if(msg.sender!=parentAddress){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 48
+column: 4
+content: if(!parentAddress.call.value(msg.value)(msg.data))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 65
+column: 4
+content: if(!instance.transfer(parentAddress,forwarderBalance)){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 76
+column: 4
+content: if(!parentAddress.call.value(address(this).balance)())revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 118
+column: 4
+content: if(!isSigner(msg.sender)){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 133
+column: 4
+content: if(allowedSigners.length!=3){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 178
+column: 4
+content: if(!(toAddress.call.value(value)(data))){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 204
+column: 4
+content: if(!instance.transfer(toAddress,value)){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 236
+column: 4
+content: if(safeMode&&!isSigner(toAddress)){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 241
+column: 4
+content: if(expireTime<block.timestamp){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 249
+column: 4
+content: if(!isSigner(otherSigner)){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 253
+column: 4
+content: if(otherSigner==msg.sender){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 291
+column: 4
+content: if(signature.length!=65){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 319
+column: 6
+content: if(recentSequenceIds[i]==sequenceId){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 327
+column: 4
+content: if(sequenceId<recentSequenceIds[lowestValueIndex]){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 332
+column: 4
+content: if(sequenceId>(recentSequenceIds[lowestValueIndex]+10000)){revert();}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 290
+column: 2
+content: functionrecoverAddressFromSignature(bytes32operationHash,bytessignature)pureprivatereturns(address){if(signature.length!=65){revert();}bytes32r;bytes32s;uint8v;assembly{r:=mload(add(signature,32))s:=mload(add(signature,64))v:=and(mload(add(signature,65)),255)}if(v<27){v+=27;}returnecrecover(operationHash,v,r,s);}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 76
+column: 23
+content: call.value(address(this).balance)()
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 47
+column: 13
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 143
+column: 21
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 132
+column: 15
+content: address[]allowedSigners
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 170
+column: 55
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 170
+column: 101
+content: bytessignature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 197
+column: 124
+content: bytessignature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 231
+column: 68
+content: bytessignature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 290
+column: 62
+content: bytessignature
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 298
+column: 4
+content: assembly{r:=mload(add(signature,32))s:=mload(add(signature,64))v:=and(mload(add(signature,65)),255)}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 111
+column: 2
+content: uintconstantSEQUENCE_ID_WINDOW_SIZE=10;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 112
+column: 2
+content: uint[10]recentSequenceIds;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :16
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_UPGRADE_TO_050 :9
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_CALL_WITHOUT_DATA :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

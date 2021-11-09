@@ -1,0 +1,95 @@
+C:\Users\hp\DataSet\contracts\ropsten\1f\1fe0862a4a8287d6c23904d61f02507b5044ea31_WalletCenter.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 4
+column: 4
+content: functiontotalSupply()publicconstantreturns(uint);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 5
+column: 4
+content: functionbalanceOf(addresstokenOwner)publicconstantreturns(uintbalance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 6
+column: 4
+content: functionallowance(addresstokenOwner,addressspender)publicconstantreturns(uintremaining);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 44
+column: 4
+content: functionbalanceOf(address_erc20)publicconstantreturns(uint256balance){if(_erc20==address(0))returnaddress(this).balance;returnERC20Interface(_erc20).balanceOf(this);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 168
+column: 4
+content: functionprice(uint256_item)publicconstantreturns(address_erc20,uint256_value){return(erc20,items[_item].price);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 172
+column: 4
+content: functioncanBuy(address_who,uint256_item)publicconstantreturns(bool_canBuy){return(WalletCenter(walletCenter).isWallet(_who))&&(items[_item].category>0)&&!(items[_item].category==1&&items[_item].buyer[_who]>0)&&(items[_item].stockCount>0)&&((erc20==address(0)&&address(_who).balance>items[_item].price)||(erc20!=address(0)&&ERC20Interface(erc20).balanceOf(_who)>items[_item].price));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 180
+column: 4
+content: functionisBuyer(address_who,uint256_item)publicconstantreturns(bool_buyer){return(items[_item].category==1&&items[_item].buyer[_who]>0)||(items[_item].category==2&&safeAdd(items[_item].buyer[_who],1weeks)>now)||(items[_item].category==3&&items[_item].buyer[_who]>0);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 194
+column: 4
+content: functionisWallet(address_wallet)publicconstantreturns(bool){returnwallet[_wallet];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 205
+column: 4
+content: functionisShop(address_shop)publicconstantreturns(bool){returnshop[_shop];}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 101
+column: 4
+content: addresserc20;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 116
+column: 4
+content: uintindex;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 117
+column: 4
+content: mapping(uint256=>item)items;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :9
+SOLIDITY_PRAGMAS_VERSION :1

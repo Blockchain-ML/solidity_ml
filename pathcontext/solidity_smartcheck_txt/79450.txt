@@ -1,0 +1,39 @@
+F:\Blockchain\dataset_new_byID\79450.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 50
+column: 4
+content: functionapprove(address_spender,uint256_amount)publicreturns(boolsuccess){allowed[msg.sender][_spender]=_amount;returntrue;}
+
+ruleId: SOLIDITY_ERC20_TRANSFER_SHOULD_THROW
+patternId: 550a42
+severity: 1
+line: 27
+column: 4
+content: functiontransfer(address_to,uint256_amount)publicreturns(boolsuccess){if(balances[msg.sender]>=_amount&&_amount>0&&balances[_to]+_amount>balances[_to]){balances[msg.sender]-=_amount;balances[_to]+=_amount;returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_ERC20_TRANSFER_SHOULD_THROW
+patternId: 550a42
+severity: 1
+line: 38
+column: 4
+content: functiontransferFrom(address_from,address_to,uint256_amount)publicreturns(boolsuccess){if(balances[_from]>=_amount&&allowed[_from][msg.sender]>=_amount&&_amount>0&&balances[_to]+_amount>balances[_to]){balances[_from]-=_amount;allowed[_from][msg.sender]-=_amount;balances[_to]+=_amount;returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 12
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 13
+column: 53
+content: private
+
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_ERC20_TRANSFER_SHOULD_THROW :2
+SOLIDITY_ERC20_APPROVE :1

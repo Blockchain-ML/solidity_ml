@@ -1,0 +1,109 @@
+C:\Users\hp\DataSet\contracts\ropsten\2c\2C8Ae9c2EA1D4D50dA62E5ab48056507c3df83D0_Buckets.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 239
+column: 8
+content: for(uint256i=0;i<accountRoundsActiveLength;i++){uint256roundId=account.roundsActive[i];if(roundId<currentRoundId){(uint256amount,uint256totalTickets)=getRoundWinnings(msg.sender,roundId);account.tickets=account.tickets-totalTickets;deleteaccount.ticketSets[roundId];if(amount>0){rounds[roundId].claimed=rounds[roundId].claimed+amount;total=total+amount;}}else{withholdRounds=true;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 287
+column: 8
+content: for(uint256i=0;i<accountRewardsLength;i++){uint256roundId=account.rewards[i];uint256amount=getRewardWinnings(msg.sender,roundId);deleterounds[roundId].reward[msg.sender];if(amount>0){rounds[roundId].claimed=rounds[roundId].claimed+amount;total=total+amount;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 462
+column: 12
+content: for(uint256i=0;i<ticketSetLength;i++){uint256totalTicketsInSet=(ticketSets[i].end-ticketSets[i].start)+1;totalTicketsInRound=totalTicketsInRound+totalTicketsInSet;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 474
+column: 8
+content: for(uint256i=0;i<ticketSetLength;i++){uint256startIndex=ticketSets[i].start-1;uint256endIndex=ticketSets[i].end-1;for(uint256j=startIndex;j<=endIndex;j++){total=total+getTicketWinnings(roundId,j);}uint256totalTicketsInSet=(ticketSets[i].end-ticketSets[i].start)+1;totalTicketsInRound=totalTicketsInRound+totalTicketsInSet;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 705
+column: 12
+content: for(uint256i=0;i<roundActiveLength;i++){uint256roundId=accounts[msg.sender].roundsActive[i];if(roundId==currentRoundId){current=true;}if(roundId>currentRoundId){next=true;}}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 66
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 67
+column: 12
+content: private
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 318
+column: 15
+content: (uint256cooldown,uint256cost,uint256expiration,uint256quorum,uint256ticketMax)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 327
+column: 15
+content: (uint256blockCap,uint256claimed,uint256pot,uint256random,uint256startTime,uint256tickets)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 354
+column: 15
+content: (uint256caste0,uint256caste1,uint256caste2)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 390
+column: 15
+content: (uint256start,uint256end)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 444
+column: 15
+content: (uint256total,uint256totalTicketsInRound)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 621
+column: 15
+content: (Roundstorage,uint256roundId)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 657
+column: 15
+content: (uint256tickets,uint256remainder)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 857
+column: 15
+content: (uint256,uint256,uint256)
+
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :5
+SOLIDITY_SHOULD_RETURN_STRUCT :8

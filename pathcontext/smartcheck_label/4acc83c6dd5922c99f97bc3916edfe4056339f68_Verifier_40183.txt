@@ -1,0 +1,120 @@
+C:\Users\hp\DataSet\contracts\ropsten\4a\4acc83c6dd5922c99f97bc3916edfe4056339f68_Verifier.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 71
+column: 13
+content: 0x30
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 80
+column: 25
+content: 0x19
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 82
+column: 26
+content: 0x19
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 94
+column: 2
+content: functionvalidate(stringstr)privateconstantreturns(bool){bytesmemorystrBytes=bytes(str);bytesmemoryresult=newbytes(4-0);for(uinti=0;i<4;i++){result[i-0]=strBytes[i];}if(hashCompareWithLengthCheck(string(result))){returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 18
+column: 16
+content: >=
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 18
+column: 24
+content: <
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 23
+column: 9
+content: private
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 31
+column: 2
+content: functionverify(stringmessage,uint8v,bytes32r,bytes32s)privatepurereturns(addresssigner){stringmemoryheader="\x19Ethereum Signed Message:\n000000";uint256lengthOffset;uint256length;assembly{length:=mload(message)lengthOffset:=add(header,57)}require(length<=999999);uint256lengthLength=0;uint256divisor=100000;while(divisor!=0){uint256digit=length/divisor;if(digit==0){if(lengthLength==0){divisor/=10;continue;}}lengthLength++;length-=digit*divisor;divisor/=10;digit+=0x30;lengthOffset++;assembly{mstore8(lengthOffset,digit)}}if(lengthLength==0){lengthLength=1+0x19+1;}else{lengthLength+=1+0x19;}assembly{mstore(header,lengthLength)}bytes32check=keccak256(header,message);returnecrecover(check,v,r,s);}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 89
+column: 20
+content: keccak256(header,message)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 25
+column: 20
+content: stringmessage
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 31
+column: 18
+content: stringmessage
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 94
+column: 20
+content: stringstr
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 107
+column: 36
+content: stringa
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 37
+column: 4
+content: assembly{length:=mload(message)lengthOffset:=add(header,57)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 74
+column: 6
+content: assembly{mstore8(lengthOffset,digit)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 85
+column: 4
+content: assembly{mstore(header,lengthLength)}
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_UPGRADE_TO_050 :5
+SOLIDITY_USING_INLINE_ASSEMBLY :3
+SOLIDITY_SHOULD_NOT_BE_PURE :1

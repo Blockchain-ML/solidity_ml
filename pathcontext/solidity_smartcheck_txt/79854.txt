@@ -1,0 +1,40 @@
+F:\Blockchain\dataset_new_byID\79854.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractGame{uintstart;mapping(address=>bool)participants;constructor()public{start=now;}functionparticipate()payableexternal{require(participants[msg.sender]==false,'same address cannot call participate more than once');require(msg.value==1000,'must send 1000 wei');require(now<start+10days,'cannot participate 10 days after start of game');if(msg.value==1000){revert('1000 ether was sent');}else{revert('other amount was sent');}participants[msg.sender]=true;}functionwithdrawPrize()external{}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 15
+column: 8
+content: if(msg.value==1000){revert('1000 ether was sent');}else{revert('other amount was sent');}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 4
+column: 4
+content: uintstart;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 5
+column: 4
+content: mapping(address=>bool)participants;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1

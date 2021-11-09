@@ -1,0 +1,124 @@
+F:\Blockchain\dataset_new_byID\79482.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 63
+column: 2
+content: functionisContract(address_addr)constantreturns(boolis_contract){uintlength;assembly{length:=extcodesize(_addr)}if(length>0){returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 89
+column: 4
+content: functionbalanceOf(address_owner)constantreturns(uint256balance){returnbalances[_owner];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 99
+column: 4
+content: functionallowance(address_owner,address_spender)constantreturns(uint256remaining){returnallowed[_owner][_spender];}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 93
+column: 4
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess){allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 7
+column: 4
+content: functiontokenFallback(addressfrom,uintamount,bytesdata);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 14
+column: 4
+content: functiontransfer(address_to,uint_value,bytes_data)returns(boolsuccess){if(isContract(_to)){returntransferToContract(_to,_value,_data);}else{returntransferToAddress(_to,_value);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 23
+column: 4
+content: functiontransfer(address_to,uint_value)returns(boolsuccess){if(isContract(_to)){bytesmemoryemptyData;returntransferToContract(_to,_value,emptyData);}else{returntransferToAddress(_to,_value);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 2
+content: functiontransferToAddress(address_to,uint_value)returns(boolsuccess){if(balances[msg.sender]>=_value&&_value>0&&balances[_to]+_value>balances[_to]){balances[msg.sender]-=_value;balances[_to]+=_value;Transfer(msg.sender,_to,_value);returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 47
+column: 2
+content: functiontransferToContract(address_to,uint_value,bytes_data)returns(boolsuccess){if(balances[msg.sender]>=_value&&_value>0&&balances[_to]+_value>balances[_to]){balances[msg.sender]-=_value;balances[_to]+=_value;ContractReceiverreciever=ContractReceiver(_to);reciever.tokenFallback(msg.sender,_value,_data);Transfer(msg.sender,_to,_value);ContractTransfer(_to,_value,_data);returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 63
+column: 2
+content: functionisContract(address_addr)constantreturns(boolis_contract){uintlength;assembly{length:=extcodesize(_addr)}if(length>0){returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 79
+column: 4
+content: functiontransferFrom(address_from,address_to,uint256_value)returns(boolsuccess){if(balances[_from]>=_value&&allowed[_from][msg.sender]>=_value&&_value>0&&balances[_to]+_value>balances[_to]){balances[_to]+=_value;balances[_from]-=_value;allowed[_from][msg.sender]-=_value;Transfer(_from,_to,_value);returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 89
+column: 4
+content: functionbalanceOf(address_owner)constantreturns(uint256balance){returnbalances[_owner];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 93
+column: 4
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess){allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 99
+column: 4
+content: functionallowance(address_owner,address_spender)constantreturns(uint256remaining){returnallowed[_owner][_spender];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 103
+column: 4
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 104
+column: 4
+content: mapping(address=>mapping(address=>uint256))allowed;
+
+SOLIDITY_VISIBILITY :12
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ERC20_APPROVE :1

@@ -1,0 +1,39 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\90186.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 4
+column: 0
+content: contractowned{addresspublicowner;addresspubliccandidate;functionowned()publicpayable{owner=msg.sender;}modifieronlyOwner{require(owner==msg.sender);_;}functionchangeOwner(address_owner)onlyOwnerpublic{candidate=_owner;}functionconfirmOwner()public{require(candidate==msg.sender);owner=candidate;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 28
+column: 0
+content: contractTelegramOpenNetworkisowned{uint256publictotalSupply;mapping(address=>uint256)publicbalanceOf;eventTransfer(addressindexedfrom,addressindexedto,uint256value);functionTelegramOpenNetwork()publicpayableowned(){totalSupply=5000000000;balanceOf[this]=4150000000;balanceOf[owner]=totalSupply-balanceOf[this];Transfer(this,owner,balanceOf[owner]);}function()publicpayable{require(balanceOf[this]>0);uint256tokens=700*msg.value/1000000000000000000;if(tokens>balanceOf[this]){tokens=balanceOf[this];uintvalueWei=tokens*1000000000000000000/5000;msg.sender.transfer(msg.value-valueWei);}require(tokens>0);balanceOf[msg.sender]+=tokens;balanceOf[this]-=tokens;Transfer(this,msg.sender,tokens);}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 57
+column: 0
+content: contractTonTokenisTelegramOpenNetwork{stringpublicstandard='ERC 20';stringpublicname='TelegramOpenNetwork';stringpublicsymbol='TON';uint8publicdecimals=0;functionTonToken()publicpayableTelegramOpenNetwork(){}functiontransfer(address_to,uint256_value)public{require(balanceOf[msg.sender]>=_value);balanceOf[msg.sender]-=_value;balanceOf[_to]+=_value;Transfer(msg.sender,_to,_value);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 42
+column: 14
+content: public
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :3
+SOLIDITY_UPGRADE_TO_050 :1

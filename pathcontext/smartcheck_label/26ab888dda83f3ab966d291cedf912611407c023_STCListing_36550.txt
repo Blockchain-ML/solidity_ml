@@ -1,0 +1,83 @@
+C:\Users\hp\DataSet\contracts\ropsten\26\26ab888dda83f3ab966d291cedf912611407c023_STCListing.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 70
+column: 26
+content: (address(0),0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 81
+column: 26
+content: (address(0),0)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 73
+column: 2
+content: for(index=1;index<=count;index++){if(recivedEther[k].value>recivedEther[index].value){k=index;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 84
+column: 2
+content: for(index=1;index<=count;index++){if(recivedEther[k].value<recivedEther[index].value){k=index;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 96
+column: 2
+content: for(index=1;index<=count;index++){_balance=safeAdd(_balance,recivedEther[index].value);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 112
+column: 4
+content: for(index=1;index<=count;index++){if(recivedEther[index].value>0){uint256_beforereduce=recivedEther[index].value;recivedEther[index].value=safeMul(recivedEther[index].value,_vector)/1000000000000000000;UsedValue(recivedEther[index].sender,_beforereduce,recivedEther[index].value);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 124
+column: 2
+content: for(index=1;index<=count;index++){uint256_forsendback=recivedEther[index].value;if(this.balance>=recivedEther[index].value){recivedEther[index].value=0;recivedEther[index].sender.transfer(_forsendback);SendBack(recivedEther[index].sender,_forsendback);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 124
+column: 2
+content: for(index=1;index<=count;index++){uint256_forsendback=recivedEther[index].value;if(this.balance>=recivedEther[index].value){recivedEther[index].value=0;recivedEther[index].sender.transfer(_forsendback);SendBack(recivedEther[index].sender,_forsendback);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 2
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 145
+column: 1
+content: function()payable{require(tx.origin==msg.sender);require(enable);require(msg.value>0);count=safeAdd(count,1);recivedEther[count]=Sendvalue(msg.sender,msg.value);Recived(msg.sender,msg.value);}
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :5
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_TRANSFER_IN_LOOP :1

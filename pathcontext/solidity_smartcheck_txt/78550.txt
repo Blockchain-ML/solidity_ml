@@ -1,0 +1,125 @@
+F:\Blockchain\dataset_new_byID\78550.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 122
+column: 32
+content: 0xf47261b0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 122
+column: 62
+content: 0xf47261b0
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 183
+column: 8
+content: for(uinti=0;i<orders0x.length;i++){if(i>0)orders0x[i].makerAssetData=orders0x[0].makerAssetData;if(orders0x[i].feeRecipientAddress!=address(0)&&orders0x[i].takerFee>0){zrxTokenAmount+=orders0x[i].takerFee;}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 99
+column: 4
+content: functiongetV2Tokens(ExchangeV2Interface.OrderV2memoryorder)publicpurereturns(addressmakerTokenAddress,addresstakerTokenAddress){bytesmemorymakerAssetData=order.makerAssetData;bytesmemorytakerAssetData=order.takerAssetData;bytes4makerProxyID;bytes4takerProxyID;assembly{makerProxyID:=mload(add(makerAssetData,32))takerProxyID:=mload(add(takerAssetData,32))makerTokenAddress:=mload(add(makerAssetData,36))takerTokenAddress:=mload(add(takerAssetData,36))}require(makerProxyID==0xf47261b0&&takerProxyID==0xf47261b0,"BZxTo0xV2::getV2Tokens: 0x V2 orders must use ERC20 tokens");}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 183
+column: 8
+content: for(uinti=0;i<orders0x.length;i++){if(i>0)orders0x[i].makerAssetData=orders0x[0].makerAssetData;if(orders0x[i].feeRecipientAddress!=address(0)&&orders0x[i].takerFee>0){zrxTokenAmount+=orders0x[i].takerFee;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 125
+column: 4
+content: functionset0xV2Exchange(address_exchange)publiconlyOwner{exchangeV2Contract=_exchange;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 133
+column: 4
+content: functionsetZRXToken(address_zrxToken)publiconlyOwner{zrxTokenContract=_zrxToken;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 141
+column: 4
+content: functionset0xTokenProxy(address_proxy)publiconlyOwner{erc20ProxyContract=_proxy;}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 41
+column: 15
+content: {revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 71
+column: 8
+content: if(sourceTokenUsedAmount<sourceTokenAmountToUse){revert("BZxTo0xV2::take0xTrade: sourceTokenUsedAmount < sourceTokenAmountToUse");}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 14
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 99
+column: 4
+content: functiongetV2Tokens(ExchangeV2Interface.OrderV2memoryorder)publicpurereturns(addressmakerTokenAddress,addresstakerTokenAddress){bytesmemorymakerAssetData=order.makerAssetData;bytesmemorytakerAssetData=order.takerAssetData;bytes4makerProxyID;bytes4takerProxyID;assembly{makerProxyID:=mload(add(makerAssetData,32))takerProxyID:=mload(add(takerAssetData,32))makerTokenAddress:=mload(add(makerAssetData,36))takerTokenAddress:=mload(add(takerAssetData,36))}require(makerProxyID==0xf47261b0&&takerProxyID==0xf47261b0,"BZxTo0xV2::getV2Tokens: 0x V2 orders must use ERC20 tokens");}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 180
+column: 16
+content: (uintsourceTokenUsedAmount,uintdestTokenAmount)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 41
+column: 8
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 177
+column: 8
+content: ExchangeV2Interface.OrderV2[]orders0x
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 113
+column: 8
+content: assembly{makerProxyID:=mload(add(makerAssetData,32))takerProxyID:=mload(add(takerAssetData,32))makerTokenAddress:=mload(add(makerAssetData,36))takerTokenAddress:=mload(add(takerAssetData,36))}
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :3
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

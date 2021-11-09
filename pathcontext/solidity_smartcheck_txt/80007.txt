@@ -1,0 +1,220 @@
+F:\Blockchain\dataset_new_byID\80007.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 193
+column: 21
+content: 0x19
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 157
+column: 8
+content: for(uint256i=0;i<addresses.length;i++){bytes32keyId=bytes32(addresses[i]);if(manager.keyHasPurpose(keyId,MANAGEMENT_KEY)){return;}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 222
+column: 4
+content: functionexecuteSigned(address_to,address_from,uint256_value,bytes_data,uint256_nonce,uint256_gasPrice,uint256_gasLimit,address_gasToken,uint256_operationType,bytes_extraHash,bytes_messageSignatures)publicreturns(boolsuccess){bytes32messageHash=getMessageHash(_to,_from,_value,_data,_nonce,_gasPrice,_gasLimit,_gasToken,_operationType,_extraHash);verifyMessageHash(_to,messageHash.toEthBytes32SignedMessageHash(),_messageSignatures);nonce++;uint256_execGasLimit=_gasLimit==0?gasleft():_gasLimit;_execute(_to,_value,_data,_operationType,_execGasLimit);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 278
+column: 4
+content: functiongasEstimate(address_to,address_from,uint256_value,bytes_data,uint256_nonce,uint256_gasPrice,uint256_gasLimit,address_gasToken,uint256_operationType,bytes_extraHash,bytes_messageSignatures)publicviewreturns(boolcanExecute,uint256gasCost){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 328
+column: 4
+content: function_executeCall(address_to,uint256_value,bytes_data,uint256_gasLimit)internalreturns(boolsuccess){assembly{success:=call(_gasLimit,_to,_value,add(_data,0x20),mload(_data),0,0)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 344
+column: 4
+content: function_executeDelegateCall(address_to,bytes_data,uint256_gasLimit)internalreturns(boolsuccess){assembly{success:=delegatecall(_gasLimit,_to,add(_data,0x20),mload(_data),0,0)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 357
+column: 4
+content: function_executeCreate(bytes_data)internalreturns(addressnewContract){assembly{newContract:=create(0,add(_data,0x20),mload(_data))}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 157
+column: 8
+content: for(uint256i=0;i<addresses.length;i++){bytes32keyId=bytes32(addresses[i]);if(manager.keyHasPurpose(keyId,MANAGEMENT_KEY)){return;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 8
+column: 0
+content: contractIdentity{uint256publicconstantMANAGEMENT_KEY=1;uint256publicconstantACTION_KEY=2;uint256publicconstantCLAIM_KEY=3;uint256publicconstantENCRYPTION_KEY=4;uint256publicconstantECDSA=1;uint256publicconstantRSA=2;uint256publicconstantOPERATION_CALL=0;uint256publicconstantOPERATION_DELEGATECALL=1;uint256publicconstantOPERATION_CREATE=2;usingSignatureUtilsforbytes32;usingKeyManagementforKeyManagement.KeyManager;eventKeyAdded(bytes32indexedkey,uint256indexedpurpose,uint256indexedkeyType);eventKeyRemoved(bytes32indexedkey,uint256indexedpurpose,uint256indexedkeyType);eventExecutedSigned(bytes32signHash,uint256nonce,boolsuccess);eventContractCreated(addressnewContract);eventReceived(addressindexedsender,uint256value);KeyManagement.KeyManagerinternalmanager;uint256internalnonce;constructor(address_owner)public{manager.addKey(bytes32(_owner),MANAGEMENT_KEY,ECDSA);}function()publicpayable{emitReceived(msg.sender,msg.value);}functiongetKey(bytes32_key)publicviewreturns(uint256[],uint256,bytes32){returnmanager.getKey(_key);}functiongetKeysByPurpose(uint256_purpose)publicviewreturns(bytes32[]){returnmanager.getKeysByPurpose(_purpose);}functionkeyHasPurpose(bytes32_key,uint256_purpose)publicviewreturns(bool){returnmanager.keyHasPurpose(_key,_purpose);}modifieronlyManagement{require(isManagementAddress(msg.sender),"Management address required");_;}functionisManagementAddress(address_subject)publicviewreturns(bool){return(_subject==address(this)||manager.keyHasPurpose(bytes32(_subject),MANAGEMENT_KEY));}functionisActionAddress(address_subject)publicviewreturns(bool){return(_subject==address(this)||manager.keyHasPurpose(bytes32(_subject),ACTION_KEY)||manager.keyHasPurpose(bytes32(_subject),MANAGEMENT_KEY));}functionaddKey(bytes32_key,uint256_purpose,uint256_keyType)onlyManagementpublicreturns(boolsuccess){success=manager.addKey(_key,_purpose,_keyType);if(success)emitKeyAdded(_key,_purpose,_keyType);}functionremoveKey(bytes32_key,uint256_purpose)onlyManagementpublicreturns(boolsuccess){require(_purpose!=MANAGEMENT_KEY||manager.getKeysByPurpose(_purpose).length>1,"Last management key cannot remove itself");uint256keyType;(,keyType,)=manager.getKey(_key);success=manager.removeKey(_key,_purpose);if(success)emitKeyRemoved(_key,_purpose,keyType);}functionlastNonce()publicviewreturns(uint256){returnnonce;}functionverifyMessageHash(address_to,bytes32_messageHash,bytes_messageSignatures)public{address[]memoryaddresses=_messageHash.recoverAddresses(_messageSignatures);for(uint256i=0;i<addresses.length;i++){bytes32keyId=bytes32(addresses[i]);if(manager.keyHasPurpose(keyId,MANAGEMENT_KEY)){return;}}revert("No valid signatures provided");}functiongetMessageHash(address_to,address_from,uint256_value,bytes_data,uint256_nonce,uint256_gasPrice,uint256_gasLimit,address_gasToken,uint256_operationType,bytes_extraHash)publicpurereturns(bytes32){returnkeccak256(abi.encodePacked(byte(0x19),byte(0),_from,_to,_value,keccak256(_data),_nonce,_gasPrice,_gasLimit,_gasToken,_operationType,_extraHash));}functionexecuteSigned(address_to,address_from,uint256_value,bytes_data,uint256_nonce,uint256_gasPrice,uint256_gasLimit,address_gasToken,uint256_operationType,bytes_extraHash,bytes_messageSignatures)publicreturns(boolsuccess){bytes32messageHash=getMessageHash(_to,_from,_value,_data,_nonce,_gasPrice,_gasLimit,_gasToken,_operationType,_extraHash);verifyMessageHash(_to,messageHash.toEthBytes32SignedMessageHash(),_messageSignatures);nonce++;uint256_execGasLimit=_gasLimit==0?gasleft():_gasLimit;_execute(_to,_value,_data,_operationType,_execGasLimit);}functiongasEstimate(address_to,address_from,uint256_value,bytes_data,uint256_nonce,uint256_gasPrice,uint256_gasLimit,address_gasToken,uint256_operationType,bytes_extraHash,bytes_messageSignatures)publicviewreturns(boolcanExecute,uint256gasCost){}function_execute(address_to,uint256_value,bytes_data,uint256_operationType,uint256_gasLimit)internalreturns(boolsuccess){if(_operationType==OPERATION_CALL){success=_executeCall(_to,_value,_data,_gasLimit);}elseif(_operationType==OPERATION_DELEGATECALL){success=_executeDelegateCall(_to,_data,_gasLimit);}elseif(_operationType==OPERATION_CREATE){addressnewContract=_executeCreate(_data);success=newContract!=0;if(success)emitContractCreated(newContract);}else{revert("Unsupported operation type");}}function_executeCall(address_to,uint256_value,bytes_data,uint256_gasLimit)internalreturns(boolsuccess){assembly{success:=call(_gasLimit,_to,_value,add(_data,0x20),mload(_data),0,0)}}function_executeDelegateCall(address_to,bytes_data,uint256_gasLimit)internalreturns(boolsuccess){assembly{success:=delegatecall(_gasLimit,_to,add(_data,0x20),mload(_data),0,0)}}function_executeCreate(bytes_data)internalreturns(addressnewContract){assembly{newContract:=create(0,add(_data,0x20),mload(_data))}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 314
+column: 15
+content: if(_operationType==OPERATION_CREATE){addressnewContract=_executeCreate(_data);success=newContract!=0;if(success)emitContractCreated(newContract);}else{revert("Unsupported operation type");}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 45
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 51
+column: 27
+content: uint256[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 59
+column: 27
+content: bytes32[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 154
+column: 8
+content: bytes_messageSignatures
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 183
+column: 8
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 189
+column: 8
+content: bytes_extraHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 226
+column: 8
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 232
+column: 8
+content: bytes_extraHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 233
+column: 8
+content: bytes_messageSignatures
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 282
+column: 8
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 288
+column: 8
+content: bytes_extraHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 289
+column: 8
+content: bytes_messageSignatures
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 306
+column: 8
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 331
+column: 8
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 346
+column: 8
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 358
+column: 8
+content: bytes_data
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 335
+column: 8
+content: assembly{success:=call(_gasLimit,_to,_value,add(_data,0x20),mload(_data),0,0)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 350
+column: 8
+content: assembly{success:=delegatecall(_gasLimit,_to,add(_data,0x20),mload(_data),0,0)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 361
+column: 8
+content: assembly{newContract:=create(0,add(_data,0x20),mload(_data))}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :5
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :16
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :3

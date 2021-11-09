@@ -1,0 +1,61 @@
+F:\Blockchain\dataset_new_byID\80388.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractLibSubmarineSimpleisProvethVerifier{usingSafeMathforuint256;eventUnlocked(bytes32indexed_submarineId,uint96_commitValue);eventRevealed(bytes32indexed_submarineId,uint96_commitValue,bytes32_witness,bytes32_commitBlockHash,address_submarineAddr);uint8publicvee=27;uint8publiccommitPeriodLength=20;mapping(bytes32=>SubmarineSession)publicsessions;structSubmarineSession{uint96amountRevealed;uint96amountUnlocked;uint32commitTxBlockNumber;uint16commitTxIndex;}functiongetSubmarineId(address_user,address_libsubmarine,uint256_commitValue,bytes_embeddedDAppData,bytes32_witness,uint256_gasPrice,uint256_gasLimit)publicpurereturns(bytes32){returnkeccak256(abi.encodePacked(_user,_libsubmarine,_commitValue,_embeddedDAppData,_witness,_gasPrice,_gasLimit));}functiongetSubmarineState(bytes32_submarineId)publicviewreturns(uint96amountRevealed,uint96amountUnlocked,uint32commitTxBlockNumber,uint16commitTxIndex){SubmarineSessionmemorysesh=sessions[_submarineId];return(sesh.amountRevealed,sesh.amountUnlocked,sesh.commitTxBlockNumber,sesh.commitTxIndex);}functiongetSubmarineAmount(bytes32_submarineId)publicviewreturns(uint96amount){SubmarineSessionmemorysesh=sessions[_submarineId];returnsesh.amountRevealed;}functiongetSubmarineCommitBlockNumber(bytes32_submarineId)publicviewreturns(uint32commitTxBlockNumber){SubmarineSessionmemorysesh=sessions[_submarineId];returnsesh.commitTxBlockNumber;}functiongetSubmarineCommitTxIndex(bytes32_submarineId)publicviewreturns(uint16commitTxIndex){SubmarineSessionmemorysesh=sessions[_submarineId];returnsesh.commitTxIndex;}functiononSubmarineReveal(bytes32_submarineId,bytes_embeddedDAppData,uint256_value)internal;functionreveal(uint32_commitTxBlockNumber,bytes_embeddedDAppData,bytes32_witness,bytes_rlpUnlockTxUnsigned,bytes_proofBlob)public{bytes32commitBlockHash=blockhash(_commitTxBlockNumber);require(commitBlockHash!=0x0,"Commit Block is too old to retreive block hash or does not exist");require(block.number.sub(_commitTxBlockNumber)>commitPeriodLength,"Wait for commitPeriodLength blocks before revealing");UnsignedTransactionmemoryunsignedUnlockTx=decodeUnsignedTx(_rlpUnlockTxUnsigned);bytes32unsignedUnlockTxHash=keccak256(_rlpUnlockTxUnsigned);require(unsignedUnlockTx.nonce==0);require(unsignedUnlockTx.to==address(this));bytes32submarineId=getSubmarineId(msg.sender,address(this),unsignedUnlockTx.value,_embeddedDAppData,_witness,unsignedUnlockTx.gasprice,unsignedUnlockTx.startgas);require(sessions[submarineId].commitTxBlockNumber==0,"The tx is already revealed");SignedTransactionmemoryprovenCommitTx;uint8provenCommitTxResultValid;uint256provenCommitTxIndex;(provenCommitTxResultValid,provenCommitTxIndex,provenCommitTx.nonce,,,provenCommitTx.to,provenCommitTx.value,provenCommitTx.data,,,,provenCommitTx.isContractCreation)=txProof(commitBlockHash,_proofBlob);require(provenCommitTxResultValid==TX_PROOF_RESULT_PRESENT,"The proof is invalid");require(provenCommitTx.value>=unsignedUnlockTx.value);require(provenCommitTx.isContractCreation==false);require(provenCommitTx.data.length==0);addresssubmarine=ecrecover(unsignedUnlockTxHash,vee,keccak256(abi.encodePacked(submarineId,byte(1))),keccak256(abi.encodePacked(submarineId,byte(0))));require(provenCommitTx.to==submarine);sessions[submarineId].amountRevealed=uint96(unsignedUnlockTx.value);sessions[submarineId].commitTxBlockNumber=_commitTxBlockNumber;sessions[submarineId].commitTxIndex=uint16(provenCommitTxIndex);emitRevealed(submarineId,uint96(unsignedUnlockTx.value),_witness,commitBlockHash,submarine);onSubmarineReveal(submarineId,_embeddedDAppData,unsignedUnlockTx.value);}functionunlock(bytes32_submarineId)publicpayable{require(sessions[_submarineId].amountUnlocked<msg.value,"You can never unlock less money than you've already unlocked.");sessions[_submarineId].amountUnlocked=uint96(msg.value);emitUnlocked(_submarineId,uint96(msg.value));}functionrevealedAndUnlocked(bytes32_submarineId)publicviewreturns(boolsuccess){SubmarineSessionmemorysesh=sessions[_submarineId];returnsesh.amountUnlocked!=0&&sesh.amountRevealed!=0&&sesh.amountUnlocked>=sesh.amountRevealed;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 9
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 74
+column: 8
+content: bytes_embeddedDAppData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 137
+column: 8
+content: bytes_embeddedDAppData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 144
+column: 8
+content: bytes_embeddedDAppData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 146
+column: 8
+content: bytes_rlpUnlockTxUnsigned
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 147
+column: 8
+content: bytes_proofBlob
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :5

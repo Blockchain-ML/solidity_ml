@@ -1,0 +1,237 @@
+C:\Users\hp\DataSet\contracts\ropsten\48\48676cB127A3D88a3339009859a12C9291B749A9_ResponsibleCrowdsale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 267
+column: 0
+content: contractCrowdsaleisReentrancyGuard,ClusterRole{usingSafeMathforuint256;usingSafeERC20forIERC20;IERC20private_token;uint256private_rate;uint256private_weiRaised;uint256private_tokensSold;structInvestor{uint256eth;uint256tokens;}mapping(address=>Investor)internal_balances;eventDeposited(addressindexedbeneficiary,uint256weiAmount,uint256tokensAmount);eventEthTransfered(addressindexedbeneficiary,uint256weiAmount);eventTokensTransfered(addressindexedbeneficiary,uint256tokensAmount);constructor(uint256rate,addresstoken)public{_rate=rate;_token=IERC20(token);}function()externalpayable{buyTokens(msg.sender);}functionbuyTokens(addressbeneficiary)publicnonReentrantpayable{uint256weiAmount=msg.value;_preValidatePurchase(beneficiary,weiAmount);uint256tokens=_calculateTokensAmount(weiAmount);_processPurchase(beneficiary,weiAmount,tokens);emitDeposited(beneficiary,weiAmount,tokens);}function_preValidatePurchase(addressbeneficiary,uint256weiAmount)internalview{require(weiAmount!=0,"_preValidatePurchase: amount should be bigger then 0");require(beneficiary!=address(0),"_preValidatePurchase: invalid beneficiary address");}function_calculateTokensAmount(uint256weiAmount)internalviewreturns(uint256){returnweiAmount.mul(_rate);}function_processPurchase(addressbeneficiary,uint256weiAmount,uint256tokenAmount)internal{_weiRaised=_weiRaised.add(weiAmount);_tokensSold=_tokensSold.add(tokenAmount);_balances[beneficiary].eth=_balances[beneficiary].eth.add(weiAmount);_balances[beneficiary].tokens=_balances[beneficiary].tokens.add(tokenAmount);}function_withdrawTokens(addressbeneficiary,uint256amount)internal{_token.safeTransfer(beneficiary,amount);emitTokensTransfered(beneficiary,amount);}function_withdrawEther(addresspayablebeneficiary,uint256amount)internal{beneficiary.transfer(amount);emitEthTransfered(beneficiary,amount);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 505
+column: 0
+content: contractResponsibleCrowdsaleisTimedCrowdsale{addresspayableprivate_user;boolprivate_milestonesSetted;uint256private_milestonesAmount;uint256private_approvedMilestones;uint256private_withdrawProcent;uint256privateconstant_timeForWaiting=3days;uint256privateconstant_maxMilestonesAmount=20;enumMilestoneStatus{PENDING,SUBMITED,APPROVED}structDisputeState{uint256activeDisputes;mapping(address=>bool)isAddressOpenedDispute;mapping(address=>bool)isAddressWinDispute;address[]winnedAddressList;}structMilestone{bytes32name;uint256finishTimestamp;uint256submitTimestamp;MilestoneStatusstatus;DisputeStatedisputes;boolvalidHash;mapping(address=>bool)userWasWithdrawn;}mapping(uint256=>bytes32)private_milestones;mapping(bytes32=>Milestone)private_milestoneDetails;constructor(uint256rate,addresstoken,uint256openingTime,uint256closingTime,address<missing ')'>payablecrowdsaleOwner)publicTimedCrowdsale(rate,token,openingTime,closingTime){_user=crowdsaleOwner;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 34
+column: 20
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 194
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 220
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 271
+column: 11
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 273
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 274
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 275
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 438
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 439
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 506
+column: 20
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 508
+column: 9
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 510
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 511
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 512
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 513
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 514
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 536
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 539
+column: 34
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 155
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 268
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 378
+column: 4
+content: function_withdrawEther(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 541
+column: 4
+content: constructor(uint256rate,addresstoken,uint256openingTime,uint256closingTime,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 378
+column: 44
+content: beneficiary,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 378
+column: 57
+content: uint256amount)internal{
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 379
+column: 8
+content: beneficiary.transfer(amount);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 380
+column: 8
+content: emitEthTransfered
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 380
+column: 26
+content: (beneficiary,amount);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 542
+column: 25
+content: (rate,token,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 542
+column: 39
+content: openingTime,closingTime){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 543
+column: 8
+content: _user=crowdsaleOwner;
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_SAFEMATH :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :18

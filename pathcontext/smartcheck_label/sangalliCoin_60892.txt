@@ -1,0 +1,158 @@
+C:\Users\hp\DataSet\sangalliCoin.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 8
+column: 52
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 9
+column: 39
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 17
+column: 27
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 19
+column: 9
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 28
+column: 9
+content: throw
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 8
+column: 25
+content: if(msg.sender!=sangalli)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 9
+column: 21
+content: if(msg.value>0)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 17
+column: 4
+content: if(this.balance>cap)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 18
+column: 4
+content: if(msg.value>0)balances[msg.sender]+=msg.value;elsethrow;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 23
+column: 4
+content: if(balances[msg.sender]>=amount){balances[msg.sender]-=amount;balances[recipient]+=amount;returnbalances[msg.sender];}elsethrow;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 14
+column: 2
+content: functiondeposit(){if(this.balance>cap)throw;if(msg.value>0)balances[msg.sender]+=msg.value;elsethrow;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 22
+column: 2
+content: functiontransfer(addressrecipient,uint256amount)noEtherreturns(uint256){if(balances[msg.sender]>=amount){balances[msg.sender]-=amount;balances[recipient]+=amount;returnbalances[msg.sender];}elsethrow;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 31
+column: 2
+content: functionattemptWithdrawal(uint256amount)noEtherreturns(string){if(balances[msg.sender]>=amount){_attemptWithdrawal(amount,msg.sender,id++);return"Withdrawal attempted... #sangalliCoin";}else{_attemptWithdrawal(amount,msg.sender,404);return"Insufficient balance #sangalliCoin";}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 42
+column: 2
+content: functionsangalliCoin(uint256limitOnFunds){cap=limitOnFunds;sangalli=msg.sender;id=0;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 49
+column: 2
+content: functioncheckBalance()noEtherreturns(uint256){returnbalances[msg.sender];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 53
+column: 2
+content: functiondenyWithdrawal(uint256withdrawId,addresscustomer,uint256amount)noEtherreturns(string){_denyWithdrawal(withdrawId,customer,amount);return"Hahaha!!";}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 58
+column: 2
+content: functionwithdraw(uintwithdrawAmount,addressuser,uint256penalty,uint256successfulId)sangalliOnlynoEtherreturns(uintremainingBal){if(balances[user]>=withdrawAmount+penalty){balances[user]-=withdrawAmount+penalty;if(!user.send(withdrawAmount)){balances[user]+=withdrawAmount+penalty;}}_successfulWithdrawal(successfulId,user,withdrawAmount);returnbalances[msg.sender];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 73
+column: 4
+content: functiongoBust()sangalliOnly{selfdestruct(sangalli);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 3
+column: 2
+content: addresssangalli;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 4
+column: 2
+content: mapping(address=>uint)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 5
+column: 2
+content: uint256id;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 2
+content: uint256cap;
+
+SOLIDITY_VISIBILITY :12
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_REVERT_REQUIRE :5

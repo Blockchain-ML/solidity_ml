@@ -1,0 +1,70 @@
+C:\Users\hp\DataSet\contracts\mainnet\24\24ae479260c040c48fb15c9f5af174a265577251_StepVesting.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 482
+column: 4
+content: functionvestedAmount(ERC20Basictoken)publicconstantreturns(uint256){uint256currentBalance=token.balanceOf(this);uint256totalBalance=currentBalance.add(released[token]);if(now<cliff){return0;}elseif(now>=start.add(duration)||revoked[token]){returntotalBalance;}elseif(now>=cliff&&now<cliff.add(stepVestingDuration)){returntotalBalance.mul(cliffPercent).div(100);}else{uint256vestingPercentage=cliffPercent.add((now.sub(cliff).div(stepVestingDuration)).mul(stepVestingPercent));returntotalBalance.mul(vestingPercentage).div(100);}}
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 495
+column: 59
+content: (now.sub(cliff).div(stepVestingDuration)).mul(stepVestingPercent)
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 167
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 72
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 322
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 426
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 74
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 76
+column: 2
+content: uint256totalSupply_;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :3
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_DIV_MUL :1
+SOLIDITY_ERC20_APPROVE :1

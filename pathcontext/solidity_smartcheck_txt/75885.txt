@@ -1,0 +1,165 @@
+F:\Blockchain\dataset_new_byID\75885.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 4
+column: 0
+content: contractHashedTimelock{eventLogHTLCNew(bytes32indexedcontractId,addressindexedsender,addressindexedreceiver,uintamount,bytes32hashlock,uinttimelock);eventLogHTLCWithdraw(bytes32indexedcontractId);eventLogHTLCRefund(bytes32indexedcontractId);structLockContract{addresspayablesender;addresspayablereceiver;uintamount;bytes32hashlock;uinttimelock;boolwithdrawn;boolrefunded;bytes32preimage;}modifierfundsSent(){require(msg.value>0,"msg.value must be > 0");_;}modifierfutureTimelock(uint_time){require(_time>now,"timelock time must be in the future");_;}modifiercontractExists(bytes32_contractId){require(haveContract(_contractId),"contractId does not exist");_;}modifierhashlockMatches(bytes32_contractId,bytes32_x){require(contracts[_contractId].hashlock==sha256(abi.encodePacked(_x)),"hashlock hash does not match");_;}modifierwithdrawable(bytes32_contractId){require(contracts[_contractId].receiver==msg.sender,"withdrawable: not receiver");require(contracts[_contractId].withdrawn==false,"withdrawable: already withdrawn");require(contracts[_contractId].timelock>now,"withdrawable: timelock time must be in the future");_;}modifierrefundable(bytes32_contractId){require(contracts[_contractId].sender==msg.sender,"refundable: not sender");require(contracts[_contractId].refunded==false,"refundable: already refunded");require(contracts[_contractId].withdrawn==false,"refundable: already withdrawn");require(contracts[_contractId].timelock<=now,"refundable: timelock not yet passed");_;}mapping(bytes32=>LockContract)contracts;functionnewContract(addresspayable_receiver,bytes32_hashlock,uint_timelock)externalpayablefundsSentfutureTimelock(_timelock)returns(bytes32contractId){contractId=sha256(abi.encodePacked(msg.sender,_receiver,msg.value,_hashlock,_timelock));if(haveContract<missing ';'>(contractId))revert("Contract already exists");contracts[contractId]=LockContract(msg.sender,_receiver,msg.value,_hashlock,_timelock,false,false,0x0);emitLogHTLCNew(contractId,msg.sender,_receiver,msg.value,_hashlock,_timelock);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 67
+column: 4
+content: functionnewContract(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 64
+column: 4
+content: mapping(bytes32=>LockContract)contracts;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 67
+column: 41
+content: _receiver,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 67
+column: 52
+content: bytes32_hashlock,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 67
+column: 71
+content: uint_timelock)externalpayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 70
+column: 8
+content: fundsSentfutureTimelock
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 71
+column: 22
+content: (_timelock)returns
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 72
+column: 16
+content: (bytes32contractId){contractId=sha256(abi.encodePacked(msg.sender,_receiver,msg.value,_hashlock,_timelock));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 87
+column: 11
+content: (haveContract<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 87
+column: 24
+content: (contractId))revert
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 88
+column: 18
+content: ("Contract already exists");contracts[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 90
+column: 18
+content: contractId]=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 90
+column: 32
+content: LockContract(msg.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 91
+column: 16
+content: sender,_receiver,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 93
+column: 12
+content: msg.value,_hashlock,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 95
+column: 12
+content: _timelock,false,false,0x0);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 101
+column: 8
+content: emitLogHTLCNew
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 101
+column: 23
+content: (contractId,msg.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 103
+column: 16
+content: sender,_receiver,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 105
+column: 12
+content: msg.value,_hashlock,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 107
+column: 12
+content: _timelock);
+
+SOLIDITY_VISIBILITY :21
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

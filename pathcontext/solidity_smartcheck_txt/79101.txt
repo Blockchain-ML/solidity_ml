@@ -1,0 +1,68 @@
+F:\Blockchain\dataset_new_byID\79101.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 70
+column: 6
+content: for(uinti=0;i<tokenList.length;i++){_tokens[i]=Token(tokens[tokenList[i]].ticker,tokens[tokenList[i]].tokenAddress);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 215
+column: 12
+content: for(uintj=i;j<orders.length-1;j++){orders[j]=orders[j+1];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 178
+column: 8
+content: while(i<orders.length&&remaining>0){uintavailable=orders[i].amount.sub(orders[i].filled);uintmatched=(remaining>available)?available:remaining;remaining=remaining.sub(matched);orders[i].filled=orders[i].filled.add(matched);emitNewTrade(nextTradeId,orders[i].id,ticker,orders[i].trader,msg.sender,matched,orders[i].price,now);if(side==Side.SELL){traderBalances[msg.sender][ticker]=traderBalances[msg.sender][ticker].sub(matched);traderBalances[msg.sender][DAI]=traderBalances[msg.sender][DAI].add(matched.mul(orders[i].price));traderBalances[orders[i].trader][ticker]=traderBalances[orders[i].trader][ticker].add(matched);traderBalances[orders[i].trader][DAI]=traderBalances[orders[i].trader][DAI].sub(matched.mul(orders[i].price));}if(side==Side.BUY){require(traderBalances[msg.sender][DAI]>=matched.mul(orders[i].price),'dai balance too low');traderBalances[msg.sender][ticker]=traderBalances[msg.sender][ticker].add(matched);traderBalances[msg.sender][DAI]=traderBalances[msg.sender][DAI].sub(matched.mul(orders[i].price));traderBalances[orders[i].trader][ticker]=traderBalances[orders[i].trader][ticker].sub(matched);traderBalances[orders[i].trader][DAI]=traderBalances[orders[i].trader][DAI].add(matched.mul(orders[i].price));}nextTradeId++;i++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 214
+column: 8
+content: while(i<orders.length&&orders[i].filled==orders[i].amount){for(uintj=i;j<orders.length-1;j++){orders[j]=orders[j+1];}orders.pop();i++;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 70
+column: 6
+content: for(uinti=0;i<tokenList.length;i++){_tokens[i]=Token(tokens[tokenList[i]].ticker,tokens[tokenList[i]].tokenAddress);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 178
+column: 14
+content: i<orders.length&&remaining>0
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 214
+column: 14
+content: i<orders.length&&orders[i].filled==orders[i].amount
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 9
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 39
+column: 4
+content: bytes32constantDAI=bytes32('DAI');
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3

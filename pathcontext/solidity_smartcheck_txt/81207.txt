@@ -1,0 +1,81 @@
+F:\Blockchain\dataset_new_byID\81207.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 176
+column: 0
+content: functiongetstatus()constantreturns(string){if(status==0)msgbuffer='Wette nicht plaziert';if(status==1)msgbuffer='Erster Wetteinsatz stattgefunden';if(status==2)msgbuffer='Wette laeuft gerade...';if(status==3)msgbuffer='Wette abgelaufen...';if(status==4)msgbuffer='Gewinn ausgezahlt';return(msgbuffer);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 0
+content: functionkopf_oder_zahl(intinit_number_spieler,uintinit_dauer_in_sekunden,uintinit_wetteinsatz_ether){owner=msg.sender;status=0;number_spieler=init_number_spieler;dauer_in_sekunden=init_dauer_in_sekunden;wetteinsatz_wei=init_wetteinsatz_ether*1000000000000000000;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 51
+column: 0
+content: functionkill(){if((msg.sender==owner)&&(wette_laeuft_gerade==0))selfdestruct(owner);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 61
+column: 0
+content: functionrand(uintmax)returns(uint){uintrandval=uint(block.blockhash(block.number-1))%max;returnrandval;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 71
+column: 0
+content: functionEinsatz_machen(stringspielername)payablereturns(bool){addressspieler_address=msg.sender;uint256spieler_guthaben=uint256(msg.value);bytesmemory_spielername=bytes(spielername);if(spieler_guthaben<wetteinsatz_wei){returnfalse;}if(wette_laeuft_gerade==1){returnfalse;}if(status>=3){returnfalse;}if(_spielername.length<3)returnfalse;Spieler.push(Spielerstruct(spieler_address,spielername,spieler_guthaben));counter_spieler++;gewinnsumme=gewinnsumme+spieler_guthaben;if(counter_spieler<number_spieler){status=1;}if(counter_spieler==number_spieler){status=2;wette_laeuft_gerade=1;timestamp_start=now;}returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 128
+column: 0
+content: functionWette_Mainfunction(){if(wette_laeuft_gerade==1){uintdifferenz=now-timestamp_start;uintgewinner_index;verbleibende_sekunden=int(dauer_in_sekunden)-int(differenz);if(verbleibende_sekunden<=0){status=3;gewinner_index=rand(uint(number_spieler));addressgewinner_adresse=Spieler[gewinner_index].adresse;debug_gewinner_adresse=gewinner_adresse;if(gewinner_adresse.send(gewinnsumme)){status=4;}else{return;}wette_laeuft_gerade=0;}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 176
+column: 0
+content: functiongetstatus()constantreturns(string){if(status==0)msgbuffer='Wette nicht plaziert';if(status==1)msgbuffer='Erster Wetteinsatz stattgefunden';if(status==2)msgbuffer='Wette laeuft gerade...';if(status==3)msgbuffer='Wette abgelaufen...';if(status==4)msgbuffer='Gewinn ausgezahlt';return(msgbuffer);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 0
+content: addressowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 8
+column: 0
+content: intstatus;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 0
+content: stringmsgbuffer;
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1

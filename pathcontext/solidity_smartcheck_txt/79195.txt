@@ -1,0 +1,334 @@
+F:\Blockchain\dataset_new_byID\79195.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 60
+column: 35
+content: 0x1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 61
+column: 46
+content: 0x1
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 252
+column: 16
+content: workingGroupIds.length--
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 359
+column: 8
+content: for(uinti=0;i<grp.members.length;i++){addressmember=grp.members[i];(uintprev,boolremoved)=removeIdFromList(nodeToGroupIdList[member],grp.groupId);if(removed&&prev==HEAD_I){if(backToPendingPool&&pendingNodeList[member]==address(0)){insertToPendingNodeListTail(member);emitLogRegisteredNewPendingNode(member);}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 308
+column: 8
+content: while(curr!=HEAD_A&&curr!=node){prev=curr;curr=list[prev];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 325
+column: 8
+content: while(curr!=HEAD_I&&curr!=id){prev=curr;curr=list[prev];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 342
+column: 8
+content: while(curr!=HEAD_I){PendingGroupstoragepgrp=pendingGroups[curr];boolremoved=removeNodeFromList(pgrp.memberList,node);if(removed){cleanUpOldestExpiredPendingGroup(curr);returntrue;}prev=curr;curr=list[prev];}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 236
+column: 4
+content: functiongetCodeSize(addressaddr)privateviewreturns(uintsize){assembly{size:=extcodesize(addr)}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 359
+column: 8
+content: for(uinti=0;i<grp.members.length;i++){addressmember=grp.members[i];(uintprev,boolremoved)=removeIdFromList(nodeToGroupIdList[member],grp.groupId);if(removed&&prev==HEAD_I){if(backToPendingPool&&pendingNodeList[member]==address(0)){insertToPendingNodeListTail(member);emitLogRegisteredNewPendingNode(member);}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 308
+column: 15
+content: curr!=HEAD_A&&curr!=node
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 325
+column: 15
+content: curr!=HEAD_I&&curr!=id
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 342
+column: 15
+content: curr!=HEAD_I
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 187
+column: 4
+content: functionsetGroupToPick(uintnewNum)publiconlyOwner{require(newNum!=groupToPick&&newNum!=0);emitUpdateGroupToPick(groupToPick,newNum);groupToPick=newNum;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 194
+column: 4
+content: functionsetGroupSize(uintnewSize)publiconlyOwner{require(newSize!=groupSize&&newSize%2!=0);emitUpdateGroupSize(groupSize,newSize);groupSize=newSize;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 200
+column: 4
+content: functionsetGroupingThreshold(uintnewThreshold)publiconlyOwner{require(newThreshold!=groupingThreshold&&newThreshold>=100);emitUpdateGroupMaturityPeriod(groupingThreshold,newThreshold);groupingThreshold=newThreshold;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 206
+column: 4
+content: functionsetGroupMaturityPeriod(uintnewPeriod)publiconlyOwner{require(newPeriod!=groupMaturityPeriod&&newPeriod!=0);emitUpdateGroupMaturityPeriod(groupMaturityPeriod,newPeriod);groupMaturityPeriod=newPeriod;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 212
+column: 4
+content: functionsetBootstrapCommitDuration(uintnewCommitDuration)publiconlyOwner{require(newCommitDuration!=bootstrapCommitDuration&&newCommitDuration!=0);emitUpdateBootstrapCommitDuration(bootstrapCommitDuration,newCommitDuration);bootstrapCommitDuration=newCommitDuration;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 218
+column: 4
+content: functionsetBootstrapRevealDuration(uintnewRevealDuration)publiconlyOwner{require(newRevealDuration!=bootstrapRevealDuration&&newRevealDuration!=0);emitUpdateBootstrapRevealDuration(bootstrapRevealDuration,newRevealDuration);bootstrapRevealDuration=newRevealDuration;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 224
+column: 4
+content: functionsetbootstrapStartThreshold(uintnewNum)publiconlyOwner{require(newNum!=bootstrapStartThreshold&&newNum>=groupSize*(groupToPick+1));emitUpdatebootstrapStartThreshold(bootstrapStartThreshold,newNum);bootstrapStartThreshold=newNum;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 230
+column: 4
+content: functionsetPendingGroupMaxLife(uintnewLife)publiconlyOwner{require(newLife!=pendingGroupMaxLife&&newLife!=0);emitUpdatePendingGroupMaxLife(pendingGroupMaxLife,newLife);pendingGroupMaxLife=newLife;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 58
+column: 9
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 60
+column: 9
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 61
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 75
+column: 27
+content: private
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 236
+column: 4
+content: functiongetCodeSize(addressaddr)privateviewreturns(uintsize){assembly{size:=extcodesize(addr)}}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 161
+column: 54
+content: (uint,uint[4]memory,uint,address[]memory)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 170
+column: 66
+content: (uint,uint[4]memory,uint,address[]memory)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 322
+column: 90
+content: (uint,bool)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 377
+column: 4
+content: functionquery(addressfrom,uinttimeout,stringcalldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 41
+column: 4
+content: uintrequestIdSeed;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 43
+column: 4
+content: mapping(uint=>PendingRequest)PendingRequests;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 91
+column: 4
+content: GrouplastHandledGroup;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 380
+column: 24
+content: dataSource,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 381
+column: 8
+content: stringcalldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 384
+column: 16
+content: (uint){if
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 386
+column: 11
+content: (getCodeSize<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 386
+column: 23
+content: (from)>0){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 387
+column: 12
+content: bytesmemorybs=bytes(selector);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 391
+column: 15
+content: (bs.length==0||bs[0]=='$'||
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 391
+column: 50
+content: bs[0]=='/'){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 392
+column: 16
+content: uintqueryId=uint(keccak256(abi.encodePacked(++requestIdSeed,from,timeout,dataSource,selector)));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 394
+column: 16
+content: uintidx=dispatchJob(TrafficType.UserQuery,queryId);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 396
+column: 19
+content: (idx==UINTMAX){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 397
+column: 20
+content: emitLogError
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 397
+column: 33
+content: ("No live working group, skipped query");return0;
+
+SOLIDITY_VISIBILITY :17
+SOLIDITY_OVERPOWERED_ROLE :8
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :4
+SOLIDITY_EXTRA_GAS_IN_LOOPS :4
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4
+SOLIDITY_SHOULD_RETURN_STRUCT :3
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

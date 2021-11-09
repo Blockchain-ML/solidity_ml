@@ -1,0 +1,69 @@
+F:\Blockchain\dataset_new_byID\82719.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 9
+column: 1
+content: functionRingLink(Curve.G1PointY,Curve.G1PointM,Curve.G1Pointtagpoint,uint256s,uint256c)internalconstantreturns(uint256){vara=Curve.g1add(Curve.g1mul(Curve.P1(),s),Curve.g1mul(Y,c));varb=Curve.g1add(Curve.g1mul(M,s),Curve.g1mul(tagpoint,c));returnuint256(keccak256(tagpoint.X,tagpoint.Y,a.X,a.Y,b.X,b.Y));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 23
+column: 1
+content: functionVerify(uint256[8]pubkeys,uint256[2]tag,uint256[4]tees,uint256seed,uint256message)publicconstantreturns(bool){require(pubkeys.length%2==0);require(pubkeys.length>0);varM=Curve.HashToPoint(message);varh=uint256(keccak256(M.X,M.Y,tag[0],tag[1]));vartagpoint=Curve.G1Point(tag[0],tag[1]);uint256c=seed;for(uint256i=0;i<(pubkeys.length/2);i++){uint256j=i*2;c=uint256(keccak256(h,RingLink(Curve.G1Point(pubkeys[j],pubkeys[j+1]),M,tagpoint,tees[i],c)));}returnc==seed;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 35
+column: 2
+content: for(uint256i=0;i<(pubkeys.length/2);i++){uint256j=i*2;c=uint256(keccak256(h,RingLink(Curve.G1Point(pubkeys[j],pubkeys[j+1]),M,tagpoint,tees[i],c)));}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 16
+column: 17
+content: keccak256(tagpoint.X,tagpoint.Y,a.X,a.Y,b.X,b.Y)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 31
+column: 18
+content: keccak256(M.X,M.Y,tag[0],tag[1])
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 38
+column: 15
+content: keccak256(h,RingLink(Curve.G1Point(pubkeys[j],pubkeys[j+1]),M,tagpoint,tees[i],c))
+
+ruleId: SOLIDITY_VAR
+patternId: d28aa7
+severity: 2
+line: 31
+column: 2
+content: varh=uint256(keccak256(M.X,M.Y,tag[0],tag[1]))
+
+ruleId: SOLIDITY_VAR
+patternId: d28aa7
+severity: 2
+line: 32
+column: 2
+content: vartagpoint=Curve.G1Point(tag[0],tag[1])
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_VAR :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :3

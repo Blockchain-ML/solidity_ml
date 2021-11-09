@@ -1,0 +1,246 @@
+F:\Blockchain\dataset_new_byID\81689.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 24
+column: 33
+content: 0x0
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 116
+column: 2
+content: functionbalanceOf(addresstoken,addressuser)constantreturns(uint256){returnbalances[user][token];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 120
+column: 2
+content: functioncommitmentsOf(addresstoken,addressuser)constantreturns(uint256){returncommitments[user][token];}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 23
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 24
+column: 10
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 49
+column: 4
+content: if(amount==0){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 50
+column: 4
+content: if(priceMul==0){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 51
+column: 4
+content: if(priceDiv==0){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 52
+column: 4
+content: if(sellToken==buyToken){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 53
+column: 4
+content: if(balances[msg.sender][sellToken]<amount){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 54
+column: 4
+content: if(amount.mul(priceMul).div(priceDiv)==0){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 67
+column: 4
+content: if(order.amount==0){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 68
+column: 4
+content: if(msg.sender!=order.owner){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 77
+column: 4
+content: if(orderId>latestOrderId){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 80
+column: 4
+content: if(amount==0){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 81
+column: 4
+content: if(order.amount<amount){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 82
+column: 4
+content: if(msg.sender==order.owner){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 83
+column: 4
+content: if(balances[msg.sender][order.buyToken]<buyTokenAmount){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 102
+column: 4
+content: if(value==0){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 104
+column: 4
+content: if(value>balances[caller][token]){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 141
+column: 4
+content: if(msg.sender!=admin){revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 9
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 43
+column: 2
+content: functionRadex(){feeMultiplier=1000;admin=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 48
+column: 2
+content: functioncreateOrder(addresssellToken,addressbuyToken,uint256amount,uint256priceMul,uint256priceDiv)returns(uint256orderId){if(amount==0){revert();}if(priceMul==0){revert();}if(priceDiv==0){revert();}if(sellToken==buyToken){revert();}if(balances[msg.sender][sellToken]<amount){revert();}if(amount.mul(priceMul).div(priceDiv)==0){revert();}orderId=latestOrderId++;orderBook[orderId]=Order(msg.sender,sellToken,buyToken,amount,priceMul,priceDiv);balances[msg.sender][sellToken]=balances[msg.sender][sellToken].sub(amount);commitments[msg.sender][sellToken]=commitments[msg.sender][sellToken].add(amount);NewOrder(orderId,msg.sender,sellToken,buyToken,amount,priceMul,priceDiv,now);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 2
+content: functioncancelOrder(uint256orderId){Orderstorageorder=orderBook[orderId];if(order.amount==0){revert();}if(msg.sender!=order.owner){revert();}commitments[msg.sender][order.sellToken]=commitments[msg.sender][order.sellToken].sub(order.amount);balances[msg.sender][order.sellToken]=balances[msg.sender][order.sellToken].add(order.amount);OrderCancelled(orderId,now);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 76
+column: 2
+content: functionexecuteOrder(uint256orderId,uint256amount){if(orderId>latestOrderId){revert();}Orderstorageorder=orderBook[orderId];uint256buyTokenAmount=amount.mul(order.priceMul).div(order.priceDiv);if(amount==0){revert();}if(order.amount<amount){revert();}if(msg.sender==order.owner){revert();}if(balances[msg.sender][order.buyToken]<buyTokenAmount){revert();}uint256fee=amount.div(feeMultiplier);balances[order.owner][order.buyToken]=balances[order.owner][order.buyToken].add(buyTokenAmount);balances[msg.sender][order.buyToken]=balances[msg.sender][order.buyToken].sub(buyTokenAmount);balances[msg.sender][order.sellToken]=balances[msg.sender][order.sellToken].add(amount).sub(fee);balances[order.owner][order.sellToken]=balances[order.owner][order.sellToken].add(fee);commitments[order.owner][order.sellToken]=commitments[order.owner][order.sellToken].sub(amount);order.amount=order.amount.sub(amount);if(order.amount==0){OrderFulfilled(orderId,now);}Trade(msg.sender,order.owner,orderId,amount,buyTokenAmount,now);MarketMaker(order.owner,order.sellToken,fee,now);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 101
+column: 2
+content: functionredeem(addresstoken,uint256value){if(value==0){revert();}addresscaller=msg.sender;if(value>balances[caller][token]){revert();}balances[caller][token]=balances[caller][token].sub(value);if(token==etherAddress){caller.transfer(value);}else{ERC223(token).transfer(caller,value);}Withdrawal(token,msg.sender,value,now);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 116
+column: 2
+content: functionbalanceOf(addresstoken,addressuser)constantreturns(uint256){returnbalances[user][token];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 120
+column: 2
+content: functioncommitmentsOf(addresstoken,addressuser)constantreturns(uint256){returncommitments[user][token];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 127
+column: 2
+content: functiontokenFallback(address_from,uint_value,bytes){balances[_from][msg.sender]=balances[_from][msg.sender].add(_value);Deposit(msg.sender,_from,_value,now);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 133
+column: 2
+content: functionfund()payable{balances[msg.sender][etherAddress]=balances[msg.sender][etherAddress].add(msg.value);Deposit(etherAddress,msg.sender,msg.value,now);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 140
+column: 2
+content: functionregister(addresserc20token,addresserc223token){if(msg.sender!=admin){revert();}ERC20erc20=ERC20(erc20token);uint256supply=erc20.totalSupply();erc20.approve(erc223token,supply);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 30
+column: 2
+content: mapping(uint256=>Order)orderBook;
+
+SOLIDITY_VISIBILITY :11
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :16
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_ADDRESS_HARDCODED :1

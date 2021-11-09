@@ -1,0 +1,31 @@
+C:\Users\hp\DataSet\CreateCall.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 9
+column: 4
+content: functionperformCreate2(uint256value,bytesmemorydeploymentData,bytes32salt)publicreturns(addressnewContract){assembly{newContract:=create2(value,add(0x20,deploymentData),mload(deploymentData),salt)}require(newContract!=address(0),"Could not deploy contract");emitContractCreation(newContract);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 18
+column: 4
+content: functionperformCreate(uint256value,bytesmemorydeploymentData)publicreturns(addressnewContract){assembly{newContract:=create(value,add(deploymentData,0x00),mload(deploymentData))}require(newContract!=address(0),"Could not deploy contract");emitContractCreation(newContract);}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 11
+column: 8
+content: assembly{newContract:=create2(value,add(0x20,deploymentData),mload(deploymentData),salt)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 20
+column: 8
+content: assembly{newContract:=create(value,add(deploymentData,0x00),mload(deploymentData))}
+
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_USING_INLINE_ASSEMBLY :2

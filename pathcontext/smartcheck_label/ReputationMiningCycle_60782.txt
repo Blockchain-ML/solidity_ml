@@ -1,0 +1,119 @@
+C:\Users\hp\DataSet\ReputationMiningCycle.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 182
+column: 15
+content: 0x00
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 183
+column: 15
+content: 0x00
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 106
+column: 44
+content: 0x0
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 511
+column: 4
+content: for(uint128i=0;i<stakers.length;i++){int256amount=int256(reward);if(amount>MAX_INT128){amount=MAX_INT128;}reputationUpdateLog.push(ReputationLogEntry(stakers[i],int256(wmul(reward,weights[i])),miningSkillId,metaColonyAddress,4,i*4));}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 511
+column: 4
+content: for(uint128i=0;i<stakers.length;i++){int256amount=int256(reward);if(amount>MAX_INT128){amount=MAX_INT128;}reputationUpdateLog.push(ReputationLogEntry(stakers[i],int256(wmul(reward,weights[i])),miningSkillId,metaColonyAddress,4,i*4));}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 388
+column: 11
+content: 2**(disputeRounds[round][idx].challengeStepCompleted-2)<=submission.jrhNNodes
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 695
+column: 11
+content: nNodes!=0&&(node+1>nextPowerOfTwo/2)
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 617
+column: 2
+content: functioncheckJRHProof1(bytes32jrh,uint256branchMask1,bytes32[]memorysiblings1,uint256reputationRootHashNNodes)internalview{bytes32reputationRootHash=IColonyNetwork(colonyNetworkAddress).getReputationRootHash();bytesmemoryjhLeafValue=newbytes(64);assembly{mstore(add(jhLeafValue,0x20),reputationRootHash)mstore(add(jhLeafValue,0x40),reputationRootHashNNodes)}bytes32impliedRoot=getImpliedRootNoHashKey(bytes32(0),jhLeafValue,branchMask1,siblings1);require(jrh==impliedRoot,"colony-reputation-mining-invalid-jrh-proof-1");}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 382
+column: 4
+content: assembly{intermediateReputationHash:=mload(add(jhIntermediateValue,0x20))intermediateReputationNNodes:=mload(add(jhIntermediateValue,0x40))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 557
+column: 4
+content: assembly{intermediateReputationHash:=mload(add(jhIntermediateValue,0x20))intermediateReputationNNodes:=mload(add(jhIntermediateValue,0x40))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 621
+column: 4
+content: assembly{mstore(add(jhLeafValue,0x20),reputationRootHash)mstore(add(jhLeafValue,0x40),reputationRootHashNNodes)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 646
+column: 4
+content: assembly{mstore(add(jhLeafValue,0x20),submittedHash)mstore(add(jhLeafValue,0x40),submittedHashNNodes)}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 30
+column: 2
+content: uint256constantMIN_STAKE=2000*WAD;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 33
+column: 2
+content: uint256constantMINING_WINDOW_SIZE=60*60*24;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 78
+column: 2
+content: uint256constantUINT256_MAX=2**256-1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 79
+column: 2
+content: uint256constantX=UINT256_MAX/MINING_WINDOW_SIZE;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_USING_INLINE_ASSEMBLY :4
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

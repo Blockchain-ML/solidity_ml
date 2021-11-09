@@ -1,0 +1,188 @@
+C:\Users\hp\DataSet\contracts\ropsten\fd\fd218a5ab9ac819599a88cd75ee45fd5b8660508_GasMeterValidation.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 142
+column: 4
+content: functionValidateEventStorage(bytesrlpBlockHeader,bytesdata)publicviewreturns(boolvalid){bytesmemorylogsBloom=parseRLPHeader(rlpBlockHeader).logsBloom;bytes32_topic1=keccak256(address(this));bytes32_topic2=eventTopic;bytes32_topic3=keccak256(keccak256(data));boolfoundInLogs=true;for(uintb=0;b<8;b++){bytes32bloom=0;for(uinti=0;i<6;i+=2){assembly{ifeq(mod(byte(i,_topic1),8),b){bloom:=or(bloom,exp(2,byte(add(1,i),_topic1)))}ifeq(mod(byte(i,_topic2),8),b){bloom:=or(bloom,exp(2,byte(add(1,i),_topic2)))}ifeq(mod(byte(i,_topic3),8),b){bloom:=or(bloom,exp(2,byte(add(1,i),_topic3)))}}}assembly{ifgt(bloom,0){letbloomAnd:=and(mload(add(logsBloom,mul(0x20,sub(8,b)))),bloom)letequal:=eq(bloomAnd,bloom)ifeq(equal,0){b:=8foundInLogs:=0}}}}valid=foundInLogs;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 183
+column: 4
+content: functionparseRLPHeader(bytesrlpData)internalviewreturns(BlockHeader){BlockHeadermemoryparsedHeader;parsedHeader.derivedHash=keccak256(rlpData);bytesmemorylogsBloom=newbytes(256);assembly{calldatacopy(add(parsedHeader,32),104,32)calldatacopy(add(parsedHeader,64),137,32)calldatacopy(add(parsedHeader,268),170,20)calldatacopy(add(parsedHeader,96),191,32)calldatacopy(add(parsedHeader,128),224,32)calldatacopy(add(parsedHeader,160),257,32)calldatacopy(add(logsBloom,32),292,256)let_size:=sub(and(calldataload(517),0xFF),128)calldatacopy(add(parsedHeader,sub(352,_size)),549,_size)let_idx:=add(add(549,_size),1)_size:=sub(and(calldataload(sub(_idx,32)),0xFF),128)calldatacopy(add(parsedHeader,sub(384,_size)),_idx,_size)_idx:=add(add(_idx,_size),1)_size:=sub(and(calldataload(sub(_idx,32)),0xFF),128)calldatacopy(add(parsedHeader,sub(416,_size)),_idx,_size)_idx:=add(add(_idx,_size),1)_size:=sub(and(calldataload(sub(_idx,32)),0xFF),128)calldatacopy(add(parsedHeader,sub(448,_size)),_idx,_size)_idx:=add(add(_idx,_size),1)_size:=sub(and(calldataload(sub(_idx,32)),0xFF),128)calldatacopy(add(parsedHeader,sub(480,_size)),_idx,_size)_idx:=add(add(_idx,_size),1)_size:=sub(and(calldataload(sub(_idx,32)),0xFF),128)calldatacopy(add(parsedHeader,sub(256,_size)),_idx,_size)_idx:=add(add(_idx,_size),1)calldatacopy(add(parsedHeader,192),_idx,32)_idx:=add(_idx,33)calldatacopy(add(parsedHeader,288),_idx,8)}parsedHeader.logsBloom=logsBloom;require(parsedHeader.derivedHash==blockhash(parsedHeader.blockNumber));returnparsedHeader;}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 38
+column: 186
+content: bytesbloom
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 44
+column: 24
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 48
+column: 30
+content: bytesrlpBlockHeader
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 48
+column: 52
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 89
+column: 27
+content: bytesrlpData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 89
+column: 60
+content: BlockHeader
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 142
+column: 34
+content: bytesrlpBlockHeader
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 142
+column: 56
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 183
+column: 28
+content: bytesrlpData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 183
+column: 66
+content: BlockHeader
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 245
+column: 22
+content: bytes
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 245
+column: 29
+content: bytes
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 60
+column: 16
+content: assembly{ifeq(mod(byte(i,_topic1),8),b){bloom:=or(bloom,exp(2,byte(add(1,i),_topic1)))}ifeq(mod(byte(i,_topic2),8),b){bloom:=or(bloom,exp(2,byte(add(1,i),_topic2)))}ifeq(mod(byte(i,_topic3),8),b){bloom:=or(bloom,exp(2,byte(add(1,i),_topic3)))}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 73
+column: 12
+content: assembly{ifgt(bloom,0){letbloomAnd:=and(mload(add(logsBloom,mul(0x20,sub(8,b)))),bloom)letequal:=eq(bloomAnd,bloom)ifeq(equal,0){b:=8foundInLogs:=0}}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 95
+column: 8
+content: assembly{calldatacopy(add(parsedHeader,32),104,32)calldatacopy(add(parsedHeader,64),137,32)calldatacopy(add(parsedHeader,268),170,20)calldatacopy(add(parsedHeader,96),191,32)calldatacopy(add(parsedHeader,128),224,32)calldatacopy(add(parsedHeader,160),257,32)calldatacopy(add(logsBloom,32),292,256)let_size:=sub(and(calldataload(517),0xFF),128)calldatacopy(add(parsedHeader,sub(352,_size)),549,_size)let_idx:=add(add(549,_size),1)_size:=sub(and(calldataload(sub(_idx,32)),0xFF),128)calldatacopy(add(parsedHeader,sub(384,_size)),_idx,_size)_idx:=add(add(_idx,_size),1)_size:=sub(and(calldataload(sub(_idx,32)),0xFF),128)calldatacopy(add(parsedHeader,sub(416,_size)),_idx,_size)_idx:=add(add(_idx,_size),1)_size:=sub(and(calldataload(sub(_idx,32)),0xFF),128)calldatacopy(add(parsedHeader,sub(448,_size)),_idx,_size)_idx:=add(add(_idx,_size),1)_size:=sub(and(calldataload(sub(_idx,32)),0xFF),128)calldatacopy(add(parsedHeader,sub(480,_size)),_idx,_size)_idx:=add(add(_idx,_size),1)_size:=sub(and(calldataload(sub(_idx,32)),0xFF),128)calldatacopy(add(parsedHeader,sub(256,_size)),_idx,_size)_idx:=add(add(_idx,_size),1)calldatacopy(add(parsedHeader,192),_idx,32)_idx:=add(_idx,33)calldatacopy(add(parsedHeader,288),_idx,8)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 154
+column: 16
+content: assembly{ifeq(mod(byte(i,_topic1),8),b){bloom:=or(bloom,exp(2,byte(add(1,i),_topic1)))}ifeq(mod(byte(i,_topic2),8),b){bloom:=or(bloom,exp(2,byte(add(1,i),_topic2)))}ifeq(mod(byte(i,_topic3),8),b){bloom:=or(bloom,exp(2,byte(add(1,i),_topic3)))}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 167
+column: 12
+content: assembly{ifgt(bloom,0){letbloomAnd:=and(mload(add(logsBloom,mul(0x20,sub(8,b)))),bloom)letequal:=eq(bloomAnd,bloom)ifeq(equal,0){b:=8foundInLogs:=0}}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 189
+column: 8
+content: assembly{calldatacopy(add(parsedHeader,32),104,32)calldatacopy(add(parsedHeader,64),137,32)calldatacopy(add(parsedHeader,268),170,20)calldatacopy(add(parsedHeader,96),191,32)calldatacopy(add(parsedHeader,128),224,32)calldatacopy(add(parsedHeader,160),257,32)calldatacopy(add(logsBloom,32),292,256)let_size:=sub(and(calldataload(517),0xFF),128)calldatacopy(add(parsedHeader,sub(352,_size)),549,_size)let_idx:=add(add(549,_size),1)_size:=sub(and(calldataload(sub(_idx,32)),0xFF),128)calldatacopy(add(parsedHeader,sub(384,_size)),_idx,_size)_idx:=add(add(_idx,_size),1)_size:=sub(and(calldataload(sub(_idx,32)),0xFF),128)calldatacopy(add(parsedHeader,sub(416,_size)),_idx,_size)_idx:=add(add(_idx,_size),1)_size:=sub(and(calldataload(sub(_idx,32)),0xFF),128)calldatacopy(add(parsedHeader,sub(448,_size)),_idx,_size)_idx:=add(add(_idx,_size),1)_size:=sub(and(calldataload(sub(_idx,32)),0xFF),128)calldatacopy(add(parsedHeader,sub(480,_size)),_idx,_size)_idx:=add(add(_idx,_size),1)_size:=sub(and(calldataload(sub(_idx,32)),0xFF),128)calldatacopy(add(parsedHeader,sub(256,_size)),_idx,_size)_idx:=add(add(_idx,_size),1)calldatacopy(add(parsedHeader,192),_idx,32)_idx:=add(_idx,33)calldatacopy(add(parsedHeader,288),_idx,8)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 250
+column: 8
+content: assembly{letptr_in:=mload(0x40)mstore(ptr_in,sel)calldatacopy(add(0x04,ptr_in),0x04,sub(calldatasize,0x04))lim_before:=gasletret:=staticcall(gas,0xbab537fd1537f46cedddbdd0a6f96ea50e25e772,ptr_in,calldatasize,0,0)lim_after:=gasifiszero(eq(returndatasize,0x20)){revert(0,0)}returndatacopy(0,0,returndatasize)success:=mload(0)}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 30
+column: 4
+content: bytes32constanteventTopic=keccak256(keccak256("DataStored(bytes32,bytes)"));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 34
+column: 4
+content: BlockHeaderbh;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 239
+column: 4
+content: bytesconstantrlpHeader=hex"f90202a0bb40f5ea64d3818889d53a5228fd8d5b40b5cf054b4a43cf2f13a284dea307f5a0dbbc448dce3f730703962e9f1af001069ff5fa57b38feeb24fb7def33fe05eaa94bbf5029fd710d227630c8b7d338051b8e76d50b3a05adaa7a9844707268c54d92ba3dff4cedeac2b2c0ea4bf907510d41c6c5134baa0083f94d1d425785c79b3831f010383e8a7bec11ccb3959bfa25c676e1d21d153a0c6093a5eceffdec3e547094a5acb1e7678a9e963e55f58a5ca316893e4338453b9010000000002000000000000000101000000108080000001001000000000000000000000000000080000000000000000000000000000040000000020002000400000010080000020020000800008000000000000000000000000004000000000000008800000020000000000000000000000080000000000400000000010040040000000010000100000040000040000020000040000200000002000000000200050004080000000000020000000003000200000000000008000000000000000004200000002000015000400880000000010000000000000000000000000080000803000000008080000000040001000000020000000000200008010000000100000847c1da7408337cae58347e7ca830d1042845b4e18b98474657374a001098418d5b0f7d3c113a1a5da8ea1a5d08aa68a2db9d4e43f35eea4c3e1f75688ec4f434001ec9ffa";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 240
+column: 4
+content: bytesconstantdata=hex"54686520717569636b2c2062726f776e20666f78206a756d7073206f76657220746865206c617a7920626c61636b20646f672e";
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :12
+SOLIDITY_USING_INLINE_ASSEMBLY :7
+SOLIDITY_SHOULD_NOT_BE_VIEW :2

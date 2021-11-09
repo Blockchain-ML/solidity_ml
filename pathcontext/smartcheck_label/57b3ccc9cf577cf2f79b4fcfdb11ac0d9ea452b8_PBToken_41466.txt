@@ -1,0 +1,78 @@
+C:\Users\hp\DataSet\contracts\ropsten\57\57b3ccc9cf577cf2f79b4fcfdb11ac0d9ea452b8_PBToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 121
+column: 31
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 158
+column: 31
+content: 0x0
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 137
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(boolsuccess){allowance[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 231
+column: 0
+content: contractPBTokenisPausableToken{stringpublicname;stringpublicsymbol;uint8publicdecimals;stringpublicversion="1.1.0";mapping(address=>uint256)publicfreezeOf;eventFreeze(addressindexedfrom,uint256value);eventUnfreeze(addressindexedfrom,uint256value);constructor(uint256initialSupply,stringmemorytokenName,uint8decimalUnits,stringmemorytokenSymbol)public{totalSupply=initialSupply*10**uint256(decimalUnits);balanceOf[msg.sender]=totalSupply;name=tokenName;symbol=tokenSymbol;decimals=decimalUnits;_owner=msg.sender;}functionfreeze(uint256_value)publicreturns(boolsuccess){require(balanceOf[msg.sender]>=_value,"");require(_value>0);balanceOf[msg.sender]=SafeMath.safeSub(balanceOf[msg.sender],_value);freezeOf[msg.sender]=SafeMath.safeAdd(freezeOf[msg.sender],_value);emitFreeze(msg.sender,_value);returntrue;}functionunfreeze(uint256_value)publicreturns(boolsuccess){require(freezeOf[msg.sender]>=_value);require(_value>0);freezeOf[msg.sender]=SafeMath.safeSub(freezeOf[msg.sender],_value);balanceOf[msg.sender]=SafeMath.safeAdd(balanceOf[msg.sender],_value);emitUnfreeze(msg.sender,_value);returntrue;}function()externalpayable{revert("error");}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 9
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 91
+column: 30
+content: private
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 280
+column: 33
+content: {revert("error");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 64
+column: 8
+content: if(msg.sender!=_owner){revert("Error: sender is not same owner");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 194
+column: 8
+content: if(paused)revert("Error: paused");
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 200
+column: 8
+content: if(!paused)revert("Error: not paused");
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :3
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_ERC20_APPROVE :1

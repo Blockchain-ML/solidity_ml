@@ -1,0 +1,256 @@
+C:\Users\hp\DataSet\contracts\ropsten\b2\b22012DcB7697C0107A6c275C76DaD787D81843a_Land.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 57
+column: 4
+content: owner=address(0)
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 146
+column: 2
+content: functiongetContract(bytes32_name)publicconstantreturns(address){}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 345
+column: 2
+content: functiongetTile(uint16_x,uint16_y,uint8_index)publicconstantreturns(uint16_tile,address_contract,address_owner,uint256_price){return(tileTypeAt[_x][_y][_index],contractAt[_x][_y][_index],ownerAt[_x][_y][_index],priceAt[_x][_y][_index]);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 349
+column: 2
+content: functiongetTileLocation(uint16_x,uint16_y,address_address)publicconstantreturns(uint16){LandLiblandLib=LandLib(getContract("LandLib"));uint8tileIndex=findTileByAddress(_x,_y,_address);if(tileIndex==255)return0;uint16widthOffset=0;boolfoundLand=false;for(uint8t=0;t<tileIndex;t++){widthOffset+=landLib.translateTileToWidth(tileTypeAt[_x][_y][t]);if(tileTypeAt[_x][_y][t]!=0&&!foundLand){foundLand=true;widthOffset+=114;}elseif(tileTypeAt[_x][_y][t]==0&&foundLand){foundLand=false;widthOffset+=114;}}if(!foundLand){widthOffset+=114;}widthOffset=widthOffset+(landLib.translateTileToWidth(tileTypeAt[_x][_y][tileIndex])/2);uint16halfTotalWidth=totalWidth[_x][_y]/2;return2000-halfTotalWidth+widthOffset;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 374
+column: 2
+content: functiongetTotalWidth(uint16_x,uint16_y)publicconstantreturns(uint16){LandLiblandLib=LandLib(getContract("LandLib"));uint16totalWidth=0;boolfoundLand=false;for(uint8t=0;t<18;t++){totalWidth+=landLib.translateTileToWidth(tileTypeAt[_x][_y][t]);if(tileTypeAt[_x][_y][t]!=0&&!foundLand){foundLand=true;totalWidth+=114;}elseif(tileTypeAt[_x][_y][t]==0&&foundLand){foundLand=false;totalWidth+=114;}}if(foundLand)totalWidth+=114;returntotalWidth;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 392
+column: 2
+content: functionfindTile(uint16_x,uint16_y,uint16_lookingForType)publicconstantreturns(uint8){uint8index=0;while(tileTypeAt[_x][_y][index]!=_lookingForType){index++;if(index>=18)return255;}returnindex;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 401
+column: 2
+content: functionfindTileByAddress(uint16_x,uint16_y,address_address)publicconstantreturns(uint8){uint8index=0;while(contractAt[_x][_y][index]!=_address){index++;if(index>=18)return255;}returnindex;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 414
+column: 2
+content: functiontranslateTileToWidth(uint16_tileType)publicconstantreturns(uint16){}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 415
+column: 2
+content: functiontranslateToStartingTile(uint16tilepart)publicconstantreturns(uint16){}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 394
+column: 4
+content: while(tileTypeAt[_x][_y][index]!=_lookingForType){index++;if(index>=18)return255;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 403
+column: 4
+content: while(contractAt[_x][_y][index]!=_address){index++;if(index>=18)return255;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 146
+column: 2
+content: functiongetContract(bytes32_name)publicconstantreturns(address){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 147
+column: 2
+content: functionhasPermission(address_contract,bytes32_permission)publicviewreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 153
+column: 2
+content: functiontransferFrom(address_from,address_to,uint256_value)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 154
+column: 2
+content: functiongalleassTransferFrom(address_from,address_to,uint256_value)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 155
+column: 2
+content: functiontransfer(address_to,uint256_value)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 156
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 165
+column: 2
+content: functionsetMainLocation(uint16_mainX,uint16_mainY)onlyOwnerisBuildingpublicreturns(bool){mainX=_mainX;mainY=_mainY;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 182
+column: 2
+content: functiongenerateLand()onlyOwnerisBuildingpublicreturns(bool){LandLiblandLib=LandLib(getContract("LandLib"));bytes32id=keccak256(nonce++,block.blockhash(block.number-1));uint16x=uint16(id[0])<<8|uint16(id[1]);uint16y=uint16(id[2])<<8|uint16(id[3]);bytes32landParts1=keccak256(id);bytes32landParts2=keccak256(landParts1);if(x==0)x=1;if(y==0)y=1;for(uint8index=0;index<18;index++){uint16thisUint16=uint16(landParts1[index])<<8|uint16(landParts2[index]);tileTypeAt[x][y][index]=landLib.translateToStartingTile(thisUint16);ownerAt[x][y][index]=msg.sender;}uint8landCount=0;for(uint8landex=0;landex<18;landex++){if(tileTypeAt[x][y][landex]==0){if(landCount>0){tileTypeAt[x][y][landex-(landCount%2+landCount/2)]=1;landCount=0;}}else{if(landCount==0){}landCount++;}}if(landCount>0){tileTypeAt[x][y][17-(landCount/2)]=1;landCount=0;}if(mainX==0||mainY==0){mainX=x;mainY=y;}totalWidth[x][y]=getTotalWidth(x,y);LandGenerated(x,y);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 237
+column: 2
+content: functioneditTile(uint16_x,uint16_y,uint8_tile,uint16_update,address_contract)onlyOwnerisBuildingpublicreturns(bool){tileTypeAt[_x][_y][_tile]=_update;contractAt[_x][_y][_tile]=_contract;if(contractAt[_x][_y][_tile]!=address(0)){StandardTiletileContract=StandardTile(contractAt[_x][_y][_tile]);tileContract.onPurchase(_x,_y,_tile,ownerAt[_x][_y][_tile],priceAt[_x][_y][_tile]);}ownerAt[_x][_y][_tile]=msg.sender;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 414
+column: 2
+content: functiontranslateTileToWidth(uint16_tileType)publicconstantreturns(uint16){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 415
+column: 2
+content: functiontranslateToStartingTile(uint16tilepart)publicconstantreturns(uint16){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 419
+column: 2
+content: functiontransfer(address_to,uint256_value)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 420
+column: 2
+content: functiontransferFrom(address_from,address_to,uint256_value)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 421
+column: 2
+content: functiongalleassTransferFrom(address_from,address_to,uint256_value)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 425
+column: 2
+content: functiononPurchase(uint16_x,uint16_y,uint8_tile,address_owner,uint_amount)publicreturns(bool){}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 394
+column: 10
+content: tileTypeAt[_x][_y][index]!=_lookingForType
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 403
+column: 10
+content: contractAt[_x][_y][index]!=_address
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 165
+column: 2
+content: functionsetMainLocation(uint16_mainX,uint16_mainY)onlyOwnerisBuildingpublicreturns(bool){mainX=_mainX;mainY=_mainY;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 180
+column: 21
+content: {revert();}
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 118
+column: 17
+content: send(_amount)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 187
+column: 17
+content: keccak256(nonce++,block.blockhash(block.number-1))
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 180
+column: 14
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 292
+column: 58
+content: bytes_data
+
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :8
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :15
+SOLIDITY_SEND :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

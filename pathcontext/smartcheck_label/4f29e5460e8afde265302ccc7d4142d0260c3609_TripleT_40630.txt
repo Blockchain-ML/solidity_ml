@@ -1,0 +1,60 @@
+C:\Users\hp\DataSet\contracts\ropsten\4f\4f29e5460e8afde265302ccc7d4142d0260c3609_TripleT.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 51
+column: 18
+content: 0x0
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 14
+column: 4
+content: functionTripleT(){owner=msg.sender;balanceOf[msg.sender]=totalSupply;Transfer(0x0,owner,totalSupply);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 21
+column: 4
+content: functiontransfer(address_to,uint256_value)returns(boolsuccess){require(balanceOf[msg.sender]>=_value);require(balanceOf[_to]+_value>=balanceOf[_to]);balanceOf[msg.sender]-=_value;balanceOf[_to]+=_value;Transfer(msg.sender,_to,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 30
+column: 4
+content: functiontransferFrom(address_from,address_to,uint256_value)returns(boolsuccess){require(balanceOf[_from]>=_value);require(balanceOf[_to]+_value>=balanceOf[_to]);require(allowance[_from][msg.sender]>=_value);balanceOf[_to]+=_value;balanceOf[_from]-=_value;allowance[_from][msg.sender]-=_value;Transfer(_from,_to,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 41
+column: 4
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess){require(_value==0||allowance[msg.sender][_spender]==0);allowance[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 48
+column: 4
+content: functionburn(uint256_value){require(balanceOf[msg.sender]>=_value);balanceOf[msg.sender]-=_value;balanceOf[0x0]+=_value;Transfer(msg.sender,0x0,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 4
+content: addressowner;
+
+SOLIDITY_VISIBILITY :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :1

@@ -1,0 +1,113 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\90623.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 8
+column: 2
+content: functionmul(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a*b;assert(a==0||c/a==b);returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 14
+column: 2
+content: functiondiv(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a/b;returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 21
+column: 2
+content: functionsub(uint256a,uint256b)internalconstantreturns(uint256){assert(b<=a);returna-b;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 26
+column: 2
+content: functionadd(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a+b;assert(c>=a);returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 39
+column: 4
+content: functiontolerantSub(uintx,uinty)constantreturns(uintz){if(x>=y)z=x-y;elsez=0;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 44
+column: 4
+content: functionnext(uinti,uintsize)internalconstantreturns(uint){return(i+1)%size;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 48
+column: 4
+content: functionprev(uinti,uintsize)internalconstantreturns(uint){return(i+size-1)%size;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 54
+column: 4
+content: functioncvsquare(uint[]arr,uintscale)internalconstantreturns(uint){uintlen=arr.length;require(len>1);require(scale>0);uintavg=0;for(uinti=0;i<len;i++){avg+=arr[i];}avg=avg.div(len);if(avg==0){return0;}uintcvs=0;for(i=0;i<len;i++){uintsub=0;if(arr[i]>avg){sub=arr[i]-avg;}else{sub=avg-arr[i];}cvs+=sub.mul(sub);}returncvs.mul(scale).div(avg).mul(scale).div(avg).div(len-1);}
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 87
+column: 15
+content: cvs.mul(scale).div(avg).mul(scale)
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 67
+column: 8
+content: for(uinti=0;i<len;i++){avg+=arr[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 78
+column: 8
+content: for(i=0;i<len;i++){uintsub=0;if(arr[i]>avg){sub=arr[i]-avg;}else{sub=avg-arr[i];}cvs+=sub.mul(sub);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 3
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 37
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 55
+column: 8
+content: uint[]arr
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 39
+column: 4
+content: functiontolerantSub(uintx,uinty)constantreturns(uintz){if(x>=y)z=x-y;elsez=0;}
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :8
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_DIV_MUL :1

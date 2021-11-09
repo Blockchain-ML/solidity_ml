@@ -1,0 +1,63 @@
+C:\Users\hp\DataSet\ChildToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 47
+column: 27
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 59
+column: 27
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 64
+column: 34
+content: 0x0
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 8
+column: 0
+content: contractChildTokenisOwnable,LibTokenTransferOrder{usingSafeMathforuint256;addresspublictoken;addresspublicparent;addresspublicparentOwner;mapping(bytes32=>bool)publicdisabledHashes;modifierisParentOwner(){require(msg.sender==parentOwner);_;}functiondeposit(addressuser,uint256amountOrTokenId)public;functionwithdraw(uint256amountOrTokenId)publicpayable;functionsetParent(address_parent)public;eventLogFeeTransfer(addressindexedtoken,addressindexedfrom,addressindexedto,uint256amount,uint256input1,uint256input2,uint256output1,uint256output2);functionecrecovery(bytes32hash,bytesmemorysig)publicpurereturns(addressresult){bytes32r;bytes32s;uint8v;if(sig.length!=65){returnaddress(0x0);}assembly{r:=mload(add(sig,32))s:=mload(add(sig,64))v:=and(mload(add(sig,65)),255)}if(v<27){v+=27;}if(v!=27&&v!=28){returnaddress(0x0);}result=ecrecover(hash,v,r,s);require(result!=address(0x0),"Error in ecrecover");}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 9
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 38
+column: 4
+content: functionecrecovery(bytes32hash,bytesmemorysig)publicpurereturns(addressresult){bytes32r;bytes32s;uint8v;if(sig.length!=65){returnaddress(0x0);}assembly{r:=mload(add(sig,32))s:=mload(add(sig,64))v:=and(mload(add(sig,65)),255)}if(v<27){v+=27;}if(v!=27&&v!=28){returnaddress(0x0);}result=ecrecover(hash,v,r,s);require(result!=address(0x0),"Error in ecrecover");}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 49
+column: 8
+content: assembly{r:=mload(add(sig,32))s:=mload(add(sig,64))v:=and(mload(add(sig,65)),255)}
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

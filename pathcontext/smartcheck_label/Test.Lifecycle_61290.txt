@@ -1,0 +1,144 @@
+C:\Users\hp\DataSet\Test.Lifecycle.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 71
+column: 64
+content: years
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 75
+column: 85
+content: years
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 81
+column: 64
+content: years
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 86
+column: 64
+content: years
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 93
+column: 63
+content: years
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 96
+column: 85
+content: years
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 102
+column: 64
+content: years
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 107
+column: 64
+content: years
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 15
+column: 2
+content: functionsetUp(){emp1=newEmpTester();esop=makeNFESOP();emp1._target(esop);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 23
+column: 2
+content: functionprocLifecycleOptions(uint32ct,uinttotOptions){uintoptions=emp1.calcEffectiveOptionsForEmployee(emp1,ct);assertEq(options,0,"on creation");options=emp1.calcEffectiveOptionsForEmployee(emp1,ct+2weeks);assertEq(options,0,"on sign expiration");options=emp1.calcEffectiveOptionsForEmployee(emp1,ct+3weeks);assertEq(options,0,"after sign expiration");assertEq(uint(emp1.employeeSignsToESOP()),0,"sign to ESOP");options=emp1.calcEffectiveOptionsForEmployee(emp1,ct);assertEq(options,0,"on creation signed");options=emp1.calcEffectiveOptionsForEmployee(emp1,ct+uint32(esop.optionsCalculator().cliffPeriod())-1);assertEq(options,0,"cliff - 1s");uintcliffOpts=divRound(totOptions*esop.optionsCalculator().cliffPeriod(),esop.optionsCalculator().vestingPeriod());options=emp1.calcEffectiveOptionsForEmployee(emp1,ct+uint32(esop.optionsCalculator().cliffPeriod()));assertEq(options,cliffOpts,"on cliff");options=emp1.calcEffectiveOptionsForEmployee(emp1,ct+uint32(esop.optionsCalculator().cliffPeriod())+1);assertEq(options,cliffOpts,"on cliff + 1s");ct+=uint32(esop.optionsCalculator().vestingPeriod());options=emp1.calcEffectiveOptionsForEmployee(emp1,ct-1);assertEq(options,totOptions,"vesting end - 1s");options=emp1.calcEffectiveOptionsForEmployee(emp1,ct);assertEq(options,totOptions,"vesting end");options=emp1.calcEffectiveOptionsForEmployee(emp1,ct+1);assertEq(options,totOptions,"vesting end + 1s");ct-=uint32(esop.optionsCalculator().vestingPeriod()/2);options=emp1.calcEffectiveOptionsForEmployee(emp1,ct);assertEq(options,divRound(totOptions,2),"half vesting");assertEq(uint(esop.terminateEmployee(emp1,ct,0)),0,"terminate employee");options=emp1.calcEffectiveOptionsForEmployee(emp1,ct);assertEq(options,divRound(totOptions,2),"half vesting term");ct+=uint32(esop.optionsCalculator().vestingPeriod()/4);options=emp1.calcEffectiveOptionsForEmployee(emp1,ct);uintminFade=divRound(totOptions*(esop.optionsCalculator().FP_SCALE()-esop.optionsCalculator().maxFadeoutPromille()),esop.optionsCalculator().FP_SCALE());if(minFade>=divRound(totOptions,2))minFade=totOptions/2;uinthalfFade=minFade+divRound((divRound(totOptions,2)-minFade),2);assertEq(options,halfFade,"half fadeout");ct+=uint32(esop.optionsCalculator().vestingPeriod()/4);options=emp1.calcEffectiveOptionsForEmployee(emp1,ct-1);assertEq(options,minFade,"full fadeout - 1s");options=emp1.calcEffectiveOptionsForEmployee(emp1,ct);assertEq(options,minFade,"full fadeout");options=emp1.calcEffectiveOptionsForEmployee(emp1,ct+1);assertEq(options,minFade,"full fadeout + 1s");options=emp1.calcEffectiveOptionsForEmployee(emp1,ct+1years);assertEq(options,minFade,"full fadeout + 1y");ct-=uint32(esop.optionsCalculator().vestingPeriod()/4);BaseOptionsConverterconverter=newDummyOptionsConverter(address(esop),ct+2years);esop.mockTime(ct);uint8rc=uint8(esop.offerOptionsConversion(converter));assertEq(uint(rc),0,"offerOptionsConversion");options=emp1.calcEffectiveOptionsForEmployee(emp1,ct);assertEq(options,halfFade,"half fade conversion");options=emp1.calcEffectiveOptionsForEmployee(emp1,ct+1years);assertEq(options,halfFade,"half fade conversion + 1y");esop.mockTime(ct+1weeks);emp1.employeeExerciseOptions(true);options=emp1.calcEffectiveOptionsForEmployee(emp1,ct+1years);assertEq(options,0,"employee converted options");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 90
+column: 2
+content: functionprocLifecycleJustBonus(uint32ct,uinttotOptions,uintextraOptions){emp1.employeeSignsToESOP();ct+=uint32(esop.optionsCalculator().vestingPeriod())+1years;uintoptions=emp1.calcEffectiveOptionsForEmployee(emp1,ct);assertEq(options,totOptions,"1y after vesting");BaseOptionsConverterconverter=newDummyOptionsConverter(address(esop),ct+2years);esop.mockTime(ct);uint8rc=uint8(esop.offerOptionsConversion(converter));assertEq(uint(rc),0,"offerOptionsConversion");options=emp1.calcEffectiveOptionsForEmployee(emp1,ct);assertEq(options,totOptions+divRound((totOptions-extraOptions)*esop.optionsCalculator().bonusOptionsPromille(),esop.optionsCalculator().FP_SCALE()),"exit bonus");options=emp1.calcEffectiveOptionsForEmployee(emp1,ct+1years);assertEq(options,totOptions+divRound((totOptions-extraOptions)*esop.optionsCalculator().bonusOptionsPromille(),esop.optionsCalculator().FP_SCALE()),"exit bonus + 1y");esop.mockTime(ct+1weeks);emp1.employeeExerciseOptions(true);options=emp1.calcEffectiveOptionsForEmployee(emp1,ct+1years);assertEq(options,0,"employee converted options");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 111
+column: 2
+content: functiontestLifecycleOptionsTermFade(){uint32ct=esop.currentTime();esop.offerOptionsToEmployee(emp1,ct,ct+2weeks,0,false);uintpoolOptions=esop.totalPoolOptions()-esop.remainingPoolOptions();emp1._target(esop);procLifecycleOptions(ct,poolOptions);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 121
+column: 2
+content: functiontestLifecycleExtraOptionsTermFade(){uint32ct=esop.currentTime();esop.offerOptionsToEmployeeOnlyExtra(emp1,ct,ct+2weeks,8000);emp1._target(esop);procLifecycleOptions(ct,8000);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 130
+column: 2
+content: functiontestLifecycleCombinedOptionsTermFade(){uint32ct=esop.currentTime();esop.offerOptionsToEmployee(emp1,ct,ct+2weeks,8000,false);uintpoolOptions=esop.totalPoolOptions()-esop.remainingPoolOptions();emp1._target(esop);procLifecycleOptions(ct,poolOptions+8000);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 140
+column: 2
+content: functiontestLifecycleOptionsJustBonus(){uint32ct=esop.currentTime();esop.offerOptionsToEmployee(emp1,ct,ct+2weeks,0,false);uintpoolOptions=esop.totalPoolOptions()-esop.remainingPoolOptions();emp1._target(esop);procLifecycleJustBonus(ct,poolOptions,0);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 149
+column: 2
+content: functiontestLifecycleExtraOptionsJustBonus(){uint32ct=esop.currentTime();esop.offerOptionsToEmployeeOnlyExtra(emp1,ct,ct+2weeks,8000);emp1._target(esop);procLifecycleJustBonus(ct,8000,8000);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 157
+column: 2
+content: functiontestLifecycleCombinedOptionsJustBonus(){uint32ct=esop.currentTime();esop.offerOptionsToEmployee(emp1,ct,ct+2weeks,8000,false);uintpoolOptions=esop.totalPoolOptions()-esop.remainingPoolOptions();emp1._target(esop);procLifecycleJustBonus(ct,poolOptions+8000,8000);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: EmpTesteremp1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 4
+content: ESOPesop;
+
+SOLIDITY_VISIBILITY :11
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :8
+SOLIDITY_PRAGMAS_VERSION :1

@@ -1,0 +1,17 @@
+F:\Blockchain\dataset_new_byID\81478.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractOwnedUpgradeabilityProxyisProxy,OwnedUpgradeabilityStorage{eventProxyOwnershipTransferred(addresspreviousOwner,addressnewOwner);eventUpgraded(addressindexedimplementation);function_upgradeTo(addressimplementation)internal{require(_implementation!=implementation);_implementation=implementation;emitUpgraded(implementation);}modifieronlyProxyOwner(){require(msg.sender==proxyOwner());_;}functionproxyOwner()publicviewreturns(address){returnupgradeabilityOwner();}functiontransferProxyOwnership(addressnewOwner)publiconlyProxyOwner{require(newOwner!=address(0));emitProxyOwnershipTransferred(proxyOwner(),newOwner);setUpgradeabilityOwner(newOwner);}functionupgradeTo(addressimplementation)publiconlyProxyOwner{_upgradeTo(implementation);}functionupgradeToAndCall(addressimplementation,bytesdata)payablepubliconlyProxyOwner{upgradeTo(implementation);require(address(this).delegatecall(data));}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 45
+column: 52
+content: bytesdata
+
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1

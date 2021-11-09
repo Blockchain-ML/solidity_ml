@@ -1,0 +1,85 @@
+C:\Users\hp\DataSet\PlasmaMVP.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 137
+column: 8
+content: for(uinti=0;i<headers.length&&lastCommittedBlock<=lastBlockNum;i++){require(headers[i]!=bytes32(0)&&txnsPerBlock[i]>0&&txnsPerBlock[i]<feeIndex);lastCommittedBlock=lastCommittedBlock.add(1);plasmaChain[lastCommittedBlock]=plasmaBlock({header:headers[i],numTxns:txnsPerBlock[i],feeAmount:feePerBlock[i],createdAt:block.timestamp});emitBlockSubmitted(headers[i],lastCommittedBlock,txnsPerBlock[i],feePerBlock[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 38f6c7
+severity: 2
+line: 465
+column: 8
+content: while(block.timestamp.sub(currentExit.createdAt)>challengePeriod&&plasmaChainBalance()>0&&gasleft()>80000){if(currentExit.state!=ExitState.Pending){queue.delMin();}else{amountToAdd=currentExit.amount.add(minExitBond).sub(currentExit.committedFee);balances[currentExit.owner]=balances[currentExit.owner].add(amountToAdd);totalWithdrawBalance=totalWithdrawBalance.add(amountToAdd);if(isDeposits)depositExits[position].state=ExitState.Finalized;elsetxExits[position].state=ExitState.Finalized;emitFinalizedExit(currentExit.position,currentExit.owner,amountToAdd);emitAddedToBalances(currentExit.owner,amountToAdd);queue.delMin();}if(queue.length==0){return;}priority=queue[0];assembly{position:=and(priority,div(not(0x0),exp(256,16)))}currentExit=isDeposits?depositExits[position]:txExits[position];}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 18
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 203
+column: 16
+content: (RLPReader.RLPItem[]memorytxList,RLPReader.RLPItem[]memorysigList,bytes32txHash)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 451
+column: 8
+content: assembly{position:=and(priority,div(not(0x0),exp(256,16)))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 499
+column: 12
+content: assembly{position:=and(priority,div(not(0x0),exp(256,16)))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 82
+column: 4
+content: uint256constanttxIndexFactor=10;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 83
+column: 4
+content: uint256constantblockIndexFactor=1000000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 84
+column: 4
+content: uint256constantlastBlockNum=2**109;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 85
+column: 4
+content: uint256constantfeeIndex=2**16-1;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :2
+SOLIDITY_SHOULD_RETURN_STRUCT :1

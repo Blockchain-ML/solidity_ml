@@ -1,0 +1,205 @@
+C:\Users\hp\DataSet\contracts\ropsten\2f\2f68f227d08a8e71453cbcbe6e4fbfd9f2f09c2a_ERC223Token.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 670
+column: 4
+content: functionisContract(addresstokensHolder)privateconstantreturns(bool){uint256length;assembly{length:=extcodesize(tokensHolder)}returnlength>0;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 684
+column: 4
+content: functionisForceExecute(addresstokensHolder)privateconstantreturns(bool){returnforceExecuteOf[tokensHolder]==TernarySwitch.Enabled||forceExecuteOf[tokensHolder]==TernarySwitch.Undefined&&(isContract(tokensHolder)&&forceExecuteOfContracts||!isContract(tokensHolder)&&forceExecuteOfUsers);}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 494
+column: 4
+content: functionapprove(addresstokensSpender,uint256newTokensNumber)publiccheckPayloadSize(2*32)returns(bool){require(allowance[msg.sender][tokensSpender]==0||newTokensNumber==0);approve(msg.sender,tokensSpender,newTokensNumber);returntrue;}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 516
+column: 4
+content: functionapprove(addresstokensSpender,uint256oldTokensNumber,uint256newTokensNumber)publiccheckPayloadSize(3*32)returns(bool){require(allowance[msg.sender][tokensSpender]==oldTokensNumber);approve(msg.sender,tokensSpender,newTokensNumber);emitApproval(msg.sender,tokensSpender,oldTokensNumber,newTokensNumber);returntrue;}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 720
+column: 4
+content: functionapprove(addresstokensHolder,addresstokensSpender,uint256newTokensNumber)private{allowance[tokensHolder][tokensSpender]=newTokensNumber;emitApproval(msg.sender,tokensSpender,newTokensNumber);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 106
+column: 0
+content: contractERC223ProxyisERC223Storage{addresspublicimplementation;eventUpgrade(addressindexedoldImplementation,addressindexednewImplementation);constructor(addressinitialImplementation)public{owner=msg.sender;uncheckedUpgrade(initialImplementation);}functiontransferOwnership(addressnewOwner)publiconlyOwnerreturns(bool){pendingOwner=newOwner;returntrue;}functionclaimOwnership()publiconlyPendingOwnerreturns(bool){owner=pendingOwner;returntrue;}functionupgrade(addressnewImplementation)publiconlyOwner{uncheckedUpgrade(newImplementation);}function()externalpayable{bytesmemorydata=msg.data;assembly{letresult:=delegatecall(gas,implementation_slot,add(data,0x20),mload(data),0x0,0x0)letreturnDataSize:=returndatasizeletreturnData:=mload(0x40)returndatacopy(returnData,0x0,returnDataSize)switchresultcase0{revert(returnData,returnDataSize)}default{return(returnData,returnDataSize)}}}functionuncheckedUpgrade(addressnewImplementation)private{implementation=newImplementation;emitUpgrade(implementation,newImplementation);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 283
+column: 4
+content: functioninitialize(addressinitialMinter,stringinitialName,stringinitialSymbol,uint8initialDecimals,uint256initialTotalSupply,boolinitialPrivilegedMintLocked,boolinitialForceExecuteOfContracts,boolinitialForceExecuteOfUsers)publiconlyOwner{name=initialName;symbol=initialSymbol;decimals=initialDecimals;forceExecuteOfContracts=initialForceExecuteOfContracts;forceExecuteOfUsers=initialForceExecuteOfUsers;require(setMinter(owner));require(mint(initialTotalSupply));require(setMinter(initialMinter));privilegedMintLocked=initialPrivilegedMintLocked;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 328
+column: 4
+content: functionsetMinter(addressnewMinter)publiconlyOwnerreturns(bool){minter=newMinter;returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 364
+column: 4
+content: functionsetForceExecuteOfToken(TernarySwitchstate)publiconlyOwnerreturns(bool){forceExecuteOf[this]=state;returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 376
+column: 4
+content: functionsetForceExecuteOfContracts(boolenabled)publiconlyOwnerreturns(bool){forceExecuteOfContracts=enabled;returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 388
+column: 4
+content: functionsetForceExecuteOfUsers(boolenabled)publiconlyOwnerreturns(bool){forceExecuteOfUsers=enabled;returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 19
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 176
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 699
+column: 31
+content: call(bytes4(keccak256(abi.encodePacked(customFallback))),oldTokensHolder,tokensNumber,data)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 285
+column: 8
+content: stringinitialName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 286
+column: 8
+content: stringinitialSymbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 416
+column: 69
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 435
+column: 8
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 436
+column: 8
+content: stringcustomFallback
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 563
+column: 8
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 582
+column: 8
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 583
+column: 8
+content: stringcustomFallback
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 621
+column: 8
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 622
+column: 8
+content: stringcustomFallback
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 696
+column: 8
+content: stringcustomFallback
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 697
+column: 8
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 708
+column: 8
+content: bytesdata
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 140
+column: 8
+content: assembly{letresult:=delegatecall(gas,implementation_slot,add(data,0x20),mload(data),0x0,0x0)letreturnDataSize:=returndatasizeletreturnData:=mload(0x40)returndatacopy(returnData,0x0,returnDataSize)switchresultcase0{revert(returnData,returnDataSize)}default{return(returnData,returnDataSize)}}
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :5
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :14
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_ERC20_APPROVE :3

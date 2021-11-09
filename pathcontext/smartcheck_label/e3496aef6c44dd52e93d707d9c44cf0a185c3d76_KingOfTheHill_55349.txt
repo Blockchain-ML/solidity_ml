@@ -1,0 +1,33 @@
+C:\Users\hp\DataSet\contracts\ropsten\e3\e3496aef6c44dd52e93d707d9c44cf0a185c3d76_KingOfTheHill.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_BALANCE_EQUALITY
+patternId: 5094ad
+severity: 1
+line: 66
+column: 25
+content: address(this).balance==0
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 8
+column: 0
+content: contractKingOfTheHill{eventwinnerAnnounced(addresswinner,stringyourName);mapping(address=>uint)publicbalances;addresspublicking;uintpublicallowedChanges;uintpublicchangesMade;boolpublicendOfGame;constructor(uint_allowedChanges)public{allowedChanges=_allowedChanges;}modifieronlyKing(){require(msg.sender==king);_;}functionsetKing()publicpayable{require(!endOfGame);require(msg.value>=100000000000000000);require(msg.sender!=king);king=msg.sender;balances[king]=balances[king]+msg.value;changesMade+=1;}functionannounceEndOfGame()publiconlyKing{require(changesMade>=allowedChanges);endOfGame=true;}functionwithdrawBalance()public{require(endOfGame);msg.sender.call.value(balances[msg.sender]);balances[msg.sender]=0;}functionannounceVictory(stringyourName)publiconlyKing{require(endOfGame&&address(this).balance==0);emitwinnerAnnounced(msg.sender,yourName);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 65
+column: 27
+content: stringyourName
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_BALANCE_EQUALITY :1

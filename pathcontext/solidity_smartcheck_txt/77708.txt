@@ -1,0 +1,89 @@
+F:\Blockchain\dataset_new_byID\77708.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 8
+column: 0
+content: contractFreezerUserProxy{function()payablepublic{}functioncreateHumanStandardToken(address_factory,uint256_initialAmount,string_name,uint8_decimals,string_symbol)returns(address){returnHumanStandardTokenFactory(_factory).createHumanStandardToken(_initialAmount,_name,_decimals,_symbol);}functionapprove(address_token,address_spender,uint256_value)returns(boolsuccess){returnStandardToken(_token).approve(_spender,_value);}functionfreezeAllowance(address_freezer,uint_daysToThaw)returns(uintamountFrozen){returnStandardTokenFreezer(_freezer).freezeAllowance(_daysToThaw);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 10
+column: 22
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 12
+column: 2
+content: functioncreateHumanStandardToken(address_factory,uint256_initialAmount,string_name,uint8_decimals,string_symbol)returns(address){returnHumanStandardTokenFactory(_factory).createHumanStandardToken(_initialAmount,_name,_decimals,_symbol);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 16
+column: 2
+content: functionapprove(address_token,address_spender,uint256_value)returns(boolsuccess){returnStandardToken(_token).approve(_spender,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 20
+column: 2
+content: functionfreezeAllowance(address_freezer,uint_daysToThaw)returns(uintamountFrozen){returnStandardTokenFreezer(_freezer).freezeAllowance(_daysToThaw);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 30
+column: 2
+content: functionsetup(){factory=newHumanStandardTokenFactory();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 2
+content: functiontest_tokenFreeze(){FreezerUserProxyuser=newFreezerUserProxy();addresstoken=user.createHumanStandardToken(address(factory),490000,"Nicks Token",8,"NT");assertTrue(bool(token!=address(0)));freezer=newStandardTokenFreezer(token);assertTrue(user.approve(token,address(freezer),5000));assertEq(user.freezeAllowance(address(freezer),30),5000);assertEq(freezer.balanceOf(address(user)),5000);assertTrue(bool(freezer.frozenUntil(address(user))>0));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 45
+column: 2
+content: functiontest_invalidTokenFreeze(){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 2
+content: HumanStandardTokenFactoryfactory;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 27
+column: 2
+content: StandardTokentoken;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 2
+content: StandardTokenFreezerfreezer;
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1

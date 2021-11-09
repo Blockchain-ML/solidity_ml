@@ -1,0 +1,46 @@
+C:\Users\hp\DataSet\TestUpdatedIdentityRecord.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 21
+column: 4
+content: functiondeserializeClaimsV2(bytes32data)internalpurereturns(IdentityClaimsV2memoryclaims){assembly{mstore(claims,and(data,0x1))mstore(add(claims,0x20),div(and(data,0x2),0x2))mstore(add(claims,0x40),div(and(data,0x4),0x4))mstore(add(claims,0x60),div(and(data,0x8),0x8))mstore(add(claims,0x80),div(and(data,0x10),0x10))mstore(add(claims,0xA0),div(and(data,0x20),0x20))mstore(add(claims,0xC0),div(and(data,0x40),0x40))}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 33
+column: 4
+content: functiongetIdentityRecord(bytes32claims)publicpurereturns(bool[7]deserializedClaims){IdentityClaimsV2memoryds=deserializeClaimsV2(claims);assembly{deserializedClaims:=ds}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 21
+column: 4
+content: functiondeserializeClaimsV2(bytes32data)internalpurereturns(IdentityClaimsV2memoryclaims){assembly{mstore(claims,and(data,0x1))mstore(add(claims,0x20),div(and(data,0x2),0x2))mstore(add(claims,0x40),div(and(data,0x4),0x4))mstore(add(claims,0x60),div(and(data,0x8),0x8))mstore(add(claims,0x80),div(and(data,0x10),0x10))mstore(add(claims,0xA0),div(and(data,0x20),0x20))mstore(add(claims,0xC0),div(and(data,0x40),0x40))}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 33
+column: 4
+content: functiongetIdentityRecord(bytes32claims)publicpurereturns(bool[7]deserializedClaims){IdentityClaimsV2memoryds=deserializeClaimsV2(claims);assembly{deserializedClaims:=ds}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 22
+column: 8
+content: assembly{mstore(claims,and(data,0x1))mstore(add(claims,0x20),div(and(data,0x2),0x2))mstore(add(claims,0x40),div(and(data,0x4),0x4))mstore(add(claims,0x60),div(and(data,0x8),0x8))mstore(add(claims,0x80),div(and(data,0x10),0x10))mstore(add(claims,0xA0),div(and(data,0x20),0x20))mstore(add(claims,0xC0),div(and(data,0x40),0x40))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 35
+column: 8
+content: assembly{deserializedClaims:=ds}
+
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_USING_INLINE_ASSEMBLY :2
+SOLIDITY_SHOULD_NOT_BE_PURE :2

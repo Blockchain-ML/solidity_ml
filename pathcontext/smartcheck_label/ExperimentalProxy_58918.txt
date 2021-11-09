@@ -1,0 +1,54 @@
+C:\Users\hp\DataSet\ExperimentalProxy.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 8
+column: 0
+content: contractExperimentalProxy{boolpublicstorageIsEternal;addresspublicimplementation;constructor(bool_storageIsEternal,address_implementation)public{storageIsEternal=_storageIsEternal;implementation=_implementation;}function()externalpayable{require(implementation!=address(0),"Implementation cannot be the zero address.");bool_storageIsEternal=storageIsEternal;bytesmemory_data=msg.data;address_implementation=getImplementation(msg.sig,_data);bytesmemory_retData;assembly{let_dataPtr:=add(_data,0x20)let_dataSize:=mload(_data)let_resultswitch_storageIsEternalcase0{_result:=call(gas,_implementation,callvalue,_dataPtr,_dataSize,0,0)}default{_result:=delegatecall(gas,_implementation,_dataPtr,_dataSize,0,0)}let_retSize:=returndatasizelet_retPtr:=mload(0x40)let_retDataPtr:=add(_retPtr,0x20)mstore(_retPtr,_retSize)returndatacopy(_retDataPtr,0,_retSize)switch_resultcase0{revert(_retDataPtr,_retSize)}default{_retData:=_retPtr}}handleProxySuccess(msg.sig,_data,_retData);assembly{return(add(_retData,0x20),mload(_retData))}}functionhandleProxySuccess(bytes4_sig,bytes_data,bytes_retData)private{}functiongetImplementation(bytes4_sig,bytes_data)privateviewreturns(address_implementation){returnimplementation;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 99
+column: 45
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 99
+column: 58
+content: bytes_retData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 110
+column: 44
+content: bytes_data
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 44
+column: 8
+content: assembly{let_dataPtr:=add(_data,0x20)let_dataSize:=mload(_data)let_resultswitch_storageIsEternalcase0{_result:=call(gas,_implementation,callvalue,_dataPtr,_dataSize,0,0)}default{_result:=delegatecall(gas,_implementation,_dataPtr,_dataSize,0,0)}let_retSize:=returndatasizelet_retPtr:=mload(0x40)let_retDataPtr:=add(_retPtr,0x20)mstore(_retPtr,_retSize)returndatacopy(_retDataPtr,0,_retSize)switch_resultcase0{revert(_retDataPtr,_retSize)}default{_retData:=_retPtr}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 85
+column: 8
+content: assembly{return(add(_retData,0x20),mload(_retData))}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_USING_INLINE_ASSEMBLY :2

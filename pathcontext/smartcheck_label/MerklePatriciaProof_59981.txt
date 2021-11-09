@@ -1,0 +1,132 @@
+C:\Users\hp\DataSet\MerklePatriciaProof.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 120
+column: 45
+content: 0x10
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 120
+column: 68
+content: 0x10
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 19
+column: 4
+content: functionverify(bytesvalue,bytesencodedPath,bytesrlpParentNodes,bytes32root)internalconstantreturns(bool){RLP.RLPItemmemoryitem=RLP.toRLPItem(rlpParentNodes);RLP.RLPItem[]memoryparentNodes=RLP.toList(item);bytesmemorycurrentNode;RLP.RLPItem[]memorycurrentNodeList;bytes32nodeKey=root;uintpathPtr=0;bytesmemorypath=_getNibbleArray(encodedPath);if(path.length==0){returnfalse;}for(uinti=0;i<parentNodes.length;i++){if(pathPtr>path.length){returnfalse;}currentNode=RLP.toBytes(parentNodes[i]);if(nodeKey!=keccak256(currentNode)){returnfalse;}currentNodeList=RLP.toList(parentNodes[i]);if(currentNodeList.length==17){if(pathPtr==path.length){if(keccak256(RLP.toBytes(currentNodeList[16]))==keccak256(value)){returntrue;}else{returnfalse;}}uint8nextPathNibble=uint8(path[pathPtr]);if(nextPathNibble>16){returnfalse;}nodeKey=RLP.toBytes32(currentNodeList[nextPathNibble]);pathPtr+=1;}elseif(currentNodeList.length==2){pathPtr+=_nibblesToTraverse(RLP.toData(currentNodeList[0]),path,pathPtr);if(pathPtr==path.length){if(keccak256(RLP.toData(currentNodeList[1]))==keccak256(value)){returntrue;}else{returnfalse;}}if(_nibblesToTraverse(RLP.toData(currentNodeList[0]),path,pathPtr)==0){returnfalse;}nodeKey=RLP.toBytes32(currentNodeList[1]);}else{returnfalse;}}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 74
+column: 4
+content: function_nibblesToTraverse(bytesencodedPartialPath,bytespath,uintpathPtr)privateconstantreturns(uint){uintlen;bytesmemorypartialPath=_getNibbleArray(encodedPartialPath);bytesmemoryslicedPath=newbytes(partialPath.length);for(uinti=pathPtr;i<pathPtr+partialPath.length;i++){bytepathNibble=path[i];slicedPath[i-pathPtr]=pathNibble;}if(keccak256(partialPath)==keccak256(slicedPath)){len=partialPath.length;}else{len=0;}returnlen;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 97
+column: 4
+content: function_getNibbleArray(bytesb)privateconstantreturns(bytes){bytesmemorynibbles;if(b.length>0){uint8offset;uint8hpNibble=uint8(_getNthNibbleOfBytes(0,b));if(hpNibble==1||hpNibble==3){nibbles=newbytes(b.length*2-1);byteoddNibble=_getNthNibbleOfBytes(1,b);nibbles[0]=oddNibble;offset=1;}else{nibbles=newbytes(b.length*2-2);offset=0;}for(uinti=offset;i<nibbles.length;i++){nibbles[i]=_getNthNibbleOfBytes(i-offset+2,b);}}returnnibbles;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 119
+column: 4
+content: function_getNthNibbleOfBytes(uintn,bytesstr)privateconstantreturns(byte){returnbyte(n%2==0?uint8(str[n/2])/0x10:uint8(str[n/2])%0x10);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 32
+column: 8
+content: for(uinti=0;i<parentNodes.length;i++){if(pathPtr>path.length){returnfalse;}currentNode=RLP.toBytes(parentNodes[i]);if(nodeKey!=keccak256(currentNode)){returnfalse;}currentNodeList=RLP.toList(parentNodes[i]);if(currentNodeList.length==17){if(pathPtr==path.length){if(keccak256(RLP.toBytes(currentNodeList[16]))==keccak256(value)){returntrue;}else{returnfalse;}}uint8nextPathNibble=uint8(path[pathPtr]);if(nextPathNibble>16){returnfalse;}nodeKey=RLP.toBytes32(currentNodeList[nextPathNibble]);pathPtr+=1;}elseif(currentNodeList.length==2){pathPtr+=_nibblesToTraverse(RLP.toData(currentNodeList[0]),path,pathPtr);if(pathPtr==path.length){if(keccak256(RLP.toData(currentNodeList[1]))==keccak256(value)){returntrue;}else{returnfalse;}}if(_nibblesToTraverse(RLP.toData(currentNodeList[0]),path,pathPtr)==0){returnfalse;}nodeKey=RLP.toBytes32(currentNodeList[1]);}else{returnfalse;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 83
+column: 8
+content: for(uinti=pathPtr;i<pathPtr+partialPath.length;i++){bytepathNibble=path[i];slicedPath[i-pathPtr]=pathNibble;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 112
+column: 12
+content: for(uinti=offset;i<nibbles.length;i++){nibbles[i]=_getNthNibbleOfBytes(i-offset+2,b);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 32
+column: 8
+content: for(uinti=0;i<parentNodes.length;i++){if(pathPtr>path.length){returnfalse;}currentNode=RLP.toBytes(parentNodes[i]);if(nodeKey!=keccak256(currentNode)){returnfalse;}currentNodeList=RLP.toList(parentNodes[i]);if(currentNodeList.length==17){if(pathPtr==path.length){if(keccak256(RLP.toBytes(currentNodeList[16]))==keccak256(value)){returntrue;}else{returnfalse;}}uint8nextPathNibble=uint8(path[pathPtr]);if(nextPathNibble>16){returnfalse;}nodeKey=RLP.toBytes32(currentNodeList[nextPathNibble]);pathPtr+=1;}elseif(currentNodeList.length==2){pathPtr+=_nibblesToTraverse(RLP.toData(currentNodeList[0]),path,pathPtr);if(pathPtr==path.length){if(keccak256(RLP.toData(currentNodeList[1]))==keccak256(value)){returntrue;}else{returnfalse;}}if(_nibblesToTraverse(RLP.toData(currentNodeList[0]),path,pathPtr)==0){returnfalse;}nodeKey=RLP.toBytes32(currentNodeList[1]);}else{returnfalse;}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 19
+column: 20
+content: bytesvalue
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 19
+column: 33
+content: bytesencodedPath
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 19
+column: 52
+content: bytesrlpParentNodes
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 74
+column: 32
+content: bytesencodedPartialPath
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 74
+column: 58
+content: bytespath
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 97
+column: 29
+content: bytesb
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 97
+column: 64
+content: bytes
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 119
+column: 42
+content: bytesstr
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :8
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

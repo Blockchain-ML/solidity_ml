@@ -1,0 +1,31 @@
+F:\Blockchain\dataset_new_byID\72205.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 24
+column: 4
+content: functionhashEIP712Domain(stringmemoryname,stringmemoryversion,uint256chainId,addressverifyingContract)internalpurereturns(bytes32result){bytes32schemaHash=_EIP712_DOMAIN_SEPARATOR_SCHEMA_HASH;assembly{letnameHash:=keccak256(add(name,32),mload(name))letversionHash:=keccak256(add(version,32),mload(version))letmemPtr:=mload(64)mstore(memPtr,schemaHash)mstore(add(memPtr,32),nameHash)mstore(add(memPtr,64),versionHash)mstore(add(memPtr,96),chainId)mstore(add(memPtr,128),verifyingContract)result:=keccak256(memPtr,160)}returnresult;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 71
+column: 4
+content: functionhashEIP712Message(bytes32eip712DomainHash,bytes32hashStruct)internalpurereturns(bytes32result){assembly{letmemPtr:=mload(64)mstore(memPtr,0x1901000000000000000000000000000000000000000000000000000000000000)mstore(add(memPtr,2),eip712DomainHash)mstore(add(memPtr,34),hashStruct)result:=keccak256(memPtr,66)}returnresult;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 45
+column: 8
+content: assembly{letnameHash:=keccak256(add(name,32),mload(name))letversionHash:=keccak256(add(version,32),mload(version))letmemPtr:=mload(64)mstore(memPtr,schemaHash)mstore(add(memPtr,32),nameHash)mstore(add(memPtr,64),versionHash)mstore(add(memPtr,96),chainId)mstore(add(memPtr,128),verifyingContract)result:=keccak256(memPtr,160)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 83
+column: 8
+content: assembly{letmemPtr:=mload(64)mstore(memPtr,0x1901000000000000000000000000000000000000000000000000000000000000)mstore(add(memPtr,2),eip712DomainHash)mstore(add(memPtr,34),hashStruct)result:=keccak256(memPtr,66)}
+
+SOLIDITY_USING_INLINE_ASSEMBLY :2
+SOLIDITY_SHOULD_NOT_BE_PURE :2

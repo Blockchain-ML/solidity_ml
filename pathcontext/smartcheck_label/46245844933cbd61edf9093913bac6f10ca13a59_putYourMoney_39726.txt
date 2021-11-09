@@ -1,0 +1,177 @@
+C:\Users\hp\DataSet\contracts\ropsten\46\46245844933cbd61edf9093913bac6f10ca13a59_putYourMoney.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 48
+column: 4
+content: owner=address(0)
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 248
+column: 42
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 264
+column: 43
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 193
+column: 4
+content: functiongetContractBalance()publicconstantreturns(uint){returnaddress(this).balance;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 204
+column: 8
+content: functionsetAllSteps(uint_step1,uint_step2,uint_step3)publiconlyOwner{step1=_step1;step2=_step2;step3=_step3;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 211
+column: 8
+content: functionsetValueStep1(uint_step1)publiconlyOwner{step1=_step1;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 215
+column: 8
+content: functionsetValueStep2(uint_step2)publiconlyOwner{step2=_step2;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 219
+column: 8
+content: functionsetValueStep3(uint_step3)publiconlyOwner{step3=_step3;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 15
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 248
+column: 8
+content: if(balances[msg.sender]<=step2)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 264
+column: 8
+content: if(balances[msg.sender]<=step3)throw;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 120
+column: 3
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 124
+column: 23
+content: string_fName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 124
+column: 38
+content: string_lName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 124
+column: 53
+content: string_email
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 124
+column: 68
+content: string_company
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 181
+column: 4
+content: functiongetOwnerClientDetails()viewreturns(string,string,string,string,uint,uint,uint,uint){addressowner=msg.sender;uintid=clientAddress[owner];return(clients[id-1].fName,clients[id-1].lName,clients[id-1].email,clients[id-1].company,clients[id-1].mobile,clients[id-1].creationTime,clients[id-1].step2valid,clients[id-1].step3valid);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 244
+column: 4
+content: functiontransferStep2(addressto)returns(bool){uintid=clientAddress[msg.sender];require(clients[id-1].step2valid==1);require(now>=clients[id-1].creationTime+1days);if(balances[msg.sender]<=step2)throw;balances[msg.sender]=balances[msg.sender].sub(step2);to.transfer(step2);clients[id-1].step2valid=2;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 260
+column: 4
+content: functiontransferStep3(addressto)returns(bool){uintid=clientAddress[msg.sender];require(clients[id-1].step3valid==1);require(now>=clients[id-1].creationTime+7days);if(balances[msg.sender]<=step3)throw;balances[msg.sender]=balances[msg.sender].sub(step3);to.transfer(step3);clients[id-1].step3valid=2;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 158
+column: 4
+content: Client[]clients;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 160
+column: 4
+content: mapping(address=>uint)clientAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 199
+column: 8
+content: uintstep1=1000000000000000000wei;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 200
+column: 8
+content: uintstep2=500000000000000000wei;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 201
+column: 8
+content: uintstep3=500000000000000000wei;
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :4
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :4

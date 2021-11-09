@@ -1,0 +1,145 @@
+F:\Blockchain\dataset_new_byID\81287.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 26
+column: 6
+content: toAddress[oldName]=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 27
+column: 6
+content: nameOwner[oldName]=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 44
+column: 4
+content: toAddress[name]=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 45
+column: 4
+content: nameOwner[name]=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 55
+column: 4
+content: toAddress[name]=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 56
+column: 4
+content: nameOwner[name]=address(0)
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 61
+column: 2
+content: functionaddressOf(bytes32name)constantreturns(addressaddr){returntoAddress[name];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 65
+column: 2
+content: functionnameOf(addressaddr)constantreturns(bytes32name){returntoName[addr];}
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 22
+column: 60
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 34
+column: 22
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 41
+column: 41
+content: tx.origin
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 13
+column: 2
+content: functionNameReg(){toName[this]="NameReg";toAddress["NameReg"]=this;nameOwner["NameReg"]=msg.sender;Register(this,"NameReg");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 21
+column: 2
+content: functionregister(bytes32name){if(toAddress[name]!=address(0)&&nameOwner[name]!=tx.origin)return;bytes32oldName=toName[msg.sender];if(oldName!=""){toAddress[oldName]=address(0);nameOwner[oldName]=address(0);Unregister(msg.sender,oldName);}toName[msg.sender]=name;toAddress[name]=msg.sender;nameOwner[name]=tx.origin;Register(msg.sender,name);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 39
+column: 2
+content: functionunregister(){bytes32name=toName[msg.sender];if(name==""||nameOwner[name]!=tx.origin)return;toName[msg.sender]="";toAddress[name]=address(0);nameOwner[name]=address(0);Unregister(msg.sender,name);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 50
+column: 2
+content: functionunregister(bytes32name){if(nameOwner[name]!=msg.sender)return;toName[msg.sender]="";addressaddr=toAddress[name];toAddress[name]=address(0);nameOwner[name]=address(0);Unregister(addr,name);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 61
+column: 2
+content: functionaddressOf(bytes32name)constantreturns(addressaddr){returntoAddress[name];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 2
+content: functionnameOf(addressaddr)constantreturns(bytes32name){returntoName[addr];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 2
+content: mapping(address=>bytes32)toName;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 7
+column: 2
+content: mapping(bytes32=>address)toAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 8
+column: 2
+content: mapping(bytes32=>address)nameOwner;
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_ADDRESS_HARDCODED :6
+SOLIDITY_TX_ORIGIN :3

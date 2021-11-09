@@ -1,0 +1,117 @@
+C:\Users\hp\DataSet\contracts\mainnet\89\89fc9b1a86f416b62936c6fdea6e43456954b476_HashBounty.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 34
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 52
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 60
+column: 12
+content: throw
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 15
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 33
+column: 8
+content: if(msg.value<0.001ether)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 47
+column: 8
+content: if(bounties[claimIndex].hash==hash){HashSolved(msg.sender,solution,bounties[claimIndex].hash);bounties[claimIndex].isClaimed=true;msg.sender.transfer(bounties[claimIndex].reward);}else{throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 57
+column: 8
+content: if(!bounties[index].isClaimed&&bounties[index].hash!=0x0){bounties[index].reward+=msg.value;}else{throw;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 27
+column: 4
+content: functionHashBounty(){owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 31
+column: 4
+content: functionsetBounty(bytes32hash)payablereturns(uint){uintreward;if(msg.value<0.001ether)throw;reward=msg.value-0.001ether;fees+=0.001ether;bounties[bountyIndex++]=Bounty(hash,reward,false);returnbountyIndex-1;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 44
+column: 4
+content: functionclaimBounty(uintclaimIndex,stringsolution){bytes32hash=sha256(solution);if(bounties[claimIndex].hash==hash){HashSolved(msg.sender,solution,bounties[claimIndex].hash);bounties[claimIndex].isClaimed=true;msg.sender.transfer(bounties[claimIndex].reward);}else{throw;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 56
+column: 4
+content: functionaddBountyReward(uintindex)payable{if(!bounties[index].isClaimed&&bounties[index].hash!=0x0){bounties[index].reward+=msg.value;}else{throw;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 64
+column: 4
+content: functioncollectFees(){owner.transfer(fees);fees=0;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 21
+column: 4
+content: mapping(uint=>Bounty)bounties;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 22
+column: 4
+content: uintbountyIndex=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 24
+column: 4
+content: addressowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 25
+column: 4
+content: uintfees=0;
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :3

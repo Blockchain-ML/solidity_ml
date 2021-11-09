@@ -1,0 +1,557 @@
+C:\Users\hp\DataSet\contracts\mainnet\5d\5d003153574d43ea168277bb5e5a75a99af34e8f_AIGInvestment.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 228
+column: 8
+content: generations[suitableGen].interests.length+=1
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 188
+column: 22
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 304
+column: 19
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 307
+column: 27
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 311
+column: 12
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 312
+column: 19
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 541
+column: 21
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 545
+column: 15
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 106
+column: 4
+content: functionneedsBirth()constantreturns(boolneeded){returnnumberOfHealthyGenerations()<3;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 110
+column: 4
+content: functionroomForBirth()constantreturns(boolhasRoom){returnnumberOfHealthyGenerations()<4;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 139
+column: 4
+content: functionparseMsgData(bytesdata)internalconstantreturns(ParserResult){ParserResultmemoryresult;if(data.length!=8){result.hasResult=false;returnresult;}uint8start=(uint8(data[0])-48)*10+(uint8(data[1])-48);uint8end=(uint8(data[3])-48)*10+(uint8(data[4])-48);uint8die=(uint8(data[6])-48)*10+(uint8(data[7])-48);if(start==1){result.hasResult=true;result.pick=end+1;result.isMirrored=false;result.die=die;}elseif(end==20){result.hasResult=true;result.pick=start;result.isMirrored=true;result.die=die;}else{result.hasResult=false;}returnresult;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 169
+column: 4
+content: function_parseMsgData(bytesdata)constantreturns(boolhasResult,uint8pick,boolisMirrored,uint8die){ParserResultmemoryresult=parseMsgData(data);hasResult=result.hasResult;pick=result.pick;isMirrored=result.isMirrored;die=result.die;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 245
+column: 4
+content: functioncalculatePayout(uint8pick,boolisMirrored,uintvalue)constantreturns(uint){uintnumPrincipalningOutcomes;if(isMirrored){numPrincipalningOutcomes=21-pick;}else{numPrincipalningOutcomes=pick-1;}uintpayoutFactor=(100-HOUSE_EDGE)*(20000/numPrincipalningOutcomes);uintpayout=(value*payoutFactor)/100000;returnpayout;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 269
+column: 4
+content: functionisSuitableGen(uintgen,uintoffset)constantreturns(bool){returnblock.number+offset>=generations[gen].ofage&&(generations[gen].death==0||block.number+offset<generations[gen].death)&&generations[gen].interests.length<maxNumInterests;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 276
+column: 4
+content: functionfindSuitableGen()internalconstantreturns(Suitabilitysuitability){suitability.isSuitable=false;for(uinti=oldestGen;i<nextGen;i++){if(isSuitableGen(i,0)){suitability.gen=i;suitability.isSuitable=true;return;}}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 288
+column: 4
+content: functionneedsbeneficiary(uintoffset)constantreturns(boolneeded){if(oldestGen>=nextGen){returnfalse;}returngenerations[oldestGen].death!=0&&generations[oldestGen].death+LONG_PHASE<=block.number+offset;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 468
+column: 4
+content: functionlookupGeneration(uintgen)constantreturns(bytes32seedHashA,bytes32seedHashB,bytes32seedA,bytes32seedB,uintminWager,uintmaxPayout,uintofage,uintdeath,uintbeneficiary,uintnumInterests,boolhasAction,intpayoutId){seedHashA=generations[gen].seedHashA;seedHashB=generations[gen].seedHashB;seedA=generations[gen].seedA;seedB=generations[gen].seedB;minWager=generations[gen].minWager;maxPayout=generations[gen].maxPayout;ofage=generations[gen].ofage;death=generations[gen].death;beneficiary=generations[gen].beneficiary;numInterests=generations[gen].interests.length;hasAction=generations[gen].hasAction;payoutId=generations[gen].payoutId;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 494
+column: 4
+content: functionlookupInterest(uintgen,uintinterest)constantreturns(uintid,addresslender,uint8pick,boolisMirrored,uintwager,uintpayout,uint8die,uinttimestamp){id=generations[gen].interests[interest].id;lender=generations[gen].interests[interest].lender;pick=generations[gen].interests[interest].pick;isMirrored=generations[gen].interests[interest].isMirrored;wager=generations[gen].interests[interest].wager;payout=generations[gen].interests[interest].payout;die=generations[gen].interests[interest].die;timestamp=generations[gen].interests[interest].timestamp;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 512
+column: 4
+content: functionfindRecentInterest(addresslender)constantreturns(intid,uintgen,uintinterest){for(uinti=nextGen-1;i>=oldestGen;i--){for(uintj=generations[i].interests.length-1;j>=0;j--){if(generations[i].interests[j].lender==lender){id=int(generations[i].interests[j].id);gen=i;interest=j;return;}}}id=-1;return;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 529
+column: 4
+content: functiontoDie(bytes32data)constantreturns(uint8die){uint256FACTOR=5789604461865809771178549250434395392663499233282028201972879200395656481997;returnuint8(uint256(data)/FACTOR)+1;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 539
+column: 4
+content: functiontoContractDie(bytes32seedA,bytes32seedB,uintnonce)constantreturns(uint8die){returntoDie(sha3(seedA,seedB,nonce));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 544
+column: 4
+content: functionhash(bytes32data)constantreturns(bytes32hash){returnsha3(data);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 548
+column: 4
+content: functioncombineInterest(uint8dieA,uint8dieB)constantreturns(uint8die){die=dieA+dieB;if(die>20){die-=20;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 555
+column: 4
+content: functioninterestResolution(uint8contractDie,uint8lenderDie,uint8pick,boolisMirrored)constantreturns(bool){uint8die=combineInterest(contractDie,lenderDie);return(isMirrored&&die>=pick)||(!isMirrored&&die<pick);}
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 256
+column: 28
+content: (100-HOUSE_EDGE)*(20000/numPrincipalningOutcomes)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 99
+column: 8
+content: for(uinti=oldestGen;i<nextGen;i++){if(generations[i].death==0){n++;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 279
+column: 8
+content: for(uinti=oldestGen;i<nextGen;i++){if(isSuitableGen(i,0)){suitability.gen=i;suitability.isSuitable=true;return;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 317
+column: 8
+content: for(uinti=0;i<generations[gen].interests.length;i++){uint8contractDie=toContractDie(generations[gen].seedA,generations[gen].seedB,generations[gen].interests[i].id);uint8pick=generations[gen].interests[i].pick;boolisMirrored=generations[gen].interests[i].isMirrored;uintpayout=generations[gen].interests[i].payout;boollenderPrincipals=interestResolution(contractDie,generations[gen].interests[i].die,pick,isMirrored);if(lenderPrincipals){generations[gen].interests[i].lender.send(payout);}InterestResolved(generations[gen].interests[i].id,contractDie,lenderPrincipals);outstandingPayouts-=payout;if(investorBankroll>=bankroll){uintinvestorShare=generations[gen].interests[i].wager/2;uintownerShare=generations[gen].interests[i].wager-investorShare;investorBankroll+=investorShare;investorProfit+=int(investorShare);bankroll+=ownerShare;profit+=int(ownerShare);if(lenderPrincipals){investorShare=payout/2;ownerShare=payout-investorShare;if(ownerShare>bankroll){ownerShare=bankroll;investorShare=payout-ownerShare;}elseif(investorShare>investorBankroll){investorShare=investorBankroll;ownerShare=payout-investorShare;}investorBankroll-=investorShare;investorProfit-=int(investorShare);bankroll-=ownerShare;profit-=int(ownerShare);}}else{bankroll+=generations[gen].interests[i].wager;profit+=int(generations[gen].interests[i].wager);if(lenderPrincipals){bankroll-=payout;profit-=int(payout);}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 443
+column: 8
+content: for(uinti=0;i<generations[oldestGen].interests.length;i++){uintwager=generations[oldestGen].interests[i].wager;uintpayout=generations[oldestGen].interests[i].payout;generations[oldestGen].interests[i].lender.send(wager);outstandingPayouts-=payout;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 514
+column: 8
+content: for(uinti=nextGen-1;i>=oldestGen;i--){for(uintj=generations[i].interests.length-1;j>=0;j--){if(generations[i].interests[j].lender==lender){id=int(generations[i].interests[j].id);gen=i;interest=j;return;}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 317
+column: 8
+content: for(uinti=0;i<generations[gen].interests.length;i++){uint8contractDie=toContractDie(generations[gen].seedA,generations[gen].seedB,generations[gen].interests[i].id);uint8pick=generations[gen].interests[i].pick;boolisMirrored=generations[gen].interests[i].isMirrored;uintpayout=generations[gen].interests[i].payout;boollenderPrincipals=interestResolution(contractDie,generations[gen].interests[i].die,pick,isMirrored);if(lenderPrincipals){generations[gen].interests[i].lender.send(payout);}InterestResolved(generations[gen].interests[i].id,contractDie,lenderPrincipals);outstandingPayouts-=payout;if(investorBankroll>=bankroll){uintinvestorShare=generations[gen].interests[i].wager/2;uintownerShare=generations[gen].interests[i].wager-investorShare;investorBankroll+=investorShare;investorProfit+=int(investorShare);bankroll+=ownerShare;profit+=int(ownerShare);if(lenderPrincipals){investorShare=payout/2;ownerShare=payout-investorShare;if(ownerShare>bankroll){ownerShare=bankroll;investorShare=payout-ownerShare;}elseif(investorShare>investorBankroll){investorShare=investorBankroll;ownerShare=payout-investorShare;}investorBankroll-=investorShare;investorProfit-=int(investorShare);bankroll-=ownerShare;profit-=int(ownerShare);}}else{bankroll+=generations[gen].interests[i].wager;profit+=int(generations[gen].interests[i].wager);if(lenderPrincipals){bankroll-=payout;profit-=int(payout);}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 443
+column: 8
+content: for(uinti=0;i<generations[oldestGen].interests.length;i++){uintwager=generations[oldestGen].interests[i].wager;uintpayout=generations[oldestGen].interests[i].payout;generations[oldestGen].interests[i].lender.send(wager);outstandingPayouts-=payout;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 645
+column: 4
+content: functionsetSeedSourceA(address_seedSourceA){if(msg.sender==seedSourceA||seedSourceA==0){seedSourceA=_seedSourceA;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 651
+column: 4
+content: functionsetSeedSourceB(address_seedSourceB){if(msg.sender==seedSourceB||seedSourceB==0){seedSourceB=_seedSourceB;}}
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 11ca45b
+severity: 3
+line: 515
+column: 63
+content: j>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: d48ac4
+severity: 2
+line: 515
+column: 63
+content: j>=0
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 447
+column: 55
+content: send(wager)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 139
+column: 26
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 139
+column: 65
+content: ParserResult
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 276
+column: 58
+content: Suitabilitysuitability
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 93
+column: 4
+content: functionAIGInvestment(){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 97
+column: 4
+content: functionnumberOfHealthyGenerations()returns(uintn){n=0;for(uinti=oldestGen;i<nextGen;i++){if(generations[i].death==0){n++;}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 106
+column: 4
+content: functionneedsBirth()constantreturns(boolneeded){returnnumberOfHealthyGenerations()<3;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 110
+column: 4
+content: functionroomForBirth()constantreturns(boolhasRoom){returnnumberOfHealthyGenerations()<4;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 114
+column: 4
+content: functionbirth(bytes32freshSeedHash)onlyseedsources{if(msg.sender==seedSourceA){nextSeedHashA=freshSeedHash;hasNextSeedHashA=true;}else{nextSeedHashB=freshSeedHash;hasNextSeedHashB=true;}if(!hasNextSeedHashA||!hasNextSeedHashB||!roomForBirth()){return;}generations[nextGen].seedHashA=nextSeedHashA;generations[nextGen].seedHashB=nextSeedHashB;generations[nextGen].minWager=minWager;generations[nextGen].maxPayout=(bankroll+investorBankroll)/100;generations[nextGen].ofage=block.number+SHORT_PHASE;nextGen+=1;hasNextSeedHashA=false;hasNextSeedHashB=false;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 169
+column: 4
+content: function_parseMsgData(bytesdata)constantreturns(boolhasResult,uint8pick,boolisMirrored,uint8die){ParserResultmemoryresult=parseMsgData(data);hasResult=result.hasResult;pick=result.pick;isMirrored=result.isMirrored;die=result.die;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 181
+column: 4
+content: function(){ParserResultmemoryresult=parseMsgData(msg.data);if(result.hasResult){interest(result.pick,result.isMirrored,result.die);}else{interest(11,true,toDie(sha3(block.blockhash(block.number-1),totalInterests)));}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 192
+column: 4
+content: functioninterest(uint8pick,boolisMirrored,uint8die)returns(int){if(pick<2||pick>20){msg.sender.send(msg.value);return-1;}if(die<1||die>20){msg.sender.send(msg.value);return-1;}Suitabilitymemorysuitability=findSuitableGen();uintsuitableGen=suitability.gen;if(!suitability.isSuitable){msg.sender.send(msg.value);return-1;}if(msg.value<generations[suitableGen].minWager){msg.sender.send(msg.value);return-1;}uintpayout=calculatePayout(pick,isMirrored,msg.value);if(payout>generations[suitableGen].maxPayout){msg.sender.send(msg.value);return-1;}if(outstandingPayouts+payout>bankroll+investorBankroll){msg.sender.send(msg.value);return-1;}uintidx=generations[suitableGen].interests.length;generations[suitableGen].interests.length+=1;generations[suitableGen].interests[idx].id=totalInterests;generations[suitableGen].interests[idx].lender=msg.sender;generations[suitableGen].interests[idx].pick=pick;generations[suitableGen].interests[idx].isMirrored=isMirrored;generations[suitableGen].interests[idx].wager=msg.value;generations[suitableGen].interests[idx].payout=payout;generations[suitableGen].interests[idx].die=die;generations[suitableGen].interests[idx].timestamp=now;totalInterests+=1;outstandingPayouts+=payout;becomeMortal(suitableGen);returnint(totalInterests-1);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 245
+column: 4
+content: functioncalculatePayout(uint8pick,boolisMirrored,uintvalue)constantreturns(uint){uintnumPrincipalningOutcomes;if(isMirrored){numPrincipalningOutcomes=21-pick;}else{numPrincipalningOutcomes=pick-1;}uintpayoutFactor=(100-HOUSE_EDGE)*(20000/numPrincipalningOutcomes);uintpayout=(value*payoutFactor)/100000;returnpayout;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 269
+column: 4
+content: functionisSuitableGen(uintgen,uintoffset)constantreturns(bool){returnblock.number+offset>=generations[gen].ofage&&(generations[gen].death==0||block.number+offset<generations[gen].death)&&generations[gen].interests.length<maxNumInterests;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 288
+column: 4
+content: functionneedsbeneficiary(uintoffset)constantreturns(boolneeded){if(oldestGen>=nextGen){returnfalse;}returngenerations[oldestGen].death!=0&&generations[oldestGen].death+LONG_PHASE<=block.number+offset;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 297
+column: 4
+content: functionbeneficiary(bytes32seed,intpayoutId)onlyseedsources{if(!needsbeneficiary(0)){return;}uintgen=oldestGen;if(msg.sender==seedSourceA&&sha3(seed)==generations[gen].seedHashA){generations[gen].seedA=seed;}elseif(msg.sender==seedSourceB&&sha3(seed)==generations[gen].seedHashB){generations[gen].seedB=seed;}if(sha3(generations[gen].seedA)!=generations[gen].seedHashA||sha3(generations[gen].seedB)!=generations[gen].seedHashB){return;}for(uinti=0;i<generations[gen].interests.length;i++){uint8contractDie=toContractDie(generations[gen].seedA,generations[gen].seedB,generations[gen].interests[i].id);uint8pick=generations[gen].interests[i].pick;boolisMirrored=generations[gen].interests[i].isMirrored;uintpayout=generations[gen].interests[i].payout;boollenderPrincipals=interestResolution(contractDie,generations[gen].interests[i].die,pick,isMirrored);if(lenderPrincipals){generations[gen].interests[i].lender.send(payout);}InterestResolved(generations[gen].interests[i].id,contractDie,lenderPrincipals);outstandingPayouts-=payout;if(investorBankroll>=bankroll){uintinvestorShare=generations[gen].interests[i].wager/2;uintownerShare=generations[gen].interests[i].wager-investorShare;investorBankroll+=investorShare;investorProfit+=int(investorShare);bankroll+=ownerShare;profit+=int(ownerShare);if(lenderPrincipals){investorShare=payout/2;ownerShare=payout-investorShare;if(ownerShare>bankroll){ownerShare=bankroll;investorShare=payout-ownerShare;}elseif(investorShare>investorBankroll){investorShare=investorBankroll;ownerShare=payout-investorShare;}investorBankroll-=investorShare;investorProfit-=int(investorShare);bankroll-=ownerShare;profit-=int(ownerShare);}}else{bankroll+=generations[gen].interests[i].wager;profit+=int(generations[gen].interests[i].wager);if(lenderPrincipals){bankroll-=payout;profit-=int(payout);}}}performAction(gen);generations[gen].beneficiary=block.number;generations[gen].payoutId=payoutId;oldestGen+=1;if(oldestGen>=ARCHIVE_SIZE){deletegenerations[oldestGen-ARCHIVE_SIZE];}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 436
+column: 4
+content: functionemergencybeneficiary(){if(generations[oldestGen].death==0||block.number-generations[oldestGen].death<SAFEGUARD_THRESHOLD){return;}for(uinti=0;i<generations[oldestGen].interests.length;i++){uintwager=generations[oldestGen].interests[i].wager;uintpayout=generations[oldestGen].interests[i].payout;generations[oldestGen].interests[i].lender.send(wager);outstandingPayouts-=payout;}performAction(oldestGen);generations[oldestGen].beneficiary=block.number;generations[oldestGen].payoutId=-1;oldestGen+=1;if(oldestGen>=ARCHIVE_SIZE){deletegenerations[oldestGen-ARCHIVE_SIZE];}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 461
+column: 4
+content: functionbeneficiaryAndBirth(bytes32seed,intpayoutId,bytes32freshSeedHash)onlyseedsources{beneficiary(seed,payoutId);birth(freshSeedHash);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 468
+column: 4
+content: functionlookupGeneration(uintgen)constantreturns(bytes32seedHashA,bytes32seedHashB,bytes32seedA,bytes32seedB,uintminWager,uintmaxPayout,uintofage,uintdeath,uintbeneficiary,uintnumInterests,boolhasAction,intpayoutId){seedHashA=generations[gen].seedHashA;seedHashB=generations[gen].seedHashB;seedA=generations[gen].seedA;seedB=generations[gen].seedB;minWager=generations[gen].minWager;maxPayout=generations[gen].maxPayout;ofage=generations[gen].ofage;death=generations[gen].death;beneficiary=generations[gen].beneficiary;numInterests=generations[gen].interests.length;hasAction=generations[gen].hasAction;payoutId=generations[gen].payoutId;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 494
+column: 4
+content: functionlookupInterest(uintgen,uintinterest)constantreturns(uintid,addresslender,uint8pick,boolisMirrored,uintwager,uintpayout,uint8die,uinttimestamp){id=generations[gen].interests[interest].id;lender=generations[gen].interests[interest].lender;pick=generations[gen].interests[interest].pick;isMirrored=generations[gen].interests[interest].isMirrored;wager=generations[gen].interests[interest].wager;payout=generations[gen].interests[interest].payout;die=generations[gen].interests[interest].die;timestamp=generations[gen].interests[interest].timestamp;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 512
+column: 4
+content: functionfindRecentInterest(addresslender)constantreturns(intid,uintgen,uintinterest){for(uinti=nextGen-1;i>=oldestGen;i--){for(uintj=generations[i].interests.length-1;j>=0;j--){if(generations[i].interests[j].lender==lender){id=int(generations[i].interests[j].id);gen=i;interest=j;return;}}}id=-1;return;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 529
+column: 4
+content: functiontoDie(bytes32data)constantreturns(uint8die){uint256FACTOR=5789604461865809771178549250434395392663499233282028201972879200395656481997;returnuint8(uint256(data)/FACTOR)+1;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 539
+column: 4
+content: functiontoContractDie(bytes32seedA,bytes32seedB,uintnonce)constantreturns(uint8die){returntoDie(sha3(seedA,seedB,nonce));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 544
+column: 4
+content: functionhash(bytes32data)constantreturns(bytes32hash){returnsha3(data);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 548
+column: 4
+content: functioncombineInterest(uint8dieA,uint8dieB)constantreturns(uint8die){die=dieA+dieB;if(die>20){die-=20;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 555
+column: 4
+content: functioninterestResolution(uint8contractDie,uint8lenderDie,uint8pick,boolisMirrored)constantreturns(bool){uint8die=combineInterest(contractDie,lenderDie);return(isMirrored&&die>=pick)||(!isMirrored&&die<pick);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 561
+column: 4
+content: functionlowerMinWager(uint_minWager)onlyowner{if(_minWager<minWager){minWager=_minWager;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 567
+column: 4
+content: functionraiseMaxNumInterests(uint_maxNumInterests)onlyowner{if(_maxNumInterests>maxNumInterests){maxNumInterests=_maxNumInterests;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 573
+column: 4
+content: functionsetOwner(address_owner)onlyowner{owner=_owner;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 577
+column: 4
+content: functiondeposit()onlyowner{bankroll+=msg.value;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 581
+column: 4
+content: functionwithdraw(uintamount)onlyowner{Suitabilitymemorysuitability=findSuitableGen();uintsuitableGen=suitability.gen;if(!suitability.isSuitable){return;}if(generations[suitableGen].hasAction){return;}generations[suitableGen].action.actionType=ActionType.Withdrawal;generations[suitableGen].action.amount=amount;generations[suitableGen].hasAction=true;becomeMortal(suitableGen);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 599
+column: 4
+content: functioninvestorDeposit(){if(isInvestorLocked&&msg.sender!=investor){return;}Suitabilitymemorysuitability=findSuitableGen();uintsuitableGen=suitability.gen;if(!suitability.isSuitable){return;}if(generations[suitableGen].hasAction){return;}generations[suitableGen].action.actionType=ActionType.InvestorDeposit;generations[suitableGen].action.sender=msg.sender;generations[suitableGen].action.amount=msg.value;generations[suitableGen].hasAction=true;becomeMortal(suitableGen);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 622
+column: 4
+content: functioninvestorWithdraw(uintamount){Suitabilitymemorysuitability=findSuitableGen();uintsuitableGen=suitability.gen;if(!suitability.isSuitable){return;}if(generations[suitableGen].hasAction){return;}generations[suitableGen].action.actionType=ActionType.InvestorWithdrawal;generations[suitableGen].action.sender=msg.sender;generations[suitableGen].action.amount=amount;generations[suitableGen].hasAction=true;becomeMortal(suitableGen);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 641
+column: 4
+content: functionsetInvestorLock(bool_isInvestorLocked)onlyowner{isInvestorLocked=_isInvestorLocked;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 645
+column: 4
+content: functionsetSeedSourceA(address_seedSourceA){if(msg.sender==seedSourceA||seedSourceA==0){seedSourceA=_seedSourceA;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 651
+column: 4
+content: functionsetSeedSourceB(address_seedSourceB){if(msg.sender==seedSourceB||seedSourceB==0){seedSourceB=_seedSourceB;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 7
+column: 4
+content: uintconstantLONG_PHASE=4;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 8
+column: 4
+content: uintconstantSHORT_PHASE=5;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 4
+content: uintconstantHOUSE_EDGE=2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: uintconstantSAFEGUARD_THRESHOLD=36000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 11
+column: 4
+content: uintconstantARCHIVE_SIZE=100;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 53
+column: 4
+content: mapping(uint=>Generation)generations;
+
+SOLIDITY_VISIBILITY :38
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :23
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :5
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_UINT_CANT_BE_NEGATIVE :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_DIV_MUL :1

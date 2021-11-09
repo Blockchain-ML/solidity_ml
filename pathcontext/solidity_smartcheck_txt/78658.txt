@@ -1,0 +1,55 @@
+F:\Blockchain\dataset_new_byID\78658.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 125
+column: 44
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 126
+column: 29
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 319
+column: 35
+content: 0x0
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 164
+column: 4
+content: for(uinti=0;i<_users.length;i++){require(_amounts[i]>=0,"colony-bootstrap-bad-amount-input");require(uint256(_amounts[i])<=fundingPots[1].balance[token],"colony-bootstrap-not-enough-tokens");fundingPots[1].balance[token]=sub(fundingPots[1].balance[token],uint256(_amounts[i]));nonRewardPotsTotal[token]=sub(nonRewardPotsTotal[token],uint256(_amounts[i]));assert(ERC20Extended(token).transfer(_users[i],uint256(_amounts[i])));IColonyNetwork(colonyNetworkAddress).appendReputationUpdateLog(_users[i],_amounts[i],domains[1].skillId);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 164
+column: 4
+content: for(uinti=0;i<_users.length;i++){require(_amounts[i]>=0,"colony-bootstrap-bad-amount-input");require(uint256(_amounts[i])<=fundingPots[1].balance[token],"colony-bootstrap-not-enough-tokens");fundingPots[1].balance[token]=sub(fundingPots[1].balance[token],uint256(_amounts[i]));nonRewardPotsTotal[token]=sub(nonRewardPotsTotal[token],uint256(_amounts[i]));assert(ERC20Extended(token).transfer(_users[i],uint256(_amounts[i])));IColonyNetwork(colonyNetworkAddress).appendReputationUpdateLog(_users[i],_amounts[i],domains[1].skillId);}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 282
+column: 2
+content: functionverifyReputationProof(bytesmemorykey,bytesmemoryvalue,uint256branchMask,bytes32[]memorysiblings)publicviewstoppablereturns(bool){uint256colonyAddress;uint256skillid;uint256userAddress;assembly{colonyAddress:=mload(add(key,32))skillid:=mload(add(key,52))userAddress:=mload(add(key,84))}colonyAddress>>=96;userAddress>>=96;if(address(colonyAddress)!=address(this)||address(userAddress)!=msg.sender){returnfalse;}bytes32rootHash=IColonyNetwork(colonyNetworkAddress).getReputationRootHash();bytes32impliedHash=getImpliedRootHashKey(key,value,branchMask,siblings);if(rootHash!=impliedHash){returnfalse;}returntrue;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 290
+column: 4
+content: assembly{colonyAddress:=mload(add(key,32))skillid:=mload(add(key,52))userAddress:=mload(add(key,84))}
+
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

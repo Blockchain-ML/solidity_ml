@@ -1,0 +1,241 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\89255.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 242
+column: 73
+content: 0x20
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 248
+column: 75
+content: 0x34
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 255
+column: 74
+content: 0x48
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 55
+column: 4
+content: functionbalanceOf(address_owner)publicconstantreturns(uint256balance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 86
+column: 4
+content: functionallowance(address_owner,address_spender)publicconstantreturns(uint256remaining);
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 508
+column: 8
+content: for(uint256i=0;i<_trusted_contracts.length;i++){if(addressHasCode(_trusted_contracts[i])){trusted_contracts[_trusted_contracts[i]]=true;TrustedContract(_trusted_contracts[i],true);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 520
+column: 8
+content: for(uint256i=0;i<_trusted_contracts.length;i++){if(trusted_contracts[_trusted_contracts[i]]){trusted_contracts[_trusted_contracts[i]]=false;TrustedContract(_trusted_contracts[i],false);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 508
+column: 8
+content: for(uint256i=0;i<_trusted_contracts.length;i++){if(addressHasCode(_trusted_contracts[i])){trusted_contracts[_trusted_contracts[i]]=true;TrustedContract(_trusted_contracts[i],true);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 520
+column: 8
+content: for(uint256i=0;i<_trusted_contracts.length;i++){if(trusted_contracts[_trusted_contracts[i]]){trusted_contracts[_trusted_contracts[i]]=false;TrustedContract(_trusted_contracts[i],false);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 6
+column: 4
+content: functionecverify(bytes32hash,bytessignature)internalpurereturns(addresssignature_address){require(signature.length==65);bytes32r;bytes32s;uint8v;assembly{r:=mload(add(signature,32))s:=mload(add(signature,64))v:=byte(0,mload(add(signature,96)))}if(v<27){v+=27;}require(v==27||v==28);signature_address=ecrecover(hash,v,r,s);require(signature_address!=0x0);returnsignature_address;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 739
+column: 4
+content: functionaddressFromBytes(bytesdata,uint256offset)internalpurereturns(address){bytes20extracted_address;assembly{extracted_address:=mload(add(data,offset))}returnaddress(extracted_address);}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 751
+column: 4
+content: functionblockNumberFromBytes(bytesdata,uint256offset)internalpurereturns(uint32){bytes4block_number;assembly{block_number:=mload(add(data,offset))}returnuint32(block_number);}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 762
+column: 4
+content: functionaddressHasCode(address_contract)internalviewreturns(bool){uintsize;assembly{size:=extcodesize(_contract)}returnsize>0;}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 551
+column: 31
+content: keccak256(keccak256('string message_id','address receiver','uint32 block_created','uint192 balance','address contract'),keccak256('Sender balance proof signature',_receiver_address,_open_block_number,_balance,address(this)))
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 552
+column: 12
+content: keccak256('string message_id','address receiver','uint32 block_created','uint192 balance','address contract')
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 559
+column: 12
+content: keccak256('Sender balance proof signature',_receiver_address,_open_block_number,_balance,address(this))
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 596
+column: 31
+content: keccak256(keccak256('string message_id','address sender','uint32 block_created','uint192 balance','address contract'),keccak256('Receiver closing signature',_sender_address,_open_block_number,_balance,address(this)))
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 597
+column: 12
+content: keccak256('string message_id','address sender','uint32 block_created','uint192 balance','address contract')
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 604
+column: 12
+content: keccak256('Receiver closing signature',_sender_address,_open_block_number,_balance,address(this))
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 632
+column: 15
+content: keccak256(_sender_address,_receiver_address,_open_block_number)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 6
+column: 36
+content: bytessignature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 62
+column: 51
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 204
+column: 8
+content: address[]_trusted_contracts
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 507
+column: 33
+content: address[]_trusted_contracts
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 519
+column: 36
+content: address[]_trusted_contracts
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 540
+column: 8
+content: bytes_balance_msg_sig
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 585
+column: 8
+content: bytes_closing_sig
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 739
+column: 31
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 751
+column: 34
+content: bytesdata
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 16
+column: 8
+content: assembly{r:=mload(add(signature,32))s:=mload(add(signature,64))v:=byte(0,mload(add(signature,96)))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 741
+column: 8
+content: assembly{extracted_address:=mload(add(data,offset))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 753
+column: 8
+content: assembly{block_number:=mload(add(data,offset))}
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_UPGRADE_TO_050 :16
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_USING_INLINE_ASSEMBLY :3
+SOLIDITY_SHOULD_NOT_BE_VIEW :1
+SOLIDITY_SHOULD_NOT_BE_PURE :3

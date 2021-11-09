@@ -1,0 +1,40 @@
+C:\Users\hp\DataSet\contracts\ropsten\28\285e7b3efc4cc2330fda8bab88db0a6b4d59046f_SimpleToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 107
+column: 8
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_ERC20_TRANSFER_SHOULD_THROW
+patternId: 550a42
+severity: 1
+line: 85
+column: 8
+content: functiontransferFrom(address_from,address_to,uint256_value)publicreturns(bool){if(_to==address(0))returnfalse;if(_value>balances[_from])returnfalse;if(_value>allowed[_from][msg.sender])returnfalse;balances[_from]-=_value;balances[_to]+=_value;allowed[_from][msg.sender]-=_value;emitTransfer(_from,_to,_value);returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 31
+column: 8
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 33
+column: 8
+content: uint256totalSupply_;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ERC20_TRANSFER_SHOULD_THROW :1
+SOLIDITY_ERC20_APPROVE :1

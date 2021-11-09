@@ -1,0 +1,224 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\88758.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 75
+column: 2
+content: functionadd(uint256x,uint256y)constantinternalreturns(uint256z){assert((z=x+y)>=x);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 79
+column: 2
+content: functionsub(uint256x,uint256y)constantinternalreturns(uint256z){assert((z=x-y)<=x);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 83
+column: 2
+content: functionmul(uint256x,uint256y)constantinternalreturns(uint256z){z=x*y;assert(x==0||z/x==y);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 95
+column: 2
+content: functionsubMaxZero(uint256x,uint256y)constantinternalreturns(uint256z){if(y>x)z=0;elsez=x-y;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 134
+column: 2
+content: functionbalanceOf(addressguy)publicconstantreturns(uint){returniTokensOwnedM[guy];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 140
+column: 2
+content: functionallowance(addressguy,addressspender)publicconstantreturns(uint){returnpAllowedM[guy][spender];}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 187
+column: 2
+content: functionapprove(addressspender,uintwad)IsActivereturns(bool){pAllowedM[msg.sender][spender]=wad;Approval(msg.sender,spender,wad);returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 4
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 116
+column: 48
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 219
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 220
+column: 10
+content: private
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 385
+column: 13
+content: {revert();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 12
+column: 2
+content: functionOwned(){ownerA=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 37
+column: 2
+content: functionChangeOwner(addressvNewOwnerA)IsOwner{require(vNewOwnerA!=address(0)&&vNewOwnerA!=ownerA);LogOwnerChange(ownerA,vNewOwnerA);ownerA=vNewOwnerA;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 45
+column: 2
+content: functionPause()IsOwner{pausedB=true;LogPaused();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 51
+column: 2
+content: functionResume()IsOwner{pausedB=false;LogResumed();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 162
+column: 2
+content: functiontransfer(addressdst,uintwad)IsTransferOK(msg.sender,dst,wad)returns(bool){iTokensOwnedM[msg.sender]-=wad;iTokensOwnedM[dst]=add(iTokensOwnedM[dst],wad);Transfer(msg.sender,dst,wad);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 174
+column: 2
+content: functiontransferFrom(addresssrc,addressdst,uintwad)IsTransferOK(src,dst,wad)returns(bool){require(pAllowedM[src][msg.sender]>=wad);iTokensOwnedM[src]-=wad;pAllowedM[src][msg.sender]-=wad;iTokensOwnedM[dst]=add(iTokensOwnedM[dst],wad);Transfer(src,dst,wad);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 187
+column: 2
+content: functionapprove(addressspender,uintwad)IsActivereturns(bool){pAllowedM[msg.sender][spender]=wad;Approval(msg.sender,spender,wad);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 239
+column: 2
+content: functionInitialise(addressvNewOwnerA){require(totalSupply==0);super.ChangeOwner(vNewOwnerA);founderTokensAllocated=10**20;foundationTokensAllocated=10**20;totalSupply=10**21;iTokensOwnedM[ownerA]=10**21;tokensAvailable=8*(10**20);Transfer(0x0,ownerA,10**21);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 254
+column: 2
+content: functionMint(uintpicos)IsOwner{totalSupply=add(totalSupply,picos);iTokensOwnedM[ownerA]=add(iTokensOwnedM[ownerA],picos);tokensAvailable=subMaxZero(totalSupply,tokensIssued+founderTokensAllocated+foundationTokensAllocated);Transfer(0x0,ownerA,picos);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 264
+column: 2
+content: functionPrepareForSale()IsOwner{require(!icoCompleteB);saleInProgressB=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 272
+column: 2
+content: functionChangeOwner(addressvNewOwnerA){transfer(vNewOwnerA,iTokensOwnedM[ownerA]);super.ChangeOwner(vNewOwnerA);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 285
+column: 2
+content: functionIssue(addressdst,uintpicos)IsOwnerIsActivereturns(bool){require(saleInProgressB&&iTokensOwnedM[ownerA]>=picos&&dst!=address(this)&&dst!=ownerA);if(iTokensOwnedM[dst]==0)contributors++;iTokensOwnedM[ownerA]-=picos;iTokensOwnedM[dst]=add(iTokensOwnedM[dst],picos);tokensIssued=add(tokensIssued,picos);tokensAvailable=subMaxZero(tokensAvailable,picos);LogIssue(dst,picos);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 304
+column: 2
+content: functionSaleCapReached()IsOwnerIsActive{saleInProgressB=false;LogSaleCapReached(tokensIssued);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 313
+column: 2
+content: functionIcoCompleted()IsOwnerIsActive{require(!icoCompleteB);saleInProgressB=false;icoCompleteB=true;LogIcoCompleted();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 325
+column: 2
+content: functionSetFFSettings(addressvFounderTokensA,addressvFoundationTokensA,uintvFounderTokensAllocation,uintvFoundationTokensAllocation)IsOwner{if(vFounderTokensA!=address(0))pFounderToksA=vFounderTokensA;if(vFoundationTokensA!=address(0))pFoundationToksA=vFoundationTokensA;if(vFounderTokensAllocation>0)assert((founderTokensAllocated=vFounderTokensAllocation)>=founderTokensVested);if(vFoundationTokensAllocation>0)assert((foundationTokensAllocated=vFoundationTokensAllocation)>=foundationTokensVested);tokensAvailable=totalSupply-founderTokensAllocated-foundationTokensAllocated-tokensIssued;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 338
+column: 2
+content: functionVestFFTokens(uintvFounderTokensVesting,uintvFoundationTokensVesting)IsOwnerIsActive{require(icoCompleteB);if(vFounderTokensVesting>0){assert(pFounderToksA!=address(0));assert((founderTokensVested=add(founderTokensVested,vFounderTokensVesting))<=founderTokensAllocated);iTokensOwnedM[ownerA]=sub(iTokensOwnedM[ownerA],vFounderTokensVesting);iTokensOwnedM[pFounderToksA]=add(iTokensOwnedM[pFounderToksA],vFounderTokensVesting);LogIssue(pFounderToksA,vFounderTokensVesting);tokensIssued=add(tokensIssued,vFounderTokensVesting);}if(vFoundationTokensVesting>0){assert(pFoundationToksA!=address(0));assert((foundationTokensVested=add(foundationTokensVested,vFoundationTokensVesting))<=foundationTokensAllocated);iTokensOwnedM[ownerA]=sub(iTokensOwnedM[ownerA],vFoundationTokensVesting);iTokensOwnedM[pFoundationToksA]=add(iTokensOwnedM[pFoundationToksA],vFoundationTokensVesting);LogIssue(pFoundationToksA,vFoundationTokensVesting);tokensIssued=add(tokensIssued,vFoundationTokensVesting);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 362
+column: 2
+content: functionBurn(addresssrc,uintpicos)IsOwnerIsActive{require(icoCompleteB);iTokensOwnedM[src]=subMaxZero(iTokensOwnedM[src],picos);tokensIssued=subMaxZero(tokensIssued,picos);totalSupply=subMaxZero(totalSupply,picos);LogBurn(src,picos);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 374
+column: 2
+content: functionDestroy(uintpicos)IsOwnerIsActive{require(icoCompleteB);totalSupply=subMaxZero(totalSupply,picos);tokensAvailable=subMaxZero(tokensAvailable,picos);LogDestroy(picos);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 385
+column: 2
+content: function(){revert();}
+
+SOLIDITY_VISIBILITY :19
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :3
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_ERC20_APPROVE :1

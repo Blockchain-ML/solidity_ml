@@ -1,0 +1,95 @@
+F:\Blockchain\dataset_new_byID\81746.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 30
+column: 0
+content: contractRegistryisOwned,IMetadataRegistry,IOwnerRegistry,IReverseRegistry{structEntry{addressowner;addressreverse;booldeleted;mapping(string=>bytes32)data;}eventDrained(uintamount);eventFeeChanged(uintamount);eventReverseProposed(stringname,addressindexedreverse);mapping(bytes32=>Entry)internalentries;mapping(address=>string)internalreverses;uint256publicfee=1ether;modifierwhenUnreserved(bytes32_name){require(!entries[_name].deleted&&entries[_name].owner==address(0));_;}modifieronlyOwnerOf(bytes32_name){require(entries[_name].owner==msg.sender);_;}modifierwhenProposed(stringmemory_name){require(entries[keccak256(bytes(_name))].reverse==msg.sender);_;}modifierwhenEntry(stringmemory_name){require(!entries[keccak256(bytes(_name))].deleted&&entries[keccak256(bytes(_name))].owner!=address(0));_;}modifierwhenEntryRaw(bytes32_name){require(!entries[_name].deleted&&entries[_name].owner!=address(0));_;}modifierwhenFeePaid{require(msg.value>=fee);_;}constructor(address_certifierContract,address_owner)public{require(_certifierContract!=address(0));bytes32serviceTransactionChecker=keccak256("service_transaction_checker");addressentryOwner=msg.sender;if(_owner!=address(0)){owner=_owner;entryOwner=_owner;}entries[serviceTransactionChecker].owner=entryOwner;entries[serviceTransactionChecker].data["A"]=bytes20(_certifierContract);emitReserved(serviceTransactionChecker,entryOwner);emitDataChanged(serviceTransactionChecker,"A","A");}functionreserve(bytes32_name)externalpayablewhenUnreserved(_name)whenFeePaidreturns(boolsuccess){entries[_name].owner=msg.sender;emitReserved(_name,msg.sender);returntrue;}functiontransfer(bytes32_name,address_to)externalwhenEntryRaw(_name)onlyOwnerOf(_name)returns(boolsuccess){entries[_name].owner=_to;emitTransferred(_name,msg.sender,_to);returntrue;}functiondrop(bytes32_name)externalwhenEntryRaw(_name)onlyOwnerOf(_name)returns(boolsuccess){if(keccak256(bytes(reverses[entries[_name].reverse]))==_name){emitReverseRemoved(reverses[entries[_name].reverse],entries[_name].reverse);deletereverses[entries[_name].reverse];}entries[_name].deleted=true;emitDropped(_name,msg.sender);returntrue;}functionsetData(bytes32_name,stringcalldata<missing ')'>_key,bytes32_value)externalwhenEntryRaw(_name)onlyOwnerOf(_name)returns(boolsuccess){entries[_name].data[_key]=_value;emitDataChanged(_name,_key,_key);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 18
+column: 4
+content: functionsetOwner(address_new)externalonlyOwner{require(_new!=address(0));emitNewOwner(owner,_new);owner=_new;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 137
+column: 4
+content: functionsetData(bytes32_name,stringcalldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 137
+column: 52
+content: _key,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 137
+column: 58
+content: bytes32_value)external
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 139
+column: 8
+content: whenEntryRaw(_name)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 140
+column: 8
+content: onlyOwnerOf(_name)returns
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 141
+column: 16
+content: (boolsuccess){entries[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 143
+column: 16
+content: _name].
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 143
+column: 23
+content: data[_key]=_value;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 144
+column: 8
+content: emitDataChanged
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 144
+column: 24
+content: (_name,_key,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 144
+column: 38
+content: _key);returntrue;
+
+SOLIDITY_VISIBILITY :11
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_LOCKED_MONEY :1

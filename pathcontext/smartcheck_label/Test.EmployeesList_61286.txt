@@ -1,0 +1,124 @@
+C:\Users\hp\DataSet\Test.EmployeesList.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 27
+column: 12
+content: (l.addresses(0),address(0))
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 57
+column: 12
+content: (l.addresses(1),address(0))
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 61
+column: 12
+content: (l.addresses(0),address(0))
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 63
+column: 12
+content: (l.addresses(1),address(0))
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 88
+column: 61
+content: years
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 88
+column: 75
+content: years
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 90
+column: 49
+content: years
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 91
+column: 50
+content: years
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 10
+column: 2
+content: functionsetUp(){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 13
+column: 2
+content: functiontestAddRemoveEmployee()logs_gas(){Testeremp1=newTester();EmployeesListl=newEmployeesList();uint32ct=uint32(block.timestamp);boolisNew=l.setEmployee(address(emp1),ct,ct+2weeks,ct+3weeks,ct+4weeks,100,200,0,EmployeeState.Employed);assertEq(isNew,true);isNew=l.setEmployee(address(emp1),ct,ct+2weeks,ct+3weeks,ct+4weeks,100,200,0,EmployeeState.Employed);assertEq(isNew,false);assertEq(uint(l.size()),1);assertEq(l.addresses(0),address(emp1));boolisRem=l.removeEmployee(address(emp1));assertEq(isRem,true);assertEq(uint(l.size()),1);assertEq(l.addresses(0),address(0));isRem=l.removeEmployee(address(emp1));assertEq(isRem,false);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 32
+column: 2
+content: functiontestMultiAddRemoveEmployee()logs_gas(){Testeremp1=newTester();EmployeesListl=newEmployeesList();uint32ct=uint32(block.timestamp);boolisNew=l.setEmployee(address(emp1),ct,ct+2weeks,ct+3weeks,ct+4weeks,100,200,0,EmployeeState.Employed);assertEq(isNew,true);Testeremp2=newTester();isNew=l.setEmployee(address(emp2),ct,ct+2weeks,ct+3weeks,ct+4weeks,1000,2000,0,EmployeeState.Terminated);assertEq(isNew,true);assertEq(uint(l.size()),2);assertEq(l.addresses(0),address(emp1));assertEq(l.hasEmployee(address(emp1)),true);assertEq(l.addresses(1),address(emp2));Employeememoryemp=deserializeEmployee(l.getSerializedEmployee(address(emp1)));assertEq(uint(emp.idx-1),0,"employee 1 indexes must match");emp=deserializeEmployee(l.getSerializedEmployee(address(emp2)));assertEq(uint(emp.idx-1),1,"employee 2 indexes must match");boolisRem=l.removeEmployee(address(emp2));assertEq(isRem,true);assertEq(uint(l.size()),2);assertEq(l.addresses(0),address(emp1));assertEq(l.hasEmployee(address(emp1)),true);assertEq(l.addresses(1),address(0));assertEq(l.hasEmployee(address(emp2)),false);isRem=l.removeEmployee(address(emp1));assertEq(isRem,true);assertEq(l.addresses(0),address(0));assertEq(l.hasEmployee(address(emp1)),false);assertEq(l.addresses(1),address(0));assertEq(l.hasEmployee(address(emp2)),false);isNew=l.setEmployee(address(emp2),ct,ct+2weeks,ct+3weeks,ct+4weeks,100,0,0,EmployeeState.Employed);assertEq(isNew,true);emp=deserializeEmployee(l.getSerializedEmployee(address(emp2)));assertEq(uint(emp.idx-1),2,"employee 2a indexes must match");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 72
+column: 2
+content: functiontestPersistence()logs_gas(){Testeremp1=newTester();EmployeesListl=newEmployeesList();uint32ct=uint32(block.timestamp);l.setEmployee(address(emp1),ct,ct+2weeks,ct+3weeks,ct+4weeks,100,200,32987,EmployeeState.Employed);Employeememoryemp=deserializeEmployee(l.getSerializedEmployee(address(emp1)));assertEq(uint(emp.issueDate),uint(ct));assertEq(uint(emp.timeToSign),uint(ct+2weeks));assertEq(uint(emp.terminatedAt),uint(ct+3weeks));assertEq(uint(emp.fadeoutStarts),uint(ct+4weeks));assertEq(uint(emp.poolOptions),100);assertEq(uint(emp.extraOptions),200);assertEq(uint(emp.suspendedAt),32987);assertEq(uint(emp.state),uint(EmployeeState.Employed));l.terminateEmployee(address(emp1),emp.issueDate,ct+1years,ct+2years,EmployeeState.Terminated);emp=deserializeEmployee(l.getSerializedEmployee(address(emp1)));assertEq(uint(emp.terminatedAt),uint(ct+1years));assertEq(uint(emp.fadeoutStarts),uint(ct+2years));assertEq(uint(emp.state),uint(EmployeeState.Terminated));l.changeState(address(emp1),EmployeeState.OptionsExercised);emp=deserializeEmployee(l.getSerializedEmployee(address(emp1)));assertEq(uint(emp.state),uint(EmployeeState.OptionsExercised));l.setEmployee(address(emp1),ct,ct+2weeks,ct+3weeks,ct+4weeks,1000,2000,761867,EmployeeState.Employed);emp=deserializeEmployee(l.getSerializedEmployee(address(emp1)));assertEq(uint(emp.poolOptions),1000);assertEq(uint(emp.extraOptions),2000);assertEq(uint(emp.suspendedAt),761867);l.setFadeoutStarts(address(emp1),ct+7weeks);emp=deserializeEmployee(l.getSerializedEmployee(address(emp1)));assertEq(uint(emp.fadeoutStarts),uint(ct+7weeks));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 109
+column: 2
+content: functiontestThrowGetNonExistingEmployee(){Testeremp1=newTester();EmployeesListl=newEmployeesList();uint32ct=uint32(block.timestamp);l.setEmployee(address(emp1),ct,ct+2weeks,ct+3weeks,ct+4weeks,100,200,0,EmployeeState.Employed);Testeremp2=newTester();varsere=l.getSerializedEmployee(address(emp2));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 119
+column: 2
+content: functiontestThrowTerminanteNonExitstingEmployee(){EmployeesListl=newEmployeesList();Testeremp2=newTester();l.terminateEmployee(address(emp2),0,0,0,EmployeeState.Terminated);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 125
+column: 2
+content: functiontestThrowTerminateWithInvalidState(){Testeremp1=newTester();EmployeesListl=newEmployeesList();uint32ct=uint32(block.timestamp);l.setEmployee(address(emp1),ct,ct+2weeks,ct+3weeks,ct+4weeks,100,200,0,EmployeeState.Employed);l.terminateEmployee(address(emp1),ct,0,0,EmployeeState.Employed);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 133
+column: 2
+content: functiontestThrowChangeStateNonExistingEmployee(){EmployeesListl=newEmployeesList();Testeremp2=newTester();l.changeState(address(emp2),EmployeeState.Terminated);}
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :4

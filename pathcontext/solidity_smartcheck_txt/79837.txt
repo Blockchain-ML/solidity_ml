@@ -1,0 +1,125 @@
+F:\Blockchain\dataset_new_byID\79837.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 17
+column: 33
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 31
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 36
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 52
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 60
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 79
+column: 8
+content: throw
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 78
+column: 15
+content: {throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 17
+column: 8
+content: if(owner!=msg.sender)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 29
+column: 8
+content: if(_fundingGoal<=0){LogFailure("Project funding goal must be greater than 0");throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 34
+column: 8
+content: if(block.number>=_deadline){LogFailure("Project deadline must be greater than the current block");throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 50
+column: 8
+content: if(msg.value<=0){LogFailure("Contributions must be greater than 0 wei");throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 58
+column: 8
+content: if(deployedProject.fundingHub()==address(0)){LogFailure("Project contract not found at address");throw;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 21
+column: 4
+content: functionFundingHub(){owner=msg.sender;numOfProjects=0;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 27
+column: 4
+content: functioncreateProject(uint_fundingGoal,uint_deadline,string_title)payablereturns(ProjectprojectAddress){if(_fundingGoal<=0){LogFailure("Project funding goal must be greater than 0");throw;}if(block.number>=_deadline){LogFailure("Project deadline must be greater than the current block");throw;}Projectp=newProject(_fundingGoal,_deadline,_title,msg.sender);projects[numOfProjects]=p;LogProjectCreated(numOfProjects,_title,p,msg.sender);numOfProjects++;returnp;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 47
+column: 4
+content: functioncontribute(address_projectAddress)payablereturns(boolsuccessful){if(msg.value<=0){LogFailure("Contributions must be greater than 0 wei");throw;}ProjectdeployedProject=Project(_projectAddress);if(deployedProject.fundingHub()==address(0)){LogFailure("Project contract not found at address");throw;}if(deployedProject.fund.value(msg.value)(msg.sender)){LogContributionSent(_projectAddress,msg.sender,msg.value);returntrue;}else{LogFailure("Contribution did not send successfully");returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 78
+column: 4
+content: function(){throw;}
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :5
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

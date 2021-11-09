@@ -1,0 +1,226 @@
+C:\Users\hp\DataSet\contracts\ropsten\ff\ff11c73633b09c825cb2765c234514d70ec1c3c3_DKG.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 240
+column: 8
+content: for(uint256j=2;j<public_coefficients.length;j+=2){x=mulmod(x,i,GROUP_ORDER);tmp=bn128_multiply([public_coefficients[j],public_coefficients[j+1],x]);Fx=bn128_add([Fx[0],Fx[1],tmp[0],tmp[1]]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 288
+column: 8
+content: for(;i<registered_addresses.length;i++){node=nodes[registered_addresses[i]];if(node.id!=0&&node.key_distribution_hash!=0){p++;group_pk=bn128_add([group_pk[0],group_pk[1],node.pk[0],node.pk[1]]);}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 428
+column: 4
+content: functionbn128_add(uint256[4]input)publicreturns(uint256[2]result){boolsuccess;assembly{success:=call(not(0),0x06,0,input,128,result,64)}require(success,"elliptic curve addition failed");}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 448
+column: 4
+content: functionbn128_multiply(uint256[3]input)publicreturns(uint256[2]result){boolsuccess;assembly{success:=call(not(0),0x07,0,input,96,result,64)}require(success,"elliptic curve multiplication failed");}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 467
+column: 4
+content: functionbn128_is_on_curve(uint[2]point)publicreturns(boolvalid){uint256[4]memoryinput=[point[0],point[1],g1x,g1y];assembly{valid:=call(not(0),0x06,0,input,128,input,64)}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 346
+column: 12
+content: for(uint256i=0;i<n;i++){Nodememorynode=nodes[registered_addresses[i]];if((node.id!=0)&&node.key_distribution_hash!=0){p++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 502
+column: 15
+content: true
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 16
+column: 0
+content: contractDKG{structNode{uint256id;uint256deposit;uint256[2]pk;uint256[4]bls_pk;bytes32key_distribution_hash;}eventRegistration(addressnode_adr,uint256id,uint256deposit,uint256[2]pk,uint256[4]bls_pk);eventKeySharing(uint256issuer,uint256[]encrypted_shares,uint256[]public_coefficients);eventDisputeSuccessful(addressbad_issuer_addr);uint256constantg1x=1;uint256constantg1y=2;uint256constantg2xx=11559732032986387107991004021392285783925812861821192530917403151452391805634;uint256constantg2xy=10857046999023057135944570762232829481370756359578518086990519993285655852781;uint256constantg2yx=4082367875863433681332203403145435568316851327593401208105741076214120093531;uint256constantg2yy=8495653923123431417604973247489272438418190587263600148770280649306958101930;uint256constantGROUP_ORDER=21888242871839275222246405745257275088548364400416034343698204186575808495617;uint256constantFIELD_MODULUS=21888242871839275222246405745257275088696311157297823662689037894645226208583;uint256[4]bls_group_pk;address[]registered_addresses;mapping(address=>Node)nodes;boolpublicaborted;uint256publicconstantDELTA_INCLUDE=20;uint256publicconstantDELTA_CONFIRM=2;uint256publicconstantPARTICIPATION_THRESHOLD=3;uint256publicT_CONTRACT_CREATION;uint256publicT_REGISTRATION_END;uint256publicT_SHARING_END;uint256publicT_DISPUTE_END;uint256publicT_GROUP_KEY_UPLOAD;constructor()public{T_CONTRACT_CREATION=block.number;T_REGISTRATION_END=T_CONTRACT_CREATION+DELTA_CONFIRM+DELTA_INCLUDE;T_SHARING_END=T_REGISTRATION_END+DELTA_CONFIRM+DELTA_INCLUDE;T_DISPUTE_END=T_SHARING_END+DELTA_CONFIRM+DELTA_INCLUDE;}functionin_registration_phase()publicviewreturns(bool){returnblock.number<=T_REGISTRATION_END;}functionin_sharing_phase()publicviewreturns(bool){return(T_REGISTRATION_END<block.number)&&(block.number<=T_SHARING_END);}functionin_dispute_phase()publicviewreturns(bool){return(T_SHARING_END<block.number)&&(block.number<=T_DISPUTE_END);}functionin_finalization_phase()publicviewreturns(bool){return(T_DISPUTE_END<block.number)&&(T_GROUP_KEY_UPLOAD==0);}functionregistrations_confirmed()publicviewreturns(bool){returnT_REGISTRATION_END+DELTA_CONFIRM<=block.number;}functionsharing_confirmed()publicviewreturns(bool){returnT_SHARING_END+DELTA_CONFIRM<=block.number;}functiondispute_confirmed()publicviewreturns(bool){returnT_DISPUTE_END+DELTA_CONFIRM<=block.number;}functiongroup_key_confirmed()publicviewreturns(bool){return(T_GROUP_KEY_UPLOAD!=0)&&(T_GROUP_KEY_UPLOAD+DELTA_CONFIRM<=block.number);}functionregister(uint256[2]pk,uint256[4]bls_pk,uint256[2]sk_knowledge_proof)publicpayable{require(in_registration_phase(),"registration failed (contract is not in registration phase)");require(nodes[msg.sender].id==0,"registration failed (account already registered a public key)");require(bn128_check_pairing([pk[0],pk[1],g2xx,g2xy,g2yx,g2yy,g1x,g1y,bls_pk[0],bls_pk[1],bls_pk[2],bls_pk[3]]),"registration failed (bls public key is invalid)");require(verify_sk_knowledge(pk,sk_knowledge_proof),"registration failed (invalid proof of secret key knowlegde)");registered_addresses.push(msg.sender);uint256id=registered_addresses.length;nodes[msg.sender].id=id;nodes[msg.sender].deposit=msg.value;nodes[msg.sender].pk[0]=pk[0];nodes[msg.sender].pk[1]=pk[1];nodes[msg.sender].bls_pk[0]=bls_pk[0];nodes[msg.sender].bls_pk[1]=bls_pk[1];nodes[msg.sender].bls_pk[2]=bls_pk[2];nodes[msg.sender].bls_pk[3]=bls_pk[3];emitRegistration(msg.sender,id,msg.value,pk,bls_pk);}functionshare_key(uint256[]encrypted_shares,uint256[]public_coefficients)public{uint256n=registered_addresses.length;uint256t=(n/2)+1;uint256issuer_id=nodes[msg.sender].id;require(in_sharing_phase(),"key sharing failed (contract is not in sharing phase)");require(issuer_id>0,"key sharing failed (ethereum account has not registered)");require(encrypted_shares.length==n-1,"key sharing failed (invalid number of encrypted shares provided)");require(public_coefficients.length==t*2-2,"key sharing failed (invalid number of commitments provided)");nodes[msg.sender].key_distribution_hash=keccak256(abi.encodePacked(encrypted_shares,public_coefficients));emitKeySharing(issuer_id,encrypted_shares,public_coefficients);}functiondispute_public_coefficient(addressissuer_addr,uint256[]encrypted_shares,uint256[]public_coefficients,uint256invalid_coefficient_idx)public{Nodestorageissuer=nodes[issuer_addr];Nodestorageverifier=nodes[msg.sender];require(in_dispute_phase(),"dispute failed (contract is not in sharing phase)");require(issuer.id>0,"dispute failed/aborted (issuer not registered or slashed)");require(verifier.id>0,"dispute failed/aborted (verifier not registered or slashed)");require(issuer.id!=verifier.id,"dispute failed (self dispute is not allowed)");require(issuer.key_distribution_hash==keccak256(abi.encodePacked(encrypted_shares,public_coefficients)),"dispute failed (encrypted shares and/or public coefficients not matching)");uint256i=invalid_coefficient_idx*2;require(!bn128_is_on_curve([public_coefficients[i],public_coefficients[i+1]]),"dispute failed (coefficient is actually valid)");__slash__(issuer_addr);}functiondispute_share(addressissuer_addr,uint256[]encrypted_shares,uint256[]public_coefficients,uint256[2]decryption_key,uint256[2]decryption_key_proof)public{Nodestorageissuer=nodes[issuer_addr];Nodestorageverifier=nodes[msg.sender];require(in_dispute_phase(),"dispute failed (contract is not in sharing phase)");require(issuer.id>0,"dispute failed/aborted (issuer not registered or slashed)");require(verifier.id>0,"dispute failed/aborted (verifier not registered or slashed)");require(issuer.id!=verifier.id,"dispute failed (self dispute is not allowed)");require(issuer.key_distribution_hash==keccak256(abi.encodePacked(encrypted_shares,public_coefficients)),"dispute failed (encrypted shares and/or public coefficients not matching)");require(verify_decryption_key(decryption_key,decryption_key_proof,verifier.pk,issuer.pk),"dispute failed (invalid decryption key or decryption key proof)");uint256i=verifier.id;if(i>issuer.id){i--;}uint256share=encrypted_shares[i-1]^uint256(keccak256(abi.encodePacked(decryption_key[0],verifier.id)));uint256x=i;uint256[2]memoryFx=[issuer.pk[0],issuer.pk[1]];uint256[2]memorytmp=bn128_multiply([public_coefficients[0],public_coefficients[1],x]);Fx=bn128_add([Fx[0],Fx[1],tmp[0],tmp[1]]);for(uint256j=2;j<public_coefficients.length;j+=2){x=mulmod(x,i,GROUP_ORDER);tmp=bn128_multiply([public_coefficients[j],public_coefficients[j+1],x]);Fx=bn128_add([Fx[0],Fx[1],tmp[0],tmp[1]]);}uint256[2]memoryFi=bn128_multiply([g1x,g1y,share]);require(Fx[0]!=Fi[0]||Fx[1]!=Fi[1],"dispute failed (the provided share was valid)");__slash__(issuer_addr);}functionupload_group_key(uint[4]_bls_group_pk)publicreturns(boolsuccess){require(in_finalization_phase(),"group key upload failed (key sharing / disputes not finsished, or group key already uploaded)");uint256n=registered_addresses.length;uint256t=(n/2)+1;Nodememorynode;uint256[2]memorygroup_pk;uint256i=0;do{node=nodes[registered_addresses[i]];i+=1;}while((node.id==0||node.key_distribution_hash==0)&&i<n);if(i==n){__abort__();returnfalse;}uint256p=1;group_pk=node.pk;for(;i<registered_addresses.length;i++){node=nodes[registered_addresses[i]];if(node.id!=0&&node.key_distribution_hash!=0){p++;group_pk=bn128_add([group_pk[0],group_pk[1],node.pk[0],node.pk[1]]);}}if(p<t){__abort__();returnfalse;}require(bn128_check_pairing([group_pk[0],group_pk[1],g2xx,g2xy,g2yx,g2yy,g1x,g1y,_bls_group_pk[0],_bls_group_pk[1],_bls_group_pk[2],_bls_group_pk[3]]),"upload of group key failed (the submitted bls_group_pk does not correspond to group_pk)");bls_group_pk=_bls_group_pk;T_GROUP_KEY_UPLOAD=block.number;}function__slash__(addressaddr)private{emitDisputeSuccessful(addr);nodes[addr].id=0;}functionabort()public{require(!in_registration_phase(),"abort failed (cannot abort during registration phase)");uint256n=registered_addresses.length;uint256t=(n/2)+1;if(n<PARTICIPATION_THRESHOLD){__abort__();}else{require(T_SHARING_END<block.number,"abort failed (abort is only possible after key sharing phase ended)");uint256p=0;for(uint256i=0;i<n;i++){Nodememorynode=nodes[registered_addresses[i]];if((node.id!=0)&&node.key_distribution_hash!=0){p++;}}require(p<t,"abort failed (abort is only possible if less than t nodes shared their key successfully)");__abort__();}}function__abort__()private{aborted=true;}functionverify_sk_knowledge(uint[2]public_key,uint[2]proof)publicreturns(bool){uint256[2]memorya=bn128_multiply([g1x,g1y,proof[1]]);uint256[2]memoryb=bn128_multiply([public_key[0],public_key[1],proof[0]]);uint256[2]memoryt=bn128_add([a[0],a[1],b[0],b[1]]);uint256c=uint256(keccak256(abi.encodePacked(g1x,g1y,public_key[0],public_key[1],t[0],t[1],msg.sender)));returnproof[0]==c;}functionverify_decryption_key(uint256[2]decryption_key,uint256[2]correctness_proof,uint256[2]verifier_pk,uint256[2]issuer_pk)publicreturns(boolkey_valid){uint256[2]memorytmp1;uint256[2]memorytmp2;tmp1=bn128_multiply([g1x,g1y,correctness_proof[1]]);tmp2=bn128_multiply([verifier_pk[0],verifier_pk[1],correctness_proof[0]]);uint256[2]memorya1=bn128_add([tmp1[0],tmp1[1],tmp2[0],tmp2[1]]);tmp1=bn128_multiply([issuer_pk[0],issuer_pk[1],correctness_proof[1]]);tmp2=bn128_multiply([decryption_key[0],decryption_key[1],correctness_proof[0]]);uint256[2]memorya2=bn128_add([tmp1[0],tmp1[1],tmp2[0],tmp2[1]]);uint256challenge_computed=uint256(keccak256(abi.encodePacked(a1,a2,g1x,g1y,verifier_pk,issuer_pk,decryption_key)));key_valid=correctness_proof[0]==challenge_computed;}functionverify_signature(uint256[4]bls_pk,bytes32message,uint256[2]signature)publicreturns(boolsignature_valid){uint[2]memoryh=bn128_map_to_G1(message);signature_valid=bn128_check_pairing([signature[0],signature[1],g2xx,g2xy,g2yx,g2yy,h[0],h[1],bls_pk[0],bls_pk[1],bls_pk[2],bls_pk[3]]);}functionbn128_add(uint256[4]input)publicreturns(uint256[2]result){boolsuccess;assembly{success:=call(not(0),0x06,0,input,128,result,64)}require(success,"elliptic curve addition failed");}functionbn128_multiply(uint256[3]input)publicreturns(uint256[2]result){boolsuccess;assembly{success:=call(not(0),0x07,0,input,96,result,64)}require(success,"elliptic curve multiplication failed");}functionbn128_is_on_curve(uint[2]point)publicreturns(boolvalid){uint256[4]memoryinput=[point[0],point[1],g1x,g1y];assembly{valid:=call(not(0),0x06,0,input,128,input,64)}}functionbn128_check_pairing(uint256[12]input)publicreturns(bool){uint256[1]memoryresult;boolsuccess;assembly{success:=call(sub(gas,2000),0x08,0,input,384,result,32)}require(success,"elliptic curve pairing failed");returnresult[0]==1;}functionbn128_map_to_G1(bytes32data)publicreturns(uint[2]point){uint256ctr=0;while(true){uint256x=uint256(keccak256(abi.encodePacked(ctr,data)));boolb=x&1==1;x>>=2;if(x<FIELD_MODULUS){uint256z=(bigModExp([32,32,32,x,3,FIELD_MODULUS])+3)%FIELD_MODULUS;uint256y=bigModExp([32,32,32,z,(FIELD_MODULUS+1)>>2,FIELD_MODULUS]);if(bigModExp([32,32,32,y,2,FIELD_MODULUS])==z){if(b){y=(FIELD_MODULUS-y);}return[x,y];}}ctr++;}}functionbigModExp(uint256[6]input)publicreturns(uint256){boolsuccess;uint256[1]memoryresult;assembly{success:=call(not(0),0x05,0,input,192,result,32)}require(success,"bigModExp operation failed");returnresult[0];}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 147
+column: 8
+content: uint256[]encrypted_shares
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 148
+column: 8
+content: uint256[]public_coefficients
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 168
+column: 8
+content: uint256[]encrypted_shares
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 169
+column: 8
+content: uint256[]public_coefficients
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 197
+column: 8
+content: uint256[]encrypted_shares
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 198
+column: 8
+content: uint256[]public_coefficients
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 438
+column: 8
+content: assembly{success:=call(not(0),0x06,0,input,128,result,64)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 457
+column: 8
+content: assembly{success:=call(not(0),0x07,0,input,96,result,64)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 473
+column: 8
+content: assembly{valid:=call(not(0),0x06,0,input,128,input,64)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 486
+column: 8
+content: assembly{success:=call(sub(gas,2000),0x08,0,input,384,result,32)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 542
+column: 8
+content: assembly{success:=call(not(0),0x05,0,input,192,result,32)}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 30
+column: 4
+content: uint256constantg1x=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 31
+column: 4
+content: uint256constantg1y=2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 32
+column: 4
+content: uint256constantg2xx=11559732032986387107991004021392285783925812861821192530917403151452391805634;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 33
+column: 4
+content: uint256constantg2xy=10857046999023057135944570762232829481370756359578518086990519993285655852781;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 34
+column: 4
+content: uint256constantg2yx=4082367875863433681332203403145435568316851327593401208105741076214120093531;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 4
+content: uint256constantg2yy=8495653923123431417604973247489272438418190587263600148770280649306958101930;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 4
+content: uint256constantGROUP_ORDER=21888242871839275222246405745257275088548364400416034343698204186575808495617;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 4
+content: uint256constantFIELD_MODULUS=21888242871839275222246405745257275088696311157297823662689037894645226208583;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 40
+column: 4
+content: uint256[4]bls_group_pk;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 41
+column: 4
+content: address[]registered_addresses;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 42
+column: 4
+content: mapping(address=>Node)nodes;
+
+SOLIDITY_VISIBILITY :11
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :3
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_UPGRADE_TO_050 :6
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_USING_INLINE_ASSEMBLY :5

@@ -1,0 +1,45 @@
+C:\Users\hp\DataSet\Challenge.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 30
+column: 2
+content: functionisInitialized(Datastorage_self)constantpublicreturns(bool){return_self.challengeID>0;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 35
+column: 2
+content: functionisResolved(Datastorage_self)constantpublicreturns(bool){return_self.resolved;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 40
+column: 2
+content: functioncanBeResolved(Datastorage_self)constantpublicreturns(bool){return_self.voting.pollEnded(_self.challengeID)&&_self.resolved==false;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 45
+column: 2
+content: functionchallengeWinnerReward(Datastorage_self)publicconstantreturns(uint){if(_self.voting.getTotalNumberOfTokensForWinningOption(_self.challengeID)==0){return2*_self.stake;}return(2*_self.stake)-_self.rewardPool;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 60
+column: 2
+content: functionvoterReward(Datastorage_self,address_voter,uint_salt)publicconstantreturns(uint){uintvoterTokens=_self.voting.getNumPassingTokens(_voter,_self.challengeID,_salt);return(voterTokens*_self.rewardPool)/_self.winningTokens;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 15
+content: ^
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_PRAGMAS_VERSION :1

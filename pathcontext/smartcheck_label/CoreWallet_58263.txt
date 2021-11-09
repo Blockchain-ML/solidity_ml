@@ -1,0 +1,274 @@
+C:\Users\hp\DataSet\CoreWallet.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 30
+column: 46
+content: 0x19
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 339
+column: 43
+content: 0xffffffff
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: f32db1
+severity: 1
+line: 38
+column: 60
+content: 1
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 345
+column: 8
+content: for(uint256i=0;i<_keys.length;++i){delete(authorizations[shiftedVersion+uint256(_keys[i])]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 345
+column: 8
+content: for(uint256i=0;i<_keys.length;++i){delete(authorizations[shiftedVersion+uint256(_keys[i])]);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 23
+column: 0
+content: contractCoreWalletisERC721Receivable,ERC223Receiver,ERC1271{usingECDSAforbytes;bytepublicconstantEIP191_VERSION_DATA=byte(0);bytepublicconstantEIP191_PREFIX=byte(0x19);stringpublicconstantVERSION="1.1.0";addresspublicconstantCOMPOSITE_PLACEHOLDER=address(1);uint256publicconstantAUTH_VERSION_INCREMENTOR=(1<<160);uint256publicauthVersion;mapping(uint256=>uint256)publicauthorizations;mapping(address=>uint256)publicnonces;mapping(bytes4=>address)publicdelegates;addresspublicrecoveryAddress;boolpublicinitialized;modifieronlyRecoveryAddress(){require(msg.sender==recoveryAddress,"sender must be recovery address");_;}modifieronlyOnce(){require(!initialized,"must not already be initialized");initialized=true;_;}modifieronlyInvoked(){require(msg.sender==address(this),"must be called from `invoke()`");_;}eventAuthorized(addressauthorizedAddress,uint256cosigner);eventEmergencyRecovery(addressauthorizedAddress,uint256cosigner);eventRecoveryAddressChanged(addresspreviousRecoveryAddress,addressnewRecoveryAddress);eventReceived(addressfrom,uintvalue);eventInvocationSuccess(bytes32hash,uint256result,uint256numOperations);eventDelegateUpdated(bytes4interfaceId,addressdelegate);functioninit(address_authorizedAddress,uint256_cosigner,address_recoveryAddress)publiconlyOnce{require(_authorizedAddress!=_recoveryAddress,"Do not use the recovery address as an authorized address.");require(address(_cosigner)!=_recoveryAddress,"Do not use the recovery address as a cosigner.");require(_authorizedAddress!=address(0),"Authorized addresses must not be zero.");require(address(_cosigner)!=address(0),"Initial cosigner must not be zero.");recoveryAddress=_recoveryAddress;authVersion=AUTH_VERSION_INCREMENTOR;authorizations[authVersion+uint256(_authorizedAddress)]=_cosigner;emitAuthorized(_authorizedAddress,_cosigner);}function()externalpayable{if(msg.value>0){emitReceived(msg.sender,msg.value);}if(msg.data.length>0){addressdelegate=delegates[msg.sig];require(delegate>COMPOSITE_PLACEHOLDER,"Invalid transaction");assembly{calldatacopy(0,0,calldatasize())letresult:=staticcall(gas,delegate,0,calldatasize(),0,0)returndatacopy(0,0,returndatasize())switchresultcase0{revert(0,returndatasize())}default{return(0,returndatasize())}}}}functionsetDelegate(bytes4_interfaceId,address_delegate)externalonlyInvoked{delegates[_interfaceId]=_delegate;emitDelegateUpdated(_interfaceId,_delegate);}functionsetAuthorized(address_authorizedAddress,uint256_cosigner)externalonlyInvoked{require(_authorizedAddress!=address(0),"Authorized addresses must not be zero.");require(_authorizedAddress!=recoveryAddress,"Do not use the recovery address as an authorized address.");require(address(_cosigner)==address(0)||address(_cosigner)!=recoveryAddress,"Do not use the recovery address as a cosigner.");authorizations[authVersion+uint256(_authorizedAddress)]=_cosigner;emitAuthorized(_authorizedAddress,_cosigner);}functionemergencyRecovery(address_authorizedAddress,uint256_cosigner)externalonlyRecoveryAddress{require(_authorizedAddress!=address(0),"Authorized addresses must not be zero.");require(_authorizedAddress!=recoveryAddress,"Do not use the recovery address as an authorized address.");require(address(_cosigner)!=address(0),"The cosigner must not be zero.");authVersion+=AUTH_VERSION_INCREMENTOR;authorizations[authVersion+uint256(_authorizedAddress)]=_cosigner;emitEmergencyRecovery(_authorizedAddress,_cosigner);}functionsetRecoveryAddress(address_recoveryAddress)externalonlyInvoked{require(address(authorizations[authVersion+uint256(_recoveryAddress)])==address(0),"Do not use an authorized address as the recovery address.");addressprevious=recoveryAddress;recoveryAddress=_recoveryAddress;emitRecoveryAddressChanged(previous,recoveryAddress);}functionrecoverGas(uint256_version,address[]calldata_keys)external{require(_version>0&&_version<0xffffffff,"Invalid version number.");uint256shiftedVersion=_version<<160;require(shiftedVersion<authVersion,"You can only recover gas from expired authVersions.");for(uint256i=0;i<_keys.length;++i){delete(authorizations[shiftedVersion+uint256(_keys[i])]);}}functionisValidSignature(bytes32hash,bytescalldata_signature)externalviewreturns(bytes4){bytes32operationHash=keccak256(abi.encodePacked(EIP191_PREFIX,EIP191_VERSION_DATA,this,hash));bytes32[2]memoryr;bytes32[2]memorys;uint8[2]memoryv;addresssigner;addresscosigner;if(_signature.length==65){(r[0],s[0],v[0])=_signature.extractSignature(0);signer=ecrecover(operationHash,v[0],r[0],s[0]);cosigner=signer;}elseif(_signature.length==130){(r[0],s[0],v[0])=_signature.extractSignature(0);(r[1],s[1],v[1])=_signature.extractSignature(65);signer=ecrecover(operationHash,v[0],r[0],s[0]);cosigner=ecrecover(operationHash,v[1],r[1],s[1]);}else{return0;}if(signer==address(0)){return0;}if(cosigner==address(0)){return0;}if(address(authorizations[authVersion+uint256(signer)])!=cosigner){return0;}returnERC1271_VALIDSIGNATURE;}functionsupportsInterface(bytes4interfaceID)externalviewreturns(bool){if(interfaceID==this.supportsInterface.selector||interfaceID==ERC721_RECEIVED_FINAL||interfaceID==ERC721_RECEIVED_DRAFT||interfaceID==ERC223_ID||interfaceID==ERC1271_VALIDSIGNATURE){returntrue;}returnuint256(delegates[interfaceID])>0;}functioninvoke0(bytescalldatadata)external{require(address(authorizations[authVersion+uint256(msg.sender)])==msg.sender,"Invalid authorization.");internalInvoke(0,data);}functioninvoke1CosignerSends(uint8v,bytes32r,bytes32s,uint256nonce,addressauthorizedAddress,bytescalldatadata)external{require(v==27||v==28,"Invalid signature version.");bytes32operationHash=keccak256(abi.encodePacked(EIP191_PREFIX,EIP191_VERSION_DATA,this,nonce,authorizedAddress,data));addresssigner=ecrecover(operationHash,v,r,s);require(signer!=address(0),"Invalid signature.");require(nonce==nonces[signer],"must use correct nonce");require(signer==authorizedAddress,"authorized addresses must be equal");addressrequiredCosigner=address(authorizations[authVersion+uint256(signer)]);require(requiredCosigner==signer||requiredCosigner==msg.sender,"Invalid authorization.");nonces[signer]=nonce+1;internalInvoke(operationHash,data);}functioninvoke1SignerSends(uint8v,bytes32r,bytes32s,bytescalldatadata)external{require(v==27||v==28,"Invalid signature version.");uint256nonce=nonces[msg.sender];bytes32operationHash=keccak256(abi.encodePacked(EIP191_PREFIX,EIP191_VERSION_DATA,this,nonce,msg.sender,data));addresscosigner=ecrecover(operationHash,v,r,s);require(cosigner!=address(0),"Invalid signature.");addressrequiredCosigner=address(authorizations[authVersion+uint256(msg.sender)]);require(requiredCosigner==cosigner||requiredCosigner==msg.sender,"Invalid authorization.");nonces[msg.sender]=nonce+1;internalInvoke(operationHash,data);}functioninvoke2(uint8[2]calldatav,bytes32[2]calldata<missing ')'>r,bytes32[2]calldatas,uint256nonce,addressauthorizedAddress,bytescalldatadata)external{require(v[0]==27||v[0]==28,"invalid signature version v[0]");require(v[1]==27||v[1]==28,"invalid signature version v[1]");bytes32operationHash=keccak256(abi.encodePacked(EIP191_PREFIX,EIP191_VERSION_DATA,this,nonce,authorizedAddress,data));addresssigner=ecrecover(operationHash,v[0],r[0],s[0]);addresscosigner=ecrecover(operationHash,v[1],r[1],s[1]);require(signer!=address(0),"Invalid signature for signer.");require(cosigner!=address(0),"Invalid signature for cosigner.");require(signer==authorizedAddress,"authorized addresses must be equal");require(nonce==nonces[signer],"must use correct nonce for signer");addressrequiredCosigner=address(authorizations[authVersion+uint256(signer)]);require(requiredCosigner==signer||requiredCosigner==cosigner,"Invalid authorization.");nonces[signer]++;internalInvoke(operationHash,data);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 231
+column: 12
+content: assembly{calldatacopy(0,0,calldatasize())letresult:=staticcall(gas,delegate,0,calldatasize(),0,0)returndatacopy(0,0,returndatasize())switchresultcase0{revert(0,returndatasize())}default{return(0,returndatasize())}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 556
+column: 4
+content: functioninvoke2(uint8[2]calldatav,bytes32[2]calldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 556
+column: 62
+content: r,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 556
+column: 65
+content: bytes32[2]calldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 556
+column: 85
+content: s,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 556
+column: 88
+content: uint256nonce,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 556
+column: 103
+content: addressauthorizedAddress,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 556
+column: 130
+content: bytescalldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 560
+column: 15
+content: (v[0]==27||v[0]==28,"invalid signature version v[0]");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 561
+column: 8
+content: require(v[1]==27||
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 561
+column: 30
+content: v[1]==28,"invalid signature version v[1]");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 563
+column: 8
+content: bytes32operationHash=keccak256(abi.encodePacked(EIP191_PREFIX,EIP191_VERSION_DATA,this,nonce,authorizedAddress,data));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 573
+column: 8
+content: addresssigner=ecrecover(operationHash,v[0],r[0],s[0]);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 574
+column: 8
+content: addresscosigner=ecrecover(operationHash,v[1],r[1],s[1]);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 577
+column: 8
+content: require(signer!=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 577
+column: 26
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 577
+column: 33
+content: (0),"Invalid signature for signer.");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 578
+column: 8
+content: require(cosigner!=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 578
+column: 28
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 578
+column: 35
+content: (0),"Invalid signature for cosigner.");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 581
+column: 8
+content: require(signer==
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 581
+column: 26
+content: authorizedAddress,"authorized addresses must be equal");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 584
+column: 8
+content: require(nonce==
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 584
+column: 25
+content: nonces[signer],"must use correct nonce for signer");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 587
+column: 8
+content: addressrequiredCosigner=address(authorizations[authVersion+uint256(signer)]);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 591
+column: 8
+content: require(requiredCosigner==
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 591
+column: 36
+content: signer||requiredCosigner==
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 591
+column: 66
+content: cosigner,"Invalid authorization.");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 594
+column: 8
+content: nonces[signer]++;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 596
+column: 8
+content: internalInvoke(operationHash,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 596
+column: 38
+content: data);
+
+SOLIDITY_VISIBILITY :30
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1

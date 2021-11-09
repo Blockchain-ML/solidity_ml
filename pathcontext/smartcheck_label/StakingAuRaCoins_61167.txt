@@ -1,0 +1,103 @@
+C:\Users\hp\DataSet\StakingAuRaCoins.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 62
+column: 8
+content: for(uint256i=0;i<_stakingEpochs.length;i++){uint256epoch=_stakingEpochs[i];require(i==0||epoch>_stakingEpochs[i-1]);require(epoch<stakingEpoch);if(rewardWasTaken[_poolStakingAddress][staker][epoch])continue;uint256reward;if(_poolStakingAddress!=staker){if(epoch<firstEpoch){continue;}if(lastEpoch<=epoch&&lastEpoch!=0){break;}delegatorStake=_getDelegatorStake(epoch,firstEpoch,delegatorStake,_poolStakingAddress,staker);firstEpoch=epoch+1;reward=blockRewardContract.getDelegatorReward(delegatorStake,epoch,miningAddress);}else{reward=blockRewardContract.getValidatorReward(epoch,miningAddress);}rewardSum=rewardSum.add(reward);rewardWasTaken[_poolStakingAddress][staker][epoch]=true;emitClaimedReward(_poolStakingAddress,staker,epoch,reward);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 134
+column: 8
+content: for(uint256i=0;i<_stakingEpochs.length;i++){uint256epoch=_stakingEpochs[i];require(i==0||epoch>_stakingEpochs[i-1]);require(epoch<stakingEpoch);if(rewardWasTaken[_poolStakingAddress][_staker][epoch])continue;uint256reward;if(_poolStakingAddress!=_staker){if(epoch<firstEpoch)continue;if(lastEpoch<=epoch&&lastEpoch!=0)break;delegatorStake=_getDelegatorStake(epoch,firstEpoch,delegatorStake,_poolStakingAddress,_staker);firstEpoch=epoch+1;reward=blockRewardContract.getDelegatorReward(delegatorStake,epoch,miningAddress);}else{reward=blockRewardContract.getValidatorReward(epoch,miningAddress);}rewardSum+=reward;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 62
+column: 8
+content: for(uint256i=0;i<_stakingEpochs.length;i++){uint256epoch=_stakingEpochs[i];require(i==0||epoch>_stakingEpochs[i-1]);require(epoch<stakingEpoch);if(rewardWasTaken[_poolStakingAddress][staker][epoch])continue;uint256reward;if(_poolStakingAddress!=staker){if(epoch<firstEpoch){continue;}if(lastEpoch<=epoch&&lastEpoch!=0){break;}delegatorStake=_getDelegatorStake(epoch,firstEpoch,delegatorStake,_poolStakingAddress,staker);firstEpoch=epoch+1;reward=blockRewardContract.getDelegatorReward(delegatorStake,epoch,miningAddress);}else{reward=blockRewardContract.getValidatorReward(epoch,miningAddress);}rewardSum=rewardSum.add(reward);rewardWasTaken[_poolStakingAddress][staker][epoch]=true;emitClaimedReward(_poolStakingAddress,staker,epoch,reward);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 134
+column: 8
+content: for(uint256i=0;i<_stakingEpochs.length;i++){uint256epoch=_stakingEpochs[i];require(i==0||epoch>_stakingEpochs[i-1]);require(epoch<stakingEpoch);if(rewardWasTaken[_poolStakingAddress][_staker][epoch])continue;uint256reward;if(_poolStakingAddress!=_staker){if(epoch<firstEpoch)continue;if(lastEpoch<=epoch&&lastEpoch!=0)break;delegatorStake=_getDelegatorStake(epoch,firstEpoch,delegatorStake,_poolStakingAddress,_staker);firstEpoch=epoch+1;reward=blockRewardContract.getDelegatorReward(delegatorStake,epoch,miningAddress);}else{reward=blockRewardContract.getValidatorReward(epoch,miningAddress);}rewardSum+=reward;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractSacrifice{constructor(addresspayable_recipient)publicpayable{selfdestruct(_recipient);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 8
+column: 4
+content: constructor(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 165
+column: 4
+content: function_sendWithdrawnStakeAmount(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 20
+content: (_recipient);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 165
+column: 55
+content: _to,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 165
+column: 60
+content: uint256_amount)internal{if
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 166
+column: 11
+content: (!_to.send<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 166
+column: 21
+content: (_amount)){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 170
+column: 12
+content: (newSacrifice).value
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 170
+column: 33
+content: (_amount)(_to);
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2

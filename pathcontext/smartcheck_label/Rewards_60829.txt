@@ -1,0 +1,62 @@
+C:\Users\hp\DataSet\Rewards.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 24
+column: 0
+content: contractRewardsisIRewards,IRewardsUpdatable,RewarderRole,Pausable,Ownable,ReentrancyGuard,Whitelistable{usingSafeERC20forIERC20;usingSafeMathforuint;usingSignedSafeMathforint;IERC1594CappedprivaterewardableToken;IERC20privaterewardsToken;addressprivaterewardsNotifier;boolpublicisRunning=true;uintpublicmaxShares;uintpublictotalRewards;uintpublictotalDepositedRewards;uintpublictotalClaimedRewards;mapping(address=>int)private_dampings;mapping(address=>uint)publicclaimedRewards;eventDeposited(addressindexedfrom,uintamount);eventWithdrawn(addressindexedfrom,uintamount);eventReclaimed(uintamount);eventNotifierUpdated(addressimplementation);constructor(IERC1594Capped_rewardableToken,IERC20_rewardsToken)public{uint_cap=_rewardableToken.cap();require(_cap!=0,"Shares token cap must be non-zero.");maxShares=_cap;rewardableToken=_rewardableToken;rewardsToken=_rewardsToken;rewardsNotifier=address(_rewardableToken);}modifieronlyRewardsNotifier(){require(msg.sender==rewardsNotifier,"Can only be called by the rewards notifier contract.");_;}modifierwhenRunning(){require(isRunning,"Rewards contract has stopped running.");_;}function()externalpayable{require(msg.value==0,"Received non-zero msg.value.");withdraw();}functiondeposit(uint_amount)externalonlyRewarderwhenRunningwhenNotPaused{require(_amount!=0,"Deposit amount must non-zero.");totalDepositedRewards=totalDepositedRewards.add(_amount);totalRewards=totalRewards.add(_amount);addressfrom=msg.sender;emitDeposited(from,_amount);rewardsToken.safeTransferFrom(msg.sender,address(this),_amount);}functionsetRewardsNotifier(address_notifier)externalonlyOwner{require(address(_notifier)!=address(0),"Rewards address must not be a zero address.");require(Address.isContract(address(_notifier)),"Address must point to a contract.");rewardsNotifier=_notifier;emitNotifierUpdated(_notifier);}functionupdateOnTransfer(address_from,address_to,uint_value)externalonlyRewardsNotifiernonReentrantreturns(bool){intfromUserShareChange=int(_value);intfromDampingChange=_dampingChange(totalShares(),totalRewards,fromUserShareChange);inttoUserShareChange=int(_value).mul(-1);inttoDampingChange=_dampingChange(totalShares(),totalRewards,toUserShareChange);assert((fromDampingChange.add(toDampingChange))==0);_dampings[_from]=damping(_from).add(fromDampingChange);_dampings[_to]=damping(_to).add(toDampingChange);returntrue;}functionupdateOnBurn(address_account,uint_value)externalonlyRewardsNotifiernonReentrantreturns(bool){uinttotalSharesBeforeBurn=totalShares().add(_value);uintredeemableRewards=_value.mul(totalRewards).div(totalSharesBeforeBurn);totalRewards=totalRewards.sub(redeemableRewards);_dampings[_account]=damping(_account).add(int(redeemableRewards));returntrue;}functionreclaimRewards()externalonlyOwner{uint256balance=rewardsToken.balanceOf(address(this));isRunning=false;rewardsToken.safeTransfer(owner(),balance);emitReclaimed(balance);}functionwithdraw()publicwhenRunningwhenNotPausedonlyWhitelisted(msg.sender)nonReentrant{addresspayee=msg.sender;uintunclaimedReward=unclaimedRewards(payee);require(unclaimedReward>0,"Unclaimed reward must be non-zero to withdraw.");require(supply()>=unclaimedReward,"Rewards contract must have sufficient PAY to disburse.");claimedRewards[payee]=claimedRewards[payee].add(unclaimedReward);totalClaimedRewards=totalClaimedRewards.add(unclaimedReward);emitWithdrawn(payee,unclaimedReward);rewardsToken.safeTransfer(payee,unclaimedReward);}functionsupply()publicviewreturns(uint){returnrewardsToken.balanceOf(address(this));}functiontotalShares()publicviewreturns(uint){uinttotalRedeemed=rewardableToken.totalRedeemed();returnmaxShares.sub(totalRedeemed);}functionunclaimedRewards(address_payee)publicviewreturns(uint){require(_payee!=address(0),"Payee must not be a zero address.");uinttotalUserReward=totalUserRewards(_payee);if(totalUserReward==uint(0)){return0;}uintunclaimedReward=totalUserReward.sub(claimedRewards[_payee]);returnunclaimedReward;}functiontotalUserRewards(address_payee)internalviewreturns(uint){require(_payee!=address(0),"Payee must not be a zero address.");uintuserShares=rewardableToken.balanceOf(_payee);intuserDamping=damping(_payee);uintresult=_totalUserRewards(totalShares(),totalRewards,userShares,userDamping);returnresult;}function_dampingChange(uint_totalShares,uint_totalRewards,int_sharesChange)internalpurereturns(int){returnint(_totalRewards).mul(_sharesChange).div(int(_totalShares));}function_totalUserRewards(uint_totalShares,uint_totalRewards,uint_userShares,int_userDamping)internalpurereturns(uint){uintmaxUserReward=_userShares.mul(_totalRewards).div(_totalShares);intuserReward=int(maxUserReward).add(_userDamping);uintresult=(userReward>0?uint(userReward):0);returnresult;}functiondamping(addressaccount)internalviewreturns(int){return_dampings[account];}}
+
+ruleId: SOLIDITY_MSGVALUE_EQUALS_ZERO
+patternId: 1df89a
+severity: 1
+line: 72
+column: 16
+content: msg.value==0
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 96
+column: 4
+content: functionsetRewardsNotifier(address_notifier)externalonlyOwner{require(address(_notifier)!=address(0),"Rewards address must not be a zero address.");require(Address.isContract(address(_notifier)),"Address must point to a contract.");rewardsNotifier=_notifier;emitNotifierUpdated(_notifier);}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 29
+column: 19
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 30
+column: 11
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 31
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 38
+column: 28
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 26
+column: 4
+content: usingSafeMathforuint;
+
+SOLIDITY_MSGVALUE_EQUALS_ZERO :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :4

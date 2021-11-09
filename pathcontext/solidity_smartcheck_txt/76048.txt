@@ -1,0 +1,82 @@
+F:\Blockchain\dataset_new_byID\76048.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 55
+column: 4
+content: functiongetRate(uintamount)internalconstantreturns(uint);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 57
+column: 4
+content: functiongetBaseRate()internalconstantreturns(uint);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 60
+column: 4
+content: functiongetRateScale()internalconstantreturns(uint){return1;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 120
+column: 4
+content: functionvalidPurchase(uint_amountWei,uint_actualRate,uint_totalSupply)internalconstantreturns(bool){boolwithinPeriod=now>=startTime&&now<=endTime;boolnonZeroPurchase=_amountWei!=0;boolhardCapNotReached=_totalSupply<=hardCap.sub(_actualRate);returnwithinPeriod&&nonZeroPurchase&&hardCapNotReached;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 129
+column: 4
+content: functionhasEnded()publicconstantreturns(bool){returnnow>endTime||token.totalSupply()>hardCap.sub(getBaseRate());}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 134
+column: 4
+content: functionhasStarted()publicconstantreturns(bool){returnnow>=startTime;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 139
+column: 4
+content: functionhasEnded(uint_value)publicconstantreturns(bool){uintactualRate=getRate(_value);returnnow>endTime||token.totalSupply()>hardCap.sub(actualRate);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 10
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 35
+column: 4
+content: functionCrowdsale(uint32_startTime,uint32_endTime,uint_hardCap,address_wallet){require(_startTime>=now);require(_endTime>=_startTime);require(_wallet!=0x0);require(_hardCap>0);token=createTokenContract();startTime=_startTime;endTime=_endTime;hardCap=_hardCap;wallet=_wallet;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 4
+content: function()payable{buyTokens(msg.sender,msg.value);}
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :7
+SOLIDITY_PRAGMAS_VERSION :1

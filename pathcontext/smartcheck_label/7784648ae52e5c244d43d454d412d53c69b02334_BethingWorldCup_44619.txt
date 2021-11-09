@@ -1,0 +1,76 @@
+C:\Users\hp\DataSet\contracts\ropsten\77\7784648ae52e5c244d43d454d412d53c69b02334_BethingWorldCup.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 10
+column: 2
+content: functionmul(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a*b;assert(a==0||c/a==b);returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 16
+column: 2
+content: functiondiv(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a/b;returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 23
+column: 2
+content: functionsub(uint256a,uint256b)internalconstantreturns(uint256){assert(b<=a);returna-b;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 28
+column: 2
+content: functionadd(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a+b;assert(c>=a);returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 215
+column: 1
+content: functionhasClosed()publicconstantreturns(bool){returnnow>BETS_CLOSING_TIME;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 90
+column: 0
+content: contractBethingWorldCupisOwnable{usingSafeMathforuint256;eventBet(addressindexedbetter,uint256weiAmount);uint256publicconstantMIN_BET_AMOUNT=0.01ether;uint256publicconstantBOOKIE_COMMISSION=10;uint256publicBETS_CLOSING_TIME=1531666800;uint256publicconstantTOTAL_TEAMS=32;string[TOTAL_TEAMS]publicTEAMS=["Russia","Brazil","Iran","Japan","Mexico","Belgium","South Korea","Saudi Arabia","Germany","England","Spain","Nigeria","Costa Rica","Poland","Egypt","Iceland","Serbia","Portugal","France","Uruguay","Argentina","Colombia","Panama","Senegal","Morocco","Tunisia","Switzerland","Croatia","Sweden","Denmark","Australia","Peru"];addressbookie;uint256publictotalBets;uint256publictotalBetAmount;uint256[TOTAL_TEAMS]publicteamTotalBetAmount;mapping(address=>uint256[TOTAL_TEAMS])publicbetterBetAmounts;modifierwhenNotClosed(){require(!hasClosed());_;}modifierisValidTeam(uint256team){require(team<=TOTAL_TEAMS);_;}constructor()public{bookie=owner;}functionbet(uint256team)publicwhenNotClosedisValidTeam(team)payable{addressbetter=msg.sender;uint256betAmount=msg.value;require(betAmount>=MIN_BET_AMOUNT);betterBetAmounts[better][team]=betterBetAmounts[better][team].add(betAmount);totalBetAmount=totalBetAmount.add(betAmount);teamTotalBetAmount[team]=teamTotalBetAmount[team].add(betAmount);totalBets++;emitBet(better,betAmount);}functionhasClosed()publicconstantreturns(bool){returnnow>BETS_CLOSING_TIME;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 91
+column: 1
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 53
+column: 2
+content: functionOwnable(){owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 150
+column: 1
+content: addressbookie;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

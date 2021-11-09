@@ -1,0 +1,135 @@
+C:\Users\hp\DataSet\contracts\ropsten\5f\5f883e4038db6b8ef3fc56fb51952c892a4be58a_MintedCappedProxy.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 198
+column: 2
+content: functionapprove(address_spender,uint_amt)publicreturns(bool){app_storage.exec(msg.sender,app_exec_id,msg.data);emitApproval(msg.sender,_spender,_amt);}
+
+ruleId: SOLIDITY_ERC20_FUNCTIONS_ALWAYS_RETURN_FALSE
+patternId: b180ca
+severity: 2
+line: 188
+column: 2
+content: functiontransfer(address_to,uint_amt)publicreturns(bool){app_storage.exec(msg.sender,app_exec_id,msg.data);emitTransfer(msg.sender,_to,_amt);}
+
+ruleId: SOLIDITY_ERC20_FUNCTIONS_ALWAYS_RETURN_FALSE
+patternId: b180ca
+severity: 2
+line: 193
+column: 2
+content: functiontransferFrom(address_from,address_to,uint_amt)publicreturns(bool){app_storage.exec(msg.sender,app_exec_id,msg.data);emitTransfer(_from,_to,_amt);}
+
+ruleId: SOLIDITY_ERC20_FUNCTIONS_ALWAYS_RETURN_FALSE
+patternId: b180ca
+severity: 2
+line: 198
+column: 2
+content: functionapprove(address_spender,uint_amt)publicreturns(bool){app_storage.exec(msg.sender,app_exec_id,msg.data);emitApproval(msg.sender,_spender,_amt);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 188
+column: 2
+content: functiontransfer(address_to,uint_amt)publicreturns(bool){app_storage.exec(msg.sender,app_exec_id,msg.data);emitTransfer(msg.sender,_to,_amt);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 193
+column: 2
+content: functiontransferFrom(address_from,address_to,uint_amt)publicreturns(bool){app_storage.exec(msg.sender,app_exec_id,msg.data);emitTransfer(_from,_to,_amt);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 198
+column: 2
+content: functionapprove(address_spender,uint_amt)publicreturns(bool){app_storage.exec(msg.sender,app_exec_id,msg.data);emitApproval(msg.sender,_spender,_amt);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 203
+column: 2
+content: functionincreaseApproval(address_spender,uint_amt)publicreturns(bool){app_storage.exec(msg.sender,app_exec_id,msg.data);emitApproval(msg.sender,_spender,_amt);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 208
+column: 2
+content: functiondecreaseApproval(address_spender,uint_amt)publicreturns(bool){app_storage.exec(msg.sender,app_exec_id,msg.data);emitApproval(msg.sender,_spender,_amt);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 75
+column: 2
+content: functiontoStr(bytes32_val)internalpurereturns(stringmemorystr){assembly{str:=mload(0x40)mstore(str,0x20)mstore(add(0x20,str),_val)mstore(0x40,add(0x40,str))}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 85
+column: 0
+content: contractProxy{addresspublicproxy_admin;StorageInterfacepublicapp_storage;bytes32publicregistry_exec_id;addresspublicprovider;bytes32publicapp_name;bytes32publicapp_version;bytes32publicapp_exec_id;addresspublicapp_index;function()externalpayable{}constructor(address_storage,bytes32_registry_exec_id,address_provider,bytes32_app_name)public{proxy_admin=msg.sender;app_storage=StorageInterface(_storage);registry_exec_id=_registry_exec_id;provider=_provider;app_name=_app_name;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 75
+column: 2
+content: functiontoStr(bytes32_val)internalpurereturns(stringmemorystr){assembly{str:=mload(0x40)mstore(str,0x20)mstore(add(0x20,str),_val)mstore(0x40,add(0x40,str))}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 241
+column: 2
+content: functioncheckReturn()internalpurereturns(boolsuccess){success=false;assembly{ifeq(returndatasize,0x60){letptr:=mload(0x40)returndatacopy(ptr,0,returndatasize)ifiszero(iszero(mload(ptr))){success:=1}ifiszero(iszero(mload(add(0x20,ptr)))){success:=1}ifiszero(iszero(mload(add(0x40,ptr)))){success:=1}}}returnsuccess;}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 164
+column: 39
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 168
+column: 41
+content: string
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 76
+column: 4
+content: assembly{str:=mload(0x40)mstore(str,0x20)mstore(add(0x20,str),_val)mstore(0x40,add(0x40,str))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 243
+column: 4
+content: assembly{ifeq(returndatasize,0x60){letptr:=mload(0x40)returndatacopy(ptr,0,returndatasize)ifiszero(iszero(mload(ptr))){success:=1}ifiszero(iszero(mload(add(0x20,ptr)))){success:=1}ifiszero(iszero(mload(add(0x40,ptr)))){success:=1}}}
+
+SOLIDITY_ERC20_FUNCTIONS_ALWAYS_RETURN_FALSE :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :6
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_USING_INLINE_ASSEMBLY :2
+SOLIDITY_SHOULD_NOT_BE_PURE :2
+SOLIDITY_ERC20_APPROVE :1

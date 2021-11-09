@@ -1,0 +1,205 @@
+C:\Users\hp\DataSet\contracts\ropsten\cb\cbd885f4fb39f451a31bf21df84f03f574811cb4_Committee.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 117
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(boolsuccess){allowance[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 291
+column: 8
+content: for(uintj=0;j<temp.length;j++){if(_number==temp[j])returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 358
+column: 8
+content: for(uintj=0;j<temp.length;j++){result[j]=OwnerNumCount[msg.sender][temp[j]];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 455
+column: 13
+content: for(uintk=0;k<result.length;k++){OwnerNumCount[playerlist[j]][result[k]]=0;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 291
+column: 8
+content: for(uintj=0;j<temp.length;j++){if(_number==temp[j])returntrue;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 358
+column: 8
+content: for(uintj=0;j<temp.length;j++){result[j]=OwnerNumCount[msg.sender][temp[j]];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 430
+column: 7
+content: for(uinti=0;i<winnercount;i++){uintwinner_numcount=OwnerNumCount[winnerlist[i]][winnernumber];_transfer(address(this),winnerlist[i],averageprize*winner_numcount-1);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 453
+column: 8
+content: for(uintj=0;j<playercount;j++){result=OwnerToNum[playerlist[j]];for(uintk=0;k<result.length;k++){OwnerNumCount[playerlist[j]][result[k]]=0;}OwnerCount[playerlist[j]]=0;OwnerToNum[playerlist[j]]=temp1;joining[playerlist[j]]=false;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 455
+column: 13
+content: for(uintk=0;k<result.length;k++){OwnerNumCount[playerlist[j]][result[k]]=0;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 529
+column: 7
+content: for(uinti=0;i<winnercount;i++){uintwinner_numcount=OwnerNumCount[winnerlist[i]][winnernumber];_transfer(address(this),winnerlist[i],averageprize*winner_numcount-1);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 251
+column: 0
+content: contractPickNumberisMyAdvancedToken{constructor(uint256initialSupply,stringtokenName,stringtokenSymbol)MyAdvancedToken(initialSupply,tokenName,tokenSymbol)public{}eventPickNumberEvent(uintchoosenumber,uintamount);eventgiveWinnerEvent(address[]winner,uintwinprize);eventresetEvent();uint[101]publicnumber;address[]publicplayerlist;uintpublictotalnum;uintgivewinnercooldown=10seconds;uintpublicgivewinner_readytime;uintpayforwinfee=0.0001ether;uintpublicstart=0;mapping(uint=>address[])publicNumToOwner;mapping(address=>uint[])publicOwnerToNum;mapping(address=>uint)publicOwnerCount;mapping(address=>mapping(uint=>uint))publicOwnerNumCount;mapping(address=>bool)publicjoining;functionCheckpick(uint_number,address_address)publicviewreturns(bool){uint[]memorytemp;temp=OwnerToNum[_address];for(uintj=0;j<temp.length;j++){if(_number==temp[j])returntrue;}}functionjoingame()public{require(!joining[msg.sender]);joining[msg.sender]=true;if(start==0)_triggergivewinner_cooldowntime();_transfer(owner,msg.sender,100);playerlist.push(msg.sender);start=1;}functionpayfortoken()publicpayable{require(joining[msg.sender]);require(msg.value>=payforwinfee);_transfer(owner,msg.sender,10000);}functionPickYourNumber(uint_choosenumber,uint_amount)public{require(_choosenumber>0&&_choosenumber<=100);require(balanceOf[msg.sender]>_amount);require(_amount>0);require(joining[msg.sender]);uinttemp=balanceOf[address(this)];_transfer(msg.sender,address(this),_amount);uinttemp2=balanceOf[address(this)];require(temp2>=temp+_amount);boolcheck=((Checkpick(_choosenumber,msg.sender)));number[_choosenumber]+=_amount;if(check==false){OwnerCount[msg.sender]++;}if(check==false){NumToOwner[_choosenumber].push(msg.sender);}if(check==false){OwnerToNum[msg.sender].push(_choosenumber);}OwnerNumCount[msg.sender][_choosenumber]+=_amount;totalnum+=_amount;emitPickNumberEvent(_choosenumber,_amount);}functiongetNumberPick()publicviewreturns(uint[],uint[]){uint[]memorytemp;uint[]memoryresult=newuint[](OwnerCount[msg.sender]);temp=OwnerToNum[msg.sender];for(uintj=0;j<temp.length;j++){result[j]=OwnerNumCount[msg.sender][temp[j]];}return(temp,result);}functiongetWinnumber()publicviewreturns(uint){uinttotal;uintnum;uintwinnummber;for(uinti=0;i<101;i++){total+=number[i]*i;}num=total/totalnum;winnummber=num*2/3;returnwinnummber;}functiongetWinner()publicviewreturns(address[]){address[]memorywinlist;uintwinnernum=getWinnumber();winlist=NumToOwner[winnernum];returnwinlist;}functiongetWinprize()publicviewreturns(uint){returnbalanceOf[address(this)];}function_triggergivewinner_cooldowntime()internal{givewinner_readytime=uint32(now+givewinnercooldown);}functiongetYourToken()publicviewreturns(uint){returnbalanceOf[msg.sender];}functiongivewinnerReady()publicviewreturns(bool){return(givewinner_readytime<=now);}functiongetcooldowntime()publicviewreturns(uint){return(givewinner_readytime-now);}functiongivewinner()publiconlyOwner{require(givewinnerReady());uintwinnerprize=getWinprize();address[]memorywinnerlist=getWinner();uintwinnercount=winnerlist.length;uintwinnernumber=getWinnumber();uintnum_count=number[winnernumber];uintaverageprize=winnerprize/num_count;require(winnerprize>=totalnum);require(winnercount!=0);for(uinti=0;i<winnercount;i++){uintwinner_numcount=OwnerNumCount[winnerlist[i]][winnernumber];_transfer(address(this),winnerlist[i],averageprize*winner_numcount-1);}_triggergivewinner_cooldowntime();emitgiveWinnerEvent(winnerlist,averageprize-1);reset();}functionreset()publiconlyOwner{address[]memorytemp;uint[]memorytemp1;uint[]memoryresult;address[]memorytemp2;for(uinti=0;i<101;i++){number[i]=0;NumToOwner[i]=temp;}totalnum=0;_transfer(address(this),owner,balanceOf[address(this)]);uintplayercount=playerlist.length;for(uintj=0;j<playercount;j++){result=OwnerToNum[playerlist[j]];for(uintk=0;k<result.length;k++){OwnerNumCount[playerlist[j]][result[k]]=0;}OwnerCount[playerlist[j]]=0;OwnerToNum[playerlist[j]]=temp1;joining[playerlist[j]]=false;}start=0;playerlist=temp2;emitresetEvent();}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 231
+column: 4
+content: functionsetPrices(uint256newSellPrice,uint256newBuyPrice)onlyOwnerpublic{sellPrice=newSellPrice;buyPrice=newBuyPrice;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 50
+column: 8
+content: stringtokenName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 51
+column: 8
+content: stringtokenSymbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 133
+column: 62
+content: bytes_extraData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 194
+column: 8
+content: stringtokenName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 195
+column: 8
+content: stringtokenSymbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 255
+column: 8
+content: stringtokenName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 256
+column: 8
+content: stringtokenSymbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 354
+column: 48
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 354
+column: 55
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 383
+column: 45
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 471
+column: 8
+content: stringtokenName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 472
+column: 8
+content: stringtokenSymbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 504
+column: 51
+content: address[]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 270
+column: 4
+content: uintgivewinnercooldown=10seconds;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 272
+column: 4
+content: uintpayforwinfee=0.0001ether;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_UPGRADE_TO_050 :13
+SOLIDITY_GAS_LIMIT_IN_LOOPS :6
+SOLIDITY_ERC20_APPROVE :1

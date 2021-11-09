@@ -1,0 +1,141 @@
+C:\Users\hp\DataSet\contracts\ropsten\41\416cb03d6eb0e4edd7f75960a5aefffa52c608ee_Tokens.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 193
+column: 4
+content: functionapprove(address_approver,address_spender,uint256_value)publicreturns(boolsuccess){allowance[_approver][_spender][msg.sender]=_value;emitApproval(_approver,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 41
+column: 8
+content: while(keccak256(tokens[j].name)!=keccak256("")){if(keccak256(_name)==keccak256(tokens[j].name)){emitjV(j);returntrue;}else{j++;continue;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 58
+column: 8
+content: while(keccak256(tokens[j].nativeCurrency)!=keccak256("")){if(keccak256(_name)==keccak256(tokens[j].nativeCurrency))returntrue;else{j++;continue;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 72
+column: 8
+content: while(keccak256(tokens[j].name)!=keccak256("")){if(keccak256(_name)==keccak256(tokens[j].name))returntokens[j].add;else{j++;continue;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 86
+column: 8
+content: while(keccak256(tokens[j].nativeCurrency)!=keccak256("")){if(keccak256(_name)==keccak256(tokens[j].nativeCurrency))returntokens[j].name;else{j++;continue;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 38f6c7
+severity: 2
+line: 41
+column: 8
+content: while(keccak256(tokens[j].name)!=keccak256("")){if(keccak256(_name)==keccak256(tokens[j].name)){emitjV(j);returntrue;}else{j++;continue;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 38f6c7
+severity: 2
+line: 58
+column: 8
+content: while(keccak256(tokens[j].nativeCurrency)!=keccak256("")){if(keccak256(_name)==keccak256(tokens[j].nativeCurrency))returntrue;else{j++;continue;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 38f6c7
+severity: 2
+line: 72
+column: 8
+content: while(keccak256(tokens[j].name)!=keccak256("")){if(keccak256(_name)==keccak256(tokens[j].name))returntokens[j].add;else{j++;continue;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 38f6c7
+severity: 2
+line: 86
+column: 8
+content: while(keccak256(tokens[j].nativeCurrency)!=keccak256("")){if(keccak256(_name)==keccak256(tokens[j].nativeCurrency))returntokens[j].name;else{j++;continue;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 8
+column: 0
+content: contractTokens{addresspublicowner;uint256publici;addresspubliccont;structnativeTokens{addressadd;stringname;stringnativeCurrency;uint256amount;}mapping(uint256=>nativeTokens)publictokens;modifierisOwner(){require(msg.sender==owner);_;}functionsetNativeTokens(address_add,string_name,string_nativeCurrency,uint256_initialSupply)public{tokens[i].add=_add;tokens[i].name=_name;tokens[i].nativeCurrency=_nativeCurrency;tokens[i].amount=_initialSupply;i++;}eventjV(uint256);functiongetTokens(string_name)publicviewreturns(bool){uint256j=1;while(keccak256(tokens[j].name)!=keccak256("")){if(keccak256(_name)==keccak256(tokens[j].name)){emitjV(j);returntrue;}else{j++;continue;}}emitjV(j);returnfalse;}functiongetCurrency(string_name)publicviewreturns(bool){uint256j=1;while(keccak256(tokens[j].nativeCurrency)!=keccak256("")){if(keccak256(_name)==keccak256(tokens[j].nativeCurrency))returntrue;else{j++;continue;}}returnfalse;}functiongetAdd(string_name)publicviewreturns(address){uint256j=1;while(keccak256(tokens[j].name)!=keccak256("")){if(keccak256(_name)==keccak256(tokens[j].name))returntokens[j].add;else{j++;continue;}}revert();}functiongetTokenForCurrency(string_name)publicviewreturns(string){uint256j=1;while(keccak256(tokens[j].nativeCurrency)!=keccak256("")){if(keccak256(_name)==keccak256(tokens[j].nativeCurrency))returntokens[j].name;else{j++;continue;}}revert();}eventTransfer(addressindexed_from,addressindexed_to,uint256_value);eventApproval(addressindexed_owner,addressindexed_spender,uint256_value);mapping(address=>mapping(address=>uint256))publicbalanceOf;mapping(address=>mapping(address=>mapping(address=>uint256)))publicallowance;constructor(){owner=msg.sender;cont=address(this);i=1;}functionsetBalance(addresswal,addresstok,uint256val)public{balanceOf[wal][tok]=val;}functiongetBalance(addresswal,addresstok)publicreturns(uint256){returnbalanceOf[wal][tok];}functiontransferTokens(address_from,address_to,uint256_value)publicpayablereturns(boolsuccess){require(balanceOf[_from][msg.sender]>=_value);balanceOf[_from][msg.sender]-=_value;balanceOf[_to][msg.sender]+=_value;emitTransfer(_from,_to,_value);returntrue;}functiontransferProto(address_from,address_fromWallet,uint256_value)publicpayablereturns(boolsuccess){require(balanceOf[_from][_fromWallet]>=_value);balanceOf[_from][_fromWallet]-=_value;balanceOf[msg.sender][_fromWallet]+=_value;emitTransfer(_from,msg.sender,_value);returntrue;}functiontransferProtoEx(address_from,address_fromWallet,address_to,uint256_value)publicpayablereturns(boolsuccess){require(balanceOf[_from][_fromWallet]>=_value);balanceOf[_from][_fromWallet]-=_value;balanceOf[_to][_fromWallet]+=_value;emitTransfer(_from,_to,_value);returntrue;}functionapprove(address_approver,address_spender,uint256_value)publicreturns(boolsuccess){allowance[_approver][_spender][msg.sender]=_value;emitApproval(_approver,_spender,_value);returntrue;}functiontransferFrom(address_requester,address_from,address_to,uint256_value)publicpayablereturns(boolsuccess){require(_value<=balanceOf[_from][msg.sender]);require(_value<=allowance[_from][_requester][msg.sender]);balanceOf[_from][msg.sender]-=_value;balanceOf[_to][msg.sender]+=_value;allowance[_from][_requester][msg.sender]-=_value;emitTransfer(_from,_to,_value);returntrue;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 6
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 30
+column: 43
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 30
+column: 57
+content: string_nativeCurrency
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 39
+column: 23
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 56
+column: 25
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 70
+column: 20
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 84
+column: 33
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 84
+column: 67
+content: string
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 127
+column: 4
+content: constructor(){owner=msg.sender;cont=address(this);i=1;}
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :4
+SOLIDITY_UPGRADE_TO_050 :7
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4
+SOLIDITY_ERC20_APPROVE :1

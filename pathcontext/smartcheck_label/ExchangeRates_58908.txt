@@ -1,0 +1,213 @@
+C:\Users\hp\DataSet\ExchangeRates.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 541
+column: 16
+content: array.length--
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 295
+column: 8
+content: for(uinti=0;i<currencyKeys.length;i++){lastUpdateTimes[i]=lastRateUpdateTimes(currencyKeys[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 338
+column: 8
+content: for(uinti=0;i<currencyKeys.length;i++){_localRates[i]=getRate(currencyKeys[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 353
+column: 8
+content: for(uinti=0;i<currencyKeys.length;i++){RateAndUpdatedTimememoryrateAndUpdateTime=getRateAndUpdatedTime(currencyKeys[i]);_localRates[i]=uint256(rateAndUpdateTime.rate);if(!anyRateStale){anyRateStale=(currencyKeys[i]!="sUSD"&&uint256(rateAndUpdateTime.time).add(period)<now);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 424
+column: 8
+content: for(uinti=0;i<currencyKeys.length;i++){bytes32currencyKey=currencyKeys[i];require(newRates[i]!=0,"Zero is not a valid rate, please call deleteRate instead.");require(currencyKey!="sUSD","Rate of sUSD cannot be updated, it's always UNIT.");if(timeSent<lastRateUpdateTimes(currencyKey)){continue;}newRates[i]=rateOrInverted(currencyKey,newRates[i]);_setRate(currencyKey,newRates[i],timeSent);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 531
+column: 8
+content: for(uinti=0;i<array.length;i++){if(array[i]==entry){deletearray[i];array[i]=array[array.length-1];array.length--;returntrue;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 388
+column: 8
+content: while(i<currencyKeys.length){if(currencyKeys[i]!="sUSD"&&lastRateUpdateTimes(currencyKeys[i]).add(rateStalePeriod)<now){returntrue;}i+=1;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 295
+column: 8
+content: for(uinti=0;i<currencyKeys.length;i++){lastUpdateTimes[i]=lastRateUpdateTimes(currencyKeys[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 338
+column: 8
+content: for(uinti=0;i<currencyKeys.length;i++){_localRates[i]=getRate(currencyKeys[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 353
+column: 8
+content: for(uinti=0;i<currencyKeys.length;i++){RateAndUpdatedTimememoryrateAndUpdateTime=getRateAndUpdatedTime(currencyKeys[i]);_localRates[i]=uint256(rateAndUpdateTime.rate);if(!anyRateStale){anyRateStale=(currencyKeys[i]!="sUSD"&&uint256(rateAndUpdateTime.time).add(period)<now);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 424
+column: 8
+content: for(uinti=0;i<currencyKeys.length;i++){bytes32currencyKey=currencyKeys[i];require(newRates[i]!=0,"Zero is not a valid rate, please call deleteRate instead.");require(currencyKey!="sUSD","Rate of sUSD cannot be updated, it's always UNIT.");if(timeSent<lastRateUpdateTimes(currencyKey)){continue;}newRates[i]=rateOrInverted(currencyKey,newRates[i]);_setRate(currencyKey,newRates[i],timeSent);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 531
+column: 8
+content: for(uinti=0;i<array.length;i++){if(array[i]==entry){deletearray[i];array[i]=array[array.length-1];array.length--;returntrue;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 240
+column: 15
+content: true
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 388
+column: 15
+content: i<currencyKeys.length
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 89
+column: 4
+content: functionsetOracle(address_oracle)externalonlyOwner{oracle=_oracle;emitOracleUpdated(oracle);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 98
+column: 4
+content: functionsetRateStalePeriod(uint_time)externalonlyOwner{rateStalePeriod=_time;emitRateStalePeriodUpdated(rateStalePeriod);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 147
+column: 4
+content: functionsetInversePricing(bytes32currencyKey,uintentryPoint,uintupperLimit,uintlowerLimit,boolfreeze,boolfreezeAtUpperLimit)externalonlyOwner{require(entryPoint>0,"entryPoint must be above 0");require(lowerLimit>0,"lowerLimit must be above 0");require(upperLimit>entryPoint,"upperLimit must be above the entryPoint");require(upperLimit<entryPoint.mul(2),"upperLimit must be less than double entryPoint");require(lowerLimit<entryPoint,"lowerLimit must be below the entryPoint");if(inversePricing[currencyKey].entryPoint<=0){invertedKeys.push(currencyKey);}inversePricing[currencyKey].entryPoint=entryPoint;inversePricing[currencyKey].upperLimit=upperLimit;inversePricing[currencyKey].lowerLimit=lowerLimit;inversePricing[currencyKey].frozen=freeze;emitInversePriceConfigured(currencyKey,entryPoint,upperLimit,lowerLimit);if(freeze){emitInversePriceFrozen(currencyKey);_setRate(currencyKey,freezeAtUpperLimit?upperLimit:lowerLimit,now);}}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 22
+column: 60
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 34
+column: 9
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 13
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 549
+column: 97
+content: (uintrate,uinttime)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 66
+column: 8
+content: bytes32[]_currencyKeys
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 67
+column: 8
+content: uint[]_newRates
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 292
+column: 46
+content: bytes32[]currencyKeys
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 292
+column: 91
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 419
+column: 33
+content: bytes32[]currencyKeys
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 419
+column: 57
+content: uint[]newRates
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 512
+column: 79
+content: RateAndUpdatedTime
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 49
+column: 4
+content: mapping(bytes32=>uint)currentRoundForRate;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :3
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :6
+SOLIDITY_UPGRADE_TO_050 :7
+SOLIDITY_GAS_LIMIT_IN_LOOPS :7
+SOLIDITY_SHOULD_RETURN_STRUCT :1

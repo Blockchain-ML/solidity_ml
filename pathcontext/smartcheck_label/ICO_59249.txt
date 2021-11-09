@@ -1,0 +1,76 @@
+C:\Users\hp\DataSet\ICO.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 74
+column: 2
+content: functiongetBonus(uint_value,uint_sold)publicconstantreturns(uint){uint[8]memory_bonusPattern=[150,125,100,75,50,38,25,uint(13)];uint_step=TOKENS_FOR_SALE/10;uint_bonus=0;for(uint8i=0;_value>0&&i<_bonusPattern.length;++i){uint_min=_step*i;uint_max=_step*(i+1);if(_sold>=_min&&_sold<_max){uint_bonusedPart=min(_value,_max-_sold);_bonus+=_bonusedPart*_bonusPattern[i]/1000;_value-=_bonusedPart;_sold+=_bonusedPart;}}return_bonus;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 183
+column: 2
+content: functionmin(uinta,uintb)internalconstantreturns(uint){returna<b?a:b;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 81
+column: 4
+content: for(uint8i=0;_value>0&&i<_bonusPattern.length;++i){uint_min=_step*i;uint_max=_step*(i+1);if(_sold>=_min&&_sold<_max){uint_bonusedPart=min(_value,_max-_sold);_bonus+=_bonusedPart*_bonusPattern[i]/1000;_value-=_bonusedPart;_sold+=_bonusedPart;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 122
+column: 4
+content: for(uinti=0;i<_investors.length;i++)doMigration(_investors[i]);
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 122
+column: 4
+content: for(uinti=0;i<_investors.length;i++)doMigration(_investors[i]);
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 49
+column: 2
+content: functionICO(address_team,address_preICO,address_tradeRobot){snm=newSNM(this);preICO=PreICO(_preICO);team=_team;tradeRobot=_tradeRobot;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 32
+column: 2
+content: PreICOpreICO;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 40
+column: 2
+content: uinttokensSold=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 43
+column: 2
+content: IcoStateicoState=IcoState.Created;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

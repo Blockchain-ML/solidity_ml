@@ -1,0 +1,333 @@
+C:\Users\hp\DataSet\contracts\ropsten\00\000000d781bcca1b13eba4fc04f1a8fdb12f6982_Marmo.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 227
+column: 29
+content: 0xff
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 104
+column: 8
+content: for(uint256i;i<_dependencies.length;i++){if(relayerOf[_dependencies[i]]==address(0))returnfalse;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 237
+column: 4
+content: functionreveal(address_signer)externalreturns(Proxyp){bytesmemoryproxyCode=bytecode;assembly{letnonce:=mload(0x40)mstore(nonce,_signer)mstore(0x40,add(nonce,0x20))p:=create2(0,add(proxyCode,0x20),mload(proxyCode),_signer)}Marmo(address(p)).init(_signer);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 104
+column: 8
+content: for(uint256i;i<_dependencies.length;i++){if(relayerOf[_dependencies[i]]==address(0))returnfalse;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 213
+column: 8
+content: for(i=0;i<blength;i++){_out[j++]=_baseBytes[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 217
+column: 8
+content: for(i=0;i<vlength;i++){_out[j++]=_valueBytes[i];}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 163
+column: 0
+content: contractProxy{function()externalpayable{assembly{calldatacopy(0,0,calldatasize)letresult:=delegatecall(gas,0x000000d781bcca1b13eba4fc04f1a8fdb12f6982,0,calldatasize,0,0)returndatacopy(0,0,returndatasize)ifiszero(result){revert(0,returndatasize)}return(0,returndatasize)}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 11
+column: 4
+content: functionecrecover2(bytes32_hash,bytesmemory_signature)internalpurereturns(address){bytes32r;bytes32s;uint8v;assembly{r:=mload(add(_signature,32))s:=mload(add(_signature,64))v:=and(mload(add(_signature,65)),255)}if(v<27){v+=27;}returnecrecover(_hash,v,r,s);}
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 133
+column: 30
+content: call.value(_value)(_data)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 19
+column: 8
+content: assembly{r:=mload(add(_signature,32))s:=mload(add(_signature,64))v:=and(mload(add(_signature,65)),255)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 165
+column: 8
+content: assembly{calldatacopy(0,0,calldatasize)letresult:=delegatecall(gas,0x000000d781bcca1b13eba4fc04f1a8fdb12f6982,0,calldatasize,0,0)returndatacopy(0,0,returndatasize)ifiszero(result){revert(0,returndatasize)}return(0,returndatasize)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 240
+column: 8
+content: assembly{letnonce:=mload(0x40)mstore(nonce,_signer)mstore(0x40,add(nonce,0x20))p:=create2(0,add(proxyCode,0x20),mload(proxyCode),_signer)}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 111
+column: 4
+content: functionrelay(bytes32[]calldata_dependencies,address_to,uint256_value,bytescalldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 115
+column: 23
+content: _data,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 116
+column: 8
+content: uint256_minGasLimit,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 117
+column: 8
+content: uint256_maxGasPrice,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 118
+column: 8
+content: bytes32_salt,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 119
+column: 8
+content: bytescalldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 120
+column: 23
+content: (bool<missing ')'>success,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 122
+column: 8
+content: bytesmemorydata){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 124
+column: 8
+content: bytes32id=encodeTransactionData(_dependencies,_to,_value,_data,_minGasLimit,_maxGasPrice,_salt);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 126
+column: 8
+content: require(tx.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 126
+column: 19
+content: gasprice<=_maxGasPrice);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 127
+column: 8
+content: require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 127
+column: 15
+content: (!isCanceled[id],"Transaction was canceled");require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 128
+column: 15
+content: (relayerOf[id]==<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 128
+column: 33
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 128
+column: 40
+content: (0),"Transaction already relayed");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 129
+column: 8
+content: require(dependenciesSatisfied
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 129
+column: 37
+content: (_dependencies),"Parent relay not found");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 130
+column: 8
+content: require(msg.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 130
+column: 20
+content: sender==owner||
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 130
+column: 39
+content: msg.sender==SigUtils.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 130
+column: 62
+content: ecrecover2(id,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 130
+column: 77
+content: _signature),"Invalid signature");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 132
+column: 8
+content: require(gasleft
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 132
+column: 23
+content: ()>_minGasLimit);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 133
+column: 8
+content: (success,data)=_to.call.value(_value)(_data);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 135
+column: 8
+content: relayerOf[id]=msg.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 135
+column: 28
+content: sender;emit
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 137
+column: 13
+content: Relayed(id,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 139
+column: 12
+content: _dependencies,_to,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 141
+column: 12
+content: _value,_data,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 143
+column: 12
+content: _salt,msg.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 144
+column: 16
+content: sender,success);
+
+SOLIDITY_VISIBILITY :33
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_USING_INLINE_ASSEMBLY :3
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

@@ -1,0 +1,74 @@
+F:\Blockchain\dataset_new_byID\73755.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractLockableSigisMultiSig{bytespublicconstantLOCK=abi.encodePacked(keccak256("LOCK"));boolinternallocked_;constructor(address[]memory_addresses,uint8_threshold)publicMultiSig(_addresses,_threshold){}functionisLocked()publicviewreturns(bool){returnlocked_;}functionlock()publiconlySigners{locked_=true;}functionunlock(bytes32[]memory_sigR,bytes32[]memory_sigS,uint8[]memory_sigV)publicthresholdRequired(address(this),0,LOCK,0,threshold_,_sigR,_sigS,_sigV){locked_=false;}functionexecuteInternal(addresspayable_destination,uint256_value,bytesmemory_data)internaloverride{require(!locked_,"LS01");super.executeInternal(_destination,_value,_data);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 38
+column: 2
+content: functionexecuteInternal(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 43
+content: _destination,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 57
+content: uint256_value,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 73
+content: bytesmemory_data)internal
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 39
+column: 13
+content: override{require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 41
+column: 11
+content: (!locked_,"LS01");super.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 42
+column: 10
+content: executeInternal(_destination,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 42
+column: 40
+content: _value,_data);
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

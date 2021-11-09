@@ -1,0 +1,426 @@
+C:\Users\hp\DataSet\contracts\ropsten\e5\e51a72c71d5243fd9e2a8707971f7a1535d785b0_KYV.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 110
+column: 4
+content: functiongetOrg(string_vendorId)publicconstantreturns(stringcode,stringregNumber,stringdataHash,stringadminId,stringcreatedDate,stringstatus,stringupdatedDate){Organisationmemoryorg=orgs[_vendorId];return(org.code,org.regNumber,org.dataHash,org.adminId,org.createdDate,org.status,org.updatedDate);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 117
+column: 4
+content: functiongetDoc(string_vendorId,string_docId)publicconstantreturns(stringdocId,stringdocHash,string_date){Documentmemorydoc=documentIndex[_vendorId][_docId];return(doc.docId,doc.docHash,doc.createdDate);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 123
+column: 4
+content: functiongetDocsCount(string_vendorId)publicconstantreturns(uintindex){returndocs[_vendorId].length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 128
+column: 4
+content: functiongetDocByIndex(string_vendorId,uint_index)publicconstantreturns(stringdocId,stringdocHash,stringdate){Documentmemorydoc=docs[_vendorId][_index-1];return(doc.docId,doc.docHash,doc.createdDate);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 134
+column: 4
+content: functiongetOwner()publicconstantreturns(string,address){return(creatorName,creatorAddress);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 139
+column: 4
+content: functiongetOrgCount(string_vendorId)publicconstantreturns(uintindex){returnorgTrack[_vendorId].length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 144
+column: 4
+content: functiongetOrgByIndex(string_vendorId,uint_index)publicconstantreturns(stringcode,stringregNumber,stringdataHash,stringadminId,stringcreatedDate,stringstatus,stringupdatedDate){Organisationmemoryorg=orgTrack[_vendorId][_index-1];return(org.code,org.regNumber,org.dataHash,org.adminId,org.createdDate,org.status,org.updatedDate);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 6
+column: 0
+content: contractKYV{eventLog(stringeventMessage,stringstatus);structOrganisation{stringcode;stringregNumber;stringdataHash;stringstatus;stringcreatedDate;stringupdatedDate;stringadminId;boolisValue;}structDocument{stringdocId;stringdocHash;stringcreatedDate;}stringcreatorName;addresscreatorAddress;mapping(string=>Organisation)orgs;mapping(string=>Organisation[])orgTrack;mapping(string=>Document[])docs;mapping(string=>mapping(string=>Document))documentIndex;constructor(string_creator)public{creatorName=_creator;creatorAddress=msg.sender;emitLog("Contract deployed successfully by ",_creator);}functionisPartOfOrg(string_vendorId)privateviewreturns(bool){if(orgs[_vendorId].isValue){returntrue;}returnfalse;}functionaddOrg(string_vendorId,string_code,string_regNumber,string_dataHash,string_date,string_status)publicpayablereturns(uint){if(!isPartOfOrg(_vendorId)){Organisationstorageorg=orgs[_vendorId];org.code=_code;org.regNumber=_regNumber;org.dataHash=_dataHash;org.createdDate=_date;org.status=_status;org.isValue=true;orgTrack[_vendorId].push(org);emitLog("Successfully added organisation",_status);return0;}return7;}functionapproveRejectOrg(string_adminId,string_vendorId,string_status,string_date,string_dataHash)publicpayablereturns(uint){if(isPartOfOrg(_vendorId)){Organisationstorageorg=orgs[_vendorId];org.status=_status;org.updatedDate=_date;org.adminId=_adminId;org.dataHash=_dataHash;orgTrack[_vendorId].push(org);emitLog("Approve or Reject organisation",_status);return0;}return7;}functionaddDoc(string_vendorId,string_docId,string_docHash,string_date)publicpayablereturns(uint){Documentstoragedoc=documentIndex[_vendorId][_docId];doc.docId=_docId;doc.docHash=_docHash;doc.createdDate=_date;docs[_vendorId].push(doc);return0;}functiongetOrg(string_vendorId)publicconstantreturns(stringcode,stringregNumber,stringdataHash,stringadminId,stringcreatedDate,stringstatus,stringupdatedDate){Organisationmemoryorg=orgs[_vendorId];return(org.code,org.regNumber,org.dataHash,org.adminId,org.createdDate,org.status,org.updatedDate);}functiongetDoc(string_vendorId,string_docId)publicconstantreturns(stringdocId,stringdocHash,string_date){Documentmemorydoc=documentIndex[_vendorId][_docId];return(doc.docId,doc.docHash,doc.createdDate);}functiongetDocsCount(string_vendorId)publicconstantreturns(uintindex){returndocs[_vendorId].length;}functiongetDocByIndex(string_vendorId,uint_index)publicconstantreturns(stringdocId,stringdocHash,stringdate){Documentmemorydoc=docs[_vendorId][_index-1];return(doc.docId,doc.docHash,doc.createdDate);}functiongetOwner()publicconstantreturns(string,address){return(creatorName,creatorAddress);}functiongetOrgCount(string_vendorId)publicconstantreturns(uintindex){returnorgTrack[_vendorId].length;}functiongetOrgByIndex(string_vendorId,uint_index)publicconstantreturns(stringcode,stringregNumber,stringdataHash,stringadminId,stringcreatedDate,stringstatus,stringupdatedDate){Organisationmemoryorg=orgTrack[_vendorId][_index-1];return(org.code,org.regNumber,org.dataHash,org.adminId,org.createdDate,org.status,org.updatedDate);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 50
+column: 17
+content: string_creator
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 57
+column: 25
+content: string_vendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 67
+column: 20
+content: string_vendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 67
+column: 38
+content: string_code
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 67
+column: 52
+content: string_regNumber
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 67
+column: 71
+content: string_dataHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 67
+column: 89
+content: string_date
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 67
+column: 103
+content: string_status
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 85
+column: 30
+content: string_adminId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 85
+column: 47
+content: string_vendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 85
+column: 65
+content: string_status
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 85
+column: 81
+content: string_date
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 85
+column: 95
+content: string_dataHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 100
+column: 20
+content: string_vendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 100
+column: 37
+content: string_docId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 100
+column: 52
+content: string_docHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 100
+column: 69
+content: string_date
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 110
+column: 20
+content: string_vendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 110
+column: 63
+content: stringcode
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 110
+column: 76
+content: stringregNumber
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 111
+column: 20
+content: stringdataHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 111
+column: 37
+content: stringadminId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 111
+column: 53
+content: stringcreatedDate
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 111
+column: 73
+content: stringstatus
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 111
+column: 88
+content: stringupdatedDate
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 117
+column: 20
+content: string_vendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 117
+column: 38
+content: string_docId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 117
+column: 78
+content: stringdocId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 117
+column: 92
+content: stringdocHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 117
+column: 108
+content: string_date
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 123
+column: 26
+content: string_vendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 128
+column: 27
+content: string_vendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 128
+column: 83
+content: stringdocId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 128
+column: 97
+content: stringdocHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 128
+column: 113
+content: stringdate
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 134
+column: 49
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 139
+column: 25
+content: string_vendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 144
+column: 27
+content: string_vendorId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 144
+column: 82
+content: stringcode
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 144
+column: 95
+content: stringregNumber
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 145
+column: 20
+content: stringdataHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 145
+column: 37
+content: stringadminId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 145
+column: 53
+content: stringcreatedDate
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 145
+column: 73
+content: stringstatus
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 145
+column: 88
+content: stringupdatedDate
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 34
+column: 4
+content: stringcreatorName;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 4
+content: addresscreatorAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 4
+content: mapping(string=>Organisation)orgs;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 41
+column: 4
+content: mapping(string=>Organisation[])orgTrack;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 4
+content: mapping(string=>Document[])docs;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 47
+column: 4
+content: mapping(string=>mapping(string=>Document))documentIndex;
+
+SOLIDITY_VISIBILITY :6
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :7
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :45

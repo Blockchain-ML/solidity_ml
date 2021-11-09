@@ -1,0 +1,82 @@
+C:\Users\hp\DataSet\contracts\ropsten\8e\8eaf0f1e853f4c53434f803cd68e7cb72366badf_Paramount.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 45
+column: 27
+content: maxDelta*(1-msg.value/currentBalance)
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 17
+column: 0
+content: contractParamount{addressowner;addresslastBidder;uintlastBidBlock;uintdecimals=18;uintminBid=10*decimals/100;uintmaxDelta=6000;uintminDelta=10;uintcurrentDelta=maxDelta;constructor()public{owner=msg.sender;lastBidder=owner;lastBidBlock=block.number;}function()externalpayable{owner.transfer(msg.value/20);uintcurrentBalance=address(this).balance;if(lastBidBlock+currentDelta<=block.number){lastBidder.transfer(currentBalance);}elseif(msg.value>currentBalance){lastBidder=msg.sender;currentDelta=minDelta;}elseif(msg.value>=minBid){lastBidder=msg.sender;currentDelta=maxDelta*(1-msg.value/currentBalance)+minDelta;}}functiongetLastBidder()publicviewreturns(address){returnlastBidder;}functionblocksUntilWin()publicviewreturns(uint){if(lastBidBlock+currentDelta>block.number){returnlastBidBlock+currentDelta-block.number;}else{return0;}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 18
+column: 4
+content: addressowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 4
+content: addresslastBidder;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 20
+column: 4
+content: uintlastBidBlock;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 21
+column: 4
+content: uintdecimals=18;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 22
+column: 4
+content: uintminBid=10*decimals/100;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 23
+column: 4
+content: uintmaxDelta=6000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 24
+column: 4
+content: uintminDelta=10;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 25
+column: 4
+content: uintcurrentDelta=maxDelta;
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_DIV_MUL :1

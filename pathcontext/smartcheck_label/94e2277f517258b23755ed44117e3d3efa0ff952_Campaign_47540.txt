@@ -1,0 +1,103 @@
+C:\Users\hp\DataSet\contracts\ropsten\94\94e2277f517258b23755ed44117e3d3efa0ff952_Campaign.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 154
+column: 2
+content: functionclaimReward(address_owner,string_reason)publicisOpeningreturns(bool){require(_owner!=address(0));boolresult=false;if(rewardType==1){result=_claimReward20(_owner,_reason);}elseif(rewardType==2){result=_claimReward721(_owner,_reason);}else{result=_claimRewardBlank(_owner,_reason);}if(result){rewardedRecords[_owner]=_reason;emitClaimReward(_owner,_reason);safeAdd(claimedAmount,rewardAmountPerClaim);if(claimedAmount>=totalRewardAmount){rewardGoalReached=true;emitGoalReached();}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 154
+column: 39
+content: string_reason
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 181
+column: 42
+content: string_reason
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 188
+column: 43
+content: string_reason
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 193
+column: 45
+content: string_reason
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 23rt6g
+severity: 1
+line: 4
+column: 37
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 23rt6g
+severity: 1
+line: 5
+column: 55
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 23rt6g
+severity: 1
+line: 6
+column: 49
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 23rt6g
+severity: 1
+line: 7
+column: 68
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 23rt6g
+severity: 1
+line: 8
+column: 53
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 89
+column: 2
+content: constructor(uint256_cid,string_name,uint256_startTime,uint256_endTime,uint8_rewardType,address_rewardTokenContract,uint256_rewardAmountPerClaim,uint256_totalRewardAmount,string_metaUrl){cid=_cid;name=_name;startTime=_startTime;endTime=_endTime;rewardType=_rewardType;rewardTokenContract=_rewardTokenContract;rewardAmountPerClaim=_rewardAmountPerClaim;totalRewardAmount=_totalRewardAmount;metaUrl=_metaUrl;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 143
+column: 2
+content: functionupdateMeta(uint256_newStartTime,uint256_newEndTime,string_newMetaUrl)returns(bool){require(_newEndTime>_newStartTime);startTime=_newStartTime;endTime=_newEndTime;metaUrl=_newMetaUrl;emitUpdateMeta(_newMetaUrl);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 83
+column: 2
+content: mapping(address=>string)rewardedRecords;
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_UPGRADE_TO_050 :4

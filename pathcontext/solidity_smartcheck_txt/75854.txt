@@ -1,0 +1,133 @@
+F:\Blockchain\dataset_new_byID\75854.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 5
+column: 4
+content: functiongetNextString(bytes_str,uint8_pos)internalconstantreturns(string,uint8){uint8start=0;uint8end=0;for(;_str.length>_pos;_pos++){if(_str[_pos]=='"'){if(_str[_pos-1]!='\\'){end=start==0?0:_pos;start=start==0?(_pos+1):start;if(end>0)break;}}}bytesmemorystr=newbytes(end-start);for(_pos=0;_pos<str.length;_pos++){str[_pos]=_str[start+_pos];}for(_pos=end+1;_pos<_str.length;_pos++)if(_str[_pos]==','){_pos++;break;}return(string(str),_pos);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 27
+column: 4
+content: functiongetNextUInt(bytes_str,uint8_pos)internalconstantreturns(uint,uint8){uintval=0;for(;_str.length>_pos;_pos++){if(_str[_pos]==','){_pos++;break;}elseif((_str[_pos]>=48)&&(_str[_pos]<=57)){val*=10;val+=uint(_str[_pos])-48;}}return(val,_pos);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 40
+column: 4
+content: functiongetNextAddr(bytes_str,uint8_pos)internalconstantreturns(address,uint8){uint160iaddr=0;for(;_str.length>_pos;_pos++){if(_str[_pos]=='0'){if(_str[_pos+1]=='x'){for(_pos=_pos+2;_pos<2+2*20;_pos+=2){iaddr*=256;iaddr+=(uint160(hexVal(uint160(_str[_pos])))*16+uint160(hexVal(uint160(_str[_pos+1]))));}_pos++;break;}}elseif(_str[_pos]==','){_pos++;break;}}return(address(iaddr),_pos);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 60
+column: 4
+content: functionhexVal(uintval)internalconstantreturns(uint){returnval-(val<58?48:(val<97?55:87));}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 8
+column: 8
+content: for(;_str.length>_pos;_pos++){if(_str[_pos]=='"'){if(_str[_pos-1]!='\\'){end=start==0?0:_pos;start=start==0?(_pos+1):start;if(end>0)break;}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 18
+column: 8
+content: for(_pos=0;_pos<str.length;_pos++){str[_pos]=_str[start+_pos];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 21
+column: 8
+content: for(_pos=end+1;_pos<_str.length;_pos++)if(_str[_pos]==','){_pos++;break;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 29
+column: 8
+content: for(;_str.length>_pos;_pos++){if(_str[_pos]==','){_pos++;break;}elseif((_str[_pos]>=48)&&(_str[_pos]<=57)){val*=10;val+=uint(_str[_pos])-48;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 42
+column: 8
+content: for(;_str.length>_pos;_pos++){if(_str[_pos]=='0'){if(_str[_pos+1]=='x'){for(_pos=_pos+2;_pos<2+2*20;_pos+=2){iaddr*=256;iaddr+=(uint160(hexVal(uint160(_str[_pos])))*16+uint160(hexVal(uint160(_str[_pos+1]))));}_pos++;break;}}elseif(_str[_pos]==','){_pos++;break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 18
+column: 8
+content: for(_pos=0;_pos<str.length;_pos++){str[_pos]=_str[start+_pos];}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 5
+column: 77
+content: (string,uint8)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 27
+column: 75
+content: (uint,uint8)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 40
+column: 75
+content: (address,uint8)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 5
+column: 27
+content: bytes_str
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 5
+column: 78
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 27
+column: 25
+content: bytes_str
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 40
+column: 25
+content: bytes_str
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :5
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_SHOULD_RETURN_STRUCT :3

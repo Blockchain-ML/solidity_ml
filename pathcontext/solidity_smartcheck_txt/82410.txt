@@ -1,0 +1,53 @@
+F:\Blockchain\dataset_new_byID\82410.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 10
+column: 2
+content: functiontestCreateSharesLocalCrypto()returns(bool){LocalCryptocrypto=LocalCrypto(DeployedAddresses.LocalCrypto());uint[]memorycoef=newuint[](3);coef[0]=129;coef[1]=166;coef[2]=94;uint[6]memoryshares=crypto.createShares(coef,6);Assert.equal(shares[0],389,"First share");Assert.equal(shares[1],837,"Second share");Assert.equal(shares[2],1473,"Third share");Assert.equal(shares[3],2297,"Fourth share");Assert.equal(shares[4],3309,"Fifth share");Assert.equal(shares[5],4509,"Sixth share");Assert.equal(shares[0],0,"Should fail");}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 10
+column: 2
+content: functiontestCreateSharesLocalCrypto()returns(bool){LocalCryptocrypto=LocalCrypto(DeployedAddresses.LocalCrypto());uint[]memorycoef=newuint[](3);coef[0]=129;coef[1]=166;coef[2]=94;uint[6]memoryshares=crypto.createShares(coef,6);Assert.equal(shares[0],389,"First share");Assert.equal(shares[1],837,"Second share");Assert.equal(shares[2],1473,"Third share");Assert.equal(shares[3],2297,"Fourth share");Assert.equal(shares[4],3309,"Fifth share");Assert.equal(shares[5],4509,"Sixth share");Assert.equal(shares[0],0,"Should fail");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 38
+column: 2
+content: functiontestJoinSharesLocalCrypto(){LocalCryptocrypto=LocalCrypto(DeployedAddresses.LocalCrypto());uint[2]memorykey=crypto.createPubKeyWithY(129);uint[3]memorypos;pos[0]=2;pos[1]=4;pos[2]=5;uint[3]memorykey2=crypto.joinShares(crypto.createPubKeyWithY(837),crypto.createPubKeyWithY(2297),crypto.createPubKeyWithY(3309),pos);Assert.equal(key[0],key2[0],"X-cordinates of key should match!");Assert.equal(key[0],0,"Should fail");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 52
+column: 2
+content: functiontestCommitmentValidation(){LocalCryptocrypto=LocalCrypto(DeployedAddresses.LocalCrypto());crypto.storeCommitmentTESTING(0,crypto.createPubKeyWithY(389));crypto.storeCommitmentTESTING(1,crypto.createPubKeyWithY(837));crypto.storeCommitmentTESTING(2,crypto.createPubKeyWithY(1473));crypto.storeCommitmentTESTING(3,crypto.createPubKeyWithY(2297));crypto.storeCommitmentTESTING(4,crypto.createPubKeyWithY(3309));crypto.storeCommitmentTESTING(5,crypto.createPubKeyWithY(4509));Assert.equal(crypto.validateCommitments(123213,3),true,"Validation of commitments failed.");uintt=123;Assert.equal(t,1,"Should fail");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 2
+content: functiontestCommitmentValidationFailBadShares(){LocalCryptocrypto=LocalCrypto(DeployedAddresses.LocalCrypto());crypto.storeCommitmentTESTING(0,crypto.createPubKeyWithY(732183));crypto.storeCommitmentTESTING(1,crypto.createPubKeyWithY(1231273));crypto.storeCommitmentTESTING(2,crypto.createPubKeyWithY(14473));crypto.storeCommitmentTESTING(3,crypto.createPubKeyWithY(22197));crypto.storeCommitmentTESTING(4,crypto.createPubKeyWithY(33309));crypto.storeCommitmentTESTING(5,crypto.createPubKeyWithY(45209));Assert.equal(crypto.validateCommitments(123213,3),false,"Validation of commitments failed.");uintt=123;Assert.equal(t,1,"Should fail");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 83
+column: 2
+content: functiontestDiscreteLogEquality(){LocalCryptocrypto=LocalCrypto(DeployedAddresses.LocalCrypto());uintd=123;uintw=1230123102;uint[2]memorydG=crypto.mulG(d);uint[2]memorydY=crypto.mulY(d);uint[2]memorya1;uint[2]memorya2;uintz;(a1,a2,z)=crypto.createDiscreteLogEquality(w,d,crypto.getG(),crypto.getY(),dG,dY);boolres=crypto.verifyDiscreteLogEquality(z,crypto.getG(),crypto.getY(),dG,dY,a1,a2);Assert.equal(res,true,"Discrete Log Equality");Assert.equal(d,0,"Should fail");}
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1

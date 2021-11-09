@@ -1,0 +1,83 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\90266.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 50
+column: 22
+content: seatprice/10*2
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 33
+column: 0
+content: contractTheTrainS{addresstraindriver;uint256publicnumbofpassengers=0;uint256winseat=0;uint256randomhash;uint256publicjackpot1=0;uint256publicjackpot2=0;uint256publicjackpot3=0;uint256modulo=0;uint256seatprice=0.1ether;uint256percent=seatprice/10*2;structPassenger{addresspassengeraddress;uintgain;}Passenger[]passengers;constructor()public{traindriver=msg.sender;}function()externalpayable{if(msg.value!=seatprice)revert();passengers.push(Passenger({passengeraddress:msg.sender,gain:0}));numbofpassengers++;traindriver.transfer(percent);randomhash=uint256(blockhash(block.number-1))+numbofpassengers;winseat=randomhash%numbofpassengers;passengers[winseat].passengeraddress.transfer(percent);jackpot1+=percent;modulo=numbofpassengers%5;if(modulo==0){randomhash=uint256(blockhash(block.number-2));winseat=randomhash%numbofpassengers;passengers[winseat].passengeraddress.transfer(jackpot1);jackpot1=0;}jackpot2+=percent;modulo=numbofpassengers%50;if(modulo==0){randomhash=uint256(blockhash(block.number-3));winseat=randomhash%numbofpassengers;passengers[winseat].passengeraddress.transfer(jackpot2);jackpot2=0;}jackpot3+=percent;modulo=numbofpassengers%500;if(modulo==0){randomhash=uint256(blockhash(block.number-4));winseat=randomhash%numbofpassengers;passengers[winseat].passengeraddress.transfer(jackpot3);jackpot3=0;}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 68
+column: 8
+content: if(msg.value!=seatprice)revert();
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 4
+content: addresstraindriver;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 39
+column: 4
+content: uint256winseat=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 40
+column: 4
+content: uint256randomhash;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 4
+content: uint256modulo=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 48
+column: 4
+content: uint256seatprice=0.1ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 50
+column: 4
+content: uint256percent=seatprice/10*2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 59
+column: 4
+content: Passenger[]passengers;
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_DIV_MUL :1

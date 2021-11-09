@@ -1,0 +1,69 @@
+C:\Users\hp\DataSet\contracts\ropsten\8e\8ed2aa517ae8ddaa38789c375dafa9a2c6890a35_STCDR.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 70
+column: 2
+content: functionapprove(address_spender,uint256_value)onlyPayloadSize(2)returns(boolsuccess){require((_value==0)||(allowed[msg.sender][_spender]==0));allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 145
+column: 3
+content: for(uinti=0;i<arrayLength;i++){setTokens(participant[i],amountTokens);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 191
+column: 3
+content: for(uinti=0;i<arrayLength;i++){repsuc=super.transfer(_to[i],_value[i]);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 188
+column: 24
+content: address[]_to
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 188
+column: 39
+content: uint256[]_value
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 52
+column: 2
+content: functiontransferFrom(address_from,address_to,uint256_value)onlyPayloadSize(3)returns(boolsuccess){require(_to!=address(0));require(balances[_from]>=_value&&allowed[_from][msg.sender]>=_value&&_value>0);balances[_from]=safeSub(balances[_from],_value);balances[_to]=safeAdd(balances[_to],_value);allowed[_from][msg.sender]=safeSub(allowed[_from][msg.sender],_value);Transfer(_from,_to,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 70
+column: 2
+content: functionapprove(address_spender,uint256_value)onlyPayloadSize(2)returns(boolsuccess){require((_value==0)||(allowed[msg.sender][_spender]==0));allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 76
+column: 2
+content: functionchangeApproval(address_spender,uint256_oldValue,uint256_newValue)onlyPayloadSize(3)returns(boolsuccess){require(allowed[msg.sender][_spender]==_oldValue);allowed[msg.sender][_spender]=_newValue;Approval(msg.sender,_spender,_newValue);returntrue;}
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_ERC20_APPROVE :1

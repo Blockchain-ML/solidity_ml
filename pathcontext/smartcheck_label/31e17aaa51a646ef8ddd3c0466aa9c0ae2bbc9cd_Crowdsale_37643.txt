@@ -1,0 +1,105 @@
+C:\Users\hp\DataSet\contracts\ropsten\31\31e17aaa51a646ef8ddd3c0466aa9c0ae2bbc9cd_Crowdsale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 59
+column: 8
+content: newOwner=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 76
+column: 23
+content: 0x0
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 6
+column: 4
+content: functiontotalSupply()externalconstantreturns(uint);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 95
+column: 4
+content: functiongetBalance()publicconstantreturns(uint){require(tokenAddress!=0x0);MyTestTokentoken=MyTestToken(tokenAddress);returntoken.totalSupply();}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 63
+column: 0
+content: contractCrowdsaleisOwned,SafeMath{addressowner;addresstokenAddress;addressescrowAddress;uintstart=1500379200;uintperiod=28;uintamountPerEther=750;functionCrowdsale()public{owner=this;tokenAddress=0x0;escrowAddress=owner;}functionsetTokenAddress(addressnewAddress)publiconlyOwnerreturns(boolsuccess){tokenAddress=newAddress;returntrue;}functionsetEscrowAddress(addressnewAddress)publiconlyOwnerreturns(boolsuccess){escrowAddress=newAddress;returntrue;}functiongetBalance()publicconstantreturns(uint){require(tokenAddress!=0x0);MyTestTokentoken=MyTestToken(tokenAddress);returntoken.totalSupply();}modifierisUnderHardCap(){_;}modifiersaleIsOn(){_;}function()externalpayable{if(owner!=msg.sender){MyTestTokentoken=MyTestToken(tokenAddress);token.transfer(msg.sender,safeMul(msg.value,amountPerEther));if(msg.value>0){require(escrowAddress!=0x0);if(!escrowAddress.send(msg.value))revert();}}}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 80
+column: 4
+content: functionsetTokenAddress(addressnewAddress)publiconlyOwnerreturns(boolsuccess){tokenAddress=newAddress;returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 87
+column: 4
+content: functionsetEscrowAddress(addressnewAddress)publiconlyOwnerreturns(boolsuccess){escrowAddress=newAddress;returntrue;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 148
+column: 16
+content: if(!escrowAddress.send(msg.value))revert();
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 64
+column: 4
+content: addressowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 65
+column: 4
+content: addresstokenAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 66
+column: 4
+content: addressescrowAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 70
+column: 4
+content: uintstart=1500379200;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 71
+column: 4
+content: uintperiod=28;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 72
+column: 4
+content: uintamountPerEther=750;
+
+SOLIDITY_VISIBILITY :6
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :2

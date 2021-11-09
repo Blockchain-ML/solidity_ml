@@ -1,0 +1,107 @@
+C:\Users\hp\DataSet\contracts\mainnet\33\337147582e349559db9c84c9a7d6aa7505e39787_MyAdvancedToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 7
+column: 2
+content: functionmul(uint256a,uint256b)internalconstantreturns(uint256){if(a==0){return0;}uint256c=a*b;assert(c/a==b);returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 16
+column: 2
+content: functiondiv(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a/b;returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 23
+column: 2
+content: functionsub(uint256a,uint256b)internalconstantreturns(uint256){assert(b<=a);returna-b;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 28
+column: 2
+content: functionadd(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a+b;assert(c>=a);returnc;}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 140
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(boolsuccess){allowance[msg.sender][_spender]=_value;returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 203
+column: 0
+content: contractMyAdvancedTokenisowned,TokenERC20{stringpublicname="ThaneCoin";stringpublicsymbol="TPI";uint8publicdecimals=18;uint256publicinitialSupply=91000000e18;uint256publicbuyPrice=1000;uint256publictotalSupply=91000000e18;mapping(address=>bool)publicfrozenAccount;eventFrozenFunds(addresstarget,boolfrozen);functionMyAdvancedToken()public{balanceOf[msg.sender]=totalSupply;}function()payable{buy();}function_transfer(address_from,address_to,uint_value)internal{require(_to!=0x0);require(balanceOf[_from]>_value);require(balanceOf[_to].add(_value)>balanceOf[_to]);balanceOf[_from]=balanceOf[_from].sub(_value);balanceOf[_to]=balanceOf[_to].add(_value);Transfer(_from,_to,_value);}functionmintToken(addresstarget,uint256mintedAmount)onlyOwnerpublic{balanceOf[target]=balanceOf[target].add(mintedAmount);totalSupply=totalSupply.add(mintedAmount);Transfer(0,this,mintedAmount);Transfer(this,target,mintedAmount);}functionfreezeAccount(addresstarget,boolfreeze)onlyOwnerpublic{frozenAccount[target]=freeze;FrozenFunds(target,freeze);}functionsetPrices(uint256newBuyPrice)onlyOwnerpublic{buyPrice=newBuyPrice;}functionsetPrice()returns(uint256buyPrice){if(initialSupply>=91000000e18)buyPrice=2000;elseif(initialSupply>=72000000e18)buyPrice=1818;elseif(initialSupply>=62000000e18)buyPrice=1666;elseif(initialSupply>=52000000e18)buyPrice=1538;elseif(initialSupply>=42000000e18)buyPrice=1428;elseif(initialSupply>=32000000e18)buyPrice=1000;}functionbuy()payablepublic{require(msg.value>0);uintamount=msg.value.mul(setPrice());_transfer(owner,msg.sender,amount);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 256
+column: 4
+content: functionsetPrices(uint256newBuyPrice)onlyOwnerpublic{buyPrice=newBuyPrice;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 57
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 53
+column: 99
+content: bytes_extraData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 155
+column: 62
+content: bytes_extraData
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 23rt6g
+severity: 1
+line: 53
+column: 117
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 223
+column: 4
+content: function()payable{buy();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 259
+column: 4
+content: functionsetPrice()returns(uint256buyPrice){if(initialSupply>=91000000e18)buyPrice=2000;elseif(initialSupply>=72000000e18)buyPrice=1818;elseif(initialSupply>=62000000e18)buyPrice=1666;elseif(initialSupply>=52000000e18)buyPrice=1538;elseif(initialSupply>=42000000e18)buyPrice=1428;elseif(initialSupply>=32000000e18)buyPrice=1000;}
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_ERC20_APPROVE :1

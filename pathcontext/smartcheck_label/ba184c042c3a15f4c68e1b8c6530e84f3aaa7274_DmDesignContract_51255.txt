@@ -1,0 +1,67 @@
+C:\Users\hp\DataSet\contracts\ropsten\ba\ba184c042c3a15f4c68e1b8c6530e84f3aaa7274_DmDesignContract.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 41
+column: 4
+content: functionconfirmProduct(uintconfirmNr)publicreturns(bool){product[msg.sender].confirm=confirmNr;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 45
+column: 4
+content: functionaddProduct(addressproductOwner,uintproductNr,stringdescriptionVal,stringproductCode,stringsignature)publiconlyOwnerreturns(bool){require(product[productOwner].owner==0x0,"product already has owner");product[productOwner].owner=productOwner;product[productOwner].confirm=0;product[productOwner].productNr=productNr;product[productOwner].description=descriptionVal;product[productOwner].productCode=productCode;product[productOwner].signature=signature;product[productOwner].addTime=block.timestamp;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 58
+column: 4
+content: functionupdate(uintproductNr,stringsignatureOwner)publicreturns(bool){require(product[msg.sender].productNr==productNr,"Increct product nr");product[msg.sender].signature=signatureOwner;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 31
+column: 31
+content: stringtext
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 45
+column: 62
+content: stringdescriptionVal
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 45
+column: 85
+content: stringproductCode
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 45
+column: 105
+content: stringsignature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 58
+column: 36
+content: stringsignatureOwner
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :3
+SOLIDITY_UPGRADE_TO_050 :5

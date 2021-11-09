@@ -1,0 +1,178 @@
+C:\Users\hp\DataSet\contracts\ropsten\b2\b2901bbbc1e3ed13bdba44fb801115bfd0751eff_VGWToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 115
+column: 35
+content: 0x5D034CdefFbC9a73754f823F7c44129420174403
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 116
+column: 34
+content: 0xE3eC95A9FAe2DFadfDd211A841a1b2d2Bf143253
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 117
+column: 34
+content: 0xC19249d1253957B68660B7FcE732a4750aef2E9D
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 94
+column: 20
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 271
+column: 17
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 271
+column: 33
+content: 0x0
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 141
+column: 4
+content: functioncheckPermission(address_address)internalconstantreturns(bool){if(_address==owner||_address==adrInvestor||_address==adrFounder){returntrue;}if(now<ITSEndTime){returnfalse;}else{returntrue;}}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 212
+column: 4
+content: functionapprove(address_spender,uint256_value)isRunningvalidAddressexternalreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 136
+column: 4
+content: functionpreSale(address_address,uint256_value)internalreturns(bool){balances[_address]=_value;emitTransfer(address(0x0),_address,_value);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 78
+column: 0
+content: contractVGWTokenisIERC20{usingSafeMathforuint256;stringpublicname="VegaWallet Token";stringpublicsymbol="VGW5.4";uint8publicconstantdecimals=5;uint256publicconstantdecimalFactor=10**uint256(decimals);mapping(address=>uint256)balances;mapping(address=>mapping(address=>uint256))internalallowed;eventTransfer(addressindexedfrom,addressindexedto,uint256value);eventApproval(addressindexedowner,addressindexedspender,uint256value);boolpublicstopped=false;addressowner=0x0;modifierisOwner{assert(owner==msg.sender);_;}modifiervalidAddress{assert(0x0!=msg.sender);_;}modifierisRunning{assert(!stopped);_;}uint256publicconstanttotalSupply=200000000*decimalFactor;uint256constantpublicTokens=120000000*decimalFactor;uint256constantinvestorTokens=20000000*decimalFactor;uint256constantfounderTokens=40000000*decimalFactor;uint256constantdevTokens=20000000*decimalFactor;addressconstantadrInvestor=0x5D034CdefFbC9a73754f823F7c44129420174403;addressconstantadrFounder=0xE3eC95A9FAe2DFadfDd211A841a1b2d2Bf143253;addressconstantadrDevTeam=0xC19249d1253957B68660B7FcE732a4750aef2E9D;uintconstantITSStartTime=1523860200;uintconstantITSEndTime=1524033001;functionVGWToken(address_owner)public{owner=_owner;preSale(msg.sender,publicTokens);preSale(adrInvestor,investorTokens);preSale(adrFounder,founderTokens);preSale(adrDevTeam,devTokens);}functionpreSale(address_address,uint256_value)internalreturns(bool){balances[_address]=_value;emitTransfer(address(0x0),_address,_value);}functioncheckPermission(address_address)internalconstantreturns(bool){if(_address==owner||_address==adrInvestor||_address==adrFounder){returntrue;}if(now<ITSEndTime){returnfalse;}else{returntrue;}}functionbalanceOf(address_owner)externalviewreturns(uint256balance){returnbalances[_owner];}functionallowance(address_owner,address_spender)externalviewreturns(uint256){returnallowed[_owner][_spender];}functiontransfer(address_to,uint256_value)isRunningvalidAddressexternalreturns(bool){require(checkPermission(msg.sender));require(balances[msg.sender]>=_value);require(balances[_to]+_value>=balances[_to]);balances[msg.sender]=balances[msg.sender].sub(_value);balances[_to]=balances[_to].add(_value);emitTransfer(msg.sender,_to,_value);returntrue;}functiontransferFrom(address_from,address_to,uint256_value)isRunningvalidAddressexternalreturns(bool){require(checkPermission(msg.sender));require(balances[_to]+_value>=balances[_to]);require(_value<=balances[_from]);require(_value<=allowed[_from][msg.sender]);balances[_from]=balances[_from].sub(_value);balances[_to]=balances[_to].add(_value);allowed[_from][msg.sender]=allowed[_from][msg.sender].sub(_value);emitTransfer(_from,_to,_value);returntrue;}functionapprove(address_spender,uint256_value)isRunningvalidAddressexternalreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}functionincreaseApproval(address_spender,uint_addedValue)publicreturns(bool){allowed[msg.sender][_spender]=allowed[msg.sender][_spender].add(_addedValue);emitApproval(msg.sender,_spender,allowed[msg.sender][_spender]);returntrue;}functiondecreaseApproval(address_spender,uint_subtractedValue)publicreturns(bool){uintoldValue=allowed[msg.sender][_spender];if(_subtractedValue>oldValue){allowed[msg.sender][_spender]=0;}else{allowed[msg.sender][_spender]=oldValue.sub(_subtractedValue);}emitApproval(msg.sender,_spender,allowed[msg.sender][_spender]);returntrue;}functionstop()isOwnerpublic{stopped=true;}functionstart()isOwnerpublic{stopped=false;}function()publicpayable{require(msg.value>=1e16);owner.transfer(msg.value);}functionburn(uint256_value)isOwnerpublic{require(balances[msg.sender]>=_value);balances[msg.sender]=balances[msg.sender].sub(_value);balances[0x0]=balances[0x0].add(_value);emitTransfer(msg.sender,0x0,_value);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 79
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 263
+column: 16
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 87
+column: 4
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 94
+column: 4
+content: addressowner=0x0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 110
+column: 4
+content: uint256constantpublicTokens=120000000*decimalFactor;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 111
+column: 4
+content: uint256constantinvestorTokens=20000000*decimalFactor;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 112
+column: 4
+content: uint256constantfounderTokens=40000000*decimalFactor;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 113
+column: 4
+content: uint256constantdevTokens=20000000*decimalFactor;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 115
+column: 4
+content: addressconstantadrInvestor=0x5D034CdefFbC9a73754f823F7c44129420174403;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 116
+column: 4
+content: addressconstantadrFounder=0xE3eC95A9FAe2DFadfDd211A841a1b2d2Bf143253;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 117
+column: 4
+content: addressconstantadrDevTeam=0xC19249d1253957B68660B7FcE732a4750aef2E9D;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 119
+column: 4
+content: uintconstantITSStartTime=1523860200;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 120
+column: 4
+content: uintconstantITSEndTime=1524033001;
+
+SOLIDITY_VISIBILITY :11
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_ADDRESS_HARDCODED :6
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_ERC20_APPROVE :1

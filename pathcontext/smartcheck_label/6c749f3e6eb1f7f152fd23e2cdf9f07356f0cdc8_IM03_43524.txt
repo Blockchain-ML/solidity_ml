@@ -1,0 +1,136 @@
+C:\Users\hp\DataSet\contracts\ropsten\6c\6c749f3e6eb1f7f152fd23e2cdf9f07356f0cdc8_IM03.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 12
+column: 19
+content: 0x0
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 130
+column: 16
+content: productList.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 143
+column: 16
+content: mapShopOwner[ownerId].products.length--
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 126
+column: 8
+content: for(uint256index=0;index<productList.length;index++){if(productList[index]==productId){productList[index]=productList[productList.length-1];deleteproductList[productList.length-1];productList.length--;break;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 139
+column: 8
+content: for(uint256index=0;index<mapShopOwner[ownerId].products.length;index++){if(mapShopOwner[ownerId].products[index]==productId){mapShopOwner[ownerId].products[index]=mapShopOwner[ownerId].products[mapShopOwner[ownerId].products.length-1];deletemapShopOwner[ownerId].products[mapShopOwner[ownerId].products.length-1];mapShopOwner[ownerId].products.length--;break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 126
+column: 8
+content: for(uint256index=0;index<productList.length;index++){if(productList[index]==productId){productList[index]=productList[productList.length-1];deleteproductList[productList.length-1];productList.length--;break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 139
+column: 8
+content: for(uint256index=0;index<mapShopOwner[ownerId].products.length;index++){if(mapShopOwner[ownerId].products[index]==productId){mapShopOwner[ownerId].products[index]=mapShopOwner[ownerId].products[mapShopOwner[ownerId].products.length-1];deletemapShopOwner[ownerId].products[mapShopOwner[ownerId].products.length-1];mapShopOwner[ownerId].products.length--;break;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractIM03{bytes32[]list;functionstringToBytes32(stringmemorysource)pureprivatereturns(bytes32result){bytesmemorytempEmptyStringTest=bytes(source);if(tempEmptyStringTest.length==0){return0x0;}assembly{result:=mload(add(source,32))}}structShopOwner{bytes32id;bytes32name;mapping(bytes32=>bytes32[])mapShopOwnerProduct;mapping(bytes32=>bool)mapProductAvailable;bytes32[]products;boolisValue;}structProduct{bytes32id;bytes32name;bytes32ownerId;bytes32categoryId;uint256quantity;boolisValue;}structCategory{bytes32id;bytes32name;boolisValue;}bytes32[]shopOwnerList;bytes32[]productList;bytes32[]categoryList;mapping(bytes32=>ShopOwner)mapShopOwner;mapping(bytes32=>Product)mapProduct;mapping(bytes32=>Category)mapCategory;functionaddShopOwner(stringmemory_shopOwnerId,stringmemory_name)publicpayable{bytes32id=stringToBytes32(_shopOwnerId);bytes32name=stringToBytes32(_name);mapShopOwner[id]=ShopOwner(id,name,list,true);}functionaddCategory(stringmemory_id,stringmemory_name)publicpayable{bytes32id=stringToBytes32(_id);bytes32name=stringToBytes32(_name);mapCategory[id]=Category(id,name,true);}functionaddProduct(stringmemory_id,stringmemory_name,stringmemory_ownerId,stringmemory_categoryId,uint256_quantity)publicpayable{bytes32id=stringToBytes32(_id);bytes32name=stringToBytes32(_name);bytes32ownerId=stringToBytes32(_ownerId);bytes32categoryId=stringToBytes32(_categoryId);mapShopOwner[ownerId].mapShopOwnerProduct[categoryId].push(id);mapShopOwner[ownerId].products.push(id);mapShopOwner[ownerId].mapProductAvailable[id]=true;mapProduct[id]=Product(id,name,ownerId,categoryId,_quantity,true);productList.push(id);}functiongetShopOwner(stringmemory_id)publicviewreturns(bytes32){bytes32id=stringToBytes32(_id);return(mapShopOwner[id].name);}functiongetCategory(stringmemory_id)publicviewreturns(bytes32){bytes32id=stringToBytes32(_id);return(mapCategory[id].name);}functiongetShopOwnerProductList(stringmemory_shopOwnerId)publicviewreturns(bytes32[]memory){bytes32id=stringToBytes32(_shopOwnerId);return(mapShopOwner[id].products);}functiongetShopOwnerCategorizedProducts(stringmemory_shopOwnerId,stringmemory_categoryId)publicviewreturns(bytes32[]memory){bytes32ownerId=stringToBytes32(_shopOwnerId);bytes32categoryId=stringToBytes32(_categoryId);return(mapShopOwner[ownerId].mapShopOwnerProduct[categoryId]);}functiongetShopOwnerAllProductList(stringmemory_shopOwnerId)publicviewreturns(bytes32[]memory){bytes32id=stringToBytes32(_shopOwnerId);return(mapShopOwner[id].products);}functiongetProduct(stringmemory_id)publicviewreturns(bytes32,bytes32){bytes32id=stringToBytes32(_id);return(mapProduct[id].id,mapProduct[id].name);}functiongetAllProductList()publicviewreturns(bytes32[]memory){return(productList);}functionremoveProduct(stringmemory_productId,stringmemory_ownerId)publicpayable{bytes32productId=stringToBytes32(_productId);bytes32ownerId=stringToBytes32(_ownerId);for(uint256index=0;index<productList.length;index++){if(productList[index]==productId){productList[index]=productList[productList.length-1];deleteproductList[productList.length-1];productList.length--;break;}}mapProduct[productId].isValue=false;for(uint256index=0;index<mapShopOwner[ownerId].products.length;index++){if(mapShopOwner[ownerId].products[index]==productId){mapShopOwner[ownerId].products[index]=mapShopOwner[ownerId].products[mapShopOwner[ownerId].products.length-1];deletemapShopOwner[ownerId].products[mapShopOwner[ownerId].products.length-1];mapShopOwner[ownerId].products.length--;break;}}mapShopOwner[ownerId].mapProductAvailable[productId]=false;}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 9
+column: 4
+content: functionstringToBytes32(stringmemorysource)pureprivatereturns(bytes32result){bytesmemorytempEmptyStringTest=bytes(source);if(tempEmptyStringTest.length==0){return0x0;}assembly{result:=mload(add(source,32))}}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 112
+column: 62
+content: (bytes32,bytes32)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 15
+column: 8
+content: assembly{result:=mload(add(source,32))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 4
+content: bytes32[]list;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 4
+content: bytes32[]shopOwnerList;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 47
+column: 4
+content: bytes32[]productList;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 48
+column: 4
+content: bytes32[]categoryList;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 4
+content: mapping(bytes32=>ShopOwner)mapShopOwner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 53
+column: 4
+content: mapping(bytes32=>Product)mapProduct;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 54
+column: 4
+content: mapping(bytes32=>Category)mapCategory;
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

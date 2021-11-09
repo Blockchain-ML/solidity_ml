@@ -1,0 +1,283 @@
+C:\Users\hp\DataSet\contracts\ropsten\e5\e533f04F504E3e5d1D5D07Ae448140643CD1549A_TimberCamp.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 187
+column: 37
+content: 0xFF
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 197
+column: 46
+content: 0xFF
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 199
+column: 28
+content: 0x00
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 287
+column: 22
+content: 0x0001
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 288
+column: 22
+content: 0x0666
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 54
+column: 4
+content: owner=address(0)
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 143
+column: 2
+content: functiongetContract(bytes32_name)publicconstantreturns(address){}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 171
+column: 2
+content: functiongetX(bytes_data)internalconstantreturns(uint16_x){returnuint16(_data[1])<<8|uint16(_data[2]);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 175
+column: 2
+content: functiongetY(bytes_data)internalconstantreturns(uint16_y){returnuint16(_data[3])<<8|uint16(_data[4]);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 179
+column: 2
+content: functiongetTile(bytes_data)internalconstantreturns(uint8_tile){returnuint8(_data[5]);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 183
+column: 2
+content: functiongetRemainingBytesLeadingZs(uint8_offset,bytes_data)internalconstantreturns(bytes32result){uint8b=31;uint8d=uint8(_data.length-1);while(d>_offset-1){result|=bytes32(_data[d--]&0xFF)>>(b--*8);}returnresult;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 193
+column: 2
+content: functiongetRemainingBytesTrailingZs(uint_offset,bytes_data)internalconstantreturns(bytes32result){for(uinti=0;i<32;i++){uint8adjusted=uint8(_offset+i);if(adjusted<_data.length){result|=bytes32(_data[adjusted]&0xFF)>>(i*8);}else{result|=bytes32(0x00)>>(i*8);}}returnresult;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 205
+column: 2
+content: functiongetRemainingUint(uint8_offset,bytes_data)internalconstantreturns(uint){uintresult=0;uintendsAt=_data.length;uint8d=uint8(endsAt-1);while(d>_offset-1){uintc=uint(_data[d]);uintto_inc=c*(16**((endsAt-d-1)*2));result+=to_inc;d--;}returnresult;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 218
+column: 2
+content: functiongetAddressFromBytes(uint8_offset,bytes_data)internalconstantreturns(address){uintresult=0;uintendsAt=_offset+20;uint8d=uint8(endsAt-1);while(d>_offset-1){uintc=uint(_data[d]);uintto_inc=c*(16**((endsAt-d-1)*2));result+=to_inc;d--;}returnaddress(result);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 311
+column: 2
+content: functioncanCollect(uint16_x,uint16_y,uint8_tile)publicconstantreturns(uint8amount){amount=0;uint16minNumber=uint16(min);uint16maxNumber=uint16(max);uint64currentBlock=uint16(block.number);while(currentBlock>=lastBlock[_x][_y][_tile]){bytes32blockHash=block.blockhash(currentBlock);uint16hashNumber=uint16(blockHash[0])<<8|uint16(blockHash[1]);if(hashNumber>=minNumber&&hashNumber<=maxNumber){amount++;if(amount>=maxCollect)returnmaxCollect;}currentBlock=currentBlock-1;}returnamount;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 316
+column: 4
+content: while(currentBlock>=lastBlock[_x][_y][_tile]){bytes32blockHash=block.blockhash(currentBlock);uint16hashNumber=uint16(blockHash[0])<<8|uint16(blockHash[1]);if(hashNumber>=minNumber&&hashNumber<=maxNumber){amount++;if(amount>=maxCollect)returnmaxCollect;}currentBlock=currentBlock-1;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 143
+column: 2
+content: functiongetContract(bytes32_name)publicconstantreturns(address){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 144
+column: 2
+content: functionhasPermission(address_contract,bytes32_permission)publicviewreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 150
+column: 2
+content: functiontransferFrom(address_from,address_to,uint256_value)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 151
+column: 2
+content: functiongalleassTransferFrom(address_from,address_to,uint256_value)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 152
+column: 2
+content: functiontransfer(address_to,uint256_value)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 153
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 330
+column: 2
+content: functiongalleassMint(address_to,uint_amount)publicreturns(bool){}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 186
+column: 10
+content: d>_offset-1
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 209
+column: 10
+content: d>_offset-1
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 222
+column: 10
+content: d>_offset-1
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 316
+column: 10
+content: currentBlock>=lastBlock[_x][_y][_tile]
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 238
+column: 21
+content: {revert();}
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 115
+column: 17
+content: send(_amount)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 238
+column: 14
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 171
+column: 16
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 175
+column: 16
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 179
+column: 19
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 183
+column: 53
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 193
+column: 52
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 205
+column: 42
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 218
+column: 45
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 263
+column: 53
+content: bytes_data
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :9
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :7
+SOLIDITY_SEND :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :6
+SOLIDITY_UPGRADE_TO_050 :9
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

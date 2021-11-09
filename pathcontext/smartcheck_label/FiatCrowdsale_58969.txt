@@ -1,0 +1,110 @@
+C:\Users\hp\DataSet\FiatCrowdsale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 13
+column: 0
+content: contractFiatCrowdsaleisOwnable,Crowdsale,usingOraclize{stringpublicfiatOraclizeQueryURL;uintpublicfiatScale;uintpublicfiatOraclizeQueryDelay;uint256publicfiatPrice;uintinternalfiatOraclizeQueryGasLimit;mapping(bytes32=>bool)internalfiatOraclizeQueryValidIds;eventFiatOraclizeQuery(uintcode);eventFiatPriceTicker(uintprice,bytesproof);constructor()publicpayable{oraclize_setNetwork();if(keccak256(oraclize_getNetworkName())!=keccak256("")){oraclize_setProof(proofType_TLSNotary|proofStorage_IPFS);}}functionsetFiatOraclizeQueryURL(string_url)externalonlyOwner{_setFiatOraclizeQueryURL(_url);}functionsetFiatScale(uint_scale)externalonlyOwner{_setFiatScale(_scale);}functionsetFiatOraclizeQueryDelay(uint_delay)externalonlyOwner{_setFiatOraclizeQueryDelay(_delay);}functionsetFiatOraclizeQueryGasPrice(uint_price)externalonlyOwner{_setFiatOraclizeQueryGasPrice(_price);}functionsetFiatOraclizeQueryGasLimit(uint_limit)externalonlyOwner{_setFiatOraclizeQueryGasLimit(_limit);}functionupdateFiatPrice()externalpayableonlyOwner{require(address(this).balance<oraclize_getPrice("URL",fiatOraclizeQueryGasLimit));require(msg.value.add(address(this).balance)>=oraclize_getPrice("URL",fiatOraclizeQueryGasLimit));_updateFiatPrice(0);}functionupdateFiatPrice(uint256_price)externalonlyOwner{require(_price>0);if(fiatPrice==_price)revert();fiatPrice=_price;}functionaddFiatOraclizeQueryBalance()externalpayable{require(msg.value>0);}functiongetFiatPrice()publicviewreturns(uint256){returnfiatPrice;}functiongetFiatRate()publicviewreturns(uint256){returnuint256(10**uint256(18)).div(getFiatPrice());}functiongetFiatAmount(uint256_weiAmount)publicviewreturns(uint256){return_weiAmount.div(getFiatRate());}functiongetTokenRate()publicviewreturns(uint256){returnrate.mul(getFiatRate()).div(10**_getTokenDecimals());}functiongetTokenAmount(uint256_weiAmount)publicviewreturns(uint256){return_getTokenAmount(_weiAmount);}functiongetWeiAmount(uint256_tokenAmount)publicviewreturns(uint256){return_tokenAmount.mul(getTokenRate());}function__callback(bytes32_queryId,string_result,bytes_proof)public{if(msg.sender!=oraclize_cbAddress())revert();if(fiatOraclizeQueryValidIds[_queryId]){emitFiatOraclizeQuery(200);fiatPrice=parseInt(_result,fiatScale);emitFiatPriceTicker(fiatPrice,_proof);deletefiatOraclizeQueryValidIds[_queryId];_updateFiatPrice(fiatOraclizeQueryDelay);}}functionbuyTokens(address_beneficiary)publicpayable{uint256fiatAmount=getFiatAmount(msg.value);_preValidatePurchase(_beneficiary,fiatAmount);uint256tokens=_getTokenAmount(msg.value);weiRaised=weiRaised.add(fiatAmount);_processPurchase(_beneficiary,tokens);emitTokenPurchase(msg.sender,_beneficiary,fiatAmount,tokens);_updatePurchasingState(_beneficiary,fiatAmount);_forwardFunds();_postValidatePurchase(_beneficiary,fiatAmount);}function_setFiatOraclizeQueryURL(string_url)internal{require(keccak256(_url)!=keccak256(""));if(keccak256(fiatOraclizeQueryURL)==keccak256(_url))revert();fiatOraclizeQueryURL=_url;}function_setFiatScale(uint_scale)internal{if(fiatScale==_scale)revert();fiatScale=_scale;}function_setFiatOraclizeQueryDelay(uint_delay)internal{require(_delay>0);if(fiatOraclizeQueryDelay==_delay)revert();fiatOraclizeQueryDelay=_delay;}function_setFiatOraclizeQueryGasPrice(uint_price)internal{require(_price>0);oraclize_setCustomGasPrice(_price);}function_setFiatOraclizeQueryGasLimit(uint_limit)internal{require(_limit>0);if(fiatOraclizeQueryGasLimit==_limit)revert();fiatOraclizeQueryGasLimit=_limit;}function_getTokenDecimals()internalviewreturns(uint256){returnuint256(DetailedERC20(token).decimals());}function_getTokenAmount(uint256_weiAmount)internalviewreturns(uint256){return_weiAmount.div(getTokenRate());}function_updateFiatPrice(uint_delay)internal{if(oraclize_getPrice("URL",fiatOraclizeQueryGasLimit)>address(this).balance){emitFiatOraclizeQuery(509);}else{bytes32queryId_=oraclize_query(_delay,"URL",fiatOraclizeQueryURL,fiatOraclizeQueryGasLimit);fiatOraclizeQueryValidIds[queryId_]=true;emitFiatOraclizeQuery(102);}}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 58
+column: 1
+content: functionsetFiatOraclizeQueryURL(string_url)externalonlyOwner{_setFiatOraclizeQueryURL(_url);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 66
+column: 1
+content: functionsetFiatScale(uint_scale)externalonlyOwner{_setFiatScale(_scale);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 74
+column: 1
+content: functionsetFiatOraclizeQueryDelay(uint_delay)externalonlyOwner{_setFiatOraclizeQueryDelay(_delay);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 82
+column: 1
+content: functionsetFiatOraclizeQueryGasPrice(uint_price)externalonlyOwner{_setFiatOraclizeQueryGasPrice(_price);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 90
+column: 1
+content: functionsetFiatOraclizeQueryGasLimit(uint_limit)externalonlyOwner{_setFiatOraclizeQueryGasLimit(_limit);}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 113
+column: 2
+content: if(fiatPrice==_price)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 186
+column: 2
+content: if(msg.sender!=oraclize_cbAddress())revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 232
+column: 2
+content: if(keccak256(fiatOraclizeQueryURL)==keccak256(_url))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 241
+column: 2
+content: if(fiatScale==_scale)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 251
+column: 2
+content: if(fiatOraclizeQueryDelay==_delay)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 270
+column: 2
+content: if(fiatOraclizeQueryGasLimit==_limit)revert();
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 185
+column: 39
+content: string_result
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 185
+column: 55
+content: bytes_proof
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 230
+column: 35
+content: string_url
+
+SOLIDITY_OVERPOWERED_ROLE :5
+SOLIDITY_REVERT_REQUIRE :6
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :3

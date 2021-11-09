@@ -1,0 +1,217 @@
+C:\Users\hp\DataSet\contracts\mainnet\18\18b23534678568fbaafb972e8f95e9b7a0518db1_AVIVAccount.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_BYTE_ARRAY_INSTEAD_BYTES
+patternId: f13a9f
+severity: 1
+line: 119
+column: 26
+content: byte[]
+
+ruleId: SOLIDITY_BYTE_ARRAY_INSTEAD_BYTES
+patternId: f13a9f
+severity: 1
+line: 132
+column: 49
+content: byte[]
+
+ruleId: SOLIDITY_BYTE_ARRAY_INSTEAD_BYTES
+patternId: f13a9f
+severity: 1
+line: 160
+column: 38
+content: byte[]
+
+ruleId: SOLIDITY_BYTE_ARRAY_INSTEAD_BYTES
+patternId: f13a9f
+severity: 1
+line: 216
+column: 38
+content: byte[]
+
+ruleId: SOLIDITY_BYTE_ARRAY_INSTEAD_BYTES
+patternId: f13a9f
+severity: 1
+line: 239
+column: 69
+content: byte[]
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 112
+column: 0
+content: contractAVIVAccountInterfaceisManagedInterface{usingSafeMathforuint;uintverified_users;uintpublicalias_price=100000000000000000;structAccount{stringname;stringcountry;mapping(string=>byte[])pubkeys;mapping(address=>bool)communities;boolverified;uintdonations;}mapping(string=>address)internalnames;mapping(address=>Account)internalaccounts;eventAccountVerified(addressuser,stringname,stringcountry);eventKeyChanged(addressuser,stringlabel,byte[]key);eventJoinedCommunity(stringname,addresscommunity);eventLeftCommunity(stringname,addresscommunity);eventDonationReceived(addresssender,uintvalue);eventNewAlias(addressuser,stringname);function()publicpayable{accounts[msg.sender].donations=accounts[msg.sender].donations.add(msg.value);emitDonationReceived(msg.sender,msg.value);}functionsetAliasPrice(uintprice)public;functionaddAlias(addressuser,stringalias)publicpayable;functionverifyAccount(addressholder,stringname,stringcountry)publicrestricted;functionchangeKeys(stringlabel,byte[]key)public;functionjoinCommunity(addresscommunity)public;functionleaveCommunity(addresscommunity)public;functioninCommunity(addressuser,addresscommunity)publicviewreturns(bool);functiongetName(addressuser)publicviewreturns(string);functiongetByAlias(stringname)publicviewreturns(address);functionisVerified(addressuser)publicviewreturns(bool);functiondonationsFrom(addressuser)publicviewreturns(uint);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 185
+column: 0
+content: contractAVIVAccountisManagedContract(msg.sender),AVIVAccountInterface{functionverifyAccount(addressholder,stringname,stringcountry)publicrestricted{require((names[name]==address(0)||names[name]==holder),"NAMEINUSE");names[name]=holder;Accountstorageaccount=accounts[holder];account.name=name;account.verified=true;verified_users++;emitAccountVerified(holder,name,country);emitNewAlias(holder,name);}functionsetAliasPrice(uintprice)publicrestricted{alias_price=price;}functionaddAlias(addressuser,stringalias)publicpayable{if(msg.sender!=manager){require(msg.value>=alias_price,"MINIMUMDONATIONREQUIRED");emitDonationReceived(msg.sender,msg.value);}require(names[alias]==address(0),"NAMEINUSE");names[alias]=user;emitNewAlias(user,alias);}functionchangeKeys(stringlabel,byte[]key)public{accounts[msg.sender].pubkeys[label]=key;emitKeyChanged(msg.sender,label,key);}functionjoinCommunity(addresscommunity)public{accounts[msg.sender].communities[community]=true;emitJoinedCommunity(accounts[msg.sender].name,community);}functionleaveCommunity(addresscommunity)public{accounts[msg.sender].communities[community]=true;emitLeftCommunity(accounts[msg.sender].name,community);}functioninCommunity(addressuser,addresscommunity)publicviewreturns(bool){returnaccounts[user].communities[community];}functiongetKey(addressuser,stringlabel)publicviewreturns(byte[]){returnaccounts[user].pubkeys[label];}functiongetName(addressuser)publicviewreturns(string){returnaccounts[user].name;}functiongetByAlias(stringname)publicviewreturns(address){returnnames[name];}functionisVerified(addressuser)publicviewreturns(bool){returnaccounts[user].verified;}functiondonationsFrom(addressuser)publicviewreturns(uint){returnaccounts[user].donations;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 113
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 145
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 27
+column: 78
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 46
+column: 58
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 154
+column: 36
+content: stringalias
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 157
+column: 43
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 157
+column: 56
+content: stringcountry
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 160
+column: 24
+content: stringlabel
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 160
+column: 38
+content: byte[]key
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 172
+column: 56
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 175
+column: 24
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 188
+column: 43
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 188
+column: 56
+content: stringcountry
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 205
+column: 36
+content: stringalias
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 216
+column: 24
+content: stringlabel
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 216
+column: 38
+content: byte[]key
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 239
+column: 34
+content: stringlabel
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 239
+column: 69
+content: byte[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 244
+column: 56
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 249
+column: 24
+content: stringname
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 51
+column: 4
+content: addressmanager;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 114
+column: 4
+content: uintverified_users;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_UPGRADE_TO_050 :19
+SOLIDITY_BYTE_ARRAY_INSTEAD_BYTES :5

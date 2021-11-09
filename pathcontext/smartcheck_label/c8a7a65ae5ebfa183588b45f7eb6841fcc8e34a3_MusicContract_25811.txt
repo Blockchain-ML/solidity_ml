@@ -1,0 +1,219 @@
+C:\Users\hp\DataSet\contracts\mainnet\c8\c8a7a65ae5ebfa183588b45f7eb6841fcc8e34a3_MusicContract.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 69
+column: 5
+content: functiontotalSupply()publicconstantreturns(uint);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 70
+column: 5
+content: functionbalanceOf(addresstokenOwner)publicconstantreturns(uintbalance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 71
+column: 5
+content: functionallowance(addresstokenOwner,addressspender)publicconstantreturns(uintremaining);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 362
+column: 4
+content: functiongetTokenBalance()publicconstantreturns(uint){returntoken.balanceOf(msg.sender);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 219
+column: 8
+content: for(counter=0;counter<sponsors.length;counter++){localIntAsPerNeed=sponsors[counter].amountPaid.mul(100);localIntAsPerNeed=localIntAsPerNeed.div(musicObj.totalAmountForUnlock);uintamtToSend=sponsorPayout.mul(localIntAsPerNeed);amtToSend=amtToSend.div(100);token.mint(wallet,sponsors[counter].publicKey,amtToSend);sponsors[counter].amountEarned=sponsors[counter].amountEarned.add(amtToSend);musicObj.amountToBePaid=musicObj.amountToBePaid.sub(amtToSend);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 237
+column: 12
+content: for(counter=0;counter<voters.length;counter++){token.mint(wallet,voters[counter].publicKey,perVoterPayout);voters[counter].amountEarned=voters[counter].amountEarned.add(perVoterPayout);musicObj.amountToBePaid=musicObj.amountToBePaid.sub(perVoterPayout);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 283
+column: 8
+content: for(j=0;j<voters.length;j++){token.mint(wallet,voters[j].publicKey,perVoterPayout);voters[j].amountEarned=voters[j].amountEarned.add(perVoterPayout);musicObj.amountToBePaid=musicObj.amountToBePaid.sub(perVoterPayout);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 219
+column: 8
+content: for(counter=0;counter<sponsors.length;counter++){localIntAsPerNeed=sponsors[counter].amountPaid.mul(100);localIntAsPerNeed=localIntAsPerNeed.div(musicObj.totalAmountForUnlock);uintamtToSend=sponsorPayout.mul(localIntAsPerNeed);amtToSend=amtToSend.div(100);token.mint(wallet,sponsors[counter].publicKey,amtToSend);sponsors[counter].amountEarned=sponsors[counter].amountEarned.add(amtToSend);musicObj.amountToBePaid=musicObj.amountToBePaid.sub(amtToSend);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 237
+column: 12
+content: for(counter=0;counter<voters.length;counter++){token.mint(wallet,voters[counter].publicKey,perVoterPayout);voters[counter].amountEarned=voters[counter].amountEarned.add(perVoterPayout);musicObj.amountToBePaid=musicObj.amountToBePaid.sub(perVoterPayout);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 283
+column: 8
+content: for(j=0;j<voters.length;j++){token.mint(wallet,voters[j].publicKey,perVoterPayout);voters[j].amountEarned=voters[j].amountEarned.add(perVoterPayout);musicObj.amountToBePaid=musicObj.amountToBePaid.sub(perVoterPayout);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 80
+column: 0
+content: contractMusicContract{usingSafeMathforuint256;structMusic{addressmusician;uintmusicId;stringmusicLink;boolmarketType;uinttotalAmountForUnlock;uinttotalEarning;uintamountLeftForUnlock;uintamountToBePaid;boolisUnlocked;}structVoter{addresspublicKey;uintamountEarned;}structSponsor{addresspublicKey;uintamountEarned;uintamountPaid;}structVoteMusicPayoutScheme{uintmusicianPercentage;uintvoterPercentage;uintsystemPercentage;}structSponsorPayoutScheme{uintsponsorPercentage;uintmusicianPercentage;uintvoterPercentage;uintsystemPercentage;}ERC20Interfacepublictoken;VoteMusicPayoutSchemevoteMusicPayoutSchemeObj;SponsorPayoutSchemesponsorPayoutSchemeObj;Musicmusic;Sponsorsponsor;Votervoter;uintcounter=0;addresspublicwallet;mapping(uint=>Voter[])musicVoterList;mapping(uint=>Sponsor[])musicSponsorList;mapping(uint=>Music)musicList;uintlocalIntAsPerNeed;addresslocalAddressAsPerNeed;Voter[]voters;Sponsor[]sponsors;constructor(address_wallet,address_tokenAddress)public{wallet=_wallet;token=ERC20Interface(_tokenAddress);setup();}function()publicpayable{revert();}functionsetup()internal{voteMusicPayoutSchemeObj=VoteMusicPayoutScheme({musicianPercentage:57,voterPercentage:35,systemPercentage:8});sponsorPayoutSchemeObj=SponsorPayoutScheme({sponsorPercentage:45,musicianPercentage:37,voterPercentage:10,systemPercentage:8});}functionUploadMusic(uintmuId,stringlnk,addressmuPublicKey,boolunlocktype,uintamount,uintuploadTokenAmount)public{require(msg.sender==wallet);token.mint(muPublicKey,wallet,uploadTokenAmount*10**18);require(musicList[muId].musicId==0);music=Music({musician:muPublicKey,musicId:muId,musicLink:lnk,marketType:unlocktype,totalEarning:0,totalAmountForUnlock:amount*10**18,amountLeftForUnlock:amount*10**18,amountToBePaid:uploadTokenAmount*10**18,isUnlocked:false});musicList[muId]=music;}functionDownloadMusic(uintmusId,addresssenderId,uinttokenAmount)publicreturns(boolgoAhead){require(msg.sender==wallet);require(musicList[musId].musicId==musId);require(musicList[musId].isUnlocked==true);token.mint(senderId,wallet,tokenAmount*10**18);musicList[musId].totalEarning=musicList[musId].totalEarning.add(tokenAmount);musicList[musId].amountToBePaid=musicList[musId].amountToBePaid.add(tokenAmount);goAhead=true;}functionDoSponsorPayout(MusicmusicObj)private{localIntAsPerNeed=musicObj.musicId;sponsors=musicSponsorList[localIntAsPerNeed];localIntAsPerNeed=sponsorPayoutSchemeObj.sponsorPercentage;uintsponsorPayout=musicObj.amountToBePaid.mul(localIntAsPerNeed);sponsorPayout=sponsorPayout.div(100);voters=musicVoterList[musicObj.musicId];localIntAsPerNeed=sponsorPayoutSchemeObj.voterPercentage;uintvoterPayout=musicObj.amountToBePaid.mul(localIntAsPerNeed);voterPayout=voterPayout.div(100);localIntAsPerNeed=sponsorPayoutSchemeObj.musicianPercentage;uintmusicianPayout=musicObj.amountToBePaid.mul(localIntAsPerNeed);musicianPayout=musicianPayout.div(100);localIntAsPerNeed=sponsorPayoutSchemeObj.systemPercentage;uintsystemPayout=musicObj.amountToBePaid.mul(localIntAsPerNeed);systemPayout=systemPayout.div(100);for(counter=0;counter<sponsors.length;counter++){localIntAsPerNeed=sponsors[counter].amountPaid.mul(100);localIntAsPerNeed=localIntAsPerNeed.div(musicObj.totalAmountForUnlock);uintamtToSend=sponsorPayout.mul(localIntAsPerNeed);amtToSend=amtToSend.div(100);token.mint(wallet,sponsors[counter].publicKey,amtToSend);sponsors[counter].amountEarned=sponsors[counter].amountEarned.add(amtToSend);musicObj.amountToBePaid=musicObj.amountToBePaid.sub(amtToSend);}if(voters.length>0){uintperVoterPayout=voterPayout.div(voters.length);for(counter=0;counter<voters.length;counter++){token.mint(wallet,voters[counter].publicKey,perVoterPayout);voters[counter].amountEarned=voters[counter].amountEarned.add(perVoterPayout);musicObj.amountToBePaid=musicObj.amountToBePaid.sub(perVoterPayout);}}else{musicObj.amountToBePaid=musicObj.amountToBePaid.sub(voterPayout);}localAddressAsPerNeed=musicObj.musician;token.mint(wallet,localAddressAsPerNeed,musicianPayout);musicObj.amountToBePaid=musicObj.amountToBePaid.sub(musicianPayout);musicObj.amountToBePaid=musicObj.amountToBePaid.sub(systemPayout);require(musicObj.amountToBePaid==0);}functionDoVoterPayout(MusicmusicObj)private{uintj=0;voters=musicVoterList[musicObj.musicId];localIntAsPerNeed=voteMusicPayoutSchemeObj.voterPercentage;uintvoterPayout=musicObj.amountToBePaid.mul(localIntAsPerNeed);voterPayout=voterPayout.div(100);uintperVoterPayout=voterPayout.div(voters.length);localIntAsPerNeed=voteMusicPayoutSchemeObj.musicianPercentage;uintmusicianPayout=musicObj.amountToBePaid.mul(localIntAsPerNeed);musicianPayout=musicianPayout.div(100);localIntAsPerNeed=voteMusicPayoutSchemeObj.systemPercentage;uintsystemPayout=musicObj.amountToBePaid.mul(localIntAsPerNeed);systemPayout=systemPayout.div(100);for(j=0;j<voters.length;j++){token.mint(wallet,voters[j].publicKey,perVoterPayout);voters[j].amountEarned=voters[j].amountEarned.add(perVoterPayout);musicObj.amountToBePaid=musicObj.amountToBePaid.sub(perVoterPayout);}token.mint(wallet,musicObj.musician,musicianPayout);musicObj.amountToBePaid=musicObj.amountToBePaid.sub(musicianPayout);musicObj.amountToBePaid=musicObj.amountToBePaid.sub(systemPayout);require(musicObj.amountToBePaid==0);}functionDoMusicPayout(uintmusId)public{require(msg.sender==wallet);require(musicList[musId].musicId==musId);require(musicList[musId].isUnlocked==true);require(musicList[musId].amountToBePaid>0);require(token.balanceOf(wallet)>=musicList[musId].amountToBePaid);boolunlock=musicList[musId].marketType;if(unlock==false){DoSponsorPayout(musicList[musId]);musicList[musId].amountToBePaid=0;}else{DoVoterPayout(musicList[musId]);musicList[musId].amountToBePaid=0;}}functionSponsorMusic(uintmusId,uintsponsorAmount,addresssponsorAddress)public{sponsorAmount=sponsorAmount*10**18;require(token.balanceOf(sponsorAddress)>sponsorAmount);require(musicList[musId].musicId==musId);require(musicList[musId].isUnlocked==false);require(musicList[musId].marketType==false);require(musicList[musId].amountLeftForUnlock>=sponsorAmount);token.mint(sponsorAddress,wallet,sponsorAmount);musicList[musId].amountLeftForUnlock=musicList[musId].amountLeftForUnlock.sub(sponsorAmount);musicList[musId].amountToBePaid=musicList[musId].amountToBePaid.add(sponsorAmount);sponsor=Sponsor({publicKey:msg.sender,amountEarned:0,amountPaid:sponsorAmount});musicSponsorList[musId].push(sponsor);if(musicList[musId].amountLeftForUnlock==0){musicList[musId].isUnlocked=true;}}functionVoteMusic(uintmusId,addressvoterPublicKey)public{require(musicList[musId].musicId==musId);require(musicList[musId].isUnlocked==false);voter=Voter({publicKey:voterPublicKey,amountEarned:0});musicVoterList[musId].push(voter);}functionunlockVoterMusic(uintmusId)public{require(msg.sender==wallet);require(musicList[musId].musicId==musId);musicList[musId].isUnlocked=true;}functiongetTokenBalance()publicconstantreturns(uint){returntoken.balanceOf(msg.sender);}functionchangeWalletAddress(addressnewWallet)public{require(msg.sender==wallet);wallet=newWallet;}}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 147
+column: 31
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 82
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 147
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 156
+column: 36
+content: stringlnk
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 189
+column: 29
+content: MusicmusicObj
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 260
+column: 27
+content: MusicmusicObj
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 123
+column: 4
+content: VoteMusicPayoutSchemevoteMusicPayoutSchemeObj;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 124
+column: 4
+content: SponsorPayoutSchemesponsorPayoutSchemeObj;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 125
+column: 4
+content: Musicmusic;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 126
+column: 4
+content: Sponsorsponsor;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 127
+column: 4
+content: Votervoter;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 128
+column: 4
+content: uintcounter=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 131
+column: 4
+content: mapping(uint=>Voter[])musicVoterList;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 132
+column: 4
+content: mapping(uint=>Sponsor[])musicSponsorList;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 134
+column: 4
+content: mapping(uint=>Music)musicList;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 135
+column: 4
+content: uintlocalIntAsPerNeed;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 136
+column: 4
+content: addresslocalAddressAsPerNeed;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 137
+column: 4
+content: Voter[]voters;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 138
+column: 4
+content: Sponsor[]sponsors;
+
+SOLIDITY_VISIBILITY :13
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

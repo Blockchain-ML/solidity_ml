@@ -1,0 +1,40 @@
+C:\Users\hp\DataSet\TokenFactoryImpl.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 28
+column: 0
+content: contractTokenFactoryImplisTokenFactory{usingAddressUtilforaddress;usingStringUtilforstring;mapping(bytes10=>address)publictokens;function()payablepublic{revert();}functioncreateToken(stringname,stringsymbol,uint8decimals,uinttotalSupply)externalreturns(addressaddr){require(symbol.checkStringLength(3,10));bytes10symbolBytes=symbol.stringToBytes10();require(tokens[symbolBytes]==0x0);ERC20Tokentoken=newERC20Token(name,symbol,decimals,totalSupply,tx.origin);addr=address(token);tokens[symbolBytes]=addr;emitTokenCreated(addr,name,symbol,decimals,totalSupply,tx.origin);}}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 38
+column: 4
+content: {revert();}
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 61
+column: 12
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 73
+column: 12
+content: tx.origin
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 37
+column: 8
+content: public
+
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_TX_ORIGIN :2

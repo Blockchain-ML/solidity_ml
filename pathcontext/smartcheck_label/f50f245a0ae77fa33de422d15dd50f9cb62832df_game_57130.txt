@@ -1,0 +1,40 @@
+C:\Users\hp\DataSet\contracts\ropsten\f5\f50f245a0ae77fa33de422d15dd50f9cb62832df_game.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 117
+column: 4
+content: functionPayout(bytes32gameHash,addressp1Address,addressp2Address)internalreturns(address){if(evulationMapping[GetPlayerMove(gameHash,Players.player1)][GetPlayerMove(gameHash,Players.player2)]==EvalState.win)moneys[p1Address]+=games[gameHash].wager*2;elseif(evulationMapping[GetPlayerMove(gameHash,Players.player1)][GetPlayerMove(gameHash,Players.player2)]==EvalState.lose)moneys[p2Address]+=games[gameHash].wager*2;moneys[p1Address]+=(games[gameHash].wager*9)/100;moneys[p2Address]+=(games[gameHash].wager*9)/100;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractgame{structGame{uintwager;GameStatestate;mapping(uint=>bytes32)playerMove;}enumGameState{ready,challenged,accepted,playing,evaluating}enumEvalState{win,lose,draw}enumPlayers{player1,player2}mapping(bytes32=>Game)publicgames;mapping(address=>uint)publicmoneys;mapping(bytes32=>mapping(bytes32=>EvalState))publicevulationMapping;addressowner;constructor(){owner=msg.sender;evulationMapping[keccak256("Paper")][keccak256("Rock")]=EvalState.win;evulationMapping[keccak256("Paper")][keccak256("Scissors")]=EvalState.lose;evulationMapping[keccak256("Paper")][keccak256("Paper")]=EvalState.draw;evulationMapping[keccak256("Rock")][keccak256("Rock")]=EvalState.draw;evulationMapping[keccak256("Rock")][keccak256("Scissors")]=EvalState.win;evulationMapping[keccak256("Rock")][keccak256("Paper")]=EvalState.lose;evulationMapping[keccak256("Scissors")][keccak256("Rock")]=EvalState.lose;evulationMapping[keccak256("Scissors")][keccak256("Scissors")]=EvalState.draw;evulationMapping[keccak256("Scissors")][keccak256("Paper")]=EvalState.win;}functionchallenge(addressbastard)externalpayable{bytes32gameHash=getPairHash(msg.sender,bastard);require(games[gameHash].state==GameState.ready);require(msg.value>10finney);games[gameHash].wager=msg.value;games[gameHash].state=GameState.challenged;}functionacceptChallenge(addresschallenger)externalpayable{bytes32gameHash=getPairHash(msg.sender,challenger);require(games[gameHash].state==GameState.challenged);require(msg.value==games[gameHash].wager);games[gameHash].state=GameState.accepted;}functionplay(addressopponent,bytes32secretMove)external{bytes32gameHash=getPairHash(msg.sender,opponent);require(games[gameHash].state==GameState.accepted||games[gameHash].state==GameState.playing);games[gameHash].state=GameState.playing;if(opponent>msg.sender)SetPlayerMove(gameHash,Players.player1,secretMove);elseSetPlayerMove(gameHash,Players.player2,secretMove);}functionFinalizeMove(addressopponent,stringmovePassword,stringmove)external{bytes32gameHash=getPairHash(msg.sender,opponent);require(GetPlayerMove(gameHash,Players.player1).length>0&&GetPlayerMove(gameHash,Players.player2).length>0);require(games[gameHash].state==GameState.playing||games[gameHash].state==GameState.evaluating);bytes32verifiedMove=keccak256(abi.encodePacked(move,movePassword));if(opponent>msg.sender){require(verifiedMove==GetPlayerMove(gameHash,Players.player1));Evaluate(gameHash,Players.player1,move,opponent,msg.sender);}else{require(verifiedMove==GetPlayerMove(gameHash,Players.player2));Evaluate(gameHash,Players.player2,move,msg.sender,opponent);}}functionEvaluate(bytes32gameHash,Playersplayer,stringmove,addressp1Address,addressp2Address)internal{SetPlayerMove(gameHash,player,keccak256(abi.encodePacked(move)));if(games[gameHash].state==GameState.playing){games[gameHash].state=GameState.evaluating;}else{Payout(gameHash,p1Address,p2Address);games[gameHash].state=GameState.ready;}}functionPayout(bytes32gameHash,addressp1Address,addressp2Address)internalreturns(address){if(evulationMapping[GetPlayerMove(gameHash,Players.player1)][GetPlayerMove(gameHash,Players.player2)]==EvalState.win)moneys[p1Address]+=games[gameHash].wager*2;elseif(evulationMapping[GetPlayerMove(gameHash,Players.player1)][GetPlayerMove(gameHash,Players.player2)]==EvalState.lose)moneys[p2Address]+=games[gameHash].wager*2;moneys[p1Address]+=(games[gameHash].wager*9)/100;moneys[p2Address]+=(games[gameHash].wager*9)/100;}functionGetPlayerMove(bytes32gameHash,Playersplayer)internalviewreturns(bytes32){returngames[gameHash].playerMove[uint(player)];}functionSetPlayerMove(bytes32gameHash,Playersplayer,bytes32move)internal{games[gameHash].playerMove[uint(player)]=move;}functionGetHashedMove(stringmove,stringmovePassword)externalpurereturns(bytes32){returnkeccak256(abi.encodePacked(move,movePassword));}functiongetPairHash(address_a,address_b)internalpurereturns(bytes32){return(_a<_b)?keccak256(abi.encodePacked(_a,_b)):keccak256(abi.encodePacked(_b,_a));}function()externalpayable{emithello(msg.sender,msg.value);}eventhello(addresssender,uintamount);}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 101
+column: 56
+content: stringmove
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 20
+column: 4
+content: constructor(){owner=msg.sender;evulationMapping[keccak256("Paper")][keccak256("Rock")]=EvalState.win;evulationMapping[keccak256("Paper")][keccak256("Scissors")]=EvalState.lose;evulationMapping[keccak256("Paper")][keccak256("Paper")]=EvalState.draw;evulationMapping[keccak256("Rock")][keccak256("Rock")]=EvalState.draw;evulationMapping[keccak256("Rock")][keccak256("Scissors")]=EvalState.win;evulationMapping[keccak256("Rock")][keccak256("Paper")]=EvalState.lose;evulationMapping[keccak256("Scissors")][keccak256("Rock")]=EvalState.lose;evulationMapping[keccak256("Scissors")][keccak256("Scissors")]=EvalState.draw;evulationMapping[keccak256("Scissors")][keccak256("Paper")]=EvalState.win;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 18
+column: 4
+content: addressowner;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_UPGRADE_TO_050 :1

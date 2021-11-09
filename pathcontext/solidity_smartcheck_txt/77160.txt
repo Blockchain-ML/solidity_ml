@@ -1,0 +1,231 @@
+F:\Blockchain\dataset_new_byID\77160.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 13
+column: 42
+content: 0x40
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 18
+column: 4
+content: functionequals(uintaddr,uintaddr2,uintlen)internalpurereturns(boolequal){assembly{equal:=eq(keccak256(addr,len),keccak256(addr2,len))}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 40
+column: 4
+content: functionallocate(uintnumBytes)internalpurereturns(uintaddr){assembly{addr:=mload(0x40)mstore(0x40,add(addr,numBytes))}uintwords=(numBytes+WORD_SIZE-1)/WORD_SIZE;for(uinti=0;i<words;i++){assembly{mstore(add(addr,mul(i,32)),0)}}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 77
+column: 4
+content: functionptr(bytesmemorybts)internalpurereturns(uintaddr){assembly{addr:=bts}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 84
+column: 4
+content: functiondataPtr(bytesmemorybts)internalpurereturns(uintaddr){assembly{addr:=add(bts,32)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 92
+column: 4
+content: functionfromBytes(bytesmemorybts)internalpurereturns(uintaddr,uintlen){len=bts.length;assembly{addr:=add(bts,32)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 112
+column: 4
+content: functiontoUint(uintaddr)internalpurereturns(uintn){assembly{n:=mload(addr)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 119
+column: 4
+content: functiontoBytes32(uintaddr)internalpurereturns(bytes32bts){assembly{bts:=mload(addr)}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 18
+column: 4
+content: functionequals(uintaddr,uintaddr2,uintlen)internalpurereturns(boolequal){assembly{equal:=eq(keccak256(addr,len),keccak256(addr2,len))}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 28
+column: 4
+content: functionequals(uintaddr,uintlen,bytesmemorybts)internalpurereturns(boolequal){require(bts.length>=len);uintaddr2;assembly{addr2:=add(bts,32)}returnequals(addr,addr2,len);}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 40
+column: 4
+content: functionallocate(uintnumBytes)internalpurereturns(uintaddr){assembly{addr:=mload(0x40)mstore(0x40,add(addr,numBytes))}uintwords=(numBytes+WORD_SIZE-1)/WORD_SIZE;for(uinti=0;i<words;i++){assembly{mstore(add(addr,mul(i,32)),0)}}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 57
+column: 4
+content: functioncopy(uintsrc,uintdest,uintlen)internalpure{for(;len>=WORD_SIZE;len-=WORD_SIZE){assembly{mstore(dest,mload(src))}dest+=WORD_SIZE;src+=WORD_SIZE;}uintmask=256**(WORD_SIZE-len)-1;assembly{letsrcpart:=and(mload(src),not(mask))letdestpart:=and(mload(dest),mask)mstore(dest,or(destpart,srcpart))}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 77
+column: 4
+content: functionptr(bytesmemorybts)internalpurereturns(uintaddr){assembly{addr:=bts}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 84
+column: 4
+content: functiondataPtr(bytesmemorybts)internalpurereturns(uintaddr){assembly{addr:=add(bts,32)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 92
+column: 4
+content: functionfromBytes(bytesmemorybts)internalpurereturns(uintaddr,uintlen){len=bts.length;assembly{addr:=add(bts,32)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 102
+column: 4
+content: functiontoBytes(uintaddr,uintlen)internalpurereturns(bytesmemorybts){bts=newbytes(len);uintbtsptr;assembly{btsptr:=add(bts,32)}copy(addr,btsptr,len);}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 112
+column: 4
+content: functiontoUint(uintaddr)internalpurereturns(uintn){assembly{n:=mload(addr)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 119
+column: 4
+content: functiontoBytes32(uintaddr)internalpurereturns(bytes32bts){assembly{bts:=mload(addr)}}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 92
+column: 63
+content: (uintaddr,uintlen)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 19
+column: 8
+content: assembly{equal:=eq(keccak256(addr,len),keccak256(addr2,len))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 31
+column: 8
+content: assembly{addr2:=add(bts,32)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 42
+column: 8
+content: assembly{addr:=mload(0x40)mstore(0x40,add(addr,numBytes))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 48
+column: 12
+content: assembly{mstore(add(addr,mul(i,32)),0)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 60
+column: 12
+content: assembly{mstore(dest,mload(src))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 69
+column: 8
+content: assembly{letsrcpart:=and(mload(src),not(mask))letdestpart:=and(mload(dest),mask)mstore(dest,or(destpart,srcpart))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 78
+column: 8
+content: assembly{addr:=bts}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 85
+column: 8
+content: assembly{addr:=add(bts,32)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 94
+column: 8
+content: assembly{addr:=add(bts,32)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 105
+column: 8
+content: assembly{btsptr:=add(bts,32)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 113
+column: 8
+content: assembly{n:=mload(addr)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 120
+column: 8
+content: assembly{bts:=mload(addr)}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :7
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_USING_INLINE_ASSEMBLY :12
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_SHOULD_NOT_BE_PURE :10

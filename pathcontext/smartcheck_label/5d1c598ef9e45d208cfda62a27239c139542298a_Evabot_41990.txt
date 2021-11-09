@@ -1,0 +1,332 @@
+C:\Users\hp\DataSet\contracts\ropsten\5d\5d1c598ef9e45d208cfda62a27239c139542298a_Evabot.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 146
+column: 6
+content: whitelists.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 168
+column: 6
+content: pendingUserlists.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 238
+column: 6
+content: pendingUserlists.length=0
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 285
+column: 4
+content: activeUserlists.length=0
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 31
+column: 4
+content: functiontotalSupply()publicconstantreturns(uint);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 32
+column: 4
+content: functionbalanceOf(addresstokenOwner)publicconstantreturns(uintbalance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 33
+column: 4
+content: functionallowance(addresstokenOwner,addressspender)publicconstantreturns(uintremaining);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 185
+column: 2
+content: functiongetWhitelists()publicconstantreturns(address[]){returnwhitelists;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 340
+column: 2
+content: functiongetEvotTokenAddress()publicconstantreturns(address){returntokenEVOT;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 345
+column: 2
+content: functionbalanceOfPendingToken(addressuser)publicconstantreturns(uint256){returnpendingToken[user];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 350
+column: 2
+content: functionbalanceOfActiveToken(addressuser)publicconstantreturns(uint256){returnactiveToken[user];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 355
+column: 2
+content: functionbalanceOfETH(addressuser)publicconstantreturns(uint256){returnmyEthBalance[user];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 360
+column: 2
+content: functiongetDailyProfitSumForAllUsers()publicconstantreturns(uint256){returndailyProfitSumForAllUsers;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 365
+column: 2
+content: functiongetReadyTime()publicconstantreturns(uint256){if(now>=readyTime){return0;}else{returnreadyTime.sub(now);}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 379
+column: 2
+content: functiongetPendingUserCount()publicconstantreturns(uint256){returnpendingUserlists.length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 384
+column: 2
+content: functiongetActiveUserCount()publicconstantreturns(uint256){returnactiveUserlists.length;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 232
+column: 6
+content: for(uint256i=0;i<pendingUserlists.length;i++){activeToken[pendingUserlists[i]]=pendingToken[pendingUserlists[i]];totalInvested[pendingUserlists[i]]=totalInvested[pendingUserlists[i]].add(pendingToken[pendingUserlists[i]]);pendingToken[pendingUserlists[i]]=0;activeUserlists.push(pendingUserlists[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 246
+column: 6
+content: for(uint256i=0;i<activeUserlists.length;i++){if(isAutoInvest[activeUserlists[i]]){pendingToken[activeUserlists[i]]=pendingToken[activeUserlists[i]].add(activeToken[activeUserlists[i]]);pendingUserlists.push(activeUserlists[i]);}else{if(!ERC20(tokenEVOT).transfer(wallet_contract,activeToken[activeUserlists[i]]))revert();Evoai(wallet_contract).recevedTokenFromEvabot(activeUserlists[i],activeToken[activeUserlists[i]]);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 261
+column: 6
+content: for(uint256j=0;j<activeUserlists.length;j++){cycle_activetoken=cycle_activetoken.add(activeToken[activeUserlists[j]]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 280
+column: 4
+content: for(uinti=0;i<_addrs.length;++i){myEthBalance[_addrs[i]]=myEthBalance[_addrs[i]].add(_vals[i]);totalProfit[_addrs[i]]=totalProfit[_addrs[i]].add(_vals[i]);activeToken[_addrs[i]]=0;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 130
+column: 6
+content: while(whitelists[i]!=value){i++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 142
+column: 6
+content: while(i<whitelists.length-1){whitelists[i]=whitelists[i+1];i++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 152
+column: 6
+content: while(pendingUserlists[i]!=value){i++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 164
+column: 6
+content: while(i<pendingUserlists.length-1){pendingUserlists[i]=pendingUserlists[i+1];i++;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 232
+column: 6
+content: for(uint256i=0;i<pendingUserlists.length;i++){activeToken[pendingUserlists[i]]=pendingToken[pendingUserlists[i]];totalInvested[pendingUserlists[i]]=totalInvested[pendingUserlists[i]].add(pendingToken[pendingUserlists[i]]);pendingToken[pendingUserlists[i]]=0;activeUserlists.push(pendingUserlists[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 246
+column: 6
+content: for(uint256i=0;i<activeUserlists.length;i++){if(isAutoInvest[activeUserlists[i]]){pendingToken[activeUserlists[i]]=pendingToken[activeUserlists[i]].add(activeToken[activeUserlists[i]]);pendingUserlists.push(activeUserlists[i]);}else{if(!ERC20(tokenEVOT).transfer(wallet_contract,activeToken[activeUserlists[i]]))revert();Evoai(wallet_contract).recevedTokenFromEvabot(activeUserlists[i],activeToken[activeUserlists[i]]);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 261
+column: 6
+content: for(uint256j=0;j<activeUserlists.length;j++){cycle_activetoken=cycle_activetoken.add(activeToken[activeUserlists[j]]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 280
+column: 4
+content: for(uinti=0;i<_addrs.length;++i){myEthBalance[_addrs[i]]=myEthBalance[_addrs[i]].add(_vals[i]);totalProfit[_addrs[i]]=totalProfit[_addrs[i]].add(_vals[i]);activeToken[_addrs[i]]=0;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 130
+column: 13
+content: whitelists[i]!=value
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 142
+column: 13
+content: i<whitelists.length-1
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 152
+column: 13
+content: pendingUserlists[i]!=value
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 164
+column: 13
+content: i<pendingUserlists.length-1
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 73
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 74
+column: 12
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 252
+column: 12
+content: if(!ERC20(tokenEVOT).transfer(wallet_contract,activeToken[activeUserlists[i]]))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 264
+column: 6
+content: if(cycle_activetoken==0)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 300
+column: 4
+content: if(tokenEVOT==0)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 303
+column: 4
+content: if(!ERC20(tokenEVOT).transfer(wallet_contract,amount))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 375
+column: 6
+content: if(!ERC20(tokenEVOT).transfer(msg.sender,amount))revert();
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 52
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 274
+column: 21
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 185
+column: 51
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 279
+column: 25
+content: address[]_addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 279
+column: 43
+content: uint256[]_vals
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 389
+column: 53
+content: address[]
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :12
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :4
+SOLIDITY_REVERT_REQUIRE :5
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :8
+SOLIDITY_UPGRADE_TO_050 :5
+SOLIDITY_GAS_LIMIT_IN_LOOPS :8

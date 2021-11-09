@@ -1,0 +1,76 @@
+C:\Users\hp\DataSet\contracts\ropsten\92\9298b5a0b3af6b5039d8044814275794e5fb6041_Intermediary.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 21
+column: 8
+content: while(b<a.length){if(a[b]>0)c+=a[b];b++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 33
+column: 8
+content: while(i<dests.length){if(gasleft()<30000)break;if(dests[i]!=address(0)&&dests[i]!=address(this)&&!AddressUtils.isContract(dests[i])&&amounts[i]>0){if(!address(uint160(dests[i])).send(amounts[i]))break;restAmount-=amounts[i];}i++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 51
+column: 8
+content: while(i<dests.length){if(dests[i]!=address(0)&&dests[i]!=address(this)&&amounts[i]>0)if(!ERC20(token).transferFrom(msg.sender,dests[i],amounts[i]))break;i++;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 21
+column: 15
+content: b<a.length
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 33
+column: 15
+content: i<dests.length
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 51
+column: 15
+content: i<dests.length
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 3
+column: 4
+content: functionisContract(addressaddr)internalviewreturns(bool){uint256size;assembly{size:=extcodesize(addr)}returnsize>0;}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 27
+column: 95
+content: (bool,uint)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 44
+column: 106
+content: (bool,uint)
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_SHOULD_RETURN_STRUCT :2
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

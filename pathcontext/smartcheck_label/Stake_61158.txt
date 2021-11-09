@@ -1,0 +1,97 @@
+C:\Users\hp\DataSet\Stake.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 19
+column: 4
+content: stakeHolders.length=numStakeHolders+1
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 33
+column: 4
+content: for(j=0;j<stakeHolders.length;j++){stakeHolders[j].send(bal*stake[stakeHolders[j]]/sumStake);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 33
+column: 4
+content: for(j=0;j<stakeHolders.length;j++){stakeHolders[j].send(bal*stake[stakeHolders[j]]/sumStake);}
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 35
+column: 22
+content: send(bal*stake[stakeHolders[j]]/sumStake)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 10
+column: 2
+content: functionStake(){currentStake=100;sumStake=0;numStakeHolders=0;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 16
+column: 2
+content: functionaddStakeHolder(addressstakeholder){stake[stakeholder]=currentStake;stakeHolders.length=numStakeHolders+1;stakeHolders[numStakeHolders]=stakeholder;numStakeHolders++;holdingTheBag=stakeholder;sumStake+=currentStake;currentStake=currentStake/2;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 29
+column: 2
+content: functionpayout(){uintbal=this.balance;uintj;for(j=0;j<stakeHolders.length;j++){stakeHolders[j].send(bal*stake[stakeHolders[j]]/sumStake);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 2
+column: 2
+content: mapping(address=>uint)stake;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 3
+column: 2
+content: address[]stakeHolders;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 4
+column: 2
+content: addressholdingTheBag;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 2
+content: uintnumStakeHolders;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 7
+column: 2
+content: uintcurrentStake;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 8
+column: 2
+content: uintsumStake;
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_UNCHECKED_CALL :1

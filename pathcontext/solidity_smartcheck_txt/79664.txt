@@ -1,0 +1,309 @@
+F:\Blockchain\dataset_new_byID\79664.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 60
+column: 4
+content: functiongetInfo()publicconstantreturns(bytes32[]hashValue,address[]signerValue,bytes32[]rValue,bytes32[]sValue,uint8[]vValue,bytes32[]extraValue){uintnumOfHashParts=dataHash.length;uintindex;hashValue=newbytes32[](numOfHashParts);for(index=0;index<numOfHashParts;index++){hashValue[index]=dataHash[index];}uintnumOfSigners=signer.length;signerValue=newaddress[](numOfSigners);for(index=0;index<numOfSigners;index++){signerValue[index]=signer[index];}uintnumOfSignatures=r.length;rValue=newbytes32[](numOfSignatures);sValue=newbytes32[](numOfSignatures);vValue=newuint8[](numOfSignatures);for(index=0;index<numOfSignatures;index++){rValue[index]=r[index];sValue[index]=s[index];vValue[index]=v[index];}uintnumOfExtraValue=extraContent.length;extraValue=newbytes32[](numOfExtraValue);for(index=0;index<numOfExtraValue;index++){extraValue[index]=extraContent[index];}return(hashValue,signerValue,rValue,sValue,vValue,extraValue);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 124
+column: 16
+content: for(uinti=0;i<hashArray.length;i++){dataHash[i]=hashArray[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 33
+column: 8
+content: for(index=0;index<numOfHashParts;index++){if(hashValue[index]!=bytes32(0)){dataHash.push(hashValue[index]);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 39
+column: 8
+content: for(index=0;index<numOfSigners;index++){signer.push(signerValue[index]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 43
+column: 8
+content: for(index=0;index<numOfSigners;index++){if(tx.origin==signer[index]){r.push(rValue);s.push(sValue);v.push(vValue);}else{r.push(bytes32(0));s.push(bytes32(0));v.push(uint8(0));}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 55
+column: 8
+content: for(index=0;index<numOfExtraValue;index++){extraContent.push(extraValue[index]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 72
+column: 8
+content: for(index=0;index<numOfHashParts;index++){hashValue[index]=dataHash[index];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 77
+column: 8
+content: for(index=0;index<numOfSigners;index++){signerValue[index]=signer[index];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 84
+column: 8
+content: for(index=0;index<numOfSignatures;index++){rValue[index]=r[index];sValue[index]=s[index];vValue[index]=v[index];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 91
+column: 8
+content: for(index=0;index<numOfExtraValue;index++){extraValue[index]=extraContent[index];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 106
+column: 8
+content: for(uintindex=0;index<numOfSigners;index++){if(tx.origin==signer[index]&&v[index]==uint8(0)){r[index]=rValue;s[index]=sValue;v[index]=vValue;AddSignatureLog(RETURN_CODE_SUCCESS,tx.origin,rValue,sValue,vValue);returntrue;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 121
+column: 8
+content: for(uintindex=0;index<numOfSigners;index++){if(tx.origin==signer[index]){dataHash=newbytes32[](hashArray.length);for(uinti=0;i<hashArray.length;i++){dataHash[i]=hashArray[i];}AddHashLog(RETURN_CODE_SUCCESS,tx.origin);return;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 124
+column: 16
+content: for(uinti=0;i<hashArray.length;i++){dataHash[i]=hashArray[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 137
+column: 8
+content: for(uintindex=0;index<numOfSigners;index++){if(tx.origin==signer[index]){extraContent.push(extraValue);AddExtraContentLog(RETURN_CODE_SUCCESS,tx.origin,extraValue);returntrue;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 7
+column: 14
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 8
+column: 14
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 9
+column: 14
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 10
+column: 14
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 11
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 12
+column: 14
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 15
+column: 18
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 16
+column: 18
+content: private
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 44
+column: 16
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 107
+column: 16
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 111
+column: 53
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 115
+column: 59
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 122
+column: 16
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 127
+column: 48
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 131
+column: 54
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 138
+column: 16
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 140
+column: 56
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 144
+column: 62
+content: tx.origin
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 22
+column: 8
+content: bytes32[]hashValue
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 23
+column: 8
+content: address[]signerValue
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 27
+column: 8
+content: bytes32[]extraValue
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 61
+column: 8
+content: bytes32[]hashValue
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 62
+column: 8
+content: address[]signerValue
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 63
+column: 8
+content: bytes32[]rValue
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 64
+column: 8
+content: bytes32[]sValue
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 65
+column: 8
+content: uint8[]vValue
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 66
+column: 8
+content: bytes32[]extraValue
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 119
+column: 21
+content: bytes32[]hashArray
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :8
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :10
+SOLIDITY_GAS_LIMIT_IN_LOOPS :12
+SOLIDITY_TX_ORIGIN :10

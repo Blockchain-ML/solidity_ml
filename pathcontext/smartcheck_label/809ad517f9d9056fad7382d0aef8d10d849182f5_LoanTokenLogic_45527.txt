@@ -1,0 +1,195 @@
+C:\Users\hp\DataSet\contracts\ropsten\80\809ad517f9d9056fad7382d0aef8d10d849182f5_LoanTokenLogic.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 354
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 55
+column: 0
+content: contractWETHInterfaceisEIP20{functiondeposit()externalpayable;functionwithdraw(uint256wad)external;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 552
+column: 0
+content: contractLoanTokenLogicisAdvancedToken,OracleNotifierInterface{usingSafeMathforuint256;modifieronlyOracle(){require(msg.sender==IBZx(bZxContract).oracleAddresses(bZxOracle),"unauthorized");_;}function()externalpayable{}functionmintWithEther(addressreceiver)externalpayablenonReentrantreturns(uint256mintAmount){require(loanTokenAddress==wethContract,"no ether");return_mintToken(receiver,msg.value);}functionmint(addressreceiver,uint256depositAmount)externalnonReentrantreturns(uint256mintAmount){return_mintToken(receiver,depositAmount);}functionburnToEther(addresspayablereceiver,uint256burnAmount)externalnonReentrantreturns(uint256loanAmountPaid){require(loanTokenAddress==wethContract,"no ether");loanAmountPaid=_burnToken(receiver,burnAmount);if(loanAmountPaid>0){WETHInterface(wethContract).withdraw(loanAmountPaid);require(receiver.send<missing ';'>(loanAmountPaid),"transfer failed");}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 294
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 352
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 553
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 512
+column: 16
+content: (uint256,uint256,uint256,uint256)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 535
+column: 16
+content: (uint256destTokenAmountReceived,uint256sourceTokenAmountUsed)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 474
+column: 4
+content: functionpushLoanOrderOnChain(address[8]calldataorderAddresses,uint256[11]calldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 596
+column: 4
+content: functionburnToEther(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 476
+column: 29
+content: orderValues,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 477
+column: 8
+content: bytescalldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 477
+column: 23
+content: oracleData,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 478
+column: 8
+content: bytescalldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 480
+column: 16
+content: (bytes32);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 597
+column: 24
+content: receiver,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 598
+column: 8
+content: uint256burnAmount)external
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 600
+column: 8
+content: nonReentrantreturns
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 601
+column: 16
+content: (uint256loanAmountPaid){require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 603
+column: 15
+content: (loanTokenAddress==wethContract,"no ether");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 604
+column: 8
+content: loanAmountPaid=_burnToken
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 604
+column: 35
+content: (receiver,burnAmount);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 609
+column: 11
+content: (loanAmountPaid>0){WETHInterface
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 610
+column: 25
+content: (wethContract).withdraw
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 610
+column: 48
+content: (loanAmountPaid);require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 611
+column: 19
+content: (receiver.send<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 611
+column: 33
+content: (loanAmountPaid),"transfer failed");
+
+SOLIDITY_VISIBILITY :19
+SOLIDITY_SAFEMATH :3
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_SHOULD_RETURN_STRUCT :2
+SOLIDITY_ERC20_APPROVE :1

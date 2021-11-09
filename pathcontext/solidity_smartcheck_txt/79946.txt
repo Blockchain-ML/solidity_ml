@@ -1,0 +1,105 @@
+F:\Blockchain\dataset_new_byID\79946.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 182
+column: 4
+content: functiongetLeadIntermediaryAddress(bytes16id,uint8num)publicconstantreturns(address){require(leads[id].status!=HoQuStorageSchema.Status.NotExists);returnleads[id].intermediaryAddresses[num];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 188
+column: 4
+content: functiongetLeadIntermediaryPercent(bytes16id,uint8num)publicconstantreturns(uint32){require(leads[id].status!=HoQuStorageSchema.Status.NotExists);returnleads[id].intermediaryPercents[num];}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 75
+column: 4
+content: functionsetTransactorAddress(addresstransactorAddress)publiconlyOwner{transactor=HoQuTransactor(transactorAddress);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 79
+column: 4
+content: functionsetRaterAddress(addressraterAddress)publiconlyOwner{rater=HoQuRaterI(raterAddress);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 83
+column: 4
+content: functionsetBeneficiaryAddress(address_beneficiaryAddress)publiconlyOwner{emitBeneficiaryAddressChanged(beneficiaryAddress,_beneficiaryAddress);beneficiaryAddress=_beneficiaryAddress;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 89
+column: 4
+content: functionsetPayerAddress(address_payerAddress)publiconlyOwner{emitPayerAddressChanged(payerAddress,_payerAddress);payerAddress=_payerAddress;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 101
+column: 4
+content: functionsetStatus(HoQuStorageSchema.Status_status)publiconlyOwner{HoQuStorageSchema.AdCampaignmemoryadCampaign=getAdCampaign(adId);require(adCampaign.status!=HoQuStorageSchema.Status.NotExists);adCampaign.status=status;setAdCampaign(adId,adCampaign);status=_status;emitStatusChanged(payerAddress,_status);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 12
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 154
+column: 19
+content: send(config.commissionWallet(),commissionAmount)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 161
+column: 23
+content: send(receiver,intermediaryAmount)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 166
+column: 19
+content: send(beneficiaryAddress,ownerAmount)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 113
+column: 52
+content: stringmeta
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 113
+column: 65
+content: stringdataUrl
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :5
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_UNCHECKED_CALL :3

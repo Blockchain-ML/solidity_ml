@@ -1,0 +1,70 @@
+C:\Users\hp\DataSet\contracts\ropsten\ac\ace0ecf4660c14a0216ccd1997668b706cee056b_ReturnVestingRegistry.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 86
+column: 2
+content: functionbalanceOf(addresswho)publicconstantreturns(uint256);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 92
+column: 2
+content: functionallowance(addressowner,addressspender)publicconstantreturns(uint256);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 311
+column: 2
+content: functionreleasableAmount()publicconstantreturns(uint256){returnvestedAmount().sub(released);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 318
+column: 2
+content: functionvestedAmount()publicconstantreturns(uint256){uint256currentBalance=token.balanceOf(this);uint256totalBalance=currentBalance.add(released);if(now<cliff){return0;}elseif(now>=start.add(duration)||revoked){returntotalBalance;}else{returntotalBalance.mul(now.sub(start)).div(duration);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 178
+column: 2
+content: functionsetTargetContract(addresstarget)publiconlyOwner{landClaim=target;manaToken.approve(landClaim,totalLocked);emitLandClaimContractSet(target);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 187
+column: 29
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 193
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 187
+column: 14
+content: public
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

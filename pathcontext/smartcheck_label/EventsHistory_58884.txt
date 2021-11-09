@@ -1,0 +1,39 @@
+C:\Users\hp\DataSet\EventsHistory.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 99
+column: 12
+content: throw
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 98
+column: 8
+content: if(!emitters[msg.sig].delegatecall(msg.data)){throw;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 47
+column: 4
+content: functionaddEmitter(bytes4_eventSignature,address_emitter)onlyRole('setup')returns(bool){if(emitters[_eventSignature]!=0x0){returnfalse;}emitters[_eventSignature]=_emitter;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 67
+column: 4
+content: functionaddVersion(address_caller,string_name,string_changelog)onlyRole('admin')returns(bool){if(versions[_caller]!=0){returnfalse;}if(bytes(_name).length==0){returnfalse;}if(bytes(_changelog).length==0){returnfalse;}uintversion=++latestVersion;versions[_caller]=version;versionInfo[version]=VersionInfo(block.number,msg.sender,_caller,_name,_changelog);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 91
+column: 4
+content: function(){if(versions[msg.sender]==0){return;}if(!emitters[msg.sig].delegatecall(msg.data)){throw;}}
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_REVERT_REQUIRE :1

@@ -1,0 +1,111 @@
+C:\Users\hp\DataSet\contracts\ropsten\b1\b1587633bc498187116231c2f9ae5b79e06a6b0d_MainWallet.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 9
+column: 0
+content: contractWallet{functionsetOwner(address_owner)publicreturns(bool);functionreceive()publicpayablereturns(bool);functionsend(addressto,uint256value,uint256gaslimit,bytesmemorydata)publicreturns(bool);functiontransfer(addresstoken,addressto,uint256value)publicreturns(bool);functionapprove(addresstoken,addressspender,uint256value)publicreturns(bool);functiontransferFrom(addresstoken,addressfrom,addressto,uint256value)publicreturns(bool);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 109
+column: 0
+content: contractForkWalletisForkable{constructor(address_owner)public{owner=_owner;}function()externalpayable{}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 115
+column: 0
+content: contractMainWalletisMainable{constructor(address_owner)public{owner=_owner;}function()externalpayable{}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 26
+column: 4
+content: functionsetOwner(address_owner)publiconlyOwnerreturns(bool){require(_owner!=address(0)&&address(this)!=_owner);owner=_owner;returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 36
+column: 8
+content: if(!ERC20(token).approve(spender,value))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 57
+column: 8
+content: if(!ERC20(token).transfer(to,value))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 64
+column: 8
+content: if(!ERC20(token).transferFrom(from,to,value))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 79
+column: 8
+content: if(!Wallet(forkAddress).approve(token,spender,value))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 85
+column: 8
+content: if(!Wallet(forkAddress).receive.value(value)())revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 90
+column: 8
+content: if(!Wallet(forkAddress).send(to,value,gaslimit,data))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 95
+column: 8
+content: if(!Wallet(forkAddress).transfer(token,to,value))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 100
+column: 8
+content: if(!Wallet(forkAddress).transferFrom(token,from,to,value))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 105
+column: 8
+content: if(!Wallet(forkAddress).setOwner(admin))revert();
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 69
+column: 4
+content: mapping(address=>bool)isFork;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :9
+SOLIDITY_LOCKED_MONEY :3

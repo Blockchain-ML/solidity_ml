@@ -1,0 +1,211 @@
+C:\Users\hp\DataSet\DayToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 203
+column: 4
+content: functionisDayTokenActivated()constantreturns(boolisActivated){return(block.timestamp>=initialBlockTimestamp);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 212
+column: 4
+content: functionisValidContributorId(uint_id)constantreturns(boolisValidContributor){return(_id>0&&_id<=maxAddresses&&contributors[_id].adr!=0&&idOf[contributors[_id].adr]==_id);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 221
+column: 4
+content: functionisValidContributorAddress(address_address)constantreturns(boolisValidContributor){returnisValidContributorId(idOf[_address]);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 230
+column: 4
+content: functionisTeamLockInPeriodOverIfTeamAddress(address_address)constantreturns(boolisLockInPeriodOver){isLockInPeriodOver=true;if(teamIssuedTimestamp[_address]!=0){if(block.timestamp-teamIssuedTimestamp[_address]<teamLockPeriodInSec)isLockInPeriodOver=false;}returnisLockInPeriodOver;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 262
+column: 4
+content: functioncanUpgrade()publicconstantreturns(bool){returnreleased&&super.canUpgrade();}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 280
+column: 4
+content: functiongetPhaseCount(uint_day)publicconstantreturns(uintphase){phase=(_day/halvingCycle)+1;return(phase);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 288
+column: 4
+content: functiongetDayCount()publicconstantreturns(uintdaySinceMintingEpoch){daySinceMintingEpoch=0;if(isDayTokenActivated())daySinceMintingEpoch=(block.timestamp-initialBlockTimestamp)/DayInSecs;returndaySinceMintingEpoch;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 309
+column: 4
+content: functiongetMintingPowerById(uint_id)publicconstantreturns(uint256mintingPower){returncontributors[_id].mintingPower/(2**(getPhaseCount(getDayCount())-1));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 317
+column: 4
+content: functiongetMintingPowerByAddress(address_adr)publicconstantreturns(uint256mintingPower){returngetMintingPowerById(idOf[_adr]);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 383
+column: 4
+content: functionbalanceOf(address_adr)constantreturns(uintbalance){uintid=idOf[_adr];if(id!=0)returnbalanceById(id);elsereturnbalances[_adr];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 400
+column: 4
+content: functionbalanceById(uint_id)publicconstantreturns(uint256balance){addressadr=contributors[_id].adr;if(isDayTokenActivated()){if(isValidContributorId(_id)){return(availableBalanceOf(_id,getDayCount()));}}returnbalances[adr];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 413
+column: 4
+content: functiongetTotalSupply()publicconstantreturns(uint){returntotalSupply;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 550
+column: 4
+content: functiongetOnSaleIds()constantpublicreturns(uint[]){uint[]memoryidsOnSale=newuint[](maxAddresses);uintj=0;for(uinti=1;i<=maxAddresses;i++){if(isValidContributorId(i)&&block.number<=contributors[i].expiryBlockNumber&&contributors[i].status==sellingStatus.ONSALE){idsOnSale[j]=i;j++;}}returnidsOnSale;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 571
+column: 4
+content: functiongetSellingStatus(uint_id)constantpublicreturns(sellingStatusstatus){require(isValidContributorId(_id));status=contributors[_id].status;if(block.number>contributors[_id].expiryBlockNumber&&status==sellingStatus.ONSALE)status=sellingStatus.EXPIRED;returnstatus;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 553
+column: 8
+content: for(uinti=1;i<=maxAddresses;i++){if(isValidContributorId(i)&&block.number<=contributors[i].expiryBlockNumber&&contributors[i].status==sellingStatus.ONSALE){idsOnSale[j]=i;j++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 333
+column: 14
+content: i<=maxUpdateDays
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 194
+column: 4
+content: functionsetInitialBlockTimestamp(uint_initialBlockTimestamp)internalonlyOwner{require(!isInitialBlockTimestampSet);isInitialBlockTimestampSet=true;initialBlockTimestamp=_initialBlockTimestamp;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 245
+column: 4
+content: functionsetMintingDec(uint256_mintingDec)onlyOwner{require(!isInitialBlockTimestampSet);mintingDec=_mintingDec;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 269
+column: 4
+content: functionsetTokenInformation(string_name,string_symbol)onlyOwner{name=_name;symbol=_symbol;UpdatedTokenInformation(name,symbol);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 550
+column: 52
+content: uint[]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 135
+column: 4
+content: functionDayToken(string_name,string_symbol,uint_initialSupply,uint8_decimals,bool_mintable,uint_maxAddresses,uint_firstTeamContributorId,uint_totalTeamContributorIds,uint_totalPostIcoContributorIds,uint256_minMintingPower,uint256_maxMintingPower,uint_halvingCycle,uint256_minBalanceToSell,uint256_dayInSecs,uint256_teamLockPeriodInSec)UpgradeableToken(msg.sender){owner=msg.sender;name=_name;symbol=_symbol;totalSupply=_initialSupply;decimals=_decimals;balances[owner]=totalSupply;maxAddresses=_maxAddresses;require(maxAddresses>1);firstContributorId=1;totalNormalContributorIds=maxAddresses-_totalTeamContributorIds-_totalPostIcoContributorIds;require(totalNormalContributorIds>=1);firstTeamContributorId=_firstTeamContributorId;totalTeamContributorIds=_totalTeamContributorIds;totalPostIcoContributorIds=_totalPostIcoContributorIds;firstPostIcoContributorId=maxAddresses-totalPostIcoContributorIds+1;minMintingPower=_minMintingPower;maxMintingPower=_maxMintingPower;halvingCycle=_halvingCycle;initialBlockTimestamp=1577836800;isInitialBlockTimestampSet=false;mintingDec=19;minBalanceToSell=_minBalanceToSell;DayInSecs=_dayInSecs;teamLockPeriodInSec=_teamLockPeriodInSec;if(totalSupply>0){Minted(owner,totalSupply);}if(!_mintable){mintingFinished=true;require(totalSupply!=0);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 203
+column: 4
+content: functionisDayTokenActivated()constantreturns(boolisActivated){return(block.timestamp>=initialBlockTimestamp);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 212
+column: 4
+content: functionisValidContributorId(uint_id)constantreturns(boolisValidContributor){return(_id>0&&_id<=maxAddresses&&contributors[_id].adr!=0&&idOf[contributors[_id].adr]==_id);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 221
+column: 4
+content: functionisValidContributorAddress(address_address)constantreturns(boolisValidContributor){returnisValidContributorId(idOf[_address]);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 230
+column: 4
+content: functionisTeamLockInPeriodOverIfTeamAddress(address_address)constantreturns(boolisLockInPeriodOver){isLockInPeriodOver=true;if(teamIssuedTimestamp[_address]!=0){if(block.timestamp-teamIssuedTimestamp[_address]<teamLockPeriodInSec)isLockInPeriodOver=false;}returnisLockInPeriodOver;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 245
+column: 4
+content: functionsetMintingDec(uint256_mintingDec)onlyOwner{require(!isInitialBlockTimestampSet);mintingDec=_mintingDec;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 269
+column: 4
+content: functionsetTokenInformation(string_name,string_symbol)onlyOwner{name=_name;symbol=_symbol;UpdatedTokenInformation(name,symbol);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 383
+column: 4
+content: functionbalanceOf(address_adr)constantreturns(uintbalance){uintid=idOf[_adr];if(id!=0)returnbalanceById(id);elsereturnbalances[_adr];}
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_OVERPOWERED_ROLE :3
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :14
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

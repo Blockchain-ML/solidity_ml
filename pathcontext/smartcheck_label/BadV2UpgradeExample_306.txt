@@ -1,0 +1,64 @@
+C:\Users\hp\DataSet\BadV2UpgradeExample.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 135
+column: 8
+content: assetProtectionRole=address(0)
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 329
+column: 4
+content: functionsetAssetProtectionRole(address_newAssetProtectionRole)public{require(msg.sender==assetProtectionRole||msg.sender==owner,"only assetProtectionRole or Owner");emitAssetProtectionRoleSet(assetProtectionRole,_newAssetProtectionRole);assetProtectionRole=_newAssetProtectionRole;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 390
+column: 4
+content: functionsetSupplyController(address_newSupplyController)public{require(msg.sender==supplyController||msg.sender==owner,"only SupplyController or Owner");require(_newSupplyController!=address(0),"cannot set supply controller to address zero");emitSupplyControllerSet(supplyController,_newSupplyController);supplyController=_newSupplyController;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 50
+column: 9
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 26
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 456
+column: 8
+content: bytessig
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 470
+column: 8
+content: assembly{r:=mload(add(sig,32))s:=mload(add(sig,64))v:=byte(0,mload(add(sig,96)))}
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1

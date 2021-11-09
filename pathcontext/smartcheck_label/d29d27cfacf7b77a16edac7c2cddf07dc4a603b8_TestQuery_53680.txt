@@ -1,0 +1,39 @@
+C:\Users\hp\DataSet\contracts\ropsten\d2\d29d27cfacf7b77a16edac7c2cddf07dc4a603b8_TestQuery.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 8
+column: 0
+content: contractTestQuery{structDetails{uintamount;addressowner;uinttransferId;}uinttransNonce;eventLocked(address_from,uint_value);mapping(uint=>Details)transferDetails;mapping(address=>uint[])transferList;functionlockforTransfer()payablepublicreturns(uint){require(msg.value>0);transNonce+=1;transferDetails[transNonce]=Details({amount:msg.value,owner:msg.sender,transferId:transNonce});transferList[msg.sender].push(transNonce);return(transNonce);}functiongetTransfer(uint_transferId)publicviewreturns(uint,address,uint){Detailsmemory_locked=transferDetails[_transferId];return(_locked.amount,_locked.owner,_locked.transferId);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 2
+content: uinttransNonce;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 18
+column: 2
+content: mapping(uint=>Details)transferDetails;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 4
+content: mapping(address=>uint[])transferList;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

@@ -1,0 +1,311 @@
+F:\Blockchain\dataset_new_byID\78309.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_VAR
+patternId: d28aa7
+severity: 2
+line: 152
+column: 8
+content: varresult=testTransfererNoAccount.transfer("noAcc",1)
+
+ruleId: SOLIDITY_VAR
+patternId: d28aa7
+severity: 2
+line: 158
+column: 8
+content: varresult=testTransferer.transfer("noAcc",0)
+
+ruleId: SOLIDITY_VAR
+patternId: d28aa7
+severity: 2
+line: 164
+column: 8
+content: varresult=testTransfererInsufficientBalance.transfer("noAcc",1)
+
+ruleId: SOLIDITY_VAR
+patternId: d28aa7
+severity: 2
+line: 171
+column: 8
+content: varresult=testTransfererNoTarget.transfer("noAcc",1)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 8
+column: 4
+content: functionAccountOwner(addressbankAddr){bank=Bank(bankAddr);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 66
+column: 4
+content: functionBankTest(){testee=newBank();testReg=newAccountOwner(testee);testRegFail=newAccountOwner(testee);testDelete=newAccountOwner(testee);testEndow=newAccountOwner(testee);testEndowFailer=newAccountOwner(testee);testTransferer=newAccountOwner(testee);testTransferee=newAccountOwner(testee);testTransfererBalanceCheck=newAccountOwner(testee);testTransfereeBalanceCheck=newAccountOwner(testee);testTransfererNoAccount=newAccountOwner(testee);testTransfererNoAmount=newAccountOwner(testee);testTransfererInsufficientBalance=newAccountOwner(testee);testTransfererNoTarget=newAccountOwner(testee);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 83
+column: 4
+content: functiontestOwnerSucceeding(){varowner=testee.owner();owner.assertEqual(address(this),"owner address does not match.");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 88
+column: 4
+content: functiontestGetMyAddress(){varmyAddrs=testee.getMyAddress();myAddrs.assertEqual(address(this),"owner address does not match.");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 93
+column: 4
+content: functiontestRegisterAccount(){varret=testReg.registerNewAccount("testReg");uint(ret).assertEqual(SUCCESS,"registration failed");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 98
+column: 4
+content: functiontestRegisterAccountFailAlreadyExists(){varret=testRegFail.registerNewAccount("testReg");varret2=testRegFail.registerNewAccount("testReg");uint(ret2).assertEqual(ACCOUNT_EXISTS,"registration succeeded");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 104
+column: 4
+content: functiontestRegDeleteOwner(){testee.registerNewAccount("testOwnerAcc");varret=testee.deleteAccount("testOwnerAcc");uint(ret).assertEqual(SUCCESS,"registrating owner failed");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 110
+column: 4
+content: functiontestDeleteAccount(){testDelete.registerNewAccount("testDelete");varret=testDelete.deleteAccount("testDelete");uint(ret).assertEqual(SUCCESS,"registration failed");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 116
+column: 4
+content: functiontestEndowSucceeding(){testEndow.registerNewAccount("testEndow");varresult=testee.endow("testEndow",TEST_BALANCE,"testmessage");uint(result).assertEqual(SUCCESS,"endow failed");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 122
+column: 4
+content: functiontestEndowFailNotOwner(){testEndowFailer.registerNewAccount("testEndowFailer");varresult=testEndowFailer.endow("testEndowFailer",TEST_BALANCE);uint(result).assertEqual(NOT_OWNER,"endow succeeded");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 128
+column: 4
+content: functiontestEndowFailNoTarget(){varresult=testee.endow("noAcc",TEST_BALANCE,"testmessage");uint(result).assertEqual(NO_TARGET,"endow succeeded");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 133
+column: 4
+content: functiontestTransferSuccess(){testTransferer.registerNewAccount("testTransferer");testTransferee.registerNewAccount("testTransferee");testee.endow("testTransferer",TEST_BALANCE,"testmessage");testTransferer.transfer("testTransferee",TEST_BALANCE);varbalanceIn=testee.getBalance("testTransferee");balanceIn.assertEqual(TEST_BALANCE,"balances does not match");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 142
+column: 4
+content: functiontestTransferSenderBalanceCheck(){testTransfererBalanceCheck.registerNewAccount("testTransfererBalanceCheck");testTransfereeBalanceCheck.registerNewAccount("testTransfereeBalanceCheck");testee.endow("testTransfererBalanceCheck",TEST_BALANCE,"testmessage");testTransfererBalanceCheck.transfer("testTransfereeBalanceCheck",TEST_BALANCE/2);varbalanceIn=testee.getBalance("testTransfererBalanceCheck");balanceIn.assertEqual(TEST_BALANCE/2,"balances does not match");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 151
+column: 4
+content: functiontestTransferFailedNoAccount(){varresult=testTransfererNoAccount.transfer("noAcc",1);uint(result).assertEqual(NO_ACCOUNT,"no account fail");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 156
+column: 4
+content: functiontestTransferFailedNoAmount(){testTransfererNoAmount.registerNewAccount("testTfrNoAmt");varresult=testTransferer.transfer("noAcc",0);uint(result).assertEqual(NO_AMOUNT,"no amount fail");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 162
+column: 4
+content: functiontestTransferFailedInsufficientBalance(){testTransfererInsufficientBalance.registerNewAccount("testTfrIsfBlnc");varresult=testTransfererInsufficientBalance.transfer("noAcc",1);uint(result).assertEqual(INSUFFICIENT_BALANCE,"insufficient balance fail");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 168
+column: 4
+content: functiontestTransferFailedNoTarget(){testTransfererNoTarget.registerNewAccount("tstTrsfrrNTrgt");testee.endow("tstTrsfrrNTrgt",TEST_BALANCE,"testmessage");varresult=testTransfererNoTarget.transfer("noAcc",1);uint(result).assertEqual(NO_TARGET,"no target fail");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 4
+content: Bankbank;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 39
+column: 4
+content: uint8constantSUCCESS=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 41
+column: 4
+content: uint8constantNO_ACCOUNT=10;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 42
+column: 4
+content: uint8constantACCOUNT_EXISTS=11;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 43
+column: 4
+content: uint8constantNO_TARGET=12;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 4
+content: uint8constantNOT_OWNER=13;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 4
+content: uint8constantNO_AMOUNT=20;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 47
+column: 4
+content: uint8constantINSUFFICIENT_BALANCE=21;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 49
+column: 4
+content: uintconstantTEST_BALANCE=1000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 51
+column: 4
+content: Banktestee;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 4
+content: AccountOwnertestReg;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 53
+column: 4
+content: AccountOwnertestRegFail;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 54
+column: 4
+content: AccountOwnertestDelete;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 55
+column: 4
+content: AccountOwnertestEndow;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 56
+column: 4
+content: AccountOwnertestEndowFailer;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 57
+column: 4
+content: AccountOwnertestTransferer;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 58
+column: 4
+content: AccountOwnertestTransferee;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 59
+column: 4
+content: AccountOwnertestTransfererBalanceCheck;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 60
+column: 4
+content: AccountOwnertestTransfereeBalanceCheck;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 61
+column: 4
+content: AccountOwnertestTransfererNoAccount;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 62
+column: 4
+content: AccountOwnertestTransfererNoAmount;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 63
+column: 4
+content: AccountOwnertestTransfererInsufficientBalance;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 64
+column: 4
+content: AccountOwnertestTransfererNoTarget;
+
+SOLIDITY_VISIBILITY :40
+SOLIDITY_VAR :4

@@ -1,0 +1,39 @@
+C:\Users\hp\DataSet\Stack.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 19
+column: 4
+content: functionpush(uint_number,string_name)publicreturns(bool){ObjectmemorynewObj=Object(top,_number,_name);bytes32id=keccak256(newObj.number,newObj.name,now,height);objects[id]=newObj;top=id;height=height+1;Pushed(top,newObj.number,newObj.name);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 28
+column: 4
+content: functionpop()publicreturns(bool){require(height>0);bytes32_top=top;top=objects[top].next;Popped(top,objects[_top].number,objects[_top].name);deleteobjects[_top];}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 21
+column: 21
+content: keccak256(newObj.number,newObj.name,now,height)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 19
+column: 31
+content: string_name
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_UPGRADE_TO_050 :2

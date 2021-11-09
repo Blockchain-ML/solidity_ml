@@ -1,0 +1,97 @@
+C:\Users\hp\DataSet\contracts\ropsten\1e\1e65998de7b0d3fdc89d97e292c8e46100c8f295_TTTVV.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 86
+column: 37
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 91
+column: 36
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 101
+column: 31
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 111
+column: 36
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 117
+column: 33
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 117
+column: 56
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 137
+column: 34
+content: 0x0
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 32
+column: 0
+content: contractTTTVVisSafeMath{addresspublicowner;uint256publictotalSupply;uint256publicdecimals;stringpublicsymbol;stringpublicname;mapping(address=>uint256)internalbalance;mapping(address=>mapping(address=>uint256))internalallowance;mapping(address=>uint256)internalamountToFrozenAddress;constructor(uint256_totalSupply,uint256_decimals,string_symbol,string_name)public{owner=msg.sender;totalSupply=_totalSupply;decimals=_decimals;symbol=_symbol;name=_name;balance[msg.sender]=_totalSupply;}eventTransferTo(addressindexed_from,addressindexed_to,uint256_amount);eventApproveTo(addressindexed_from,addressindexed_spender,uint256_amount);eventFrozenAddress(addressindexed_owner,uint256_amount);eventUnFrozenAddress(addressindexed_owner,uint256_amount);eventBurn(addressindexed_owner,uint256indexed_amount);modifieronlyHolder(){require(msg.sender==owner,"only holder can call this function");_;}modifierisAvailableEnough(address_owner,uint256_amount){require(safeSub(balance[_owner],amountToFrozenAddress[_owner])>=_amount,"no enough available balance");_;}function()publicpayable{revert("can not recieve ether");}functionsetOwner(address_newOwner)publiconlyHolder{require(_newOwner!=address(0x0));owner=_newOwner;}functionbalanceOf(address_account)publicviewreturns(uint256){require(_account!=address(0x0));returnbalance[_account];}functiongetTotalSupply()publicviewreturns(uint256){returntotalSupply;}functiontransfer(address_to,uint256_amount)publicisAvailableEnough(_to,_amount){require(_to!=address(0x0));balance[msg.sender]=safeSub(balance[msg.sender],_amount);balance[_to]=safeAdd(balance[_to],_amount);emitTransferTo(msg.sender,_to,_amount);}functionapprove(address_spender,uint256_amount)public{require(_spender!=address(0x0));allowance[msg.sender][_spender]=_amount;emitApproveTo(msg.sender,_spender,_amount);}functiontransferFrom(address_from,address_to,uint256_amount)publicisAvailableEnough(_to,_amount){require(_from!=address(0x0)&&_to!=address(0x0));balance[_from]=safeSub(balance[_from],_amount);balance[_to]=safeAdd(balance[_to],_amount);allowance[_from][msg.sender]=safeSub(allowance[_from][msg.sender],_amount);emitTransferTo(_from,_to,_amount);}functionfroze(address_owner,uint256_amount)publiconlyHolder{amountToFrozenAddress[_owner]=_amount;emitFrozenAddress(_owner,_amount);}functionunFroze(address_owner,uint256_amount)publiconlyHolder{amountToFrozenAddress[_owner]=safeSub(amountToFrozenAddress[_owner],_amount);emitUnFrozenAddress(_owner,_amount);}functionburn(address_owner,uint256_amount)publiconlyHolder{require(_owner!=address(0x0));balance[_owner]=safeSub(balance[_owner],_amount);totalSupply=safeSub(totalSupply,_amount);emitBurn(_owner,_amount);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 80
+column: 31
+content: {revert("can not recieve ether");}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 80
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 48
+column: 8
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 49
+column: 8
+content: string_name
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :7
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

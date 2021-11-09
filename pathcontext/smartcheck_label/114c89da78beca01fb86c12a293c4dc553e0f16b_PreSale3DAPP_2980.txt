@@ -1,0 +1,132 @@
+C:\Users\hp\DataSet\contracts\mainnet\11\114c89da78beca01fb86c12a293c4dc553e0f16b_PreSale3DAPP.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 8
+column: 2
+content: functionmul(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a*b;assert(a==0||c/a==b);returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 14
+column: 2
+content: functiondiv(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a/b;returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 21
+column: 2
+content: functionsub(uint256a,uint256b)internalconstantreturns(uint256){assert(b<=a);returna-b;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 26
+column: 2
+content: functionadd(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a+b;assert(c>=a);returnc;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 155
+column: 14
+content: i<=arrayLength
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 105
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 4
+column: 4
+content: functiontransfer(addressreceiver,uintamount);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 41
+column: 2
+content: functionOwnable(){owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 53
+column: 2
+content: functiontransferOwnership(addressnewOwner)onlyOwner{if(newOwner!=address(0)){owner=newOwner;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 113
+column: 4
+content: functionPreSale3DAPP(address_tokenReward){tokenReward=Token3DAPP(_tokenReward);deadline=block.timestamp.add(2weeks);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 118
+column: 4
+content: function()whenNotPausedpayable{buy(msg.sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 122
+column: 4
+content: functionbuy(addressbuyer)whenNotPausedpayable{require(buyer!=address(0));require(msg.value!=0);require(msg.value>=minimalETH);uintamount=msg.value;uinttokens=amount.mul(tokenPrice);tokenReward.transfer(buyer,tokens);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 132
+column: 4
+content: functiontransferFund()onlyOwner{owner.transfer(this.balance);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 136
+column: 4
+content: functionupdatePrice(uint256_tokenPrice)onlyOwner{tokenPrice=_tokenPrice;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 140
+column: 4
+content: functionupdateMinimal(uint256_minimalETH)onlyOwner{minimalETH=_minimalETH;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 144
+column: 4
+content: functiontransferTokens(uint256_tokens)onlyOwner{tokenReward.transfer(owner,_tokens);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 149
+column: 4
+content: functionairdrop(address[]_array1,uint256[]_array2)onlyOwner{address[]memoryarrayAddress=_array1;uint256[]memoryarrayAmount=_array2;uint256arrayLength=arrayAddress.length.sub(1);uint256i=0;while(i<=arrayLength){tokenReward.transfer(arrayAddress[i],arrayAmount[i]);i=i.add(1);}}
+
+SOLIDITY_VISIBILITY :11
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

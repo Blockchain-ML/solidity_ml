@@ -1,0 +1,55 @@
+C:\Users\hp\DataSet\contracts\ropsten\8f\8f2f5b7c33e8d39440a8e34230f31b322c80024d_Factory.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 62
+column: 0
+content: contractFactoryisOwnable{constructor(address_owner)public{owner=_owner;}functioncreate()publicreturns(address){returnaddress(newWallet(msg.sender));}function()externalpayable{require(msg.value>0);address(uint160(owner)).transfer(msg.value);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 18
+column: 4
+content: functionsetOwner(address_owner)publiconlyOwnerreturns(bool){require(_owner!=address(0)&&address(this)!=_owner);owner=_owner;returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 45
+column: 8
+content: if(!ERC20(token).approve(spender,amount))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 51
+column: 8
+content: if(!ERC20(token).transfer(to,amount))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 58
+column: 8
+content: if(!ERC20(token).transferFrom(from,to,amount))revert();
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 38
+column: 31
+content: call.gas(gaslimit).value(amount)(data)
+
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :3
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UNCHECKED_CALL :1

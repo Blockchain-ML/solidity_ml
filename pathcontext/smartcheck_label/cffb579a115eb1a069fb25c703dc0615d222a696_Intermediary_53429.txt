@@ -1,0 +1,113 @@
+C:\Users\hp\DataSet\contracts\ropsten\cf\cffb579a115eb1a069fb25c703dc0615d222a696_Intermediary.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: lr991l
+severity: 1
+line: 79
+column: 21
+content: call.gas(100000).value(_value)()
+
+ruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: lr991l
+severity: 1
+line: 110
+column: 28
+content: call.gas(50000).value(restEther)()
+
+ruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: lr991l
+severity: 1
+line: 115
+column: 19
+content: call.gas(50000).value(fee)()
+
+ruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: lr991l
+severity: 1
+line: 116
+column: 21
+content: call.gas(50000).value(pureEther)()
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 10
+column: 0
+content: contractStore{eventSent(addressindexed_from,addressindexed_to,addressindexed_token,uint_value);eventPurchase(addressindexed_token,addressindexed_seller,addressindexed_buyer,uint_amountEther,uint_amountToken);eventRequestAdded(addressindexed_token,addressindexed_seller,uint_rates);eventPaid(addressindexed_buyer,addressindexed_seller,uint_amount,uint_fee);functiontransferOwnership(address_newOwner)publicreturns(boolSuccess);functioncheckRate(address_token,address_seller)publicviewreturns(uintTokenPerEther);functioncheckAvailability(address_token,address_seller)publicviewreturns(uintTokenAvailable);functionsetFeeDivider(uint_newDivider)publicreturns(boolSuccess);functionbuy(address_token,address_seller)publicpayablereturns(boolSuccess);functionsell(address_token,uint_rate)publicreturns(boolSuccess);functionemergencyTransfer(address_token,address_to,uint_value)publicreturns(boolSuccess);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 44
+column: 4
+content: functionsetFeeDivider(uint_newDivider)publiconlyOwnerreturns(boolSuccess){require(_newDivider>=100);feeDivider=_newDivider;returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 82
+column: 12
+content: if(!ERC20(_token).transfer(_to,_value))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 114
+column: 8
+content: if(!ERC20(_token).transferFrom(_seller,msg.sender,amountERC20))revert();
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 79
+column: 21
+content: call.gas(100000).value(_value)()
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 110
+column: 28
+content: call.gas(50000).value(restEther)()
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 115
+column: 19
+content: call.gas(50000).value(fee)()
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 116
+column: 21
+content: call.gas(50000).value(pureEther)()
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 121
+column: 15
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 40
+column: 4
+content: mapping(address=>mapping(address=>uint))queue;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :5
+SOLIDITY_CALL_WITHOUT_DATA :4

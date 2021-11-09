@@ -1,0 +1,264 @@
+F:\Blockchain\dataset_new_byID\81573.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 131
+column: 36
+content: 0xf0b9e5ba
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 283
+column: 6
+content: tokenApprovals[_tokenId]=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 299
+column: 4
+content: tokenOwner[_tokenId]=address(0)
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 592
+column: 4
+content: ownedTokens[_from].length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 622
+column: 4
+content: allTokens.length--
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 177
+column: 2
+content: functionapprove(address_to,uint256_tokenId)public{addressowner=ownerOf(_tokenId);require(_to!=owner);require(msg.sender==owner||isApprovedForAll(owner,msg.sender));if(getApproved(_tokenId)!=address(0)||_to!=address(0)){tokenApprovals[_tokenId]=_to;emitApproval(owner,_to,_tokenId);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 413
+column: 4
+content: for(uinti=0;i<bresult.length;i++){if((bresult[i]>=48)&&(bresult[i]<=57)){if(decimals){break;}mint*=10;mint+=uint(bresult[i])-48;}elseif(bresult[i]==46)decimals=true;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 435
+column: 4
+content: for(uinti=0;i<b.length;i++){if(b[i]!=delm[0]){tempNum.push(b[i]);}else{numbers[x]=(parseInt(string(tempNum)));x++;tempNum="";}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 460
+column: 4
+content: for(uinti;i<b.length;i++){if(b[i]!=delm[0]){tempNum.push(b[i]);}else{t+=parseInt(string(tempNum));tempNum="";}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 772
+column: 4
+content: for(uinti=0;i<temp.length;i++){bytesStringTrimmed[0]=temp[i];a=parseInt(string(bytesStringTrimmed));if(a>0&&a<min){min=a;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 413
+column: 4
+content: for(uinti=0;i<bresult.length;i++){if((bresult[i]>=48)&&(bresult[i]<=57)){if(decimals){break;}mint*=10;mint+=uint(bresult[i])-48;}elseif(bresult[i]==46)decimals=true;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 435
+column: 4
+content: for(uinti=0;i<b.length;i++){if(b[i]!=delm[0]){tempNum.push(b[i]);}else{numbers[x]=(parseInt(string(tempNum)));x++;tempNum="";}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 460
+column: 4
+content: for(uinti;i<b.length;i++){if(b[i]!=delm[0]){tempNum.push(b[i]);}else{t+=parseInt(string(tempNum));tempNum="";}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 772
+column: 4
+content: for(uinti=0;i<temp.length;i++){bytesStringTrimmed[0]=temp[i];a=parseInt(string(bytesStringTrimmed));if(a>0&&a<min){min=a;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 496
+column: 0
+content: contractplanetOwnerisERC721BasicToken,helpers{stringinternalname_;stringinternalsymbol_;mapping(address=>uint256[])internalownedTokens;mapping(uint256=>uint256)internalownedTokensIndex;uint256[]internalallTokens;mapping(uint256=>uint256)internalallTokensIndex;mapping(uint256=>string)internaltokenURIs;constructor(string_name,string_symbol)public{name_=_name;symbol_=_symbol;}functionname()publicviewreturns(string){returnname_;}functionsymbol()publicviewreturns(string){returnsymbol_;}functiontokenURI(uint256_tokenId)publicviewreturns(string){require(exists(_tokenId));returntokenURIs[_tokenId];}functiontokenOfOwnerByIndex(address_owner,uint256_index)publicviewreturns(uint256){require(_index<balanceOf(_owner));returnownedTokens[_owner][_index];}functiontotalSupply()publicviewreturns(uint256){returnallTokens.length;}functiontokenByIndex(uint256_index)publicviewreturns(uint256){require(_index<totalSupply());returnallTokens[_index];}function_setTokenURI(uint256_tokenId,string_uri)internal{require(exists(_tokenId));tokenURIs[_tokenId]=_uri;}functionaddTokenTo(address_to,uint256_tokenId)internal{super.addTokenTo(_to,_tokenId);uint256length=ownedTokens[_to].length;ownedTokens[_to].push(_tokenId);ownedTokensIndex[_tokenId]=length;}functionremoveTokenFrom(address_from,uint256_tokenId)internal{super.removeTokenFrom(_from,_tokenId);uint256tokenIndex=ownedTokensIndex[_tokenId];uint256lastTokenIndex=ownedTokens[_from].length.sub(1);uint256lastToken=ownedTokens[_from][lastTokenIndex];ownedTokens[_from][tokenIndex]=lastToken;ownedTokens[_from][lastTokenIndex]=0;ownedTokens[_from].length--;ownedTokensIndex[_tokenId]=0;ownedTokensIndex[lastToken]=tokenIndex;}function_mint(address_to,uint256_tokenId)internal{super._mint(_to,_tokenId);allTokensIndex[_tokenId]=allTokens.length;allTokens.push(_tokenId);}function_burn(address_owner,uint256_tokenId)internal{super._burn(_owner,_tokenId);if(bytes(tokenURIs[_tokenId]).length!=0){deletetokenURIs[_tokenId];}uint256tokenIndex=allTokensIndex[_tokenId];uint256lastTokenIndex=allTokens.length.sub(1);uint256lastToken=allTokens[lastTokenIndex];allTokens[tokenIndex]=lastToken;allTokens[lastTokenIndex]=0;allTokens.length--;allTokensIndex[_tokenId]=0;allTokensIndex[lastToken]=tokenIndex;}structPlanet{uint8radius;uint8level;uint8hangarSize;uint8clusterID;uint16XP;uintstardust;uintdefeatTime;stringstarsAssociated;stringbattlestation;boolattackable;}Planet[]planets;mapping(uint=>address)idToOwner;functioncreateAPlanet(uint8_radius,uint8_clusterId,string_stars,string_battlestation,address_to)publicreturns(uint){Planetmemory_planet=Planet({radius:_radius,level:1,hangarSize:3,clusterID:_clusterId,XP:0,stardust:18000,defeatTime:now-6hours,starsAssociated:_stars,battlestation:_battlestation,attackable:true});uintnewPlanetId=planets.push(_planet)-1;idToOwner[newPlanetId]=_to;_mint(_to,newPlanetId);returnnewPlanetId;}functionradiusOfPlanet(uint_id)publicviewreturns(uint8){returnplanets[_id].radius;}functionlevelOfPlanet(uint_id)publicviewreturns(uint8){returnplanets[_id].level;}functionhangarSizeOfPlanet(uint_id)publicviewreturns(uint8){returnplanets[_id].hangarSize;}functionclusterIDOfPlanet(uint_id)publicviewreturns(uint8){returnplanets[_id].clusterID;}functionXPOfPlanet(uint_id)publicviewreturns(uint16){returnplanets[_id].XP;}functionstardustOnPlanet(uint_id)publicviewreturns(uint){returnplanets[_id].stardust;}functiondefeatTimeOfPlanet(uint_id)publicviewreturns(uint){return(now-planets[_id].defeatTime);}functionstarsIdAssociated(uint_id)publicreturns(uint,uint,uint){uinta=splitStr(planets[_id].starsAssociated,0);uintb=splitStr(planets[_id].starsAssociated,1);uintc=splitStr(planets[_id].starsAssociated,2);return(a,b,c);}functionbattlestationOfPlanet(uint_id)publicviewreturns(string){returnplanets[_id].battlestation;}functionisAttackable(uint_id)publicviewreturns(bool){if(planets[_id].attackable==true||now-planets[_id].defeatTime>6hours){returntrue;}else{returnfalse;}}functionaddStardust(uint_id,uintamount)payablepublic{require(msg.sender==idToOwner[_id]);require(msg.value==10*amount);planets[_id].stardust+=amount;}bytestemp;functionplanetTurretLevelUp(uint_planetId,uint_turrentId)public{require(msg.sender==idToOwner[_planetId]);Planetmemoryplanett=planets[_planetId];temp=bytes(planett.battlestation);bytes1l=temp[_turrentId];bytesmemorybytesStringTrimmed=newbytes(1);bytesStringTrimmed[0]=l;uinta=parseInt(string(bytesStringTrimmed));require(a>0,"You do not have this turret");a++;bytesmemoryn=bytes(uint2str(a));temp[_turrentId]=n[0];planett.battlestation=string(temp);uintmin=5;for(uinti=0;i<temp.length;i++){bytesStringTrimmed[0]=temp[i];a=parseInt(string(bytesStringTrimmed));if(a>0&&a<min){min=a;}}planets[_planetId]=planett;if(planett.level<min){planetLevelUp(_planetId);}}functionplanetLevelUp(uint_id)internal{Planetmemoryp=planets[_id];p.stardust-=10000*p.level;p.level++;p.hangarSize+=3;planets[_id]=p;}functionattackOfPlanet(uint_id,uint_base)publicreturns(uint){Planetmemoryp=planets[_id];uinttempInt=splitAdd(p.battlestation);return(_base+tempInt);}functionbattleAttack(uintattackerId,uintdefenderId,uintbattleStardust)public{require(stardustOnPlanet(attackerId)>=battleStardust);require(stardustOnPlanet(defenderId)>=battleStardust);require(isAttackable(defenderId)==true);planets[attackerId].stardust-=battleStardust;planets[defenderId].stardust-=battleStardust;}functionupdateBattleResults(uint_id,boolresult)internal{Planetmemoryp=planets[_id];if(result==true){p.stardust+=1800;p.XP+=50;}else{p.stardust-=1800;}planets[_id]=p;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 126
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 8
+column: 2
+content: functionisContract(addressaddr)internalviewreturns(bool){uint256size;assembly{size:=extcodesize(addr)}returnsize>0;}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 409
+column: 20
+content: string_a
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 428
+column: 20
+content: stringstr
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 454
+column: 20
+content: stringstr
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 477
+column: 51
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 519
+column: 14
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 519
+column: 28
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 525
+column: 39
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 530
+column: 41
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 535
+column: 59
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 565
+column: 42
+content: string_uri
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 668
+column: 58
+content: string_stars
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 668
+column: 73
+content: string_battlestation
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 732
+column: 64
+content: string
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 131
+column: 2
+content: bytes4constantERC721_RECEIVED=0xf0b9e5ba;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 426
+column: 2
+content: bytestempNum="";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 662
+column: 2
+content: Planet[]planets;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 665
+column: 2
+content: mapping(uint=>address)idToOwner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 755
+column: 2
+content: bytestemp;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :4
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_UPGRADE_TO_050 :13
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4
+SOLIDITY_SHOULD_NOT_BE_VIEW :1
+SOLIDITY_ERC20_APPROVE :1

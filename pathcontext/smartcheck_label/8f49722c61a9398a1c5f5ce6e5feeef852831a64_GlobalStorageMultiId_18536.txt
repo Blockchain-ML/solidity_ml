@@ -1,0 +1,187 @@
+C:\Users\hp\DataSet\contracts\mainnet\8f\8f49722c61a9398a1c5f5ce6e5feeef852831a64_GlobalStorageMultiId.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 70
+column: 4
+content: functioncheckId(bytes32_id)constantreturns(address_address){returnusers[_id];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 89
+column: 4
+content: functiongetUint(bytes32_id,bytes32_key)constantreturns(uint_data){returndataUint[_id][_key];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 106
+column: 4
+content: functiongetString(bytes32_id,bytes32_key)constantreturns(string_data){returndataString[_id][_key];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 122
+column: 4
+content: functiongetAddress(bytes32_id,bytes32_key)constantreturns(address_data){returndataAddress[_id][_key];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 138
+column: 4
+content: functiongetBytes32(bytes32_id,bytes32_key)constantreturns(bytes32_data){returndataBytes32[_id][_key];}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 58
+column: 14
+content: send(msg.value)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 36
+column: 4
+content: functionGlobalStorageMultiId(){regPrice=0.005ether;admin=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 44
+column: 4
+content: functionregisterUser(bytes32_id)payablereturns(bool){require(msg.value>=regPrice);if(users[_id]!=0x0){Error("ID already exists");msg.sender.send(msg.value);returnfalse;}users[_id]=msg.sender;totalUsers+=1;totalCollected+=msg.value;admin.send(msg.value);RegisteredUser(msg.sender,_id);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 64
+column: 4
+content: functionchangeAddress(bytes32_id,address_newAddress)onlyOwner(_id)returns(bool){users[_id]=_newAddress;ChangedAdd(_id,msg.sender,_newAddress);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 70
+column: 4
+content: functioncheckId(bytes32_id)constantreturns(address_address){returnusers[_id];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 79
+column: 4
+content: functionsetUint(bytes32_id,bytes32_key,uint256_data,bool_overwrite)onlyOwner(_id)returns(bool){if(dataUint[_id][_key]==0||_overwrite){dataUint[_id][_key]=_data;returntrue;}else{Error("Data exists");returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 89
+column: 4
+content: functiongetUint(bytes32_id,bytes32_key)constantreturns(uint_data){returndataUint[_id][_key];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 96
+column: 4
+content: functionsetString(bytes32_id,bytes32_key,string_data,bool_overwrite)onlyOwner(_id)returns(bool){if(bytes(dataString[_id][_key]).length==0||_overwrite){dataString[_id][_key]=_data;returntrue;}else{Error("Data exists");returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 106
+column: 4
+content: functiongetString(bytes32_id,bytes32_key)constantreturns(string_data){returndataString[_id][_key];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 112
+column: 4
+content: functionsetAddress(bytes32_id,bytes32_key,address_data,bool_overwrite)onlyOwner(_id)returns(bool){if(dataAddress[_id][_key]==0x0||_overwrite){dataAddress[_id][_key]=_data;returntrue;}else{Error("Data exists");returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 122
+column: 4
+content: functiongetAddress(bytes32_id,bytes32_key)constantreturns(address_data){returndataAddress[_id][_key];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 128
+column: 4
+content: functionsetBytes32(bytes32_id,bytes32_key,bytes32_data,bool_overwrite)onlyOwner(_id)returns(bool){if(dataBytes32[_id][_key]==0x0||_overwrite){dataBytes32[_id][_key]=_data;returntrue;}else{Error("Data exists");returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 138
+column: 4
+content: functiongetBytes32(bytes32_id,bytes32_key)constantreturns(bytes32_data){returndataBytes32[_id][_key];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 145
+column: 4
+content: functionchangePrice(uint_newPrice)onlyAdmin{regPrice=_newPrice;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 149
+column: 4
+content: functionchangeAdmin(address_newAdmin)onlyAdmin{admin=_newAdmin;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 14
+column: 4
+content: mapping(bytes32=>address)users;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 4
+content: mapping(bytes32=>mapping(bytes32=>uint256))dataUint;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 16
+column: 4
+content: mapping(bytes32=>mapping(bytes32=>bytes32))dataBytes32;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 17
+column: 4
+content: mapping(bytes32=>mapping(bytes32=>string))dataString;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 18
+column: 4
+content: mapping(bytes32=>mapping(bytes32=>address))dataAddress;
+
+SOLIDITY_VISIBILITY :19
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UNCHECKED_CALL :1

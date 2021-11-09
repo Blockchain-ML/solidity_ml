@@ -1,0 +1,61 @@
+C:\Users\hp\DataSet\PrivacyFactory.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 6
+column: 0
+content: contractPrivacyFactoryisLevel{functioncreateInstance(address)publicpayablereturns(address){bytes32[3]memorydata;data[0]=keccak256(tx.origin,"0");data[1]=keccak256(tx.origin,"1");data[2]=keccak256(tx.origin,"2");Privacyinstance=newPrivacy(data);returninstance;}functionvalidateInstance(address_instance,address_player)publicreturns(bool){Privacyinstance=Privacy(_instance);returninstance.locked()==false;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 10
+column: 24
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 11
+column: 24
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 12
+column: 24
+content: tx.origin
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 10
+column: 14
+content: keccak256(tx.origin,"0")
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 11
+column: 14
+content: keccak256(tx.origin,"1")
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 12
+column: 14
+content: keccak256(tx.origin,"2")
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_TX_ORIGIN :3

@@ -1,0 +1,254 @@
+C:\Users\hp\DataSet\contracts\ropsten\d4\d4df8eaa73efb269d06d12d585f7d7db32f38961_Index.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 44
+column: 4
+content: owner=address(0)
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 147
+column: 8
+content: heirs[heir].length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 159
+column: 8
+content: witnesses[witness].length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 255
+column: 8
+content: heirs.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 293
+column: 8
+content: witnesses.length--
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 143
+column: 4
+content: for(uint256i=0;i<legacy.length;i++){if(legacy[i].wallet==msg.sender){heirs[heir][i]=heirs[heir][heirs[heir].length-1];deleteheirs[heir][heirs[heir].length-1];heirs[heir].length--;emitHeirDeletionEvent(heir,msg.sender);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 155
+column: 4
+content: for(uint256i=0;i<testimonial.length;i++){if(testimonial[i]==msg.sender){witnesses[witness][i]=witnesses[witness][witnesses[witness].length-1];deletewitnesses[witness][witnesses[witness].length-1];witnesses[witness].length--;emitWitnessDeletionEvent(witness,msg.sender);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 237
+column: 4
+content: for(uinti=0;i<heirs.length;i++){legacySum+=heirs[i].legacy;if(heirs[i].account==heir){heirFound=true;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 251
+column: 4
+content: for(uinti=0;i<heirs.length;i++){if(heirs[i].account==heir){heirs[i]=heirs[heirs.length-1];deleteheirs[heirs.length-1];heirs.length--;index.deleteHeir(heir);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 276
+column: 4
+content: for(uinti=0;i<witnesses.length;i++){if(witnesses[i].account==witness){witnessFound=true;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 289
+column: 4
+content: for(uinti=0;i<witnesses.length;i++){if(witnesses[i].account==witness){witnesses[i]=witnesses[witnesses.length-1];deletewitnesses[witnesses.length-1];witnesses.length--;index.deleteWitness(witness);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 320
+column: 4
+content: for(uinti=0;i<witnesses.length;i++){if(msg.sender==witnesses[i].account&&!witnesses[i].didConfirm){witnesses[i]=Witness(msg.sender,true);index.notifyTestimonial(msg.sender);}if(witnesses[i].didConfirm){actualConfirmations++;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 354
+column: 4
+content: for(uinti=0;i<witnesses.length;i++){witnesses[i]=Witness(witnesses[i].account,false);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 361
+column: 4
+content: for(uinti=0;i<heirs.length;i++){if(heirs[i].account==msg.sender&&!heirs[i].didClaim){heirs[i]=Heir(heirs[i].account,heirs[i].legacy,true);uintvalue=heirs[i].legacy*balanceAtMomentOfDeath/100;heirs[i].account.transfer(value);index.notifyLegacyClaimed(msg.sender);emitTransactionEvent(address(this),msg.sender,value);return;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 143
+column: 4
+content: for(uint256i=0;i<legacy.length;i++){if(legacy[i].wallet==msg.sender){heirs[heir][i]=heirs[heir][heirs[heir].length-1];deleteheirs[heir][heirs[heir].length-1];heirs[heir].length--;emitHeirDeletionEvent(heir,msg.sender);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 155
+column: 4
+content: for(uint256i=0;i<testimonial.length;i++){if(testimonial[i]==msg.sender){witnesses[witness][i]=witnesses[witness][witnesses[witness].length-1];deletewitnesses[witness][witnesses[witness].length-1];witnesses[witness].length--;emitWitnessDeletionEvent(witness,msg.sender);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 237
+column: 4
+content: for(uinti=0;i<heirs.length;i++){legacySum+=heirs[i].legacy;if(heirs[i].account==heir){heirFound=true;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 251
+column: 4
+content: for(uinti=0;i<heirs.length;i++){if(heirs[i].account==heir){heirs[i]=heirs[heirs.length-1];deleteheirs[heirs.length-1];heirs.length--;index.deleteHeir(heir);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 276
+column: 4
+content: for(uinti=0;i<witnesses.length;i++){if(witnesses[i].account==witness){witnessFound=true;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 289
+column: 4
+content: for(uinti=0;i<witnesses.length;i++){if(witnesses[i].account==witness){witnesses[i]=witnesses[witnesses.length-1];deletewitnesses[witnesses.length-1];witnesses.length--;index.deleteWitness(witness);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 320
+column: 4
+content: for(uinti=0;i<witnesses.length;i++){if(msg.sender==witnesses[i].account&&!witnesses[i].didConfirm){witnesses[i]=Witness(msg.sender,true);index.notifyTestimonial(msg.sender);}if(witnesses[i].didConfirm){actualConfirmations++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 354
+column: 4
+content: for(uinti=0;i<witnesses.length;i++){witnesses[i]=Witness(witnesses[i].account,false);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 361
+column: 4
+content: for(uinti=0;i<heirs.length;i++){if(heirs[i].account==msg.sender&&!heirs[i].didClaim){heirs[i]=Heir(heirs[i].account,heirs[i].legacy,true);uintvalue=heirs[i].legacy*balanceAtMomentOfDeath/100;heirs[i].account.transfer(value);index.notifyLegacyClaimed(msg.sender);emitTransactionEvent(address(this),msg.sender,value);return;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 82
+column: 30
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 83
+column: 30
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 84
+column: 31
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 85
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 87
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 186
+column: 8
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 187
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 198
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 199
+column: 9
+content: private
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 361
+column: 4
+content: for(uinti=0;i<heirs.length;i++){if(heirs[i].account==msg.sender&&!heirs[i].didClaim){heirs[i]=Heir(heirs[i].account,heirs[i].legacy,true);uintvalue=heirs[i].legacy*balanceAtMomentOfDeath/100;heirs[i].account.transfer(value);index.notifyLegacyClaimed(msg.sender);emitTransactionEvent(address(this),msg.sender,value);return;}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 378
+column: 14
+content: public
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :4
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :9
+SOLIDITY_EXTRA_GAS_IN_LOOPS :9
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :9
+SOLIDITY_TRANSFER_IN_LOOP :1

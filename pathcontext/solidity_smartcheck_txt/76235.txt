@@ -1,0 +1,163 @@
+F:\Blockchain\dataset_new_byID\76235.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 69
+column: 25
+content: (amount,address(0),0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 70
+column: 28
+content: (amount,address(0),0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 73
+column: 28
+content: (address(0),0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 74
+column: 31
+content: (address(0),0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 77
+column: 28
+content: (amount,address(0),0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 254
+column: 84
+content: (address(0),"")
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 266
+column: 55
+content: (address(0),"",transferable,currency.ct,currency.id,"")
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 232
+column: 8
+content: for(uint256i=0;i<currencies.length;i++){MonetaryTypesLib.Currencymemorycurrency=currencies[i];int256remaining=periodAccrual.get(currency.ct,currency.id);if(0>=remaining)continue;for(uint256j=0;j<beneficiaries.length;j++){AccrualBeneficiarybeneficiary=AccrualBeneficiary(address(beneficiaries[j]));if(beneficiaryFraction(beneficiary)>0){int256transferable=periodAccrual.get(currency.ct,currency.id).mul(beneficiaryFraction(beneficiary)).div(ConstantsLib.PARTS_PER());if(transferable>remaining)transferable=remaining;if(transferable>0){if(currency.ct==address(0))beneficiary.receiveEthersTo.value(uint256(transferable))(address(0),"");else{TransferControllercontroller=transferController(currency.ct,"");(boolsuccess,)=address(controller).delegatecall(abi.encodeWithSelector(controller.getApproveSignature(),address(beneficiary),uint256(transferable),currency.ct,currency.id));require(success,"Approval by controller failed [RevenueFund.sol:274]");beneficiary.receiveTokensTo(address(0),"",transferable,currency.ct,currency.id,"");}remaining=remaining.sub(transferable);}}}periodAccrual.set(remaining,currency.ct,currency.id);if(0==remaining)periodCurrencies.removeByCurrency(currency.ct,currency.id);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 240
+column: 12
+content: for(uint256j=0;j<beneficiaries.length;j++){AccrualBeneficiarybeneficiary=AccrualBeneficiary(address(beneficiaries[j]));if(beneficiaryFraction(beneficiary)>0){int256transferable=periodAccrual.get(currency.ct,currency.id).mul(beneficiaryFraction(beneficiary)).div(ConstantsLib.PARTS_PER());if(transferable>remaining)transferable=remaining;if(transferable>0){if(currency.ct==address(0))beneficiary.receiveEthersTo.value(uint256(transferable))(address(0),"");else{TransferControllercontroller=transferController(currency.ct,"");(boolsuccess,)=address(controller).delegatecall(abi.encodeWithSelector(controller.getApproveSignature(),address(beneficiary),uint256(transferable),currency.ct,currency.id));require(success,"Approval by controller failed [RevenueFund.sol:274]");beneficiary.receiveTokensTo(address(0),"",transferable,currency.ct,currency.id,"");}remaining=remaining.sub(transferable);}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 283
+column: 8
+content: for(uint256j=0;j<beneficiaries.length;j++){AccrualBeneficiarybeneficiary=AccrualBeneficiary(address(beneficiaries[j]));if(0>=beneficiaryFraction(beneficiary))continue;beneficiary.closeAccrualPeriod(currencies);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 232
+column: 8
+content: for(uint256i=0;i<currencies.length;i++){MonetaryTypesLib.Currencymemorycurrency=currencies[i];int256remaining=periodAccrual.get(currency.ct,currency.id);if(0>=remaining)continue;for(uint256j=0;j<beneficiaries.length;j++){AccrualBeneficiarybeneficiary=AccrualBeneficiary(address(beneficiaries[j]));if(beneficiaryFraction(beneficiary)>0){int256transferable=periodAccrual.get(currency.ct,currency.id).mul(beneficiaryFraction(beneficiary)).div(ConstantsLib.PARTS_PER());if(transferable>remaining)transferable=remaining;if(transferable>0){if(currency.ct==address(0))beneficiary.receiveEthersTo.value(uint256(transferable))(address(0),"");else{TransferControllercontroller=transferController(currency.ct,"");(boolsuccess,)=address(controller).delegatecall(abi.encodeWithSelector(controller.getApproveSignature(),address(beneficiary),uint256(transferable),currency.ct,currency.id));require(success,"Approval by controller failed [RevenueFund.sol:274]");beneficiary.receiveTokensTo(address(0),"",transferable,currency.ct,currency.id,"");}remaining=remaining.sub(transferable);}}}periodAccrual.set(remaining,currency.ct,currency.id);if(0==remaining)periodCurrencies.removeByCurrency(currency.ct,currency.id);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 240
+column: 12
+content: for(uint256j=0;j<beneficiaries.length;j++){AccrualBeneficiarybeneficiary=AccrualBeneficiary(address(beneficiaries[j]));if(beneficiaryFraction(beneficiary)>0){int256transferable=periodAccrual.get(currency.ct,currency.id).mul(beneficiaryFraction(beneficiary)).div(ConstantsLib.PARTS_PER());if(transferable>remaining)transferable=remaining;if(transferable>0){if(currency.ct==address(0))beneficiary.receiveEthersTo.value(uint256(transferable))(address(0),"");else{TransferControllercontroller=transferController(currency.ct,"");(boolsuccess,)=address(controller).delegatecall(abi.encodeWithSelector(controller.getApproveSignature(),address(beneficiary),uint256(transferable),currency.ct,currency.id));require(success,"Approval by controller failed [RevenueFund.sol:274]");beneficiary.receiveTokensTo(address(0),"",transferable,currency.ct,currency.id,"");}remaining=remaining.sub(transferable);}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 283
+column: 8
+content: for(uint256j=0;j<beneficiaries.length;j++){AccrualBeneficiarybeneficiary=AccrualBeneficiary(address(beneficiaries[j]));if(0>=beneficiaryFraction(beneficiary))continue;beneficiary.closeAccrualPeriod(currencies);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 3
+column: 16
+content: >=
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 3
+column: 25
+content: <
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 36
+column: 27
+content: private
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 215
+column: 12
+content: (int256amount,uint256blockNumber,addresscurrencyCt,uint256currencyId)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 109
+column: 46
+content: delegatecall(abi.encodeWithSelector(controller.getReceiveSignature(),msg.sender,this,uint256(amount),currencyCt,currencyId))
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 30
+column: 4
+content: FungibleBalanceLib.BalanceperiodAccrual;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 31
+column: 4
+content: CurrenciesLib.CurrenciesperiodCurrencies;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 33
+column: 4
+content: FungibleBalanceLib.BalanceaggregateAccrual;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 34
+column: 4
+content: CurrenciesLib.CurrenciesaggregateCurrencies;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_ADDRESS_HARDCODED :7
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

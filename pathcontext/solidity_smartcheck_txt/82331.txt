@@ -1,0 +1,88 @@
+F:\Blockchain\dataset_new_byID\82331.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 15
+column: 2
+content: functiongetMigratedEmp()publicconstantreturns(uint[9]){returnserializeEmployee(migratedEmp);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 20
+column: 2
+content: functiongetOldESOP()publicconstantreturns(address){returnoldESOP;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 37
+column: 2
+content: functionNewESOP(ESOPpOldESOP){oldESOP=pOldESOP;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 47
+column: 2
+content: functionsetUp(){emp1=newEmpTester();esop=makeNFESOP();emp1._target(esop);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 53
+column: 2
+content: functiontestEmployeeMigration(){NewESOPnewesop=newNewESOP(esop);EmpTesteremp2=newEmpTester();uint32ct=esop.currentTime();esop.offerOptionsToEmployee(emp1,ct,ct+2weeks,1290,false);uintemp1issued=esop.totalPoolOptions()-esop.remainingPoolOptions();esop.offerOptionsToEmployee(emp2,ct,ct+2weeks,7788,false);uintemp2issued=esop.totalPoolOptions()-esop.remainingPoolOptions()-emp1issued;uintremainingPool=esop.remainingPoolOptions();uinttotPool=esop.totalPoolOptions();emp2._target(esop);emp1.employeeSignsToESOP();uintrc=uint(esop.allowEmployeeMigration(emp2,newesop));assertEq(rc,1,"not signed migration");emp2.employeeSignsToESOP();uint32vestp=uint32(esop.optionsCalculator().vestingPeriod());esop.mockTime(ct+vestp/4);rc=uint(esop.allowEmployeeMigration(emp2,newesop));assertEq(rc,0,"allow migration");rc=uint(emp2.employeeMigratesToNewESOP(newesop));assertEq(rc,0,"migration");assertEq(esop.employees().hasEmployee(emp2),false,"removed from old");assertEq(esop.remainingPoolOptions(),remainingPool,"remaining pool opts");assertEq(esop.totalExtraOptions(),1290+0);assertEq(esop.totalPoolOptions(),totPool-emp2issued,"total pool opts");assertEq(newesop.migratedPoolOptions(),divRound(emp2issued,4),"migratedPoolOptions");assertEq(newesop.migratedExtraOptions(),divRound(7788,4),"migratedExtraOptions");Employeememoryemp=deserializeEmployee(newesop.getMigratedEmp());assertEq(emp.poolOptions+emp.extraOptions,emp2issued+7788,"migrated emp issued");rc=uint8(esop.terminateEmployee(emp1,ct+vestp/4,0));assertEq(uint(rc),0);esop.mockTime(ct+vestp/2);esop.allowEmployeeMigration(emp1,newesop);emp1.employeeMigratesToNewESOP(newesop);uintpoolfade=esop.optionsCalculator().applyFadeoutToOptions(ct+vestp/2,ct,ct+vestp/4,emp1issued,divRound(emp1issued,4));uintextrafade=esop.optionsCalculator().applyFadeoutToOptions(ct+vestp/2,ct,ct+vestp/4,1290,divRound(1290,4));assertEq(esop.remainingPoolOptions(),remainingPool+emp1issued-poolfade,"remaining pool opts2");assertEq(esop.totalExtraOptions(),0,"extra opts2");assertEq(esop.totalPoolOptions(),totPool-emp2issued-poolfade,"total pool opts2");assertEq(newesop.migratedPoolOptions(),poolfade,"migratedPoolOptions2");assertEq(newesop.migratedExtraOptions(),extrafade,"migratedExtraOptions2");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 111
+column: 2
+content: functiontestThrowMigrationNotAllowed(){NewESOPnewesop=newNewESOP(esop);uint32ct=esop.currentTime();esop.offerOptionsToEmployee(emp1,ct,ct+2weeks,1290,false);emp1.employeeSignsToESOP();emp1.employeeMigratesToNewESOP(newesop);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 119
+column: 2
+content: functiontestThrowMigrationDiffers(){NewESOPnewesop=newNewESOP(esop);uint32ct=esop.currentTime();esop.offerOptionsToEmployee(emp1,ct,ct+2weeks,1290,false);emp1.employeeSignsToESOP();esop.allowEmployeeMigration(emp1,newesop);emp1.employeeMigratesToNewESOP(ESOPMigration(esop));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 2
+content: ESOPoldESOP;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 2
+content: EmployeemigratedEmp;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 4
+content: EmpTesteremp1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 45
+column: 4
+content: ESOPesop;
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1

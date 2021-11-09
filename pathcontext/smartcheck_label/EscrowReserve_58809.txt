@@ -1,0 +1,40 @@
+C:\Users\hp\DataSet\EscrowReserve.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 50
+column: 22
+content: ("ERC20 burnt by escrow reserve",address(this),address(0),_amount,_tokenAddress)
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 34
+column: 2
+content: functionrequestERC20(address_payer,uint256_amount,address_tokenAddress)externalreturns(bool){require(msg.sender==database.addressStorage(keccak256(abi.encodePacked("contract","AssetManagerEscrow")))||msg.sender==database.addressStorage(keccak256(abi.encodePacked("contract","CrowdsaleGeneratorETH")))||msg.sender==database.addressStorage(keccak256(abi.encodePacked("contract","CrowdsaleGeneratorERC20"))));require(BurnableERC20(_tokenAddress).transferFrom(_payer,address(this),_amount));events.transaction("ERC20 received by escrow reserve",_payer,address(this),_amount,_tokenAddress);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 19
+column: 5
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 20
+column: 9
+content: private
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_ADDRESS_HARDCODED :1

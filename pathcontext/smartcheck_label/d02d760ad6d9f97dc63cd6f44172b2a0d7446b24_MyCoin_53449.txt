@@ -1,0 +1,53 @@
+C:\Users\hp\DataSet\contracts\ropsten\d0\d02d760ad6d9f97dc63cd6f44172b2a0d7446b24_MyCoin.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractMyCoin{stringpublicname="Software HSE Coin";stringpublicsymbol="HSESFW";uintpublicdecimals=10^18;uintpublictotalSuply;mapping(address=>uint)ballances;addresspublicowner;modifieronlyOwner{require(msg.sender==owner);_;}functionMyCoin(){owner=msg.sender;}functionmint(address_investor,uintamount)onlyOwner{ballances[_investor]+=amount*decimals;totalSuply+=amount*decimals;}functionbuy()payable{ballances[msg.sender]+=msg.value;totalSuply+=msg.value;}functiontransfer(address_to,uintamount){require(ballances[msg.sender]>=amount);ballances[_to]+=amount;ballances[msg.sender]-=amount;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 23
+column: 4
+content: functionMyCoin(){owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 27
+column: 4
+content: functionmint(address_investor,uintamount)onlyOwner{ballances[_investor]+=amount*decimals;totalSuply+=amount*decimals;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 35
+column: 5
+content: functionbuy()payable{ballances[msg.sender]+=msg.value;totalSuply+=msg.value;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 42
+column: 4
+content: functiontransfer(address_to,uintamount){require(ballances[msg.sender]>=amount);ballances[_to]+=amount;ballances[msg.sender]-=amount;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 4
+content: mapping(address=>uint)ballances;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

@@ -1,0 +1,233 @@
+C:\Users\hp\DataSet\contracts\ropsten\62\62b6d0c7e79c0915324a824ac7afc5c00d077cb3_ArrayUtilsLib.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 39
+column: 29
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 52
+column: 26
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 53
+column: 33
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 54
+column: 30
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 77
+column: 39
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 78
+column: 39
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 89
+column: 40
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 34
+column: 2
+content: functionsumElements(uint256[]storageself)constantreturns(uint256sum){assembly{mstore(0x60,self_slot)}for(uint256i=0;i<self.length;i++){assembly{sum:=add(sload(add(sha3(0x60,0x20),i)),sum)}}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 47
+column: 2
+content: functiongetMax(uint256[]storageself)constantreturns(uint256maxValue){assembly{mstore(0x60,self_slot)}for(uint256i=1;i<self.length;i++){assembly{maxValue:=sload(sha3(0x60,0x20))jumpi(skip,lt(sload(add(sha3(0x60,0x20),i)),maxValue))maxValue:=sload(add(sha3(0x60,0x20),i))skip:}}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 66
+column: 2
+content: functionindexOf(uint256[]storageself,uint256value,boolisSorted)constantreturns(boolfound,uint256index){assembly{mstore(0x60,self_slot)letlow:=0lethigh:=sub(sload(self_slot),1)letmid:=0jumpi(unsorted,iszero(isSorted))sorted:jumpi(done,gt(low,high))mid:=div(add(low,high),2)jumpi(setH,lt(value,sload(add(sha3(0x60,0x20),mid))))jumpi(setL,gt(value,sload(add(sha3(0x60,0x20),mid))))found:=1index:=midjump(done)setH:high:=sub(mid,1)jump(sorted)setL:low:=add(mid,1)jump(sorted)unsorted:jumpi(loop,iszero(eq(sload(add(sha3(0x60,0x20),low)),value)))found:=1index:=lowjump(done)loop:low:=add(low,1)jumpi(unsorted,lt(low,sload(self_slot)))done:}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 103
+column: 2
+content: functiongetParentI(uint256index)constantprivatereturns(uint256pI){uint256i=index-1;pI=i/2;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 111
+column: 2
+content: functiongetLeftChildI(uint256index)constantprivatereturns(uint256lcI){uint256i=index*2;lcI=i+1;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 37
+column: 4
+content: for(uint256i=0;i<self.length;i++){assembly{sum:=add(sload(add(sha3(0x60,0x20),i)),sum)}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 50
+column: 4
+content: for(uint256i=1;i<self.length;i++){assembly{maxValue:=sload(sha3(0x60,0x20))jumpi(skip,lt(sload(add(sha3(0x60,0x20),i)),maxValue))maxValue:=sload(add(sha3(0x60,0x20),i))skip:}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 34
+column: 2
+content: functionsumElements(uint256[]storageself)constantreturns(uint256sum){assembly{mstore(0x60,self_slot)}for(uint256i=0;i<self.length;i++){assembly{sum:=add(sload(add(sha3(0x60,0x20),i)),sum)}}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 47
+column: 2
+content: functiongetMax(uint256[]storageself)constantreturns(uint256maxValue){assembly{mstore(0x60,self_slot)}for(uint256i=1;i<self.length;i++){assembly{maxValue:=sload(sha3(0x60,0x20))jumpi(skip,lt(sload(add(sha3(0x60,0x20),i)),maxValue))maxValue:=sload(add(sha3(0x60,0x20),i))skip:}}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 66
+column: 2
+content: functionindexOf(uint256[]storageself,uint256value,boolisSorted)constantreturns(boolfound,uint256index){assembly{mstore(0x60,self_slot)letlow:=0lethigh:=sub(sload(self_slot),1)letmid:=0jumpi(unsorted,iszero(isSorted))sorted:jumpi(done,gt(low,high))mid:=div(add(low,high),2)jumpi(setH,lt(value,sload(add(sha3(0x60,0x20),mid))))jumpi(setL,gt(value,sload(add(sha3(0x60,0x20),mid))))found:=1index:=midjump(done)setH:high:=sub(mid,1)jump(sorted)setL:low:=add(mid,1)jump(sorted)unsorted:jumpi(loop,iszero(eq(sload(add(sha3(0x60,0x20),low)),value)))found:=1index:=lowjump(done)loop:low:=add(low,1)jumpi(unsorted,lt(low,sload(self_slot)))done:}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 37
+column: 4
+content: for(uint256i=0;i<self.length;i++){assembly{sum:=add(sload(add(sha3(0x60,0x20),i)),sum)}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 129
+column: 12
+content: lChild<=end
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 158
+column: 12
+content: lChild<=end
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 11ca45b
+severity: 3
+line: 126
+column: 10
+content: start>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: d48ac4
+severity: 2
+line: 126
+column: 10
+content: start>=0
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 35
+column: 4
+content: assembly{mstore(0x60,self_slot)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 38
+column: 6
+content: assembly{sum:=add(sload(add(sha3(0x60,0x20),i)),sum)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 48
+column: 4
+content: assembly{mstore(0x60,self_slot)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 51
+column: 6
+content: assembly{maxValue:=sload(sha3(0x60,0x20))jumpi(skip,lt(sload(add(sha3(0x60,0x20),i)),maxValue))maxValue:=sload(add(sha3(0x60,0x20),i))skip:}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 68
+column: 4
+content: assembly{mstore(0x60,self_slot)letlow:=0lethigh:=sub(sload(self_slot),1)letmid:=0jumpi(unsorted,iszero(isSorted))sorted:jumpi(done,gt(low,high))mid:=div(add(low,high),2)jumpi(setH,lt(value,sload(add(sha3(0x60,0x20),mid))))jumpi(setL,gt(value,sload(add(sha3(0x60,0x20),mid))))found:=1index:=midjump(done)setH:high:=sub(mid,1)jump(sorted)setL:low:=add(mid,1)jump(sorted)unsorted:jumpi(loop,iszero(eq(sload(add(sha3(0x60,0x20),low)),value)))found:=1index:=lowjump(done)loop:low:=add(low,1)jumpi(unsorted,lt(low,sload(self_slot)))done:}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 2
+content: functionsumElements(uint256[]storageself)constantreturns(uint256sum){assembly{mstore(0x60,self_slot)}for(uint256i=0;i<self.length;i++){assembly{sum:=add(sload(add(sha3(0x60,0x20),i)),sum)}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 47
+column: 2
+content: functiongetMax(uint256[]storageself)constantreturns(uint256maxValue){assembly{mstore(0x60,self_slot)}for(uint256i=1;i<self.length;i++){assembly{maxValue:=sload(sha3(0x60,0x20))jumpi(skip,lt(sload(add(sha3(0x60,0x20),i)),maxValue))maxValue:=sload(add(sha3(0x60,0x20),i))skip:}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 66
+column: 2
+content: functionindexOf(uint256[]storageself,uint256value,boolisSorted)constantreturns(boolfound,uint256index){assembly{mstore(0x60,self_slot)letlow:=0lethigh:=sub(sload(self_slot),1)letmid:=0jumpi(unsorted,iszero(isSorted))sorted:jumpi(done,gt(low,high))mid:=div(add(low,high),2)jumpi(setH,lt(value,sload(add(sha3(0x60,0x20),mid))))jumpi(setL,gt(value,sload(add(sha3(0x60,0x20),mid))))found:=1index:=midjump(done)setH:high:=sub(mid,1)jump(sorted)setL:low:=add(mid,1)jump(sorted)unsorted:jumpi(loop,iszero(eq(sload(add(sha3(0x60,0x20),low)),value)))found:=1index:=lowjump(done)loop:low:=add(low,1)jumpi(unsorted,lt(low,sload(self_slot)))done:}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 118
+column: 2
+content: functionheapSort(uint256[]storageself){uint256end=self.length-1;uint256start=getParentI(end);uint256root=start;uint256lChild;uint256rChild;uint256swap;uint256temp;while(start>=0){root=start;lChild=getLeftChildI(start);while(lChild<=end){rChild=lChild+1;swap=root;if(self[swap]<self[lChild])swap=lChild;if((rChild<=end)&&(self[swap]<self[rChild]))swap=rChild;if(swap==root)lChild=end+1;else{temp=self[swap];self[swap]=self[root];self[root]=temp;root=swap;lChild=getLeftChildI(root);}}if(start==0)break;elsestart=start-1;}while(end>0){temp=self[end];self[end]=self[0];self[0]=temp;end=end-1;root=0;lChild=getLeftChildI(0);while(lChild<=end){rChild=lChild+1;swap=root;if(self[swap]<self[lChild])swap=lChild;if((rChild<=end)&&(self[swap]<self[rChild]))swap=rChild;if(swap==root)lChild=end+1;else{temp=self[swap];self[swap]=self[root];self[root]=temp;root=swap;lChild=getLeftChildI(root);}}}}
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :12
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :3
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_UINT_CANT_BE_NEGATIVE :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_USING_INLINE_ASSEMBLY :5

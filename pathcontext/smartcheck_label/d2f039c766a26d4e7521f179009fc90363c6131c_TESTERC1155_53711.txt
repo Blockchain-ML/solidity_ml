@@ -1,0 +1,159 @@
+C:\Users\hp\DataSet\contracts\ropsten\d2\d2f039c766a26d4e7521f179009fc90363c6131c_TESTERC1155.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 195
+column: 12
+content: for(uint256i=0;i<_ids.length;++i){_id=_ids[i];_value=_values[i];items[_id].balances[_from]=items[_id].balances[_from].sub(_value);items[_id].balances[_to]=_value.add(items[_id].balances[_to]);emitTransfer(msg.sender,_from,_to,_id,_value);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 206
+column: 12
+content: for(i=0;i<_ids.length;++i){_id=_ids[i];_value=_values[i];allowances[_id][_from][msg.sender]=allowances[_id][_from][msg.sender].sub(_value);items[_id].balances[_from]=items[_id].balances[_from].sub(_value);items[_id].balances[_to]=_value.add(items[_id].balances[_to]);emitTransfer(msg.sender,_from,_to,_id,_value);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 229
+column: 8
+content: for(uint256i=0;i<_ids.length;++i){_id=_ids[i];_value=_values[i];require(_value==0||allowances[_id][msg.sender][_spender]==_currentValues[i]);allowances[_id][msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_id,_currentValues[i],_value);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 246
+column: 8
+content: for(uint256i=0;i<_ids.length;++i){_id=_ids[i];_value=_values[i];items[_id].balances[msg.sender]=items[_id].balances[msg.sender].sub(_value);items[_id].balances[_to]=_value.add(items[_id].balances[_to]);emitTransfer(msg.sender,msg.sender,_to,_id,_value);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 289
+column: 8
+content: for(uint256i=0;i<_to.length;++i){uint256_id=_ids[i];uint256_value=_values[i];address_dst=_to[i];items[_id].balances[msg.sender]=items[_id].balances[msg.sender].sub(_value);items[_id].balances[_dst]=_value.add(items[_id].balances[_dst]);emitTransfer(msg.sender,msg.sender,_dst,_id,_value);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 394
+column: 8
+content: for(uint256i=0;i<_ids.length;++i){_id=_ids[i];_value=_values[i];if(isNonFungible(_id)){require(_value==1);require(nfiOwners[_id]==msg.sender);nfiOwners[_id]=_to;}uint256_type=_id&TYPE_MASK;items[_type].balances[msg.sender]=items[_type].balances[msg.sender].sub(_value);items[_type].balances[_to]=_value.add(items[_type].balances[_to]);emitTransfer(msg.sender,msg.sender,_to,_id,_value);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 418
+column: 8
+content: for(uint256i=0;i<_ids.length;++i){_id=_ids[i];_value=_values[i];if(isNonFungible(_id)){require(_value==1);require(nfiOwners[_id]==_from);nfiOwners[_id]=_to;}if(_from!=msg.sender){allowances[_id][_from][msg.sender]=allowances[_id][_from][msg.sender].sub(_value);}uint256_type=_id&TYPE_MASK;items[_type].balances[_from]=items[_type].balances[_from].sub(_value);items[_type].balances[_to]=_value.add(items[_type].balances[_to]);emitTransfer(msg.sender,_from,_to,_id,_value);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 507
+column: 8
+content: for(uint256i=0;i<_to.length;++i){address_dst=_to[i];uint256_nfi=_type|(_startIndex+i);nfiOwners[_nfi]=_dst;items[_type].balances[_dst]=items[_type].balances[_dst].add(1);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 525
+column: 8
+content: for(uint256i=0;i<_to.length;++i){uint256_value=_values[i];address_dst=_to[i];totalValue=totalValue.add(_value);items[_type].balances[_dst]=items[_type].balances[_dst].add(_value);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 195
+column: 12
+content: for(uint256i=0;i<_ids.length;++i){_id=_ids[i];_value=_values[i];items[_id].balances[_from]=items[_id].balances[_from].sub(_value);items[_id].balances[_to]=_value.add(items[_id].balances[_to]);emitTransfer(msg.sender,_from,_to,_id,_value);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 206
+column: 12
+content: for(i=0;i<_ids.length;++i){_id=_ids[i];_value=_values[i];allowances[_id][_from][msg.sender]=allowances[_id][_from][msg.sender].sub(_value);items[_id].balances[_from]=items[_id].balances[_from].sub(_value);items[_id].balances[_to]=_value.add(items[_id].balances[_to]);emitTransfer(msg.sender,_from,_to,_id,_value);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 229
+column: 8
+content: for(uint256i=0;i<_ids.length;++i){_id=_ids[i];_value=_values[i];require(_value==0||allowances[_id][msg.sender][_spender]==_currentValues[i]);allowances[_id][msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_id,_currentValues[i],_value);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 246
+column: 8
+content: for(uint256i=0;i<_ids.length;++i){_id=_ids[i];_value=_values[i];items[_id].balances[msg.sender]=items[_id].balances[msg.sender].sub(_value);items[_id].balances[_to]=_value.add(items[_id].balances[_to]);emitTransfer(msg.sender,msg.sender,_to,_id,_value);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 289
+column: 8
+content: for(uint256i=0;i<_to.length;++i){uint256_id=_ids[i];uint256_value=_values[i];address_dst=_to[i];items[_id].balances[msg.sender]=items[_id].balances[msg.sender].sub(_value);items[_id].balances[_dst]=_value.add(items[_id].balances[_dst]);emitTransfer(msg.sender,msg.sender,_dst,_id,_value);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 394
+column: 8
+content: for(uint256i=0;i<_ids.length;++i){_id=_ids[i];_value=_values[i];if(isNonFungible(_id)){require(_value==1);require(nfiOwners[_id]==msg.sender);nfiOwners[_id]=_to;}uint256_type=_id&TYPE_MASK;items[_type].balances[msg.sender]=items[_type].balances[msg.sender].sub(_value);items[_type].balances[_to]=_value.add(items[_type].balances[_to]);emitTransfer(msg.sender,msg.sender,_to,_id,_value);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 418
+column: 8
+content: for(uint256i=0;i<_ids.length;++i){_id=_ids[i];_value=_values[i];if(isNonFungible(_id)){require(_value==1);require(nfiOwners[_id]==_from);nfiOwners[_id]=_to;}if(_from!=msg.sender){allowances[_id][_from][msg.sender]=allowances[_id][_from][msg.sender].sub(_value);}uint256_type=_id&TYPE_MASK;items[_type].balances[_from]=items[_type].balances[_from].sub(_value);items[_type].balances[_to]=_value.add(items[_type].balances[_to]);emitTransfer(msg.sender,_from,_to,_id,_value);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 507
+column: 8
+content: for(uint256i=0;i<_to.length;++i){address_dst=_to[i];uint256_nfi=_type|(_startIndex+i);nfiOwners[_nfi]=_dst;items[_type].balances[_dst]=items[_type].balances[_dst].add(1);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 525
+column: 8
+content: for(uint256i=0;i<_to.length;++i){uint256_value=_values[i];address_dst=_to[i];totalValue=totalValue.add(_value);items[_type].balances[_dst]=items[_type].balances[_dst].add(_value);}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 118
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 314
+column: 4
+content: uint256constantTYPE_MASK=uint256(uint128(~0))<<128;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 317
+column: 4
+content: uint256constantNF_INDEX_MASK=uint128(~0);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 320
+column: 4
+content: uint256constantTYPE_NF_BIT=1<<255;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_SAFEMATH :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :9
+SOLIDITY_GAS_LIMIT_IN_LOOPS :9

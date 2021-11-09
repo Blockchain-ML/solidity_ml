@@ -1,0 +1,196 @@
+C:\Users\hp\DataSet\LockedTokens.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 33
+column: 38
+content: 0xBbBB34FA53A801b5F298744490a1596438bbBe50
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 61
+column: 14
+content: 0xaBBa43E7594E3B76afB157989e93c6621497FD4b
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 63
+column: 14
+content: 0xacCa534c9f62Ab495bd986e002DdF0f054caAE4f
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 65
+column: 14
+content: 0xAddA9B762A00FF12711113bfDc36958B73d7F915
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 67
+column: 14
+content: 0xaeEa63B5479B50F79583ec49DACdcf86DDEff392
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 73
+column: 14
+content: 0xAAAA9De1E6C564446EBCA0fd102D8Bd92093c756
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 75
+column: 14
+content: 0xaBBa43E7594E3B76afB157989e93c6621497FD4b
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 77
+column: 14
+content: 0xacCa534c9f62Ab495bd986e002DdF0f054caAE4f
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 79
+column: 14
+content: 0xAddA9B762A00FF12711113bfDc36958B73d7F915
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 163
+column: 57
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 176
+column: 57
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 125
+column: 4
+content: functionbalanceOfLocked1Y(addressaccount)constantreturns(uintbalance){returnbalancesLocked1Y[account];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 133
+column: 4
+content: functionbalanceOfLocked2Y(addressaccount)constantreturns(uintbalance){returnbalancesLocked2Y[account];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 141
+column: 4
+content: functionbalanceOfLocked(addressaccount)constantreturns(uintbalance){returnbalancesLocked1Y[account].add(balancesLocked2Y[account]);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 149
+column: 4
+content: functiontotalSupplyLocked()constantreturns(uint){returntotalSupplyLocked1Y+totalSupplyLocked2Y;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 163
+column: 8
+content: if(!tokenContract.transfer(msg.sender,amount))throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 176
+column: 8
+content: if(!tokenContract.transfer(msg.sender,amount))throw;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 21
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 56
+column: 4
+content: functionLockedTokens(address_tokenContract){tokenContract=ERC20Interface(_tokenContract);add1Y(0xaBBa43E7594E3B76afB157989e93c6621497FD4b,2000000*DECIMALSFACTOR);add1Y(0xacCa534c9f62Ab495bd986e002DdF0f054caAE4f,2000000*DECIMALSFACTOR);add1Y(0xAddA9B762A00FF12711113bfDc36958B73d7F915,2000000*DECIMALSFACTOR);add1Y(0xaeEa63B5479B50F79583ec49DACdcf86DDEff392,8000000*DECIMALSFACTOR);assert(totalSupplyLocked1Y==TOKENS_LOCKED_1Y_TOTAL);add2Y(0xAAAA9De1E6C564446EBCA0fd102D8Bd92093c756,20000000*DECIMALSFACTOR);add2Y(0xaBBa43E7594E3B76afB157989e93c6621497FD4b,2000000*DECIMALSFACTOR);add2Y(0xacCa534c9f62Ab495bd986e002DdF0f054caAE4f,2000000*DECIMALSFACTOR);add2Y(0xAddA9B762A00FF12711113bfDc36958B73d7F915,2000000*DECIMALSFACTOR);assert(totalSupplyLocked2Y==TOKENS_LOCKED_2Y_TOTAL);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 88
+column: 4
+content: functionaddRemainingTokens(){require(msg.sender==address(tokenContract));uintremainingTokens=TOKENS_TOTAL;remainingTokens=remainingTokens.sub(tokenContract.totalSupply());remainingTokens=remainingTokens.sub(totalSupplyLocked1Y);remainingTokens=remainingTokens.sub(totalSupplyLocked2Y);add1Y(TRANCHE2_ACCOUNT,remainingTokens);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 125
+column: 4
+content: functionbalanceOfLocked1Y(addressaccount)constantreturns(uintbalance){returnbalancesLocked1Y[account];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 133
+column: 4
+content: functionbalanceOfLocked2Y(addressaccount)constantreturns(uintbalance){returnbalancesLocked2Y[account];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 141
+column: 4
+content: functionbalanceOfLocked(addressaccount)constantreturns(uintbalance){returnbalancesLocked1Y[account].add(balancesLocked2Y[account]);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 149
+column: 4
+content: functiontotalSupplyLocked()constantreturns(uint){returntotalSupplyLocked1Y+totalSupplyLocked2Y;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 157
+column: 4
+content: functionunlock1Y(){require(now>=LOCKED_1Y_DATE);uintamount=balancesLocked1Y[msg.sender];require(amount>0);balancesLocked1Y[msg.sender]=0;totalSupplyLocked1Y=totalSupplyLocked1Y.sub(amount);if(!tokenContract.transfer(msg.sender,amount))throw;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 170
+column: 4
+content: functionunlock2Y(){require(now>=LOCKED_2Y_DATE);uintamount=balancesLocked2Y[msg.sender];require(amount>0);balancesLocked2Y[msg.sender]=0;totalSupplyLocked2Y=totalSupplyLocked2Y.sub(amount);if(!tokenContract.transfer(msg.sender,amount))throw;}
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_ADDRESS_HARDCODED :9

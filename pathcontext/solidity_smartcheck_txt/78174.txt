@@ -1,0 +1,177 @@
+F:\Blockchain\dataset_new_byID\78174.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 111
+column: 19
+content: 0x20
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 112
+column: 19
+content: 0x20
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 113
+column: 19
+content: 0x20
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 54
+column: 1
+content: functionHashToPoint(uint256s)internalconstantreturns(G1Point){uint256beta=0;uint256y=0;uint256x=s%GEN_ORDER;while(true){(beta,y)=FindYforX(x);if(beta==mulmod(y,y,FIELD_ORDER)){returnG1Point(x,y);}x=addmod(x,1,FIELD_ORDER);}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 77
+column: 4
+content: functionFindYforX(uint256x)internalconstantreturns(uint256,uint256){uint256beta=addmod(mulmod(mulmod(x,x,FIELD_ORDER),x,FIELD_ORDER),CURVE_B,FIELD_ORDER);uint256y=expMod(beta,CURVE_A,FIELD_ORDER);return(beta,y);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 105
+column: 4
+content: functionexpMod(uint256_base,uint256_exponent,uint256_modulus)internalconstantreturns(uint256retval){boolsuccess;uint256[1]memoryoutput;uint[6]memoryinput;input[0]=0x20;input[1]=0x20;input[2]=0x20;input[3]=_base;input[4]=_exponent;input[5]=_modulus;assembly{success:=staticcall(sub(gas,2000),5,input,0xc0,output,0x20)switchsuccesscase0{invalid}}require(success);returnoutput[0];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 147
+column: 1
+content: functiong1add(G1Pointp1,G1Pointp2)constantinternalreturns(G1Pointr){uint[4]memoryinput;input[0]=p1.X;input[1]=p1.Y;input[2]=p2.X;input[3]=p2.Y;boolsuccess;assembly{success:=staticcall(sub(gas,2000),6,input,0xc0,r,0x60)switchsuccesscase0{invalid}}require(success);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 164
+column: 1
+content: functiong1mul(G1Pointp,uints)constantinternalreturns(G1Pointr){uint[3]memoryinput;input[0]=p.X;input[1]=p.Y;input[2]=s;boolsuccess;assembly{success:=staticcall(sub(gas,2000),7,input,0x80,r,0x60)switchsuccesscase0{invalid}}require(success);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 182
+column: 1
+content: functionpairing(G1Point[]p1,G2Point[]p2)constantinternalreturns(bool){require(p1.length==p2.length);uintelements=p1.length;uintinputSize=elements*6;uint[]memoryinput=newuint[](inputSize);for(uinti=0;i<elements;i++){input[i*6+0]=p1[i].X;input[i*6+1]=p1[i].Y;input[i*6+2]=p2[i].X[0];input[i*6+3]=p2[i].X[1];input[i*6+4]=p2[i].Y[0];input[i*6+5]=p2[i].Y[1];}uint[1]memoryout;boolsuccess;assembly{success:=staticcall(sub(gas,2000),8,add(input,0x20),mul(inputSize,0x20),out,0x20)switchsuccesscase0{invalid}}require(success);returnout[0]!=0;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 208
+column: 1
+content: functionpairingProd2(G1Pointa1,G2Pointa2,G1Pointb1,G2Pointb2)constantinternalreturns(bool){G1Point[]memoryp1=newG1Point[](2);G2Point[]memoryp2=newG2Point[](2);p1[0]=a1;p1[1]=b1;p2[0]=a2;p2[1]=b2;returnpairing(p1,p2);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 219
+column: 1
+content: functionpairingProd3(G1Pointa1,G2Pointa2,G1Pointb1,G2Pointb2,G1Pointc1,G2Pointc2)constantinternalreturns(bool){G1Point[]memoryp1=newG1Point[](3);G2Point[]memoryp2=newG2Point[](3);p1[0]=a1;p1[1]=b1;p1[2]=c1;p2[0]=a2;p2[1]=b2;p2[2]=c2;returnpairing(p1,p2);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 236
+column: 1
+content: functionpairingProd4(G1Pointa1,G2Pointa2,G1Pointb1,G2Pointb2,G1Pointc1,G2Pointc2,G1Pointd1,G2Pointd2)constantinternalreturns(bool){G1Point[]memoryp1=newG1Point[](4);G2Point[]memoryp2=newG2Point[](4);p1[0]=a1;p1[1]=b1;p1[2]=c1;p1[3]=d1;p2[0]=a2;p2[1]=b2;p2[2]=c2;p2[3]=d2;returnpairing(p1,p2);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 147
+column: 1
+content: functiong1add(G1Pointp1,G1Pointp2)constantinternalreturns(G1Pointr){uint[4]memoryinput;input[0]=p1.X;input[1]=p1.Y;input[2]=p2.X;input[3]=p2.Y;boolsuccess;assembly{success:=staticcall(sub(gas,2000),6,input,0xc0,r,0x60)switchsuccesscase0{invalid}}require(success);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 164
+column: 1
+content: functiong1mul(G1Pointp,uints)constantinternalreturns(G1Pointr){uint[3]memoryinput;input[0]=p.X;input[1]=p.Y;input[2]=s;boolsuccess;assembly{success:=staticcall(sub(gas,2000),7,input,0x80,r,0x60)switchsuccesscase0{invalid}}require(success);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 187
+column: 2
+content: for(uinti=0;i<elements;i++){input[i*6+0]=p1[i].X;input[i*6+1]=p1[i].Y;input[i*6+2]=p2[i].X[0];input[i*6+3]=p2[i].X[1];input[i*6+4]=p2[i].Y[0];input[i*6+5]=p2[i].Y[1];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 63
+column: 15
+content: true
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 10
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 78
+column: 34
+content: (uint256,uint256)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 182
+column: 18
+content: G1Point[]p1
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 182
+column: 32
+content: G2Point[]p2
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 117
+column: 8
+content: assembly{success:=staticcall(sub(gas,2000),5,input,0xc0,output,0x20)switchsuccesscase0{invalid}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 154
+column: 2
+content: assembly{success:=staticcall(sub(gas,2000),6,input,0xc0,r,0x60)switchsuccesscase0{invalid}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 170
+column: 2
+content: assembly{success:=staticcall(sub(gas,2000),7,input,0x80,r,0x60)switchsuccesscase0{invalid}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 198
+column: 2
+content: assembly{success:=staticcall(sub(gas,2000),8,add(input,0x20),mul(inputSize,0x20),out,0x20)switchsuccesscase0{invalid}}
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :9
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_USING_INLINE_ASSEMBLY :4
+SOLIDITY_SHOULD_RETURN_STRUCT :1

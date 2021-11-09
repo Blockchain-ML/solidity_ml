@@ -1,0 +1,257 @@
+C:\Users\hp\DataSet\MindsyncToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 1015
+column: 23
+content: 0x5E65Ae75eEE5f58Ee944372Fa0855BAbc8c035b1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 1016
+column: 23
+content: 0x5497c008CCa91CF8C3e597C47397f4643f7Be432
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 1017
+column: 23
+content: 0x7E2a22A39BDcf6188D5c06f156d2B377ab925EB6
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 1018
+column: 23
+content: 0xB092548821D9432aFC720a4b1D9f052Ef2F5bB2e
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 1019
+column: 23
+content: 0xD46a8CB0d6dB18D16423a215AC5Da73D08B629eA
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 1020
+column: 23
+content: 0xb801d1d91Ac6e85b17c80c04aC0c7E0E739fc853
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 304
+column: 4
+content: owner=address(0)
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 190
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 583
+column: 12
+content: while(reducibleChains[parent]!=_until){parent=toKey2(_to,msg.sender,reducibleChains[parent]);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 448
+column: 4
+content: functionfreezingCount(address_addr)publicviewreturns(uintcount){uint64release=chains[toKey(_addr,0)];while(release!=0){count++;release=chains[toKey(_addr,release)];}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 461
+column: 4
+content: functionreducibleFreezingCount(address_addr,address_sender)publicviewreturns(uintcount){uint64release=reducibleChains[toKey2(_addr,_sender,0)];while(release!=0){count++;release=reducibleChains[toKey2(_addr,_sender,release)];}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 739
+column: 4
+content: function_releaseAll(address_addr)internalreturns(uinttokens){uintrelease;uintbalance;(release,balance)=getFreezing(_addr,0);while(release!=0&&block.timestamp>release){_releaseOnce(_addr);tokens+=balance;(release,balance)=getFreezing(_addr,0);}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 776
+column: 4
+content: function_reducibleReleaseAll(address_addr,address_sender)internalreturns(uinttokens){uintrelease;uintbalance;(release,balance)=getReducibleFreezing(_addr,_sender,0);while(release!=0&&block.timestamp>release){releaseReducibleFreezingOnce(_sender);tokens+=balance;(release,balance)=getReducibleFreezing(_addr,_sender,0);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 583
+column: 19
+content: reducibleChains[parent]!=_until
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 743
+column: 15
+content: release!=0&&block.timestamp>release
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 780
+column: 15
+content: release!=0&&block.timestamp>release
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 820
+column: 15
+content: next!=0&&_until>next
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 853
+column: 15
+content: next!=0&&_until>next
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: >=
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 74
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 787
+column: 4
+content: functiontoKey(address_addr,uint_release)internalpurereturns(bytes32result){result=0x5749534800000000000000000000000000000000000000000000000000000000;assembly{result:=or(result,mul(_addr,0x10000000000000000))result:=or(result,_release)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 795
+column: 4
+content: functiontoKey2(address_addr1,address_addr2,uint_release)internalpurereturns(bytes32result){bytes32key1=0x5749534800000000000000000000000000000000000000000000000000000000;bytes32key2=0x8926457892347780720546870000000000000000000000000000000000000000;assembly{key1:=or(key1,mul(_addr1,0x10000000000000000))key1:=or(key1,_release)key2:=or(key2,_addr2)}result=keccak256(abi.encodePacked(key1,key2));}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 474
+column: 73
+content: (uint64_release,uint_balance)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 490
+column: 99
+content: (uint64_release,uint_balance)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 789
+column: 8
+content: assembly{result:=or(result,mul(_addr,0x10000000000000000))result:=or(result,_release)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 798
+column: 8
+content: assembly{key1:=or(key1,mul(_addr1,0x10000000000000000))key1:=or(key1,_release)key2:=or(key2,_addr2)}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 76
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 78
+column: 2
+content: uint256totalSupply_;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 961
+column: 4
+content: uint256startdate;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 963
+column: 4
+content: addressbeneficiary1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 964
+column: 4
+content: addressbeneficiary2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 965
+column: 4
+content: addressbeneficiary3;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 966
+column: 4
+content: addressbeneficiary4;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 967
+column: 4
+content: addressbeneficiary5;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 968
+column: 4
+content: addressbeneficiary6;
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :4
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :7
+SOLIDITY_GAS_LIMIT_IN_LOOPS :5
+SOLIDITY_USING_INLINE_ASSEMBLY :2
+SOLIDITY_SHOULD_RETURN_STRUCT :2
+SOLIDITY_SHOULD_NOT_BE_PURE :2
+SOLIDITY_ERC20_APPROVE :1

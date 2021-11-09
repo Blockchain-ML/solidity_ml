@@ -1,0 +1,62 @@
+C:\Users\hp\DataSet\contracts\ropsten\f4\f4f9c1c8d66c8c9c09456bad6a9890c3caa768c3_LitionRegistry.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 106
+column: 26
+content: (user_gas[i]/largest_tx)*largest_reward
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 94
+column: 6
+content: for(uinti=0;i<miners_in_notary.length;i++){involved_vesting+=chain.users[miners_in_notary[i]].vesting;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 104
+column: 6
+content: for(uinti=0;i<users.length;i++){total_gas+=user_gas[i];uintuser_cost=(user_gas[i]/largest_tx)*largest_reward;if(user_cost>chain.users[users[i]].deposit)user_cost=chain.users[users[i]].deposit;chain.users[users[i]].deposit-=user_cost;total_cost+=user_cost;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 113
+column: 6
+content: for(uinti=0;i<miners.length-1;i++){uintminer_reward=blocks_mined[i]*total_cost/(notary_block-chain.last_notary);token.transfer(miners[i],miner_reward);total_cost-=miner_reward;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 94
+column: 6
+content: for(uinti=0;i<miners_in_notary.length;i++){involved_vesting+=chain.users[miners_in_notary[i]].vesting;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 104
+column: 6
+content: for(uinti=0;i<users.length;i++){total_gas+=user_gas[i];uintuser_cost=(user_gas[i]/largest_tx)*largest_reward;if(user_cost>chain.users[users[i]].deposit)user_cost=chain.users[users[i]].deposit;chain.users[users[i]].deposit-=user_cost;total_cost+=user_cost;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 16
+content: >=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 30
+column: 3
+content: ERC20token;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_DIV_MUL :1

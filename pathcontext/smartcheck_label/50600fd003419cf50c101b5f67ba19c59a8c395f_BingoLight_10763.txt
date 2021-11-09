@@ -1,0 +1,90 @@
+C:\Users\hp\DataSet\contracts\mainnet\50\50600fd003419cf50c101b5f67ba19c59a8c395f_BingoLight.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 27cb59
+severity: 1
+line: 65
+column: 4
+content: suicide
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 20
+column: 26
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 59
+column: 33
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 14
+column: 2
+content: functiongenerateLuckyNumbers(uint256targetBlock)constantreturns(uint256[3]lotteryLuckyNumbers){uint256numbersCountNeeded=3;bytes32blockHash=block.blockhash(targetBlock);if(blockHash==0)throw;uint256newRnd=uint256(blockHash)%10+1;lotteryLuckyNumbers[0]=newRnd;uint8currentN=1;uint256blockNumber=0;while(blockNumber<255){uint256n=0;blockHash=block.blockhash(targetBlock-1-blockNumber);while(currentN<numbersCountNeeded&&n<32){newRnd=(uint256(blockHash)/256**n)%10+1;uint8i=0;for(;i<currentN;i++){if(newRnd==lotteryLuckyNumbers[i]){break;}}if(i==currentN){lotteryLuckyNumbers[currentN]=newRnd;currentN++;}n++;}if(currentN==numbersCountNeeded)return;blockNumber++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 31
+column: 17
+content: currentN<numbersCountNeeded&&n<32
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 20
+column: 6
+content: if(blockHash==0)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 59
+column: 4
+content: if(msg.sender!=developer)throw;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 9
+column: 2
+content: functionBingoLight(){developer=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 14
+column: 2
+content: functiongenerateLuckyNumbers(uint256targetBlock)constantreturns(uint256[3]lotteryLuckyNumbers){uint256numbersCountNeeded=3;bytes32blockHash=block.blockhash(targetBlock);if(blockHash==0)throw;uint256newRnd=uint256(blockHash)%10+1;lotteryLuckyNumbers[0]=newRnd;uint8currentN=1;uint256blockNumber=0;while(blockNumber<255){uint256n=0;blockHash=block.blockhash(targetBlock-1-blockNumber);while(currentN<numbersCountNeeded&&n<32){newRnd=(uint256(blockHash)/256**n)%10+1;uint8i=0;for(;i<currentN;i++){if(newRnd==lotteryLuckyNumbers[i]){break;}}if(i==currentN){lotteryLuckyNumbers[currentN]=newRnd;currentN++;}n++;}if(currentN==numbersCountNeeded)return;blockNumber++;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 63
+column: 2
+content: functiondel()is_developer{suicide(msg.sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 7
+column: 3
+content: addressdeveloper;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

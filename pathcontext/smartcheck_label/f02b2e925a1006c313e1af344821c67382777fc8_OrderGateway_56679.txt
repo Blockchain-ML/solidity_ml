@@ -1,0 +1,217 @@
+C:\Users\hp\DataSet\contracts\ropsten\f0\f02b2e925a1006c313e1af344821c67382777fc8_OrderGateway.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 663
+column: 19
+content: 0x0
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 208
+column: 4
+content: for(uint8i;i<_abilities.length;i++){if(_abilities[i]==0){zeroAbilityCount=zeroAbilityCount.add(1);}addressToAbility[_target][_abilities[i]]=true;emitAssignAbility(_target,_abilities[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 232
+column: 4
+content: for(uint8i;i<_abilities.length;i++){if(_abilities[i]==0){require(zeroAbilityCount>1,ONE_ZERO_ABILITY_HAS_TO_EXIST);zeroAbilityCount--;}addressToAbility[_target][_abilities[i]]=false;emitRevokeAbility(_target,_abilities[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 665
+column: 4
+content: for(uint256i=0;i<_orderData.actions.length;i++){temp=keccak256(abi.encodePacked(temp,_orderData.actions[i].kind,_orderData.actions[i].proxy,_orderData.actions[i].token,_orderData.actions[i].param1,_orderData.actions[i].to,_orderData.actions[i].value));}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 755
+column: 4
+content: for(uint256i=0;i<_order.actions.length;i++){require(idToProxy[_order.actions[i].proxy]!=address(0),INVALID_PROXY);if(_order.actions[i].kind==ActionKind.create){require(Abilitable(_order.actions[i].token).isAble(_order.maker,5),SIGNER_NOT_AUTHORIZED);XcertCreateProxy(idToProxy[_order.actions[i].proxy]).create(_order.actions[i].token,_order.actions[i].to,_order.actions[i].value,_order.actions[i].param1);}elseif(_order.actions[i].kind==ActionKind.transfer){addressfrom=address(uint160(bytes20(_order.actions[i].param1)));require(from==_order.maker||from==_order.taker,SENDER_NOT_TAKER_OR_MAKER);Proxy(idToProxy[_order.actions[i].proxy]).execute(_order.actions[i].token,from,_order.actions[i].to,_order.actions[i].value);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 208
+column: 4
+content: for(uint8i;i<_abilities.length;i++){if(_abilities[i]==0){zeroAbilityCount=zeroAbilityCount.add(1);}addressToAbility[_target][_abilities[i]]=true;emitAssignAbility(_target,_abilities[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 232
+column: 4
+content: for(uint8i;i<_abilities.length;i++){if(_abilities[i]==0){require(zeroAbilityCount>1,ONE_ZERO_ABILITY_HAS_TO_EXIST);zeroAbilityCount--;}addressToAbility[_target][_abilities[i]]=false;emitRevokeAbility(_target,_abilities[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 665
+column: 4
+content: for(uint256i=0;i<_orderData.actions.length;i++){temp=keccak256(abi.encodePacked(temp,_orderData.actions[i].kind,_orderData.actions[i].proxy,_orderData.actions[i].token,_orderData.actions[i].param1,_orderData.actions[i].to,_orderData.actions[i].value));}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 755
+column: 4
+content: for(uint256i=0;i<_order.actions.length;i++){require(idToProxy[_order.actions[i].proxy]!=address(0),INVALID_PROXY);if(_order.actions[i].kind==ActionKind.create){require(Abilitable(_order.actions[i].token).isAble(_order.maker,5),SIGNER_NOT_AUTHORIZED);XcertCreateProxy(idToProxy[_order.actions[i].proxy]).create(_order.actions[i].token,_order.actions[i].to,_order.actions[i].value,_order.actions[i].param1);}elseif(_order.actions[i].kind==ActionKind.transfer){addressfrom=address(uint160(bytes20(_order.actions[i].param1)));require(from==_order.maker||from==_order.taker,SENDER_NOT_TAKER_OR_MAKER);Proxy(idToProxy[_order.actions[i].proxy]).execute(_order.actions[i].token,from,_order.actions[i].to,_order.actions[i].value);}}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 146
+column: 45
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 151
+column: 10
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 128
+column: 2
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 2
+content: stringconstantOVERFLOW="008001";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 16
+column: 2
+content: stringconstantSUBTRAHEND_GREATER_THEN_MINUEND="008002";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 17
+column: 2
+content: stringconstantDIVISION_BY_ZERO="008003";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 133
+column: 2
+content: stringconstantNOT_AUTHORIZED="017001";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 134
+column: 2
+content: stringconstantONE_ZERO_ABILITY_HAS_TO_EXIST="017002";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 141
+column: 2
+content: uint8constantABILITY_TO_MANAGE_ABILITIES=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 380
+column: 2
+content: uint8constantABILITY_TO_EXECUTE=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 437
+column: 2
+content: uint8constantABILITY_TO_SET_PROXIES=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 442
+column: 2
+content: stringconstantINVALID_SIGNATURE_KIND="015001";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 443
+column: 2
+content: stringconstantINVALID_PROXY="015002";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 444
+column: 2
+content: stringconstantTAKER_NOT_EQUAL_TO_SENDER="015003";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 445
+column: 2
+content: stringconstantSENDER_NOT_TAKER_OR_MAKER="015004";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 446
+column: 2
+content: stringconstantCLAIM_EXPIRED="015005";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 447
+column: 2
+content: stringconstantINVALID_SIGNATURE="015006";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 448
+column: 2
+content: stringconstantORDER_CANCELED="015007";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 449
+column: 2
+content: stringconstantORDER_ALREADY_PERFORMED="015008";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 450
+column: 2
+content: stringconstantMAKER_NOT_EQUAL_TO_SENDER="015009";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 451
+column: 2
+content: stringconstantSIGNER_NOT_AUTHORIZED="015010";
+
+SOLIDITY_VISIBILITY :18
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :4
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4

@@ -1,0 +1,241 @@
+C:\Users\hp\DataSet\contracts\mainnet\30\303f942c01f3ecb52b60b0a609b853b067d839c0_Totalizeum.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_BALANCE_EQUALITY
+patternId: 5094ad
+severity: 1
+line: 135
+column: 16
+content: market.balance==0
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 62
+column: 4
+content: functionbalanceOf(address_owner)constantreturns(uint256){returnbalances[_owner];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 113
+column: 4
+content: functionallowance(address_owner,address_spender)constantreturns(uint256){returnallowed[_owner][_spender];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 254
+column: 4
+content: functionmarketState(address_oracle,uint256_timestamp)constantreturns(MarketState,uint256,uint256,uint256){Marketstoragemarket=markets[_oracle][_timestamp];Resolvestorage_resolve=market.resolve;return(market.state,market.balance,_resolve.winningOutcomes,_resolve.remainingBalance);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 264
+column: 4
+content: functionoutcomeState(address_oracle,uint256_timestamp,uint256_outcome)constantreturns(bool,uint256){Outcomestorageoutcome=markets[_oracle][_timestamp].outcomes[_outcome];return(outcome.won,outcome.balance);}
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 187
+column: 49
+content: market.balance/1000*settings.share
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 216
+column: 32
+content: market.balance*sub/1000*settings.share/_resolve.winningOutcomes/outcome.balance*amount
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 216
+column: 32
+content: market.balance*sub/1000*settings.share
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractTotalizeum{enumMarketState{Initial,Resolving,Resolved,Unresolved}structMarket{MarketStatestate;uint256balance;Resolveresolve;Settingssettings;mapping(uint256=>Outcome)outcomes;}structOutcome{uint256balance;boolwon;mapping(address=>uint256)bets;}structResolve{uint256remainingBalance;uint256winningBalance;uint256winningOutcomes;}structSettings{uint256refundDelay;uint256share;}stringpublicconstantsymbol="TOT";stringpublicconstantname="Totalizeum";uint8publicconstantdecimals=18;uint256publicconstanttotalSupply=(uint256(10)**6)*(uint256(10)**decimals);SettingsprivatedefaultSettings=Settings(1days,980);uint256privateconstantsub=1000000;mapping(address=>uint256)balances;mapping(address=>mapping(address=>uint256))allowed;mapping(address=>mapping(uint256=>Market))markets;mapping(address=>Settings)oracleSettings;mapping(address=>mapping(address=>bool))publicsuccessor;uint256publicsellable=totalSupply;addresspublicowner;functionTotalizeum(){owner=msg.sender;}functionbalanceOf(address_owner)constantreturns(uint256){returnbalances[_owner];}functiontransfer(address_to,uint256_amount)returns(bool){require(msg.data.length>=(2*32)+4);if(balances[msg.sender]>=_amount&&_amount>0&&balances[_to]+_amount>balances[_to]){balances[msg.sender]-=_amount;balances[_to]+=_amount;Transfer(msg.sender,_to,_amount);returntrue;}else{returnfalse;}}functiontransferFrom(address_from,address_to,uint256_amount)returns(bool){require(msg.data.length>=(3*32)+4);if(balances[_from]>=_amount&&_amount>0&&allowed[_from][msg.sender]>=_amount&&balances[_to]+_amount>balances[_to]){balances[_from]-=_amount;allowed[_from][msg.sender]-=_amount;balances[_to]+=_amount;Transfer(_from,_to,_amount);returntrue;}else{returnfalse;}}functionapprove(address_spender,uint256_amount)returns(bool){require((_amount==0)||(allowed[msg.sender][_spender]==0));allowed[msg.sender][_spender]=_amount;Approval(msg.sender,_spender,_amount);returntrue;}functionallowance(address_owner,address_spender)constantreturns(uint256){returnallowed[_owner][_spender];}functionbet(address_oracle,uint256_timestamp,uint256_outcome,uint256_amount)returns(bool){Marketstoragemarket=markets[_oracle][_timestamp];Outcomestorageoutcome=market.outcomes[_outcome];if(balances[msg.sender]>=_amount&&_amount>0&&now<_timestamp&&market.state==MarketState.Initial&&market.balance+_amount>market.balance&&(market.balance+_amount)*sub/sub==(market.balance+_amount)&&outcome.balance+_amount>outcome.balance&&outcome.bets[msg.sender]+_amount>outcome.bets[msg.sender]){if(market.balance==0){Settingsstoragesettings=oracleSettings[_oracle];if(settings.refundDelay>0){market.settings=settings;}else{market.settings=defaultSettings;}}balances[msg.sender]-=_amount;market.balance+=_amount;outcome.balance+=_amount;outcome.bets[msg.sender]+=_amount;Bet(msg.sender,_oracle,_timestamp,_outcome,_amount);returntrue;}else{returnfalse;}}functionresolve(uint256_timestamp,uint256_outcome,bool_final)returns(bool){Marketstoragemarket=markets[msg.sender][_timestamp];Outcomestorageoutcome=market.outcomes[_outcome];Resolvestorage_resolve=market.resolve;Settingsstoragesettings=market.settings;if(market.state==MarketState.Initial){market.state=MarketState.Resolving;_resolve.remainingBalance=market.balance;}if(market.state==MarketState.Resolving&&now>=_timestamp&&market.balance>0){if(!outcome.won&&outcome.balance>0){outcome.won=true;_resolve.winningBalance+=outcome.balance;_resolve.winningOutcomes+=1;}if(_final&&_resolve.winningOutcomes>0){uint256share=market.balance-market.balance/1000*settings.share;market.state=MarketState.Resolved;_resolve.remainingBalance-=share;balances[msg.sender]+=share;}Resolved(msg.sender,_timestamp,_outcome,_final);returntrue;}else{returnfalse;}}functionwithdraw(address_oracle,uint256_timestamp,uint256_outcome)returns(bool){Marketstoragemarket=markets[_oracle][_timestamp];Outcomestorageoutcome=market.outcomes[_outcome];Resolvestorage_resolve=market.resolve;Settingsstoragesettings=market.settings;if(outcome.bets[msg.sender]>0){uint256amount=outcome.bets[msg.sender];if(market.state==MarketState.Resolved&&outcome.won){uint256share=market.balance*sub/1000*settings.share/_resolve.winningOutcomes/outcome.balance*amount/sub;deleteoutcome.bets[msg.sender];_resolve.winningBalance-=amount;_resolve.remainingBalance-=share;balances[msg.sender]+=share;Withdrawal(msg.sender,_oracle,_timestamp,_outcome,share);if(_resolve.winningBalance==0){balances[_oracle]+=_resolve.remainingBalance;delete_resolve.remainingBalance;}returntrue;}elseif((market.state==MarketState.Initial||market.state==MarketState.Resolving||market.state==MarketState.Unresolved)&&now>=_timestamp+settings.refundDelay){market.state=MarketState.Unresolved;deleteoutcome.bets[msg.sender];balances[msg.sender]+=amount;Withdrawal(msg.sender,_oracle,_timestamp,_outcome,amount);returntrue;}else{returnfalse;}}else{returnfalse;}}functionmarketState(address_oracle,uint256_timestamp)constantreturns(MarketState,uint256,uint256,uint256){Marketstoragemarket=markets[_oracle][_timestamp];Resolvestorage_resolve=market.resolve;return(market.state,market.balance,_resolve.winningOutcomes,_resolve.remainingBalance);}functionoutcomeState(address_oracle,uint256_timestamp,uint256_outcome)constantreturns(bool,uint256){Outcomestorageoutcome=markets[_oracle][_timestamp].outcomes[_outcome];return(outcome.won,outcome.balance);}functionsetSettings(uint256_refundDelay,uint256_share)returns(bool){if(_refundDelay>0&&_refundDelay<=28days&&_share<=250){oracleSettings[msg.sender]=Settings(_refundDelay,1000-_share);SettingsSet(msg.sender,_refundDelay,_share);returntrue;}else{returnfalse;}}functionsetSuccessor(address_successor){successor[_successor][msg.sender]=true;}function()payable{uint256amount=msg.value*1000;if(amount/1000==msg.value&&amount<=sellable){owner.transfer(msg.value);sellable-=amount;balances[msg.sender]+=amount;Sale(msg.sender,amount);}else{revert();}}functionsetOwner(address_owner){if(msg.sender==owner){owner=_owner;}}eventTransfer(addressindexed_from,addressindexed_to,uint256_amount);eventApproval(addressindexed_owner,addressindexed_spender,uint256_amount);eventBet(addressindexed_bettor,addressindexed_oracle,uint256indexed_timestamp,uint256_outcome,uint256_amount);eventResolved(addressindexed_oracle,uint256indexed_timestamp,uint256indexed_outcome,bool_final);eventWithdrawal(addressindexed_bettor,addressindexed_oracle,uint256indexed_timestamp,uint256_outcome,uint256_amount);eventSuccessor(addressindexed_oracle,addressindexed_successor);eventSettingsSet(addressindexed_oracle,uint256_refundDelay,uint256_share);eventSale(addressindexed_buyer,uint256_amount);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 311
+column: 4
+content: functionsetOwner(address_owner){if(msg.sender==owner){owner=_owner;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 40
+column: 13
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 42
+column: 12
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 298
+column: 8
+content: if(amount/1000==msg.value&&amount<=sellable){owner.transfer(msg.value);sellable-=amount;balances[msg.sender]+=amount;Sale(msg.sender,amount);}else{revert();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 58
+column: 4
+content: functionTotalizeum(){owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 62
+column: 4
+content: functionbalanceOf(address_owner)constantreturns(uint256){returnbalances[_owner];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 66
+column: 4
+content: functiontransfer(address_to,uint256_amount)returns(bool){require(msg.data.length>=(2*32)+4);if(balances[msg.sender]>=_amount&&_amount>0&&balances[_to]+_amount>balances[_to]){balances[msg.sender]-=_amount;balances[_to]+=_amount;Transfer(msg.sender,_to,_amount);returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 83
+column: 4
+content: functiontransferFrom(address_from,address_to,uint256_amount)returns(bool){require(msg.data.length>=(3*32)+4);if(balances[_from]>=_amount&&_amount>0&&allowed[_from][msg.sender]>=_amount&&balances[_to]+_amount>balances[_to]){balances[_from]-=_amount;allowed[_from][msg.sender]-=_amount;balances[_to]+=_amount;Transfer(_from,_to,_amount);returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 104
+column: 4
+content: functionapprove(address_spender,uint256_amount)returns(bool){require((_amount==0)||(allowed[msg.sender][_spender]==0));allowed[msg.sender][_spender]=_amount;Approval(msg.sender,_spender,_amount);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 113
+column: 4
+content: functionallowance(address_owner,address_spender)constantreturns(uint256){returnallowed[_owner][_spender];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 119
+column: 4
+content: functionbet(address_oracle,uint256_timestamp,uint256_outcome,uint256_amount)returns(bool){Marketstoragemarket=markets[_oracle][_timestamp];Outcomestorageoutcome=market.outcomes[_outcome];if(balances[msg.sender]>=_amount&&_amount>0&&now<_timestamp&&market.state==MarketState.Initial&&market.balance+_amount>market.balance&&(market.balance+_amount)*sub/sub==(market.balance+_amount)&&outcome.balance+_amount>outcome.balance&&outcome.bets[msg.sender]+_amount>outcome.bets[msg.sender]){if(market.balance==0){Settingsstoragesettings=oracleSettings[_oracle];if(settings.refundDelay>0){market.settings=settings;}else{market.settings=defaultSettings;}}balances[msg.sender]-=_amount;market.balance+=_amount;outcome.balance+=_amount;outcome.bets[msg.sender]+=_amount;Bet(msg.sender,_oracle,_timestamp,_outcome,_amount);returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 158
+column: 4
+content: functionresolve(uint256_timestamp,uint256_outcome,bool_final)returns(bool){Marketstoragemarket=markets[msg.sender][_timestamp];Outcomestorageoutcome=market.outcomes[_outcome];Resolvestorage_resolve=market.resolve;Settingsstoragesettings=market.settings;if(market.state==MarketState.Initial){market.state=MarketState.Resolving;_resolve.remainingBalance=market.balance;}if(market.state==MarketState.Resolving&&now>=_timestamp&&market.balance>0){if(!outcome.won&&outcome.balance>0){outcome.won=true;_resolve.winningBalance+=outcome.balance;_resolve.winningOutcomes+=1;}if(_final&&_resolve.winningOutcomes>0){uint256share=market.balance-market.balance/1000*settings.share;market.state=MarketState.Resolved;_resolve.remainingBalance-=share;balances[msg.sender]+=share;}Resolved(msg.sender,_timestamp,_outcome,_final);returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 202
+column: 4
+content: functionwithdraw(address_oracle,uint256_timestamp,uint256_outcome)returns(bool){Marketstoragemarket=markets[_oracle][_timestamp];Outcomestorageoutcome=market.outcomes[_outcome];Resolvestorage_resolve=market.resolve;Settingsstoragesettings=market.settings;if(outcome.bets[msg.sender]>0){uint256amount=outcome.bets[msg.sender];if(market.state==MarketState.Resolved&&outcome.won){uint256share=market.balance*sub/1000*settings.share/_resolve.winningOutcomes/outcome.balance*amount/sub;deleteoutcome.bets[msg.sender];_resolve.winningBalance-=amount;_resolve.remainingBalance-=share;balances[msg.sender]+=share;Withdrawal(msg.sender,_oracle,_timestamp,_outcome,share);if(_resolve.winningBalance==0){balances[_oracle]+=_resolve.remainingBalance;delete_resolve.remainingBalance;}returntrue;}elseif((market.state==MarketState.Initial||market.state==MarketState.Resolving||market.state==MarketState.Unresolved)&&now>=_timestamp+settings.refundDelay){market.state=MarketState.Unresolved;deleteoutcome.bets[msg.sender];balances[msg.sender]+=amount;Withdrawal(msg.sender,_oracle,_timestamp,_outcome,amount);returntrue;}else{returnfalse;}}else{returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 254
+column: 4
+content: functionmarketState(address_oracle,uint256_timestamp)constantreturns(MarketState,uint256,uint256,uint256){Marketstoragemarket=markets[_oracle][_timestamp];Resolvestorage_resolve=market.resolve;return(market.state,market.balance,_resolve.winningOutcomes,_resolve.remainingBalance);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 264
+column: 4
+content: functionoutcomeState(address_oracle,uint256_timestamp,uint256_outcome)constantreturns(bool,uint256){Outcomestorageoutcome=markets[_oracle][_timestamp].outcomes[_outcome];return(outcome.won,outcome.balance);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 273
+column: 4
+content: functionsetSettings(uint256_refundDelay,uint256_share)returns(bool){if(_refundDelay>0&&_refundDelay<=28days&&_share<=250){oracleSettings[msg.sender]=Settings(_refundDelay,1000-_share);SettingsSet(msg.sender,_refundDelay,_share);returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 291
+column: 4
+content: functionsetSuccessor(address_successor){successor[_successor][msg.sender]=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 295
+column: 4
+content: function()payable{uint256amount=msg.value*1000;if(amount/1000==msg.value&&amount<=sellable){owner.transfer(msg.value);sellable-=amount;balances[msg.sender]+=amount;Sale(msg.sender,amount);}else{revert();}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 311
+column: 4
+content: functionsetOwner(address_owner){if(msg.sender==owner){owner=_owner;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 4
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 4
+content: mapping(address=>mapping(address=>uint256))allowed;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 48
+column: 4
+content: mapping(address=>mapping(uint256=>Market))markets;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 50
+column: 4
+content: mapping(address=>Settings)oracleSettings;
+
+SOLIDITY_VISIBILITY :19
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_DIV_MUL :3
+SOLIDITY_BALANCE_EQUALITY :1

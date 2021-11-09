@@ -1,0 +1,124 @@
+F:\Blockchain\dataset_new_byID\78087.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractAccountisAbstractAccount{modifieronlyOwner(){require(devices[msg.sender].isOwner);_;}constructor()public{devices[msg.sender].isOwner=true;devices[msg.sender].exists=true;devices[msg.sender].existed=true;}function()externalpayable{}functionaddDevice(address_device,bool_isOwner)onlyOwnerpublic{require(_device!=address(0));require(!devices[_device].exists);devices[_device].isOwner=_isOwner;devices[_device].exists=true;devices[_device].existed=true;emitDeviceAdded(_device,_isOwner);}functionremoveDevice(address_device)onlyOwnerpublic{require(devices[_device].exists);devices[_device].isOwner=false;devices[_device].exists=false;emitDeviceRemoved(_device);}functionexecuteTransaction(addresspayable_recipient,uint256_value,bytesmemory_data)onlyOwnerpublicreturns<missing ';'>(bytesmemory_response){require(_recipient!=address(0));bool_succeeded;(_succeeded,_response)=_recipient.call.value(_value)(_data);require(_succeeded);emitTransactionExecuted(_recipient,_value,_data,_response);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 59
+column: 41
+content: call.value(_value)(_data)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 53
+column: 2
+content: functionexecuteTransaction(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 53
+column: 46
+content: _recipient,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 53
+column: 58
+content: uint256_value,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 53
+column: 74
+content: bytesmemory_data)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 53
+column: 119
+content: (bytesmemory_response){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 54
+column: 4
+content: require(_recipient!=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 55
+column: 20
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 55
+column: 27
+content: (0));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 58
+column: 4
+content: bool_succeeded;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 59
+column: 4
+content: (_succeeded,_response)=_recipient.call.value(_value)(_data);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 61
+column: 4
+content: require(_succeeded);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 65
+column: 4
+content: emitTransactionExecuted
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 65
+column: 28
+content: (_recipient,_value,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 65
+column: 49
+content: _data,_response);
+
+SOLIDITY_VISIBILITY :14
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UNCHECKED_CALL :1

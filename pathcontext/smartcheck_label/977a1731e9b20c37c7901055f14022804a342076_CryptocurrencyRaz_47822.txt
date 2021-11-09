@@ -1,0 +1,148 @@
+C:\Users\hp\DataSet\contracts\ropsten\97\977a1731e9b20c37c7901055f14022804a342076_CryptocurrencyRaz.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 128
+column: 4
+content: functionhasRazCompleted(uintrazNumber)publicconstantreturns(bool){require(razNumber>=1&&razNumber<=numberOfRazzes);returnrazCompletion[razNumber];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 118
+column: 8
+content: for(uinti=1;i<=maxBetsForEachRaz[razNumber];i++){if(numbersTaken[razNumber][i]==0)returnfalse;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 137
+column: 8
+content: for(uinti=1;i<=maxBetsForEachRaz[razNumber];i++){if(numbersTaken[razNumber][i]==0)razList.push(i);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 147
+column: 8
+content: for(uinti=1;i<=maxBetsForEachRaz[razNumber];i++){numbersTaken[razNumber][i]=0;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 167
+column: 8
+content: for(uinti=1;i<=maxBetsForEachRaz[razNumber];i++){if(numbersTaken[razNumber][i]==userAddress)razList.push(i);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 196
+column: 4
+content: functionupdateExistingRaz(uintrazNumber,uintmaxBets,uintwinningAmount,uintownerAmount,uintparticFee)publiconlyOwnerreturns(uint){require(razNumber<=numberOfRazzes);maxBetsForEachRaz[razNumber]=maxBets;participationFeeForEachRaz[razNumber]=particFee*10**18;winnerPrizeMoneyForEachRaz[razNumber]=winningAmount*10**18;ownerPrizeMoneyForEachRaz[razNumber]=ownerAmount*10**18;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 106
+column: 8
+content: for(uinti=0;i<numBets;i++){require(numbersTaken[razNumber][bets[i]]==0);require(bets[i]>=1&&bets[i]<=maxBetsForEachRaz[razNumber]);numbersTaken[razNumber][bets[i]]=msg.sender;}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 61
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 100
+column: 45
+content: uint[]bets
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 133
+column: 72
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 163
+column: 83
+content: uint[]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 63
+column: 4
+content: uintnumberOfRazzes=3;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 65
+column: 4
+content: mapping(uint=>bool)razCompletion;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 66
+column: 4
+content: mapping(uint=>mapping(uint=>address))numbersTaken;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 67
+column: 4
+content: mapping(uint=>uint)maxBetsForEachRaz;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 68
+column: 4
+content: mapping(uint=>uint256)participationFeeForEachRaz;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 69
+column: 4
+content: mapping(uint=>uint256)winnerPrizeMoneyForEachRaz;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 70
+column: 4
+content: mapping(uint=>uint256)ownerPrizeMoneyForEachRaz;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 71
+column: 4
+content: uint[]razList;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 72
+column: 4
+content: uint[]empty;
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :4
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

@@ -1,0 +1,105 @@
+F:\Blockchain\dataset_new_byID\81206.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 42
+column: 23
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 51
+column: 23
+content: sha3
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 14
+column: 8
+content: for(uinti=0;i<signers.length;i++){allowed[signers[i]]=true;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 26
+column: 8
+content: for(uinti=0;i<m;i++){require(allowed[signers[j]]);for(uintj=i+1;j<m;j++){require(signers[i]!=signers[j]);}require(signers[i]==ecrecover(hash,v[i],r[i],s[i]));}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 30
+column: 12
+content: for(uintj=i+1;j<m;j++){require(signers[i]!=signers[j]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 14
+column: 8
+content: for(uinti=0;i<signers.length;i++){allowed[signers[i]]=true;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 19
+column: 46
+content: address[]signers
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 19
+column: 65
+content: bytes32[]r
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 19
+column: 78
+content: bytes32[]s
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 19
+column: 91
+content: uint8[]v
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 11
+column: 4
+content: functionmsig(address[]signers,uint_m){m=_m;require(signers.length>=m);for(uinti=0;i<signers.length;i++){allowed[signers[i]]=true;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 40
+column: 4
+content: functiontransfer(addressto,uintvalue,bytesdata,address[]signers,bytes32[]r,bytes32[]s,uint8[]v){bytes32hash=sha3(this,nonce,to,value,data);validateSignatures(hash,signers,r,s,v);require(to.call.value(value)(data));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 49
+column: 4
+content: functionchangeAddress(addressfrom,addressto,address[]signers,bytes32[]r,bytes32[]s,uint8[]v){bytes32hash=sha3(this,nonce,from,to);validateSignatures(hash,signers,r,s,v);allowed[from]=false;allowed[to]=true;}
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

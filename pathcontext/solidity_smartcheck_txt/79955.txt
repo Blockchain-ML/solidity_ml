@@ -1,0 +1,259 @@
+F:\Blockchain\dataset_new_byID\79955.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 123
+column: 35
+content: userId.length>0?getUserAddress(userId,0):address(0)
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 87
+column: 4
+content: functiongetUserAddress(bytes16id,uint8num)publicconstantreturns(address){require(users[id].status!=Status.NotExists);returnusers[id].addresses[num];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 189
+column: 4
+content: functiongetKycReport(bytes16id,uint16num)publicconstantreturns(uint,string,KycLevel,string){require(ids[id].status!=Status.NotExists);return(ids[id].kycReports[num].createdAt,ids[id].kycReports[num].meta,ids[id].kycReports[num].kycLevel,ids[id].kycReports[num].dataUrl);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 362
+column: 4
+content: functiongetOfferTariff(bytes16id,uint8num)publicconstantreturns(bytes16){require(offers[id].status!=Status.NotExists);returnoffers[id].tariffs[num];}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 44
+column: 4
+content: functionsetConfigAddress(addressconfigAddress)publiconlyOwner{config=HoQuConfig(configAddress);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 48
+column: 4
+content: functionsetUser(bytes16id,stringrole,addressownerAddress,KycLevelkycLevel,stringpubKey,Statusstatus)publiconlyOwner{if(users[id].status==Status.NotExists){users[id]=User({ownerAddress:ownerAddress,createdAt:now,numOfAddresses:1,role:role,kycLevel:KycLevel.Tier1,pubKey:pubKey,status:Status.Created});users[id].addresses[0]=ownerAddress;emitUserRegistered(ownerAddress,id,role);}else{if(bytes(role).length!=0){users[id].role=role;}if(kycLevel!=KycLevel.Undefined){users[id].kycLevel=kycLevel;}if(bytes(pubKey).length!=0){users[id].pubKey=pubKey;}if(status!=Status.NotExists){users[id].status=status;}}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 93
+column: 4
+content: functionsetIdentification(bytes16id,bytes16userId,stringidType,stringname,bytes16companyId,Statusstatus)publiconlyOwner{if(ids[id].status==Status.NotExists){addressownerAddress=getUserAddress(userId,0);ids[id]=Identification({createdAt:now,userId:userId,idType:idType,name:name,companyId:companyId,numOfKycReports:0,status:Status.Created});emitIdentificationAdded(ownerAddress,id,userId,name);}else{if(bytes(idType).length!=0){ids[id].idType=idType;}if(companyId.length!=0){ids[id].companyId=companyId;}if(status!=Status.NotExists){ids[id].status=status;}}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 121
+column: 4
+content: functionsetStats(bytes16id,bytes16userId,uint256rating,uint256volume,uint256members,uint256alfa,uint256beta,Statusstatus)publiconlyOwner{if(stats[id].status==Status.NotExists){addressownerAddress=userId.length>0?getUserAddress(userId,0):address(0);stats[id]=Stats({rating:rating,volume:volume,members:members,alfa:alfa,beta:beta,status:Status.Created});if(userId.length>0){stats[userId]=stats[id];}emitStatsChanged(ownerAddress,id,rating);}else{if(rating!=0){stats[id].rating=rating;if(userId.length>0){stats[userId].rating=rating;}}if(volume!=0){stats[id].volume=volume;if(userId.length>0){stats[userId].volume=volume;}}if(members!=0){stats[id].members=members;if(userId.length>0){stats[userId].members=members;}}if(alfa!=0){stats[id].alfa=alfa;if(userId.length>0){stats[userId].alfa=alfa;}}if(beta!=0){stats[id].beta=beta;if(userId.length>0){stats[userId].beta=beta;}}if(status!=Status.NotExists){stats[id].status=status;}}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 200
+column: 4
+content: functionsetCompany(bytes16id,bytes16ownerId,stringname,stringdataUrl,Statusstatus)publiconlyOwner{if(companies[id].status==Status.NotExists){require(users[ownerId].status!=Status.NotExists);require(users[ownerId].addresses[0]!=address(0));companies[id]=Company({createdAt:now,ownerId:ownerId,name:name,dataUrl:dataUrl,status:Status.Created});emitCompanyRegistered(users[ownerId].addresses[0],id,name);}else{if(bytes(name).length!=0){companies[id].name=name;}if(bytes(dataUrl).length!=0){companies[id].dataUrl=dataUrl;}if(status!=Status.NotExists){companies[id].status=status;}}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 227
+column: 4
+content: functionsetNetwork(bytes16id,bytes16ownerId,stringname,stringdataUrl,Statusstatus)publiconlyOwner{if(networks[id].status==Status.NotExists){require(users[ownerId].status!=Status.NotExists);require(users[ownerId].addresses[0]!=address(0));networks[id]=Network({createdAt:now,ownerId:ownerId,name:name,dataUrl:dataUrl,status:Status.Created});emitNetworkRegistered(users[ownerId].addresses[0],id,name);}else{if(bytes(name).length!=0){networks[id].name=name;}if(bytes(dataUrl).length!=0){networks[id].dataUrl=dataUrl;}if(status!=Status.NotExists){networks[id].status=status;}}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 254
+column: 4
+content: functionsetTracker(bytes16id,bytes16ownerId,bytes16networkId,stringname,stringdataUrl,Statusstatus)publiconlyOwner{if(networkId.length!=0){require(networks[networkId].status!=Status.NotExists);}if(trackers[id].status==Status.NotExists){require(users[ownerId].status!=Status.NotExists);require(users[ownerId].addresses[0]!=address(0));trackers[id]=Tracker({createdAt:now,ownerId:ownerId,networkId:networkId,name:name,dataUrl:dataUrl,status:Status.Created});emitTrackerRegistered(users[ownerId].addresses[0],id,name);}else{if(networkId.length!=0){trackers[id].networkId=networkId;}if(bytes(name).length!=0){trackers[id].name=name;}if(bytes(dataUrl).length!=0){trackers[id].dataUrl=dataUrl;}if(status!=Status.NotExists){trackers[id].status=status;}}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 289
+column: 4
+content: functionsetOffer(bytes16id,bytes16ownerId,bytes16networkId,bytes16merchantId,addresspayerAddress,stringname,stringdataUrl,uint256cost,Statusstatus)publiconlyOwner{if(networkId.length!=0){require(networks[networkId].status!=Status.NotExists);}if(merchantId.length!=0){require(users[merchantId].status!=Status.NotExists);}if(trackers[id].status==Status.NotExists){require(users[ownerId].status!=Status.NotExists);require(users[ownerId].addresses[0]!=address(0));offers[id]=Offer({createdAt:now,networkId:networkId,merchantId:merchantId,ownerId:ownerId,payerAddress:payerAddress,name:name,dataUrl:dataUrl,cost:cost,numOfTariffs:0,status:Status.Created});emitOfferAdded(payerAddress,id,name);}else{if(networkId.length!=0){offers[id].networkId=networkId;}if(merchantId.length!=0){offers[id].merchantId=merchantId;}if(payerAddress!=address(0)){offers[id].payerAddress=payerAddress;}if(bytes(name).length!=0){offers[id].name=name;}if(bytes(dataUrl).length!=0){offers[id].dataUrl=dataUrl;}if(cost!=0){offers[id].cost=cost;}if(status!=Status.NotExists){offers[id].status=status;}}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 351
+column: 4
+content: functionsetOfferTariff(bytes16id,uint8num,bytes16tariff_id)publiconlyOwner{require(offers[id].status!=Status.NotExists);require(offers[id].tariffs[num]!=0);offers[id].tariffs[num]=tariff_id;addressownerAddress=getUserAddress(offers[id].ownerId,0);emitOfferTariffAdded(ownerAddress,id,tariff_id);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 368
+column: 4
+content: functionsetAdCampaign(bytes16id,bytes16ownerId,bytes16offerId,addresscontractAddress,Statusstatus)publiconlyOwner{if(trackers[id].status==Status.NotExists){require(users[ownerId].status!=Status.NotExists);require(users[ownerId].addresses[0]!=address(0));require(offers[offerId].status!=Status.NotExists);addressownerAddress=getUserAddress(ownerId,0);adCampaigns[id]=AdCampaign({createdAt:now,offerId:offerId,ownerId:ownerId,contractAddress:contractAddress,status:Status.Created});emitAdCampaignAdded(ownerAddress,id,contractAddress);}else{if(contractAddress!=address(0)){adCampaigns[id].contractAddress=contractAddress;}if(status!=Status.NotExists){adCampaigns[id].status=status;}}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 395
+column: 4
+content: functionsetTariff(bytes16id,bytes16ownerId,stringname,stringaction,stringcalcMethod,uint256price,Statusstatus)publiconlyOwner{if(tariffs[id].status==Status.NotExists){require(users[ownerId].status!=Status.NotExists);addressownerAddress=getUserAddress(ownerId,0);tariffs[id]=Tariff({createdAt:now,ownerId:ownerId,name:name,action:action,calcMethod:calcMethod,price:price,status:Status.Created});emitTariffAdded(ownerAddress,id,name);}else{if(bytes(name).length!=0){tariffs[id].name=name;}if(bytes(action).length!=0){tariffs[id].action=action;}if(bytes(calcMethod).length!=0){tariffs[id].calcMethod=calcMethod;}if(price!=0){tariffs[id].price=price;}if(status!=Status.NotExists){tariffs[id].status=status;}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 8
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 48
+column: 33
+content: stringrole
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 48
+column: 87
+content: stringpubKey
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 93
+column: 59
+content: stringidType
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 93
+column: 74
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 175
+column: 38
+content: stringmeta
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 175
+column: 70
+content: stringdataUrl
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 189
+column: 81
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 189
+column: 99
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 200
+column: 53
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 200
+column: 66
+content: stringdataUrl
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 227
+column: 53
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 227
+column: 66
+content: stringdataUrl
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 254
+column: 72
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 254
+column: 85
+content: stringdataUrl
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 289
+column: 112
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 289
+column: 125
+content: stringdataUrl
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 395
+column: 52
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 395
+column: 65
+content: stringaction
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 395
+column: 80
+content: stringcalcMethod
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :11
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :19

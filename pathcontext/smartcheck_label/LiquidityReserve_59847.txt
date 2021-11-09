@@ -1,0 +1,112 @@
+C:\Users\hp\DataSet\LiquidityReserve.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 17
+column: 4
+content: addressinternalconstantETH=address(0);
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 13
+column: 0
+content: contractLiquidityReserveisChainlinkClient,LiquidityReserveState{usingSafeERC20forERC20;usingSafeMathforuint256;addressinternalconstantETH=address(0);addresspublicasset;addresspublicbeneficiary;uint256publiccreatedAt;uint256publiclockingPeriod;uint256publiclockingPrice;uint256publictotalBalance;uint256publicdeposited;uint256publicearned;uint256publicoraclePrice;uint256publiclastPriceCheck;uint256internal_amountToWithdraw;uint8publiclockingPricePosition;boolpublicisDepositable=true;enumPriceLockout{BELOW,ABOVE}eventReserveDeposit(addressindexedtoken,addressindexedsender,uint256amount);eventReserveWithdraw(addressindexedtoken,addressindexedwithdrawer,uint256amount);eventReserveApprove(addressindexedtoken,addressindexedto,uint256amount);eventReserveTransfer(addressindexedtoken,addressindexedto,uint256amount);eventPriceUnlock(uint256lockingPrice,uint256oraclePrice,uint256lockingPricePosition);constructor(address_link,address_liquidityProvider,address_alkemiNetwork,address_beneficiary,address_asset,uint256_createdAt,uint256_lockingPeriod,uint256_lockingPrice,uint8_lockingPricePosition)publicLiquidityReserveState(_alkemiNetwork,_liquidityProvider){require(_lockingPeriod>now,"LiquidityReserve: invalid locking period timestamp");require(_lockingPrice>0,"LiquidityReserve: invalid price lockout");if(_link==address(0)){setPublicChainlinkToken();}else{setChainlinkToken(_link);}asset=_asset;beneficiary=_beneficiary;createdAt=_createdAt;lockingPeriod=_lockingPeriod;lockingPrice=_lockingPrice;PriceLockoutpriceLockout=PriceLockout(_lockingPricePosition);if(priceLockout==PriceLockout.BELOW){lockingPricePosition=0;}if(priceLockout==PriceLockout.ABOVE){lockingPricePosition=1;}}functionisActive()externalviewreturns(bool){returnisDepositable||totalBalance>0;}functionbalance(address_token)publicviewreturns(uint256){if(_token==ETH){returnaddress(this).balance;}else{returnERC20(_token).balanceOf(address(this));}}functionisBeneficiary()publicviewreturns(bool){returnbeneficiary==address(0);}functiondetails()publicviewreturns(address,address,uint256,uint256,uint256,uint256,uint256,uint256,uint256){return(asset,beneficiary,createdAt,lockingPeriod,lockingPrice,lockingPricePosition,totalBalance,deposited,earned);}functiongetChainlinkToken()publicviewreturns(address){returnchainlinkTokenAddress();}functiondeposit(uint256_value)externalpayableonlyPermissioned{require(_value>0,"LiquidityReserve: can not deposit amount equal to zero");require(isDepositable,"LiquidityReserve: can not deposit into this reserve");_deposit(asset,_value);}functionwithdraw(uint256_value,address_oracle,bytes32_jobId,stringcalldata<missing ')'>_sym,stringcalldata_market,uint256_oraclePayment)externalonlyPermissioned{if(now>lockingPeriod){_withdraw(msg.sender,asset,_value);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 15
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 153
+column: 16
+content: (address,address,uint256,uint256,uint256,uint256,uint256,uint256,uint256)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 214
+column: 4
+content: functionwithdraw(uint256_value,address_oracle,bytes32_jobId,stringcalldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 218
+column: 24
+content: _sym,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 219
+column: 8
+content: stringcalldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 219
+column: 24
+content: _market,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 220
+column: 8
+content: uint256_oraclePayment)external
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 221
+column: 15
+content: onlyPermissioned{if
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 222
+column: 11
+content: (now>lockingPeriod){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 223
+column: 12
+content: _withdraw(msg.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 223
+column: 26
+content: sender,asset,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 223
+column: 41
+content: _value);
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

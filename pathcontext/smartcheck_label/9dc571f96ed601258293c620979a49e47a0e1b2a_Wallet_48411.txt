@@ -1,0 +1,79 @@
+C:\Users\hp\DataSet\contracts\ropsten\9d\9dc571f96ed601258293c620979a49e47a0e1b2a_Wallet.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 31
+column: 8
+content: while(b<a.length){c+=a[b];b++;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 31
+column: 15
+content: b<a.length
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 71
+column: 0
+content: contractFactoryisOwnable{constructor()public{owner=msg.sender;}functioncreate()publicreturns(address){returnaddress(newWallet(msg.sender));}function()externalpayable{require(msg.value==0);create();}}
+
+ruleId: SOLIDITY_MSGVALUE_EQUALS_ZERO
+patternId: 1df89a
+severity: 1
+line: 79
+column: 16
+content: msg.value==0
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 18
+column: 4
+content: functionsetOwner(address_owner)publiconlyOwnerreturns(bool){require(_owner!=address(0)&&address(this)!=_owner);owner=_owner;returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 54
+column: 8
+content: if(!ERC20(token).approve(spender,amount))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 60
+column: 8
+content: if(!ERC20(token).transfer(to,amount))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 67
+column: 8
+content: if(!ERC20(token).transferFrom(from,to,amount))revert();
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 47
+column: 31
+content: call.gas(gaslimit).value(amount)(data)
+
+SOLIDITY_MSGVALUE_EQUALS_ZERO :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :3
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_UNCHECKED_CALL :1

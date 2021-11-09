@@ -1,0 +1,46 @@
+F:\Blockchain\dataset_new_byID\77677.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 14
+column: 4
+content: functionhasWon(uint_proposalID)publicconstantreturns(bool){BoardRoomboard=BoardRoom(msg.sender);uintnay=board.positionWeightOf(_proposalID,0);uintyea=board.positionWeightOf(_proposalID,1);uinttotalVoters=board.numVoters(_proposalID);if(totalVoters>0&&yea>nay){returntrue;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 26
+column: 4
+content: functioncanVote(address_sender,uint_proposalID)publicconstantreturns(bool){BoardRoomboard=BoardRoom(msg.sender);uintcreated=board.createdOn(_proposalID);uintdebatePeriod=board.debatePeriodOf(_proposalID);var(contributionSender,contributionValue,contributionCreated)=StandardCampaign(campaignAddr).contributions(StandardCampaign(campaignAddr).contributionsBySender(_sender,0));if(_sender==contributionSender&&contributionValue>0&&now<created+debatePeriod){returntrue;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 41
+column: 4
+content: functioncanPropose(address_sender)publicconstantreturns(bool){var(contributionSender,contributionValue,contributionCreated)=StandardCampaign(campaignAddr).contributions(StandardCampaign(campaignAddr).contributionsBySender(_sender,0));if(_sender==contributionSender&&contributionValue>0){returntrue;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 50
+column: 4
+content: functionvotingWeightOf(address_sender,uint_proposalID)publicconstantreturns(uint){var(contributionSender,contributionValue,contributionCreated)=StandardCampaign(campaignAddr).contributions(StandardCampaign(campaignAddr).contributionsBySender(_sender,0));returncontributionValue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 10
+column: 4
+content: functionCampaignRules(address_campaignAddr){campaignAddr=_campaignAddr;}
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1

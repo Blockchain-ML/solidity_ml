@@ -1,0 +1,104 @@
+C:\Users\hp\DataSet\contracts\mainnet\87\87681d81d46e15e6d74181f32fa7d4ce996be0cd_Crowdsale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 9
+column: 46
+content: 0x0089C7EC084355019A057abEDF4E8F6864242465
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 10
+column: 41
+content: 0x00efA609EC93Db54a7977691CCa920e623f07258
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 11
+column: 37
+content: 0xEE660Bef1Ee1697F63554c92e372fc862f384810
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 60
+column: 27
+content: (amount/price)*1ether
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 53
+column: 8
+content: if(amount==0)revert();elseif(amount<250finney){if(sehrRaised<fundingGoal){if(now<startTime+31days)revert();}}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 56
+column: 16
+content: if(now<startTime+31days)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 133
+column: 8
+content: if(sehrRaised==hardCap){deadline=now;}elserevert();
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 4
+column: 4
+content: functiontransferFrom(address_from,address_to,uint256_value)returns(boolsuccess);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 33
+column: 4
+content: functionCrowdsale(){startTime=now;deadline=now+62days;owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 50
+column: 4
+content: function()payableisCrowdsalebeforeDeadline{uintamount=msg.value;if(amount==0)revert();elseif(amount<250finney){if(sehrRaised<fundingGoal){if(now<startTime+31days)revert();}}uinttokenAmount=(amount/price)*1ether;addresssehrWallet=SEHR_WALLET_ADDRESS;if(sehrRaised<fundingGoal){if(now<startTime+10days){tokenAmount=(13*tokenAmount)/10;}elseif(now<startTime+20days){tokenAmount=(12*tokenAmount)/10;}elseif(now<startTime+31days){tokenAmount=(11*tokenAmount)/10;}}balanceOf[msg.sender]+=amount;amountRaised+=amount;sehrRaised+=tokenAmount;tokenReward.transferFrom(SEHR_WALLET_ADDRESS,msg.sender,tokenAmount);FundTransfer(msg.sender,amount,true);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 92
+column: 4
+content: functioncheckGoalReached()afterDeadline{if(sehrRaised>=fundingGoal){fundingGoalReached=true;GoalReached(SSOTHEALTH_FUNDS_ADDRESS,amountRaised);}crowdsaleClosed=true;checkDone=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 109
+column: 4
+content: functionsafeWithdrawal()afterDeadlineisCheckDone{if(!fundingGoalReached){uintamount=balanceOf[msg.sender];balanceOf[msg.sender]=0;if(amount>0){if(msg.sender.send(amount)){FundTransfer(msg.sender,amount,false);}else{balanceOf[msg.sender]=amount;}}}if(fundingGoalReached&&SSOTHEALTH_FUNDS_ADDRESS==msg.sender){if(SSOTHEALTH_FUNDS_ADDRESS.send(amountRaised)){FundTransfer(SSOTHEALTH_FUNDS_ADDRESS,amountRaised,false);}else{fundingGoalReached=false;}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 132
+column: 4
+content: functionhardCapReached(){if(sehrRaised==hardCap){deadline=now;}elserevert();}
+
+SOLIDITY_VISIBILITY :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :3
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_DIV_MUL :1

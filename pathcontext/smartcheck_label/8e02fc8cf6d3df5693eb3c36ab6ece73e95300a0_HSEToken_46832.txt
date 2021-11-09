@@ -1,0 +1,62 @@
+C:\Users\hp\DataSet\contracts\ropsten\8e\8e02fc8cf6d3df5693eb3c36ab6ece73e95300a0_HSEToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 42
+column: 2
+content: functionbalanceOf(address_owner)publicconstantreturns(uintbalance){returnbalances[_owner];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 75
+column: 2
+content: functionallowance(address_owner,address_spender)publicconstantreturns(uintremaining){returnallowed[_owner][_spender];}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 69
+column: 2
+content: functionapprove(address_spender,uint_value)publicreturns(boolsuccess){allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 23
+column: 0
+content: contractHSETokenisOwnable{stringpublicconstantname="HSE token";stringpublicconstantsymbol="hse";uint32constantpublicdecimals=18;uintrate=100;uint256publictotalSupply;mapping(address=>uint256)publicbalances;mapping(address=>mapping(address=>uint))allowed;functionmint(address_to,uint_value)internal{assert(totalSupply+_value>=totalSupply&&balances[_to]+_value>=balances[_to]);balances[_to]+=_value;totalSupply+=_value;}functionbalanceOf(address_owner)publicconstantreturns(uintbalance){returnbalances[_owner];}functiontransfer(address_to,uint_value)publicreturns(boolsuccess){if(balances[msg.sender]>=_value&&balances[_to]+_value>=balances[_to]){balances[msg.sender]-=_value;balances[_to]+=_value;Transfer(msg.sender,_to,_value);returntrue;}returnfalse;}functiontransferFrom(address_from,address_to,uint_value)publicreturns(boolsuccess){if(allowed[_from][msg.sender]>=_value&&balances[_from]>=_value&&balances[_to]+_value>=balances[_to]){allowed[_from][msg.sender]-=_value;balances[_from]-=_value;balances[_to]+=_value;Transfer(_from,_to,_value);returntrue;}returnfalse;}functionapprove(address_spender,uint_value)publicreturns(boolsuccess){allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}functionallowance(address_owner,address_spender)publicconstantreturns(uintremaining){returnallowed[_owner][_spender];}eventTransfer(addressindexed_from,addressindexed_to,uint_value);eventApproval(addressindexed_owner,addressindexed_spender,uint_value);functiongetTokenAmount(uint256_value)internalviewreturns(uint256){return_value*rate;}function()payable{uint256weiAmount=msg.value;uint256tokens=getTokenAmount(weiAmount);mint(msg.sender,tokens);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 87
+column: 2
+content: function()payable{uint256weiAmount=msg.value;uint256tokens=getTokenAmount(weiAmount);mint(msg.sender,tokens);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 4
+content: uintrate=100;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 32
+column: 4
+content: mapping(address=>mapping(address=>uint))allowed;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ERC20_APPROVE :1

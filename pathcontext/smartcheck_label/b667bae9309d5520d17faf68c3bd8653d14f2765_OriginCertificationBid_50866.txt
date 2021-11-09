@@ -1,0 +1,61 @@
+C:\Users\hp\DataSet\contracts\ropsten\b6\b667bae9309d5520d17faf68c3bd8653d14f2765_OriginCertificationBid.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 24
+column: 4
+content: owner=address(0)
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 13
+column: 13
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 168
+column: 4
+content: functionSimpleBid(address_beneficiary,uint_biddingTime,uint_tokenId){require(msg.sender==origincertificateToOwner[_tokenId]);uint_bidId=certificatebids.push(CertificateBid(_beneficiary,now,_biddingTime,_tokenId,msg.sender,0x0,0,false))-1;idCertificateBids[_bidId]=CertificateBid(_beneficiary,now,_biddingTime,_tokenId,msg.sender,0x0,0,false);NewCertificateBid(_tokenId,_bidId,msg.sender,now,_biddingTime);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 181
+column: 4
+content: functionbid(uint_bidId)payable{require(ownerOrigincertificateCount[msg.sender]==0);require(now<=(idCertificateBids[_bidId].auctionStart+idCertificateBids[_bidId].biddingTime));require(msg.value>idCertificateBids[_bidId].highestBid);if(idCertificateBids[_bidId].highestBidder!=0){pendingReturns[idCertificateBids[_bidId].highestBidder]+=idCertificateBids[_bidId].highestBid;}idCertificateBids[_bidId].highestBidder=msg.sender;idCertificateBids[_bidId].highestBid=msg.value;HighestBidIncreased(msg.sender,msg.value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 198
+column: 4
+content: functionwithdraw()returns(bool){varamount=pendingReturns[msg.sender];if(amount>0){pendingReturns[msg.sender]=0;if(!msg.sender.send(amount)){pendingReturns[msg.sender]=amount;returnfalse;}}returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 213
+column: 4
+content: functionbidEnd(uint_bidId){require(now>=(idCertificateBids[_bidId].auctionStart+idCertificateBids[_bidId].biddingTime));require(idCertificateBids[_bidId].ended=false);idCertificateBids[_bidId].ended=true;idCertificateBids[_bidId].beneficiary.transfer(idCertificateBids[_bidId].highestBid);transfer(idCertificateBids[_bidId].highestBidder,idCertificateBids[_bidId].orgincertificateId);BidEnded(idCertificateBids[_bidId].highestBidder,idCertificateBids[_bidId].highestBid);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 98
+column: 4
+content: mapping(uint=>address)certificateApprovals;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :1

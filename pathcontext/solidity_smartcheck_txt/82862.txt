@@ -1,0 +1,126 @@
+F:\Blockchain\dataset_new_byID\82862.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 53
+column: 4
+content: functiongetProposals()publicconstantreturns(string){returnbytes32ToString(proposals[0].proposalName);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 57
+column: 4
+content: functionbytes32ToString(bytes32x)privateconstantreturns(string){bytesmemorybytesString=newbytes(32);uintcharCount=0;for(uintj=0;j<32;j++){bytechar=byte(bytes32(uint(x)*2**(8*j)));if(char!=0){bytesString[charCount]=char;charCount++;}}bytesmemorybytesStringTrimmed=newbytes(charCount);for(j=0;j<charCount;j++){bytesStringTrimmed[j]=bytesString[j];}returnstring(bytesStringTrimmed);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 89
+column: 4
+content: functiongetVoteCountForProposal(uintindexOfProposals)publicconstantreturns(uint){returnproposals[indexOfProposals].voteCount;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 95
+column: 4
+content: functionhasRightToVote()publicconstantreturns(bool){if(voters[msg.sender].weight>=1){returntrue;}returnfalse;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 40
+column: 8
+content: for(uinti=0;i<proposalNames.length;i++){Proposalmemoryproposal=Proposal({proposalName:proposalNames[i],voteCount:0});proposals.push(proposal);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 148
+column: 8
+content: for(uinti=0;i<proposals.length;i++){Proposalproposal=proposals[i];uintvotesCount=proposal.voteCount;if(votesCount>max){max=votesCount;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 40
+column: 8
+content: for(uinti=0;i<proposalNames.length;i++){Proposalmemoryproposal=Proposal({proposalName:proposalNames[i],voteCount:0});proposals.push(proposal);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 148
+column: 8
+content: for(uinti=0;i<proposals.length;i++){Proposalproposal=proposals[i];uintvotesCount=proposal.voteCount;if(votesCount>max){max=votesCount;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 36
+column: 20
+content: bytes32[]proposalNames
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 53
+column: 52
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 57
+column: 66
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 144
+column: 37
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 150
+column: 12
+content: Proposalproposal=proposals[i]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: addressadmin;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 18
+column: 4
+content: Proposal[]proposals;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 32
+column: 4
+content: mapping(address=>Voter)voters;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_UPGRADE_TO_050 :5
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2

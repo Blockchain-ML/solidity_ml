@@ -1,0 +1,106 @@
+C:\Users\hp\DataSet\contracts\mainnet\a2\a2f3c8b6a332fcf2004dffc7c13bdc2b6acad445_CustomToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 124
+column: 18
+content: 0x95fd530fcd47f6426c624b00d5762acfebf8c4bc
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 125
+column: 29
+content: 0x95fd530fcd47f6426c624b00d5762acfebf8c4bc
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 130
+column: 20
+content: 0x95fd530fcd47f6426c624b00d5762acfebf8c4bc
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 136
+column: 20
+content: 0x95fd530fcd47f6426c624b00d5762acfebf8c4bc
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 137
+column: 20
+content: 0x95fd530fcd47f6426c624b00d5762acfebf8c4bc
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 38
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(boolsuccess){allowance[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 67
+column: 0
+content: contractAirdropTokenisBaseToken{uint256publicairAmount;uint256publicairBegintime;uint256publicairEndtime;addresspublicairSender;uint32publicairLimitCount;mapping(address=>uint32)publicairCountOf;eventAirdrop(addressindexedfrom,uint32indexedcount,uint256tokenValue);functionairdrop()publicpayable{require(now>=airBegintime&&now<=airEndtime);require(msg.value==0);if(airLimitCount>0&&airCountOf[msg.sender]>=airLimitCount){revert();}_transfer(airSender,msg.sender,airAmount);airCountOf[msg.sender]+=1;Airdrop(msg.sender,airCountOf[msg.sender],airAmount);}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 118
+column: 0
+content: contractCustomTokenisBaseToken,BurnToken,AirdropToken,ICOToken{functionCustomToken()public{totalSupply=1000000000000000000000000000;name=&39;BillCoin&39;;symbol=&39;BLC&39;;decimals=18;balanceOf[0x95fd530fcd47f6426c624b00d5762acfebf8c4bc]=totalSupply;Transfer(address(0),0x95fd530fcd47f6426c624b00d5762acfebf8c4bc,totalSupply);airAmount=1000000000000000000;airBegintime=1522508400;airEndtime=1530370800;airSender=0x95fd530fcd47f6426c624b00d5762acfebf8c4bc;airLimitCount=5;icoRatio=3000;icoBegintime=1522508400;icoEndtime=1540998000;icoSender=0x95fd530fcd47f6426c624b00d5762acfebf8c4bc;icoHolder=0x95fd530fcd47f6426c624b00d5762acfebf8c4bc;}function()publicpayable{if(msg.value==0){airdrop();}else{ico();}}}
+
+ruleId: SOLIDITY_MSGVALUE_EQUALS_ZERO
+patternId: 1df89a
+severity: 1
+line: 80
+column: 16
+content: msg.value==0
+
+ruleId: SOLIDITY_MSGVALUE_EQUALS_ZERO
+patternId: 1df89a
+severity: 1
+line: 141
+column: 12
+content: msg.value==0
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 81
+column: 8
+content: if(airLimitCount>0&&airCountOf[msg.sender]>=airLimitCount){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 104
+column: 8
+content: if(tokenValue==0||balanceOf[icoSender]<tokenValue){revert();}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 140
+column: 15
+content: public
+
+SOLIDITY_MSGVALUE_EQUALS_ZERO :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_ADDRESS_HARDCODED :5
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_ERC20_APPROVE :1

@@ -1,0 +1,121 @@
+C:\Users\hp\DataSet\contracts\ropsten\df\df86f61a76df329a9a6bc373b267f99c4bcd8fea_Token.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 159
+column: 2
+content: for(uinti=0;i<addrs.length;i++){freezeIn[addrs[i]]=value;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 167
+column: 2
+content: for(uinti=0;i<addrs.length;i++){freezeOut[addrs[i]]=value;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 159
+column: 2
+content: for(uinti=0;i<addrs.length;i++){freezeIn[addrs[i]]=value;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 167
+column: 2
+content: for(uinti=0;i<addrs.length;i++){freezeOut[addrs[i]]=value;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 81
+column: 0
+content: contractTokenisERC20,Owned{usingSafeMathforuint256;stringpublicname="FXF02";stringpublicsymbol="FXF02";uint256publicdecimals=18;stringpublicversion="1.0";uintpublictotalSupply=1000000000*10**uint(decimals);mapping(address=>bool)publicfreezeIn;mapping(address=>bool)publicfreezeOut;mapping(address=>uint)publicbalanceOf;mapping(address=>uint256)balances;mapping(address=>mapping(address=>uint))publicallowance;eventFreezeIn(address[]indexedfrom,boolvalue);eventFreezeOut(address[]indexedfrom,boolvalue);constructor()public{balanceOf[msg.sender]=totalSupply;}functioninternalTransfer(addressfrom,addresstoaddr,uintvalue)internal{require(toaddr!=0);require(balanceOf[from]>=value);require(!freezeIn[toaddr]);require(!freezeOut[from]);balanceOf[from]=balanceOf[from].sub(value);balanceOf[toaddr]=balanceOf[toaddr].add(value);}functiontransfer(address_to,uint256_value)publicreturns(bool){require(_to!=address(0));require(_value<=balanceOf[msg.sender]);balanceOf[msg.sender]=balanceOf[msg.sender].sub(_value);balanceOf[_to]=balanceOf[_to].add(_value);emitTransfer(msg.sender,_to,_value);returntrue;}functiontransferFrom(addressfrom,addresstoaddr,uintvalue)publicreturns(bool){require(allowance[from][msg.sender]>=value);allowance[from][msg.sender]=allowance[from][msg.sender].sub(value);internalTransfer(from,toaddr,value);returntrue;}functionsetNameSymbol(stringnewName,stringnewSymbol)publiconlyOwner{name=newName;symbol=newSymbol;}functionsetFreezeIn(address[]addrs,boolvalue)publiconlyOwner{for(uinti=0;i<addrs.length;i++){freezeIn[addrs[i]]=value;}}functionsetFreezeOut(address[]addrs,boolvalue)publiconlyOwner{for(uinti=0;i<addrs.length;i++){freezeOut[addrs[i]]=value;}}function()publicpayable{}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 152
+column: 4
+content: functionsetNameSymbol(stringnewName,stringnewSymbol)publiconlyOwner{name=newName;symbol=newSymbol;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 158
+column: 1
+content: functionsetFreezeIn(address[]addrs,boolvalue)publiconlyOwner{for(uinti=0;i<addrs.length;i++){freezeIn[addrs[i]]=value;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 166
+column: 1
+content: functionsetFreezeOut(address[]addrs,boolvalue)publiconlyOwner{for(uinti=0;i<addrs.length;i++){freezeOut[addrs[i]]=value;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 83
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 176
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 152
+column: 27
+content: stringnewName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 152
+column: 43
+content: stringnewSymbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 158
+column: 22
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 166
+column: 23
+content: address[]addrs
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 95
+column: 4
+content: mapping(address=>uint256)balances;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_UPGRADE_TO_050 :5
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2

@@ -1,0 +1,56 @@
+C:\Users\hp\DataSet\contracts\ropsten\8c\8c3cefe4fc789562b8f67b598c41eeafedfcf5bd_Maxidice.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 65
+column: 8
+content: for(uint256i=0;i<room.players.length;i++){addressplayerAddress=room.players[i];if(room.playerInfo[playerAddress].numberSelected==numberWinner){winners[count]=playerAddress;count++;}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 38
+column: 4
+content: functionbet(uint256numberSelected,bytes32roomID)publicpayablereturns(bool){require(!checkRoomExists(roomID));require(numberSelected>=1&&numberSelected<=6);rooms[roomID].playerInfo[msg.sender].amountBet=msg.value;rooms[roomID].playerInfo[msg.sender].numberSelected=numberSelected;rooms[roomID].currentPlayers+=1;rooms[roomID].totalAmountBetting+=msg.value;rooms[roomID].players.push(msg.sender);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 65
+column: 8
+content: for(uint256i=0;i<room.players.length;i++){addressplayerAddress=room.players[i];if(room.playerInfo[playerAddress].numberSelected==numberWinner){winners[count]=playerAddress;count++;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 73
+column: 8
+content: for(uint256j=0;j<count;j++){if(winners[j]!=address(0)){winners[j].transfer(winnerEtherAmount);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 18
+column: 4
+content: mapping(bytes32=>Room)rooms;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 4
+content: uint256currentRoomID=0;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_TRANSFER_IN_LOOP :1

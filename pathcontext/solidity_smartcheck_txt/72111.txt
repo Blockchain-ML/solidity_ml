@@ -1,0 +1,45 @@
+F:\Blockchain\dataset_new_byID\72111.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 13
+column: 0
+content: contractMixinMatchOrdersisMixinExchangeCore,IMatchOrders{usingLibBytesforbytes;usingLibSafeMathforuint256;usingLibOrderforLibOrder.Order;functionbatchMatchOrders(LibOrder.Order[]memoryleftOrders,LibOrder.Order[]memoryrightOrders,bytes[]memoryleftSignatures,bytes[]memoryrightSignatures)publicpayablerefundFinalBalanceNoReentryreturns(LibFillResults.BatchMatchedFillResultsmemorybatchMatchedFillResults){return_batchMatchOrders(leftOrders,rightOrders,leftSignatures,rightSignatures,false);}functionbatchMatchOrdersWithMaximalFill(LibOrder.Order[]memoryleftOrders,LibOrder.Order[]memoryrightOrders,bytes[]memoryleftSignatures,bytes[]memoryrightSignatures)publicpayablerefundFinalBalanceNoReentryreturns(LibFillResults.BatchMatchedFillResultsmemorybatchMatchedFillResults){return_batchMatchOrders(leftOrders,rightOrders,leftSignatures,rightSignatures,true);}functionmatchOrders(LibOrder.OrdermemoryleftOrder,LibOrder.OrdermemoryrightOrder,bytesmemoryleftSignature,bytesmemoryrightSignature)publicpayablerefundFinalBalanceNoReentryreturns(LibFillResults.MatchedFillResultsmemorymatchedFillResults){return_matchOrders(leftOrder,rightOrder,leftSignature,rightSignature,false);}functionmatchOrdersWithMaximalFill(LibOrder.OrdermemoryleftOrder,LibOrder.OrdermemoryrightOrder,bytesmemoryleftSignature,bytesmemoryrightSignature)publicpayablerefundFinalBalanceNoReentryreturns(LibFillResults.MatchedFillResultsmemorymatchedFillResults){return_matchOrders(leftOrder,rightOrder,leftSignature,rightSignature,true);}function_assertValidMatch(LibOrder.OrdermemoryleftOrder,LibOrder.OrdermemoryrightOrder,bytes32leftOrderHash,bytes32rightOrderHash)internalpure{if(leftOrder.makerAssetAmount.safeMul(rightOrder.makerAssetAmount)<leftOrder.takerAssetAmount.safeMul(rightOrder.takerAssetAmount)){revert();}}function_batchMatchOrders(LibOrder.Order[]memoryleftOrders,LibOrder.Order[]memoryrightOrders,bytes[]memoryleftSignatures,bytes[]memoryrightSignatures,boolshouldMaximallyFillOrders)internalreturns(LibFillResults.BatchMatchedFillResultsmemorybatchMatchedFillResults){if(leftOrders.length==0){revert();}if(rightOrders.length==0){revert();}if(leftOrders.length!=leftSignatures.length){revert();}if(rightOrders.length!=rightSignatures.length){revert();}batchMatchedFillResults.left=newLibFillResults.FillResults[](leftOrders.length);batchMatchedFillResults.right=newLibFillResults.FillResults[](rightOrders.length);uint256leftIdx=0;uint256rightIdx=0;LibOrder.OrdermemoryleftOrder=leftOrders[0];LibOrder.OrdermemoryrightOrder=rightOrders[0];(,uint256leftOrderTakerAssetFilledAmount)=_getOrderHashAndFilledAmount(leftOrder);(,uint256rightOrderTakerAssetFilledAmount)=_getOrderHashAndFilledAmount(rightOrder);LibFillResults.FillResultsmemoryleftFillResults;LibFillResults.FillResultsmemoryrightFillResults;for(;;){LibFillResults.MatchedFillResultsmemorymatchResults=_matchOrders(leftOrder,rightOrder,leftSignatures[leftIdx],rightSignatures[rightIdx],shouldMaximallyFillOrders);leftOrderTakerAssetFilledAmount=leftOrderTakerAssetFilledAmount.safeAdd(matchResults.left.takerAssetFilledAmount);rightOrderTakerAssetFilledAmount=rightOrderTakerAssetFilledAmount.safeAdd(matchResults.right.takerAssetFilledAmount);leftFillResults=LibFillResults.addFillResults(leftFillResults,matchResults.left);rightFillResults=LibFillResults.addFillResults(rightFillResults,matchResults.right);batchMatchedFillResults.profitInLeftMakerAsset=batchMatchedFillResults.profitInLeftMakerAsset.safeAdd(matchResults.profitInLeftMakerAsset);batchMatchedFillResults.profitInRightMakerAsset=batchMatchedFillResults.profitInRightMakerAsset.safeAdd(matchResults.profitInRightMakerAsset);if(leftOrderTakerAssetFilledAmount>=leftOrder.takerAssetAmount){batchMatchedFillResults.left[leftIdx++]=leftFillResults;leftFillResults=LibFillResults.FillResults(0,0,0,0,0);if(leftIdx==leftOrders.length){batchMatchedFillResults.right[rightIdx]=rightFillResults;break;}else{leftOrder=leftOrders[leftIdx];(,leftOrderTakerAssetFilledAmount)=_getOrderHashAndFilledAmount(leftOrder);}}if(rightOrderTakerAssetFilledAmount>=rightOrder.takerAssetAmount){batchMatchedFillResults.right[rightIdx++]=rightFillResults;rightFillResults=LibFillResults.FillResults(0,0,0,0,0);if(rightIdx==rightOrders.length){batchMatchedFillResults.left[leftIdx]=leftFillResults;break;}else{rightOrder=rightOrders[rightIdx];(,rightOrderTakerAssetFilledAmount)=_getOrderHashAndFilledAmount(rightOrder);}}}returnbatchMatchedFillResults;}function_matchOrders(LibOrder.OrdermemoryleftOrder,LibOrder.OrdermemoryrightOrder,bytesmemoryleftSignature,bytesmemoryrightSignature,boolshouldMaximallyFillOrders)internalreturns(LibFillResults.MatchedFillResultsmemorymatchedFillResults){rightOrder.makerAssetData=leftOrder.takerAssetData;rightOrder.takerAssetData=leftOrder.makerAssetData;LibOrder.OrderInfomemoryleftOrderInfo=getOrderInfo(leftOrder);LibOrder.OrderInfomemoryrightOrderInfo=getOrderInfo(rightOrder);addresstakerAddress=_getCurrentContextAddress();_assertFillableOrder(leftOrder,leftOrderInfo,takerAddress,leftSignature);_assertFillableOrder(rightOrder,rightOrderInfo,takerAddress,rightSignature);_assertValidMatch(leftOrder,rightOrder,leftOrderInfo.orderHash,rightOrderInfo.orderHash);matchedFillResults=LibFillResults.calculateMatchedFillResults(leftOrder,rightOrder,leftOrderInfo.orderTakerAssetFilledAmount,rightOrderInfo.orderTakerAssetFilledAmount,protocolFeeMultiplier,tx.gasprice,shouldMaximallyFillOrders);_updateFilledState(leftOrder,takerAddress,leftOrderInfo.orderHash,leftOrderInfo.orderTakerAssetFilledAmount,matchedFillResults.left);_updateFilledState(rightOrder,takerAddress,rightOrderInfo.orderHash,rightOrderInfo.orderTakerAssetFilledAmount,matchedFillResults.right);_settleMatchedOrders(leftOrderInfo.orderHash,rightOrderInfo.orderHash,leftOrder,rightOrder,takerAddress,matchedFillResults);returnmatchedFillResults;}function_settleMatchedOrders(bytes32leftOrderHash,bytes32rightOrderHash,LibOrder.OrdermemoryleftOrder,LibOrder.OrdermemoryrightOrder,addresstakerAddress,LibFillResults.MatchedFillResultsmemorymatchedFillResults)internal{addressleftMakerAddress=leftOrder.makerAddress;addressrightMakerAddress=rightOrder.makerAddress;addressleftFeeRecipientAddress=leftOrder.feeRecipientAddress;addressrightFeeRecipientAddress=rightOrder.feeRecipientAddress;_dispatchTransferFrom(rightOrderHash,rightOrder.makerAssetData,rightMakerAddress,leftMakerAddress,matchedFillResults.left.takerAssetFilledAmount);_dispatchTransferFrom(leftOrderHash,leftOrder.makerAssetData,leftMakerAddress,rightMakerAddress,matchedFillResults.right.takerAssetFilledAmount);_dispatchTransferFrom(rightOrderHash,rightOrder.makerFeeAssetData,rightMakerAddress,rightFeeRecipientAddress,matchedFillResults.right.makerFeePaid);_dispatchTransferFrom(leftOrderHash,leftOrder.makerFeeAssetData,leftMakerAddress,leftFeeRecipientAddress,matchedFillResults.left.makerFeePaid);_dispatchTransferFrom(leftOrderHash,leftOrder.makerAssetData,leftMakerAddress,takerAddress,matchedFillResults.profitInLeftMakerAsset);_dispatchTransferFrom(rightOrderHash,rightOrder.makerAssetData,rightMakerAddress,takerAddress,matchedFillResults.profitInRightMakerAsset);booldidPayProtocolFees=_payTwoProtocolFees(leftOrderHash,rightOrderHash,matchedFillResults.left.protocolFeePaid,leftMakerAddress,rightMakerAddress,takerAddress);if(!didPayProtocolFees){matchedFillResults.left.protocolFeePaid=0;matchedFillResults.right.protocolFeePaid=0;}if(leftFeeRecipientAddress==rightFeeRecipientAddress&&leftOrder.takerFeeAssetData.equals(rightOrder.takerFeeAssetData)){_dispatchTransferFrom(leftOrderHash,leftOrder.takerFeeAssetData,takerAddress,leftFeeRecipientAddress,matchedFillResults.left.takerFeePaid.safeAdd(matchedFillResults.right.takerFeePaid));}else{_dispatchTransferFrom(rightOrderHash,rightOrder.takerFeeAssetData,takerAddress,rightFeeRecipientAddress,matchedFillResults.right.takerFeePaid);_dispatchTransferFrom(leftOrderHash,leftOrder.takerFeeAssetData,takerAddress,leftFeeRecipientAddress,matchedFillResults.left.takerFeePaid);}}}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 158
+column: 8
+content: if(leftOrder.makerAssetAmount.safeMul(rightOrder.makerAssetAmount)<leftOrder.takerAssetAmount.safeMul(rightOrder.takerAssetAmount)){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 186
+column: 8
+content: if(leftOrders.length==0){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 189
+column: 8
+content: if(rightOrders.length==0){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 194
+column: 8
+content: if(leftOrders.length!=leftSignatures.length){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 197
+column: 8
+content: if(rightOrders.length!=rightSignatures.length){revert();}
+
+SOLIDITY_REVERT_REQUIRE :5
+SOLIDITY_LOCKED_MONEY :1

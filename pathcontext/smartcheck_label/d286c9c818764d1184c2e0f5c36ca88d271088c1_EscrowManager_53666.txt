@@ -1,0 +1,95 @@
+C:\Users\hp\DataSet\contracts\ropsten\d2\d286c9c818764d1184c2e0f5c36ca88d271088c1_EscrowManager.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 8
+column: 4
+content: functiontotalSupply()publicconstantreturns(uint);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 9
+column: 4
+content: functionbalanceOf(addresstokenOwner)publicconstantreturns(uintbalance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 10
+column: 4
+content: functionallowance(addresstokenOwner,addressspender)publicconstantreturns(uintremaining);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 129
+column: 4
+content: functiongetContractAddress()publicconstantreturns(address){returnthis;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 133
+column: 4
+content: functiongetEscrowOrder_seller(uintid)publicconstantreturns(address){returnallEscrowOrders[id].seller;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 67
+column: 4
+content: functionEscrowManager(){numberOfSuccessfullExecutions=0;EscrowManagerInitialized();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 72
+column: 4
+content: functioncreateEscrow(address_tokenAddressSell,uint_amountTokenSell,address_tokenAddressBuy,uint_amountTokenBuy)payablereturns(uint){EscrowmemorynewEscrow=Escrow({seller:msg.sender,amountTokenSell:_amountTokenSell,tokenAddressSell:_tokenAddressSell,amountTokenBuy:_amountTokenBuy,tokenAddressBuy:_tokenAddressBuy,createdDate:now});ERC20Interface(_tokenAddressSell).transferFrom(msg.sender,this,_amountTokenSell);allEscrowOrders.push(newEscrow);escrowStates.push(EscrowState.Created);EscrowCreated(escrowId,escrowStates[escrowId]);returnescrowId++;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 97
+column: 4
+content: functionacceptEscrow(uintchosenEscrowId)payable{EscrowmemorychosenEscrow=allEscrowOrders[chosenEscrowId];ERC20Interface(chosenEscrow.tokenAddressBuy).transferFrom(msg.sender,this,chosenEscrow.amountTokenBuy);escrowStates[chosenEscrowId]=EscrowState.Accepted;EscrowAccepted(chosenEscrowId,escrowStates[chosenEscrowId]);executeEscrow(chosenEscrowId,msg.sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 141
+column: 4
+content: functioncompareStrings(stringa,stringb)viewreturns(bool){returnkeccak256(a)==keccak256(b);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 4
+content: mapping(address=>mapping(address=>uint))tokenAddressToSellerToDeposit;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 36
+column: 4
+content: Escrow[]allEscrowOrders;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 39
+column: 4
+content: EscrowState[]escrowStates;
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_PRAGMAS_VERSION :1

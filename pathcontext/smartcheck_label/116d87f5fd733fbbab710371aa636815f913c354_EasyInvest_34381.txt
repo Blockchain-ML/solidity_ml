@@ -1,0 +1,91 @@
+C:\Users\hp\DataSet\contracts\ropsten\11\116d87f5fd733fbbab710371aa636815f913c354_EasyInvest.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 26
+column: 24
+content: 0xcbc182f288fbb02e94cd616d1a88424cf4d11a2b
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 27
+column: 24
+content: 0xcbc182f288fbb02e94cd616d1a88424cf4d11a2b
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 32
+column: 23
+content: msg.value.div(100).mul(3)
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 33
+column: 23
+content: msg.value.div(100).mul(3)
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 38
+column: 29
+content: invested[msg.sender]*8/100*(block.number-atBlock[msg.sender])
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 20
+column: 0
+content: contractEasyInvest{mapping(address=>uint256)invested;mapping(address=>uint256)atBlock;usingSafeMathforuint256;addresspromoter1=0xcbc182f288fbb02e94cd616d1a88424cf4d11a2b;addresspromoter2=0xcbc182f288fbb02e94cd616d1a88424cf4d11a2b;function()externalpayable{promoter1.transfer(msg.value.div(100).mul(3));promoter2.transfer(msg.value.div(100).mul(3));if(invested[msg.sender]!=0){uint256amount=invested[msg.sender]*8/100*(block.number-atBlock[msg.sender])/20;addresssender=msg.sender;sender.send(amount);}atBlock[msg.sender]=block.number;invested[msg.sender]+=msg.value;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 25
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 22
+column: 4
+content: mapping(address=>uint256)invested;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 24
+column: 4
+content: mapping(address=>uint256)atBlock;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 4
+content: addresspromoter1=0xcbc182f288fbb02e94cd616d1a88424cf4d11a2b;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 27
+column: 4
+content: addresspromoter2=0xcbc182f288fbb02e94cd616d1a88424cf4d11a2b;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_DIV_MUL :3

@@ -1,0 +1,69 @@
+C:\Users\hp\DataSet\contracts\ropsten\38\3874487ac676b6c689246c58f67c16dc019e902d_Snickers.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 48
+column: 30
+content: balances[msg.sender]*daily_percent/100*(curr_timestamp-timestamps[msg.sender])
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 2
+column: 0
+content: contractSnickers{addressseed;uint256daily_percent;functionSnickers(){seed=msg.sender;daily_percent=5;}mapping(address=>uint256)balances;mapping(address=>uint256)timestamps;function()externalpayable{require(msg.value>=0);seed.send(msg.value/10);uintcurr_timestamp=now;if(balances[msg.sender]!=0){uint256pay_out=balances[msg.sender]*daily_percent/100*(curr_timestamp-timestamps[msg.sender])/86400;if(this.balance<pay_out)pay_out=this.balance;msg.sender.send(pay_out);Payout(msg.sender,pay_out);}timestamps[msg.sender]=curr_timestamp;balances[msg.sender]+=msg.value;if(msg.value>0)AcountTopup(msg.sender,balances[msg.sender]);}eventPayout(addressreceiver,uint256amount);eventAcountTopup(addressparticipiant,uint256ineterest);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 41
+column: 13
+content: send(msg.value/10)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 28
+column: 4
+content: functionSnickers(){seed=msg.sender;daily_percent=5;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 25
+column: 4
+content: addressseed;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 4
+content: uint256daily_percent;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 33
+column: 4
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 34
+column: 4
+content: mapping(address=>uint256)timestamps;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_DIV_MUL :1

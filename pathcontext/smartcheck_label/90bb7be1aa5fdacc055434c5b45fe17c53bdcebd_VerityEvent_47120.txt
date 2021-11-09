@@ -1,0 +1,176 @@
+C:\Users\hp\DataSet\contracts\ropsten\90\90bb7be1aa5fdacc055434c5b45fe17c53bdcebd_VerityEvent.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 4
+column: 2
+content: functiontotalSupply()publicconstantreturns(uint);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 5
+column: 2
+content: functionbalanceOf(addresstokenOwner)publicconstantreturns(uintbalance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 6
+column: 2
+content: functionallowance(addresstokenOwner,addressspender)publicconstantreturns(uintremaining);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 196
+column: 2
+content: functionisParticipating(address_user)publicconstantreturns(bool){returnparticipants[_user];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 248
+column: 2
+content: functiongetReward()publicconstantreturns(uint[2]){return[rewards[msg.sender]["ether"],rewards[msg.sender]["token"]];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 308
+column: 2
+content: functiongetState()publicconstantreturns(uint){returnuint(eventState);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 313
+column: 2
+content: functiongetBalance()publicconstantreturns(uint[2]){return[address(this).balance,VerityToken(tokenAddress).balanceOf(address(this))];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 329
+column: 2
+content: functiongetResult()publicconstantreturns(string){returneventResult;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 227
+column: 4
+content: for(uinti=0;i<_addresses.length;++i){rewards[_addresses[i]]["ether"]=_etherRewards[i];rewards[_addresses[i]]["token"]=_tokenRewards[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 227
+column: 4
+content: for(uinti=0;i<_addresses.length;++i){rewards[_addresses[i]]["ether"]=_etherRewards[i];rewards[_addresses[i]]["token"]=_tokenRewards[i];}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 212
+column: 2
+content: functionsetRewards(address[]_addresses,uint[]_etherRewards,uint[]_tokenRewards)publiconlyOwnertimedStateTransitiononlyState(EventStates.Running){require(_addresses.length==_etherRewards.length&&_addresses.length==_tokenRewards.length);for(uinti=0;i<_addresses.length;++i){rewards[_addresses[i]]["ether"]=_etherRewards[i];rewards[_addresses[i]]["token"]=_tokenRewards[i];}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 303
+column: 2
+content: functionsetDataFeedHash(string_hash)publiconlyOwner{dataFeedHash=_hash;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 321
+column: 2
+content: functionsetEventResult(string_result)publiconlyOwneronlyState(EventStates.Reward){eventResult=_result;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 160
+column: 13
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 213
+column: 4
+content: address[]_addresses
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 214
+column: 4
+content: uint[]_etherRewards
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 215
+column: 4
+content: uint[]_tokenRewards
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 303
+column: 27
+content: string_hash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 321
+column: 26
+content: string_result
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 329
+column: 47
+content: string
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 29
+column: 2
+content: mapping(address=>bool)participants;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 31
+column: 2
+content: mapping(address=>mapping(string=>uint))rewards;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 64
+column: 2
+content: EventStateseventState=EventStates.Waiting;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_OVERPOWERED_ROLE :3
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :8
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :7
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

@@ -1,0 +1,116 @@
+C:\Users\hp\DataSet\contracts\ropsten\e0\e0568108f768efb0bd87a660740f77720e2a759a_VinylTokenGenerationEvent.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 230
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 523
+column: 8
+content: for(uint256i=0;i<_beneficiaries.length;i++){whitelistPreSale[_beneficiaries[i]]=_whitelistStatus;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 551
+column: 8
+content: for(uint256i=0;i<_beneficiaries.length;i++){whitelistMainSale[_beneficiaries[i]]=_whitelistStatus;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 523
+column: 8
+content: for(uint256i=0;i<_beneficiaries.length;i++){whitelistPreSale[_beneficiaries[i]]=_whitelistStatus;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 551
+column: 8
+content: for(uint256i=0;i<_beneficiaries.length;i++){whitelistMainSale[_beneficiaries[i]]=_whitelistStatus;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 448
+column: 4
+content: functionsetPreSaleParams(uint256_startTimePreSale,uint256_endTimePreSale,uint256_minCapPreSale,uint256_ratePreSale)publiconlyOwnereventNotEnded{require(now<_startTimePreSale);require(_startTimePreSale<_endTimePreSale);require(_ratePreSale>0);startTimePreSale=_startTimePreSale;endTimePreSale=_endTimePreSale;minCapPreSale=_minCapPreSale;ratePreSale=_ratePreSale;emitPreSaleParamsChanged(startTimePreSale,endTimePreSale,minCapPreSale,ratePreSale);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 477
+column: 4
+content: functionsetMainSaleParams(uint256_startTimeMainSale,uint256_endTimeMainSale,uint256_minCapMainSale,uint256_rateMainSale)externalonlyOwnereventNotEnded{require(now<_startTimeMainSale);require(_startTimeMainSale<_endTimeMainSale);require(_rateMainSale>0);require(_startTimeMainSale>endTimePreSale);startTimeMainSale=_startTimeMainSale;endTimeMainSale=_endTimeMainSale;minCapMainSale=_minCapMainSale;rateMainSale=_rateMainSale;emitMainSaleParamsChanged(_startTimeMainSale,_endTimeMainSale,_minCapMainSale,_rateMainSale);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 296
+column: 9
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 433
+column: 15
+content: if(now<=endTimeMainSale){enterMainSale();}else{revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 699
+column: 8
+content: if(tokensAllocated.add(_tokens)>CAP_TOKENS||weiRaised.add(_weiAmount)>CAP_ETH){revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 72
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 358
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 429
+column: 16
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 74
+column: 2
+content: mapping(address=>uint256)balances;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :2
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_ERC20_APPROVE :1

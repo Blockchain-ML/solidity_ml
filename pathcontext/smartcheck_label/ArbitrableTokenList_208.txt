@@ -1,0 +1,187 @@
+C:\Users\hp\DataSet\ArbitrableTokenList.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 797
+column: 55
+content: 0x0
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 255
+column: 49
+content: token.requests.length++
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 260
+column: 45
+content: request.rounds.length++
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 309
+column: 8
+content: request.rounds.length++
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 379
+column: 12
+content: request.rounds.length++
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 441
+column: 8
+content: for(uinti=_cursor;i<request.rounds.length&&(_count==0||i<_count);i++)withdrawFeesAndRewards(_beneficiary,_tokenID,_request,i);
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 462
+column: 8
+content: for(uinti=_cursor;i<token.requests.length&&(_count==0||i<_count);i++)batchRoundWithdraw(_beneficiary,_tokenID,i,_roundCursor,_roundCount);
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 716
+column: 8
+content: for(uinti=0;i<request.rounds.length;i++){Roundstorageround=request.rounds[i];if(!request.disputed||request.ruling==Party.None){uintrewardRequester=round.paidFees[uint(Party.Requester)]>0?(round.contributions[_beneficiary][uint(Party.Requester)]*round.feeRewards)/(round.paidFees[uint(Party.Requester)]+round.paidFees[uint(Party.Challenger)]):0;uintrewardChallenger=round.paidFees[uint(Party.Challenger)]>0?(round.contributions[_beneficiary][uint(Party.Challenger)]*round.feeRewards)/(round.paidFees[uint(Party.Requester)]+round.paidFees[uint(Party.Challenger)]):0;total+=rewardRequester+rewardChallenger;}else{total+=round.paidFees[uint(request.ruling)]>0?(round.contributions[_beneficiary][uint(request.ruling)]*round.feeRewards)/round.paidFees[uint(request.ruling)]:0;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 759
+column: 8
+content: for(uinti=0;i<tokensList.length;i++){Tokenstoragetoken=tokens[tokensList[i]];Requeststoragerequest=token.requests[token.requests.length-1];if(token.status==TokenStatus.Absent)absent++;elseif(token.status==TokenStatus.Registered)registered++;elseif(token.status==TokenStatus.RegistrationRequested&&!request.disputed)registrationRequest++;elseif(token.status==TokenStatus.ClearingRequested&&!request.disputed)clearingRequest++;elseif(token.status==TokenStatus.RegistrationRequested&&request.disputed)challengedRegistrationRequest++;elseif(token.status==TokenStatus.ClearingRequested&&request.disputed)challengedClearingRequest++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 804
+column: 12
+content: for(uintj=0;j<list.length;j++){if(list[j]==_cursor){cursorIndex=j;break;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 813
+column: 8
+content: for(uinti=cursorIndex==0?(_oldestFirst?0:1):(_oldestFirst?cursorIndex+1:list.length-cursorIndex+1);_oldestFirst?i<list.length:i<=list.length;i++){bytes32tokenID=list[_oldestFirst?i:list.length-i];Tokenstoragetoken=tokens[tokenID];Requeststoragerequest=token.requests[token.requests.length-1];if((_filter[0]&&token.status==TokenStatus.Absent)||(_filter[1]&&token.status==TokenStatus.Registered)||(_filter[2]&&token.status==TokenStatus.RegistrationRequested&&!request.disputed)||(_filter[3]&&token.status==TokenStatus.ClearingRequested&&!request.disputed)||(_filter[4]&&token.status==TokenStatus.RegistrationRequested&&request.disputed)||(_filter[5]&&token.status==TokenStatus.ClearingRequested&&request.disputed)||(_filter[6]&&request.parties[uint(Party.Requester)]==msg.sender)||(_filter[7]&&request.parties[uint(Party.Challenger)]==msg.sender)){if(index<_count){values[index]=list[_oldestFirst?i:list.length-i];index++;}else{hasMore=true;break;}}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 747
+column: 4
+content: functioncountByStatus()externalviewreturns(uintabsent,uintregistered,uintregistrationRequest,uintclearingRequest,uintchallengedRegistrationRequest,uintchallengedClearingRequest){for(uinti=0;i<tokensList.length;i++){Tokenstoragetoken=tokens[tokensList[i]];Requeststoragerequest=token.requests[token.requests.length-1];if(token.status==TokenStatus.Absent)absent++;elseif(token.status==TokenStatus.Registered)registered++;elseif(token.status==TokenStatus.RegistrationRequested&&!request.disputed)registrationRequest++;elseif(token.status==TokenStatus.ClearingRequested&&!request.disputed)clearingRequest++;elseif(token.status==TokenStatus.RegistrationRequested&&request.disputed)challengedRegistrationRequest++;elseif(token.status==TokenStatus.ClearingRequested&&request.disputed)challengedClearingRequest++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 716
+column: 8
+content: for(uinti=0;i<request.rounds.length;i++){Roundstorageround=request.rounds[i];if(!request.disputed||request.ruling==Party.None){uintrewardRequester=round.paidFees[uint(Party.Requester)]>0?(round.contributions[_beneficiary][uint(Party.Requester)]*round.feeRewards)/(round.paidFees[uint(Party.Requester)]+round.paidFees[uint(Party.Challenger)]):0;uintrewardChallenger=round.paidFees[uint(Party.Challenger)]>0?(round.contributions[_beneficiary][uint(Party.Challenger)]*round.feeRewards)/(round.paidFees[uint(Party.Requester)]+round.paidFees[uint(Party.Challenger)]):0;total+=rewardRequester+rewardChallenger;}else{total+=round.paidFees[uint(request.ruling)]>0?(round.contributions[_beneficiary][uint(request.ruling)]*round.feeRewards)/round.paidFees[uint(request.ruling)]:0;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 759
+column: 8
+content: for(uinti=0;i<tokensList.length;i++){Tokenstoragetoken=tokens[tokensList[i]];Requeststoragerequest=token.requests[token.requests.length-1];if(token.status==TokenStatus.Absent)absent++;elseif(token.status==TokenStatus.Registered)registered++;elseif(token.status==TokenStatus.RegistrationRequested&&!request.disputed)registrationRequest++;elseif(token.status==TokenStatus.ClearingRequested&&!request.disputed)clearingRequest++;elseif(token.status==TokenStatus.RegistrationRequested&&request.disputed)challengedRegistrationRequest++;elseif(token.status==TokenStatus.ClearingRequested&&request.disputed)challengedClearingRequest++;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 804
+column: 12
+content: for(uintj=0;j<list.length;j++){if(list[j]==_cursor){cursorIndex=j;break;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 9
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 249
+column: 13
+content: if(token.status==TokenStatus.Registered)token.status=TokenStatus.ClearingRequested;elserevert("Token already has a pending request.");
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 480
+column: 13
+content: if(token.status==TokenStatus.ClearingRequested)token.status=TokenStatus.Absent;elserevert("There must be a request.");
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 618
+column: 15
+content: (uinttaken,uintremainder)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 428
+column: 21
+content: send(reward)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 644
+column: 21
+content: send(remainingETH)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 180
+column: 8
+content: bytes_arbitratorExtraData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 181
+column: 8
+content: string_registrationMetaEvidence
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 182
+column: 8
+content: string_clearingMetaEvidence
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 4
+content: uintRULING_OPTIONS=2;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :4
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :6
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_UNCHECKED_CALL :2
+SOLIDITY_SHOULD_RETURN_STRUCT :1

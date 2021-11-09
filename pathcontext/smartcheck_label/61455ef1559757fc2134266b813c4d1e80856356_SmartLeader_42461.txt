@@ -1,0 +1,116 @@
+C:\Users\hp\DataSet\contracts\ropsten\61\61455ef1559757fc2134266b813c4d1e80856356_SmartLeader.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 60
+column: 38
+content: 0x01949fB2045CA0a969Df5Af7D49829477b81B042
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 132
+column: 21
+content: 0x0
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 123
+column: 34
+content: deposited[msg.sender].mul(block.number-blocklock[msg.sender]).div(5900).mul(percentRate())
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 155
+column: 9
+content: deposited[_address].mul(block.number-blocklock[_address]).div(5900).mul(5)
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 162
+column: 1
+content: functionbytesToAddress(bytesbys)privatepurereturns(addressaddr){assembly{addr:=mload(add(bys,20))}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 56
+column: 0
+content: contractSmartLeader{usingSafeMathforuint256;addresspublicconstantadvAddress=0x01949fB2045CA0a969Df5Af7D49829477b81B042;mapping(address=>uint256)deposited;mapping(address=>uint256)withdrew;mapping(address=>uint256)refearned;mapping(address=>uint256)blocklock;uint256publictotalDepositedWei=0;uint256publictotalWithdrewWei=0;uint256publicstartPer=15;uint256publiclowPer=21;uint256publicmidPer=27;uint256publichighPer=33;uint256publiclowBal=500;uint256publicmidBal=1500;uint256publichighBal=3000;functionpercentRate()publicviewreturns(uint256){uintbalance=address(this).balance;if(balance<lowBal){return(startPer);}if(balance>=lowBal&&balance<midBal){return(lowPer);}if(balance>=midBal&&balance<highBal){return(midPer);}if(balance>=highBal){return(highPer);}}function()payableexternal{if(msg.value==0.00002015ether){uint256withdrawalAmount=deposited[msg.sender].sub(withdrew[msg.sender]).sub(deposited[msg.sender]).div(10);require(deposited[msg.sender]>withdrawalAmount,&39<missing ')'>;Youhave<missing ';'>alreadyrepaid<missing ';'>yourdeposit&39;);deposited[msg.sender]=0;withdrew[msg.sender]=0;blocklock[msg.sender]=0;msg.sender.transfer(withdrawalAmount);}else{uint256advPerc=msg.value.mul(7).div(100);uint256refPerc=msg.value.mul(10).div(100);advAddress.transfer(advPerc);if(deposited[msg.sender]!=0){addressinvestor=msg.sender;uint256depositsPercents=deposited[msg.sender].mul(block.number-blocklock[msg.sender]).div(5900).mul(percentRate()).div(10000);investor.transfer(depositsPercents);withdrew[msg.sender]+=depositsPercents;totalWithdrewWei=totalWithdrewWei.add(depositsPercents);}addressreferrer=bytesToAddress(msg.data);if(referrer>0x0&&referrer!=msg.sender){referrer.transfer(refPerc);refearned[referrer]+=refPerc;}blocklock[msg.sender]=block.number;deposited[msg.sender]+=msg.value;totalDepositedWei=totalDepositedWei.add(msg.value);}}functionuserDepositedWei(address_address)publicviewreturns(uint256){returndeposited[_address];}functionuserWithdrewWei(address_address)publicviewreturns(uint256){returnwithdrew[_address];}functionuserDividendsWei(address_address)publicviewreturns(uint256){returndeposited[_address].mul(block.number-blocklock[_address]).div(5900).mul(5).div(100);}functionuserReferralsWei(address_address)publicviewreturns(uint256){returnrefearned[_address];}functionbytesToAddress(bytesbys)privatepurereturns(addressaddr){assembly{addr:=mload(add(bys,20))}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 57
+column: 1
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 162
+column: 1
+content: functionbytesToAddress(bytesbys)privatepurereturns(addressaddr){assembly{addr:=mload(add(bys,20))}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 162
+column: 25
+content: bytesbys
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 163
+column: 2
+content: assembly{addr:=mload(add(bys,20))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 63
+column: 1
+content: mapping(address=>uint256)deposited;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 64
+column: 1
+content: mapping(address=>uint256)withdrew;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 65
+column: 1
+content: mapping(address=>uint256)refearned;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 66
+column: 1
+content: mapping(address=>uint256)blocklock;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_DIV_MUL :2
+SOLIDITY_SHOULD_NOT_BE_PURE :1

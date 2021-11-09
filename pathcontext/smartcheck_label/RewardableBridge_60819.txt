@@ -1,0 +1,110 @@
+C:\Users\hp\DataSet\RewardableBridge.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 12
+column: 44
+content: 0x94da17cd
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 13
+column: 47
+content: 0xffd66196
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 14
+column: 52
+content: 0xf2ba9561
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 15
+column: 44
+content: 0x34a9e148
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 16
+column: 47
+content: 0x286c4066
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 17
+column: 45
+content: 0x9862f26f
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 18
+column: 62
+content: 0x59d78464
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 19
+column: 63
+content: 0x054d46ec
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 59
+column: 4
+content: functionsetFeeManagerContract(address_feeManager)externalonlyOwner{require(_feeManager==address(0)||AddressUtils.isContract(_feeManager));addressStorage[FEE_MANAGER_CONTRACT]=_feeManager;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 21
+column: 4
+content: function_getFee(bytes32_feeType)internalviewreturns(uint256){uint256fee;addressfeeManager=feeManagerContract();bytes4method=_feeType==HOME_FEE?GET_HOME_FEE:GET_FOREIGN_FEE;bytesmemorycallData=abi.encodeWithSelector(method);assembly{letresult:=callcode(gas,feeManager,0x0,add(callData,0x20),mload(callData),0,32)fee:=mload(0)switchresultcase0{revert(0,0)}}returnfee;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 39
+column: 4
+content: functiongetFeeManagerMode()externalviewreturns(bytes4){bytes4mode;bytesmemorycallData=abi.encodeWithSelector(GET_FEE_MANAGER_MODE);addressfeeManager=feeManagerContract();assembly{letresult:=callcode(gas,feeManager,0x0,add(callData,0x20),mload(callData),0,4)mode:=mload(0)switchresultcase0{revert(0,0)}}returnmode;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 69
+column: 4
+content: functioncalculateFee(uint256_value,bool_recover,address_impl,bytes32_feeType)internalviewreturns(uint256){uint256fee;bytesmemorycallData=abi.encodeWithSelector(CALCULATE_FEE,_value,_recover,_feeType);assembly{letresult:=callcode(gas,_impl,0x0,add(callData,0x20),mload(callData),0,32)fee:=mload(0)switchresultcase0{revert(0,0)}}returnfee;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 27
+column: 8
+content: assembly{letresult:=callcode(gas,feeManager,0x0,add(callData,0x20),mload(callData),0,32)fee:=mload(0)switchresultcase0{revert(0,0)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 43
+column: 8
+content: assembly{letresult:=callcode(gas,feeManager,0x0,add(callData,0x20),mload(callData),0,4)mode:=mload(0)switchresultcase0{revert(0,0)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 76
+column: 8
+content: assembly{letresult:=callcode(gas,_impl,0x0,add(callData,0x20),mload(callData),0,32)fee:=mload(0)switchresultcase0{revert(0,0)}}
+
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_ADDRESS_HARDCODED :8
+SOLIDITY_USING_INLINE_ASSEMBLY :3
+SOLIDITY_SHOULD_NOT_BE_VIEW :3

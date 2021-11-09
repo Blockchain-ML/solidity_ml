@@ -1,0 +1,425 @@
+C:\Users\hp\DataSet\contracts\ropsten\12\12c556a621e9c7d0028cb6733b6fedbf55ce3a39_Lottery.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 198
+column: 55
+content: 0xF
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 198
+column: 86
+content: 0xF
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 124
+column: 8
+content: referals.length=1
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 132
+column: 8
+content: games.length=2
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 458
+column: 8
+content: game.winTicketIndices.length=numbersCount+1
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 459
+column: 8
+content: game.winLevelAmounts.length=numbersCount+1
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 478
+column: 8
+content: games.length++
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 539
+column: 4
+content: functiongetEqualCount(bytesnumbers,Gamestoragegame)constantprivatereturns(uintcount){for(uinti=0;i<numbers.length;i++){if(game.winNumbersMap[numbers[i]])count++;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 197
+column: 12
+content: for(uinti=0;i<numbers.length;i++){numbers[i]=uint((msg.data[i]>>4)&0xF)*10+uint(msg.data[i]&0xF);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 214
+column: 12
+content: for(i=0;i<numbers.length;i++){numbers[i]=uint(msg.data[i])-shift;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 238
+column: 12
+content: for(uintj=0;j<numbersCount;j++){bet[j]=byte(numbers[i++]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 274
+column: 16
+content: for(uintj=0;j<numbersCount;j++){tickets[k++]=int(games[gameIndex].tickets[info[1]].numbers[j]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 283
+column: 16
+content: for(j=0;j<numbersCount;j++){if(games[gameIndex].winNumbersMap[games[gameIndex].tickets[info[1]].numbers[j]]){tickets[k++]=-int(games[gameIndex].tickets[info[1]].numbers[j]);}else{tickets[k++]=int(games[gameIndex].tickets[info[1]].numbers[j]);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 299
+column: 8
+content: for(uintgameIndex=0;gameIndex<n;gameIndex++){ticketCount+=games[gameIndex].tickets.length;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 306
+column: 8
+content: for(gameIndex=0;gameIndex<n;gameIndex++){Ticket[]storagegameTickets=games[gameIndex].tickets;for(uintticketIndex=0;ticketIndex<gameTickets.length;ticketIndex++){tickets[k++]=int(gameIndex);tickets[k++]=int(ticketIndex);tickets[k++]=int(games[gameIndex].startTime);if(games[gameIndex].winNumbers.length==0){tickets[k++]=-1;tickets[k++]=int(games[gameIndex].price);for(uintj=0;j<numbersCount;j++){tickets[k++]=int(games[gameIndex].tickets[ticketIndex].numbers[j]);}}else{uintwinNumbersCount=getEqualCount(games[gameIndex].tickets[ticketIndex].numbers,games[gameIndex]);tickets[k++]=int(games[gameIndex].winLevelAmounts[winNumbersCount]);tickets[k++]=int(games[gameIndex].price);for(j=0;j<numbersCount;j++){if(games[gameIndex].winNumbersMap[games[gameIndex].tickets[ticketIndex].numbers[j]]){tickets[k++]=-int(games[gameIndex].tickets[ticketIndex].numbers[j]);}else{tickets[k++]=int(games[gameIndex].tickets[ticketIndex].numbers[j]);}}}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 308
+column: 12
+content: for(uintticketIndex=0;ticketIndex<gameTickets.length;ticketIndex++){tickets[k++]=int(gameIndex);tickets[k++]=int(ticketIndex);tickets[k++]=int(games[gameIndex].startTime);if(games[gameIndex].winNumbers.length==0){tickets[k++]=-1;tickets[k++]=int(games[gameIndex].price);for(uintj=0;j<numbersCount;j++){tickets[k++]=int(games[gameIndex].tickets[ticketIndex].numbers[j]);}}else{uintwinNumbersCount=getEqualCount(games[gameIndex].tickets[ticketIndex].numbers,games[gameIndex]);tickets[k++]=int(games[gameIndex].winLevelAmounts[winNumbersCount]);tickets[k++]=int(games[gameIndex].price);for(j=0;j<numbersCount;j++){if(games[gameIndex].winNumbersMap[games[gameIndex].tickets[ticketIndex].numbers[j]]){tickets[k++]=-int(games[gameIndex].tickets[ticketIndex].numbers[j]);}else{tickets[k++]=int(games[gameIndex].tickets[ticketIndex].numbers[j]);}}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 318
+column: 20
+content: for(uintj=0;j<numbersCount;j++){tickets[k++]=int(games[gameIndex].tickets[ticketIndex].numbers[j]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 327
+column: 20
+content: for(j=0;j<numbersCount;j++){if(games[gameIndex].winNumbersMap[games[gameIndex].tickets[ticketIndex].numbers[j]]){tickets[k++]=-int(games[gameIndex].tickets[ticketIndex].numbers[j]);}else{tickets[k++]=int(games[gameIndex].tickets[ticketIndex].numbers[j]);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 363
+column: 16
+content: for(uintj=0;j<numbersCount;j++){res[k++]=0;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 368
+column: 16
+content: for(j=0;j<numbersCount;j++){res[k++]=uint(game.winNumbers[j]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 384
+column: 12
+content: for(uintindexInlevel=0;indexInlevel<game.winTicketIndices[level].length;indexInlevel++){if(offset<=currentIndex&&currentIndex<n){uintticketIndex=game.winTicketIndices[level][indexInlevel];Ticketstorageticket=game.tickets[ticketIndex];res[k++]=uint(ticket.user);res[k++]=level;res[k++]=ticketIndex;res[k++]=game.winLevelAmounts[level];}elseif(currentIndex>=n){wins=newuint[](k);for(uinti=0;i<k;i++){wins[i]=res[i];}returnwins;}currentIndex++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 410
+column: 8
+content: for(uinti=0;i<array.length-1;i++){for(uintj=i+1;j<array.length;j++){if(array[i]==array[j])returnfalse;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 411
+column: 12
+content: for(uintj=i+1;j<array.length;j++){if(array[i]==array[j])returnfalse;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 423
+column: 8
+content: for(uinti=0;i<numbersCountMax;i++){allNumbers[i]=byte(i+1);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 427
+column: 8
+content: for(i=0;i<numbersCount;i++){uintn=numbersCountMax-i;uintr=(uint(random[i*4])+(uint(random[i*4+1])<<8)+(uint(random[i*4+2])<<16)+(uint(random[i*4+3])<<24))%n;winNumbers[i]=allNumbers[r];allNumbers[r]=allNumbers[n-1];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 454
+column: 8
+content: for(uinti=0;i<game.winNumbers.length;i++){game.winNumbersMap[game.winNumbers[i]]=true;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 469
+column: 8
+content: for(uintreferalId=0;referalId<referals.length;referalId++){Referal[]storagerefList=referals[referalId];riseAmount=game.referalIdToTicketCount[referalId]*game.price;for(i=0;i<refList.length;i++){Referalstorageref=refList[i];ref.wallet.transfer(riseAmount*ref.percent/percentDivider);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 472
+column: 12
+content: for(i=0;i<refList.length;i++){Referalstorageref=refList[i];ref.wallet.transfer(riseAmount*ref.percent/percentDivider);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 493
+column: 8
+content: for(uinti=2;i<numbersCount;i++){uintwinCount=game.winTicketIndices[i].length;uintwinAmount=riseAmount*winPercent[i]/100;if(winCount>0){game.winLevelAmounts[i]=winAmount/winCount;game.needPlayersTransfer+=winAmount;}else{freeAmount+=winAmount;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 540
+column: 8
+content: for(uinti=0;i<numbers.length;i++){if(game.winNumbersMap[numbers[i]])count++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 234
+column: 8
+content: while(i<numbers.length){bytesmemorybet=newbytes(numbersCount);for(uintj=0;j<numbersCount;j++){bet[j]=byte(numbers[i++]);}require(noDuplicates(bet));playerTickets[msg.sender].push([gameIndexToBuy,game.tickets.length]);game.tickets.push(Ticket(msg.sender,bet));}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 539
+column: 4
+content: functiongetEqualCount(bytesnumbers,Gamestoragegame)constantprivatereturns(uintcount){for(uinti=0;i<numbers.length;i++){if(game.winNumbersMap[numbers[i]])count++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 197
+column: 12
+content: for(uinti=0;i<numbers.length;i++){numbers[i]=uint((msg.data[i]>>4)&0xF)*10+uint(msg.data[i]&0xF);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 214
+column: 12
+content: for(i=0;i<numbers.length;i++){numbers[i]=uint(msg.data[i])-shift;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 308
+column: 12
+content: for(uintticketIndex=0;ticketIndex<gameTickets.length;ticketIndex++){tickets[k++]=int(gameIndex);tickets[k++]=int(ticketIndex);tickets[k++]=int(games[gameIndex].startTime);if(games[gameIndex].winNumbers.length==0){tickets[k++]=-1;tickets[k++]=int(games[gameIndex].price);for(uintj=0;j<numbersCount;j++){tickets[k++]=int(games[gameIndex].tickets[ticketIndex].numbers[j]);}}else{uintwinNumbersCount=getEqualCount(games[gameIndex].tickets[ticketIndex].numbers,games[gameIndex]);tickets[k++]=int(games[gameIndex].winLevelAmounts[winNumbersCount]);tickets[k++]=int(games[gameIndex].price);for(j=0;j<numbersCount;j++){if(games[gameIndex].winNumbersMap[games[gameIndex].tickets[ticketIndex].numbers[j]]){tickets[k++]=-int(games[gameIndex].tickets[ticketIndex].numbers[j]);}else{tickets[k++]=int(games[gameIndex].tickets[ticketIndex].numbers[j]);}}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 384
+column: 12
+content: for(uintindexInlevel=0;indexInlevel<game.winTicketIndices[level].length;indexInlevel++){if(offset<=currentIndex&&currentIndex<n){uintticketIndex=game.winTicketIndices[level][indexInlevel];Ticketstorageticket=game.tickets[ticketIndex];res[k++]=uint(ticket.user);res[k++]=level;res[k++]=ticketIndex;res[k++]=game.winLevelAmounts[level];}elseif(currentIndex>=n){wins=newuint[](k);for(uinti=0;i<k;i++){wins[i]=res[i];}returnwins;}currentIndex++;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 454
+column: 8
+content: for(uinti=0;i<game.winNumbers.length;i++){game.winNumbersMap[game.winNumbers[i]]=true;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 469
+column: 8
+content: for(uintreferalId=0;referalId<referals.length;referalId++){Referal[]storagerefList=referals[referalId];riseAmount=game.referalIdToTicketCount[referalId]*game.price;for(i=0;i<refList.length;i++){Referalstorageref=refList[i];ref.wallet.transfer(riseAmount*ref.percent/percentDivider);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 472
+column: 12
+content: for(i=0;i<refList.length;i++){Referalstorageref=refList[i];ref.wallet.transfer(riseAmount*ref.percent/percentDivider);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 540
+column: 8
+content: for(uinti=0;i<numbers.length;i++){if(game.winNumbersMap[numbers[i]])count++;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 234
+column: 15
+content: i<numbers.length
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 104
+column: 4
+content: functionsetDrawer(address_drawer)publiconlyOwner{drawer=_drawer;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 545
+column: 4
+content: functionsetJackpotGuaranteed(uint_jackpotGuaranteed)publiconlyOwner{jackpotGuaranteed=_jackpotGuaranteed;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 469
+column: 8
+content: for(uintreferalId=0;referalId<referals.length;referalId++){Referal[]storagerefList=referals[referalId];riseAmount=game.referalIdToTicketCount[referalId]*game.price;for(i=0;i<refList.length;i++){Referalstorageref=refList[i];ref.wallet.transfer(riseAmount*ref.percent/percentDivider);}}
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 472
+column: 12
+content: for(i=0;i<refList.length;i++){Referalstorageref=refList[i];ref.wallet.transfer(riseAmount*ref.percent/percentDivider);}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 191
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 222
+column: 23
+content: uint[]numbers
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 252
+column: 92
+content: int[]tickets
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 295
+column: 50
+content: int[]tickets
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 340
+column: 68
+content: uint[]res
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 375
+column: 83
+content: uint[]wins
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 409
+column: 26
+content: bytesarray
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 418
+column: 27
+content: stringbitcoinBlockHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 418
+column: 114
+content: bytes
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 445
+column: 46
+content: stringbitcoinBlockHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 539
+column: 27
+content: bytesnumbers
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 25
+column: 4
+content: stringconstantversion="1.2";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 58
+column: 4
+content: mapping(address=>uint[2][])playerTickets;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :5
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :23
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :11
+SOLIDITY_GAS_LIMIT_IN_LOOPS :9
+SOLIDITY_TRANSFER_IN_LOOP :2

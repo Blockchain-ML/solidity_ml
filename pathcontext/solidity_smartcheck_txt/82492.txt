@@ -1,0 +1,215 @@
+F:\Blockchain\dataset_new_byID\82492.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 96
+column: 25
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 96
+column: 40
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 96
+column: 61
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 97
+column: 63
+content: sha3
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VAR
+patternId: d28aa7
+severity: 2
+line: 53
+column: 4
+content: var_regOk=_store.registerCustomer(owner,"DummyCustomer1",100)
+
+ruleId: SOLIDITY_VAR
+patternId: d28aa7
+severity: 2
+line: 106
+column: 4
+content: var_regOk=_store.registerCustomer(customer,"DummyCustomer1",100)
+
+ruleId: SOLIDITY_VAR
+patternId: d28aa7
+severity: 2
+line: 115
+column: 4
+content: var_regOk=_store.registerCustomer(customer,"DummyCustomer1",100)
+
+ruleId: SOLIDITY_VAR
+patternId: d28aa7
+severity: 2
+line: 128
+column: 4
+content: var_regOk=_store.registerCustomer(customer,"DummyCustomer1",100)
+
+ruleId: SOLIDITY_VAR
+patternId: d28aa7
+severity: 2
+line: 140
+column: 4
+content: var_regOk=_store.registerCustomer(customer,"DummyCustomer1",100)
+
+ruleId: SOLIDITY_VAR
+patternId: d28aa7
+severity: 2
+line: 152
+column: 4
+content: var_regOk=_store.registerCustomer(customer,"DummyCustomer1",100)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 15
+column: 2
+content: functionbeforeAll(){store=newStore();defaultOwner=address(this);dummy=address(0x00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDEADBEEF);customerAddress=address(0x00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAA);store.registerProduct(0,"default test product","default description",50,1);store.registerProduct(55,"default test product 55","default desc 55",55,1);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 26
+column: 2
+content: functiontestInitialBalanceUsingDeployedContract(){Store_store=Store(DeployedAddresses.Store());uint256expected=0;Assert.equal(_store.getBalance(),expected,"Store should have 0 in initial balance");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 33
+column: 2
+content: functiontestRenameStore(){boolexpected=true;boolresult=store.renameStoreTo("myTestStore");Assert.equal(result,expected,"Store name should be changeable");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 41
+column: 2
+content: functiontestTransferOwnership(){Store_store=newStore();addressprevious_owner=_store.owner();_store.transferOwnership(dummy);boolowner_changed=(_store.owner()!=previous_owner);Assert.isTrue(owner_changed,"Store owner should be changeable");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 49
+column: 2
+content: functiontestStoreBalanceAfterCheckout(){addressowner=address(this);Store_store=newStore();_store.registerProduct(0,"t-shirt","lacoste",40,1);var_regOk=_store.registerCustomer(owner,"DummyCustomer1",100);var(_insertOk,_prod_pos)=_store.insertProductIntoCart(0);bool_chkOutOk=_store.checkoutCart();uint256balance=_store.getStoreBalance();boolallOk=_regOk&&_insertOk&&(_prod_pos==0)&&_chkOutOk&&(balance>0);Assert.isTrue(allOk,"Store balance should increase after checkout");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 64
+column: 2
+content: functiontestRegisterProduct(){boolexpected=true;boolresult=store.registerProduct(99,"t-shirt","lacoste",40,1);Assert.equal(result,expected,"Store should register a product");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 70
+column: 2
+content: functiontestDeregisterProduct(){boolexpected=true;boolresult=store.deregisterProduct(99);Assert.equal(result,expected,"Store should de-register a product");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 76
+column: 2
+content: functiontestRegisterCustomer(){addresscustomer=address(customerAddress);boolexpected=true;boolresult=store.registerCustomer(customer,"Harris",100);Assert.equal(result,expected,"Store should register a customer");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 83
+column: 2
+content: functiontestDeregisterCustomer(){addresscustomer=address(customerAddress);boolexpected=true;boolresult=store.deregisterCustomer(customer);Assert.equal(result,expected,"Store should de-register a customer");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 90
+column: 2
+content: functiontestReturnsProductInformation(){bytes32prod_name=bytes32("default test product");bytes32prod_desc=bytes32("default description");uint256prod_price=50;uint256prod_default_amount=1;var(_name,_desc,_price,_amount)=store.getProduct(0);boolstringsEqual=(sha3(_name)==sha3(prod_name))&&(sha3(_desc)==sha3(prod_desc));boolnumsEqual=(_price==prod_price)&&(_amount==prod_default_amount);boolallOk=stringsEqual&&numsEqual;Assert.isTrue(allOk,"Store should return a previously registered product");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 103
+column: 2
+content: functiontestInsertProductIntoCart(){addresscustomer=address(this);Store_store=newStore();var_regOk=_store.registerCustomer(customer,"DummyCustomer1",100);var(_insertOk,pos)=_store.insertProductIntoCart(55);Assert.isTrue(_insertOk&&_regOk&&(pos==0),"Customer should be able to insert a product into shopping cart");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 112
+column: 2
+content: functiontestInsertMultipleProductsIntoCart(){addresscustomer=address(this);Store_store=newStore();var_regOk=_store.registerCustomer(customer,"DummyCustomer1",100);var(_insertOk,pos)=_store.insertProductIntoCart(55);var(_insertOk2,pos2)=_store.insertProductIntoCart(55);var(_insertOk3,pos3)=_store.insertProductIntoCart(55);var_allInserted=_insertOk&&_insertOk2&&_insertOk3;Assert.isTrue(_allInserted&&_regOk&&(pos==0&&pos2==1&&pos3==2),"Customer should be able to insert multiple products into shopping cart");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 125
+column: 2
+content: functiontestRemoveProductFromCart(){addresscustomer=address(this);Store_store=newStore();var_regOk=_store.registerCustomer(customer,"DummyCustomer1",100);var(_insertOk,_prod_pos)=_store.insertProductIntoCart(0);_store.removeProductFromCart(0);var(productIds,completeSum)=_store.getCart();boolallOk=_regOk&&_insertOk&&(_prod_pos==0)&&(completeSum==0);Assert.isTrue(allOk,"Customer should be able to remove products from shopping cart");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 137
+column: 2
+content: functiontestCheckoutCart(){addresscustomer=address(this);Store_store=newStore();var_regOk=_store.registerCustomer(customer,"DummyCustomer1",100);var(_insertOk,_prod_pos)=_store.insertProductIntoCart(55);bool_chkOutOk=_store.checkoutCart();boolallOk=_regOk&&_insertOk&&(_prod_pos==0)&&_chkOutOk;Assert.isTrue(allOk,"Customer should be able to check out shopping cart");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 149
+column: 2
+content: functiontestEmptyCart(){addresscustomer=address(this);Store_store=newStore();var_regOk=_store.registerCustomer(customer,"DummyCustomer1",100);var(_insertOk,_prod_pos)=_store.insertProductIntoCart(55);bool_chkOutOk=_store.emptyCart();boolallOk=_regOk&&(_insertOk&&_prod_pos==0)&&_chkOutOk;Assert.isTrue(allOk,"Customer should be able to empty its shopping cart");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 2
+content: Storestore;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 2
+content: addressdefaultOwner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 11
+column: 2
+content: addressdummy;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 2
+content: addresscustomerAddress;
+
+SOLIDITY_VISIBILITY :19
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_VAR :6

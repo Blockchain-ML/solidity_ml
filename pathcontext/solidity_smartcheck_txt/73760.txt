@@ -1,0 +1,74 @@
+F:\Blockchain\dataset_new_byID\73760.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractPublicMultiSigWithRBACisPublicMultiSig{structParticipantRBAC{boolsuggester;boolapprover;boolexecuter;}mapping(address=>ParticipantRBAC)internalparticipantRBACs;modifieronlySuggester(){require(participantRBACs[msg.sender].suggester,"PMSWR01");_;}modifieronlyApprover(){require(participantRBACs[msg.sender].approver,"PMSWR02");_;}modifieronlyExecuter(){require(participantRBACs[msg.sender].executer,"PMSWR03");_;}constructor(uint256_threshold,uint256_duration,address[]memory_participants,uint256[]memory_weights,bool[]memory_suggesters,bool[]memory_approvers,bool[]memory_executers)publicPublicMultiSig(_threshold,_duration,_participants,_weights){updateManyParticipantsRolesInternal(_participants,_suggesters,_approvers,_executers);}functionisSuggester(address_address)publicviewreturns(bool){returnparticipantRBACs[_address].suggester;}functionisApprover(address_address)publicviewreturns(bool){returnparticipantRBACs[_address].approver;}functionisExecuter(address_address)publicviewreturns(bool){returnparticipantRBACs[_address].executer;}functionexecute(uint256_transactionId)publicoverrideonlyExecuterreturns(bool){returnsuper.execute(_transactionId);}functionsuggest(addresspayable_destination,uint256_value,bytesmemory_data)publicoverrideonlySuggesterreturns(bool){returnsuper.suggest(_destination,_value,_data);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 76
+column: 2
+content: functionsuggest(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 77
+column: 20
+content: _destination,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 78
+column: 4
+content: uint256_value,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 79
+column: 4
+content: bytesmemory_data)public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 79
+column: 31
+content: overrideonlySuggesterreturns
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 79
+column: 62
+content: (bool){return
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 81
+column: 11
+content: super.suggest(_destination,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 81
+column: 39
+content: _value,_data);
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

@@ -1,0 +1,39 @@
+F:\Blockchain\dataset_new_byID\73878.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 6
+column: 0
+content: contractYouTubeEvidencesisusingOraclize{stringprivateconstantHTML="html(https://www.youtube.com/watch?v=";stringprivateconstantXPATH=").xpath(count(//div[contains(@id,'description')]//a[contains(@href,'";mapping(bytes32=>YouTubeEvidence)publicevidences;structYouTubeEvidence{addressregistry;addressevidencer;stringevidencedId;stringvideoId;boolisPending;boolisVerified;}eventOraclizeQuery(bytes32evidenceId);eventYouTubeEvidenceEvent(bytes32evidenceId,bytes32indexedevidencedIdHash,stringevidencedHash,stringvideoId,addressindexedevidencer,boolisVerified);constructor(uintgasPrice)public{oraclize_setCustomGasPrice(gasPrice);}function__callback(bytes32evidenceId,stringmemoryproperLinksCount)public{require(msg.sender==oraclize_cbAddress());processVerification(evidenceId,properLinksCount);}functionprocessVerification(bytes32evidenceId,stringmemoryproperLinksCount)public{require(evidences[evidenceId].isPending);evidences[evidenceId].isPending=false;if(parseInt(properLinksCount)>0){Evidencable(evidences[evidenceId].registry).addEvidence(evidences[evidenceId].evidencedId);evidences[evidenceId].isVerified=true;}emitYouTubeEvidenceEvent(evidenceId,keccak256(abi.encodePacked(evidences[evidenceId].evidencedId)),evidences[evidenceId].evidencedId,evidences[evidenceId].videoId,evidences[evidenceId].evidencer,evidences[evidenceId].isVerified);}functioncheck(addressregistry,stringmemoryevidencedId,stringmemoryvideoId,uintgasLimit)publicpayable{require(address(this).balance>=oraclize_getPrice("URL",gasLimit),"Not enough funds to run Oraclize query");stringmemoryquery=strConcat(HTML,videoId,XPATH,evidencedId,"')]))");bytes32evidenceId=oraclize_query("URL",query,gasLimit);evidences[evidenceId]=YouTubeEvidence(registry,msg.sender,evidencedId,videoId,true,false);emitOraclizeQuery(evidenceId);}functiongetPrice(uintgasLimit)publicviewreturns(uint){returnoraclize.getPrice("URL",gasLimit);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: >=
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 25
+content: <
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 7
+column: 11
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 8
+column: 11
+content: private
+
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2

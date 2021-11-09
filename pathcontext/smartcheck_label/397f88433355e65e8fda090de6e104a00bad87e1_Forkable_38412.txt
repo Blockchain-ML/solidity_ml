@@ -1,0 +1,221 @@
+C:\Users\hp\DataSet\contracts\ropsten\39\397f88433355e65e8fda090de6e104a00bad87e1_Forkable.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 9
+column: 0
+content: contractCore{addresspayableowner;constructor()public{owner=msg.sender;}modifieronlyOwner(){require(msg.sender==owner);_;}functionsetOwner(addresspayablenewOwner)publiconlyOwnerreturns(bool){require(newOwner!=<missing ';'>address(0)&&address(this)!=newOwner);owner=newOwner;returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 61
+column: 0
+content: contractForkisCore{constructor(address_owner)public{owner=address(uint160(_owner));}function()externalpayable{}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 67
+column: 0
+content: contractForkableisCore{address[]publicAddresses;mapping(address=>Status)publicInfo;structStatus{uintId;boolactive;}constructor(address_owner)public{owner=address(uint160(_owner));Addresses.push(address(this));Info[address(this)].Id=0;Info[address(this)].active=true;}function()externalpayable{}functionfork()publiconlyOwnerreturns(address){addressn=address(newFork(address(this)));Info[n].active=true;Info[n].Id=Addresses.length;Addresses.push(n);returnn;}functionsetMain(addresspayablenewMain,addressforkAddress)publiconlyOwnerreturns(bool){require(newMain!=<missing ';'>address(0));require(Info[newMain].Id<1&&Info[forkAddress].active);if(!Core<missing ';'>(forkAddress).setOwner(newMain))revert();Info[forkAddress].active=false;returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 18
+column: 4
+content: functionsetOwner(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 88
+column: 4
+content: functionsetMain(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: addresspayableowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 18
+column: 72
+content: (bool){require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 15
+content: (newOwner!=<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 28
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 35
+content: (0)&&
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 42
+content: address(this)!=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 59
+content: newOwner);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 20
+column: 8
+content: owner=newOwner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 88
+column: 37
+content: newMain,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 88
+column: 46
+content: addressforkAddress)public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 88
+column: 74
+content: onlyOwnerreturns
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 88
+column: 91
+content: (bool){require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 15
+content: (newMain!=<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 27
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 34
+content: (0));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 90
+column: 8
+content: require(Info[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 90
+column: 21
+content: newMain].
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 90
+column: 30
+content: Id<1&&
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 90
+column: 40
+content: Info[forkAddress].active);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 91
+column: 11
+content: (!Core<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 91
+column: 17
+content: (forkAddress).setOwner
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 91
+column: 39
+content: (newMain))revert
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 91
+column: 56
+content: ();Info[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 92
+column: 13
+content: forkAddress].
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 92
+column: 26
+content: active=false;returntrue;
+
+SOLIDITY_VISIBILITY :27
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :3

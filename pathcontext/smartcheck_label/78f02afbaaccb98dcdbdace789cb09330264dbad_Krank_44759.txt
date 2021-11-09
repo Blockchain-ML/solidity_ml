@@ -1,0 +1,354 @@
+C:\Users\hp\DataSet\contracts\ropsten\78\78f02afbaaccb98dcdbdace789cb09330264dbad_Krank.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 268
+column: 40
+content: pendingArtistsIndex.length++
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 300
+column: 30
+content: artists[artist].approversRewardeds.length++
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 313
+column: 30
+content: artists[artist].unnapproversRewardeds.length++
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 54
+column: 4
+content: functiontotalSupply()publicconstantreturns(uint256supply){returntotalSupply;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 228
+column: 4
+content: functionisArtist(addressartist)constantpublicreturns(bool){if(artists[artist].registered!=true&&artists[artist].registered!=false){returnfalse;}else{returnartists[artist].registered;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 243
+column: 4
+content: functiongetAvatar(addressartist)constantpublicreturns(bytes32){returnartists[artist].avatar;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 248
+column: 4
+content: functiongetArtistInfo(addressartist)constantpublicreturns(bytes32){returnartists[artist].artistInfo;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 319
+column: 4
+content: functiongetUnapprovedArtists()constantpublicreturns(address[],bytes32[],bytes32[],bytes32[],uint[]){uintlength=pendingArtistsIndex.length;address[]memoryaddr=newaddress[](length);bytes32[]memoryartistInfo=newbytes32[](length);bytes32[]memoryavatar=newbytes32[](length);bytes32[]memorypromoTrack=newbytes32[](length);uint[]memoryapproveds=newuint[](length);for(uinti=0;i<length;i++){addresskey=pendingArtistsIndex[i];if(artists[key].registered==false){addr[i]=key;artistInfo[i]=artists[key].artistInfo;approveds[i]=pendingArtists[key];avatar[i]=artists[key].avatar;promoTrack[i]=artists[key].promoTrack;}}return(addr,artistInfo,avatar,promoTrack,approveds);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 418
+column: 4
+content: functiongetTracks()constantpublicreturns(bytes32[],bytes32[],uint[],bytes32[]){address[]memoryartistList=super.getArtistList();for(uinti=0;i<artistList.length;i++){uintlengthArtistsTrack=artistTracksList[artistList[i]].length;bytes32[]memorytrackName=newbytes32[](lengthArtistsTrack);uint[]memorytrackPrice=newuint[](lengthArtistsTrack);uint[]memorylikes=newuint[](lengthArtistsTrack);uint[]memorydislikes=newuint[](lengthArtistsTrack);bytes32[]memorygenre=newbytes32[](lengthArtistsTrack);bytes32[]memorytrackId=newbytes32[](lengthArtistsTrack);for(uinte=0;e<lengthArtistsTrack;e++){bytes32_trackId=artistTracksList[artistList[i]][e];trackId[e]=artistTracksList[artistList[i]][e];trackName[e]=artistTracks[artistList[i]][_trackId].trackName;trackPrice[e]=artistTracks[artistList[i]][_trackId].price;genre[e]=artistTracks[artistList[i]][_trackId].genre;}}return(trackId,trackName,trackPrice,genre);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 439
+column: 4
+content: functiongetTracks2()constantpublicreturns(address[],bytes32[],bytes32[]){address[]memoryartistList=super.getArtistList();for(uinti=0;i<artistList.length;i++){uintlengthArtistsTrack=artistTracksList[artistList[i]].length;address[]memoryartist=newaddress[](lengthArtistsTrack);bytes32[]memorycover=newbytes32[](lengthArtistsTrack);bytes32[]memoryavatar=newbytes32[](lengthArtistsTrack);for(uinte=0;e<lengthArtistsTrack;e++){bytes32_trackId=artistTracksList[artistList[i]][e];artist[e]=artistList[i];cover[e]=artistTracks[artistList[i]][_trackId].cover;avatar[e]=super.getAvatar(artistList[i]);}}return(artist,cover,avatar);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 457
+column: 4
+content: functioncanDownload(addressartist,addressbuyer,bytes32trackId)publicconstantreturns(bool){returnartistTracks[artist][trackId].buyers[buyer];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 461
+column: 4
+content: function_canDownload(bytes32hash,uint8v,bytes32r,bytes32s)publicconstantreturns(address){addresssigner=ecrecover(hash,v,r,s);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 468
+column: 4
+content: functiongetArtistTrack(bytes32trackId,addressartist)publicconstantreturns(bytes32,uint){return(artistTracks[artist][trackId].trackName,artistTracks[artist][trackId].price);}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 107
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(boolsuccess){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 420
+column: 8
+content: for(uinti=0;i<artistList.length;i++){uintlengthArtistsTrack=artistTracksList[artistList[i]].length;bytes32[]memorytrackName=newbytes32[](lengthArtistsTrack);uint[]memorytrackPrice=newuint[](lengthArtistsTrack);uint[]memorylikes=newuint[](lengthArtistsTrack);uint[]memorydislikes=newuint[](lengthArtistsTrack);bytes32[]memorygenre=newbytes32[](lengthArtistsTrack);bytes32[]memorytrackId=newbytes32[](lengthArtistsTrack);for(uinte=0;e<lengthArtistsTrack;e++){bytes32_trackId=artistTracksList[artistList[i]][e];trackId[e]=artistTracksList[artistList[i]][e];trackName[e]=artistTracks[artistList[i]][_trackId].trackName;trackPrice[e]=artistTracks[artistList[i]][_trackId].price;genre[e]=artistTracks[artistList[i]][_trackId].genre;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 441
+column: 8
+content: for(uinti=0;i<artistList.length;i++){uintlengthArtistsTrack=artistTracksList[artistList[i]].length;address[]memoryartist=newaddress[](lengthArtistsTrack);bytes32[]memorycover=newbytes32[](lengthArtistsTrack);bytes32[]memoryavatar=newbytes32[](lengthArtistsTrack);for(uinte=0;e<lengthArtistsTrack;e++){bytes32_trackId=artistTracksList[artistList[i]][e];artist[e]=artistList[i];cover[e]=artistTracks[artistList[i]][_trackId].cover;avatar[e]=super.getAvatar(artistList[i]);}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 461
+column: 4
+content: function_canDownload(bytes32hash,uint8v,bytes32r,bytes32s)publicconstantreturns(address){addresssigner=ecrecover(hash,v,r,s);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 326
+column: 8
+content: for(uinti=0;i<length;i++){addresskey=pendingArtistsIndex[i];if(artists[key].registered==false){addr[i]=key;artistInfo[i]=artists[key].artistInfo;approveds[i]=pendingArtists[key];avatar[i]=artists[key].avatar;promoTrack[i]=artists[key].promoTrack;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 350
+column: 8
+content: for(uinti=0;i<length;i++){addressapprover=artists[artist].approversRewardeds[i];super._mintToken(approver,2500000000000000000);super._transfer(owner,approver,5000000000000000000);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 359
+column: 8
+content: for(uinti=0;i<length;i++){addressapprover=artists[artist].unnapproversRewardeds[i];super._mintToken(approver,2500000000000000000);super._transfer(owner,approver,5000000000000000000);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 413
+column: 8
+content: for(uinti=0;i<length;i++){registerTrack(tracksIds[i],priceAlbum,tracksNames[i],genres[i],cover,false);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 420
+column: 8
+content: for(uinti=0;i<artistList.length;i++){uintlengthArtistsTrack=artistTracksList[artistList[i]].length;bytes32[]memorytrackName=newbytes32[](lengthArtistsTrack);uint[]memorytrackPrice=newuint[](lengthArtistsTrack);uint[]memorylikes=newuint[](lengthArtistsTrack);uint[]memorydislikes=newuint[](lengthArtistsTrack);bytes32[]memorygenre=newbytes32[](lengthArtistsTrack);bytes32[]memorytrackId=newbytes32[](lengthArtistsTrack);for(uinte=0;e<lengthArtistsTrack;e++){bytes32_trackId=artistTracksList[artistList[i]][e];trackId[e]=artistTracksList[artistList[i]][e];trackName[e]=artistTracks[artistList[i]][_trackId].trackName;trackPrice[e]=artistTracks[artistList[i]][_trackId].price;genre[e]=artistTracks[artistList[i]][_trackId].genre;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 428
+column: 12
+content: for(uinte=0;e<lengthArtistsTrack;e++){bytes32_trackId=artistTracksList[artistList[i]][e];trackId[e]=artistTracksList[artistList[i]][e];trackName[e]=artistTracks[artistList[i]][_trackId].trackName;trackPrice[e]=artistTracks[artistList[i]][_trackId].price;genre[e]=artistTracks[artistList[i]][_trackId].genre;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 441
+column: 8
+content: for(uinti=0;i<artistList.length;i++){uintlengthArtistsTrack=artistTracksList[artistList[i]].length;address[]memoryartist=newaddress[](lengthArtistsTrack);bytes32[]memorycover=newbytes32[](lengthArtistsTrack);bytes32[]memoryavatar=newbytes32[](lengthArtistsTrack);for(uinte=0;e<lengthArtistsTrack;e++){bytes32_trackId=artistTracksList[artistList[i]][e];artist[e]=artistList[i];cover[e]=artistTracks[artistList[i]][_trackId].cover;avatar[e]=super.getAvatar(artistList[i]);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 446
+column: 12
+content: for(uinte=0;e<lengthArtistsTrack;e++){bytes32_trackId=artistTracksList[artistList[i]][e];artist[e]=artistList[i];cover[e]=artistTracks[artistList[i]][_trackId].cover;avatar[e]=super.getAvatar(artistList[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 536
+column: 8
+content: for(uinti=0;i<lengthTracks;i++){addressartist=artists[i];bytes32trackId=tracksId[i];_buyMulti(artist,trackId);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 131
+column: 0
+content: contractCrowdsaleisToken{uintpublicMIN_ACCEPTED_VALUE=50000000000000000wei;uintpublicTOKEN_VALUE=100000000000000wei;uintpublicCROWDSALE_SUPPLY=300000000000*TOKEN_ESCALE;uintpublicTOKEN_SOLD=0;boolpublicCROWDSALE_STARTED=true;modifiercrowdsaleStarted(){require(CROWDSALE_STARTED==true);_;}modifierminValue(){require(msg.value>=MIN_ACCEPTED_VALUE);_;}functionstartCrowdsale()public{CROWDSALE_STARTED=true;}functionstopCrowdsale()public{CROWDSALE_STARTED=false;}functiongetTokensToSend(uint_ethers)publicviewreturns(uint){uinttokensToSend=0;uintethToTokens=(_ethers*10**uint256(TOKEN_DECIMAL))/TOKEN_VALUE;returnethToTokens;}function()payablepubliccrowdsaleStartedminValue{addressbuyer=msg.sender;uinttokens=getTokensToSend(msg.value);require((TOKEN_SOLD+tokens)<=CROWDSALE_SUPPLY);TOKEN_SOLD+=tokens;_transfer(owner,buyer,tokens);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 180
+column: 24
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 278
+column: 44
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 319
+column: 60
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 319
+column: 71
+content: bytes32[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 319
+column: 82
+content: bytes32[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 319
+column: 94
+content: bytes32[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 319
+column: 106
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 408
+column: 27
+content: bytes32[]tracksIds
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 408
+column: 49
+content: bytes32[]tracksNames
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 408
+column: 73
+content: bytes32[]genres
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 408
+column: 92
+content: bytes32[]isFeaturing
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 418
+column: 49
+content: bytes32[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 418
+column: 59
+content: bytes32[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 418
+column: 71
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 418
+column: 80
+content: bytes32[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 439
+column: 50
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 439
+column: 62
+content: bytes32[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 439
+column: 74
+content: bytes32[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 534
+column: 22
+content: address[]artists
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 534
+column: 42
+content: bytes32[]tracksId
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 495
+column: 4
+content: functionremoveTrack(bytes32trackId){addressartist=msg.sender;require(artists[artist].registered==true);require(artistTracks[artist][trackId].exists==true);deleteartistTracks[artist][trackId];}
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :10
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :3
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_UPGRADE_TO_050 :20
+SOLIDITY_GAS_LIMIT_IN_LOOPS :9
+SOLIDITY_ERC20_APPROVE :1

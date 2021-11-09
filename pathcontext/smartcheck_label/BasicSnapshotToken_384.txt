@@ -1,0 +1,103 @@
+C:\Users\hp\DataSet\BasicSnapshotToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 87
+column: 4
+content: functiontotalSupply()publicconstantreturns(uint256){returntotalSupplyAtInternal(mCurrentSnapshotId());}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 97
+column: 4
+content: functionbalanceOf(addressowner)publicconstantreturns(uint256balance){returnbalanceOfAtInternal(owner,mCurrentSnapshotId());}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 121
+column: 4
+content: functiontotalSupplyAt(uint256snapshotId)publicconstantreturns(uint256){returntotalSupplyAtInternal(snapshotId);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 129
+column: 4
+content: functionbalanceOfAt(addressowner,uint256snapshotId)publicconstantreturns(uint256){returnbalanceOfAtInternal(owner,snapshotId);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 137
+column: 4
+content: functioncurrentSnapshotId()publicconstantreturns(uint256){returnmCurrentSnapshotId();}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 149
+column: 4
+content: functionparentToken()publicconstantreturns(IClonedTokenParentparent){returnPARENT_TOKEN;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 158
+column: 4
+content: functionparentSnapshotId()publicconstantreturns(uint256snapshotId){returnPARENT_SNAPSHOT_ID;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 172
+column: 4
+content: functionallBalancesOf(addressowner)externalconstantreturns(uint256[2][]){Values[]storagevalues=_balances[owner];uint256[2][]memorybalances=newuint256[2][](values.length);for(uint256ii=0;ii<values.length;++ii){balances[ii]=[values[ii].snapshotId,values[ii].value];}returnbalances;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 198
+column: 4
+content: functiontotalSupplyAtInternal(uint256snapshotId)internalconstantreturns(uint256){Values[]storagevalues=_totalSupplyValues;if(hasValueAt(values,snapshotId)){returngetValueAt(values,snapshotId,0);}if(address(PARENT_TOKEN)!=0){uint256earlierSnapshotId=PARENT_SNAPSHOT_ID>snapshotId?snapshotId:PARENT_SNAPSHOT_ID;returnPARENT_TOKEN.totalSupplyAt(earlierSnapshotId);}return0;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 221
+column: 4
+content: functionbalanceOfAtInternal(addressowner,uint256snapshotId)internalconstantreturns(uint256){Values[]storagevalues=_balances[owner];if(hasValueAt(values,snapshotId)){returngetValueAt(values,snapshotId,0);}if(PARENT_TOKEN!=address(0)){uint256earlierSnapshotId=PARENT_SNAPSHOT_ID>snapshotId?snapshotId:PARENT_SNAPSHOT_ID;returnPARENT_TOKEN.balanceOfAt(owner,earlierSnapshotId);}return0;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 187
+column: 8
+content: for(uint256ii=0;ii<values.length;++ii){balances[ii]=[values[ii].snapshotId,values[ii].value];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 187
+column: 8
+content: for(uint256ii=0;ii<values.length;++ii){balances[ii]=[values[ii].snapshotId,values[ii].value];}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 27
+column: 23
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 31
+column: 12
+content: private
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :10
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

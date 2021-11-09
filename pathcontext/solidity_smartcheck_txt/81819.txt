@@ -1,0 +1,77 @@
+F:\Blockchain\dataset_new_byID\81819.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 160
+column: 15
+content: 0x00
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 161
+column: 15
+content: 0x00
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 480
+column: 67
+content: 0x00
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 84
+column: 44
+content: 0x0
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 439
+column: 4
+content: for(uint128i=0;i<_stakers.length;i++){int256amount=int256(_reward);if(amount>MAX_INT128){amount=MAX_INT128;}reputationUpdateLog.push(ReputationLogEntry(_stakers[i],int256(wmul(_reward,_weights[i])),_miningSkillId,_metaColonyAddress,4,i*4));}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 439
+column: 4
+content: for(uint128i=0;i<_stakers.length;i++){int256amount=int256(_reward);if(amount>MAX_INT128){amount=MAX_INT128;}reputationUpdateLog.push(ReputationLogEntry(_stakers[i],int256(wmul(_reward,_weights[i])),_miningSkillId,_metaColonyAddress,4,i*4));}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 491
+column: 2
+content: functioncheckJRHProof1(bytes32_jrh,uint256_branchMask1,bytes32[]memory_siblings1,uint256_reputationRootHashNLeaves)internalview{bytes32reputationRootHash=IColonyNetwork(colonyNetworkAddress).getReputationRootHash();bytesmemoryjhLeafValue=newbytes(64);assembly{mstore(add(jhLeafValue,0x20),reputationRootHash)mstore(add(jhLeafValue,0x40),_reputationRootHashNLeaves)}bytes32impliedRoot=getImpliedRootNoHashKey(bytes32(0),jhLeafValue,_branchMask1,_siblings1);require(_jrh==impliedRoot,"colony-reputation-mining-invalid-jrh-proof-1");}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 495
+column: 4
+content: assembly{mstore(add(jhLeafValue,0x20),reputationRootHash)mstore(add(jhLeafValue,0x40),_reputationRootHashNLeaves)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 520
+column: 4
+content: assembly{mstore(add(jhLeafValue,0x20),submittedHash)mstore(add(jhLeafValue,0x40),submittedHashNLeaves)}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 57
+column: 2
+content: uint256constantX=UINT256_MAX/MINING_WINDOW_SIZE;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :2
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

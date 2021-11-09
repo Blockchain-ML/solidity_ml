@@ -1,0 +1,117 @@
+F:\Blockchain\dataset_new_byID\78547.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 17
+column: 37
+content: 0xc4d66de8
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 57
+column: 4
+content: functionsetTarget(string_funcId,address_target)publiconlyOwnerreturns(bytes4){bytes4f=bytes4(keccak256(abi.encodePacked(_funcId)));targets[f]=_target;returnf;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 81
+column: 4
+content: functionsetBZxAddresses(address_bZRxToken,address_vault,address_oracleregistry,address_exchange0xWrapper,address_exchange0xV2Wrapper)publiconlyOwner{if(_bZRxToken!=address(0)&&_vault!=address(0)&&_oracleregistry!=address(0)&&_exchange0xWrapper!=address(0)&&_exchange0xV2Wrapper!=address(0))bZRxTokenContract=_bZRxToken;vaultContract=_vault;oracleRegistryContract=_oracleregistry;bZxTo0xContract=_exchange0xWrapper;bZxTo0xV2Contract=_exchange0xV2Wrapper;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 98
+column: 4
+content: functionsetDebugMode(bool_debug)publiconlyOwner{if(DEBUG_MODE!=_debug)DEBUG_MODE=_debug;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 107
+column: 4
+content: functionsetBZRxToken(address_token)publiconlyOwner{if(_token!=address(0))bZRxTokenContract=_token;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 116
+column: 4
+content: functionsetVault(address_vault)publiconlyOwner{if(_vault!=address(0))vaultContract=_vault;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 125
+column: 4
+content: functionsetOracleRegistry(address_registry)publiconlyOwner{if(_registry!=address(0))oracleRegistryContract=_registry;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 134
+column: 4
+content: functionsetOracleReference(address_oracle,address_logicContract)publiconlyOwner{if(oracleAddresses[_oracle]!=_logicContract)oracleAddresses[_oracle]=_logicContract;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 144
+column: 4
+content: functionset0xExchangeWrapper(address_wrapper)publiconlyOwner{if(_wrapper!=address(0))bZxTo0xContract=_wrapper;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 153
+column: 4
+content: functionset0xV2ExchangeWrapper(address_wrapper)publiconlyOwner{if(_wrapper!=address(0))bZxTo0xV2Contract=_wrapper;}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 25
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 58
+column: 8
+content: string_funcId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 70
+column: 8
+content: string_funcId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 165
+column: 8
+content: string_funcId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 174
+column: 8
+content: string_funcId
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 30
+column: 8
+content: assembly{letresult:=delegatecall(gas,target,add(data,0x20),mload(data),0,0)letsize:=returndatasizeletptr:=mload(0x40)returndatacopy(ptr,0,size)switchresultcase0{revert(ptr,size)}default{return(ptr,size)}}
+
+SOLIDITY_OVERPOWERED_ROLE :9
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :5
+SOLIDITY_USING_INLINE_ASSEMBLY :1

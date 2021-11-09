@@ -1,0 +1,76 @@
+C:\Users\hp\DataSet\ChildERC721.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 32
+column: 34
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 32
+column: 60
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 69
+column: 35
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 103
+column: 32
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 123
+column: 30
+content: 0x0
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 73
+column: 4
+content: functionapprove(addressto,uint256tokenId)public{revert("Disabled feature");}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 89
+column: 4
+content: functionisApprovedForAll(addressowner,addressoperator)publicviewreturns(bool){revert("Disabled feature");}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 77
+column: 4
+content: functiongetApproved(uint256tokenId)publicviewreturns(addressoperator){revert("Disabled feature");}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 10
+column: 0
+content: contractChildERC721isChildToken,ERC721Full{eventDeposit(addressindexedtoken,addressindexedfrom,uint256tokenId);eventWithdraw(addressindexedtoken,addressindexedfrom,uint256tokenId);eventLogTransfer(addressindexedtoken,addressindexedfrom,addressindexedto,uint256tokenId);constructor(address_owner,address_token,stringmemoryname,stringmemorysymbol)publicERC721Full(name,symbol){require(_token!=address(0x0)&&_owner!=address(0x0));parentOwner=_owner;token=_token;}functiontransferWithSig(bytescalldatasig,uint256tokenId,bytes32data,uint256expiration,addressto)externalreturns(address){require(expiration==0||block.number<=expiration,"Signature is expired");bytes32dataHash=getTokenTransferOrderHash(msg.sender,tokenId,data,expiration);require(disabledHashes[dataHash]==false,"Sig deactivated");disabledHashes[dataHash]=true;addressfrom=ecrecovery(dataHash,sig);_transferFrom(from,to,tokenId);require(_checkOnERC721Received(from,to,tokenId,""),"_checkOnERC721Received failed");returnfrom;}functionsetParent(address_parent)publicisParentOwner{require(_parent!=address(0x0));parent=_parent;}functionapprove(addressto,uint256tokenId)public{revert("Disabled feature");}functiongetApproved(uint256tokenId)publicviewreturns(addressoperator){revert("Disabled feature");}functionsetApprovalForAll(addressoperator,bool_approved)public{revert("Disabled feature");}functionisApprovedForAll(addressowner,addressoperator)publicviewreturns(bool){revert("Disabled feature");}functiondeposit(addressuser,uint256tokenId)publiconlyOwner{require(user!=address(0x0));_mint(user,tokenId);emitDeposit(token,user,tokenId);}functionwithdraw(uint256tokenId)publicpayable{require(ownerOf(tokenId)==msg.sender);_burn(msg.sender,tokenId);emitWithdraw(token,msg.sender,tokenId);}functiontransferFrom(addressfrom,addressto,uint256tokenId)public{if(parent!=address(0x0)&&!IParentToken(parent).beforeTransfer(msg.sender,to,tokenId)){return;}_transferFrom(from,to,tokenId);}function_transferFrom(addressfrom,addressto,uint256tokenId)internal{super._transferFrom(from,to,tokenId);emitLogTransfer(token,from,to,tokenId);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_ADDRESS_HARDCODED :5
+SOLIDITY_ERC20_APPROVE :1

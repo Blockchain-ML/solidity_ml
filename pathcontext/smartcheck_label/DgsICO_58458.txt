@@ -1,0 +1,62 @@
+C:\Users\hp\DataSet\DgsICO.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 62
+column: 4
+content: functiongetLeftInvestmentAllowance(address_address)publicconstantreturns(uint_leftInvestmentAllowance){if(verified[_address]){_leftInvestmentAllowance=tokensLeft*PRICE/DECIMAL_INDEX;}else{_leftInvestmentAllowance=SafeMath.min256(tokensLeft*PRICE/DECIMAL_INDEX,MAX_INVESTMENT-investedAmount[_address]);}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 6
+column: 0
+content: contractDgsICO{DGSpublicdgsToken;addressfounder;uintpublicconstantPRICE=27*10**12;uintpublicconstantMIN_INVESTMENT=5*10**16;uintpublicconstantMAX_INVESTMENT=1*10**19;uintpublicconstantDECIMALS=8;uintpublicconstantDECIMAL_INDEX=10**DECIMALS;uintpublictokensLeft=0;boolpublicofferingClosed=false;boolpublicofferingPaused=true;mapping(address=>bool)validators;mapping(address=>bool)verified;mapping(address=>uint)investedAmount;functionDgsICO(address_tokenAddress,address_founder)public{dgsToken=DGS(_tokenAddress);founder=_founder;}function()publicpayable{require(!offeringClosed&&!offeringPaused);require(msg.value>=MIN_INVESTMENT);require(investedAmount[msg.sender]+msg.value<=MAX_INVESTMENT||verified[msg.sender]);uinttokensToBeSent=msg.value*DECIMAL_INDEX/PRICE;uintoverpaid=0;if(tokensLeft<=tokensToBeSent){tokensToBeSent=tokensLeft;tokensLeft=0;offeringClosed=true;overpaid=msg.value-(tokensToBeSent*PRICE/DECIMAL_INDEX);}elsetokensLeft-=tokensToBeSent;investedAmount[msg.sender]+=msg.value-overpaid;founder.transfer(this.balance-overpaid);dgsToken.transfer(msg.sender,tokensToBeSent);if(overpaid!=0){msg.sender.transfer(overpaid);}}functiongetLeftInvestmentAllowance(address_address)publicconstantreturns(uint_leftInvestmentAllowance){if(verified[_address]){_leftInvestmentAllowance=tokensLeft*PRICE/DECIMAL_INDEX;}else{_leftInvestmentAllowance=SafeMath.min256(tokensLeft*PRICE/DECIMAL_INDEX,MAX_INVESTMENT-investedAmount[_address]);}}modifieronlyFounder{require(msg.sender==founder);_;}modifieronlyValidator(){require(validators[msg.sender]);_;}functionlaunch()publiconlyFounder(){require(!offeringClosed);offeringPaused=false;tokensLeft=dgsToken.balanceOf(this);}functionpause()publiconlyFounder(){offeringPaused=true;}functionresume()publiconlyFounder(){offeringPaused=false;}functionaddValidator(address_validator)publiconlyFounder(){validators[_validator]=true;}functionremoveValidator(address_validator)publiconlyFounder(){validators[_validator]=false;}functionverifyAddress(address_address)publiconlyValidator(){verified[_address]=true;}functionremoveVerifiedAddress(address_address)publiconlyValidator(){verified[_address]=false;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 33
+column: 16
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: addressfounder;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 23
+column: 4
+content: mapping(address=>bool)validators;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 24
+column: 4
+content: mapping(address=>bool)verified;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 25
+column: 4
+content: mapping(address=>uint)investedAmount;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1

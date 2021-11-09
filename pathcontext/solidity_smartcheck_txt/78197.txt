@@ -1,0 +1,75 @@
+F:\Blockchain\dataset_new_byID\78197.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 42
+column: 4
+content: functionarbitrationCost(bytes_extraData)publicconstantreturns(uintfee);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 50
+column: 4
+content: functionappealCost(uint_disputeID,bytes_extraData)publicconstantreturns(uintfee);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 53
+column: 4
+content: functiondisputeStatus(uint_disputeID)publicconstantreturns(DisputeStatusstatus);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 56
+column: 4
+content: functioncurrentRuling(uint_disputeID)publicconstantreturns(uintruling);
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 8
+column: 0
+content: contractArbitrator{enumDisputeStatus{Waiting,Appealable,Solved}modifierrequireArbitrationFee(bytes_extraData){require(msg.value>=arbitrationCost(_extraData));_;}modifierrequireAppealFee(uint_disputeID,bytes_extraData){require(msg.value>=appealCost(_disputeID,_extraData));_;}eventAppealPossible(uint_disputeID);eventDisputeCreation(uintindexed_disputeID,Arbitrable_arbitrable);eventAppealDecision(uintindexed_disputeID,Arbitrable_arbitrable);functioncreateDispute(uint_choices,bytes_extraData)publicrequireArbitrationFee(_extraData)payablereturns(uintdisputeID){_choices;return0;}functionarbitrationCost(bytes_extraData)publicconstantreturns(uintfee);functionappeal(uint_disputeID,bytes_extraData)publicrequireAppealFee(_disputeID,_extraData)payable{emitAppealDecision(_disputeID,Arbitrable(msg.sender));}functionappealCost(uint_disputeID,bytes_extraData)publicconstantreturns(uintfee);functiondisputeStatus(uint_disputeID)publicconstantreturns(DisputeStatusstatus);functioncurrentRuling(uint_disputeID)publicconstantreturns(uintruling);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 3
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 32
+column: 42
+content: bytes_extraData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 42
+column: 29
+content: bytes_extraData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 45
+column: 37
+content: bytes_extraData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 50
+column: 41
+content: bytes_extraData
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :4

@@ -1,0 +1,138 @@
+F:\Blockchain\dataset_new_byID\79729.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 90
+column: 4
+content: functiongetLoanGranted()constantreturns(uint256){returnmembers[msg.sender].loanGranted;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 94
+column: 4
+content: functiongetBalance()constantreturns(uint256){returnthis.balance;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 98
+column: 4
+content: functiongetAmoundAdded()constantreturns(int256){returnmembers[msg.sender].amountAddedToThePool;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 77
+column: 8
+content: if(members[msg.sender].isPermitted&&int(loanAmount)<=2*members[msg.sender].amountAddedToThePool&&loanAmount<=this.balance/2){members[msg.sender].isPermitted=false;members[msg.sender].loanGranted=loanAmount;members[msg.sender].amountAddedToThePool-=int(loanAmount);msg.sender.transfer(loanAmount);returntrue;}else{revert();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 10
+column: 4
+content: functionFarmerbank(){owner=msg.sender;mods[owner]=mod("FarmerBank",true);members[owner]=member(true,true,0,0);previousBalance=this.balance;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 50
+column: 4
+content: functionaddMods(address_modAddress,string_modName)onlyowner{mods[_modAddress]=mod(_modName,true);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 54
+column: 4
+content: functionaddMembers(address_memberaddress)onlymods{members[_memberaddress]=member(true,true,0,0);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 58
+column: 4
+content: functionremoveMembers(address_memberaddress)onlymods{deletemembers[_memberaddress];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 62
+column: 4
+content: functionaddFundsorPayLoan()payableonlymember{members[msg.sender].amountAddedToThePool+=int(msg.value);if(members[msg.sender].loanGranted>0&&members[msg.sender].loanGranted>msg.value){members[msg.sender].loanGranted-=msg.value;}elseif(members[msg.sender].loanGranted<=msg.value){members[msg.sender].isPermitted=true;members[msg.sender].loanGranted=0;}addedFunds(msg.sender,msg.value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 76
+column: 4
+content: functionrequestLoan(uint256loanAmount)onlymemberreturns(boolstatus){if(members[msg.sender].isPermitted&&int(loanAmount)<=2*members[msg.sender].amountAddedToThePool&&loanAmount<=this.balance/2){members[msg.sender].isPermitted=false;members[msg.sender].loanGranted=loanAmount;members[msg.sender].amountAddedToThePool-=int(loanAmount);msg.sender.transfer(loanAmount);returntrue;}else{revert();}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 90
+column: 4
+content: functiongetLoanGranted()constantreturns(uint256){returnmembers[msg.sender].loanGranted;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 94
+column: 4
+content: functiongetBalance()constantreturns(uint256){returnthis.balance;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 98
+column: 4
+content: functiongetAmoundAdded()constantreturns(int256){returnmembers[msg.sender].amountAddedToThePool;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 5
+column: 4
+content: addressowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 4
+content: uint256previousBalance;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 30
+column: 4
+content: mapping(address=>member)members;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 31
+column: 4
+content: mapping(address=>mod)mods;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 32
+column: 4
+content: mapping(address=>uint256)loanGranted;
+
+SOLIDITY_VISIBILITY :14
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1

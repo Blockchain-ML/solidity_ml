@@ -1,0 +1,39 @@
+C:\Users\hp\DataSet\GranularTransferController.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 121
+column: 84
+content: 0xFF
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 72
+column: 4
+content: functiononTransfer(addressbroker,addressfrom,addressto,uint256amount)publicconstantreturns(boolallow){GovStates=state();if((s==GovState.Funded||s==GovState.Closing)&&broker==address(this)){ForcedTransferstoraget=_forcedTransfers[from];if(t.amount>0){returnt.amount==amount&&t.to==to;}}allow=PlaceholderEquityTokenController.onTransfer(broker,from,to,amount);if(allow&&s==GovState.Funded){allow=!(_frozenAddresses[from]||_frozenAddresses[to]||_frozenAddresses[broker]);}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 101
+column: 4
+content: functiononAllowance(addressowner,addressspender)publicconstantreturns(uint256){uint256overrideAmount=PlaceholderEquityTokenController.onAllowance(owner,spender);if(overrideAmount==0&&spender==address(this)){return_forcedTransfers[owner].amount;}}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 26
+column: 29
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 29
+column: 39
+content: private
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_ADDRESS_HARDCODED :1

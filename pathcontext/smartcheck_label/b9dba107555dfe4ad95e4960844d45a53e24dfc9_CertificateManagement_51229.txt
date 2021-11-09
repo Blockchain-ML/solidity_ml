@@ -1,0 +1,183 @@
+C:\Users\hp\DataSet\contracts\ropsten\b9\b9dba107555dfe4ad95e4960844d45a53e24dfc9_CertificateManagement.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 95
+column: 4
+content: functiongetCertificate(bytes32issuer,bytes32owner,bytes32cert_no)publicconstantreturns(bytes32[]certificate,boolowner_approved,stringisDigital,bytes32[]keys,bytes32[]values){require(isValidCertificate(issuer,owner,cert_no)!=false);certificate[0]=(master_certificate_records[issuer].student_records[owner].certificate_records[cert_no].certificate_status);certificate[1]=(master_certificate_records[issuer].student_records[owner].certificate_records[cert_no].certificate_type);certificate[2]=(master_certificate_records[issuer].student_records[owner].certificate_records[cert_no].owner_aadhar);certificate[3]=(master_certificate_records[issuer].student_records[owner].certificate_records[cert_no].institute);certificate[4]=(master_certificate_records[issuer].student_records[owner].certificate_records[cert_no].approved_by);certificate[5]=(master_certificate_records[issuer].student_records[owner].certificate_records[cert_no].approved_year);certificate[6]=(master_certificate_records[issuer].student_records[owner].certificate_records[cert_no].amount);owner_approved=master_certificate_records[issuer].student_records[owner].certificate_records[cert_no].owner_approved;isDigital=master_certificate_records[issuer].student_records[owner].certificate_records[cert_no].isDigital;uint256count=getCertificateMetaDataCount(issuer,owner,cert_no);for(uinti=0;i<count;i++){keys[i]=master_certificate_records[issuer].student_records[owner].certificate_records[cert_no].certificate_medata_list[i].key;values[i]=master_certificate_records[issuer].student_records[owner].certificate_records[cert_no].certificate_medata_list[i].value;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 115
+column: 4
+content: functionisValidCertificate(bytes32issuer,bytes32owner,bytes32c_cert_no)publicconstantreturns(bool){if(master_certificate_records[issuer].student_records[owner].certificate_records[c_cert_no].certificate_no==0)returnfalse;returntrue;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 122
+column: 4
+content: functiongetCertificateMetaDataCount(bytes32issuer,bytes32owner,bytes32cert_no)internalconstantreturns(uint256){returnmaster_certificate_records[issuer].student_records[owner].certificate_records[cert_no].certificate_medata_list.length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 127
+column: 4
+content: functiongetCertificateMetaData(bytes32issuer,bytes32owner,bytes32cert_no,uint256idx)internalconstantreturns(bytes32key,bytes32value){key=master_certificate_records[issuer].student_records[owner].certificate_records[cert_no].certificate_medata_list[idx].key;value=master_certificate_records[issuer].student_records[owner].certificate_records[cert_no].certificate_medata_list[idx].value;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 133
+column: 4
+content: functiongetCertificationList(bytes32issuer,bytes32owner)publicconstantreturns(bytes32[]){returnmaster_certificate_records[issuer].student_records[owner].listofcertificate_no;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 137
+column: 4
+content: functiongetStudentArray(bytes32issuer)publicconstantreturns(bytes32[]students){students=master_certificate_records[issuer].students_array;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 141
+column: 4
+content: functiongetIssuerArray(bytes32owner)publicconstantreturns(bytes32[]issuers){issuers=student_issuer_map[owner].issuer_array;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 89
+column: 8
+content: for(uinti=0;i<keys.length;i++){master_certificate_records[issuer].student_records[owner].certificate_records[cert_no].certificate_medata_list.push(CertificateMedata({key:keys[i],value:values[i]}));}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 89
+column: 8
+content: for(uinti=0;i<keys.length;i++){master_certificate_records[issuer].student_records[owner].certificate_records[cert_no].certificate_medata_list.push(CertificateMedata({key:keys[i],value:values[i]}));}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 127
+column: 123
+content: (bytes32key,bytes32value)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 61
+column: 218
+content: stringisDigital
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 61
+column: 235
+content: bytes32[]keys
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 61
+column: 250
+content: bytes32[]values
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 85
+column: 73
+content: bytes32[]keys
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 85
+column: 89
+content: bytes32[]values
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 95
+column: 101
+content: bytes32[]certificate
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 95
+column: 143
+content: stringisDigital
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 95
+column: 160
+content: bytes32[]keys
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 95
+column: 175
+content: bytes32[]values
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 133
+column: 90
+content: bytes32[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 137
+column: 70
+content: bytes32[]students
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 141
+column: 68
+content: bytes32[]issuers
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 53
+column: 4
+content: mapping(bytes32=>Issuer)student_issuer_map;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 56
+column: 4
+content: mapping(bytes32=>Student)master_certificate_records;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :7
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :12
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

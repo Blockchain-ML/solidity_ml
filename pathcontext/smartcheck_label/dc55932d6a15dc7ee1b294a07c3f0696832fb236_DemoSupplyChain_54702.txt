@@ -1,0 +1,206 @@
+C:\Users\hp\DataSet\contracts\ropsten\dc\dc55932d6a15dc7ee1b294a07c3f0696832fb236_DemoSupplyChain.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 98
+column: 2
+content: functiongetDeviceById(uint8_deviceId)constantpublicreturns(bytes32description,deviceStatestate){if(devices[_deviceId].exists){description=devices[_deviceId].description;state=devices[_deviceId].state;}else{revert("El dispositivo indicado no existe");}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 112
+column: 2
+content: functiongetAllDevices()constantpublicreturns(uint8[],bytes32[],deviceState[]){uint8[]memorydeviceId=newuint8[](devicesIdsLUT.length);bytes32[]memorydescription=newbytes32[](devicesIdsLUT.length);deviceState[]memorystate=newdeviceState[](devicesIdsLUT.length);for(uint8i=0;i<devicesIdsLUT.length;i++){deviceId[i]=devices[devicesIdsLUT[i].deviceId].deviceId;description[i]=devices[devicesIdsLUT[i].deviceId].description;state[i]=devices[devicesIdsLUT[i].deviceId].state;}return(deviceId,description,state);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 131
+column: 2
+content: functiongetLastNReadingsByDeviceId(uint8_deviceId,uint8_readingNumber)constantpublicreturns(uint[],address[],uint[],uint[]){if(!devices[_deviceId].exists){revert("El dispositivo indicado no existe");}uintfromIndex=devices[_deviceId].readings.length;uinttoIndex=0;if(devices[_deviceId].readings.length<_readingNumber){toIndex=1;}else{toIndex=devices[_deviceId].readings.length-_readingNumber+1;}uint[]memoryreadingId=newuint[](fromIndex-toIndex+1);address[]memorysender=newaddress[](fromIndex-toIndex+1);uint[]memorytimestamp=newuint[](fromIndex-toIndex+1);uint[]memorytemperature=newuint[](fromIndex-toIndex+1);(readingId,sender)=getKeysByDeviceId(_deviceId,_readingNumber);(timestamp,temperature)=getDataByDeviceId(_deviceId,_readingNumber);return(readingId,sender,timestamp,temperature);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 168
+column: 2
+content: functiongetKeysByDeviceId(uint8_deviceId,uint8_readingNumber)constantprivatereturns(uint[],address[]){uintfromIndex=devices[_deviceId].readings.length;uinttoIndex=0;if(devices[_deviceId].readings.length<_readingNumber){toIndex=1;}else{toIndex=devices[_deviceId].readings.length-_readingNumber+1;}uint[]memoryreadingId=newuint[](devices[_deviceId].readings.length-toIndex+1);address[]memorysender=newaddress[](devices[_deviceId].readings.length-toIndex+1);uintindex=0;for(uinti=fromIndex;i>=toIndex;i--){readingId[index]=devices[_deviceId].readings[i-1].readingId;sender[index]=devices[_deviceId].readings[i-1].sender;index++;}return(readingId,sender);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 200
+column: 2
+content: functiongetDataByDeviceId(uint8_deviceId,uint8_readingNumber)constantprivatereturns(uint[],uint[]){uintfromIndex=devices[_deviceId].readings.length;uinttoIndex=0;if(devices[_deviceId].readings.length<_readingNumber){toIndex=1;}else{toIndex=devices[_deviceId].readings.length-_readingNumber+1;}uint[]memorytimestamp=newuint[](devices[_deviceId].readings.length-toIndex+1);uint[]memorytemperature=newuint[](devices[_deviceId].readings.length-toIndex+1);uintindex=0;for(uinti=fromIndex;i>=toIndex;i--){timestamp[index]=devices[_deviceId].readings[i-1].timestamp;temperature[index]=devices[_deviceId].readings[i-1].temperature;index++;}return(timestamp,temperature);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 121
+column: 4
+content: for(uint8i=0;i<devicesIdsLUT.length;i++){deviceId[i]=devices[devicesIdsLUT[i].deviceId].deviceId;description[i]=devices[devicesIdsLUT[i].deviceId].description;state[i]=devices[devicesIdsLUT[i].deviceId].state;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 121
+column: 4
+content: for(uint8i=0;i<devicesIdsLUT.length;i++){deviceId[i]=devices[devicesIdsLUT[i].deviceId].deviceId;description[i]=devices[devicesIdsLUT[i].deviceId].description;state[i]=devices[devicesIdsLUT[i].deviceId].state;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 40
+column: 14
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 64
+column: 4
+content: if(!devices[_deviceId].exists){devices[_deviceId].deviceId=_deviceId;devices[_deviceId].description=_description;devices[_deviceId].exists=true;devices[_deviceId].state=_state;devicesIdsLUT.push(DeviceIds(_deviceId));}else{revert("El id indicado ya existe");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 87
+column: 4
+content: if(devices[_deviceId].exists){devices[_deviceId].readings.push(Reading(readingCounter,msg.sender,_timestamp,_temperature));}else{revert("El id de dispositivo indicado no existe");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 103
+column: 4
+content: if(devices[_deviceId].exists){description=devices[_deviceId].description;state=devices[_deviceId].state;}else{revert("El dispositivo indicado no existe");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 136
+column: 4
+content: if(!devices[_deviceId].exists){revert("El dispositivo indicado no existe");}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 171
+column: 9
+content: (uint[],address[])
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 203
+column: 9
+content: (uint[],uint[])
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 115
+column: 10
+content: uint8[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 115
+column: 19
+content: bytes32[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 115
+column: 30
+content: deviceState[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 134
+column: 10
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 134
+column: 18
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 134
+column: 29
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 134
+column: 37
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 171
+column: 10
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 171
+column: 18
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 203
+column: 10
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 203
+column: 18
+content: uint[]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 2
+content: addressowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 2
+content: uintreadingCounter;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :4
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :11
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_SHOULD_RETURN_STRUCT :2

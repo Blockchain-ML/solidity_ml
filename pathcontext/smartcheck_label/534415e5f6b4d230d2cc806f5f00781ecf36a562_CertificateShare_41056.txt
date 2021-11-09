@@ -1,0 +1,89 @@
+C:\Users\hp\DataSet\contracts\ropsten\53\534415e5f6b4d230d2cc806f5f00781ecf36a562_CertificateShare.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 2
+column: 0
+content: contractCertificateShare{eventLog(stringeventMessage);structCertificate{stringid;stringcertId;addressorganisation;addressrequester;stringaction;stringcreatedDate;}mapping(string=>Certificate)certificate;mapping(address=>Certificate[])orgSharedCerts;Certificate[]certificates;stringcreatorName;addresscreatorAddress;constructor(string_creator)public{creatorName=_creator;creatorAddress=msg.sender;emitLog("Contract deployed successfully");}functionshareCertificate(string_sharedId,string_certId,string_date,address_org,address_requester,string_action)publicpayablereturns(bool){Certificatestoragecert=certificate[_sharedId];cert.id=_sharedId;cert.certId=_certId;cert.createdDate=_date;cert.organisation=_org;cert.requester=_requester;cert.action=_action;certificates.push(cert);certificate[_sharedId]=cert;orgSharedCerts[_org].push(cert);returntrue;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 15
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 30
+column: 18
+content: string_creator
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 36
+column: 31
+content: string_sharedId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 36
+column: 48
+content: string_certId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 36
+column: 64
+content: string_date
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 37
+column: 31
+content: string_action
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 16
+column: 6
+content: mapping(string=>Certificate)certificate;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 20
+column: 6
+content: mapping(address=>Certificate[])orgSharedCerts;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 23
+column: 6
+content: Certificate[]certificates;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 5
+content: stringcreatorName;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 27
+column: 5
+content: addresscreatorAddress;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :5

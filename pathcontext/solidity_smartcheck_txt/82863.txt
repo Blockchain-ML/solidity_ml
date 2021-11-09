@@ -1,0 +1,132 @@
+F:\Blockchain\dataset_new_byID\82863.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 17
+column: 0
+content: contractVotingisOwnable{uint8privatecandidatesListCounter=0;uint8[9]privatecantidateListId;bytes32[9]privatecantidateListName;uint8[9]privatecandidateListVotes;mapping(bytes32=>bool)privatecandidateValidator;uint8[28]privatevotersListId;bytes32[28]privatevotersListIdentification;bytes32[28]privatevotersListName;mapping(bytes32=>address)privatevotersListAddressMap;mapping(bytes32=>uint8)privatevotersListValidator;mapping(bytes32=>bool)privatevotersListVoted;mapping(address=>uint8)privatevotersListIdMap;boolvotingIsOpen;eventAddedCandidate(bytes32candidateStored);eventAddedVote(bytes32candidateName,uint8candidateVotes);constructor(uint8[28]memory_votersListId,bytes32[28]memory_votersListIdentification,bytes32[28]memory_votersListName,uint8[9]memory_cantidateListId,bytes32[9]memory_cantidateListName)public{votersListId=_votersListId;votersListIdentification=_votersListIdentification;votersListName=_votersListName;for(uint8i=0;i<28;i++){votersListValidator[votersListIdentification[i]]=1;}cantidateListId=_cantidateListId;cantidateListName=_cantidateListName;for(uint8i=0;i<9;i++){candidateListVotes[i]=0;}}modifieronlyNewCandidate(bytes32_candidate){require(candidateValidator[_candidate]!=true,"Candidato solo puede ser a�adido una sola vez.");_;}modifieronlyValidVoter(bytes32_voterIdentification){require(votersListValidator[_voterIdentification]==1,"Votante solo puede ser verificado una sola vez.");_;}functiongetCandidates()externalviewreturns(uint8[9]memory,bytes32[9]memory){return(cantidateListId,cantidateListName);}functiongetCandidateVotes(uint8_candidateId)externalviewreturns(uint8){require(votingIsOpen==false,"Solo se pueden ver los votos cuando la votaci�n est� cerrada.");returncandidateListVotes[_candidateId];}functiongetCandidatesVotes()externalviewreturns(bytes32[9]memory,uint8[9]memory){require(votingIsOpen==false,"Solo se pueden ver los votos cuando la votaci�n est� cerrada.");return(cantidateListName,candidateListVotes);}functionassociateUserToAddress(bytes32_voterIdentification)externalonlyValidVoter(_voterIdentification)returns(address,bytes32){votersListAddressMap[_voterIdentification]=msg.sender;votersListValidator[_voterIdentification]=2;return(msg.sender,_voterIdentification);}functionaddCandidate(bytes32_candidate)internalonlyOwneronlyNewCandidate(_candidate){cantidateListId[candidatesListCounter]=candidatesListCounter;cantidateListName[candidatesListCounter]=_candidate;candidateListVotes[candidatesListCounter]=0;candidateValidator[_candidate]=true;candidatesListCounter=candidatesListCounter+1;emitAddedCandidate(_candidate);}functionvote(uint8_candidateId,bytes32_voterIdentification)external{require(votingIsOpen==true,"Solo se puede votar cuando el tiempo de votaci�n este activo.");require(votersListAddressMap[_voterIdentification]==msg.sender,"El votante solo puede votar usando una el address que valid�.");require(votersListValidator[_voterIdentification]==2,"Votante debe haber sido validado.");require(votersListVoted[_voterIdentification]==false,"Votante solo puede votar una vez.");uint8_candidateCount=candidateListVotes[_candidateId]+1;votersListVoted[_voterIdentification]=true;votersListValidator[_voterIdentification]=3;candidateListVotes[_candidateId]=_candidateCount;emitAddedVote(cantidateListName[_candidateId],_candidateCount);}functioninitializeVoting()externalonlyOwner{votingIsOpen=true;}functionfinishVoting()externalonlyOwner{votingIsOpen=false;}functiongetVotingStatus()externalviewreturns(bool){returnvotingIsOpen;}function()externalpayable{}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 19
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 20
+column: 13
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 21
+column: 15
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 22
+column: 13
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 24
+column: 29
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 27
+column: 14
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 28
+column: 16
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 29
+column: 16
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 31
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 32
+column: 30
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 33
+column: 29
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 34
+column: 30
+content: private
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 76
+column: 50
+content: (uint8[9]memory,bytes32[9]memory)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 85
+column: 55
+content: (bytes32[9]memory,uint8[9]memory)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 90
+column: 119
+content: (address,bytes32)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 4
+content: boolvotingIsOpen;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :12
+SOLIDITY_SHOULD_RETURN_STRUCT :3

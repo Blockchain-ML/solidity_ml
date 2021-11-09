@@ -1,0 +1,48 @@
+C:\Users\hp\DataSet\contracts\ropsten\2b\2bf4ff36660edf03551803227c508e0fe41f057e_SlotMachine.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 52
+column: 0
+content: contractSlotMachineisOwnable{usingSafeMathforuint256;addresspublicowner;eventRoulette(addressindexedfrom,uint256value,uint256[]randoms);constructor()payablepublic{owner=msg.sender;}function()payablepublic{addressfrom=msg.sender;uint256value=msg.value;uint256lowest=1e16;require(from!=0x0);require(value>=lowest);uintcount=value/lowest;boolresult;uint256[]memoryrandoms;(result,randoms)=roulette(count);if(result){uint256award=jackpot().div(2);uint256tax=award.div(5);owner.transfer(tax);from.transfer(award.sub(tax));emitRoulette(from,value,randoms);}}functionroulette(uintcount)privateviewreturns(bool,uint256[]){uint256[]memoryrandoms=newuint256[](count);for(uinti=0;i<count;i++){uint256rand=uint256(keccak256(abi.encodePacked(now,msg.sender,i)))%100;randoms[i]=rand;if(rand==88){return(true,randoms);}}return(false,randoms);}functionjackpot()publicviewreturns(uint256){returnaddress(this).balance;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 54
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 98
+column: 54
+content: (bool,uint256[])
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 74
+column: 23
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 98
+column: 60
+content: uint256[]
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_SHOULD_RETURN_STRUCT :1

@@ -1,0 +1,114 @@
+C:\Users\hp\DataSet\contracts\ropsten\09\095bef298a0b3c5702d4b86cf57d589564d7c1d2_TokenController.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 60
+column: 28
+content: 0x0
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 179
+column: 4
+content: functionshowPoolNumber(address_poolOwner,address_contract)constantpublicreturns(uint){returnpoolNumbers[_poolOwner][_contract];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 184
+column: 4
+content: functionshowPoolMembers(uint_poolNum)constantpublicreturns(address[]){returnpoolInfoData[_poolNum].poolMembers;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 189
+column: 4
+content: functionshowInvestEther(uint_poolNum)constantpublicreturns(uint){returnpoolInvestData[_poolNum][msg.sender];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 194
+column: 4
+content: functionshowDepositEther()constantpublicreturns(uint){returndepositEth[msg.sender];}
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 155
+column: 27
+content: poolInfoData[_poolNum].total.div(1000).mul(safeShareFee)
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 156
+column: 28
+content: poolInfoData[_poolNum].total.div(1000).mul(poolInfoData[_poolNum].fee)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 172
+column: 8
+content: for(uinti=0;i<poolInfoData[_poolNum].poolMembers.length;i++){token=poolInfoData[_poolNum].recvToken.mul(poolInvestData[_poolNum][poolInfoData[_poolNum].poolMembers[i]]).div(poolInfoData[_poolNum].total);Token(poolInfoData[_poolNum].contractAddr).transfer(poolInfoData[_poolNum].poolMembers[i],token);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 172
+column: 8
+content: for(uinti=0;i<poolInfoData[_poolNum].poolMembers.length;i++){token=poolInfoData[_poolNum].recvToken.mul(poolInvestData[_poolNum][poolInfoData[_poolNum].poolMembers[i]]).div(poolInfoData[_poolNum].total);Token(poolInfoData[_poolNum].contractAddr).transfer(poolInfoData[_poolNum].poolMembers[i],token);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 84
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 114
+column: 24
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 77
+column: 62
+content: bytes_extraData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 184
+column: 69
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 199
+column: 64
+content: poolInfo
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_DIV_MUL :2

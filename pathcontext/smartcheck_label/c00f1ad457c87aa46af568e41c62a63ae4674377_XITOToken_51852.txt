@@ -1,0 +1,152 @@
+C:\Users\hp\DataSet\contracts\ropsten\c0\c00f1ad457c87aa46af568e41c62a63ae4674377_XITOToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 345
+column: 4
+content: functiongetTokenHoldersCount()publicconstantreturns(uint){returnallTokenHolders.length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 349
+column: 4
+content: functiongetATokenHolder(uintindex)publicconstantreturns(addresstokenHolderAddress,uinttokenHolderBalance){return(allTokenHolders[index],balanceOf(allTokenHolders[index]));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 354
+column: 4
+content: functiongetTotalFeesCollectedCount()publicconstantreturns(uint){returnfeesCollection.length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 359
+column: 4
+content: functiongetOneTotalFeesCollected(uintindex)publicconstantreturns(uintfees,uinttimestamp){return(feesCollection[index].feesCollected,feesCollection[index].timestamp);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 364
+column: 4
+content: functiongetTotalFeesDistributedCount()publicconstantreturns(uint){returnfeesDistribution.length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 368
+column: 4
+content: functiongetOneTotalFeesDistributed(uintindex)publicconstantreturns(uintfees,uinttimestamp){return(feesDistribution[index].feesDistributed,feesDistribution[index].timestamp);}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 257
+column: 2
+content: functionapprove(address_spender,uint256_amount)publicreturns(boolsuccess){allowed[msg.sender][_spender]=_amount;emitApproval(msg.sender,_spender,_amount);returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 184
+column: 8
+content: for(uinti=0;i<allTokenHolders.length;i++){if(balances[allTokenHolders[i]]>0){uintbal=balances[allTokenHolders[i]];uintpercentOfTotalSold=bal.mul(100).div(soldTokens);uinttokensToBeTransferred=percentOfTotalSold.mul(seventyPercent).div(100);balances[allTokenHolders[i]]=balances[allTokenHolders[i]].add(tokensToBeTransferred);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 184
+column: 8
+content: for(uinti=0;i<allTokenHolders.length;i++){if(balances[allTokenHolders[i]]>0){uintbal=balances[allTokenHolders[i]];uintpercentOfTotalSold=bal.mul(100).div(soldTokens);uinttokensToBeTransferred=percentOfTotalSold.mul(seventyPercent).div(100);balances[allTokenHolders[i]]=balances[allTokenHolders[i]].add(tokensToBeTransferred);}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 301
+column: 1
+content: contractXITOTokenisBurnableToken{stringpublicname;stringpublicsymbol;uint8publicdecimals=18;function()publicpayable{revert();}constructor(addresswallet)public{owner=wallet;totalSupply=100000000000;totalSupply=totalSupply.mul(10**uint256(decimals));name="XITO";symbol="USDX";balances[wallet]=totalSupply;percentQuotient=3;percentDividend=1000;emitTransfer(address(0),msg.sender,totalSupply);}functiongetTokenDetail()publicviewreturns(string,string,uint256){return(name,symbol,totalSupply);}functionsetFee(uint_percentQuotient,uint_percentDividend)publiconlyOwner{percentQuotient=_percentQuotient;percentDividend=_percentDividend;}functiongetTokenHoldersCount()publicconstantreturns(uint){returnallTokenHolders.length;}functiongetATokenHolder(uintindex)publicconstantreturns(addresstokenHolderAddress,uinttokenHolderBalance){return(allTokenHolders[index],balanceOf(allTokenHolders[index]));}functiongetTotalFeesCollectedCount()publicconstantreturns(uint){returnfeesCollection.length;}functiongetOneTotalFeesCollected(uintindex)publicconstantreturns(uintfees,uinttimestamp){return(feesCollection[index].feesCollected,feesCollection[index].timestamp);}functiongetTotalFeesDistributedCount()publicconstantreturns(uint){returnfeesDistribution.length;}functiongetOneTotalFeesDistributed(uintindex)publicconstantreturns(uintfees,uinttimestamp){return(feesDistribution[index].feesDistributed,feesDistribution[index].timestamp);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 339
+column: 4
+content: functionsetFee(uint_percentQuotient,uint_percentDividend)publiconlyOwner{percentQuotient=_percentQuotient;percentDividend=_percentDividend;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 309
+column: 31
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 109
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 309
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 335
+column: 51
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 335
+column: 59
+content: string
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 112
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 114
+column: 2
+content: uintpercentQuotient;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 115
+column: 2
+content: uintpercentDividend;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_ERC20_APPROVE :1

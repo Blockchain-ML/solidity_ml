@@ -1,0 +1,64 @@
+C:\Users\hp\DataSet\contracts\mainnet\6a\6a7566b5d088e424124f96f7fd7ff7a8c3c305ae_TestToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_BALANCE_EQUALITY
+patternId: 5094ad
+severity: 1
+line: 267
+column: 12
+content: address(this).balance==0
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 157
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 253
+column: 0
+content: contractTestTokenisStandardToken,Ownable{stringpublicconstantname="TestToken";stringpublicconstantsymbol="TEST";uint8publicconstantdecimals=18;uint256publicconstantINITIAL_SUPPLY=100000000000*(10**uint256(decimals));uint256publicunitsOneEthCanBuy=1000;uint256internaltotalWeiRaised;functionTestToken()public{require(address(this).balance==0);totalSupply_=INITIAL_SUPPLY;balances[msg.sender]=INITIAL_SUPPLY;}function()publicpayable{require(msg.sender!=owner);uint256amount=msg.value*unitsOneEthCanBuy;require(balances[owner]>=amount);totalWeiRaised=totalWeiRaised+msg.value;balances[owner]=balances[owner].sub(amount);balances[msg.sender]=balances[msg.sender].add(amount);owner.transfer(msg.value);emitTransfer(owner,msg.sender,amount);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 66
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 272
+column: 13
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 68
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 70
+column: 2
+content: uint256totalSupply_;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_BALANCE_EQUALITY :1
+SOLIDITY_ERC20_APPROVE :1

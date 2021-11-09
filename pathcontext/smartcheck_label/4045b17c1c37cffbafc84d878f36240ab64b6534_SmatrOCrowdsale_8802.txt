@@ -1,0 +1,171 @@
+C:\Users\hp\DataSet\contracts\mainnet\40\4045b17c1c37cffbafc84d878f36240ab64b6534_SmatrOCrowdsale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: om991k
+severity: 2
+line: 189
+column: 22
+content: call.value(_amount)()
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 30
+column: 2
+content: functiontotalSupply()publicconstantreturns(uint256);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 32
+column: 2
+content: functionbalanceOf(address_owner)publicconstantreturns(uint256);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 40
+column: 2
+content: functionallowance(address_owner,address_spender)publicconstantreturns(uint256);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 151
+column: 2
+content: functionisFailed()publicconstantreturns(bool);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 154
+column: 2
+content: functionisActive()publicconstantreturns(bool);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 157
+column: 2
+content: functionisSuccessful()publicconstantreturns(bool);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 237
+column: 2
+content: functionisFailed()publicconstantreturns(bool){return(started&&block.timestamp>=endTimestamp&&totalCollected<minimalGoal);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 255
+column: 2
+content: functionisActive()publicconstantreturns(bool){return(started&&totalCollected<hardCap&&block.timestamp>=startTimestamp&&block.timestamp<endTimestamp);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 274
+column: 2
+content: functionisSuccessful()publicconstantreturns(bool){return(totalCollected>=hardCap||(block.timestamp>=endTimestamp&&totalCollected>=minimalGoal));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 348
+column: 2
+content: functiontotalSupply()publicconstantreturns(uint256){returntotalSupply;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 350
+column: 2
+content: functionbalanceOf(address_owner)publicconstantreturns(uint256){returnbalances[_owner];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 380
+column: 2
+content: functionallowance(address_owner,address_spender)publicconstantreturns(uint256){returnallowed[_owner][_spender];}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 374
+column: 2
+content: functionapprove(address_spender,uint256_amount)publicreturns(bool){allowed[msg.sender][_spender]=_amount;Approval(msg.sender,_spender,_amount);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 54
+column: 0
+content: contractICrowdsaleProcessorisOwnable,HasManager{modifierwhenCrowdsaleAlive(){require(isActive());_;}modifierwhenCrowdsaleFailed(){require(isFailed());_;}modifierwhenCrowdsaleSuccessful(){require(isSuccessful());_;}modifierhasntStopped(){require(!stopped);_;}modifierhasBeenStopped(){require(stopped);_;}modifierhasntStarted(){require(!started);_;}modifierhasBeenStarted(){require(started);_;}uint256constantpublicMIN_HARD_CAP=1ether;uint256constantpublicMIN_CROWDSALE_TIME=3days;uint256constantpublicMAX_CROWDSALE_TIME=50days;boolpublicstarted;boolpublicstopped;uint256publictotalCollected;uint256publictotalSold;uint256publicminimalGoal;uint256publichardCap;uint256publicduration;uint256publicstartTimestamp;uint256publicendTimestamp;functiondeposit()publicpayable{}functiongetToken()publicreturns(address);functionmintETHRewards(address_contract,uint256_amount)publiconlyManager();functionmintTokenRewards(address_contract,uint256_amount)publiconlyManager();functionreleaseTokens()publiconlyManager()hasntStopped()whenCrowdsaleSuccessful();functionstop()publiconlyManager()hasntStopped();functionstart(uint256_startTimestamp,uint256_endTimestamp,address_fundingAddress)publiconlyManager()hasntStarted()hasntStopped();functionisFailed()publicconstantreturns(bool);functionisActive()publicconstantreturns(bool);functionisSuccessful()publicconstantreturns(bool);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 453
+column: 2
+content: functionsetRate(uint256_tokensPerEthPrice)publiconlyOwner{tokensPerEthPrice=_tokensPerEthPrice;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 322
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 189
+column: 22
+content: call.value(_amount)()
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 461
+column: 22
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 389
+column: 2
+content: mapping(address=>uint256)participants;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 392
+column: 2
+content: uint256tokensPerEthPrice;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 395
+column: 2
+content: SmartOTokencrowdsaleToken;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :12
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_CALL_WITHOUT_DATA :1
+SOLIDITY_ERC20_APPROVE :1

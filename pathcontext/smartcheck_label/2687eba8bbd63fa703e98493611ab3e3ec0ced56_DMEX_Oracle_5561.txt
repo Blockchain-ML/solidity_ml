@@ -1,0 +1,210 @@
+C:\Users\hp\DataSet\contracts\mainnet\26\2687eba8bbd63fa703e98493611ab3e3ec0ced56_DMEX_Oracle.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 34
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 82
+column: 56
+content: throw
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 65
+column: 4
+content: functionsetOwner(addressnewOwner)onlyOwner{emitSetOwner(owner,newOwner);owner=newOwner;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 71
+column: 4
+content: functionsetAdmin(addressadmin,boolisAdmin)onlyOwner{admins[admin]=isAdmin;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 33
+column: 8
+content: if(!assertion){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 82
+column: 8
+content: if(msg.sender!=owner&&!admins[msg.sender])throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 105
+column: 8
+content: if(DMEX(DMEX_contract).getContractExpiration(futuresContractHash)==0)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 106
+column: 8
+content: if(DMEX(DMEX_contract).getContractClosed(futuresContractHash)==true)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 125
+column: 8
+content: if(msg.sender!=provable_cbAddress())revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 126
+column: 8
+content: if(oracle_queries[myid][0]==0)revert();
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 100
+column: 16
+content: send(amount)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 8
+column: 1
+content: functioncloseFuturesContract(bytes32futuresContract,uint256price)returns(bool);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 9
+column: 1
+content: functiongetContractExpiration(bytes32futuresContractHash)returns(uint256);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 10
+column: 1
+content: functiongetContractClosed(bytes32futuresContractHash)returns(bool);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 11
+column: 1
+content: functiongetContractPriceUrl(bytes32futuresContractHash)returns(string);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 12
+column: 1
+content: functiongetContractPricePath(bytes32futuresContractHash)returns(string);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 31
+column: 4
+content: functionassert(boolassertion)pure{if(!assertion){throw;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 39
+column: 4
+content: functionsafeMul(uinta,uintb)purereturns(uint){uintc=a*b;assert(a==0||c/a==b);returnc;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 46
+column: 4
+content: functionsafeSub(uinta,uintb)purereturns(uint){assert(b<=a);returna-b;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 52
+column: 4
+content: functionsafeAdd(uinta,uintb)purereturns(uint){uintc=a+b;assert(c>=a&&c>=b);returnc;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 4
+content: functionsetOwner(addressnewOwner)onlyOwner{emitSetOwner(owner,newOwner);owner=newOwner;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 71
+column: 4
+content: functionsetAdmin(addressadmin,boolisAdmin)onlyOwner{admins[admin]=isAdmin;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 75
+column: 4
+content: functionsetDmexContract(addressDMEX_contract_){DMEX_contract=DMEX_contract_;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 88
+column: 4
+content: functionDMEX_Oracle(){owner=msg.sender;provable_setProof(proofType_TLSNotary);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 94
+column: 4
+content: functiondeposit()payable{}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 98
+column: 4
+content: functionwithdraw(uint256amount)onlyOwner{msg.sender.send(amount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 103
+column: 1
+content: functioncloseFuturesContract(bytes32futuresContractHash,uint256gasPrice,uint256gasLimit)onlyAdminpayable{if(DMEX(DMEX_contract).getContractExpiration(futuresContractHash)==0)revert();if(DMEX(DMEX_contract).getContractClosed(futuresContractHash)==true)revert();closeContractWithOraclePrice(futuresContractHash,gasPrice,gasLimit);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 124
+column: 4
+content: function__callback(bytes32myid,stringresult,bytesproof){if(msg.sender!=provable_cbAddress())revert();if(oracle_queries[myid][0]==0)revert();bytes32futuresContractHash=oracle_queries[myid];emitLogOracleCallback(myid,futuresContractHash,result,proof);uint256price=safeMul(parseInt(result,2),1e6);DMEX(DMEX_contract).closeFuturesContract(futuresContractHash,price);}
+
+SOLIDITY_VISIBILITY :17
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :6
+SOLIDITY_UNCHECKED_CALL :1

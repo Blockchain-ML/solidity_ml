@@ -1,0 +1,170 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\85470.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 132
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 212
+column: 4
+content: functionapprove(address_spender,uint256_value)publicwhenNotPausedreturns(bool){returnsuper.approve(_spender,_value);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 371
+column: 0
+content: contractGenbbyTokenisUpgradableToken{stringpubliccontactInformation;stringpublicname="Genbby Token";stringpublicsymbol="GG";uint256publicconstantdecimals=18;uint256publicconstantfactor=10**decimals;eventUpgradeTokenInformation(stringnewName,stringnewSymbol);functionGenbbyToken()public{hard_cap=(10**9)*factor;contactInformation='https://genbby.com/';}functionsetTokenInformation(string_name,string_symbol)onlyOwnerpublic{name=_name;symbol=_symbol;UpgradeTokenInformation(name,symbol);}functionsetContactInformation(stringinfo)onlyOwnerpublic{contactInformation=info;}function()publicpayable{revert();}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 404
+column: 0
+content: contractCrowdsalePhase1isPausable{usingSafeMathforuint256;GenbbyTokenpublictoken;uint256publicstart;uint256publicfinish;uint256publictokens_sold;uint256publicconstantdecimals=18;uint256publicconstantfactor=10**decimals;uint256publicconstanttotal_tokens=37500000*factor;eventTokensGiven(addressto,uint256amount);functionCrowdsalePhase1(uint256_start)public{start=_start;finish=start+4weeks;}functionsetToken(addresstokenAddress)onlyOwnerpublic{token=GenbbyToken(tokenAddress);}modifierwhenRunning(){require(start<=now&&now<=finish);_;}functiongiveTokens(address_to,uint256_amount)onlyOwnerwhenNotPausedwhenRunningpublicreturns(bool){require(tokens_sold.add(_amount)<=total_tokens);token.mint(_to,_amount);tokens_sold=tokens_sold.add(_amount);TokensGiven(_to,_amount);returntrue;}function()publicpayable{revert();}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 244
+column: 4
+content: functionsetMintAgent(addressaddr,boolstate)onlyOwnerwhenNotPausedpublic{mintAgents[addr]=state;MintingAgentChanged(addr,state);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 281
+column: 4
+content: functionsetTrustedContract(addressaddr,boolstate)onlyOwnerwhenNotPausedpublic{trustedContract[addr]=state;TrustedContract(addr,state);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 332
+column: 4
+content: functionsetUpgradeAgent(addressaddr)onlyOwnerpublic{upgradeAgent=UpgradeAgent(addr);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 386
+column: 4
+content: functionsetTokenInformation(string_name,string_symbol)onlyOwnerpublic{name=_name;symbol=_symbol;UpgradeTokenInformation(name,symbol);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 392
+column: 4
+content: functionsetContactInformation(stringinfo)onlyOwnerpublic{contactInformation=info;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 425
+column: 4
+content: functionsetToken(addresstokenAddress)onlyOwnerpublic{token=GenbbyToken(tokenAddress);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 397
+column: 31
+content: {revert();}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 445
+column: 31
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 62
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 406
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 397
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 445
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 386
+column: 33
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 386
+column: 47
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 392
+column: 35
+content: stringinfo
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 64
+column: 4
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 232
+column: 4
+content: mapping(address=>bool)mintAgents;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 270
+column: 4
+content: mapping(address=>bool)trustedContract;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_SAFEMATH :2
+SOLIDITY_OVERPOWERED_ROLE :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_UPGRADE_TO_050 :5
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :2
+SOLIDITY_ERC20_APPROVE :2

@@ -1,0 +1,150 @@
+F:\Blockchain\dataset_new_byID\78653.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 43
+column: 7
+content: send(receiver,amount)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 96
+column: 14
+content: send(receiverAddr,COINS)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 105
+column: 18
+content: send(receiveFailerAddr,COINS)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 8
+column: 4
+content: functionCoin(){minter=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 12
+column: 4
+content: functionmint(addressowner,uintamount){if(msg.sender!=minter)return;balances[owner]+=amount;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 17
+column: 4
+content: functionsend(addressreceiver,uintamount){if(balances[msg.sender]<amount)return;balances[msg.sender]-=amount;balances[receiver]+=amount;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 32
+column: 1
+content: functionCoinAgent(addresscoinAddress){coin=Coin(coinAddress);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 37
+column: 1
+content: functionmint(addressowner,uintamount){coin.mint(owner,amount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 63
+column: 4
+content: functiontestIsMinter(){coin.minter().assertEqual(address(this),"TestContract is not minter");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 70
+column: 1
+content: functiontestMinting(){varmyAddr=address(this);coin.mint(myAddr,COINS);coin.balances(myAddr).assertEqual(COINS,"minter balance is wrong");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 79
+column: 1
+content: functiontestMintingWhenNotMinter(){varminterAddr=address(minterAgent);minterAgent.mint(minterAddr,COINS);coin.balances(minterAddr).assertZero("minter balance is not 0");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 87
+column: 1
+content: functiontestSending(){varsenderAddr=address(senderAgent);varreceiverAddr=address(receiverAgent);coin.mint(senderAddr,COINS);coin.balances(senderAddr).assertEqual(COINS,"minting failed");senderAgent.send(receiverAddr,COINS);coin.balances(receiverAddr).assertEqual(COINS,"receiver balance is wrong");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 102
+column: 1
+content: functiontestSendingWithBalanceTooLow(){varsendFailerAddr=address(sendFailerAgent);varreceiveFailerAddr=address(receiveFailerAgent);sendFailerAgent.send(receiveFailerAddr,COINS);coin.balances(receiveFailerAddr).assertEqual(0,"receiver was sent coins");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 29
+column: 1
+content: Coincoin;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 50
+column: 4
+content: Coincoin=newCoin();
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 53
+column: 4
+content: CoinAgentminterAgent=newCoinAgent(coin);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 54
+column: 4
+content: CoinAgentsenderAgent=newCoinAgent(coin);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 55
+column: 4
+content: CoinAgentreceiverAgent=newCoinAgent(coin);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 56
+column: 4
+content: CoinAgentsendFailerAgent=newCoinAgent(coin);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 57
+column: 1
+content: CoinAgentreceiveFailerAgent=newCoinAgent(coin);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 60
+column: 4
+content: uintconstantCOINS=5;
+
+SOLIDITY_VISIBILITY :18
+SOLIDITY_UNCHECKED_CALL :3

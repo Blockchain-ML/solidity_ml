@@ -1,0 +1,56 @@
+C:\Users\hp\DataSet\contracts\ropsten\76\7668f01de829e02f0b1a3e447859c40be27b3159_Lottery.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 75
+column: 12
+content: while(number_of_players_signed>players_required){players[number_of_players_signed-players_required]=players[number_of_players_signed];number_of_players_signed-=1;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 75
+column: 19
+content: number_of_players_signed>players_required
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 11
+column: 10
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 56
+column: 4
+content: if(msg.value!=bet_amount)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 66
+column: 8
+content: if(block.number>bet_executed_atBlock){random_number=uint(blockhash(block.number-1))%players_required+1;uintdev=pot/10;finalPrize=pot*winners_stake/100;reservedForNextRound=dev;theChosenWinner=players[random_number];players[random_number].transfer(finalPrize);owner.transfer(dev);players_signedUp_for_nextround=number_of_players_signed-players_required;while(number_of_players_signed>players_required){players[number_of_players_signed-players_required]=players[number_of_players_signed];number_of_players_signed-=1;}number_of_players_signed=players_signedUp_for_nextround;}elserevert();
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 22
+column: 4
+content: uintfinalPrize;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

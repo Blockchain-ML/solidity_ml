@@ -1,0 +1,40 @@
+C:\Users\hp\DataSet\contracts\ropsten\d9\d9053c461e4e1fa865caeeeb86bc7d83454003d4_ERC20TokenExchange.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 199
+column: 0
+content: contractERC20TokenExchangeisAdvancedPullPayment,ReentrancyGuard{usingSafeMathforuint256;eventSellOrderPut(addressindexed_erc20TokenAddress,addressindexed_seller,uint256_tokenPerLot,uint256_pricePerLot,uint256_numOfLot);eventSellOrderFilled(addressindexed_erc20TokenAddress,addressindexed_seller,addressindexed_buyer,uint256_tokenPerLot,uint256_pricePerLot,uint256_numOfLot);eventBuyOrderPut(addressindexed_erc20TokenAddress,addressindexed_buyer,uint256_tokenPerLot,uint256_pricePerLot,uint256_numOfLot);eventBuyOrderFilled(addressindexed_erc20TokenAddress,addressindexed_buyer,addressindexed_seller,uint256_tokenPerLot,uint256_pricePerLot,uint256_numOfLot);structOrder{uint256tokenPerLot;uint256pricePerLot;uint256numOfLot;}mapping(address=>mapping(address=>Order))publicsellOrders;mapping(address=>mapping(address=>Order))publicbuyOrders;functiondeposit()publicpayablenonReentrant{require(msg.value!=0);asyncSend(msg.sender,msg.value);}functionputSellOrder(address_erc20TokenAddress,uint256_tokenPerLot,uint256_pricePerLot,uint256_lotToSell)publicnonReentrant{require(_erc20TokenAddress!=address(0));require(_tokenPerLot!=0);require(_pricePerLot!=0);require(_lotToSell!=0);addressseller=msg.sender;Orderstorageorder=sellOrders[_erc20TokenAddress][seller];order.tokenPerLot=_tokenPerLot;order.pricePerLot=_pricePerLot;order.numOfLot=_lotToSell;ERC20erc20=ERC20(_erc20TokenAddress);require(hasSufficientTokenInternal(erc20,seller,_lotToSell.mul(_tokenPerLot)));emitSellOrderPut(_erc20TokenAddress,seller,_tokenPerLot,_pricePerLot,_lotToSell);}functionfillSellOrder(address_erc20TokenAddress,address_seller,uint256_tokenPerLot,uint256_pricePerLot,uint256_lotToBuy)publicpayablenonReentrant{require(_erc20TokenAddress!=address(0));require(_seller!=address(0));require(_lotToBuy!=0);Orderstorageorder=sellOrders[_erc20TokenAddress][_seller];require(order.tokenPerLot==_tokenPerLot);require(order.pricePerLot==_pricePerLot);uint256numOfLot=order.numOfLot;require(numOfLot>=_lotToBuy);uint256payment=_pricePerLot.mul(_lotToBuy);require(payment!=0);addressbuyer=msg.sender;uint256cash=msg.value;if(payment<cash){asyncSend(_seller,payment);asyncSend(buyer,cash.sub(payment));}elseif(payment==cash){asyncSend(_seller,payment);}else{if(cash!=0){asyncSend(buyer,cash);}asyncTransfer(buyer,_seller,payment);}order.numOfLot=numOfLot.sub(_lotToBuy);uint256amoutToBuy=_lotToBuy.mul(_tokenPerLot);ERC20erc20=ERC20(_erc20TokenAddress);safeSafeTransferFrom(erc20,_seller,buyer,amoutToBuy);emitSellOrderFilled(_erc20TokenAddress,_seller,buyer,_tokenPerLot,_pricePerLot,_lotToBuy);}functionputBuyOrder(address_erc20TokenAddress,uint256_tokenPerLot,uint256_pricePerLot,uint256_lotToBuy)publicpayablenonReentrant{require(_erc20TokenAddress!=address(0));require(_tokenPerLot!=0);require(_pricePerLot!=0);require(_lotToBuy!=0);addressbuyer=msg.sender;if(msg.value!=0){asyncSend(buyer,msg.value);}require(hasSufficientPaymentInternal(buyer,_pricePerLot.mul(_lotToBuy)));Orderstorageorder=buyOrders[_erc20TokenAddress][buyer];order.tokenPerLot=_tokenPerLot;order.pricePerLot=_pricePerLot;order.numOfLot=_lotToBuy;emitBuyOrderPut(_erc20TokenAddress,buyer,_tokenPerLot,_pricePerLot,_lotToBuy);}functionfillBuyOrder(address_erc20TokenAddress,address_buyer,uint256_tokenPerLot,uint256_pricePerLot,uint256_lotToSell)publicnonReentrant{require(_erc20TokenAddress!=address(0));require(_buyer!=address(0));require(_tokenPerLot!=0);require(_pricePerLot!=0);require(_lotToSell!=0);Orderstorageorder=buyOrders[_erc20TokenAddress][_buyer];uint256numOfLot=order.numOfLot;require(numOfLot>=_lotToSell);require(order.tokenPerLot==_tokenPerLot);require(order.pricePerLot==_pricePerLot);uint256payment=_pricePerLot.mul(_lotToSell);addressseller=msg.sender;asyncTransfer(_buyer,seller,payment);order.numOfLot=numOfLot.sub(_lotToSell);ERC20erc20=ERC20(_erc20TokenAddress);uint256amoutToSell=_lotToSell.mul(_tokenPerLot);safeSafeTransferFrom(erc20,seller,_buyer,amoutToSell);emitSellOrderFilled(_erc20TokenAddress,_buyer,seller,_tokenPerLot,_pricePerLot,_lotToSell);}functionsafeSafeTransferFrom(ERC20_erc20,address_from,address_to,uint256_amount)internal{uint256previousBalance=_erc20.balanceOf(_to);SafeERC20.safeTransferFrom(_erc20,_from,_to,_amount);require(previousBalance.add(_amount)==_erc20.balanceOf(_to));}functionisValidSellOrder(address_erc20TokenAddress,address_seller)publicviewreturns(bool){ERC20erc20=ERC20(_erc20TokenAddress);Orderstorageorder=sellOrders[_erc20TokenAddress][_seller];returnhasSufficientTokenInternal(erc20,_seller,order.tokenPerLot.mul(order.numOfLot));}functionisValidBuyOrder(address_erc20TokenAddress,address_buyer)publicviewreturns(bool){Orderstorageorder=buyOrders[_erc20TokenAddress][_buyer];returnhasSufficientPaymentInternal(_buyer,order.pricePerLot.mul(order.numOfLot));}functiongetSellOrderInfo(address_erc20TokenAddress,address_seller)publicviewreturns(uint256,uint256,uint256){Orderstorageorder=sellOrders[_erc20TokenAddress][_seller];return(order.tokenPerLot,order.pricePerLot,order.numOfLot);}functiongetBuyOrderInfo(address_erc20TokenAddress,address_buyer)publicviewreturns(uint256,uint256,uint256){Orderstorageorder=buyOrders[_erc20TokenAddress][_buyer];return(order.tokenPerLot,order.pricePerLot,order.numOfLot);}functionhasSufficientPaymentInternal(address_payee,uint256_amount)internalviewreturns(bool){returnpayments[_payee]>=_amount;}functionhasSufficientTokenInternal(ERC20erc20,address_seller,uint256_amountToSell)internalviewreturns(bool){returnerc20.allowance(_seller,address(this))>=_amountToSell;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 16
+column: 7
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 158
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 201
+column: 4
+content: usingSafeMathforuint256;
+
+SOLIDITY_SAFEMATH :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1

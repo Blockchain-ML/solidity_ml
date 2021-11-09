@@ -1,0 +1,77 @@
+C:\Users\hp\DataSet\contracts\mainnet\31\3128c3f5e3a6c6834f5cc4daccdf72d79da4d2bc_DEVCoin.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 34
+column: 4
+content: functionbalanceOf(addresswho)constantpublicreturns(uint256);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 42
+column: 4
+content: functionallowance(addressowner,addressspender)constantpublicreturns(uint256);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 107
+column: 4
+content: functionbalanceOf(address_owner)constantpublicreturns(uint256balance){returnbalances[_owner];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 136
+column: 4
+content: functionallowance(address_owner,address_spender)onlyPayloadSize(2*32)unblockedconstantpublicreturns(uint256remaining){returnallowed[_owner][_spender];}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 127
+column: 4
+content: functionapprove(address_spender,uint256_value)onlyPayloadSize(2*32)unblockedpublicreturns(bool){require((_value==0)||(allowed[msg.sender][_spender]==0));allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 51
+column: 0
+content: contractOwned{addresspublicowner;addresspublicnewOwner;functionOwned()publicpayable{owner=msg.sender;}modifieronlyOwner{require(owner==msg.sender);_;}functionchangeOwner(address_owner)onlyOwnerpublic{require(_owner!=0);newOwner=_owner;}functionconfirmOwner()public{require(newOwner==msg.sender);owner=newOwner;deletenewOwner;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 90
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 92
+column: 4
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 115
+column: 4
+content: mapping(address=>mapping(address=>uint256))allowed;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ERC20_APPROVE :1

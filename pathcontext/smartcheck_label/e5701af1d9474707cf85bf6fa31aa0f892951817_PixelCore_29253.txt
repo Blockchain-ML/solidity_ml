@@ -1,0 +1,350 @@
+C:\Users\hp\DataSet\contracts\mainnet\e5\e5701af1d9474707cf85bf6fa31aa0f892951817_PixelCore.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 306
+column: 4
+content: functionuintToString(uintv)constantreturns(stringstr){uintmaxlength=100;bytesmemoryreversed=newbytes(maxlength);uinti=0;while(v!=0){uintremainder=v%10;v=v/10;reversed[i++]=byte(48+remainder);}bytesmemorys=newbytes(i);for(uintj=0;j<i;j++){s[j]=reversed[i-1-j];}str=string(s);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 323
+column: 4
+content: functionappendUintToString(stringinStr,uintv)constantreturns(stringstr){uintmaxlength=100;bytesmemoryreversed=newbytes(maxlength);uinti=0;while(v!=0){uintremainder=v%10;v=v/10;reversed[i++]=byte(48+remainder);}bytesmemoryinStrb=bytes(inStr);bytesmemorys=newbytes(inStrb.length+i);uintj;for(j=0;j<inStrb.length;j++){s[j]=inStrb[j];}for(j=0;j<i;j++){s[j+inStrb.length]=reversed[i-1-j];}str=string(s);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 335
+column: 8
+content: for(j=0;j<inStrb.length;j++){s[j]=inStrb[j];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 335
+column: 8
+content: for(j=0;j<inStrb.length;j++){s[j]=inStrb[j];}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 412
+column: 0
+content: contractPixelMintingisPixelPainting{uintpublicpixelPrice=3030szabo;functionsetNewPixelPrice(uint_pixelPrice)externalonlyAuthority{pixelPrice=_pixelPrice;}functionbuyEmptyPixel(uint256_tokenId)externalpayable{require(msg.value==pixelPrice);require(_tokenId<HEIGHT*WIDTH);require(pixelIndexToOwner[_tokenId]==address(0));authorityBalance+=msg.value;_transfer(0,msg.sender,_tokenId);}functionbuyEmptyPixelArea(uint256x,uint256y,uint256x2,uint256y2)externalpayable{require(x2>x&&y2>y);require(x2<=WIDTH&&y2<=HEIGHT);require(msg.value==pixelPrice*(x2-x)*(y2-y));uint256i;uint256tokenId;uint256j;for(i=y;i<y2;i++){tokenId=i*WIDTH;for(j=x;j<x2;j++){require(pixelIndexToOwner[tokenId+j]==address(0));}}authorityBalance+=msg.value;for(i=y;i<y2;i++){tokenId=i*WIDTH;for(j=x;j<x2;j++){_transfer(0,msg.sender,tokenId+j);}}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 306
+column: 4
+content: functionuintToString(uintv)constantreturns(stringstr){uintmaxlength=100;bytesmemoryreversed=newbytes(maxlength);uinti=0;while(v!=0){uintremainder=v%10;v=v/10;reversed[i++]=byte(48+remainder);}bytesmemorys=newbytes(i);for(uintj=0;j<i;j++){s[j]=reversed[i-1-j];}str=string(s);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 323
+column: 4
+content: functionappendUintToString(stringinStr,uintv)constantreturns(stringstr){uintmaxlength=100;bytesmemoryreversed=newbytes(maxlength);uinti=0;while(v!=0){uintremainder=v%10;v=v/10;reversed[i++]=byte(48+remainder);}bytesmemoryinStrb=bytes(inStr);bytesmemorys=newbytes(inStrb.length+i);uintj;for(j=0;j<inStrb.length;j++){s[j]=inStrb[j];}for(j=0;j<i;j++){s[j+inStrb.length]=reversed[i-1-j];}str=string(s);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 80
+column: 4
+content: mapping(address=>uint256)ownershipTokenCount;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 127
+column: 4
+content: bytes4constantInterfaceSignature_ERC165=bytes4(keccak256(&39<missing ')'>;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 128
+column: 30
+content: supportsInterface
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 128
+column: 47
+content: (bytes4)&39;));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 130
+column: 4
+content: bytes4constantInterfaceSignature_ERC721=bytes4(keccak256(&39<missing ')'>;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 131
+column: 30
+content: name
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 131
+column: 34
+content: ()&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 132
+column: 8
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 132
+column: 24
+content: (&39;<missing ')'>symbol
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 132
+column: 36
+content: ()&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 133
+column: 8
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 133
+column: 24
+content: (&39;<missing ')'>totalSupply
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 133
+column: 41
+content: ()&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 134
+column: 8
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 134
+column: 24
+content: (&39;<missing ')'>balanceOf
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 134
+column: 39
+content: (address)&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 135
+column: 8
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 135
+column: 24
+content: (&39;<missing ')'>ownerOf
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 135
+column: 37
+content: (uint256)&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 136
+column: 8
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 136
+column: 24
+content: (&39;<missing ')'>approve
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 136
+column: 37
+content: (address,<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 136
+column: 46
+content: uint256)&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 137
+column: 8
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 137
+column: 24
+content: (&39;<missing ')'>transfer
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 137
+column: 38
+content: (address,<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 137
+column: 47
+content: uint256)&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 138
+column: 8
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 138
+column: 24
+content: (&39;<missing ')'>transferFrom
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 138
+column: 42
+content: (address,<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 138
+column: 51
+content: address,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 138
+column: 59
+content: uint256)&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 139
+column: 8
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 139
+column: 24
+content: (&39;<missing ')'>tokensOfOwner
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 139
+column: 43
+content: (address)&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 140
+column: 8
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 140
+column: 24
+content: (&39;<missing ')'>tokenMetadata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 140
+column: 43
+content: (uint256,<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 140
+column: 52
+content: string)&39;));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 476
+column: 4
+content: mapping(uint256=>Auction)tokenIdToAuction;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 478
+column: 4
+content: mapping(address=>uint)pendingReturns;
+
+SOLIDITY_VISIBILITY :43
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

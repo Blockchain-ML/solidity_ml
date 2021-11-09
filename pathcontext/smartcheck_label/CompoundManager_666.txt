@@ -1,0 +1,79 @@
+C:\Users\hp\DataSet\CompoundManager.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 60
+column: 50
+content: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 123
+column: 8
+content: for(uinti=0;i<markets.length;i++){addresscToken=markets[i];uintdebt=ICToken(cToken).borrowBalanceCurrent(address(_wallet));if(debt>0){repayBorrow(_wallet,cToken,debt);uintcollateral=ICToken(cToken).balanceOf(address(_wallet));if(collateral==0){invokeWallet(address(_wallet),address(comptroller),0,abi.encodeWithSignature("exitMarket(address)",address(cToken)));}}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 88
+column: 4
+content: functionopenLoan(BaseWallet_wallet,address_collateral,uint256_collateralAmount,address_debtToken,uint256_debtAmount)externalonlyWalletOwner(_wallet)onlyWhenUnlocked(_wallet)returns(bytes32_loanId){address[]memorymarkets=newaddress[](2);markets[0]=compoundRegistry.getCToken(_collateral);markets[1]=compoundRegistry.getCToken(_debtToken);invokeWallet(address(_wallet),address(comptroller),0,abi.encodeWithSignature("enterMarkets(address[])",markets));mint(_wallet,markets[0],_collateral,_collateralAmount);borrow(_wallet,markets[1],_debtAmount);emitLoanOpened(address(_wallet),_loanId,_collateral,_collateralAmount,_debtToken,_debtAmount);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 123
+column: 8
+content: for(uinti=0;i<markets.length;i++){addresscToken=markets[i];uintdebt=ICToken(cToken).borrowBalanceCurrent(address(_wallet));if(debt>0){repayBorrow(_wallet,cToken,debt);uintcollateral=ICToken(cToken).balanceOf(address(_wallet));if(collateral==0){invokeWallet(address(_wallet),address(comptroller),0,abi.encodeWithSignature("exitMarket(address)",address(cToken)));}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 16
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 62
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 31
+column: 73
+content: (uint,uint,uint)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 242
+column: 16
+content: (uint8_status,uint256_ethValue)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 316
+column: 16
+content: (uint256_tokenValue,uint256_periodEnd)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 4
+content: bytes32constantNAME="CompoundManager";
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_SHOULD_RETURN_STRUCT :3

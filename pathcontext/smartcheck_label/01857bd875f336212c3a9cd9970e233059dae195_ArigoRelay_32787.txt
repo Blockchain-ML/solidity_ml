@@ -1,0 +1,121 @@
+C:\Users\hp\DataSet\contracts\ropsten\01\01857bd875f336212c3a9cd9970e233059dae195_ArigoRelay.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 212
+column: 15
+content: 0x23b872dd
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 81
+column: 2
+content: for(uint256i=0;i<workers.length;i++)_app.workers[workers[i]]=true;
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 99
+column: 2
+content: for(uint256i=0;i<workers.length;i++){_app.workers[workers[i]]=true;emitHire(app,workers[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 109
+column: 2
+content: for(uint256i=0;i<workers.length;i++){_app.workers[workers[i]]=false;emitFire(app,workers[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 163
+column: 2
+content: for(uint256i=0;i<wallets.length;i++){addresswallet=wallets[i];addresscoin=coins.length==1?coins[0]:coins[i];uint256amount=_transferAvailable(coin,wallet,vault);if(amount>0){Coinstorage_coin=_app.coins[coin];_coin.totalCollected=_coin.totalCollected.add(amount);_coin.totalCollectedFrom[wallet]=_coin.totalCollectedFrom[wallet].add(amount);}emitCollect(app,coin,wallet,vault,amount);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 252
+column: 2
+content: for(uint256i=0;i<dsts.length;i++){addresscoin=coins.length==1?coins[0]:coins[i];if(!_app.coins[coin].withdrawIds[ids[i]]){_app.coins[coin].withdrawIds[ids[i]]=true;if(_llTransferFrom(coin,vault,dsts[i],amounts[i])){_app.coins[coin].totalWithdrawn=_app.coins[coin].totalWithdrawn.add(amounts[i]);emitWithdraw(app,coin,ids[i],vault,dsts[i],amounts[i]);}}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 208
+column: 1
+content: function_llTransferFrom(addresscoin,addressfrom,addressto,uint256amount)privatereturns(boolsuccess){bytes4sig=0x23b872dd;assembly{letm:=mload(0x40)mstore(m,sig)mstore(add(m,0x4),from)mstore(add(m,0x24),to)mstore(add(m,0x44),amount)letsucceeded:=call(gas,coin,0,m,0x64,m,0x20)ifiszero(succeeded){mstore(m,0)}success:=mload(m)}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 81
+column: 2
+content: for(uint256i=0;i<workers.length;i++)_app.workers[workers[i]]=true;
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 99
+column: 2
+content: for(uint256i=0;i<workers.length;i++){_app.workers[workers[i]]=true;emitHire(app,workers[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 109
+column: 2
+content: for(uint256i=0;i<workers.length;i++){_app.workers[workers[i]]=false;emitFire(app,workers[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 163
+column: 2
+content: for(uint256i=0;i<wallets.length;i++){addresswallet=wallets[i];addresscoin=coins.length==1?coins[0]:coins[i];uint256amount=_transferAvailable(coin,wallet,vault);if(amount>0){Coinstorage_coin=_app.coins[coin];_coin.totalCollected=_coin.totalCollected.add(amount);_coin.totalCollectedFrom[wallet]=_coin.totalCollectedFrom[wallet].add(amount);}emitCollect(app,coin,wallet,vault,amount);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 252
+column: 2
+content: for(uint256i=0;i<dsts.length;i++){addresscoin=coins.length==1?coins[0]:coins[i];if(!_app.coins[coin].withdrawIds[ids[i]]){_app.coins[coin].withdrawIds[ids[i]]=true;if(_llTransferFrom(coin,vault,dsts[i],amounts[i])){_app.coins[coin].totalWithdrawn=_app.coins[coin].totalWithdrawn.add(amounts[i]);emitWithdraw(app,coin,ids[i],vault,dsts[i],amounts[i]);}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 4
+column: 1
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 213
+column: 2
+content: assembly{letm:=mload(0x40)mstore(m,sig)mstore(add(m,0x4),from)mstore(add(m,0x24),to)mstore(add(m,0x44),amount)letsucceeded:=call(gas,coin,0,m,0x64,m,0x20)ifiszero(succeeded){mstore(m,0)}success:=mload(m)}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 55
+column: 1
+content: mapping(uint64=>Application)apps;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :5
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :5
+SOLIDITY_USING_INLINE_ASSEMBLY :1

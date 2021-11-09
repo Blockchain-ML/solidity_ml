@@ -1,0 +1,98 @@
+F:\Blockchain\dataset_new_byID\78322.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 25
+column: 4
+content: functiongetProxyOwner()publicviewreturns(addressowner){bytes32position=PROXY_OWNER_POSITION;assembly{owner:=sload(position)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 41
+column: 4
+content: functiongetLogic()publicviewreturns(addresslogic){bytes32position=LOGIC_ADDR_POSITION;assembly{logic:=sload(position)}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractBaseProxy{bytes32privateconstantLOGIC_ADDR_POSITION=keccak256("org.velo.logic.address");bytes32privateconstantPROXY_OWNER_POSITION=keccak256("org.velo.proxy.owner");modifieronlyProxyOwner(){require(msg.sender==getProxyOwner(),"caller must be proxy owner");_;}constructor(addressowner)public{_setProxyOwner(owner);}functiontransferOwnership(addressnewOwner)publiconlyProxyOwner{require(newOwner!=address(0),"newOwner must not be address(0)");_setProxyOwner(newOwner);}functionupgradeTo(addressnewLogic)publiconlyProxyOwner{_upgradeTo(newLogic);}functiongetProxyOwner()publicviewreturns(addressowner){bytes32position=PROXY_OWNER_POSITION;assembly{owner:=sload(position)}}functioninitialize(addresslogic,bytesmemorydata)publicpayable{require(getLogic()==address(0),"logic address must be address(0)");_setLogic(logic);if(data.length>0){(boolsuccess,)=logic.delegatecall(data);require(success,"delegatecall must return success");}}functiongetLogic()publicviewreturns(addresslogic){bytes32position=LOGIC_ADDR_POSITION;assembly{logic:=sload(position)}}function()payableexternal{addresslogic=getLogic();require(logic!=address(0),"logic contract must not point to address(0)");assembly{letptr:=mload(0x40)calldatacopy(ptr,0,calldatasize)letresult:=delegatecall(gas,logic,ptr,calldatasize,0,0)letsize:=returndatasizereturndatacopy(ptr,0,size)switchresultcase0{revert(ptr,size)}default{return(ptr,size)}}}function_upgradeTo(addressnewLogic)private{addresscurrentLogic=getLogic();require(currentLogic!=newLogic,"logic must be pointed to the new address");_setLogic(newLogic);}function_setLogic(addressnewLogic)private{bytes32position=LOGIC_ADDR_POSITION;assembly{sstore(position,newLogic)}}function_setProxyOwner(addressnewOwner)private{bytes32position=PROXY_OWNER_POSITION;assembly{sstore(position,newOwner)}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 4
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 5
+column: 12
+content: private
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 25
+column: 4
+content: functiongetProxyOwner()publicviewreturns(addressowner){bytes32position=PROXY_OWNER_POSITION;assembly{owner:=sload(position)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 41
+column: 4
+content: functiongetLogic()publicviewreturns(addresslogic){bytes32position=LOGIC_ADDR_POSITION;assembly{logic:=sload(position)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 27
+column: 8
+content: assembly{owner:=sload(position)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 43
+column: 8
+content: assembly{logic:=sload(position)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 51
+column: 8
+content: assembly{letptr:=mload(0x40)calldatacopy(ptr,0,calldatasize)letresult:=delegatecall(gas,logic,ptr,calldatasize,0,0)letsize:=returndatasizereturndatacopy(ptr,0,size)switchresultcase0{revert(ptr,size)}default{return(ptr,size)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 72
+column: 8
+content: assembly{sstore(position,newLogic)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 79
+column: 8
+content: assembly{sstore(position,newOwner)}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_USING_INLINE_ASSEMBLY :5
+SOLIDITY_SHOULD_NOT_BE_VIEW :2

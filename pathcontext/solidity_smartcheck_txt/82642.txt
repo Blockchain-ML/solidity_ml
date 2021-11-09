@@ -1,0 +1,139 @@
+F:\Blockchain\dataset_new_byID\82642.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 103
+column: 4
+content: functioncurrentOwner()constantpublicreturns(address){returnowner;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 81
+column: 4
+content: functionsetTeamTokensHolder(address_tokenHolder)onlyOwnerreturns(bool){require(_tokenHolder!=0);addresstemporaryEventAddress=teamTokensHolder;teamTokensHolder=_tokenHolder;ChangeTeamHolder(temporaryEventAddress,teamTokensHolder);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 90
+column: 4
+content: functionsetCommunityTokensHolder(address_tokenHolder)onlyOwnerreturns(bool){require(_tokenHolder!=0);addresstemporaryEventAddress=communityTokensHolder;communityTokensHolder=_tokenHolder;ChangeCommunityHolder(temporaryEventAddress,communityTokensHolder);returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 22
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 28
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 68
+column: 4
+content: functionTokenMock(string_name,string_symbol,uint256_decimals){name=_name;symbol=_symbol;decimals=_decimals;teamTokensHolder=msg.sender;communityTokensHolder=msg.sender;ChangeTeamHolder(0x0,teamTokensHolder);ChangeCommunityHolder(0x0,communityTokensHolder);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 81
+column: 4
+content: functionsetTeamTokensHolder(address_tokenHolder)onlyOwnerreturns(bool){require(_tokenHolder!=0);addresstemporaryEventAddress=teamTokensHolder;teamTokensHolder=_tokenHolder;ChangeTeamHolder(temporaryEventAddress,teamTokensHolder);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 90
+column: 4
+content: functionsetCommunityTokensHolder(address_tokenHolder)onlyOwnerreturns(bool){require(_tokenHolder!=0);addresstemporaryEventAddress=communityTokensHolder;communityTokensHolder=_tokenHolder;ChangeCommunityHolder(temporaryEventAddress,communityTokensHolder);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 99
+column: 4
+content: function()payable{require(false);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 108
+column: 4
+content: functiontransfer(address_to,uint256_value)allowTransferreturns(bool){returnsuper.transfer(_to,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 114
+column: 4
+content: functiontransferFrom(address_from,address_to,uint256_value)allowTransferreturns(bool){returnsuper.transferFrom(_from,_to,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 119
+column: 4
+content: functiontoggleTransfer()onlyOwnerreturns(bool){transferAllowed=!transferAllowed;ToggleTransferAllowance(transferAllowed);returntransferAllowed;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 126
+column: 4
+content: functiontoggleTransferFor(address_for)onlyOwnerreturns(bool){specialAllowed[_for]=!specialAllowed[_for];ToggleTransferAllowanceFor(_for,specialAllowed[_for]);returnspecialAllowed[_for];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 133
+column: 4
+content: functionmint(address_to,uint256_amount)onlyOwnercanMintreturns(bool){require(_amount>0);totalSupply=totalSupply.add(_amount);investorSupply=investorSupply.add(_amount);freeToExtraMinting=freeToExtraMinting.add(_amount);assert(investorSupply<=MAXSOLD_SUPPLY);assert(totalSupply<=HARDCAPPED_SUPPLY);balances[_to]=balances[_to].add(_amount);Mint(_to,_amount);Transfer(address(this),_to,_amount);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 149
+column: 4
+content: functionextraMint()onlyOwnercanMintreturns(bool){require(freeToExtraMinting>0);uint256onePercent=freeToExtraMinting/DISTRIBUTION_INVESTORS;uint256teamPart=onePercent*DISTRIBUTION_TEAM;uint256communityPart=onePercent*DISTRIBUTION_COMMUNITY;uint256extraTokens=teamPart.add(communityPart);totalSupply=totalSupply.add(extraTokens);extraSupply=extraSupply.add(extraTokens);uint256leftToNextMinting=freeToExtraMinting%DISTRIBUTION_INVESTORS;freeToExtraMinting=leftToNextMinting;assert(totalSupply<=HARDCAPPED_SUPPLY);assert(extraSupply<=HARDCAPPED_SUPPLY.sub(MAXSOLD_SUPPLY));balances[teamTokensHolder]=balances[teamTokensHolder].add(teamPart);balances[communityTokensHolder]=balances[communityTokensHolder].add(communityPart);Mint(teamTokensHolder,teamPart);Transfer(address(this),teamTokensHolder,teamPart);Mint(communityTokensHolder,communityPart);Transfer(address(this),communityTokensHolder,communityPart);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 178
+column: 4
+content: functionincreaseApproval(address_spender,uint_addedValue)returns(boolsuccess){allowed[msg.sender][_spender]=allowed[msg.sender][_spender].add(_addedValue);Approval(msg.sender,_spender,allowed[msg.sender][_spender]);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 185
+column: 4
+content: functiondecreaseApproval(address_spender,uint_subtractedValue)returns(boolsuccess){uintoldValue=allowed[msg.sender][_spender];if(_subtractedValue>oldValue){allowed[msg.sender][_spender]=0;}else{allowed[msg.sender][_spender]=oldValue.sub(_subtractedValue);}Approval(msg.sender,_spender,allowed[msg.sender][_spender]);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 199
+column: 4
+content: functionAceToken()TokenMock("ACE Token","ACE",0){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 207
+column: 4
+content: functionTeamToken()TokenMock("TEAM Token","TEAM",4){}
+
+SOLIDITY_VISIBILITY :14
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1

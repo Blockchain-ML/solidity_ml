@@ -1,0 +1,47 @@
+C:\Users\hp\DataSet\contracts\mainnet\7c\7c2832ea0d3709699a39efaeb7c46740c97e9fa4_EtherFundMeCrowdfunding.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 126
+column: 1
+content: functiongetState()publicconstantreturns(State){if(finalized)returnState.Finalized;if(startsAt>now)returnState.Preparing;if(now>=startsAt&&now<endsAt)returnState.Funding;if(isGoalReached())returnState.Success;if(!isGoalReached()&&this.balance>0)returnState.Refunding;returnState.Failure;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 142
+column: 1
+content: functionisGoalReached()publicconstantreturns(boolreached){returnthis.balance>=(fundingGoal*GOAL_REACHED_CRITERION)/100;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 197
+column: 5
+content: if(weiValue==0)revert();
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 106
+column: 2
+content: functionEtherFundMeCrowdfunding(string_name,string_description,string_teamContact,uint_startsAt,uint_endsAt,uint_fundingGoal,address_team,address_feeReceiver){require(_startsAt!=0);require(_endsAt!=0);require(_fundingGoal!=0);require(_team!=0);require(_feeReceiver!=0);deployAgent=msg.sender;name=_name;description=_description;teamContact=_teamContact;startsAt=_startsAt;endsAt=_endsAt;fundingGoal=_fundingGoal;team=_team;feeReceiver=_feeReceiver;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 147
+column: 2
+content: function()payable{invest();}
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1

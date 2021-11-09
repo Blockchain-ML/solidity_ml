@@ -1,0 +1,63 @@
+C:\Users\hp\DataSet\contracts\ropsten\7c\7c63213e0f1e334ca6f2bff2108e1bd97e38e7d3_HealthBeCoinToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 73
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 147
+column: 4
+content: functionapprove(address_spender,uint256_value)publicafterCrowdsalereturns(bool){returnsuper.approve(_spender,_value);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 83
+column: 4
+content: functionincreaseApproval(address_spender,uint256_addedValue)publicreturns(bool){allowed[msg.sender][_spender]=(allowed[msg.sender][_spender].add(_addedValue));emitApproval(msg.sender,_spender,allowed[msg.sender][_spender]);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 128
+column: 4
+content: functionsetCrowdsale(address_crowdsaleAddress)publiconlyOwner{require(_crowdsaleAddress!=address(0));crowdsaleAddress=_crowdsaleAddress;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 36
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 40
+column: 4
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 41
+column: 4
+content: uint256totalSupply_;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_ERC20_APPROVE :2

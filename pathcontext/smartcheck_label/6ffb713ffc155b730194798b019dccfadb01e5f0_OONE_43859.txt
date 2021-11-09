@@ -1,0 +1,146 @@
+C:\Users\hp\DataSet\contracts\ropsten\6f\6ffb713ffc155b730194798b019dccfadb01e5f0_OONE.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 162
+column: 4
+content: functionbalanceOf(address_receiver)publicconstantreturns(uint256){returnbalances[_receiver];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 166
+column: 4
+content: functionbalanceInTranche()publicconstantreturns(uint256){returntrancheTokens[trancheLevel];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 170
+column: 4
+content: functionbalanceInSpecificTranche(uint256_tranche)publicconstantreturns(uint256){returntrancheTokens[_tranche];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 174
+column: 4
+content: functionrateOfSpecificTranche(uint256_tranche)publicconstantreturns(uint256){returntrancheRate[_tranche];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 289
+column: 4
+content: functionallowance(address_tokenOwner,address_spender)publicconstantreturns(uint256remaining){returnallowed[_tokenOwner][_spender];}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 1
+column: 0
+content: contractOONE{stringpublicname="Olympus One";uint8publicdecimals=18;stringpublicsymbol="OONE";addresspublicowner;addresspublicfeesAddr;addresstrancheAdmin;uint256publictotalSupply=50000000000000000000000000;uint256publicmineableTokens=totalSupply;uintpublictrancheLevel=1;uint256publiccirculatingSupply=0;uintmaxTranche=4;uintloopCount=0;uint256publicdevFees=0;uint256feePercent=1500;uint256trancheOneSaleTime;uintfiatPerEth=17089000000000000000000;boolpublicreceiveEth=true;boolpayFees=true;booladdTranches=true;boolpublicinitialTranches=false;booltrancheOne=true;mapping(address=>uint256)publicbalances;mapping(address=>uint256)publictrancheOneBalances;mapping(address=>mapping(address=>uint256))allowed;mapping(uint=>uint256)publictrancheTokens;mapping(uint=>uint256)publictrancheRate;eventTransfer(addressindexed_from,addressindexed_to,uint256_value);eventApproval(addressindexed_owner,addressindexed_spender,uint_value);functionOONE(){owner=msg.sender;feesAddr=msg.sender;trancheAdmin=msg.sender;trancheOneSaleTime=now+182days;populateTrancheTokens();populateTrancheRates();}functionpopulateTrancheTokens()public{trancheTokens[1]=1E25;trancheTokens[2]=2E25;trancheTokens[3]=1E25;trancheTokens[4]=1E25;}functionpopulateTrancheRates()public{trancheRate[1]=3.457E20;trancheRate[2]=8.643E19;trancheRate[3]=4.321E19;trancheRate[4]=2.161E19;initialTranches=true;}function()payablepublic{require((msg.value>0)&&(receiveEth));allocateTokens(msg.value,0);}functionconvertEthToCents(uint256_incoming)internalreturns(uint256){returnmul(_incoming,fiatPerEth);}functionallocateTokens(uint256_submitted,uint256_tokenCount)internal{uint256_tokensAfforded=0;loopCount++;if((trancheLevel<=maxTranche)&&(loopCount<=maxTranche)){_tokensAfforded=div(mul(_submitted,trancheRate[trancheLevel]),1ether);}if((_tokensAfforded>=trancheTokens[trancheLevel])&&(loopCount<=maxTranche)){_submitted=sub(_submitted,div(mul(trancheTokens[trancheLevel],1ether),trancheRate[trancheLevel]));_tokenCount=add(_tokenCount,trancheTokens[trancheLevel]);if(trancheLevel==1){trancheOneBalances[msg.sender]=add(trancheOneBalances[msg.sender],trancheTokens[trancheLevel]);}circulatingSupply=add(circulatingSupply,_tokensAfforded);trancheTokens[trancheLevel]=0;trancheLevel++;if(trancheLevel==1){trancheOne=false;}allocateTokens(_submitted,_tokenCount);}elseif((trancheTokens[trancheLevel]>=_tokensAfforded)&&(_tokensAfforded>0)&&(loopCount<=maxTranche)){trancheTokens[trancheLevel]=sub(trancheTokens[trancheLevel],_tokensAfforded);_tokenCount=add(_tokenCount,_tokensAfforded);circulatingSupply=add(circulatingSupply,_tokensAfforded);if(trancheLevel==1){trancheOneBalances[msg.sender]=add(trancheOneBalances[msg.sender],_tokenCount);}allocateTokens(0,_tokenCount);}else{uint256fees=0;if(payFees){fees=add(fees,((_tokenCount*feePercent)/10000));}balances[msg.sender]=add(balances[msg.sender],_tokenCount);balances[feesAddr]=add(balances[feesAddr],fees);if(trancheOne){trancheOneBalances[feesAddr]=add(trancheOneBalances[feesAddr],fees);}Transfer(this,msg.sender,_tokenCount);Transfer(this,feesAddr,fees);loopCount=0;}}functiontransfer(address_to,uint256_value)public{require(balances[msg.sender]>=_value);if(_to==address(this)){balances[msg.sender]=sub(balances[msg.sender],_value);circulatingSupply=sub(circulatingSupply,_value);Transfer(msg.sender,_to,_value);}else{if(now>=trancheOneSaleTime){balances[msg.sender]=sub(balances[msg.sender],_value);balances[_to]=add(balances[_to],_value);Transfer(msg.sender,_to,_value);}else{if(_value<=sub(balances[msg.sender],trancheOneBalances[msg.sender])){balances[msg.sender]=sub(balances[msg.sender],_value);balances[_to]=add(balances[_to],_value);Transfer(msg.sender,_to,_value);}elserevert();}}}functionbalanceOf(address_receiver)publicconstantreturns(uint256){returnbalances[_receiver];}functionbalanceInTranche()publicconstantreturns(uint256){returntrancheTokens[trancheLevel];}functionbalanceInSpecificTranche(uint256_tranche)publicconstantreturns(uint256){returntrancheTokens[_tranche];}functionrateOfSpecificTranche(uint256_tranche)publicconstantreturns(uint256){returntrancheRate[_tranche];}functionchangeFeesAddress(address_devFees)public{require(msg.sender==owner);feesAddr=_devFees;}functionpayFeesToggle()public{require(msg.sender==owner);if(payFees){payFees=false;}else{payFees=true;}}functionupdateFeeAmount(uint_newFee)public{require(msg.sender==owner);require((_newFee>=0)&&(_newFee<=100));feePercent=_newFee*100;}functionchangeOwner(address_recipient)public{require(msg.sender==owner);owner=_recipient;}functionchangeTrancheAdmin(address_trancheAdmin)public{require((msg.sender==owner)||(msg.sender==trancheAdmin));trancheAdmin=_trancheAdmin;}functiontoggleReceiveEth()public{require(msg.sender==owner);if(receiveEth==true){receiveEth=false;}elsereceiveEth=true;}functionotcPurchase(uint256_tokens,address_recipient)public{require(msg.sender==owner);balances[_recipient]=add(balances[_recipient],_tokens);Transfer(this,_recipient,_tokens);}functionotcPurchaseAndEscrow(uint256_tokens,address_recipient)public{require(msg.sender==owner);balances[_recipient]=add(balances[_recipient],_tokens);trancheOneBalances[msg.sender]=add(trancheOneBalances[msg.sender],_tokens);Transfer(this,_recipient,_tokens);}functionaddTrancheRateAndTokens(uint256_level,uint256_tokens,uint256_rate)public{require(((msg.sender==owner)||(msg.sender==trancheAdmin))&&(addTranches==true));require(add(_tokens,circulatingSupply)<=totalSupply);trancheTokens[_level]=_tokens;trancheRate[_level]=_rate;}functionupdateTranchRate(uint256_level,uint256_rate){require((msg.sender==owner)||(msg.sender==trancheAdmin));trancheRate[_level]=_rate;}functioncloseTrancheAddition()public{require(msg.sender==owner);addTranches=false;}functionmul(uint256a,uint256b)internalpurereturns(uint){uintc=a*b;require(a==0||c/a==b);returnc;}functiondiv(uint256a,uint256b)internalpurereturns(uint){uintc=a/b;returnc;}functionsub(uint256a,uint256b)internalpurereturns(uint){require(b<=a);returna-b;}functionadd(uint256a,uint256b)internalpurereturns(uint){uintc=a+b;require(c>=a);returnc;}functiontransferFrom(address_from,address_to,uint256_tokens)publicreturns(boolsuccess){require(balances[_from]>=_tokens);balances[_from]=sub(balances[_from],_tokens);allowed[_from][msg.sender]=sub(allowed[_from][msg.sender],_tokens);balances[_to]=add(balances[_to],_tokens);Transfer(_from,_to,_tokens);returntrue;}functionapprove(address_spender,uint256_tokens)publicreturns(boolsuccess){allowed[msg.sender][_spender]=_tokens;Approval(msg.sender,_spender,_tokens);returntrue;}functionallowance(address_tokenOwner,address_spender)publicconstantreturns(uint256remaining){returnallowed[_tokenOwner][_spender];}}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 152
+column: 16
+content: if(_value<=sub(balances[msg.sender],trancheOneBalances[msg.sender])){balances[msg.sender]=sub(balances[msg.sender],_value);balances[_to]=add(balances[_to],_value);Transfer(msg.sender,_to,_value);}elserevert();
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 66
+column: 24
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 39
+column: 4
+content: functionOONE(){owner=msg.sender;feesAddr=msg.sender;trancheAdmin=msg.sender;trancheOneSaleTime=now+182days;populateTrancheTokens();populateTrancheRates();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 238
+column: 4
+content: functionupdateTranchRate(uint256_level,uint256_rate){require((msg.sender==owner)||(msg.sender==trancheAdmin));trancheRate[_level]=_rate;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 8
+column: 4
+content: addresstrancheAdmin;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 14
+column: 4
+content: uintmaxTranche=4;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 4
+content: uintloopCount=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 17
+column: 4
+content: uint256feePercent=1500;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 18
+column: 4
+content: uint256trancheOneSaleTime;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 4
+content: uintfiatPerEth=17089000000000000000000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 21
+column: 4
+content: boolpayFees=true;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 22
+column: 4
+content: booladdTranches=true;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 24
+column: 4
+content: booltrancheOne=true;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 29
+column: 4
+content: mapping(address=>mapping(address=>uint256))allowed;
+
+SOLIDITY_VISIBILITY :12
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1

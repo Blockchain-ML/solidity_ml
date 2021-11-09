@@ -1,0 +1,39 @@
+F:\Blockchain\dataset_new_byID\78600.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 11
+column: 1
+content: functionCreateProof(Curve.G1PointG,Curve.G1PointH,uint256secret,uint256message)constantinternalreturns(Curve.G1Pointout_G,Curve.G1Pointout_H,uint256[2]out_xG,uint256[2]out_xH,uint256out_s,uint256out_e){out_G=G;out_H=H;Curve.G1PointmemoryxG=Curve.g1mul(G,secret%Curve.N());out_xG[0]=xG.X;out_xG[1]=xG.Y;Curve.G1PointmemoryxH=Curve.g1mul(H,secret%Curve.N());out_xH[0]=xH.X;out_xH[1]=xH.Y;uint256k=uint256(keccak256(abi.encodePacked(message,secret)))%Curve.N();Curve.G1PointmemorykG=Curve.g1mul(G,k);Curve.G1PointmemorykH=Curve.g1mul(H,k);out_e=uint256(keccak256(abi.encodePacked(out_xG[0],out_xG[1],out_xH[0],out_xH[1]kG.X,kG.Y,kH.X,kH.Y,message)));out_s=Curve.submod(k,mulmod(secret,out_e,Curve.N()));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 31
+column: 1
+content: functionCalcProof(Curve.G1PointG,Curve.G1PointH,Curve.G1PointxG,Curve.G1PointxH,uint256message,uint256s,uint256e)constantinternalreturns(uint256){Curve.G1PointmemorysG=Curve.g1mul(G,s%Curve.N());Curve.G1PointmemorykG=Curve.g1add(sG,Curve.g1mul(xG,e));Curve.G1PointmemorysH=Curve.g1mul(H,s%Curve.N());Curve.G1PointmemorykH=Curve.g1add(sG,Curve.g1mul(xH,e));returnuint256(keccak256(abi.encodePacked(xG.X,xG.Y,xH.X,xH.Y,kG.X,kG.Y,kH.X,kH.Y,message)));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 44
+column: 1
+content: functionVerifyProof(Curve.G1PointG,Curve.G1PointH,Curve.G1PointxG,Curve.G1PointxH,uint256message,uint256s,uint256e)constantinternalreturns(bool){returne==CalcProof(G,H,xG,xH,s,e,message);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 13
+column: 13
+content: (Curve.G1Pointout_G,Curve.G1Pointout_H,uint256[2]out_xG,uint256[2]out_xH,uint256out_s,uint256out_e)
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

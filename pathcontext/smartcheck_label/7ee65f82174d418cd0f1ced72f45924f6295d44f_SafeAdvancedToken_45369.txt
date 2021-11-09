@@ -1,0 +1,125 @@
+C:\Users\hp\DataSet\contracts\ropsten\7e\7ee65f82174d418cd0f1ced72f45924f6295d44f_SafeAdvancedToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 267
+column: 4
+content: functionapprove(address_spender,uint256_value)onlyIfEnabledpublicreturns(boolsuccess){allowance[msg.sender][_spender]=_value;returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 386
+column: 4
+content: functionsetupICO(uint256_preICOstartTime,uint256_preICOendTime,uint256_ICOstartTime,uint256_ICOendTime)onlyOwnerICOnotSetuppublic{emitSetupICONowTime(now);require(_preICOstartTime<=_preICOendTime&&_preICOendTime<=_ICOstartTime&&_ICOstartTime<=_ICOendTime);preICOstartTime=_preICOstartTime;preICOendTime=_preICOendTime;ICOstartTime=_ICOstartTime;ICOendTime=_ICOendTime;ICOSet=true;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 432
+column: 4
+content: functionsetupICOPrices(uint256_preICOBuyPrice,uint256_ICOBuyPrice,uint256_postICOBuyPrice,uint256_postICOSellPrice)onlyOwnerpublic{require(ICOSet==true);ICOPricesSet=true;preICOBuyPrice=_preICOBuyPrice;ICOBuyPrice=_ICOBuyPrice;postICOBuyPrice=_postICOBuyPrice;postICOSellPrice=_postICOSellPrice;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 444
+column: 4
+content: functionsetupWeiCaps(uint256_softCapWei,uint256_hardCapWei)onlyOwnerweiCapnotSetpublic{require(_hardCapWei>=_softCapWei);hardCapWei=_hardCapWei;softCapWei=_softCapWei;weiCapSet=true;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 460
+column: 4
+content: functionsetTokenCap(uint256_newCap)onlyOwnerpublic{tokenOwnCap=_newCap;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 522
+column: 4
+content: functionsetPrices(uint256newSellPrice,uint256newBuyPrice)onlyOwnerpublic{sellPrice=newSellPrice;buyPrice=newBuyPrice;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 578
+column: 4
+content: functionsetRefund(boolvalue)onlyOwnerpublic{refundEnabled=value;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 106
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 158
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 351
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 621
+column: 23
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 187
+column: 8
+content: stringtokenName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 188
+column: 8
+content: stringtokenSymbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 282
+column: 62
+content: bytes_extraData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 471
+column: 8
+content: stringtokenName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 472
+column: 8
+content: stringtokenSymbol
+
+SOLIDITY_SAFEMATH :3
+SOLIDITY_OVERPOWERED_ROLE :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :6
+SOLIDITY_ERC20_APPROVE :1

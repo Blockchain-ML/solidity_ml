@@ -1,0 +1,197 @@
+C:\Users\hp\DataSet\contracts\ropsten\c4\c44683289aca5f95156e84ae58defd450c791859_blockchaincertified2.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 92
+column: 43
+content: 0x30
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 93
+column: 36
+content: 0x57
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 28
+column: 1
+content: functiongetBalance()constantreturns(uint256){returnthis.balance;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 38
+column: 1
+content: functiongetcertifieddatacount()publicconstantreturns(uint){returnallcertifieddatacount;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 58
+column: 1
+content: functiongetcertifieddata(uintid)constantreturns(string){stringmemoryallstr;stringmemoryallstr2;if(id>0){certifieddataretcertifieddata=allcertifieddata[id-1];allstr=AddresstoAsciiString(retcertifieddata.setaddress);allstr2=strConcat(allstr,",");allstr=strConcat(allstr2,uintToString(retcertifieddata.id));allstr2=strConcat(allstr,",");allstr=strConcat(allstr2,retcertifieddata.settitle);allstr2=strConcat(allstr,",");allstr=strConcat(allstr2,retcertifieddata.setdata);allstr2=strConcat(allstr,",");allstr=strConcat(allstr2,uintToString(retcertifieddata.savetime));}returnallstr;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 78
+column: 1
+content: functionstrConcat(string_a,string_b)constantreturns(string){bytesmemory_ba=bytes(_a);bytesmemory_bb=bytes(_b);stringmemoryabcde=newstring(_ba.length+_bb.length);bytesmemorybabcde=bytes(abcde);uintk=0;for(uinti=0;i<_ba.length;i++)babcde[k++]=_ba[i];for(i=0;i<_bb.length;i++)babcde[k++]=_bb[i];returnstring(babcde);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 91
+column: 1
+content: functionchar(byteb)constantreturns(bytec){if(b<10)returnbyte(uint8(b)+0x30);elsereturnbyte(uint8(b)+0x57);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 96
+column: 1
+content: functionAddresstoAsciiString(addressx)constantreturns(string){bytesmemorys=newbytes(40);for(uinti=0;i<20;i++){byteb=byte(uint8(uint(x)/(2**(8*(19-i)))));bytehi=byte(uint8(b)/16);bytelo=byte(uint8(b)-16*uint8(hi));s[2*i]=char(hi);s[2*i+1]=char(lo);}returnstring(s);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 108
+column: 1
+content: functionuintToString(uintv)constantreturns(string){uintmaxlength=100;bytesmemoryreversed=newbytes(maxlength);uinti=0;while(v!=0){uintremainder=v%10;v=v/10;reversed[i]=byte(48+remainder);i++;if(i>=maxlength){break;}}bytesmemorys=newbytes(i);for(uintj=0;j<i;j++){s[j]=reversed[i-j-1];}stringmemorystr=string(s);returnstr;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 85
+column: 8
+content: for(uinti=0;i<_ba.length;i++)babcde[k++]=_ba[i];
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 86
+column: 8
+content: for(i=0;i<_bb.length;i++)babcde[k++]=_bb[i];
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 85
+column: 8
+content: for(uinti=0;i<_ba.length;i++)babcde[k++]=_ba[i];
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 86
+column: 8
+content: for(i=0;i<_bb.length;i++)babcde[k++]=_bb[i];
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 1
+column: 0
+content: contractblockchaincertified2{structcertifieddata{addresssetaddress;uintid;stringsettitle;stringsetdata;uintsavetime;}uintcreatetime;addresspublicmasteraddress;mapping(uint=>certifieddata)publicallcertifieddata;uintpublicallcertifieddatacount=0;eventsavelog(stringsavestr);function()payable{savelog("payable");masteraddress.transfer(msg.value);stringmemoryallstr="thanks!";stringmemoryallstr2=strConcat(allstr,AddresstoAsciiString(msg.sender));savelog(allstr2);}functiongetBalance()constantreturns(uint256){returnthis.balance;}functionblockchaincertified(){createtime=uint(now);masteraddress=msg.sender;}functiongetcertifieddatacount()publicconstantreturns(uint){returnallcertifieddatacount;}functionaddcertifieddata(stringsettitle,stringsetdata,stringlogstr)publicreturns(uint){certifieddatamemoryaddcertifieddata;allcertifieddatacount++;addcertifieddata.setaddress=msg.sender;addcertifieddata.id=allcertifieddatacount;addcertifieddata.settitle=settitle;addcertifieddata.setdata=setdata;addcertifieddata.savetime=uint(now);allcertifieddata[allcertifieddatacount-1]=addcertifieddata;savelog(getcertifieddata(allcertifieddatacount));savelog(logstr);returnallcertifieddatacount;}functiongetcertifieddata(uintid)constantreturns(string){stringmemoryallstr;stringmemoryallstr2;if(id>0){certifieddataretcertifieddata=allcertifieddata[id-1];allstr=AddresstoAsciiString(retcertifieddata.setaddress);allstr2=strConcat(allstr,",");allstr=strConcat(allstr2,uintToString(retcertifieddata.id));allstr2=strConcat(allstr,",");allstr=strConcat(allstr2,retcertifieddata.settitle);allstr2=strConcat(allstr,",");allstr=strConcat(allstr2,retcertifieddata.setdata);allstr2=strConcat(allstr,",");allstr=strConcat(allstr2,uintToString(retcertifieddata.savetime));}returnallstr;}functionstrConcat(string_a,string_b)constantreturns(string){bytesmemory_ba=bytes(_a);bytesmemory_bb=bytes(_b);stringmemoryabcde=newstring(_ba.length+_bb.length);bytesmemorybabcde=bytes(abcde);uintk=0;for(uinti=0;i<_ba.length;i++)babcde[k++]=_ba[i];for(i=0;i<_bb.length;i++)babcde[k++]=_bb[i];returnstring(babcde);}functionchar(byteb)constantreturns(bytec){if(b<10)returnbyte(uint8(b)+0x30);elsereturnbyte(uint8(b)+0x57);}functionAddresstoAsciiString(addressx)constantreturns(string){bytesmemorys=newbytes(40);for(uinti=0;i<20;i++){byteb=byte(uint8(uint(x)/(2**(8*(19-i)))));bytehi=byte(uint8(b)/16);bytelo=byte(uint8(b)-16*uint8(hi));s[2*i]=char(hi);s[2*i+1]=char(lo);}returnstring(s);}functionuintToString(uintv)constantreturns(string){uintmaxlength=100;bytesmemoryreversed=newbytes(maxlength);uinti=0;while(v!=0){uintremainder=v%10;v=v/10;reversed[i]=byte(48+remainder);i++;if(i>=maxlength){break;}}bytesmemorys=newbytes(i);for(uintj=0;j<i;j++){s[j]=reversed[i-j-1];}stringmemorystr=string(s);returnstr;}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 43
+column: 27
+content: stringsettitle
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 43
+column: 43
+content: stringsetdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 43
+column: 58
+content: stringlogstr
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 64
+column: 3
+content: certifieddataretcertifieddata=allcertifieddata[id-1]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 20
+column: 1
+content: function()payable{savelog("payable");masteraddress.transfer(msg.value);stringmemoryallstr="thanks!";stringmemoryallstr2=strConcat(allstr,AddresstoAsciiString(msg.sender));savelog(allstr2);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 28
+column: 1
+content: functiongetBalance()constantreturns(uint256){returnthis.balance;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 32
+column: 1
+content: functionblockchaincertified(){createtime=uint(now);masteraddress=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 58
+column: 1
+content: functiongetcertifieddata(uintid)constantreturns(string){stringmemoryallstr;stringmemoryallstr2;if(id>0){certifieddataretcertifieddata=allcertifieddata[id-1];allstr=AddresstoAsciiString(retcertifieddata.setaddress);allstr2=strConcat(allstr,",");allstr=strConcat(allstr2,uintToString(retcertifieddata.id));allstr2=strConcat(allstr,",");allstr=strConcat(allstr2,retcertifieddata.settitle);allstr2=strConcat(allstr,",");allstr=strConcat(allstr2,retcertifieddata.setdata);allstr2=strConcat(allstr,",");allstr=strConcat(allstr2,uintToString(retcertifieddata.savetime));}returnallstr;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 78
+column: 1
+content: functionstrConcat(string_a,string_b)constantreturns(string){bytesmemory_ba=bytes(_a);bytesmemory_bb=bytes(_b);stringmemoryabcde=newstring(_ba.length+_bb.length);bytesmemorybabcde=bytes(abcde);uintk=0;for(uinti=0;i<_ba.length;i++)babcde[k++]=_ba[i];for(i=0;i<_bb.length;i++)babcde[k++]=_bb[i];returnstring(babcde);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 91
+column: 1
+content: functionchar(byteb)constantreturns(bytec){if(b<10)returnbyte(uint8(b)+0x30);elsereturnbyte(uint8(b)+0x57);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 96
+column: 1
+content: functionAddresstoAsciiString(addressx)constantreturns(string){bytesmemorys=newbytes(40);for(uinti=0;i<20;i++){byteb=byte(uint8(uint(x)/(2**(8*(19-i)))));bytehi=byte(uint8(b)/16);bytelo=byte(uint8(b)-16*uint8(hi));s[2*i]=char(hi);s[2*i+1]=char(lo);}returnstring(s);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 108
+column: 1
+content: functionuintToString(uintv)constantreturns(string){uintmaxlength=100;bytesmemoryreversed=newbytes(maxlength);uinti=0;while(v!=0){uintremainder=v%10;v=v/10;reversed[i]=byte(48+remainder);i++;if(i>=maxlength){break;}}bytesmemorys=newbytes(i);for(uintj=0;j<i;j++){s[j]=reversed[i-j-1];}stringmemorystr=string(s);returnstr;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: uintcreatetime;
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :7
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2

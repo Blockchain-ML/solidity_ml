@@ -1,0 +1,75 @@
+F:\Blockchain\dataset_new_byID\72110.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 59
+column: 37
+content: makerAddress==msg.sender?address(0):msg.sender
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 19
+column: 0
+content: contractMixinExchangeCoreisIExchangeCore,Refundable,LibEIP712ExchangeDomain,MixinAssetProxyDispatcher,MixinProtocolFees,MixinSignatureValidator{usingLibOrderforLibOrder.Order;usingLibSafeMathforuint256;usingLibBytesforbytes;mapping(bytes32=>uint256)publicfilled;mapping(bytes32=>bool)publiccancelled;mapping(address=>mapping(address=>uint256))publicorderEpoch;functioncancelOrdersUpTo(uint256targetOrderEpoch)externalpayablerefundFinalBalanceNoReentry{addressmakerAddress=_getCurrentContextAddress();addressorderSenderAddress=makerAddress==msg.sender?address(0):msg.sender;uint256newOrderEpoch=targetOrderEpoch+1;uint256oldOrderEpoch=orderEpoch[makerAddress][orderSenderAddress];if(newOrderEpoch<=oldOrderEpoch){revert();}orderEpoch[makerAddress][orderSenderAddress]=newOrderEpoch;emitCancelUpTo(makerAddress,orderSenderAddress,newOrderEpoch);}functionfillOrder(LibOrder.Ordermemoryorder,uint256takerAssetFillAmount,bytesmemorysignature)publicpayablerefundFinalBalanceNoReentryreturns(LibFillResults.FillResultsmemoryfillResults){fillResults=_fillOrder(order,takerAssetFillAmount,signature);returnfillResults;}functioncancelOrder(LibOrder.Ordermemoryorder)publicpayablerefundFinalBalanceNoReentry{_cancelOrder(order);}functiongetOrderInfo(LibOrder.Ordermemoryorder)publicviewreturns(LibOrder.OrderInfomemoryorderInfo){(orderInfo.orderHash,orderInfo.orderTakerAssetFilledAmount)=_getOrderHashAndFilledAmount(order);if(order.makerAssetAmount==0){orderInfo.orderStatus=LibOrder.OrderStatus.INVALID_MAKER_ASSET_AMOUNT;returnorderInfo;}if(order.takerAssetAmount==0){orderInfo.orderStatus=LibOrder.OrderStatus.INVALID_TAKER_ASSET_AMOUNT;returnorderInfo;}if(orderInfo.orderTakerAssetFilledAmount>=order.takerAssetAmount){orderInfo.orderStatus=LibOrder.OrderStatus.FULLY_FILLED;returnorderInfo;}if(block.timestamp>=order.expirationTimeSeconds){orderInfo.orderStatus=LibOrder.OrderStatus.EXPIRED;returnorderInfo;}if(cancelled[orderInfo.orderHash]){orderInfo.orderStatus=LibOrder.OrderStatus.CANCELLED;returnorderInfo;}if(orderEpoch[order.makerAddress][order.senderAddress]>order.salt){orderInfo.orderStatus=LibOrder.OrderStatus.CANCELLED;returnorderInfo;}orderInfo.orderStatus=LibOrder.OrderStatus.FILLABLE;returnorderInfo;}function_fillOrder(LibOrder.Ordermemoryorder,uint256takerAssetFillAmount,bytesmemorysignature)internalreturns(LibFillResults.FillResultsmemoryfillResults){LibOrder.OrderInfomemoryorderInfo=getOrderInfo(order);addresstakerAddress=_getCurrentContextAddress();_assertFillableOrder(order,orderInfo,takerAddress,signature);uint256remainingTakerAssetAmount=order.takerAssetAmount.safeSub(orderInfo.orderTakerAssetFilledAmount);uint256takerAssetFilledAmount=LibSafeMath.min256(takerAssetFillAmount,remainingTakerAssetAmount);fillResults=LibFillResults.calculateFillResults(order,takerAssetFilledAmount,protocolFeeMultiplier,tx.gasprice);bytes32orderHash=orderInfo.orderHash;_updateFilledState(order,takerAddress,orderHash,orderInfo.orderTakerAssetFilledAmount,fillResults);_settleOrder(orderHash,order,takerAddress,fillResults);returnfillResults;}function_cancelOrder(LibOrder.Ordermemoryorder)internal{LibOrder.OrderInfomemoryorderInfo=getOrderInfo(order);_assertValidCancel(order,orderInfo);if(orderInfo.orderStatus!=LibOrder.OrderStatus.FILLABLE){return;}_updateCancelledState(order,orderInfo.orderHash);}function_updateFilledState(LibOrder.Ordermemoryorder,addresstakerAddress,bytes32orderHash,uint256orderTakerAssetFilledAmount,LibFillResults.FillResultsmemoryfillResults)internal{filled[orderHash]=orderTakerAssetFilledAmount.safeAdd(fillResults.takerAssetFilledAmount);emitFill(order.makerAddress,order.feeRecipientAddress,order.makerAssetData,order.takerAssetData,order.makerFeeAssetData,order.takerFeeAssetData,orderHash,takerAddress,msg.sender,fillResults.makerAssetFilledAmount,fillResults.takerAssetFilledAmount,fillResults.makerFeePaid,fillResults.takerFeePaid,fillResults.protocolFeePaid);}function_updateCancelledState(LibOrder.Ordermemoryorder,bytes32orderHash)internal{cancelled[orderHash]=true;emitCancel(order.makerAddress,order.feeRecipientAddress,order.makerAssetData,order.takerAssetData,msg.sender,orderHash);}function_assertFillableOrder(LibOrder.Ordermemoryorder,LibOrder.OrderInfomemoryorderInfo,addresstakerAddress,bytesmemorysignature)internalview{if(orderInfo.orderStatus!=LibOrder.OrderStatus.FILLABLE){revert();}if(order.senderAddress!=address(0)){if(order.senderAddress!=msg.sender){revert();}}if(order.takerAddress!=address(0)){if(order.takerAddress!=takerAddress){revert();}}if(!_isValidOrderWithHashSignature(order,orderInfo.orderHash,signature)){revert();}}function_assertValidCancel(LibOrder.Ordermemoryorder,LibOrder.OrderInfomemoryorderInfo)internalview{if(order.senderAddress!=address(0)){if(order.senderAddress!=msg.sender){revert();}}addressmakerAddress=_getCurrentContextAddress();if(order.makerAddress!=makerAddress){revert();}}function_settleOrder(bytes32orderHash,LibOrder.Ordermemoryorder,addresstakerAddress,LibFillResults.FillResultsmemoryfillResults)internal{_dispatchTransferFrom(orderHash,order.takerAssetData,takerAddress,order.makerAddress,fillResults.takerAssetFilledAmount);_dispatchTransferFrom(orderHash,order.makerAssetData,order.makerAddress,takerAddress,fillResults.makerAssetFilledAmount);_dispatchTransferFrom(orderHash,order.takerFeeAssetData,takerAddress,order.feeRecipientAddress,fillResults.takerFeePaid);_dispatchTransferFrom(orderHash,order.makerFeeAssetData,order.makerAddress,order.feeRecipientAddress,fillResults.makerFeePaid);booldidPayProtocolFee=_paySingleProtocolFee(orderHash,fillResults.protocolFeePaid,order.makerAddress,takerAddress);if(!didPayProtocolFee){fillResults.protocolFeePaid=0;}}function_getOrderHashAndFilledAmount(LibOrder.Ordermemoryorder)internalviewreturns(bytes32orderHash,uint256orderTakerAssetFilledAmount){orderHash=order.getTypedDataHash(EIP712_EXCHANGE_DOMAIN_HASH);orderTakerAssetFilledAmount=filled[orderHash];return(orderHash,orderTakerAssetFilledAmount);}}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 66
+column: 8
+content: if(newOrderEpoch<=oldOrderEpoch){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 326
+column: 8
+content: if(orderInfo.orderStatus!=LibOrder.OrderStatus.FILLABLE){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 332
+column: 12
+content: if(order.senderAddress!=msg.sender){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 339
+column: 12
+content: if(order.takerAddress!=takerAddress){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 345
+column: 8
+content: if(!_isValidOrderWithHashSignature(order,orderInfo.orderHash,signature)){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 367
+column: 12
+content: if(order.senderAddress!=msg.sender){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 374
+column: 8
+content: if(order.makerAddress!=makerAddress){revert();}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 448
+column: 16
+content: (bytes32orderHash,uint256orderTakerAssetFilledAmount)
+
+SOLIDITY_REVERT_REQUIRE :7
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

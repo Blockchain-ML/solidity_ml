@@ -1,0 +1,106 @@
+C:\Users\hp\DataSet\AssemblyCall.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 115
+column: 4
+content: functioncallWith32BytesReturnsUint256(addressto,bytes32functionSelector,bytes32param1)privateviewreturns(uint256result,boolsuccess){assembly{letfreePtr:=mload(0x40)lettmp1:=mload(freePtr)lettmp2:=mload(add(freePtr,4))mstore(freePtr,functionSelector)mstore(add(freePtr,4),param1)success:=staticcall(gas,to,freePtr,36,freePtr,32)result:=mload(freePtr)mstore(freePtr,tmp1)mstore(add(freePtr,4),tmp2)}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 19
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 48
+column: 8
+content: if(!success){revert("ASSEMBLY_CALL_GET_ASSET_PRICE_FAILED");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 81
+column: 8
+content: if(!success){revert("ASSEMBLY_CALL_GET_HOT_BALANCE_FAILED");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 108
+column: 8
+content: if(!success){revert("ASSEMBLY_CALL_GET_BORROW_INTEREST_RATE_FAILED");}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 28
+column: 4
+content: functiongetAssetPriceFromPriceOracle(addressoracleAddress,addressasset)internalviewreturns(uint256){bytes32functionSelector=0x41976e0900000000000000000000000000000000000000000000000000000000;(uint256result,boolsuccess)=callWith32BytesReturnsUint256(oracleAddress,functionSelector,bytes32(uint256(uint160(asset))));if(!success){revert("ASSEMBLY_CALL_GET_ASSET_PRICE_FAILED");}returnresult;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 61
+column: 4
+content: functiongetHotBalance(addresshotToken,addressowner)internalviewreturns(uint256){bytes32functionSelector=0x70a0823100000000000000000000000000000000000000000000000000000000;(uint256result,boolsuccess)=callWith32BytesReturnsUint256(hotToken,functionSelector,bytes32(uint256(uint160(owner))));if(!success){revert("ASSEMBLY_CALL_GET_HOT_BALANCE_FAILED");}returnresult;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 88
+column: 4
+content: functiongetBorrowInterestRate(addressinterestModel,uint256borrowRatio)internalviewreturns(uint256){bytes32functionSelector=0x69e8a15f00000000000000000000000000000000000000000000000000000000;(uint256result,boolsuccess)=callWith32BytesReturnsUint256(interestModel,functionSelector,bytes32(borrowRatio));if(!success){revert("ASSEMBLY_CALL_GET_BORROW_INTEREST_RATE_FAILED");}returnresult;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 115
+column: 4
+content: functioncallWith32BytesReturnsUint256(addressto,bytes32functionSelector,bytes32param1)privateviewreturns(uint256result,boolsuccess){assembly{letfreePtr:=mload(0x40)lettmp1:=mload(freePtr)lettmp2:=mload(add(freePtr,4))mstore(freePtr,functionSelector)mstore(add(freePtr,4),param1)success:=staticcall(gas,to,freePtr,36,freePtr,32)result:=mload(freePtr)mstore(freePtr,tmp1)mstore(add(freePtr,4),tmp2)}}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 122
+column: 16
+content: (uint256result,boolsuccess)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 42
+column: 41
+content: callWith32BytesReturnsUint256(oracleAddress,functionSelector,bytes32(uint256(uint160(asset))))
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 75
+column: 41
+content: callWith32BytesReturnsUint256(hotToken,functionSelector,bytes32(uint256(uint160(owner))))
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 102
+column: 41
+content: callWith32BytesReturnsUint256(interestModel,functionSelector,bytes32(borrowRatio))
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 124
+column: 8
+content: assembly{letfreePtr:=mload(0x40)lettmp1:=mload(freePtr)lettmp2:=mload(add(freePtr,4))mstore(freePtr,functionSelector)mstore(add(freePtr,4),param1)success:=staticcall(gas,to,freePtr,36,freePtr,32)result:=mload(freePtr)mstore(freePtr,tmp1)mstore(add(freePtr,4),tmp2)}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :3
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_UNCHECKED_CALL :3
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :4

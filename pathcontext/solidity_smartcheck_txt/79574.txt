@@ -1,0 +1,54 @@
+F:\Blockchain\dataset_new_byID\79574.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 32
+column: 4
+content: for(uint256i=stakeContract.personalStakeIndex;i<stakeContract.personalStakes.length;i++){uint256index=i-stakeContract.personalStakeIndex;perceivedAmounts[index]=perceivedAmountBalances[_address][i].perceivedAmount;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 47
+column: 4
+content: for(uint256i=stakeContract.personalStakeIndex;i<stakeContract.personalStakes.length;i++){StakestoragecurrentStake=stakeContract.personalStakes[i];CompoundingStakestoragecompoundingStake=perceivedAmountBalances[_address][i];uint256lastUpdatedTimestamp=compoundingStake.lastUpdatedTimestamp;while(block.timestamp.sub(lastUpdatedTimestamp)>=YEAR_IN_SECONDS){uint256unit=1ether;uint256newAmount=compoundingStake.perceivedAmount.mul(annualizedInterestRate.add(unit)).div(unit);uint256difference=newAmount.sub(compoundingStake.perceivedAmount);stakeHolders[currentStake.stakedFor].totalStakedFor=stakeHolders[currentStake.stakedFor].totalStakedFor.add(difference);compoundingStake.perceivedAmount=newAmount;lastUpdatedTimestamp+=YEAR_IN_SECONDS;}if(compoundingStake.lastUpdatedTimestamp!=lastUpdatedTimestamp){compoundingStake.lastUpdatedTimestamp=block.timestamp;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 55
+column: 6
+content: while(block.timestamp.sub(lastUpdatedTimestamp)>=YEAR_IN_SECONDS){uint256unit=1ether;uint256newAmount=compoundingStake.perceivedAmount.mul(annualizedInterestRate.add(unit)).div(unit);uint256difference=newAmount.sub(compoundingStake.perceivedAmount);stakeHolders[currentStake.stakedFor].totalStakedFor=stakeHolders[currentStake.stakedFor].totalStakedFor.add(difference);compoundingStake.perceivedAmount=newAmount;lastUpdatedTimestamp+=YEAR_IN_SECONDS;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 38f6c7
+severity: 2
+line: 55
+column: 6
+content: while(block.timestamp.sub(lastUpdatedTimestamp)>=YEAR_IN_SECONDS){uint256unit=1ether;uint256newAmount=compoundingStake.perceivedAmount.mul(annualizedInterestRate.add(unit)).div(unit);uint256difference=newAmount.sub(compoundingStake.perceivedAmount);stakeHolders[currentStake.stakedFor].totalStakedFor=stakeHolders[currentStake.stakedFor].totalStakedFor.add(difference);compoundingStake.perceivedAmount=newAmount;lastUpdatedTimestamp+=YEAR_IN_SECONDS;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 83
+column: 4
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 100
+column: 4
+content: bytes_data
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

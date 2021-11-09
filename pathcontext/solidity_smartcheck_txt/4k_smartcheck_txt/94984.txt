@@ -1,0 +1,128 @@
+F:\Blockchain\solidity_dataset_work\4k_dataset\94984.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 148
+column: 8
+content: _owner=address(0)
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 288
+column: 58
+content: depositsOf(msg.sender).div(_digit)*_voteProportion
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 231
+column: 0
+content: contractProposalisEscrow{eventProposed(address_proposer,bytes_hash,uint256_startTime);eventVoted(address_voter,bytes_hash,uint8_vote);structProposalInfo{addressuser;uint256startTime;uint256duration;}uint256private_digit=10**18;uint256private_proposalCost;uint256private_voteCost;uint256private_voteProportion;mapping(uint256=>mapping(uint8=>uint256))votes;mapping(uint256=>mapping(address=>bool))hasVoted;mapping(uint256=>ProposalInfo)proposals;constructor(uint256_proposalcostI,uint256_voteCostI)publicpayable{_proposalCost=_proposalcostI;_voteCost=_voteCostI;_voteProportion=1;}modifiercanPropose(bytesmemory_hash,uint256_startTime,uint256_duration){require(proposals[uint256(keccak256(_hash))].user==address(0),"This proposal has already been propesed.");require(msg.value>=_proposalCost,"You don't have enough coins to propose.");require(_duration<=30days);_;}modifiercanVote(bytesmemory_hash){require(!hasVoted[uint256(keccak256(_hash))][msg.sender],"You have already voted.");require(depositsOf(msg.sender)>=_voteCost,"You don't have enough coins.");require(proposals[uint256(keccak256(_hash))].user!=address(0),"This proposal hasn't been proposed.");require(block.timestamp<=proposals[uint256(keccak256(_hash))].startTime.add(proposals[uint256(keccak256(_hash))].duration),"This proposal has been closed.");require(block.timestamp>=proposals[uint256(keccak256(_hash))].startTime);_;}functionpropose(bytesmemory_hash,uint256_startTime,uint256_duration)publicpayablecanPropose(_hash,_startTime,_duration){uint256_hashId=uint256(keccak256(_hash));proposals[_hashId]=ProposalInfo(msg.sender,_startTime.max(block.timestamp),_duration);emitProposed(msg.sender,_hash,_startTime);}functionvote(bytesmemory_hash,uint8_vote)publiccanVote(_hash){uint256_hashId=uint256(keccak256(_hash));votes[_hashId][_vote]=votes[_hashId][_vote].add(depositsOf(msg.sender).div(_digit)*_voteProportion);hasVoted[_hashId][msg.sender]=true;_changeInfo(proposals[_hashId].startTime.add(proposals[_hashId].duration));emitVoted(msg.sender,_hash,_vote);}functionproposalCost()publicviewreturns(uint256){return_proposalCost;}functionvoteCost()publicviewreturns(uint256){return_voteCost;}functionresults(bytesmemory_hash,uint8_vote)publicviewreturns(uint256){returnvotes[uint256(keccak256(_hash))][_vote];}functionchangeProposalCost(uint256_cost)publiconlyOwner{_proposalCost=_cost;}functionchangeVoteCost(uint256_cost)publiconlyOwner{_voteCost=_cost;}function()externalpayable{deposit();}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 24
+column: 20
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 119
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 176
+column: 31
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 178
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 242
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 244
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 246
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 248
+column: 12
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 165
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 222
+column: 60
+content: (uint256,uint256)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 252
+column: 4
+content: mapping(uint256=>mapping(uint8=>uint256))votes;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 253
+column: 4
+content: mapping(uint256=>mapping(address=>bool))hasVoted;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 254
+column: 4
+content: mapping(uint256=>ProposalInfo)proposals;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :8
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_DIV_MUL :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

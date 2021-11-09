@@ -1,0 +1,62 @@
+C:\Users\hp\DataSet\contracts\ropsten\48\48cc6d3399089f4dcfaab0f19a8896d176939f54_AuthioCoin.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_CONSTRUCTOR_RETURN
+patternId: 8saf21
+severity: 3
+line: 10
+column: 19
+content: return(add(0x20,contract_identifier),mload(contract_identifier))
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 31
+column: 4
+content: functionapprove(address_spender,uint_amt)publicreturns(bool){allowances[msg.sender][_spender]=_amt;emitApproval(msg.sender,_spender,_amt);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 36
+column: 4
+content: functiontransfer(address_to,uint_amt)publicreturns(bool){require(balances[msg.sender]>=_amt);balances[msg.sender]-=_amt;balances[_to]+=_amt;emitTransfer(msg.sender,_to,_amt);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 43
+column: 4
+content: functiontransferFrom(address_from,address_to,uint_amt)publicreturns(bool){require(balances[_from]>=_amt&&allowances[_from][msg.sender]>=_amt);balances[_from]-=_amt;allowances[_from][msg.sender]-=_amt;balances[_to]+=_amt;emitTransfer(_from,_to,_amt);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 10
+column: 8
+content: assembly{return(add(0x20,contract_identifier),mload(contract_identifier))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 4
+content: mapping(address=>uint)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 29
+column: 4
+content: mapping(address=>mapping(address=>uint))allowances;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :3
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_CONSTRUCTOR_RETURN :1

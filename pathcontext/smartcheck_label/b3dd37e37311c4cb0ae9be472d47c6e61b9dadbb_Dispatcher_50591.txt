@@ -1,0 +1,56 @@
+C:\Users\hp\DataSet\contracts\ropsten\b3\b3dd37e37311c4cb0ae9be472d47c6e61b9dadbb_Dispatcher.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 25
+column: 8
+content: for(uinti=0;i<admins.length;i++){if(admin==admins[i]){returntrue;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 25
+column: 8
+content: for(uinti=0;i<admins.length;i++){if(admin==admins[i]){returntrue;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 4
+column: 0
+content: contractDispatcher{addresstarget;address[]admins;eventLogDelegate(addresssender,bytesdata);eventLogFoo(addresssender,bytesdata);constructor(address_target,address[]memory_admins)public{target=_target;admins=_admins;}modifieronlyAdmin(){require(checkAdmin());_;}functioncheckAdmin()internalviewreturns(bool){addressadmin=address(msg.sender);for(uinti=0;i<admins.length;i++){if(admin==admins[i]){returntrue;}}returnfalse;}functionupgrade(address_target)publiconlyAdmin{target=_target;}functionfoo()publicpayablereturns(address){emitLogFoo(msg.sender,msg.data);returntarget;}functionimplementation()publicviewreturns(address){returntarget;}function()externalpayable{address_impl=implementation();require(_impl!=address(0));emitLogDelegate(msg.sender,msg.data);assembly{letptr:=mload(0x40)calldatacopy(ptr,0,calldatasize)letresult:=delegatecall(gas,_impl,ptr,calldatasize,0,0)letsize:=returndatasizereturndatacopy(ptr,0,size)switchresultcase0{revert(ptr,size)}case1{return(ptr,size)}}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 53
+column: 8
+content: assembly{letptr:=mload(0x40)calldatacopy(ptr,0,calldatasize)letresult:=delegatecall(gas,_impl,ptr,calldatasize,0,0)letsize:=returndatasizereturndatacopy(ptr,0,size)switchresultcase0{revert(ptr,size)}case1{return(ptr,size)}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 5
+column: 4
+content: addresstarget;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 4
+content: address[]admins;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1

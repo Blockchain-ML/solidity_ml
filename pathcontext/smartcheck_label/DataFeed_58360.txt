@@ -1,0 +1,117 @@
+C:\Users\hp\DataSet\DataFeed.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 64
+column: 32
+content: 0x6f485C8BF6fc43eA212E93BBF8ce046C7f1cb475
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 21
+column: 2
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 52
+column: 2
+content: functionDataFeed(string_queryUrl,uint_secondsBetweenQueries,uint_initialUsdEthRate,uint_initialUsdBtcRate,uint_initialUsdLtcRate,address_exchange)payable{OAR=OraclizeAddrResolverI(0x6f485C8BF6fc43eA212E93BBF8ce046C7f1cb475);queryUrl=_queryUrl;secondsBetweenQueries=_secondsBetweenQueries;exchange=_exchange;usdEth=_initialUsdEthRate;usdBtc=_initialUsdBtcRate;usdLtc=_initialUsdLtcRate;gasLimit=300000;gasPrice=50000000000;oraclize_setCustomGasPrice(gasPrice);oraclize_setProof(proofType_NONE);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 82
+column: 2
+content: functionupdateWithOraclize()payable{if(useOraclize){if(oraclize.getPrice("URL")>this.balance){LogDataFeedQuery("Oraclize query was NOT sent, please add some ETH to cover for the query fee");}else{LogDataFeedQuery("Oraclize query was sent, standing by for the answer..");bytes32queryId;if(secondsBetweenQueries>0){queryId=oraclize_query(secondsBetweenQueries,"URL",queryUrl,gasLimit);}else{queryId=oraclize_query("URL",queryUrl,gasLimit);}validIds[queryId]=true;}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 105
+column: 2
+content: function__callback(bytes32_myid,string_result){require(validIds[_myid]);require(msg.sender==oraclize_cbAddress());uintreturnValue;JsmnSolLib.Token[]memorytokens;uintactualNum;(returnValue,tokens,actualNum)=JsmnSolLib.parse(_result,10);if(returnValue==0&&actualNum>4){stringmemoryvalueRaw=JsmnSolLib.getBytes(_result,tokens[2].start,tokens[2].end);uintunadjustedValue=parseInt(valueRaw,2);require(unadjustedValue>usdUnsubscribedAmount);value=unadjustedValue.sub(usdUnsubscribedAmount);stringmemoryusdEthRaw=JsmnSolLib.getBytes(_result,tokens[4].start,tokens[4].end);usdEth=parseInt(usdEthRaw,2);stringmemoryusdBtcRaw=JsmnSolLib.getBytes(_result,tokens[6].start,tokens[6].end);usdBtc=parseInt(usdBtcRaw,2);stringmemoryusdLtcRaw=JsmnSolLib.getBytes(_result,tokens[8].start,tokens[8].end);usdLtc=parseInt(usdLtcRaw,2);timestamp=now;LogDataFeedResponse(_result,value,usdEth,usdBtc,usdLtc,timestamp);if(secondsBetweenQueries>0){updateWithOraclize();}}else{LogDataFeedError(_result);}deletevalidIds[_myid];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 142
+column: 2
+content: functionupdateWithExchange(uint_percent)onlyOwnerreturns(boolsuccess){if(!useOraclize){value=exchange.balance.mul(usdEth).mul(_percent).div(1e20).sub(usdUnsubscribedAmount);timestamp=now;LogDataFeedResponse("mock",value,usdEth,usdBtc,usdLtc,timestamp);returntrue;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 156
+column: 2
+content: functionupdateByManager(uint_portfolioValue,uint_usdEth,uint_usdBtc,uint_usdLtc)onlyOwnerreturns(boolsuccess){require(_portfolioValue>0&&_usdEth>0&&_usdBtc>0&&_usdLtc>0);value=_portfolioValue;usdEth=_usdEth;usdBtc=_usdBtc;usdLtc=_usdLtc;timestamp=now;LogDataFeedResponse("manager update",value,usdEth,usdBtc,usdLtc,timestamp);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 171
+column: 2
+content: functionupdateUsdUnsubscribedAmount(uint_usdUnsubcribedAmount)onlyOwnerreturns(boolsuccess){require(_usdUnsubcribedAmount>=0);usdUnsubscribedAmount=_usdUnsubcribedAmount;LogUsdUnsubscribedAmountUpdate(usdUnsubscribedAmount);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 183
+column: 2
+content: functionchangeQueryUrl(string_url)onlyOwnerreturns(boolsuccess){queryUrl=_url;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 191
+column: 2
+content: functionchangeInterval(uint_seconds)onlyOwnerreturns(boolsuccess){secondsBetweenQueries=_seconds;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 199
+column: 2
+content: functionchangeGasPrice(uint_price)onlyOwnerreturns(boolsuccess){gasPrice=_price;oraclize_setCustomGasPrice(_price);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 209
+column: 2
+content: functionchangeGasLimit(uint_limit)onlyOwnerreturns(boolsuccess){gasLimit=_limit;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 217
+column: 2
+content: functiontoggleUseOraclize()onlyOwnerreturns(bool){useOraclize=!useOraclize;returnuseOraclize;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 225
+column: 2
+content: functionwithdrawBalance()onlyOwnerreturns(boolsuccess){uintpayment=this.balance;msg.sender.transfer(payment);LogWithdrawal(msg.sender,payment);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 2
+content: mapping(bytes32=>bool)validIds;
+
+SOLIDITY_VISIBILITY :13
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :1

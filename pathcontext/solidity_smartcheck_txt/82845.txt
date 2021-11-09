@@ -1,0 +1,110 @@
+F:\Blockchain\dataset_new_byID\82845.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 35
+column: 1
+content: functiongetSealedVote(addressvoter,FeeVote.VoteDecisionvoteDecision,bytes32salt)constantreturns(bytes32){returnFeeVote.getSealedVote(voter,voteDecision,salt);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 61
+column: 1
+content: functionvoterEarliestTokenLockTime(addressvoter)constantreturns(uint){returnunrevealedLockTimes[voter].getEarliestUnrevealedVoteLockTime();}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 65
+column: 1
+content: functionlatestPreviousLockTime(addressvoter,uintvoteId)constantreturns(uint){uinttokenLockTime=votes[voteId].voteEndTime;returnunrevealedLockTimes[voter].getLatestPreviousLockTimeForTime(tokenLockTime);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 19
+column: 19
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 22
+column: 34
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 23
+column: 51
+content: private
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 25
+column: 1
+content: functionsetTokenAddress(addresstokenAddress){voteToken=LockableVoteToken(tokenAddress);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 29
+column: 1
+content: functioncreateVote(stringvoteDescription,uintvoteTime,uintrevealTime){votes[idCount].initialise(voteToken,voteDescription,voteTime,revealTime);LogVoteCreated(idCount,voteDescription);idCount++;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 35
+column: 1
+content: functiongetSealedVote(addressvoter,FeeVote.VoteDecisionvoteDecision,bytes32salt)constantreturns(bytes32){returnFeeVote.getSealedVote(voter,voteDecision,salt);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 40
+column: 1
+content: functioncastVote(uintvoteId,bytes32sealedVoteHash,uintpreviousLockTime){votes[voteId].castVote(sealedVoteHash);uintvoteEndTime=votes[voteId].voteEndTime;unrevealedLockTimes[msg.sender].insertVoteAtTime(previousLockTime,voteEndTime,voteId);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 46
+column: 1
+content: functionrevealVote(uintvoteId,FeeVote.VoteDecisionvoteDecision,bytes32salt){votes[voteId].revealVote(voteDecision,salt);uintvoteEndTime=votes[voteId].voteEndTime;unrevealedLockTimes[msg.sender].removeVoteAtTime(voteEndTime,voteId);if(unrevealedLockTimes[msg.sender].getEarliestUnrevealedVoteLockTime()<now){voteToken.updateUnlockedBalance(msg.sender);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 57
+column: 1
+content: functionclaimReward(uintvoteId){votes[voteId].claimReward();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 61
+column: 1
+content: functionvoterEarliestTokenLockTime(addressvoter)constantreturns(uint){returnunrevealedLockTimes[voter].getEarliestUnrevealedVoteLockTime();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 1
+content: functionlatestPreviousLockTime(addressvoter,uintvoteId)constantreturns(uint){uinttokenLockTime=votes[voteId].voteEndTime;returnunrevealedLockTimes[voter].getLatestPreviousLockTimeForTime(tokenLockTime);}
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :3

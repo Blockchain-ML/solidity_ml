@@ -1,0 +1,355 @@
+C:\Users\hp\DataSet\contracts\ropsten\0f\0f09de4986815fc78910378e04c0675ca96e222c_Furute1exchange.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 26
+column: 50
+content: 0x01
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 27
+column: 41
+content: 0x02
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 28
+column: 42
+content: 0x03
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 29
+column: 50
+content: 0x04
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 30
+column: 36
+content: 0x05
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 31
+column: 36
+content: 0x06
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 16
+column: 0
+content: contractFurute1exchange{addresspublicmediator;addresspublicowner;uint32publicrequestCancelMinimumTime;uint256publicfeesAvailableForWithdraw;uint8constantACTION_SELLER_DISABLE_CANCEL=0x01;uint8constantACTION_BUYER_CANCEL=0x02;uint8constantACTION_SELLER_CANCEL=0x03;uint8constantACTION_SELLER_REQUEST_CANCEL=0x04;uint8constantACTION_RELEASE=0x05;uint8constantACTION_DISPUTE=0x06;eventCreated(bytes32_tradeHash);eventSellerCancelDisabled(bytes32_tradeHash);eventSellerRequestedCancel(bytes32_tradeHash);eventCancelledBySeller(bytes32_tradeHash);eventCancelledByBuyer(bytes32_tradeHash);eventReleased(bytes32_tradeHash);eventDisputeResolved(bytes32_tradeHash);constructor()public{owner=msg.sender;mediator=msg.sender;requestCancelMinimumTime=2hours;}structEscrow{boolescrowStatus;uint32setTimeSellerCancel;uint128totalGasSpentByConsumers;boolsellerDispute;boolbuyerDispute;}mapping(bytes32=>Escrow)publicescrow_map;modifieronlyOwner(){require(msg.sender==owner);_;}modifieronlyMediator(){require(msg.sender==mediator);_;}uint16constantGAS_batchConsumerCost=28500;functionbatchconsumerAction(bytes16[]memory_tradeId,address<missing ')'>payable[]memory_seller,addresspayable[]memory_buyer,uint256[]memory_amount,uint16[]memory_gasFee,uint128[]memory_additionalFee,uint8[]memory_actionByte)publicreturns(bool[]memory){bool[]memory_results=newbool[](_tradeId.length);bool[]memory_consumer=newbool[](_tradeId.length);uint128[]memory_additionalGas=newuint128[](_tradeId.length);for(uint8<missing ')'>i=0;i<_tradeId.length;i++){_consumer[i]=(msg.sender==_seller[i]||msg.sender==_buyer[i]);_additionalGas[i]=uint128(_consumer[i]==true?GAS_batchConsumerCost/_tradeId.length:0);_results[i]=consumerAction(_tradeId[i],_seller[i],_buyer[i],_amount[i],_gasFee[i],_additionalFee[i],_actionByte[i],_additionalGas[i]);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 16
+content: >=
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 24
+content: <
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 79
+column: 4
+content: functionbatchconsumerAction(bytes16[]memory_tradeId,address<missing ')'>payable[]memory
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 4
+content: uint8constantACTION_SELLER_DISABLE_CANCEL=0x01;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 27
+column: 4
+content: uint8constantACTION_BUYER_CANCEL=0x02;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 4
+content: uint8constantACTION_SELLER_CANCEL=0x03;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 29
+column: 4
+content: uint8constantACTION_SELLER_REQUEST_CANCEL=0x04;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 30
+column: 4
+content: uint8constantACTION_RELEASE=0x05;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 31
+column: 4
+content: uint8constantACTION_DISPUTE=0x06;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 77
+column: 4
+content: uint16constantGAS_batchConsumerCost=28500;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 79
+column: 85
+content: _seller,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 79
+column: 94
+content: addresspayable[]memory
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 79
+column: 119
+content: _buyer,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 79
+column: 127
+content: uint256[]memory_amount,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 79
+column: 153
+content: uint16[]memory_gasFee,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 79
+column: 178
+content: uint128[]memory_additionalFee,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 79
+column: 211
+content: uint8[]memory_actionByte)publicreturns
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 79
+column: 253
+content: (bool[]memory){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 81
+column: 8
+content: bool[]memory_results=newbool[](_tradeId.length);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 83
+column: 8
+content: bool[]memory_consumer=newbool[](_tradeId.length);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 85
+column: 8
+content: uint128[]memory_additionalGas=newuint128[](_tradeId.length);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 87
+column: 11
+content: (uint8<missing ')'>i=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 87
+column: 23
+content: i<_tradeId.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 87
+column: 34
+content: length;i++){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 8
+content: _consumer[i]=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 23
+content: (msg.sender==_seller[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 46
+content: i]||
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 52
+content: msg.sender==_buyer[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 73
+content: i]);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 91
+column: 8
+content: _additionalGas[i]=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 91
+column: 28
+content: uint128(_consumer[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 91
+column: 46
+content: i]==true?
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 91
+column: 58
+content: GAS_batchConsumerCost/_tradeId.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 91
+column: 91
+content: length:0);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 93
+column: 8
+content: _results[i]=consumerAction
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 93
+column: 36
+content: (_tradeId[i],_seller[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 93
+column: 57
+content: i],
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 93
+column: 60
+content: _buyer[i],_amount[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 93
+column: 78
+content: i],
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 93
+column: 81
+content: _gasFee[i],_additionalFee[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 93
+column: 107
+content: i],
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 93
+column: 110
+content: _actionByte[i],_additionalGas[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 93
+column: 140
+content: i]);
+
+SOLIDITY_VISIBILITY :41
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :6

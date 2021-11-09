@@ -1,0 +1,139 @@
+C:\Users\hp\DataSet\contracts\ropsten\64\64fc3b555e02883922de35b6bb4c8d986b3a2875_AssetManager.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 17
+column: 1
+content: functiongetContractCount()publicconstantreturns(uintcontractCount){returncontracts.length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 39
+column: 1
+content: functionseeAsset(uintpos)publicconstantreturns(addresscontractAddress){returnaddress(contracts[pos]);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 137
+column: 1
+content: functiongetValue()publiconlyOwnerconstantreturns(uintassetValue){returnvalue;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 146
+column: 1
+content: functiongetLocation()publiconlyOwnerconstantreturns(stringassetLocation){returnlocation;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 156
+column: 1
+content: functionseeOwner(uintpos)publicconstantreturns(addressoldOwnerAddress){returnaddress(pastOwners[pos]);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 48
+column: 0
+content: contractAsset{uintprivatevalue;addresspublicowner;stringpublicipfsHash;stringprivatelocation;stringpublicdescription;enumState{Active,Inactive}Statepublicstate;address[]privatepastOwners;constructor(addresscontractOwner,stringcontractHash,uintassetValue,stringassetLocation,stringassetDescription)publicpayable{owner=contractOwner;ipfsHash=contractHash;value=assetValue;location=assetLocation;description=assetDescription;state=State.Active;}modifiercondition(bool_condition){require(_condition);_;}modifieronlyOwner(){require(msg.sender==owner);_;}modifierinState(State_state){require(state==_state);_;}eventDiscarded();eventNewOwner();eventNewDescription();eventNewLocation();eventNewValue();functiondiscard()publiconlyOwnerinState(State.Active){emitDiscarded();state=State.Inactive;}functiontransfer(addressnewOwner)publiconlyOwnerinState(State.Active){if(newOwner!=0x0){emitNewOwner();pastOwners.push(owner);owner=newOwner;}}functionupdateLocation(stringnewLocation)publiconlyOwnerinState(State.Active){emitNewLocation();location=newLocation;}functionupdateDescription(stringnewDescription)publiconlyOwnerinState(State.Active){emitNewDescription();description=newDescription;}functionupdateValue(uintnewValue)publiconlyOwnerinState(State.Active){emitNewValue();value=newValue;}functiongetValue()publiconlyOwnerconstantreturns(uintassetValue){returnvalue;}functiongetLocation()publiconlyOwnerconstantreturns(stringassetLocation){returnlocation;}functionseeOwner(uintpos)publicconstantreturns(addressoldOwnerAddress){returnaddress(pastOwners[pos]);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 49
+column: 6
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 52
+column: 8
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 56
+column: 14
+content: private
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 26
+column: 19
+content: stringcontractHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 26
+column: 57
+content: stringassetLocation
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 26
+column: 79
+content: stringassetDescription
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 58
+column: 36
+content: stringcontractHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 58
+column: 74
+content: stringassetLocation
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 58
+column: 96
+content: stringassetDescription
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 110
+column: 25
+content: stringnewLocation
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 119
+column: 28
+content: stringnewDescription
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 150
+column: 13
+content: stringassetLocation
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :3
+SOLIDITY_UPGRADE_TO_050 :9

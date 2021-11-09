@@ -1,0 +1,118 @@
+C:\Users\hp\DataSet\contracts\ropsten\d4\d43bee68a9ae0ca71257bdddd8ff89a836f57e95_Casino.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 210
+column: 34
+content: 0x3F
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 95
+column: 4
+content: owner=address(0)
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 193
+column: 0
+content: contractCasinoisOwnable,HouseAdmin{usingSafeMathforuint;uintconstantHOUSE_EDGE_PERCENT=1;uintconstantHOUSE_EDGE_MINIMUM_AMOUNT=0.0003ether;uintconstantBET_AMOUNT_MIN=0.01ether;uintconstantBET_AMOUNT_MAX=1000ether;uintconstantBET_EXPIRATION_BLOCKS=250;uintconstantMAX_MASKABLE_MODULO=40;uintconstantMAX_BET_MASK=2**MAX_MASKABLE_MODULO;uintconstantPOPCOUNT_MULT=0x0000000000002000000000100000000008000000000400000000020000000001;uintconstantPOPCOUNT_MASK=0x0001041041041041041041041041041041041041041041041041041041041041;uintconstantPOPCOUNT_MODULO=0x3F;uintpublicbankFund;structBet{uint8choice;uint8modulo;uintamount;uintwinAmount;uintplaceBlockNumber;addressplayer;boolisActive;}mapping(uint=>Bet)bets;eventLogParticipant(addressindexedplayer,uintindexedmodulo,uintchoice,uintamount,uintcommit);eventLogClosedBet(addressindexedplayer,uintindexedmodulo,uintchoice,uintreveal,uintresult,uintamount,uintwinAmount);eventLogDistributeReward(addressindexedaddr,uintreward);eventLogRecharge(addressindexedaddr,uintamount);eventLogRefund(addressindexedaddr,uintamount);eventLogDealerWithdraw(addressindexedaddr,uintamount);constructor()payablepublic{owner=msg.sender;}functionplaceBet(uint_choice,uint_modulo,uint_expiredBlockNumber,uint_commit,uint8_v,bytes32_r,bytes32_s)payableexternal{Betstoragebet=bets[_commit];uintamount=msg.value;require(bet.player==address(0),"this bet is already exist");require(block.number<=_expiredBlockNumber,&39<missing ')'>;thisbet<missing ';'>hasexpired&39;);require(amount>=BET_AMOUNT_MIN&&amount<=BET_AMOUNT_MAX,&39<missing ')'>;betamount<missing ';'>outof<missing ';'>range&39;);bytes32msgHash=keccak256(abi.encodePacked(_expiredBlockNumber,_commit));require(ecrecover(msgHash,_v,_r,_s)==signer,"incorrect signer");uinthouseEdge=amount*HOUSE_EDGE_PERCENT/100;if(houseEdge<HOUSE_EDGE_MINIMUM_AMOUNT){houseEdge=HOUSE_EDGE_MINIMUM_AMOUNT;}uintpopulationCount;if(_modulo<MAX_MASKABLE_MODULO){require(_choice<MAX_BET_MASK,"choice too large");populationCount=(_choice*POPCOUNT_MULT&POPCOUNT_MASK)%POPCOUNT_MODULO;require(populationCount<_modulo,"winning rate out of range");}else{require(_choice<_modulo,"choice large than modulo");populationCount=_choice;}uintwinAmount=(amount-houseEdge).mul(_modulo)/populationCount;bankFund=bankFund.add(winAmount);require(bankFund<=address(this).balance,&39<missing ')'>;<missing '}'>
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 194
+column: 2
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 196
+column: 2
+content: uintconstantHOUSE_EDGE_PERCENT=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 197
+column: 2
+content: uintconstantHOUSE_EDGE_MINIMUM_AMOUNT=0.0003ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 199
+column: 2
+content: uintconstantBET_AMOUNT_MIN=0.01ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 200
+column: 2
+content: uintconstantBET_AMOUNT_MAX=1000ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 202
+column: 2
+content: uintconstantBET_EXPIRATION_BLOCKS=250;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 204
+column: 2
+content: uintconstantMAX_MASKABLE_MODULO=40;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 205
+column: 2
+content: uintconstantMAX_BET_MASK=2**MAX_MASKABLE_MODULO;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 208
+column: 2
+content: uintconstantPOPCOUNT_MULT=0x0000000000002000000000100000000008000000000400000000020000000001;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 209
+column: 2
+content: uintconstantPOPCOUNT_MASK=0x0001041041041041041041041041041041041041041041041041041041041041;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 210
+column: 2
+content: uintconstantPOPCOUNT_MODULO=0x3F;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 224
+column: 2
+content: mapping(uint=>Bet)bets;
+
+SOLIDITY_VISIBILITY :11
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :2

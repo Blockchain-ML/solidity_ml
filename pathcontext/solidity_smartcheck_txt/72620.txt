@@ -1,0 +1,177 @@
+F:\Blockchain\dataset_new_byID\72620.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 25
+column: 4
+content: functionis_device_present(addressdevice_id)publicconstantreturns(boolresult){if(device_index.length==0)returnfalse;return(device_index[device_logs[device_id].index]==device_id);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 34
+column: 4
+content: functionfilehash_concat(stringh1,stringh2)internalconstantreturns(stringconcat){bytesmemoryb1=bytes(h1);bytesmemoryb2=bytes(h2);stringmemorysm=newstring(b1.length+1+b2.length);bytesmemorybm=bytes(sm);uinti=0;uintk=0;for(i=0;i<b1.length;i++)bm[k++]=b1[i];bm[k++]=',';for(i=0;i<b2.length;i++)bm[k++]=b2[i];returnstring(sm);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 81
+column: 4
+content: functionget_device_data(addressdevice_id,uinttimestamp)publicconstantreturns(stringhash){if(!is_device_present(device_id))revert();returndevice_logs[device_id].filehashes[timestamp];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 88
+column: 4
+content: functionget_device_timestamps(addressdevice_id)publicconstantreturns(uint[]timestamp){if(!is_device_present(device_id))revert();returndevice_logs[device_id].timestamps;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 94
+column: 4
+content: functionget_device_count()publicconstantreturns(uintcount){returndevice_index.length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 99
+column: 4
+content: functionget_device_at_index(uintindex)publicconstantreturns(addressdevice_address){returndevice_index[index];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 41
+column: 8
+content: for(i=0;i<b1.length;i++)bm[k++]=b1[i];
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 43
+column: 8
+content: for(i=0;i<b2.length;i++)bm[k++]=b2[i];
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 41
+column: 8
+content: for(i=0;i<b1.length;i++)bm[k++]=b1[i];
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 43
+column: 8
+content: for(i=0;i<b2.length;i++)bm[k++]=b2[i];
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 5
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 17
+column: 36
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 19
+column: 14
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 82
+column: 8
+content: if(!is_device_present(device_id))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 89
+column: 8
+content: if(!is_device_present(device_id))revert();
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 34
+column: 30
+content: stringh1
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 34
+column: 41
+content: stringh2
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 34
+column: 79
+content: stringconcat
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 48
+column: 49
+content: stringfilehash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 81
+column: 90
+content: stringhash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 88
+column: 80
+content: uint[]timestamp
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 104
+column: 4
+content: functionvendor(){creator=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 109
+column: 4
+content: functionkill(){if(msg.sender==creator){selfdestruct(creator);}}
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :3
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_UPGRADE_TO_050 :6
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2

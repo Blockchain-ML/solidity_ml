@@ -1,0 +1,98 @@
+C:\Users\hp\DataSet\OBRewards.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 154
+column: 8
+content: for(uint256i=0;i<sellers.length;i++){require(sellers[i]!=address(0),"Zero address cannot be a promoted seller");require(!promotedSellers[sellers[i]],"One of the sellers is already promoted");promotedSellers[sellers[i]]=true;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 181
+column: 8
+content: for(uint256i=0;i<sellers.length;i++){promotedSellers[sellers[i]]=false;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 433
+column: 8
+content: for(uint256i=0;i<scriptHashes.length;i++){(addressbuyer,addressseller,uint8status,uint256lastModified)=_getTransaction(scriptHashes[i]);uint256rewardAmount=_getTokensToReward(scriptHashes[i],buyer,seller,status,lastModified);uint256contractBalance=obToken.balanceOf(address(this));if(rewardAmount>contractBalance){rewardAmount=contractBalance;}if(rewardAmount==0){emitUnsuccessfulClaim(scriptHashes[i],seller,buyer);continue;}if(!sellerVsBuyersBool[seller][buyer]){sellerVsBuyersBool[seller][buyer]=true;sellerVsBuyersArray[seller].push(buyer);}sellerVsBuyerRewards[seller][buyer]=sellerVsBuyerRewards[seller][buyer].add(rewardAmount);sellerVsRewardsDistributed[seller]=sellerVsRewardsDistributed[seller].add(rewardAmount);totalTokensDistributed=totalTokensDistributed.add(rewardAmount);emitSuccessfulClaim(scriptHashes[i],seller,buyer,rewardAmount);obToken.transfer(buyer,rewardAmount);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 154
+column: 8
+content: for(uint256i=0;i<sellers.length;i++){require(sellers[i]!=address(0),"Zero address cannot be a promoted seller");require(!promotedSellers[sellers[i]],"One of the sellers is already promoted");promotedSellers[sellers[i]]=true;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 181
+column: 8
+content: for(uint256i=0;i<sellers.length;i++){promotedSellers[sellers[i]]=false;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 433
+column: 8
+content: for(uint256i=0;i<scriptHashes.length;i++){(addressbuyer,addressseller,uint8status,uint256lastModified)=_getTransaction(scriptHashes[i]);uint256rewardAmount=_getTokensToReward(scriptHashes[i],buyer,seller,status,lastModified);uint256contractBalance=obToken.balanceOf(address(this));if(rewardAmount>contractBalance){rewardAmount=contractBalance;}if(rewardAmount==0){emitUnsuccessfulClaim(scriptHashes[i],seller,buyer);continue;}if(!sellerVsBuyersBool[seller][buyer]){sellerVsBuyersBool[seller][buyer]=true;sellerVsBuyersArray[seller].push(buyer);}sellerVsBuyerRewards[seller][buyer]=sellerVsBuyerRewards[seller][buyer].add(rewardAmount);sellerVsRewardsDistributed[seller]=sellerVsRewardsDistributed[seller].add(rewardAmount);totalTokensDistributed=totalTokensDistributed.add(rewardAmount);emitSuccessfulClaim(scriptHashes[i],seller,buyer,rewardAmount);obToken.transfer(buyer,rewardAmount);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 330
+column: 4
+content: functionsetEndDate(uint256_endDate)externalonlyOwner{require(_endDate>block.timestamp,"End date should be greater than current date");endDate=_endDate;emitEndDateChanged(endDate);}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 19
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 505
+column: 15
+content: (addressbuyer,addressseller,uint8status,uint256lastModified)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 4
+content: mapping(address=>address[])sellerVsBuyersArray;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 42
+column: 4
+content: mapping(address=>mapping(address=>bool))sellerVsBuyersBool;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 4
+content: mapping(address=>mapping(address=>uint256))sellerVsBuyerRewards;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 50
+column: 4
+content: mapping(address=>uint256)sellerVsRewardsDistributed;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_SHOULD_RETURN_STRUCT :1

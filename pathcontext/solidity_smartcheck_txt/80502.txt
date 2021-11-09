@@ -1,0 +1,46 @@
+F:\Blockchain\dataset_new_byID\80502.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 40
+column: 8
+content: for(uinti=0;i<size;i++){if(mOrders[_dataSourceName][i].subscriber==msg.sender){uint256refund=handleOrderRefundCalc(mOrders[_dataSourceName][i]);if(refund>0&&!mOrders[_dataSourceName][i].isRefundPaid){mOrders[_dataSourceName][i].isRefundPaid=true;refundAmount=refundAmount.add(refund);}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 61
+column: 8
+content: for(uinti=0;i<size;i++){if(mOrders[_dataSourceName][i].subscriber==_subscriber){refundAmount=refundAmount.add(handleOrderRefundCalc(mOrders[_dataSourceName][i]));}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 76
+column: 8
+content: for(uinti=0;i<orderSize;i++){uint256withdraw=handleOrderWithdrawCalc(mOrders[_dataSourceName][i]);if(withdraw>0&&!mOrders[_dataSourceName][i].isPaid){mOrders[_dataSourceName][i].isPaid=true;withdrawAmount=withdrawAmount.add(withdraw);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 96
+column: 8
+content: for(uinti=0;i<orderSize;i++){withdrawAmount=withdrawAmount.add(handleOrderWithdrawCalc(mOrders[_dataSourceName][i]));}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 16
+column: 4
+content: functionsetPunishProvider(bytes32_dataSourceName,bool_isPunished)publiconlyOwnerreturns(boolsuccess){require(mProviders[_dataSourceName].isProvider);mProviders[_dataSourceName].isPunished=_isPunished;if(_isPunished){mProviders[_dataSourceName].punishTimeStamp=now;mProviders[_dataSourceName].isActive=false;}else{mProviders[_dataSourceName].punishTimeStamp=0;mProviders[_dataSourceName].isActive=true;}emitProviderPunishStatus(mProviders[_dataSourceName].owner,_dataSourceName,_isPunished);success=true;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4

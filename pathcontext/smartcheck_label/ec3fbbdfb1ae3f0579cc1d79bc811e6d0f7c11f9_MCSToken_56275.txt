@@ -1,0 +1,84 @@
+C:\Users\hp\DataSet\contracts\ropsten\ec\ec3fbbdfb1ae3f0579cc1d79bc811e6d0f7c11f9_MCSToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 370
+column: 4
+content: functiongetBonus(uinttime,uint256tokens)publicconstantreturns(uint256){uint256bonus=0;if(state==States.PreSale){if(time>=preSaleStart&&time<(preSaleStart+1weeks)){bonus=tokens.mul(20).div(100);}elseif(time>=(preSaleStart+1weeks)&&time<(preSaleStart+2weeks)){bonus=tokens.mul(10).div(100);}elseif(time>=(preSaleStart+2weeks)&&time<(preSaleStart+3weeks)){bonus=tokens.mul(5).div(100);}}returnbonus;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 393
+column: 4
+content: functionisValidPeriod(uinttime)publicconstantreturns(bool){if(state==States.PreSale){if(time>=preSaleStart&&time<=preSaleEnd)returntrue;}elseif(state==States.PreICO){if(time>=preIcoStart&&time<=preIcoEnd)returntrue;}elseif(state==States.ICO){if(time>=icoStart&&time<=icoEnd)returntrue;}returnfalse;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 411
+column: 4
+content: functionisReachedHardCap(uint256weiAmount)publicconstantreturns(bool){addresscontractAddress=this;if(state==States.PreSale){returnweiAmount.add(contractAddress.balance)>preSaleHardCap;}elseif(state==States.PreICO){returnweiAmount.add(contractAddress.balance)>preIcoHardCap;}elseif(state==States.ICO){returnweiAmount.add(contractAddress.balance)>icoHardCap;}returnfalse;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 441
+column: 4
+content: functioncalcTokens(uint256weiAmount)publicconstantreturns(uint256){if(state==States.PreSale)returnweiAmount.mul(preSalePice);elseif(state==States.PreICO)returnweiAmount.mul(preIcoPrice);elseif(state==States.ICO)returnweiAmount.mul(icoPrice);return0;}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 159
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 77
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 301
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 449
+column: 16
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 79
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 81
+column: 2
+content: uint256totalSupply_;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_ERC20_APPROVE :1

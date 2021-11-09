@@ -1,0 +1,67 @@
+C:\Users\hp\DataSet\contracts\ropsten\7f\7fa22cbbffd2b8a34379db6c22859b7c028495cf_Crowdsale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 121
+column: 26
+content: amount/price*10**uint256(decimals)
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 23
+column: 5
+content: functiontoken(address_owned,stringtokenName,stringtokenSymbol){balanceOf[_owned]=totalSupply;name=tokenName;symbol=tokenSymbol;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 37
+column: 5
+content: functiontransfer(address_to,uint256_value){balanceOf[msg.sender]-=_value;balanceOf[_to]+=_value;Transfer(msg.sender,_to,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 91
+column: 4
+content: functionCrowdsale(uintfundingGoalInEthers,uintdurationInMinutes,stringtokenName,stringtokenSymbol)token(this,tokenName,tokenSymbol){fundingGoal=fundingGoalInEthers*1ether;deadline=now+durationInMinutes*1minutes;price=500finney;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 108
+column: 4
+content: function()payable{require(!crowdsaleClosed);uintamount=msg.value;balance[msg.sender]+=amount;amountRaised+=amount;issue(msg.sender,amount/price*10**uint256(decimals));FundTransfer(msg.sender,amount,true);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 133
+column: 4
+content: functioncheckGoalReached()afterDeadline{if(amountRaised>=fundingGoal){fundingGoalReached=true;GoalReached(beneficiary,amountRaised);}crowdsaleClosed=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 152
+column: 4
+content: functionsafeWithdrawal()afterDeadline{if(!fundingGoalReached){uintamount=balance[msg.sender];if(amount>0){msg.sender.transfer(amount);FundTransfer(msg.sender,amount,false);balance[msg.sender]=0;}}if(fundingGoalReached&&beneficiary==msg.sender){beneficiary.transfer(amountRaised);FundTransfer(beneficiary,amount,false);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 7
+column: 35
+content: https:
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_DIV_MUL :1

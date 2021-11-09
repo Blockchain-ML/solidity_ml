@@ -1,0 +1,193 @@
+F:\Blockchain\dataset_new_byID\82729.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractUniswapFactory{eventNewExchange(addressindexedtoken,addressindexedexchange);addresspublicexchangeTemplate;uint256publictokenCount;mapping(address=>address)internaltoken_to_exchange;mapping(address=>address)internalexchange_to_token;mapping(uint256=>address)internalid_to_token;functioninitializeFactory(addresstemplate)public{require(exchangeTemplate==address(0));require(template!=address(0));exchangeTemplate=template;}functioncreateExchange(addresstoken)publicreturns(address){require(token!=address(0));require(exchangeTemplate!=address(0));require(token_to_exchange[token]==address(0));UniswapExchangeexchange=newUniswapExchange();exchange.setup(token,address(this));token_to_exchange[token]=address(exchange);exchange_to_token[address(exchange)]=token;uint256token_id=tokenCount+1;tokenCount=token_id;id_to_token[token_id]=token;emitNewExchange(token,address(exchange));returnaddress(exchange);}functionregisterExchange(addresspayableexchange,addresstoken)publicreturns(address){require(token!=<missing ';'>address(0));require(token_to_exchange[token]==address(0));require(UniswapExchange(exchange).factoryAddress()==address(this),"exchange.factory does not match");token_to_exchange[token]=address(exchange);exchange_to_token[address(exchange)]=token;uint256token_id=tokenCount+1;tokenCount=token_id;id_to_token[token_id]=token;emitNewExchange(token,<missing ';'>address(exchange));returnaddress(exchange);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 43
+column: 2
+content: functionregisterExchange(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 43
+column: 44
+content: exchange,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 43
+column: 54
+content: addresstoken)publicreturns
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 43
+column: 84
+content: (address){require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 11
+content: (token!=<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 21
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 28
+content: (0));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 45
+column: 4
+content: require(token_to_exchange[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 45
+column: 30
+content: token]==
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 45
+column: 40
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 45
+column: 47
+content: (0));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 4
+content: require(UniswapExchange
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 27
+content: (exchange).factoryAddress
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 52
+content: ()==
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 58
+content: address(this),"exchange.factory does not match");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 47
+column: 4
+content: token_to_exchange[token]=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 47
+column: 31
+content: address(exchange);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 48
+column: 4
+content: exchange_to_token[address(exchange)]=token;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 49
+column: 4
+content: uint256token_id=tokenCount+1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 50
+column: 4
+content: tokenCount=token_id;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 51
+column: 4
+content: id_to_token[token_id]=token;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 4
+content: emitNewExchange
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 20
+content: (token,<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 28
+content: address(exchange));return
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 53
+column: 11
+content: address(exchange);
+
+SOLIDITY_VISIBILITY :25
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

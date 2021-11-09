@@ -1,0 +1,206 @@
+C:\Users\hp\DataSet\contracts\ropsten\e5\e5ca4770422cdc256c093f207ff979128077f6b8_CappedSTOFactory.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 118
+column: 8
+content: owner=address(0)
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 334
+column: 4
+content: functionapprove(addressspender,uint256value)publicreturns(bool){require(balances[msg.sender]>=value,"Insufficient tokens approval");allowed[msg.sender][spender]=value;emitApproval(msg.sender,spender,value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 606
+column: 0
+content: contractCappedSTOisISTO,ReentrancyGuard{usingSafeMathforuint256;addresspayablepublicwallet;uint256publicrate;uint256publicfundsRaised;uint256publicinvestorCount;uint256publictokensSold;uint256publiccap;mapping(address=>uint256)publicinvestors;eventTokenPurchase(addressindexedpurchaser,addressindexedbeneficiary,uint256value,uint256amount);constructor(address_securityTokenAddress,address_platformTokenAddress)publicIModule(_securityTokenAddress,_platformTokenAddress){}function()externalpayable{buyTokens(msg.sender);}functionsetData(uint256_startTime,uint256_endTime,uint256_cap,uint256_rate,uint8_fundRaiseType,address<missing ')'>payable_fundsReceiver)publiconlyFactory{require(_rate>0,"Rate of token should be greater than 0");require(_fundsReceiver!=address(0),"Zero address is not permitted");require(_startTime>=now&&_endTime>_startTime,"Date parameters are not valid");require(_cap>0,"Cap should be greater than 0");startTime=_startTime;endTime=_endTime;cap=_cap;rate=_rate;wallet=_fundsReceiver;_check(_fundRaiseType);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 584
+column: 9
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 299
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 519
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 608
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 439
+column: 81
+content: (bytes32,address)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 446
+column: 83
+content: (bytes32,address)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 964
+column: 46
+content: call(_data)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 657
+column: 4
+content: functionsetData(uint256_startTime,uint256_endTime,uint256_cap,uint256_rate,uint8_fundRaiseType,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 302
+column: 4
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 304
+column: 4
+content: uint256totalSupply_;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 669
+column: 8
+content: require(_rate>0,"Rate of token should be greater than 0");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 671
+column: 8
+content: require(_fundsReceiver!=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 671
+column: 34
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 671
+column: 41
+content: (0),"Zero address is not permitted");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 673
+column: 8
+content: require(_startTime>=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 673
+column: 30
+content: now&&_endTime>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 673
+column: 48
+content: _startTime,"Date parameters are not valid");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 675
+column: 8
+content: require(_cap>0,"Cap should be greater than 0");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 677
+column: 8
+content: startTime=_startTime;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 678
+column: 8
+content: endTime=_endTime;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 679
+column: 8
+content: cap=_cap;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 680
+column: 8
+content: rate=_rate;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 681
+column: 8
+content: wallet=_fundsReceiver;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 683
+column: 8
+content: _check(_fundRaiseType);
+
+SOLIDITY_VISIBILITY :17
+SOLIDITY_SAFEMATH :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_SHOULD_RETURN_STRUCT :2
+SOLIDITY_ERC20_APPROVE :1

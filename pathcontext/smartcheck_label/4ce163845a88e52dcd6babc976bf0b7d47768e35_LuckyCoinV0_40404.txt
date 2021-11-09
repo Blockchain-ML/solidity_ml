@@ -1,0 +1,172 @@
+C:\Users\hp\DataSet\contracts\ropsten\4c\4ce163845a88e52dcd6babc976bf0b7d47768e35_LuckyCoinV0.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 45
+column: 4
+content: owner=address(0)
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 248
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 373
+column: 8
+content: for(uinti=0;i<_blacklist.length;i++){deleteblacklist[_blacklist[i]];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 410
+column: 8
+content: for(uinti=0;i<_dests.length;i++){require(blacklist[_dests[i]]==false);_distribute(_dests[i],airdropValue);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 458
+column: 8
+content: for(uinti=0;i<_dests.length;i++){_transfer(owner,_dests[i],_values[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 373
+column: 8
+content: for(uinti=0;i<_blacklist.length;i++){deleteblacklist[_blacklist[i]];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 410
+column: 8
+content: for(uinti=0;i<_dests.length;i++){require(blacklist[_dests[i]]==false);_distribute(_dests[i],airdropValue);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 458
+column: 8
+content: for(uinti=0;i<_dests.length;i++){_transfer(owner,_dests[i],_values[i]);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 323
+column: 0
+content: contractAirdropisStandardToken,Ownable{mapping(address=>bool)publicblacklist;address[]_blacklist;uintairdropBegin=0;uintairdropEnd=0;uintairdropValue=0;uintairdropTotal=0;uintpublicairdropTotalRemaining=0;uintairdropMinReq=0;modifiercanAirdrop(){require(isAirdropping()==true);_;}modifieronlyWhitelist(){require(blacklist[msg.sender]==false);_;}eventDistribute(addressindexedto,uintamount);constructor()public{}functionsetAirdrop(uint_begin,uint_end,uint_amount,uint_total,uint_minReq)onlyOwnerpublicreturns(bool){require(_begin<_end&&now<_end);require(_total>0&&_total<=balances[owner]);require(_amount>=0);airdropBegin=_begin;airdropEnd=_end;airdropValue=_amount;airdropTotal=_total;airdropTotalRemaining=_total;airdropMinReq=_minReq;for(uinti=0;i<_blacklist.length;i++){deleteblacklist[_blacklist[i]];}delete_blacklist;returntrue;}functionisAirdropping()publicviewreturns(bool){returnairdropBegin<=now&&now<=airdropEnd&&airdropTotalRemaining>0&&airdropValue<=airdropTotalRemaining;}function()externalpayable{getAirdrop();}functiongetAirdrop()payablepublic{require(msg.value>=airdropMinReq);_distribute(msg.sender,airdropValue);}function_distribute(address_to,uint_amount)canAirdroponlyWhitelistprivate{airdropTotalRemaining=airdropTotalRemaining.sub(_amount);balances[owner]=balances[owner].sub(_amount);balances[_to]=balances[_to].add(_amount);blacklist[_to]=true;_blacklist.push(_to);emitDistribute(_to,_amount);emitTransfer(address(0),_to,_amount);}functionmultiDistribute(address[]_dests)onlyOwnerpublic{for(uinti=0;i<_dests.length;i++){require(blacklist[_dests[i]]==false);_distribute(_dests[i],airdropValue);}}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 362
+column: 4
+content: functionsetAirdrop(uint_begin,uint_end,uint_amount,uint_total,uint_minReq)onlyOwnerpublicreturns(bool){require(_begin<_end&&now<_end);require(_total>0&&_total<=balances[owner]);require(_amount>=0);airdropBegin=_begin;airdropEnd=_end;airdropValue=_amount;airdropTotal=_total;airdropTotalRemaining=_total;airdropMinReq=_minReq;for(uinti=0;i<_blacklist.length;i++){deleteblacklist[_blacklist[i]];}delete_blacklist;returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 140
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 409
+column: 29
+content: address[]_dests
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 455
+column: 23
+content: address[]_dests
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 455
+column: 41
+content: uint256[]_values
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 142
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 144
+column: 2
+content: uint256totalSupply_;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 326
+column: 4
+content: address[]_blacklist;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 328
+column: 4
+content: uintairdropBegin=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 329
+column: 4
+content: uintairdropEnd=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 331
+column: 4
+content: uintairdropValue=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 333
+column: 4
+content: uintairdropTotal=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 337
+column: 4
+content: uintairdropMinReq=0;
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_ERC20_APPROVE :1

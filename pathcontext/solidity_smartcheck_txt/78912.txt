@@ -1,0 +1,47 @@
+F:\Blockchain\dataset_new_byID\78912.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 8
+column: 0
+content: contractDAICOisOwnable{usingSafeMathforuint256;eventDeposit(addresssender,uint256amount);eventProposalCreated();eventProposalVoted();eventProposalApproved();eventProposalDenied();eventManagerAdded();eventManagerRemoved();eventProjectShutdownProposed();eventProjectShutdownSuccess();ERC827Tokenpublictoken;uint256publictap;uint256publiclastWithdrawn;uint256publicquorumPercentage;uint256publicproposalExpiration;Management[]publicmanagers;mapping(address=>bool)publicisManager;mapping(address=>uint256)publicmanagerAdd;mapping(address=>uint256)publicmanagerRemove;Proposal[]publicproposals;mapping(uint256=>mapping(address=>bool))publicresponses;uint256publicminimumTokens;mapping(address=>uint256)publicholderStartDate;enumFundraisingState{ProjectSetup,FundraisingStart,FundRaisingEnd,ProjectActive,ProjectShutdown}FundraisingStatepublicdaicoState;structManagement{addressaddr;stringname;stringtitle;boolactive;}structProposal{addresscreator;boolprojectShutdown;}modifieronlyManagement{require(isManager[msg.sender]);_;}modifiermanagerDoesNotExist(addressowner){require(!isManager[owner]);_;}modifieronlyTokenHolder{require(token.balanceOf(msg.sender)>minimumTokens);_;}modifierprojectActive{require(daicoState==FundraisingState.ProjectActive);_;}modifiernotNull(address_address){require(_address!=0);_;}functionDAICO(uint256_mininumTokens)public{daicoState=FundraisingState.ProjectSetup;managers.push(Management({addr:msg.sender,name:'',title:'',active:true}));isManager[msg.sender]=true;minimumTokens=_mininumTokens;}function()publicpayable{require(msg.value>0&&daicoState==FundraisingState.FundraisingStart);Deposit(msg.sender,msg.value);}functionaddManager(addressaddr,stringname,stringtitle)publiconlyManagementnotNull(addr)managerDoesNotExist(addr){}functionremoveManager(addressaddr)publiconlyManagement{}functioncreateProposal()publiconlyManagementprojectActive{}functionproposalVote(uintpropsalId,boolaction)publiconlyTokenHolderprojectActive{}functionproposeProjectShutdown()publiconlyTokenHolderprojectActive{}functionregisterAddress()publiconlyTokenHolderprojectActive{holderStartDate[msg.sender]=block.timestamp;}functionbeforeDate(addressaddr,uint256earliestDate)internal{require(holderStartDate[addr]<earliestDate);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 10
+column: 1
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 105
+column: 13
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 115
+column: 35
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 115
+column: 48
+content: stringtitle
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :3

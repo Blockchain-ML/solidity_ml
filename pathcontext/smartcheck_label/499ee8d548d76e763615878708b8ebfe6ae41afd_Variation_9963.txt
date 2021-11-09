@@ -1,0 +1,85 @@
+C:\Users\hp\DataSet\contracts\mainnet\49\499ee8d548d76e763615878708b8ebfe6ae41afd_Variation.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 196
+column: 8
+content: for(index=1;index<=cVariations[cVariations.length-1].luckyDogs.length;index++){deletecurrentCVariation.luckyDogs[luckySize-index];deletecurrentCVariation.luckyAccounts[luckySize-index];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 214
+column: 8
+content: for(index=0;index<luckySize;index++){addressowner=currentCVariation.luckyAccounts[index];dogCore.sendMoney(owner,reward);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 102
+column: 4
+content: functionsetVariationProbably(uint256_value)publiconlyOwner{require(_value>0);require(_value<=100);variationProbably=_value;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 108
+column: 4
+content: functionsetVariationCycle(uint256_value)publiconlyOwner{require(_value>0);require(_value<=172800);variationCycle=_value;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 126
+column: 4
+content: functionsetLotteryAddress(address_lottery)publiconlyOwner{LotteryInterfacecandidateContract=LotteryInterface(_lottery);require(candidateContract.isLottery());lottery=candidateContract;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 216
+column: 20
+content: sendMoney(owner,reward)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 219
+column: 16
+content: sendMoney(dogCore.cfoAddress(),currentCVariation.totalAmount/10)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 78
+column: 38
+content: keccak256(block.timestamp,uint256(randomSeed*block.difficulty))
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 63
+column: 12
+content: uint256[]reward1
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 71
+column: 4
+content: uint256randomSeed=1;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_OVERPOWERED_ROLE :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_UNCHECKED_CALL :2

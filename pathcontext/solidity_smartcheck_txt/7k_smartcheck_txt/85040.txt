@@ -1,0 +1,118 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\85040.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 32
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 45
+column: 8
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 48
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 64
+column: 8
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 67
+column: 6
+content: throw
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 36
+column: 2
+content: functionpayoutToBeneficiary()publicreturns(addressclaimProxyAddress){if(amountRaised>=fundingGoal&&msg.sender==beneficiary&&paidOut==false){paidOut=true;addressclaimProxyAddress=newClaimProxy(beneficiary);if(claimProxyAddress.send(amountRaised)){BeneficiaryPayout(claimProxyAddress,amountRaised,beneficiary);}else{throw;}}else{throw;}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 52
+column: 2
+content: functionclaimRefundOwed()publicreturns(addressclaimProxyAddress){if(amountRaised<fundingGoal&&paidOut!=true&&now>expiry&&contributions[msg.sender]>0&&contributorMadeClaim[msg.sender]==false){contributorMadeClaim[msg.sender]=true;addressclaimProxyAddress=newClaimProxy(msg.sender);uintrefundAmount=contributions[msg.sender];if(claimProxyAddress.send(refundAmount)){RefundClaimed(claimProxyAddress,refundAmount,msg.sender);}else{throw;}}else{throw;}}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 20
+column: 4
+content: if(msg.value>0&&amountRaised<fundingGoal&&amountRaised+msg.value<=fundingGoal&&paidOut==false){if(contributions[msg.sender]==0){contributors.push(msg.sender);}amountRaised+=msg.value;contributions[msg.sender]=msg.value;ContributionMade(msg.sender,msg.value,amountRaised);}else{throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 37
+column: 4
+content: if(amountRaised>=fundingGoal&&msg.sender==beneficiary&&paidOut==false){paidOut=true;addressclaimProxyAddress=newClaimProxy(beneficiary);if(claimProxyAddress.send(amountRaised)){BeneficiaryPayout(claimProxyAddress,amountRaised,beneficiary);}else{throw;}}else{throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 42
+column: 6
+content: if(claimProxyAddress.send(amountRaised)){BeneficiaryPayout(claimProxyAddress,amountRaised,beneficiary);}else{throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 53
+column: 4
+content: if(amountRaised<fundingGoal&&paidOut!=true&&now>expiry&&contributions[msg.sender]>0&&contributorMadeClaim[msg.sender]==false){contributorMadeClaim[msg.sender]=true;addressclaimProxyAddress=newClaimProxy(msg.sender);uintrefundAmount=contributions[msg.sender];if(claimProxyAddress.send(refundAmount)){RefundClaimed(claimProxyAddress,refundAmount,msg.sender);}else{throw;}}else{throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 61
+column: 6
+content: if(claimProxyAddress.send(refundAmount)){RefundClaimed(claimProxyAddress,refundAmount,msg.sender);}else{throw;}
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 42
+column: 27
+content: send(amountRaised)
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 61
+column: 27
+content: send(refundAmount)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 7
+column: 2
+content: functionCampaign(uint_expiry,uint_fundingGoal,address_beneficiary){expiry=_expiry;fundingGoal=_fundingGoal;beneficiary=_beneficiary;created=now;owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 15
+column: 2
+content: function(){contributeMsgValue();}
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_REVERT_REQUIRE :5
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_SEND :2

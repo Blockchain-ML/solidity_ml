@@ -1,0 +1,40 @@
+C:\Users\hp\DataSet\BancorFormula.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 236
+column: 2
+content: functioncalculatePurchaseReturn(uint256_supply,uint256_connectorBalance,uint32_connectorWeight,uint256_depositAmount)publicconstantreturns(uint256){require(_supply>0&&_connectorBalance>0&&_connectorWeight>0&&_connectorWeight<=MAX_WEIGHT);if(_depositAmount==0){return0;}if(_connectorWeight==MAX_WEIGHT){return_supply.mul(_depositAmount).div(_connectorBalance);}uint256result;uint8precision;uint256baseN=_depositAmount.add(_connectorBalance);(result,precision)=power(baseN,_connectorBalance,_connectorWeight,MAX_WEIGHT);uint256newTokenSupply=_supply.mul(result)>>precision;returnnewTokenSupply-_supply;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 275
+column: 2
+content: functioncalculateSaleReturn(uint256_supply,uint256_connectorBalance,uint32_connectorWeight,uint256_sellAmount)publicconstantreturns(uint256){require(_supply>0&&_connectorBalance>0&&_connectorWeight>0&&_connectorWeight<=MAX_WEIGHT&&_sellAmount<=_supply);if(_sellAmount==0){return0;}if(_sellAmount==_supply){return_connectorBalance;}if(_connectorWeight==MAX_WEIGHT){return_connectorBalance.mul(_sellAmount).div(_supply);}uint256result;uint8precision;uint256baseD=_supply-_sellAmount;(result,precision)=power(_supply,baseD,MAX_WEIGHT,_connectorWeight);uint256oldBalance=_connectorBalance.mul(result);uint256newBalance=_connectorBalance<<precision;returnoldBalance.sub(newBalance).div(result);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 203
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 220
+column: 10
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 218
+column: 2
+content: usingSafeMathforuint256;
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1

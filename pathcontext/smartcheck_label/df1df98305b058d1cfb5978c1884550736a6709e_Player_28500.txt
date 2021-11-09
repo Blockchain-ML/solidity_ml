@@ -1,0 +1,367 @@
+C:\Users\hp\DataSet\contracts\mainnet\df\df1df98305b058d1cfb5978c1884550736a6709e_Player.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 373
+column: 8
+content: for(uint256i=0;i<playerAddressSets.length;i++){if(playerAddressSets[i]==_address){has=true;break;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 384
+column: 8
+content: for(uint256i=0;i<playersUnionIdSets.length;i++){if(playersUnionIdSets[i]==_unionID){has=true;break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 373
+column: 8
+content: for(uint256i=0;i<playerAddressSets.length;i++){if(playerAddressSets[i]==_address){has=true;break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 384
+column: 8
+content: for(uint256i=0;i<playersUnionIdSets.length;i++){if(playersUnionIdSets[i]==_unionID){has=true;break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 192
+column: 15
+content: z<y
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 304
+column: 0
+content: contractPlayer{usingSafeMathfor*;TeamInterfaceprivateteam;WorksInterfaceprivateworks;constructor(address_teamAddress,address_worksAddress)public{require(_teamAddress!=address(0)&&_worksAddress!=address(0));team=TeamInterface(_teamAddress);works=WorksInterface(_worksAddress);}function()externalpayable{revert();}eventOnUpgrade(addressindexed_teamAddress,addressindexed_worksAddress);eventOnRegister(addressindexed_address,bytes32_unionID,bytes32_referrer,uint256time);eventOnUpdateLastAddress(bytes32_unionID,addressindexed_sender);eventOnUpdateLastTime(bytes32_unionID,bytes32_worksID,uint256_time);eventOnUpdateFirstBuyNum(bytes32_unionID,bytes32_worksID,uint256_firstBuyNum);eventOnUpdateSecondAmount(bytes32_unionID,bytes32_worksID,uint256_amount);eventOnUpdateFirstAmount(bytes32_unionID,bytes32_worksID,uint256_amount);eventOnUpdateReinvest(bytes32_unionID,bytes32_worksID,uint256_amount);eventOnUpdateRewardAmount(bytes32_unionID,bytes32_worksID,uint256_amount);eventOnUpdateMyWorks(bytes32_unionID,addressindexed_address,bytes32_worksID,uint256_totalInput,uint256_totalOutput,uint256_time);mapping(bytes32=>Datasets.Player)privateplayersByUnionId;mapping(address=>bytes32)privateplayersByAddress;address[]privateplayerAddressSets;bytes32[]privateplayersUnionIdSets;mapping(bytes32=>mapping(bytes32=>Datasets.PlayerCount))playerCount;mapping(bytes32=>mapping(bytes32=>Datasets.MyWorks))myworks;modifieronlyAdmin(){require(team.isAdmin(msg.sender));_;}modifieronlyDev(){require(team.isDev(msg.sender));_;}functionupgrade(address_teamAddress,address_worksAddress)externalonlyAdmin(){require(_teamAddress!=address(0)&&_worksAddress!=address(0));team=TeamInterface(_teamAddress);works=WorksInterface(_worksAddress);emitOnUpgrade(_teamAddress,_worksAddress);}functionhasAddress(address_address)externalviewreturns(bool){boolhas=false;for(uint256i=0;i<playerAddressSets.length;i++){if(playerAddressSets[i]==_address){has=true;break;}}returnhas;}functionhasUnionId(bytes32_unionID)externalviewreturns(bool){boolhas=false;for(uint256i=0;i<playersUnionIdSets.length;i++){if(playersUnionIdSets[i]==_unionID){has=true;break;}}returnhas;}functiongetInfoByUnionId(bytes32_unionID)externalviewreturns(addresspayable,bytes32,uint256){return(playersByUnionId[_unionID].lastAddress,playersByUnionId[_unionID].referrer,playersByUnionId[_unionID].time);}functiongetUnionIdByAddress(address_address)externalviewreturns(bytes32){returnplayersByAddress[_address];}functionisFreeze(bytes32_unionID,bytes32_worksID)externalviewreturns(bool){uint256freezeGap=works.getFreezeGap(_worksID);returnplayerCount[_unionID][_worksID].lastTime.add(freezeGap)<now?false:true;}functiongetFirstBuyNum(bytes32_unionID,bytes32_worksID)externalviewreturns(uint256){returnplayerCount[_unionID][_worksID].firstBuyNum;}functiongetSecondAmount(bytes32_unionID,bytes32_worksID)externalviewreturns(uint256){returnplayerCount[_unionID][_worksID].secondAmount;}functiongetFirstAmount(bytes32_unionID,bytes32_worksID)externalviewreturns(uint256){returnplayerCount[_unionID][_worksID].firstAmount;}functiongetLastAddress(bytes32_unionID)externalviewreturns(addresspayable){returnplayersByUnionId[_unionID].lastAddress;}functiongetRewardAmount(bytes32_unionID,bytes32_worksID)externalviewreturns(uint256){returnplayerCount[_unionID][_worksID].rewardAmount;}functiongetFreezeHourglass(bytes32_unionID,bytes32_worksID)externalviewreturns(uint256){uint256freezeGap=works.getFreezeGap(_worksID);if(playerCount[_unionID][_worksID].lastTime.add(freezeGap)>now){returnplayerCount[_unionID][_worksID].lastTime.add(freezeGap).sub(now);}return0;}functiongetMyReport(bytes32_unionID,bytes32_worksID)externalviewreturns(uint256,uint256,uint256){uint256currInput=0;uint256currOutput=0;uint256currFinishReward=0;uint8lastAllot=works.getAllot(_worksID,2,0);currInput=this.getFirstAmount(_unionID,_worksID).add(this.getSecondAmount(_unionID,_worksID));currOutput=this.getRewardAmount(_unionID,_worksID);currFinishReward=this.getRewardAmount(_unionID,_worksID).add(works.getPools(_worksID).mul(lastAllot)/100);return(currInput,currOutput,currFinishReward);}functiongetMyStatus(bytes32_unionID,bytes32_worksID)externalviewreturns(uint256,uint256,uint256,uint256,uint256){return(playerCount[_unionID][_worksID].lastTime,works.getFreezeGap(_worksID),now,playerCount[_unionID][_worksID].firstBuyNum,works.getFirstBuyLimit(_worksID));}functiongetMyWorks(bytes32_unionID,bytes32_worksID)externalviewreturns(address,bytes32,uint256,uint256,uint256){return(myworks[_unionID][_worksID].ethAddress,myworks[_unionID][_worksID].worksID,myworks[_unionID][_worksID].totalInput,myworks[_unionID][_worksID].totalOutput,myworks[_unionID][_worksID].time);}functionisLegalPlayer(bytes32_unionID,address_address)externalviewreturns(bool){return(this.hasUnionId(_unionID)||this.hasAddress(_address))&&playersByAddress[_address]==_unionID;}functionregister(bytes32_unionID,address<missing ')'>payable_address,bytes32_worksID,bytes32_referrer)externalonlyDev()returns(bool){require(_unionID!=<missing ';'>bytes32(0)&&_address!=address(0)&&_worksID!=bytes32(0));if(this.hasAddress<missing ';'>(_address)){if(playersByAddress[_address]!=_unionID){revert();}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 308
+column: 18
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 309
+column: 19
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 344
+column: 40
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 345
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 346
+column: 14
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 347
+column: 14
+content: private
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 317
+column: 32
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 306
+column: 4
+content: usingSafeMathfor*;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 43
+column: 62
+content: (uint8,uint256,uint256,uint256,bool)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 46
+column: 16
+content: (uint256,address,address,bytes32,bytes32,uint256)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 49
+column: 16
+content: (uint8,uint256,uint256,uint256,uint256,uint256,uint8[3]memory,uint8[3]memory,uint8[3]memory)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 79
+column: 86
+content: (uint256[4]memory,uint256,bytes32)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 103
+column: 67
+content: (uint256,uint256[3]memory,uint8[3]memory)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 107
+column: 68
+content: (uint256,uint256,uint256,bytes32)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 393
+column: 70
+content: (addresspayable,bytes32,uint256)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 438
+column: 83
+content: (uint256,uint256,uint256)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 450
+column: 83
+content: (uint256,uint256,uint256,uint256,uint256)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 460
+column: 82
+content: (address,bytes32,uint256,uint256,uint256)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 24
+column: 4
+content: functionconfigRule(bytes32_worksID,uint8_firstBuyLimit,uint256_freezeGap,uint256_protectGap,uint256_increaseRatio,uint256_discountGap,uint256_discountRatio,uint8[3]calldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 474
+column: 4
+content: functionregister(bytes32_unionID,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 33
+column: 26
+content: _firstAllot,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 34
+column: 8
+content: uint8[3]calldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 34
+column: 26
+content: _againAllot,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 8
+content: uint8[3]calldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 349
+column: 4
+content: mapping(bytes32=>mapping(bytes32=>Datasets.PlayerCount))playerCount;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 351
+column: 3
+content: mapping(bytes32=>mapping(bytes32=>Datasets.MyWorks))myworks;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 474
+column: 56
+content: _address,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 474
+column: 66
+content: bytes32_worksID,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 474
+column: 84
+content: bytes32_referrer)external
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 474
+column: 112
+content: onlyDev
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 474
+column: 119
+content: ()returns
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 474
+column: 130
+content: (bool){require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 475
+column: 15
+content: (_unionID!=<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 475
+column: 28
+content: bytes32
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 475
+column: 35
+content: (0)&&_address!=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 475
+column: 54
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 475
+column: 61
+content: (0)&&_worksID!=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 475
+column: 80
+content: bytes32
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 475
+column: 87
+content: (0));if
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 477
+column: 10
+content: (this.hasAddress<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 477
+column: 26
+content: (_address)){if
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 478
+column: 14
+content: (playersByAddress[_address]!=_unionID){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 479
+column: 16
+content: revert
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 479
+column: 22
+content: ();
+
+SOLIDITY_VISIBILITY :26
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :6
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_SHOULD_RETURN_STRUCT :10
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

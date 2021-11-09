@@ -1,0 +1,126 @@
+F:\Blockchain\dataset_new_byID\82322.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 51
+column: 48
+content: 0x00
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 52
+column: 51
+content: 0x01
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 53
+column: 52
+content: 0x02
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 161
+column: 4
+content: while(dataSourceAddress!=ACTIVE_GUARD){DataSourceInfostorageprovider=infoMap[dataSourceAddress];provider.stake=provider.stake.add(stakeIncreased);if(ownerReward>0)_stake(provider.owner,ownerReward,dataSourceAddress);undistributedReward=undistributedReward.sub(providerReward);emitFeeDistributed(dataSourceAddress,providerReward,ownerReward);dataSourceAddress=activeList[dataSourceAddress];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 202
+column: 6
+content: while(activeList[currentIndex]!=ACTIVE_GUARD){addressnextIndex=activeList[currentIndex];if(_compare(dataSource,nextIndex)==Order.GT)currentIndex=nextIndex;elsebreak;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 210
+column: 6
+content: while(reserveList[currentIndex]!=RESERVE_GUARD){addressnextIndex=reserveList[currentIndex];if(_compare(dataSource,nextIndex)==Order.LT)currentIndex=nextIndex;elsebreak;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 262
+column: 4
+content: while(activeCount<maxProviderCount&&reserveCount>0){addressdataSource=reserveList[RESERVE_GUARD];_removeDataSource(dataSource,RESERVE_GUARD);_addDataSource(dataSource,ACTIVE_GUARD);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 267
+column: 4
+content: while(activeCount>maxProviderCount){addressdataSource=activeList[ACTIVE_GUARD];_removeDataSource(dataSource,ACTIVE_GUARD);_addDataSource(dataSource,RESERVE_GUARD);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 161
+column: 11
+content: dataSourceAddress!=ACTIVE_GUARD
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 202
+column: 13
+content: activeList[currentIndex]!=ACTIVE_GUARD
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 210
+column: 13
+content: reserveList[currentIndex]!=RESERVE_GUARD
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 262
+column: 11
+content: activeCount<maxProviderCount&&reserveCount>0
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 267
+column: 11
+content: activeCount>maxProviderCount
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 230
+column: 11
+content: if(reserveList[prevDataSource]!=NOT_FOUND){if(prevDataSource==RESERVE_GUARD)require(activeCount==0||_compare(activeList[ACTIVE_GUARD],dataSource)==Order.GT);elserequire(_compare(prevDataSource,dataSource)==Order.GT);require(reserveList[prevDataSource]==RESERVE_GUARD||_compare(dataSource,reserveList[prevDataSource])==Order.GT);reserveList[dataSource]=reserveList[prevDataSource];reserveList[prevDataSource]=dataSource;reserveCount++;}else{revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 19
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 2
+content: mapping(address=>address)activeList;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 47
+column: 2
+content: mapping(address=>address)reserveList;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :5
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :5

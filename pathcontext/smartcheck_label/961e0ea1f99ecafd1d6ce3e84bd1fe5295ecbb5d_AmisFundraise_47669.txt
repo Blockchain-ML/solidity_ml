@@ -1,0 +1,62 @@
+C:\Users\hp\DataSet\contracts\ropsten\96\961e0ea1f99ecafd1d6ce3e84bd1fe5295ecbb5d_AmisFundraise.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 65
+column: 33
+content: 0x949bEd886c739f1A3273629b3320db0C5024c719
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 72
+column: 30
+content: 0x0B5fa328278442956D405d8b501571E20b96260E
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 134
+column: 2
+content: functionreleaseAmisToken()publicreturns(bool){require(hasEnded()&&startTime!=0);require(msg.sender==amisWallet||now>endTime+10days);uint256remainedAmis=ERC20Basic(AMIS).balanceOf(this);require(ERC20Basic(AMIS).transfer(amisWallet,remainedAmis));AmisTokenAbstract(AMIS).unlock();}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 143
+column: 2
+content: functionstart()publicreturns(bool){require(msg.sender==amisWallet);startTime=now;endTime=now+21days;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 149
+column: 2
+content: functionchangeAmisWallet(address_amisWallet)publicreturns(bool){require(msg.sender==amisWallet);amisWallet=_amisWallet;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 62
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 50
+column: 2
+content: functionunlock();
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :3
+SOLIDITY_ADDRESS_HARDCODED :2

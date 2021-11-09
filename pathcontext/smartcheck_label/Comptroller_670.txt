@@ -1,0 +1,120 @@
+C:\Users\hp\DataSet\Comptroller.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 227
+column: 8
+content: storedList.length--
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 660
+column: 8
+content: for(uinti=0;i<assets.length;i++){CTokenasset=assets[i];(oErr,vars.cTokenBalance,vars.borrowBalance,vars.exchangeRateMantissa)=asset.getAccountSnapshot(account);if(oErr!=0){return(Error.SNAPSHOT_ERROR,0,0);}vars.collateralFactor=Exp({mantissa:markets[address(asset)].collateralFactorMantissa});vars.exchangeRate=Exp({mantissa:vars.exchangeRateMantissa});vars.oraclePriceMantissa=oracle.getUnderlyingPrice(asset);if(vars.oraclePriceMantissa==0){return(Error.PRICE_ERROR,0,0);}vars.oraclePrice=Exp({mantissa:vars.oraclePriceMantissa});(mErr,vars.tokensToEther)=mulExp3(vars.collateralFactor,vars.exchangeRate,vars.oraclePrice);if(mErr!=MathError.NO_ERROR){return(Error.MATH_ERROR,0,0);}(mErr,vars.sumCollateral)=mulScalarTruncateAddUInt(vars.tokensToEther,vars.cTokenBalance,vars.sumCollateral);if(mErr!=MathError.NO_ERROR){return(Error.MATH_ERROR,0,0);}(mErr,vars.sumBorrowPlusEffects)=mulScalarTruncateAddUInt(vars.oraclePrice,vars.borrowBalance,vars.sumBorrowPlusEffects);if(mErr!=MathError.NO_ERROR){return(Error.MATH_ERROR,0,0);}if(asset==cTokenModify){(mErr,vars.sumBorrowPlusEffects)=mulScalarTruncateAddUInt(vars.tokensToEther,redeemTokens,vars.sumBorrowPlusEffects);if(mErr!=MathError.NO_ERROR){return(Error.MATH_ERROR,0,0);}(mErr,vars.sumBorrowPlusEffects)=mulScalarTruncateAddUInt(vars.oraclePrice,borrowAmount,vars.sumBorrowPlusEffects);if(mErr!=MathError.NO_ERROR){return(Error.MATH_ERROR,0,0);}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 137
+column: 8
+content: for(uinti=0;i<len;i++){CTokencToken=CToken(cTokens[i]);MarketstoragemarketToJoin=markets[address(cToken)];if(!marketToJoin.isListed){results[i]=uint(Error.MARKET_NOT_LISTED);continue;}if(marketToJoin.accountMembership[msg.sender]==true){results[i]=uint(Error.NO_ERROR);continue;}if(accountAssets[msg.sender].length>=maxAssets){results[i]=uint(Error.TOO_MANY_ASSETS);continue;}marketToJoin.accountMembership[msg.sender]=true;accountAssets[msg.sender].push(cToken);emitMarketEntered(cToken,msg.sender);results[i]=uint(Error.NO_ERROR);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 214
+column: 8
+content: for(uinti=0;i<len;i++){if(userAssetList[i]==cToken){assetIndex=i;break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 660
+column: 8
+content: for(uinti=0;i<assets.length;i++){CTokenasset=assets[i];(oErr,vars.cTokenBalance,vars.borrowBalance,vars.exchangeRateMantissa)=asset.getAccountSnapshot(account);if(oErr!=0){return(Error.SNAPSHOT_ERROR,0,0);}vars.collateralFactor=Exp({mantissa:markets[address(asset)].collateralFactorMantissa});vars.exchangeRate=Exp({mantissa:vars.exchangeRateMantissa});vars.oraclePriceMantissa=oracle.getUnderlyingPrice(asset);if(vars.oraclePriceMantissa==0){return(Error.PRICE_ERROR,0,0);}vars.oraclePrice=Exp({mantissa:vars.oraclePriceMantissa});(mErr,vars.tokensToEther)=mulExp3(vars.collateralFactor,vars.exchangeRate,vars.oraclePrice);if(mErr!=MathError.NO_ERROR){return(Error.MATH_ERROR,0,0);}(mErr,vars.sumCollateral)=mulScalarTruncateAddUInt(vars.tokensToEther,vars.cTokenBalance,vars.sumCollateral);if(mErr!=MathError.NO_ERROR){return(Error.MATH_ERROR,0,0);}(mErr,vars.sumBorrowPlusEffects)=mulScalarTruncateAddUInt(vars.oraclePrice,vars.borrowBalance,vars.sumBorrowPlusEffects);if(mErr!=MathError.NO_ERROR){return(Error.MATH_ERROR,0,0);}if(asset==cTokenModify){(mErr,vars.sumBorrowPlusEffects)=mulScalarTruncateAddUInt(vars.tokensToEther,redeemTokens,vars.sumBorrowPlusEffects);if(mErr!=MathError.NO_ERROR){return(Error.MATH_ERROR,0,0);}(mErr,vars.sumBorrowPlusEffects)=mulScalarTruncateAddUInt(vars.oraclePrice,borrowAmount,vars.sumBorrowPlusEffects);if(mErr!=MathError.NO_ERROR){return(Error.MATH_ERROR,0,0);}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 620
+column: 70
+content: (uint,uint,uint)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 632
+column: 80
+content: (Error,uint,uint)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 652
+column: 49
+content: (Error,uint,uint)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 730
+column: 133
+content: (uint,uint)
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 991
+column: 16
+content: tx.origin
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 87
+column: 4
+content: uintconstantcloseFactorMinMantissa=5e16;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 90
+column: 4
+content: uintconstantcloseFactorMaxMantissa=9e17;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 93
+column: 4
+content: uintconstantcollateralFactorMaxMantissa=9e17;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 96
+column: 4
+content: uintconstantliquidationIncentiveMinMantissa=mantissaOne;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 99
+column: 4
+content: uintconstantliquidationIncentiveMaxMantissa=15e17;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_SHOULD_RETURN_STRUCT :4
+SOLIDITY_TX_ORIGIN :1

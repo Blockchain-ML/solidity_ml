@@ -1,0 +1,32 @@
+C:\Users\hp\DataSet\EthPriceOraclize.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 9
+column: 0
+content: contractEthPriceOraclizeisusingOraclize{uint256publicdelay=43200;uint256publicETHUSD;eventOraclizeCreated(address_oraclize);eventLogInfo(stringdescription);eventLogPriceUpdate(uint256price);function()externalpayable{update(1);}functionEthPriceOraclize()public{oraclize_setProof(proofType_TLSNotary|proofStorage_IPFS);OraclizeCreated(this);update(1);}function__callback(bytes32id,stringresult,bytesproof)public{require(msg.sender==oraclize_cbAddress());ETHUSD=parseInt(result,2);LogPriceUpdate(ETHUSD);update(delay);}functionupdate(uint256_delay)payablepublic{if(oraclize_getPrice("URL")>address(this).balance){LogInfo("Oraclize query was NOT sent, please add some ETH to cover for the query fee!");}else{LogInfo("Oraclize query was sent, standing by for the answer ...");oraclize_query(_delay,"URL","json(https://api.coinmarketcap.com/v1/ticker/ethereum/).0.price_usd");}}functiongetEthPrice()externalviewreturns(uint256){returnETHUSD;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 28
+column: 36
+content: stringresult
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 28
+column: 51
+content: bytesproof
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :2

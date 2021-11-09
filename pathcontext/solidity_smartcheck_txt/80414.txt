@@ -1,0 +1,210 @@
+F:\Blockchain\dataset_new_byID\80414.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 36
+column: 45
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 42
+column: 35
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 52
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 68
+column: 49
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 112
+column: 17
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 80
+column: 4
+content: functionget(bytes32libName,uintversionNum)constantreturns(address,string,bytes32[],uint,uint){Versionv=versions[libName][versionNum];if(v.a==0||libFund.isLocked(libName,versionNum))return;var(_,threshold,totalValue)=libFund.funds(libName,versionNum);return(v.a,v.abi,v.resourceKeys,threshold,totalValue);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 87
+column: 4
+content: functiongetResource(bytes32libName,uintversionNum,bytes32key)constantreturns(string){Versionv=versions[libName][versionNum];returnv.resources[key];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 92
+column: 4
+content: functiongetVersions(bytes32libName)constantreturns(uint[]){returnversionMap[libName];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 96
+column: 4
+content: functionallNames()constantreturns(bytes32[]){returnnames;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 106
+column: 8
+content: for(uinti=0;i<a.length;i++)if(a[i]!=b[i])returnfalse;
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 106
+column: 8
+content: for(uinti=0;i<a.length;i++)if(a[i]!=b[i])returnfalse;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 36
+column: 8
+content: if(ownerMap[libName]!=msg.sender)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 42
+column: 8
+content: if(creator!=msg.sender)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 51
+column: 15
+content: if(ownerMap[libName]!=msg.sender){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 68
+column: 8
+content: if(!stringsEqual(v.resources[key],""))throw;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 57
+column: 12
+content: Versionv=versions[libName][versionNum]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 67
+column: 8
+content: Versionv=versions[libName][versionNum]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 81
+column: 8
+content: Versionv=versions[libName][versionNum]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 88
+column: 8
+content: Versionv=versions[libName][versionNum]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 31
+column: 4
+content: functionLiveLibs(LibFundlf){setLibFund(lf);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 41
+column: 4
+content: functionsetLibFund(LibFundlf){if(creator!=msg.sender)throw;libFund=lf;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 46
+column: 4
+content: functionregister(bytes32libName,uintversionNum,addressa,stringabi,uintthresholdWei){if(ownerMap[libName]==0){ownerMap[libName]=msg.sender;names.push(libName);NewLib(libName,msg.sender);}elseif(ownerMap[libName]!=msg.sender){throw;}if(versions[libName][versionNum].a==0){versionMap[libName].push(versionNum);Versionv=versions[libName][versionNum];v.a=a;v.abi=abi;v.author=msg.sender;libFund.setThreshold(libName,versionNum,thresholdWei,msg.sender);NewVersion(libName,versionNum,thresholdWei);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 66
+column: 4
+content: functionregisterResource(bytes32libName,uintversionNum,bytes32key,stringuri){Versionv=versions[libName][versionNum];if(!stringsEqual(v.resources[key],""))throw;v.resourceKeys.push(key);v.resources[key]=uri;NewResource(libName,versionNum,key,uri);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 75
+column: 4
+content: functiontransferLibOwnership(bytes32libName,addressnewOwner)onlyLibOwner(libName){OwnershipChange(libName,ownerMap[libName],newOwner);ownerMap[libName]=newOwner;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 80
+column: 4
+content: functionget(bytes32libName,uintversionNum)constantreturns(address,string,bytes32[],uint,uint){Versionv=versions[libName][versionNum];if(v.a==0||libFund.isLocked(libName,versionNum))return;var(_,threshold,totalValue)=libFund.funds(libName,versionNum);return(v.a,v.abi,v.resourceKeys,threshold,totalValue);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 87
+column: 4
+content: functiongetResource(bytes32libName,uintversionNum,bytes32key)constantreturns(string){Versionv=versions[libName][versionNum];returnv.resources[key];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 92
+column: 4
+content: functiongetVersions(bytes32libName)constantreturns(uint[]){returnversionMap[libName];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 96
+column: 4
+content: functionallNames()constantreturns(bytes32[]){returnnames;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 112
+column: 4
+content: function(){throw;}
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :9
+SOLIDITY_REVERT_REQUIRE :4
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

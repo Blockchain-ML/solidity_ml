@@ -1,0 +1,70 @@
+F:\Blockchain\dataset_new_byID\72281.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 17
+column: 8
+content: for(uint256_i=0;_i<_outcomes.length;_i++){_tokenIds[_i]=getTokenId(_market,_outcomes[_i]);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 8
+column: 4
+content: functiongetTokenId(IMarket_market,uint256_outcome)internalpurereturns(uint256_tokenId){bytesmemory_tokenIdBytes=abi.encodePacked(_market,uint8(_outcome));assembly{_tokenId:=mload(add(_tokenIdBytes,add(0x20,0)))}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 22
+column: 4
+content: functionunpackTokenId(uint256_tokenId)internalpurereturns(address_market,uint256_outcome){assembly{_market:=shr(96,and(_tokenId,0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000000000000000))_outcome:=shr(88,and(_tokenId,0x0000000000000000000000000000000000000000FF0000000000000000000000))}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 17
+column: 8
+content: for(uint256_i=0;_i<_outcomes.length;_i++){_tokenIds[_i]=getTokenId(_market,_outcomes[_i]);}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 8
+column: 4
+content: functiongetTokenId(IMarket_market,uint256_outcome)internalpurereturns(uint256_tokenId){bytesmemory_tokenIdBytes=abi.encodePacked(_market,uint8(_outcome));assembly{_tokenId:=mload(add(_tokenIdBytes,add(0x20,0)))}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 22
+column: 4
+content: functionunpackTokenId(uint256_tokenId)internalpurereturns(address_market,uint256_outcome){assembly{_market:=shr(96,and(_tokenId,0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000000000000000))_outcome:=shr(88,and(_tokenId,0x0000000000000000000000000000000000000000FF0000000000000000000000))}}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 22
+column: 67
+content: (address_market,uint256_outcome)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 10
+column: 8
+content: assembly{_tokenId:=mload(add(_tokenIdBytes,add(0x20,0)))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 23
+column: 8
+content: assembly{_market:=shr(96,and(_tokenId,0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000000000000000))_outcome:=shr(88,and(_tokenId,0x0000000000000000000000000000000000000000FF0000000000000000000000))}
+
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :2
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_SHOULD_NOT_BE_PURE :2

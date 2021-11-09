@@ -1,0 +1,147 @@
+F:\Blockchain\dataset_new_byID\81578.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 81
+column: 2
+content: functiongetBalanceOfWei(address_user)publicconstantreturns(uint){returnweiBalances[_user];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 86
+column: 2
+content: functiongetTokenPrice()publicconstantreturns(uint256){returntokenPrice;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 91
+column: 2
+content: functiongetCapOfToken()publicconstantreturns(uint256){returnproofOfDonationCapOfToken;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 96
+column: 2
+content: functiongetCapOfWei()publicconstantreturns(uint256){returnproofOfDonationCapOfWei;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 101
+column: 2
+content: functiongetStartTime()publicconstantreturns(uint256){returnstartTime;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 106
+column: 2
+content: functiongetEndTime()publicconstantreturns(uint256){returnendTime;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 111
+column: 2
+content: functionisPoDStarted()publicconstantreturns(bool){if(status==Status.PoDStarted)returntrue;returnfalse;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 118
+column: 2
+content: functionisPoDEnded()publicconstantreturns(bool){if(status==Status.PoDEnded)returntrue;returnfalse;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 132
+column: 2
+content: functiongetBalanceOfToken(address_user)publicconstantreturns(uint256);
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 10
+column: 0
+content: contractPoDisOwnable{usingSafeMathforuint256;stringpublicname;stringpublicversion;addresspublicwallet;uint256startTime;uint256endTime;uint256tokenPrice;uint256totalReceivedWei;uint256proofOfDonationCapOfToken;uint256proofOfDonationCapOfWei;mapping(address=>uint256)weiBalances;enumStatus{PoDDeployed,PoDStarted,PoDEnded}Statuspublicstatus;eventDonated(addressuser,uint256amount);eventEnded(uint256time);functionPoD()public{status=Status.PoDDeployed;totalReceivedWei=0;wallet=msg.sender;}functiondonate()payablepublicreturns(bool){require(status==Status.PoDStarted);require(block.timestamp>=startTime);require(tx.gasprice<=80000000000);require(msg.value>0);if(!processDonate(msg.sender)){endTime=now;status=Status.PoDEnded;Ended(endTime);}totalReceivedWei=totalReceivedWei.add(msg.value);Donated(msg.sender,msg.value);returntrue;}functionresetWeiBalance(address_user)publiconlyOwner()returns(bool){require(status==Status.PoDEnded);weiBalances[_user]=0;returntrue;}functiongetBalanceOfWei(address_user)publicconstantreturns(uint){returnweiBalances[_user];}functiongetTokenPrice()publicconstantreturns(uint256){returntokenPrice;}functiongetCapOfToken()publicconstantreturns(uint256){returnproofOfDonationCapOfToken;}functiongetCapOfWei()publicconstantreturns(uint256){returnproofOfDonationCapOfWei;}functiongetStartTime()publicconstantreturns(uint256){returnstartTime;}functiongetEndTime()publicconstantreturns(uint256){returnendTime;}functionisPoDStarted()publicconstantreturns(bool){if(status==Status.PoDStarted)returntrue;returnfalse;}functionisPoDEnded()publicconstantreturns(bool){if(status==Status.PoDEnded)returntrue;returnfalse;}function()payablepublic{donate();}functionprocessDonate(address_user)internalreturns(bool);functiongetBalanceOfToken(address_user)publicconstantreturns(uint256);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 11
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 125
+column: 22
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 18
+column: 2
+content: uint256startTime;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 2
+content: uint256endTime;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 20
+column: 2
+content: uint256tokenPrice;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 21
+column: 2
+content: uint256totalReceivedWei;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 22
+column: 2
+content: uint256proofOfDonationCapOfToken;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 23
+column: 2
+content: uint256proofOfDonationCapOfWei;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 24
+column: 2
+content: mapping(address=>uint256)weiBalances;
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :9
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1

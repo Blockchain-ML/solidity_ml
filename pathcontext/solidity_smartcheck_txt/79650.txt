@@ -1,0 +1,110 @@
+F:\Blockchain\dataset_new_byID\79650.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractEvent{addresspublicholder;stringpublicname;stringpubliclocation;stringpublicdate;uintpublicticketNum=0;uintpublicticketPrice;eventContractCreated();eventNewRegistration(addressbuyer,stringfirst,stringlast,stringemail,boolcheckedin);eventCheckedIn(addressbuyer,boolcheckedin);structAttendee{stringfirst;stringlast;stringemail;boolcheckedin;}mapping(address=>Attendee)privateAttendees;modifierisHolder(){require(msg.sender==holder);_;}functionEvent(string_name,string_location,string_date,uint_ticketNum,uint_ticketPrice)publicpayable{require(bytes(_name).length!=0);require(bytes(_location).length!=0);require(bytes(_date).length!=0);require(_ticketNum!=0);require(_ticketPrice>=0);holder=msg.sender;name=_name;location=_location;date=_date;ticketNum=_ticketNum;ticketPrice=_ticketPrice;ContractCreated();}functionregister(string_first,string_last,string_email)publicpayable{require(ticketNum-1>=0);require(bytes(_first).length>0);require(bytes(_last).length>0);require(bytes(_email).length>0);require(msg.value>=ticketPrice);AttendeememorycurrentAttendee;currentAttendee.first=_first;currentAttendee.last=_last;currentAttendee.email=_email;currentAttendee.checkedin=false;ticketNum=ticketNum-1;Attendees[msg.sender]=currentAttendee;NewRegistration(msg.sender,Attendees[msg.sender].first,Attendees[msg.sender].last,Attendees[msg.sender].email,Attendees[msg.sender].checkedin);}functionsearch(address_buyer)publicreturns(string,string,string,bool){require(bytes(Attendees[_buyer].email).length>0);if(msg.sender==_buyer){return(Attendees[_buyer].first,Attendees[_buyer].last,Attendees[_buyer].email,Attendees[_buyer].checkedin);}if(msg.sender==holder){return(Attendees[_buyer].first,Attendees[_buyer].last,Attendees[_buyer].email,Attendees[_buyer].checkedin);}return("Private","Private","Private",Attendees[_buyer].checkedin);}functioncheckin(address_buyer)isHolderpublicreturns(string,string,string,bool){require(bytes(Attendees[_buyer].email).length>0);Attendees[_buyer].checkedin=true;CheckedIn(_buyer,Attendees[_buyer].checkedin);return(Attendees[_buyer].first,Attendees[_buyer].last,Attendees[_buyer].email,Attendees[_buyer].checkedin);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 22
+column: 31
+content: private
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 29
+column: 17
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 29
+column: 31
+content: string_location
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 29
+column: 48
+content: string_date
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 47
+column: 20
+content: string_first
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 47
+column: 35
+content: string_last
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 47
+column: 49
+content: string_email
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 70
+column: 13
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 70
+column: 21
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 70
+column: 29
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 82
+column: 60
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 82
+column: 68
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 82
+column: 76
+content: string
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_UPGRADE_TO_050 :12

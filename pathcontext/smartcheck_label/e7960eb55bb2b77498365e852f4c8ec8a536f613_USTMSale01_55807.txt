@@ -1,0 +1,25 @@
+C:\Users\hp\DataSet\contracts\ropsten\e7\e7960eb55bb2b77498365e852f4c8ec8a536f613_USTMSale01.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractUSTMSale01{addresspublic_beneficiary;uintpublic_deadline;uintpublic_price;tokenpublic_tokenReward;mapping(address=>uint256)publicbalanceOf;eventFundTransfer(addressbacker,uintamount,boolisContribution);boolpublic_saleclosed=true;uintpublic_minimum;uintpublic_maximum;uintpublic_balance;functionConstructor()public{}functionStartSale(addressbeneficiary,uintdurationInMinutes,uinttokenPriceMillionth,addressaddressOfTokenUsedAsReward,uintminimum,uintmaximum,uinttotal)public{_beneficiary=beneficiary;_deadline=now+durationInMinutes*1minutes;_price=tokenPriceMillionth*1000000000000;_tokenReward=token(addressOfTokenUsedAsReward);_minimum=minimum*1000000000000000000;_maximum=maximum*1000000000000000000;_balance=total*1000000000000000000;_saleclosed=false;}functionStopSale()public{_saleclosed=true;}function()payablepublic{if(msg.sender==_beneficiary)return;require(!_saleclosed);uintamount=msg.value;if(amount<_minimum||amount>_maximum)require(false);uinttosend=amount/_price;if(tosend>_balance)require(false);_balance-=tosend;_tokenReward.transfer(msg.sender,tosend);emitFundTransfer(msg.sender,amount,true);}modifierafterDeadline(){if(now>=_deadline)_;}functioncheckGoalReached()publicafterDeadline{_saleclosed=true;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 61
+column: 24
+content: public
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1

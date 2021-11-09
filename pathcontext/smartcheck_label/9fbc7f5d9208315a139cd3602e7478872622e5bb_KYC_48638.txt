@@ -1,0 +1,177 @@
+C:\Users\hp\DataSet\contracts\ropsten\9f\9fbc7f5d9208315a139cd3602e7478872622e5bb_KYC.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 55
+column: 4
+content: _owner=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 119
+column: 4
+content: addressconstantprivateZERO_ADDRESS=address(0);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 107
+column: 4
+content: functiontotalSupply()publicconstantreturns(uint);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 108
+column: 4
+content: functionbalanceOf(addresstokenOwner)publicconstantreturns(uintbalance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 109
+column: 4
+content: functionallowance(addresstokenOwner,addressspender)publicconstantreturns(uintremaining);
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 296
+column: 12
+content: for(uintk=0;k<length;++k){if(c.expectedAddresses[k]!=_secondaryAddress){addressList[l]=c.expectedAddresses[k];l++;}else{isExist=true;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 254
+column: 4
+content: functionsetWLAddress(address_wlAddress)publiconlyOwnerisValidAddress(_wlAddress)isContract(_wlAddress)returns(bool){WLAddress=_wlAddress;returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 312
+column: 4
+content: functionsetETHExpectedFee(address_customerAddress,uintexpectedFee,uintexpectedTime)publiconlyOwnerisCustomerAdded(_customerAddress)returns(bool){Customerstoragec=customers[_customerAddress];c.count=c.count+1;c.expectedInfo[c.count]=ExpectedTransfer(false,false,expectedFee,expectedTime,true,ZERO_ADDRESS);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 320
+column: 4
+content: functionsetTokenExpectedFee(address_customerAddress,uintexpectedFee,addresstokenContractAddress)publiconlyOwnerisCustomerAdded(_customerAddress)returns(bool){Customerstoragec=customers[_customerAddress];c.count=c.count+1;c.expectedInfo[c.count]=ExpectedTransfer(true,false,expectedFee,now,false,tokenContractAddress);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 328
+column: 4
+content: functionsetCustomerSignature(address_customerAddress,uint_expiredTime,bytes_signature)publiconlyOwnerisCustomerAdded(_customerAddress)returns(bool){require(_expiredTime>now);require(_signature.length>0);Customerstoragec=customers[_customerAddress];ExpectedTransferstorageeT=c.expectedInfo[c.count];require(eT.isPaid);require(!eT.isUsed);c.expiredTime=_expiredTime;c.signature=_signature;eT.isUsed=true;returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 9
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 119
+column: 21
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 141
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 143
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 145
+column: 33
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 146
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 148
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 149
+column: 12
+content: private
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 91
+column: 2
+content: functionisContract(addressaddr)internalviewreturns(bool){uint256size;assembly{size:=extcodesize(addr)}returnsize>0;}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 376
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 242
+column: 16
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 328
+column: 79
+content: bytes_signature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 342
+column: 137
+content: bytes
+
+SOLIDITY_OVERPOWERED_ROLE :4
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :8
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

@@ -1,0 +1,86 @@
+C:\Users\hp\DataSet\contracts\mainnet\59\5956964c235c6fbcf9c63a140d69eb55f3cb6c11_BSPMintable.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 72
+column: 31
+content: 0x4F91C1f068E0dED2B7fF823289Add800E1c26Fc3
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 75
+column: 42
+content: 0x5d551fA77ec2C7dd1387B626c4f33235c3885199
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 79
+column: 39
+content: years
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 133
+column: 60
+content: years
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 134
+column: 59
+content: years
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 140
+column: 42
+content: rewardAmount.mul(miningRate[currentYear]).div(36500).mul(currentDay)
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 65
+column: 0
+content: contractBSPMintableisOwnable{usingSafeMathforuint256;usingSafeERC20forERC20Basic;eventMint(uint256amount);eventDistributorChanged(addressindexedpreviousDistributor,addressindexednewDistributor);addresspublicdistributor=0x4F91C1f068E0dED2B7fF823289Add800E1c26Fc3;ERC20BasicpublicBSPToken=ERC20Basic(0x5d551fA77ec2C7dd1387B626c4f33235c3885199);uint256constantpublicrewardAmount=630000000*(10**18);uint256constantpublicduration=4years;uint256[4]publicminingRate=[40,20,20,20];boolpublicstarted=false;uint256publicstartTime;uint256publicminted;modifierwhenStarted(){require(started==true&&startTime<=block.timestamp);_;}functionstartMining(uint256_startTime)publiconlyOwner{require(started==false&&BSPToken.balanceOf(this)>=rewardAmount);require(_startTime>=block.timestamp);require(_startTime<=block.timestamp+60days);startTime=_startTime;started=true;}functionchangeDistributor(address_newDistributor)publiconlyOwner{emitDistributorChanged(distributor,_newDistributor);distributor=_newDistributor;}functionmint()publicwhenStarted{uint256unminted=mintableAmount();require(unminted>0);minted=minted.add(unminted);BSPToken.safeTransfer(distributor,unminted);emitMint(unminted);}functionmintableAmount()publicviewreturns(uint256){if(started==false||startTime>=block.timestamp){return0;}if(block.timestamp>=startTime.add(duration)){returnBSPToken.balanceOf(this);}uintcurrentYear=block.timestamp.sub(startTime).div(1years);uintcurrentDay=(block.timestamp.sub(startTime)%(1years)).div(1days);uintcurrentMintable=0;for(uinti=0;i<currentYear;i++){currentMintable=currentMintable.add(rewardAmount.mul(miningRate[i]).div(100));}currentMintable=currentMintable.add(rewardAmount.mul(miningRate[currentYear]).div(36500).mul(currentDay));returncurrentMintable.sub(minted);}functiontotalBspAmount()publicviewreturns(uint256){returnBSPToken.balanceOf(this).add(minted);}function()publicpayable{revert();}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 149
+column: 29
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 66
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 149
+column: 14
+content: public
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_DIV_MUL :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

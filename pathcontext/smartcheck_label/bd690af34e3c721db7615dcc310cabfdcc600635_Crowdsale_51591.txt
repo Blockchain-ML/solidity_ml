@@ -1,0 +1,53 @@
+C:\Users\hp\DataSet\contracts\ropsten\bd\bd690af34e3c721db7615dcc310cabfdcc600635_Crowdsale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 50
+column: 41
+content: 10000*(amount/price)
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 4
+column: 4
+content: functiontransfer(addressreceiver,uintamount);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 30
+column: 4
+content: functionCrowdsale(addressifSuccessfulSendTo,uintdurationInMinutes,uintweiCostOfEachToken,addressaddressOfTokenUsedAsReward){admin=msg.sender;beneficiary=ifSuccessfulSendTo;deadline=now+durationInMinutes*1minutes;price=weiCostOfEachToken*1wei;tokenReward=token(addressOfTokenUsedAsReward);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 45
+column: 4
+content: function()payable{require(!crowdsaleClosed);uintamount=msg.value;balanceOf[msg.sender]+=amount;amountRaised+=amount;tokenReward.transfer(msg.sender,10000*(amount/price));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 53
+column: 4
+content: functioncheckGoalReached()afterDeadline{if(amountRaised>=fundingGoal){fundingGoalReached=true;}crowdsaleClosed=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 60
+column: 4
+content: functionsafeWithdrawal()afterDeadline{if(!fundingGoalReached){uintamount=balanceOf[msg.sender];balanceOf[msg.sender]=0;if(amount>0){msg.sender.transfer(amount);}}if(fundingGoalReached&&beneficiary==msg.sender){beneficiary.transfer(amountRaised);}}
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_DIV_MUL :1

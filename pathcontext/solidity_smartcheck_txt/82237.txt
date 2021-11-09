@@ -1,0 +1,269 @@
+F:\Blockchain\dataset_new_byID\82237.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 76
+column: 30
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 214
+column: 4
+content: functiongetProduct(uint256id)constantreturns(bytes32name,bytes32description,uint256price,uint256default_amount){return(products[id].name,products[id].description,products[id].price,products[id].default_amount);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 225
+column: 4
+content: functiongetCart()constantreturns(uint256[]memoryproduct_ids,uint256complete_sum){Customercustomer=customers[msg.sender];uint256len=customer.cart.products.length;uint256[]memoryids=newuint256[](len);for(uint256i=0;i<len;i++){ids[i]=products[i].id;}return(ids,customer.cart.completeSum);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 237
+column: 4
+content: functiongetBalance()constantreturns(uint256_balance){returncustomers[msg.sender].balance;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 242
+column: 4
+content: functiongetStoreBalance()onlyOwnerconstantreturns(uint256){returnstore_balance;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 162
+column: 8
+content: for(uint256i=0;i<customerProds.length;i++){if(i!=prod_pos_in_mapping){new_product_list[i]=customerProds[i];}else{customers[msg.sender].cart.completeSum-=products[customerProds[i]].price;CartProductRemoved(msg.sender,customerProds[i]);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 162
+column: 8
+content: for(uint256i=0;i<customerProds.length;i++){if(i!=prod_pos_in_mapping){new_product_list[i]=customerProds[i];}else{customers[msg.sender].cart.completeSum-=products[customerProds[i]].price;CartProductRemoved(msg.sender,customerProds[i]);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 230
+column: 6
+content: for(uint256i=0;i<len;i++){ids[i]=products[i].id;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractStoreisOwned,SafeMath{bytes32publicstore_name;uint256privatestore_balance;mapping(address=>Customer)customers;mapping(uint256=>Product)products;eventCustomerRegistered(addresscustomer);eventCustomerRegistrationFailed(addresscustomer);eventCustomerDeregistered(addresscustomer);eventCustomerDeregistrationFailed(addresscustomer);eventProductRegistered(uint256productId);eventProductDeregistered(uint256productId);eventProductRegistrationFailed(uint256productId);eventProductDeregistrationFaled(uint256productId);eventCartProductInserted(addresscustomer,uint256prodId,uint256prodPrice,uint256completeSum);eventCartProductInsertionFailed(addresscustomer,uint256prodId);eventCartProductRemoved(addresscustomer,uint256prodId);eventCartCheckoutCompleted(addresscustomer,uint256paymentSum);eventCartCheckoutFailed(addresscustomer,uint256customerBalance,uint256paymentSum);eventCartEmptied(addresscustomer);structCustomer{addressadr;bytes32name;uint256balance;Cartcart;}structCart{uint256[]products;uint256completeSum;}structProduct{uint256id;bytes32name;bytes32description;uint256price;uint256default_amount;}structReceipt{InvoiceLine[]lines;addresscustomer_address;}structInvoiceLine{bytesproduct_id;uint256amount;uint256product_price;uint256total_price;}functionStore(){owner=msg.sender;store_name="my-retail-store";store_balance=0;if(this.balance>0)throw;}function()payable{}functionregisterProduct(uint256id,bytes32name,bytes32description,uint256price,uint256default_amount)onlyOwnerreturns(boolsuccess){varproduct=Product(id,name,description,price,default_amount);if(checkProductValidity(product)){products[id]=product;ProductRegistered(id);returntrue;}ProductRegistrationFailed(id);returnfalse;}functionderegisterProduct(uint256id)onlyOwnerreturns(boolsuccess){Productproduct=products[id];if(product.id==id){deleteproducts[id];ProductDeregistered(id);returntrue;}ProductDeregistrationFaled(id);returnfalse;}functionregisterCustomer(address_address,bytes32_name,uint256_balance)onlyOwnerreturns(boolsuccess){if(_address!=address(0)){Customermemorycustomer=Customer({adr:_address,name:_name,balance:_balance,cart:Cart(newuint256[](0),0)});customers[_address]=customer;CustomerRegistered(_address);returntrue;}CustomerRegistrationFailed(_address);returnfalse;}functionderegisterCustomer(address_address)onlyOwnerreturns(boolsuccess){Customercustomer=customers[_address];if(customer.adr!=address(0)){deletecustomers[_address];CustomerDeregistered(_address);returntrue;}CustomerDeregistrationFailed(_address);returnfalse;}functioninsertProductIntoCart(uint256id)returns(boolsuccess,uint256pos_in_prod_mapping){Customercust=customers[msg.sender];Productprod=products[id];uint256prods_prev_len=cust.cart.products.length;cust.cart.products.push(prod.id);uint256current_sum=cust.cart.completeSum;cust.cart.completeSum=safeAdd(current_sum,prod.price);if(cust.cart.products.length>prods_prev_len){CartProductInserted(msg.sender,id,prod.price,cust.cart.completeSum);return(true,cust.cart.products.length-1);}CartProductInsertionFailed(msg.sender,id);return(false,0);}functionremoveProductFromCart(uint256prod_pos_in_mapping){uint256[]memorynew_product_list=newuint256[](customers[msg.sender].cart.products.length-1);varcustomerProds=customers[msg.sender].cart.products;for(uint256i=0;i<customerProds.length;i++){if(i!=prod_pos_in_mapping){new_product_list[i]=customerProds[i];}else{customers[msg.sender].cart.completeSum-=products[customerProds[i]].price;CartProductRemoved(msg.sender,customerProds[i]);}}customers[msg.sender].cart.products=new_product_list;}functioncheckoutCart()returns(boolsuccess){Customercustomer=customers[msg.sender];uint256paymentSum=customer.cart.completeSum;if((customer.balance>=paymentSum)&&customer.cart.products.length>0){customer.balance-=paymentSum;customer.cart=Cart(newuint256[](0),0);store_balance+=paymentSum;CartCheckoutCompleted(msg.sender,paymentSum);returntrue;}CartCheckoutFailed(msg.sender,customer.balance,paymentSum);returnfalse;}functionemptyCart()returns(boolsuccess){Customercustomer=customers[msg.sender];customer.cart=Cart(newuint256[](0),0);CartEmptied(customer.adr);returntrue;}functionrenameStoreTo(bytes32new_store_name)onlyOwnerreturns(boolsuccess){if(new_store_name.length!=0&&new_store_name.length<=32){store_name=new_store_name;returntrue;}returnfalse;}functiongetProduct(uint256id)constantreturns(bytes32name,bytes32description,uint256price,uint256default_amount){return(products[id].name,products[id].description,products[id].price,products[id].default_amount);}functiongetCart()constantreturns(uint256[]memoryproduct_ids,uint256complete_sum){Customercustomer=customers[msg.sender];uint256len=customer.cart.products.length;uint256[]memoryids=newuint256[](len);for(uint256i=0;i<len;i++){ids[i]=products[i].id;}return(ids,customer.cart.completeSum);}functiongetBalance()constantreturns(uint256_balance){returncustomers[msg.sender].balance;}functiongetStoreBalance()onlyOwnerconstantreturns(uint256){returnstore_balance;}functioncheckProductValidity(Productproduct)privatereturns(boolvalid){return(product.price>0);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 11
+column: 12
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 76
+column: 8
+content: if(this.balance>0)throw;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 247
+column: 34
+content: Productproduct
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 100
+column: 6
+content: Productproduct=products[id]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 129
+column: 6
+content: Customercustomer=customers[_address]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 142
+column: 8
+content: Customercust=customers[msg.sender]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 143
+column: 8
+content: Productprod=products[id]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 177
+column: 8
+content: Customercustomer=customers[msg.sender]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 194
+column: 8
+content: Customercustomer=customers[msg.sender]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 227
+column: 6
+content: Customercustomer=customers[msg.sender]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 72
+column: 4
+content: functionStore(){owner=msg.sender;store_name="my-retail-store";store_balance=0;if(this.balance>0)throw;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 80
+column: 4
+content: function()payable{}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 85
+column: 4
+content: functionregisterProduct(uint256id,bytes32name,bytes32description,uint256price,uint256default_amount)onlyOwnerreturns(boolsuccess){varproduct=Product(id,name,description,price,default_amount);if(checkProductValidity(product)){products[id]=product;ProductRegistered(id);returntrue;}ProductRegistrationFailed(id);returnfalse;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 99
+column: 4
+content: functionderegisterProduct(uint256id)onlyOwnerreturns(boolsuccess){Productproduct=products[id];if(product.id==id){deleteproducts[id];ProductDeregistered(id);returntrue;}ProductDeregistrationFaled(id);returnfalse;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 111
+column: 4
+content: functionregisterCustomer(address_address,bytes32_name,uint256_balance)onlyOwnerreturns(boolsuccess){if(_address!=address(0)){Customermemorycustomer=Customer({adr:_address,name:_name,balance:_balance,cart:Cart(newuint256[](0),0)});customers[_address]=customer;CustomerRegistered(_address);returntrue;}CustomerRegistrationFailed(_address);returnfalse;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 127
+column: 4
+content: functionderegisterCustomer(address_address)onlyOwnerreturns(boolsuccess){Customercustomer=customers[_address];if(customer.adr!=address(0)){deletecustomers[_address];CustomerDeregistered(_address);returntrue;}CustomerDeregistrationFailed(_address);returnfalse;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 140
+column: 4
+content: functioninsertProductIntoCart(uint256id)returns(boolsuccess,uint256pos_in_prod_mapping){Customercust=customers[msg.sender];Productprod=products[id];uint256prods_prev_len=cust.cart.products.length;cust.cart.products.push(prod.id);uint256current_sum=cust.cart.completeSum;cust.cart.completeSum=safeAdd(current_sum,prod.price);if(cust.cart.products.length>prods_prev_len){CartProductInserted(msg.sender,id,prod.price,cust.cart.completeSum);return(true,cust.cart.products.length-1);}CartProductInsertionFailed(msg.sender,id);return(false,0);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 157
+column: 4
+content: functionremoveProductFromCart(uint256prod_pos_in_mapping){uint256[]memorynew_product_list=newuint256[](customers[msg.sender].cart.products.length-1);varcustomerProds=customers[msg.sender].cart.products;for(uint256i=0;i<customerProds.length;i++){if(i!=prod_pos_in_mapping){new_product_list[i]=customerProds[i];}else{customers[msg.sender].cart.completeSum-=products[customerProds[i]].price;CartProductRemoved(msg.sender,customerProds[i]);}}customers[msg.sender].cart.products=new_product_list;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 176
+column: 4
+content: functioncheckoutCart()returns(boolsuccess){Customercustomer=customers[msg.sender];uint256paymentSum=customer.cart.completeSum;if((customer.balance>=paymentSum)&&customer.cart.products.length>0){customer.balance-=paymentSum;customer.cart=Cart(newuint256[](0),0);store_balance+=paymentSum;CartCheckoutCompleted(msg.sender,paymentSum);returntrue;}CartCheckoutFailed(msg.sender,customer.balance,paymentSum);returnfalse;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 192
+column: 4
+content: functionemptyCart()returns(boolsuccess){Customercustomer=customers[msg.sender];customer.cart=Cart(newuint256[](0),0);CartEmptied(customer.adr);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 203
+column: 4
+content: functionrenameStoreTo(bytes32new_store_name)onlyOwnerreturns(boolsuccess){if(new_store_name.length!=0&&new_store_name.length<=32){store_name=new_store_name;returntrue;}returnfalse;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 214
+column: 4
+content: functiongetProduct(uint256id)constantreturns(bytes32name,bytes32description,uint256price,uint256default_amount){return(products[id].name,products[id].description,products[id].price,products[id].default_amount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 225
+column: 4
+content: functiongetCart()constantreturns(uint256[]memoryproduct_ids,uint256complete_sum){Customercustomer=customers[msg.sender];uint256len=customer.cart.products.length;uint256[]memoryids=newuint256[](len);for(uint256i=0;i<len;i++){ids[i]=products[i].id;}return(ids,customer.cart.completeSum);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 237
+column: 4
+content: functiongetBalance()constantreturns(uint256_balance){returncustomers[msg.sender].balance;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 242
+column: 4
+content: functiongetStoreBalance()onlyOwnerconstantreturns(uint256){returnstore_balance;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 4
+content: mapping(address=>Customer)customers;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 14
+column: 4
+content: mapping(uint256=>Product)products;
+
+SOLIDITY_VISIBILITY :17
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :8
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2

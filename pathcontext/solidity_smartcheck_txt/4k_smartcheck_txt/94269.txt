@@ -1,0 +1,143 @@
+F:\Blockchain\solidity_dataset_work\4k_dataset\94269.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 14
+column: 49
+content: 0x12961096767E28fFEB63180B83e946F45D16c4f8
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 104
+column: 16
+content: ArrayAddress.length=0
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 64
+column: 4
+content: functionbalanceOf(address_owner)publicconstantreturns(uint256balance){require(_owner!=address(0));returnmapSenderAddr2Recharge[_owner];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 70
+column: 4
+content: functionIsCanAllotAward()privateconstantreturns(boolCanAllotAward){if(nPlatCurTotalEth>=nCanOpenRewardMinEth){returntrue;}returnfalse;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 112
+column: 4
+content: functionCheckTime(uint256startTimeSeconds)privateconstantreturns(uint256nFlag){if(LatestRechargeTime!=0&&(now%MaxClockSeconds>OpenRewardClockSeconds||(LatestRechargeTime+(MaxClockSeconds-OpenRewardClockSeconds)+300<=now))){return2;}elseif((startTimeSeconds<=(now%MaxClockSeconds+300))&&(now%MaxClockSeconds<=startTimeSeconds)){return1;}return3;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 88
+column: 8
+content: for(uint256i=0;i<ArrayAddress.length;i++){if(nSum<=nRandomValue&&nRandomValue<nSum+mapSenderAddr2Recharge[ArrayAddress[i]]){uint256nOfficalGetEth=nPlatCurTotalEth/10;uint256nParticipantGetEth=nPlatCurTotalEth-nOfficalGetEth;OfficialWalletAddr.transfer(nOfficalGetEth);ArrayAddress[i].transfer(nParticipantGetEth);for(uint256j=0;j<ArrayAddress.length;j++){mapSenderAddr2Recharge[ArrayAddress[j]]=0;}LatestRechargeTime=0;nPlatCurTotalEth=0;ArrayAddress.length=0;AllotAwardEvent(true);returntrue;}nSum+=mapSenderAddr2Recharge[ArrayAddress[i]];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 98
+column: 16
+content: for(uint256j=0;j<ArrayAddress.length;j++){mapSenderAddr2Recharge[ArrayAddress[j]]=0;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 88
+column: 8
+content: for(uint256i=0;i<ArrayAddress.length;i++){if(nSum<=nRandomValue&&nRandomValue<nSum+mapSenderAddr2Recharge[ArrayAddress[i]]){uint256nOfficalGetEth=nPlatCurTotalEth/10;uint256nParticipantGetEth=nPlatCurTotalEth-nOfficalGetEth;OfficialWalletAddr.transfer(nOfficalGetEth);ArrayAddress[i].transfer(nParticipantGetEth);for(uint256j=0;j<ArrayAddress.length;j++){mapSenderAddr2Recharge[ArrayAddress[j]]=0;}LatestRechargeTime=0;nPlatCurTotalEth=0;ArrayAddress.length=0;AllotAwardEvent(true);returntrue;}nSum+=mapSenderAddr2Recharge[ArrayAddress[i]];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 98
+column: 16
+content: for(uint256j=0;j<ArrayAddress.length;j++){mapSenderAddr2Recharge[ArrayAddress[j]]=0;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 6
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 9
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 10
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 11
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 12
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 17
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 18
+column: 15
+content: private
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 88
+column: 8
+content: for(uint256i=0;i<ArrayAddress.length;i++){if(nSum<=nRandomValue&&nRandomValue<nSum+mapSenderAddr2Recharge[ArrayAddress[i]]){uint256nOfficalGetEth=nPlatCurTotalEth/10;uint256nParticipantGetEth=nPlatCurTotalEth-nOfficalGetEth;OfficialWalletAddr.transfer(nOfficalGetEth);ArrayAddress[i].transfer(nParticipantGetEth);for(uint256j=0;j<ArrayAddress.length;j++){mapSenderAddr2Recharge[ArrayAddress[j]]=0;}LatestRechargeTime=0;nPlatCurTotalEth=0;ArrayAddress.length=0;AllotAwardEvent(true);returntrue;}nSum+=mapSenderAddr2Recharge[ArrayAddress[i]];}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 27
+column: 16
+content: public
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :7
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_TRANSFER_IN_LOOP :1

@@ -1,0 +1,76 @@
+C:\Users\hp\DataSet\TokenController.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: f32db1
+severity: 1
+line: 78
+column: 60
+content: 1
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 31
+column: 0
+content: contractTokenController{usingSafeMathforuint256;structMintOperation{addressto;uint256value;uint256requestedBlock;uint256numberOfApproval;boolpaused;mapping(address=>bool)approved;}addresspayablepublicowner;addresspayablepublicpendingOwner;boolpublicinitialized;uint256publicinstantMintThreshold;uint256publicratifiedMintThreshold;uint256publicmultiSigMintThreshold;uint256publicinstantMintLimit;uint256publicratifiedMintLimit;uint256publicmultiSigMintLimit;uint256publicinstantMintPool;uint256publicratifiedMintPool;uint256publicmultiSigMintPool;address[2]publicratifiedPoolRefillApprovals;uint8constantpublicRATIFY_MINT_SIGS=1;uint8constantpublicMULTISIG_MINT_SIGS=3;boolpublicmintPaused;uint256publicmintReqInvalidBeforeThisBlock;addresspublicmintKey;MintOperation[]publicmintOperations;CompliantDepositTokenWithHookpublictoken;Registrypublicregistry;addresspublicfastPause;bytes32constantpublicIS_MINT_PAUSER="isTUSDMintPausers";bytes32constantpublicIS_MINT_RATIFIER="isTUSDMintRatifier";bytes32constantpublicIS_REDEMPTION_ADMIN="isTUSDRedemptionAdmin";addressconstantpublicPAUSED_IMPLEMENTATION=address(1);modifieronlyFastPauseOrOwner(){require(msg.sender==fastPause||msg.sender==owner,"must be pauser or owner");_;}modifieronlyMintKeyOrOwner(){require(msg.sender==mintKey||msg.sender==owner,"must be mintKey or owner");_;}modifieronlyMintPauserOrOwner(){require(registry.hasAttribute(msg.sender,IS_MINT_PAUSER)||msg.sender==owner,"must be pauser or owner");_;}modifieronlyMintRatifierOrOwner(){require(registry.hasAttribute(msg.sender,IS_MINT_RATIFIER)||msg.sender==owner,"must be ratifier or owner");_;}modifieronlyOwnerOrRedemptionAdmin(){require(registry.hasAttribute(msg.sender,IS_REDEMPTION_ADMIN)||msg.sender==owner,"must be Redemption admin or owner");_;}modifiermintNotPaused(){if(msg.sender!=owner){require(!mintPaused,"minting is paused");}_;}eventOwnershipTransferred(addressindexedpreviousOwner,addressindexednewOwner);eventNewOwnerPending(addressindexedcurrentOwner,addressindexedpendingOwner);eventSetRegistry(addressindexedregistry);eventTransferChild(addressindexedchild,addressindexednewOwner);eventRequestReclaimContract(addressindexedother);eventSetToken(CompliantDepositTokenWithHooknewContract);eventRequestMint(addressindexedto,uint256indexedvalue,uint256opIndex,addressmintKey);eventFinalizeMint(addressindexedto,uint256indexedvalue,uint256opIndex,addressmintKey);eventInstantMint(addressindexedto,uint256indexedvalue,addressindexedmintKey);eventTransferMintKey(addressindexedpreviousMintKey,addressindexednewMintKey);eventMintRatified(uint256indexedopIndex,addressindexedratifier);eventRevokeMint(uint256opIndex);eventAllMintsPaused(boolstatus);eventMintPaused(uintopIndex,boolstatus);eventMintApproved(addressapprover,uintopIndex);eventFastPauseSet(address_newFastPause);eventMintThresholdChanged(uintinstant,uintratified,uintmultiSig);eventMintLimitsChanged(uintinstant,uintratified,uintmultiSig);eventInstantPoolRefilled();eventRatifyPoolRefilled();eventMultiSigPoolRefilled();functioninitialize()external{require(!initialized,"already initialized");owner=msg.sender;initialized=true;}modifieronlyOwner(){require(msg.sender==owner,"only Owner");_;}modifieronlyPendingOwner(){require(msg.sender==pendingOwner);_;}functiontransferOwnership(addresspayablenewOwner)externalonlyOwner{pendingOwner=newOwner;emitNewOwnerPending(address<missing ';'>(owner),address(pendingOwner));}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 32
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 169
+column: 4
+content: functiontransferOwnership(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 170
+column: 8
+content: pendingOwner=newOwner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 171
+column: 8
+content: emitNewOwnerPending
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 171
+column: 28
+content: (address<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 171
+column: 36
+content: (owner),
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 171
+column: 45
+content: address(pendingOwner));
+
+SOLIDITY_VISIBILITY :6
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :1

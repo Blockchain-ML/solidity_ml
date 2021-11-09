@@ -1,0 +1,343 @@
+C:\Users\hp\DataSet\InvestorActions.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 76
+column: 2
+content: functionmodifyAllocation(address_addr,uint_allocation)onlyFundconstantreturns(uint_ethTotalAllocation){require(_allocation>0);return_allocation;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 86
+column: 2
+content: functiongetAvailableAllocation(address_addr)onlyFundconstantreturns(uintethAvailableAllocation){var(ethTotalAllocation,ethPendingSubscription,sharesOwned,sharesPendingRedemption,ethPendingWithdrawal)=fund.getInvestor(_addr);uintethFilledAllocation=ethPendingSubscription.add(fund.sharesToEth(sharesOwned));if(ethTotalAllocation>ethFilledAllocation){returnethTotalAllocation.sub(ethFilledAllocation);}else{return0;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 105
+column: 2
+content: functionrequestSubscription(address_addr,uint_amount)onlyFundconstantreturns(uint,uint){var(ethTotalAllocation,ethPendingSubscription,sharesOwned,sharesPendingRedemption,ethPendingWithdrawal)=fund.getInvestor(_addr);if(sharesOwned==0){require(_amount>=fund.minInitialSubscriptionEth());}else{require(_amount>=fund.minSubscriptionEth());}require(ethTotalAllocation>=_amount.add(ethPendingSubscription).add(fund.sharesToEth(sharesOwned)));return(ethPendingSubscription.add(_amount),fund.totalEthPendingSubscription().add(_amount));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 128
+column: 2
+content: functioncancelSubscription(address_addr)onlyFundconstantreturns(uint,uint,uint,uint){var(ethTotalAllocation,ethPendingSubscription,sharesOwned,sharesPendingRedemption,ethPendingWithdrawal)=fund.getInvestor(_addr);uintotherPendingSubscriptions=fund.totalEthPendingSubscription().sub(ethPendingSubscription);require(ethPendingSubscription<=fund.balance.sub(fund.totalEthPendingWithdrawal()).sub(otherPendingSubscriptions));return(0,ethPendingWithdrawal.add(ethPendingSubscription),fund.totalEthPendingSubscription().sub(ethPendingSubscription),fund.totalEthPendingWithdrawal().add(ethPendingSubscription));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 146
+column: 2
+content: functionsubscribe(address_addr)onlyFundconstantreturns(uint,uint,uint,uint,uint,uint){var(ethTotalAllocation,ethPendingSubscription,sharesOwned,sharesPendingRedemption,ethPendingWithdrawal)=fund.getInvestor(_addr);uintotherPendingSubscriptions=fund.totalEthPendingSubscription().sub(ethPendingSubscription);require(ethPendingSubscription<=fund.balance.sub(fund.totalEthPendingWithdrawal()).sub(otherPendingSubscriptions));uintshares=fund.ethToShares(ethPendingSubscription);return(0,sharesOwned.add(shares),shares,ethPendingSubscription,fund.totalSupply().add(shares),fund.totalEthPendingSubscription().sub(ethPendingSubscription));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 172
+column: 2
+content: functionrequestRedemption(address_addr,uint_shares)onlyFundconstantreturns(uint,uint){require(_shares>=fund.minRedemptionShares());var(ethTotalAllocation,ethPendingSubscription,sharesOwned,sharesPendingRedemption,ethPendingWithdrawal)=fund.getInvestor(_addr);require(sharesOwned>=_shares.add(sharesPendingRedemption));return(sharesPendingRedemption.add(_shares),fund.totalSharesPendingRedemption().add(_shares));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 193
+column: 2
+content: functioncancelRedemption(addressaddr)onlyFundconstantreturns(uint,uint){var(ethTotalAllocation,ethPendingSubscription,sharesOwned,sharesPendingRedemption,ethPendingWithdrawal)=fund.getInvestor(addr);assert(fund.totalSharesPendingRedemption()>=sharesPendingRedemption);return(0,fund.totalSharesPendingRedemption().sub(sharesPendingRedemption));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 209
+column: 2
+content: functionredeem(address_addr)onlyFundconstantreturns(uint,uint,uint,uint,uint,uint,uint){var(ethTotalAllocation,ethPendingSubscription,sharesOwned,sharesPendingRedemption,ethPendingWithdrawal)=fund.getInvestor(_addr);uintamount=fund.sharesToEth(sharesPendingRedemption);require(amount<=fund.balance.sub(fund.totalEthPendingSubscription()).sub(fund.totalEthPendingWithdrawal()));return(sharesOwned.sub(sharesPendingRedemption),0,ethPendingWithdrawal.add(amount),sharesPendingRedemption,fund.totalSupply().sub(sharesPendingRedemption),fund.totalSharesPendingRedemption().sub(sharesPendingRedemption),fund.totalEthPendingWithdrawal().add(amount));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 232
+column: 2
+content: functionliquidate(address_addr)onlyFundconstantreturns(uint,uint,uint,uint,uint,uint){var(ethTotalAllocation,ethPendingSubscription,sharesOwned,sharesPendingRedemption,ethPendingWithdrawal)=fund.getInvestor(_addr);uintotherPendingSubscriptions=fund.totalEthPendingSubscription().sub(ethPendingSubscription);uintamount=fund.sharesToEth(sharesOwned).add(ethPendingSubscription);require(amount<=fund.balance.sub(fund.totalEthPendingWithdrawal()).sub(otherPendingSubscriptions));return(ethPendingWithdrawal.add(amount),sharesOwned,fund.totalEthPendingSubscription().sub(ethPendingSubscription),fund.totalSharesPendingRedemption().sub(sharesPendingRedemption),fund.totalSupply().sub(sharesOwned),fund.totalEthPendingWithdrawal().add(amount));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 256
+column: 2
+content: functionwithdraw(address_addr)onlyFundconstantreturns(uint,uint,uint){var(ethTotalAllocation,ethPendingSubscription,sharesOwned,sharesPendingRedemption,ethPendingWithdrawal)=fund.getInvestor(_addr);require(ethPendingWithdrawal!=0);uintotherInvestorPayments=fund.totalEthPendingWithdrawal().sub(ethPendingWithdrawal);require(ethPendingWithdrawal<=fund.balance.sub(fund.totalEthPendingSubscription()).sub(otherInvestorPayments));return(ethPendingWithdrawal,0,fund.totalEthPendingWithdrawal().sub(ethPendingWithdrawal));}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 25
+column: 2
+content: functionrequestSubscription(address_addr,uint_amount)returns(uint,uint){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 28
+column: 2
+content: functioncancelSubscription(address_addr)returns(uint,uint,uint,uint){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 31
+column: 2
+content: functionsubscribe(address_addr)returns(uint,uint,uint,uint,uint,uint){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 34
+column: 2
+content: functionrequestRedemption(address_addr,uint_shares)returns(uint,uint){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 37
+column: 2
+content: functioncancelRedemption(addressaddr)returns(uint,uint){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 40
+column: 2
+content: functionredeem(address_addr)returns(uint,uint,uint,uint,uint,uint,uint){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 43
+column: 2
+content: functionliquidate(address_addr)returns(uint,uint,uint,uint,uint,uint){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 46
+column: 2
+content: functionwithdraw(address_addr)returns(uint,uint,uint){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 19
+column: 2
+content: functionmodifyAllocation(address_addr,uint_allocation)returns(uint_ethTotalAllocation){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 22
+column: 2
+content: functiongetAvailableAllocation(address_addr)returns(uintethAvailableAllocation){}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 278
+column: 2
+content: functionsetFund(address_fund)onlyOwnerreturns(boolsuccess){fund=IFund(_fund);fundAddress=_fund;returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 288
+column: 2
+content: functionsetDataFeed(address_address)onlyOwnerreturns(boolsuccess){dataFeed=IDataFeed(_address);returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 52
+column: 2
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 19
+column: 2
+content: functionmodifyAllocation(address_addr,uint_allocation)returns(uint_ethTotalAllocation){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 22
+column: 2
+content: functiongetAvailableAllocation(address_addr)returns(uintethAvailableAllocation){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 25
+column: 2
+content: functionrequestSubscription(address_addr,uint_amount)returns(uint,uint){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 28
+column: 2
+content: functioncancelSubscription(address_addr)returns(uint,uint,uint,uint){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 31
+column: 2
+content: functionsubscribe(address_addr)returns(uint,uint,uint,uint,uint,uint){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 2
+content: functionrequestRedemption(address_addr,uint_shares)returns(uint,uint){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 37
+column: 2
+content: functioncancelRedemption(addressaddr)returns(uint,uint){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 40
+column: 2
+content: functionredeem(address_addr)returns(uint,uint,uint,uint,uint,uint,uint){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 43
+column: 2
+content: functionliquidate(address_addr)returns(uint,uint,uint,uint,uint,uint){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 46
+column: 2
+content: functionwithdraw(address_addr)returns(uint,uint,uint){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 67
+column: 2
+content: functionInvestorActions(address_dataFeed){dataFeed=IDataFeed(_dataFeed);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 76
+column: 2
+content: functionmodifyAllocation(address_addr,uint_allocation)onlyFundconstantreturns(uint_ethTotalAllocation){require(_allocation>0);return_allocation;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 86
+column: 2
+content: functiongetAvailableAllocation(address_addr)onlyFundconstantreturns(uintethAvailableAllocation){var(ethTotalAllocation,ethPendingSubscription,sharesOwned,sharesPendingRedemption,ethPendingWithdrawal)=fund.getInvestor(_addr);uintethFilledAllocation=ethPendingSubscription.add(fund.sharesToEth(sharesOwned));if(ethTotalAllocation>ethFilledAllocation){returnethTotalAllocation.sub(ethFilledAllocation);}else{return0;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 105
+column: 2
+content: functionrequestSubscription(address_addr,uint_amount)onlyFundconstantreturns(uint,uint){var(ethTotalAllocation,ethPendingSubscription,sharesOwned,sharesPendingRedemption,ethPendingWithdrawal)=fund.getInvestor(_addr);if(sharesOwned==0){require(_amount>=fund.minInitialSubscriptionEth());}else{require(_amount>=fund.minSubscriptionEth());}require(ethTotalAllocation>=_amount.add(ethPendingSubscription).add(fund.sharesToEth(sharesOwned)));return(ethPendingSubscription.add(_amount),fund.totalEthPendingSubscription().add(_amount));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 128
+column: 2
+content: functioncancelSubscription(address_addr)onlyFundconstantreturns(uint,uint,uint,uint){var(ethTotalAllocation,ethPendingSubscription,sharesOwned,sharesPendingRedemption,ethPendingWithdrawal)=fund.getInvestor(_addr);uintotherPendingSubscriptions=fund.totalEthPendingSubscription().sub(ethPendingSubscription);require(ethPendingSubscription<=fund.balance.sub(fund.totalEthPendingWithdrawal()).sub(otherPendingSubscriptions));return(0,ethPendingWithdrawal.add(ethPendingSubscription),fund.totalEthPendingSubscription().sub(ethPendingSubscription),fund.totalEthPendingWithdrawal().add(ethPendingSubscription));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 146
+column: 2
+content: functionsubscribe(address_addr)onlyFundconstantreturns(uint,uint,uint,uint,uint,uint){var(ethTotalAllocation,ethPendingSubscription,sharesOwned,sharesPendingRedemption,ethPendingWithdrawal)=fund.getInvestor(_addr);uintotherPendingSubscriptions=fund.totalEthPendingSubscription().sub(ethPendingSubscription);require(ethPendingSubscription<=fund.balance.sub(fund.totalEthPendingWithdrawal()).sub(otherPendingSubscriptions));uintshares=fund.ethToShares(ethPendingSubscription);return(0,sharesOwned.add(shares),shares,ethPendingSubscription,fund.totalSupply().add(shares),fund.totalEthPendingSubscription().sub(ethPendingSubscription));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 172
+column: 2
+content: functionrequestRedemption(address_addr,uint_shares)onlyFundconstantreturns(uint,uint){require(_shares>=fund.minRedemptionShares());var(ethTotalAllocation,ethPendingSubscription,sharesOwned,sharesPendingRedemption,ethPendingWithdrawal)=fund.getInvestor(_addr);require(sharesOwned>=_shares.add(sharesPendingRedemption));return(sharesPendingRedemption.add(_shares),fund.totalSharesPendingRedemption().add(_shares));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 193
+column: 2
+content: functioncancelRedemption(addressaddr)onlyFundconstantreturns(uint,uint){var(ethTotalAllocation,ethPendingSubscription,sharesOwned,sharesPendingRedemption,ethPendingWithdrawal)=fund.getInvestor(addr);assert(fund.totalSharesPendingRedemption()>=sharesPendingRedemption);return(0,fund.totalSharesPendingRedemption().sub(sharesPendingRedemption));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 209
+column: 2
+content: functionredeem(address_addr)onlyFundconstantreturns(uint,uint,uint,uint,uint,uint,uint){var(ethTotalAllocation,ethPendingSubscription,sharesOwned,sharesPendingRedemption,ethPendingWithdrawal)=fund.getInvestor(_addr);uintamount=fund.sharesToEth(sharesPendingRedemption);require(amount<=fund.balance.sub(fund.totalEthPendingSubscription()).sub(fund.totalEthPendingWithdrawal()));return(sharesOwned.sub(sharesPendingRedemption),0,ethPendingWithdrawal.add(amount),sharesPendingRedemption,fund.totalSupply().sub(sharesPendingRedemption),fund.totalSharesPendingRedemption().sub(sharesPendingRedemption),fund.totalEthPendingWithdrawal().add(amount));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 232
+column: 2
+content: functionliquidate(address_addr)onlyFundconstantreturns(uint,uint,uint,uint,uint,uint){var(ethTotalAllocation,ethPendingSubscription,sharesOwned,sharesPendingRedemption,ethPendingWithdrawal)=fund.getInvestor(_addr);uintotherPendingSubscriptions=fund.totalEthPendingSubscription().sub(ethPendingSubscription);uintamount=fund.sharesToEth(sharesOwned).add(ethPendingSubscription);require(amount<=fund.balance.sub(fund.totalEthPendingWithdrawal()).sub(otherPendingSubscriptions));return(ethPendingWithdrawal.add(amount),sharesOwned,fund.totalEthPendingSubscription().sub(ethPendingSubscription),fund.totalSharesPendingRedemption().sub(sharesPendingRedemption),fund.totalSupply().sub(sharesOwned),fund.totalEthPendingWithdrawal().add(amount));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 256
+column: 2
+content: functionwithdraw(address_addr)onlyFundconstantreturns(uint,uint,uint){var(ethTotalAllocation,ethPendingSubscription,sharesOwned,sharesPendingRedemption,ethPendingWithdrawal)=fund.getInvestor(_addr);require(ethPendingWithdrawal!=0);uintotherInvestorPayments=fund.totalEthPendingWithdrawal().sub(ethPendingWithdrawal);require(ethPendingWithdrawal<=fund.balance.sub(fund.totalEthPendingSubscription()).sub(otherInvestorPayments));return(ethPendingWithdrawal,0,fund.totalEthPendingWithdrawal().sub(ethPendingWithdrawal));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 278
+column: 2
+content: functionsetFund(address_fund)onlyOwnerreturns(boolsuccess){fund=IFund(_fund);fundAddress=_fund;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 288
+column: 2
+content: functionsetDataFeed(address_address)onlyOwnerreturns(boolsuccess){dataFeed=IDataFeed(_address);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 58
+column: 2
+content: IFundfund;
+
+SOLIDITY_VISIBILITY :24
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :10
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :10

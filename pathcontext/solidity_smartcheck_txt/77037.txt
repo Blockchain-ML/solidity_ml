@@ -1,0 +1,359 @@
+F:\Blockchain\dataset_new_byID\77037.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 127
+column: 4
+content: functiongetAssetsOnSaleCount(bytes16assetType)constantreturns(uint){returnsmartAssetStorage.getSmartAssetsOnSaleCount(assetType);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 132
+column: 4
+content: functiongetAssetsOnSale(bytes16assetType,uint24firstIndex,uint24lastIndex)constantreturns(uint24[],uint8[],uint8[],bytes32[],bytes32[],bytes32[],address[]){require(lastIndex>=firstIndex);require(lastIndex<=getAssetsOnSaleCount(assetType));uint24[]memoryids=newuint24[](lastIndex-firstIndex+1);uint24count=0;for(uint24k=firstIndex;k<=lastIndex;k++){ids[count]=smartAssetStorage.getAssetOnSaleAtIndex(assetType,k);count++;}returngetAssets(ids);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 162
+column: 4
+content: functiongetAssetOwnerById(uint24id)constantreturns(address){var(indexInSmartAssetsByOwner,indexInSmartAssetsOnSale,state,owner)=smartAssetStorage.getSmartAssetDataMetaById(id);returnowner;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 170
+column: 4
+content: functiongetAssetById(uint24id)constantreturns(uinttimestamp,uint8year,bytes32docUrl,uint8_type,bytes32email,bytes32b1,bytes32b2,bytes32b3,uintu1,Statestate,addressowner,bytes32assetType,addresstokenAddress){require(!smartAssetStorage.isAssetEmpty(id));timestamp=smartAssetStorage.getSmartAssetTimestamp(id);year=smartAssetStorage.getSmartAssetYear(id);docUrl=smartAssetStorage.getSmartAssetDocURl(id);_type=smartAssetStorage.getSmartAssetType(id);email=smartAssetStorage.getSmartAssetEmail(id);b1=smartAssetStorage.getSmartAssetb1(id);b2=smartAssetStorage.getSmartAssetb2(id);b3=smartAssetStorage.getSmartAssetb3(id);u1=smartAssetStorage.getSmartAssetu1(id);state=State(smartAssetStorage.getSmartAssetState(id));owner=smartAssetStorage.getSmartAssetOwner(id);assetType=smartAssetRouter.getAssetType(id);tokenAddress=smartAssetStorage.getTokenAddress(id);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 206
+column: 4
+content: functiongetAssetIotById(uint24id)constantreturns(bytes11,bytes11,bytes32,bytes32){require(!smartAssetStorage.isAssetEmpty(id));var(latitude,longitude,imageUrl)=smartAssetStorage.getSmartAssetDataIotById(id);bytes16assetType=smartAssetRouter.getAssetType(id);return(latitude,longitude,imageUrl,assetType);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 222
+column: 4
+content: functiongetMyAssetsCount(bytes16assetType)constantreturns(uint24){returnsmartAssetStorage.getSmartAssetsCountByOwner(msg.sender,assetType);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 227
+column: 4
+content: functiongetMyAssets(bytes16assetType,uint8firstIndex,uint8lastIndex)constantreturns(uint24[],uint8[],uint8[],bytes32[],bytes32[],bytes32[],address[]){require(lastIndex>=firstIndex);require(lastIndex<=getMyAssetsCount(assetType));uint24[]memoryids=newuint24[](lastIndex-firstIndex+1);uint24count=0;for(uint24k=firstIndex;k<=lastIndex;k++){ids[count]=smartAssetStorage.getAssetByOwnerAtIndex(msg.sender,assetType,k);count++;}returngetAssets(ids);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 352
+column: 4
+content: functiongetSmartAssetPrice(uint24assetId)constantreturns(uint){returnsmartAssetRouter.getSmartAssetPrice(assetId);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 356
+column: 4
+content: functiongetSmartAssetAvailability(uint24assetId)constantreturns(bool){returnsmartAssetRouter.getSmartAssetAvailability(assetId);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 360
+column: 4
+content: functioncalculateDeliveryPrice(uint24assetId,bytes11latitudeTo,bytes11longitudeTo)constantreturns(uint){returnsmartAssetRouter.calculateDeliveryPrice(assetId,latitudeTo,longitudeTo);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 364
+column: 4
+content: functionisAssetTheSameState(uint24assetId)constantreturns(boolmodified){returnsmartAssetRouter.isAssetTheSameState(assetId);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 399
+column: 4
+content: functiongetAssets(uint24[]ids)privateconstantreturns(uint24[],uint8[]memoryyearss,uint8[]memory_types,bytes32[]memoryb1s,bytes32[]memoryb2s,bytes32[]memoryb3s,address[]memoryowners){uintsize=ids.length;yearss=newuint8[](size);_types=newuint8[](size);b1s=newbytes32[](size);b2s=newbytes32[](size);b3s=newbytes32[](size);owners=newaddress[](size);for(uint24i=0;i<size;i++){uint24id=ids[i];if(smartAssetStorage.hasTokenAddress(id)){yearss[i]=smartAssetStorage.getSmartAssetYear(id);_types[i]=smartAssetStorage.getSmartAssetType(id);b1s[i]=smartAssetStorage.getSmartAssetb1(id);b2s[i]=smartAssetStorage.getSmartAssetb2(id);b3s[i]=smartAssetStorage.getSmartAssetb3(id);owners[i]=smartAssetStorage.getSmartAssetOwner(id);}}return(ids,yearss,_types,b1s,b2s,b3s,owners);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 419
+column: 8
+content: for(uint24i=0;i<size;i++){uint24id=ids[i];if(smartAssetStorage.hasTokenAddress(id)){yearss[i]=smartAssetStorage.getSmartAssetYear(id);_types[i]=smartAssetStorage.getSmartAssetType(id);b1s[i]=smartAssetStorage.getSmartAssetb1(id);b2s[i]=smartAssetStorage.getSmartAssetb2(id);b3s[i]=smartAssetStorage.getSmartAssetb3(id);owners[i]=smartAssetStorage.getSmartAssetOwner(id);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 44
+column: 4
+content: functionsetFee(address_feeToken,address_feeWallet,uint256_fee)publiconlyOwner{require(_feeToken!=address(0));require(_feeWallet!=address(0));require(_fee>0);feeToken=ERC20(_feeToken);feeWallet=_feeWallet;fee=_fee;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 393
+column: 4
+content: functionsetBuyAssetAddr(addresscontractAddress)onlyOwnerreturns(boolresult){require(contractAddress!=address(0));buyAssetAddr=contractAddress;returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 437
+column: 4
+content: functionsetSmartAssetStorage(address_smartAssetStorage)onlyOwner{smartAssetStorage=SmartAssetStorage(_smartAssetStorage);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 441
+column: 4
+content: functionsetSmartAssetMetaData(addressmetaDataAddress)onlyOwner{smartAssetMetadata=SmartAssetMetadata(metaDataAddress);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 445
+column: 4
+content: functionsetSmartAssetRouterAddress(addressrouterAddress)onlyOwner{smartAssetRouter=SmartAssetRouter(routerAddress);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 15
+column: 12
+content: private
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 400
+column: 11
+content: (uint24[],uint8[]memoryyearss,uint8[]memory_types,bytes32[]memoryb1s,bytes32[]memoryb2s,bytes32[]memoryb3s,address[]memoryowners)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 399
+column: 23
+content: uint24[]ids
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 401
+column: 8
+content: uint24[]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 37
+column: 4
+content: functionSmartAsset(addressrouterAddress,addressmetadataAddress){require(routerAddress!=address(0));require(metadataAddress!=address(0));smartAssetRouter=SmartAssetRouter(routerAddress);smartAssetMetadata=SmartAssetMetadata(metadataAddress);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 63
+column: 4
+content: functioncreateAsset(uinttimestamp,uint8year,bytes32docUrl,uint8_type,bytes32email,bytes32b1,bytes32b2,bytes32b3,uintu1,bytes16assetType){require(fee==0||feeToken.transferFrom(msg.sender,feeWallet,fee));addressowner=msg.sender;uint24id=smartAssetStorage.getId();smartAssetStorage.setSmartAssetDataManualById(owner,id,year,docUrl,_type,email,b1,b2,b3,u1);smartAssetStorage.setSmartAssetDataMetaById(id,smartAssetStorage.getSmartAssetsCountByOwner(owner,assetType),0,uint8(State.ManualDataAreEntered),owner);smartAssetStorage.setSmartAssetTimestamp(id,timestamp);smartAssetStorage.addSmartAssetByOwner(owner,assetType,id);NewSmartAsset(id);smartAssetRouter.setAssetType(id,assetType);smartAssetStorage.setId(id+2);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 112
+column: 4
+content: functionremoveAsset(uint24id){var(indexInSmartAssetsByOwner,indexInSmartAssetsOnSale,state,owner)=smartAssetStorage.getSmartAssetDataMetaById(id);require(owner==msg.sender);bytes16assetType=smartAssetRouter.getAssetType(id);smartAssetStorage.deleteSmartAssetByOwner(owner,assetType,indexInSmartAssetsByOwner);if(State(state)==State.OnSale){smartAssetStorage.deleteSmartAssetOnSale(assetType,indexInSmartAssetsOnSale);}smartAssetStorage.deleteSmartAssetById(id);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 127
+column: 4
+content: functiongetAssetsOnSaleCount(bytes16assetType)constantreturns(uint){returnsmartAssetStorage.getSmartAssetsOnSaleCount(assetType);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 132
+column: 4
+content: functiongetAssetsOnSale(bytes16assetType,uint24firstIndex,uint24lastIndex)constantreturns(uint24[],uint8[],uint8[],bytes32[],bytes32[],bytes32[],address[]){require(lastIndex>=firstIndex);require(lastIndex<=getAssetsOnSaleCount(assetType));uint24[]memoryids=newuint24[](lastIndex-firstIndex+1);uint24count=0;for(uint24k=firstIndex;k<=lastIndex;k++){ids[count]=smartAssetStorage.getAssetOnSaleAtIndex(assetType,k);count++;}returngetAssets(ids);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 162
+column: 4
+content: functiongetAssetOwnerById(uint24id)constantreturns(address){var(indexInSmartAssetsByOwner,indexInSmartAssetsOnSale,state,owner)=smartAssetStorage.getSmartAssetDataMetaById(id);returnowner;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 170
+column: 4
+content: functiongetAssetById(uint24id)constantreturns(uinttimestamp,uint8year,bytes32docUrl,uint8_type,bytes32email,bytes32b1,bytes32b2,bytes32b3,uintu1,Statestate,addressowner,bytes32assetType,addresstokenAddress){require(!smartAssetStorage.isAssetEmpty(id));timestamp=smartAssetStorage.getSmartAssetTimestamp(id);year=smartAssetStorage.getSmartAssetYear(id);docUrl=smartAssetStorage.getSmartAssetDocURl(id);_type=smartAssetStorage.getSmartAssetType(id);email=smartAssetStorage.getSmartAssetEmail(id);b1=smartAssetStorage.getSmartAssetb1(id);b2=smartAssetStorage.getSmartAssetb2(id);b3=smartAssetStorage.getSmartAssetb3(id);u1=smartAssetStorage.getSmartAssetu1(id);state=State(smartAssetStorage.getSmartAssetState(id));owner=smartAssetStorage.getSmartAssetOwner(id);assetType=smartAssetRouter.getAssetType(id);tokenAddress=smartAssetStorage.getTokenAddress(id);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 206
+column: 4
+content: functiongetAssetIotById(uint24id)constantreturns(bytes11,bytes11,bytes32,bytes32){require(!smartAssetStorage.isAssetEmpty(id));var(latitude,longitude,imageUrl)=smartAssetStorage.getSmartAssetDataIotById(id);bytes16assetType=smartAssetRouter.getAssetType(id);return(latitude,longitude,imageUrl,assetType);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 222
+column: 4
+content: functiongetMyAssetsCount(bytes16assetType)constantreturns(uint24){returnsmartAssetStorage.getSmartAssetsCountByOwner(msg.sender,assetType);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 227
+column: 4
+content: functiongetMyAssets(bytes16assetType,uint8firstIndex,uint8lastIndex)constantreturns(uint24[],uint8[],uint8[],bytes32[],bytes32[],bytes32[],address[]){require(lastIndex>=firstIndex);require(lastIndex<=getMyAssetsCount(assetType));uint24[]memoryids=newuint24[](lastIndex-firstIndex+1);uint24count=0;for(uint24k=firstIndex;k<=lastIndex;k++){ids[count]=smartAssetStorage.getAssetByOwnerAtIndex(msg.sender,assetType,k);count++;}returngetAssets(ids);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 253
+column: 4
+content: functionmakeOnSale(uint24id){var(indexInSmartAssetsByOwner,indexInSmartAssetsOnSale,state,owner)=smartAssetStorage.getSmartAssetDataMetaById(id);require(owner==msg.sender&&State(state)==State.PriceCalculated);bytes16assetType=smartAssetRouter.getAssetType(id);uint24smartAssetsOnSale=smartAssetStorage.getSmartAssetsOnSaleCount(assetType);smartAssetStorage.setSmartAssetDataMetaById(id,indexInSmartAssetsByOwner,smartAssetsOnSale,uint8(State.OnSale),owner);smartAssetStorage.addSmartAssetOnSale(assetType,id);AssetPutOnSale(id);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 275
+column: 4
+content: functionmakeOffSale(uint24id){var(indexInSmartAssetsByOwner,indexInSmartAssetsOnSale,state,owner)=smartAssetStorage.getSmartAssetDataMetaById(id);require(owner==msg.sender&&State(state)==State.OnSale);smartAssetStorage.setSmartAssetDataMetaById(id,indexInSmartAssetsByOwner,indexInSmartAssetsOnSale,uint8(State.PriceCalculated),owner);bytes16assetType=smartAssetRouter.getAssetType(id);smartAssetStorage.deleteSmartAssetOnSale(assetType,indexInSmartAssetsOnSale);AssetTakenOffSale(id);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 296
+column: 4
+content: functionupdateFromExternalSource(uint24id,bytes11latitude,bytes11longitude,bytes32imageUrl){require(msg.sender==smartAssetMetadata.getAssetLogicAddress(smartAssetRouter.getAssetType(id)));var(indexInSmartAssetsByOwner,indexInSmartAssetsOnSale,state,owner)=smartAssetStorage.getSmartAssetDataMetaById(id);require(State(state)<State.OnSale);smartAssetStorage.setSmartAssetDataIotById(id,latitude,longitude,imageUrl);smartAssetStorage.setSmartAssetDataMetaById(id,indexInSmartAssetsByOwner,indexInSmartAssetsOnSale,uint8(State.IotDataCollected),owner);IotUpdateEvent(id,latitude,longitude,imageUrl);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 333
+column: 4
+content: functionforceUpdateFromExternalSource(uint24assetId,stringparam){var(indexInSmartAssetsByOwner,indexInSmartAssetsOnSale,state,owner)=smartAssetStorage.getSmartAssetDataMetaById(assetId);require(owner==msg.sender&&State(state)<=State.OnSale);returnsmartAssetRouter.forceUpdateFromExternalSource(assetId,param);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 339
+column: 4
+content: functioncalculateAssetPrice(uint24assetId){var(indexInSmartAssetsByOwner,indexInSmartAssetsOnSale,state,owner)=smartAssetStorage.getSmartAssetDataMetaById(assetId);require(owner==msg.sender&&State(state)<State.OnSale);smartAssetRouter.calculateAssetPrice(assetId);smartAssetStorage.setSmartAssetDataMetaById(assetId,indexInSmartAssetsByOwner,indexInSmartAssetsOnSale,uint8(State.PriceCalculated),owner);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 352
+column: 4
+content: functiongetSmartAssetPrice(uint24assetId)constantreturns(uint){returnsmartAssetRouter.getSmartAssetPrice(assetId);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 356
+column: 4
+content: functiongetSmartAssetAvailability(uint24assetId)constantreturns(bool){returnsmartAssetRouter.getSmartAssetAvailability(assetId);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 360
+column: 4
+content: functioncalculateDeliveryPrice(uint24assetId,bytes11latitudeTo,bytes11longitudeTo)constantreturns(uint){returnsmartAssetRouter.calculateDeliveryPrice(assetId,latitudeTo,longitudeTo);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 364
+column: 4
+content: functionisAssetTheSameState(uint24assetId)constantreturns(boolmodified){returnsmartAssetRouter.isAssetTheSameState(assetId);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 368
+column: 4
+content: functionsellAsset(uint24id,addressnewOwner)onlyBuyAsset{var(indexInSmartAssetsByOwner,indexInSmartAssetsOnSale,state,owner)=smartAssetStorage.getSmartAssetDataMetaById(id);require(owner!=msg.sender);require(State(state)==State.OnSale);bytes16assetType=smartAssetRouter.getAssetType(id);smartAssetStorage.deleteSmartAssetOnSale(assetType,indexInSmartAssetsOnSale);smartAssetStorage.deleteSmartAssetByOwner(owner,assetType,indexInSmartAssetsByOwner);smartAssetStorage.setSmartAssetDataMetaById(id,indexInSmartAssetsByOwner,indexInSmartAssetsOnSale,uint8(State.ManualDataAreEntered),newOwner);smartAssetStorage.addSmartAssetByOwner(newOwner,assetType,id);smartAssetRouter.onAssetSold(id);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 393
+column: 4
+content: functionsetBuyAssetAddr(addresscontractAddress)onlyOwnerreturns(boolresult){require(contractAddress!=address(0));buyAssetAddr=contractAddress;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 437
+column: 4
+content: functionsetSmartAssetStorage(address_smartAssetStorage)onlyOwner{smartAssetStorage=SmartAssetStorage(_smartAssetStorage);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 441
+column: 4
+content: functionsetSmartAssetMetaData(addressmetaDataAddress)onlyOwner{smartAssetMetadata=SmartAssetMetadata(metaDataAddress);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 445
+column: 4
+content: functionsetSmartAssetRouterAddress(addressrouterAddress)onlyOwner{smartAssetRouter=SmartAssetRouter(routerAddress);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 17
+column: 4
+content: SmartAssetStoragesmartAssetStorage;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 30
+column: 4
+content: SmartAssetRoutersmartAssetRouter;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 31
+column: 4
+content: SmartAssetMetadatasmartAssetMetadata;
+
+SOLIDITY_VISIBILITY :27
+SOLIDITY_OVERPOWERED_ROLE :5
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :12
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

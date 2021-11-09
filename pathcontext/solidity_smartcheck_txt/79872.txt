@@ -1,0 +1,197 @@
+F:\Blockchain\dataset_new_byID\79872.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 109
+column: 10
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 70
+column: 4
+content: functiongetRepository(uintid)constantreturns(address){returndb.getRepositoryAddress(projectId);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 74
+column: 4
+content: functiongetRepository(stringfull_name)constantreturns(address){returndb.getRepositoryAddress(full_name);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 15
+column: 0
+content: contractGitHubOracleisOwned,usingOraclize{usingStringLibforstring;GitRepositoryFactoryIpublicgitRepositoryFactoryI;GitHubOracleStorageIpublicdb;enumOracleType{SET_REPOSITORY,SET_USER,CLAIM_COMMIT,UPDATE_ISSUE}mapping(bytes32=>OracleType)claimType;mapping(bytes32=>CommitClaim)commitClaim;mapping(bytes32=>UserClaim)userClaim;stringprivatecredentials="";stringprivatesecret="";stringprivateclient="";stringprivatescript="";structUserClaim{addresssender;stringgithubid;}structCommitClaim{stringrepository;stringcommitid;}functionGitHubOracle(GitHubOracleStorageI_db,GitRepositoryFactoryI_gitRepositoryFactoryI){gitRepositoryFactoryI=_gitRepositoryFactoryI;db=_db;}functionregister(string_github_user,string_gistid)payable{bytes32ocid=oraclize_query("nested",StringLib.concat("[identity] ${[URL] https://gist.githubusercontent.com/",_github_user,"/",_gistid,"/raw/}, ${[URL] json(https://api.github.com/gists/").concat(_gistid,credentials,").owner.[id,login]}"));claimType[ocid]=OracleType.SET_USER;userClaim[ocid]=UserClaim({sender:msg.sender,githubid:_github_user});}functionclaimCommit(string_repository,string_commitid)payable{bytes32ocid=oraclize_query("URL",StringLib.concat("json(https://api.github.com/repos/",_repository,"/commits/",_commitid,credentials).concat(").[author,stats].[id,total]"));claimType[ocid]=OracleType.CLAIM_COMMIT;commitClaim[ocid]=CommitClaim({repository:_repository,commitid:_commitid});}functionaddRepository(string_repository)payable{bytes32ocid=oraclize_query("URL",StringLib.concat("json(https://api.github.com/repos/",_repository,credentials,").$.id,full_name,watchers,subscribers_count"),4000000);claimType[ocid]=OracleType.SET_REPOSITORY;}functiongetRepository(uintid)constantreturns(address){returndb.getRepositoryAddress(projectId);}functiongetRepository(stringfull_name)constantreturns(address){returndb.getRepositoryAddress(full_name);}functionsetScript(string_script){script=_script;}functionsetAPICredentials(string_client_id,string_client_secret)only_owner{credentials=StringLib.concat("?client_id=${[decrypt] ",_client_id,"}&client_secret=${[decrypt] ",_client_secret,"}");}functionclearAPICredentials()only_owner{credentials="";}functionbountyIssue(uintrepositoryId,uintissueId)payable{}eventOracleEvent(bytes32myid,stringresult,bytesproof);function__callback(bytes32myid,stringresult,bytesproof){OracleEvent(myid,result,proof);if(msg.sender!=oraclize.cbAddress()){throw;}elseif(claimType[myid]==OracleType.SET_USER){_register(myid,result);}elseif(claimType[myid]==OracleType.CLAIM_COMMIT){_claimCommit(myid,result);}elseif(claimType[myid]==OracleType.SET_REPOSITORY){_setRepository(myid,result);}deleteclaimType[myid];}eventUserSet(stringgithubLogin);function_register(bytes32myid,stringresult)internal{uint256userId;stringmemorylogin;addressaddrLoaded;uint8utype;bytesmemoryv=bytes(result);uint8pos=0;(addrLoaded,pos)=JSONLib.getNextAddr(v,pos);(userId,pos)=JSONLib.getNextUInt(v,pos);(login,pos)=JSONLib.getNextString(v,pos);if(userClaim[myid].sender==addrLoaded&&userClaim[myid].githubid.compare(login)==0){UserSet(login);db.addUser(userId,login,utype,addrLoaded);}deleteuserClaim[myid];}eventGitRepositoryRegistered(uint256projectId,stringfull_name,uint256watchers,uint256subscribers);function_setRepository(bytes32myid,stringresult){uint256projectId;stringmemoryfull_name;uint256watchers;uint256subscribers;uint256ownerId;stringmemoryname;bytesmemoryv=bytes(result);uint8pos=0;(projectId,pos)=JSONLib.getNextUInt(v,pos);(full_name,pos)=JSONLib.getNextString(v,pos);(watchers,pos)=JSONLib.getNextUInt(v,pos);(subscribers,pos)=JSONLib.getNextUInt(v,pos);addressrepository=db.getRepositoryAddress(projectId);if(repository==0x0){GitRepositoryRegistered(projectId,full_name,watchers,subscribers);repository=gitRepositoryFactoryI.newGitRepository(projectId,full_name);db.addRepository(projectId,ownerId,name,full_name,repository);}GitRepositoryI(repository).setStats(subscribers,watchers);}eventNewClaim(stringrepository,stringcommitid,uintuserid,uinttotal);function_claimCommit(bytes32myid,stringresult)internal{uint256total;uint256userId;bytesmemoryv=bytes(result);uint8pos=0;(userId,pos)=JSONLib.getNextUInt(v,pos);(total,pos)=JSONLib.getNextUInt(v,pos);NewClaim(commitClaim[myid].repository,commitClaim[myid].commitid,userId,total);GitRepositoryIrepository=GitRepositoryI(db.getRepositoryAddress(commitClaim[myid].repository));repository.claim(commitClaim[myid].commitid.parseBytes20(),db.getUserAddress(userId),total);deletecommitClaim[myid];}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 27
+column: 11
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 28
+column: 11
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 29
+column: 11
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 30
+column: 11
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 108
+column: 8
+content: if(msg.sender!=oraclize.cbAddress()){throw;}elseif(claimType[myid]==OracleType.SET_USER){_register(myid,result);}elseif(claimType[myid]==OracleType.CLAIM_COMMIT){_claimCommit(myid,result);}elseif(claimType[myid]==OracleType.SET_REPOSITORY){_setRepository(myid,result);}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 121
+column: 37
+content: stringresult
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 158
+column: 40
+content: stringresult
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 43
+column: 4
+content: functionGitHubOracle(GitHubOracleStorageI_db,GitRepositoryFactoryI_gitRepositoryFactoryI){gitRepositoryFactoryI=_gitRepositoryFactoryI;db=_db;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 49
+column: 4
+content: functionregister(string_github_user,string_gistid)payable{bytes32ocid=oraclize_query("nested",StringLib.concat("[identity] ${[URL] https://gist.githubusercontent.com/",_github_user,"/",_gistid,"/raw/}, ${[URL] json(https://api.github.com/gists/").concat(_gistid,credentials,").owner.[id,login]}"));claimType[ocid]=OracleType.SET_USER;userClaim[ocid]=UserClaim({sender:msg.sender,githubid:_github_user});}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 56
+column: 4
+content: functionclaimCommit(string_repository,string_commitid)payable{bytes32ocid=oraclize_query("URL",StringLib.concat("json(https://api.github.com/repos/",_repository,"/commits/",_commitid,credentials).concat(").[author,stats].[id,total]"));claimType[ocid]=OracleType.CLAIM_COMMIT;commitClaim[ocid]=CommitClaim({repository:_repository,commitid:_commitid});}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 63
+column: 4
+content: functionaddRepository(string_repository)payable{bytes32ocid=oraclize_query("URL",StringLib.concat("json(https://api.github.com/repos/",_repository,credentials,").$.id,full_name,watchers,subscribers_count"),4000000);claimType[ocid]=OracleType.SET_REPOSITORY;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 70
+column: 4
+content: functiongetRepository(uintid)constantreturns(address){returndb.getRepositoryAddress(projectId);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 74
+column: 4
+content: functiongetRepository(stringfull_name)constantreturns(address){returndb.getRepositoryAddress(full_name);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 78
+column: 4
+content: functionsetScript(string_script){script=_script;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 83
+column: 4
+content: functionsetAPICredentials(string_client_id,string_client_secret)only_owner{credentials=StringLib.concat("?client_id=${[decrypt] ",_client_id,"}&client_secret=${[decrypt] ",_client_secret,"}");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 88
+column: 4
+content: functionclearAPICredentials()only_owner{credentials="";}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 94
+column: 4
+content: functionbountyIssue(uintrepositoryId,uintissueId)payable{}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 106
+column: 4
+content: function__callback(bytes32myid,stringresult,bytesproof){OracleEvent(myid,result,proof);if(msg.sender!=oraclize.cbAddress()){throw;}elseif(claimType[myid]==OracleType.SET_USER){_register(myid,result);}elseif(claimType[myid]==OracleType.CLAIM_COMMIT){_claimCommit(myid,result);}elseif(claimType[myid]==OracleType.SET_REPOSITORY){_setRepository(myid,result);}deleteclaimType[myid];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 138
+column: 4
+content: function_setRepository(bytes32myid,stringresult){uint256projectId;stringmemoryfull_name;uint256watchers;uint256subscribers;uint256ownerId;stringmemoryname;bytesmemoryv=bytes(result);uint8pos=0;(projectId,pos)=JSONLib.getNextUInt(v,pos);(full_name,pos)=JSONLib.getNextString(v,pos);(watchers,pos)=JSONLib.getNextUInt(v,pos);(subscribers,pos)=JSONLib.getNextUInt(v,pos);addressrepository=db.getRepositoryAddress(projectId);if(repository==0x0){GitRepositoryRegistered(projectId,full_name,watchers,subscribers);repository=gitRepositoryFactoryI.newGitRepository(projectId,full_name);db.addRepository(projectId,ownerId,name,full_name,repository);}GitRepositoryI(repository).setStats(subscribers,watchers);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 23
+column: 4
+content: mapping(bytes32=>OracleType)claimType;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 24
+column: 4
+content: mapping(bytes32=>CommitClaim)commitClaim;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 25
+column: 4
+content: mapping(bytes32=>UserClaim)userClaim;
+
+SOLIDITY_VISIBILITY :15
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :4
+SOLIDITY_UPGRADE_TO_050 :2

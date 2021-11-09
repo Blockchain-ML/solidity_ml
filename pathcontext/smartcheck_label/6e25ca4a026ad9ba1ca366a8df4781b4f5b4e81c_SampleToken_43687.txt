@@ -1,0 +1,137 @@
+C:\Users\hp\DataSet\contracts\ropsten\6e\6e25ca4a026ad9ba1ca366a8df4781b4f5b4e81c_SampleToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 48
+column: 4
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess){allowance[msg.sender][_spender]=_value;returntrue;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 39
+column: 8
+content: if(_to==0x0)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 40
+column: 8
+content: if(balanceOf[msg.sender]<_value)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 41
+column: 8
+content: if(balanceOf[_to]+_value<balanceOf[_to])revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 66
+column: 8
+content: if(_to==0x0)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 67
+column: 8
+content: if(balanceOf[_from]<_value)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 68
+column: 8
+content: if(balanceOf[_to]+_value<balanceOf[_to])revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 69
+column: 8
+content: if(_value>allowance[_from][msg.sender])revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 78
+column: 8
+content: if(balanceOf[msg.sender]<_value)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 86
+column: 8
+content: if(balanceOf[_from]<_value)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 87
+column: 8
+content: if(_value>allowance[_from][msg.sender])revert();
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 3
+column: 27
+content: functionreceiveApproval(address_from,uint256_value,address_token,bytes_extraData);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 24
+column: 4
+content: functionSampleToken(uint256initialSupply,stringtokenName,uint8decimalUnits,stringtokenSymbol){balanceOf[msg.sender]=initialSupply;totalSupply=initialSupply;name=tokenName;symbol=tokenSymbol;decimals=decimalUnits;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 38
+column: 4
+content: functiontransfer(address_to,uint256_value){if(_to==0x0)revert();if(balanceOf[msg.sender]<_value)revert();if(balanceOf[_to]+_value<balanceOf[_to])revert();balanceOf[msg.sender]-=_value;balanceOf[_to]+=_value;Transfer(msg.sender,_to,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 48
+column: 4
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess){allowance[msg.sender][_spender]=_value;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 55
+column: 4
+content: functionapproveAndCall(address_spender,uint256_value,bytes_extraData)returns(boolsuccess){ITokenRecipientspender=ITokenRecipient(_spender);if(approve(_spender,_value)){spender.receiveApproval(msg.sender,_value,this,_extraData);returntrue;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 4
+content: functiontransferFrom(address_from,address_to,uint256_value)returns(boolsuccess){if(_to==0x0)revert();if(balanceOf[_from]<_value)revert();if(balanceOf[_to]+_value<balanceOf[_to])revert();if(_value>allowance[_from][msg.sender])revert();balanceOf[_from]-=_value;balanceOf[_to]+=_value;allowance[_from][msg.sender]-=_value;Transfer(_from,_to,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 77
+column: 4
+content: functionburn(uint256_value)returns(boolsuccess){if(balanceOf[msg.sender]<_value)revert();balanceOf[msg.sender]-=_value;totalSupply-=_value;Burn(msg.sender,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 85
+column: 4
+content: functionburnFrom(address_from,uint256_value)returns(boolsuccess){if(balanceOf[_from]<_value)revert();if(_value>allowance[_from][msg.sender])revert();balanceOf[_from]-=_value;totalSupply-=_value;Burn(_from,_value);returntrue;}
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_REVERT_REQUIRE :10
+SOLIDITY_ERC20_APPROVE :1

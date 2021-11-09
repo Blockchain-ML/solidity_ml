@@ -1,0 +1,231 @@
+F:\Blockchain\dataset_new_byID\80362.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 21
+column: 8
+content: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 145
+column: 8
+content: for(uint256i=0;i<_kyberFeeHandlers.length;i++){require(_kyberFeeHandlers[i]!=address(0),"ctor: feeHandler is missing");require(rewardTokenByFeeHandler[_kyberFeeHandlers[i]]==IERC20(address(0)),"ctor: repeated feeHandler");feeHandlersList.push(_kyberFeeHandlers[i]);rewardTokenByFeeHandler[_kyberFeeHandlers[i]]=_rewardTokens[i];emitAddFeeHandler(_kyberFeeHandlers[i],rewardTokenByFeeHandler[_kyberFeeHandlers[i]]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 201
+column: 12
+content: for(uint256i=0;i<feeHandlersList.length;i++){if(feeHandlersList[i]==_feeHandler){feeHandlersList[i]=feeHandlersList[feeHandlersList.length-1];break;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 394
+column: 8
+content: for(uint256e=0;e<_epochGroup.length;e++){for(uint256f=0;f<_feeHandlerGroup.length;f++){uint256unclaimed=getUnclaimedRewards(_epochGroup[e],IExtendedKyberFeeHandler(_feeHandlerGroup[f]));if(unclaimed>0){epochFeeHanlderRewards[rewardsCounter]=UnclaimedRewardData(_epochGroup[e],_feeHandlerGroup[f],unclaimed,rewardTokenByFeeHandler[_feeHandlerGroup[f]]);rewardsCounter++;}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 395
+column: 12
+content: for(uint256f=0;f<_feeHandlerGroup.length;f++){uint256unclaimed=getUnclaimedRewards(_epochGroup[e],IExtendedKyberFeeHandler(_feeHandlerGroup[f]));if(unclaimed>0){epochFeeHanlderRewards[rewardsCounter]=UnclaimedRewardData(_epochGroup[e],_feeHandlerGroup[f],unclaimed,rewardTokenByFeeHandler[_feeHandlerGroup[f]]);rewardsCounter++;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 449
+column: 8
+content: for(uint256j=0;j<_epochGroup.length;j++){uint256_epoch=_epochGroup[j];feeId=getEpochDFeeDataId(_epoch,feeId);DFeeDatastorageepochDFee=delegationFees[feeId];if(!epochDFee.applied){applyFee(epochDFee);}(uint256stake,uint256delegatedStake,)=kyberStaking.getStakerRawData(address(this),_epoch);for(uint256i=0;i<_feeHandlerGroup.length;i++){RewardInfomemoryrewardInfo=_claimRewardsFromKyber(_epoch,_feeHandlerGroup[i],epochDFee,stake,delegatedStake);if(rewardInfo.totalRewards==0){continue;}accruedByFeeHandler[i]=accruedByFeeHandler[i].add(rewardInfo.poolMasterShare);if(!successfulClaimByFeeHandler[_feeHandlerGroup[i]]){successfulClaimByFeeHandler[_feeHandlerGroup[i]]=true;}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 461
+column: 12
+content: for(uint256i=0;i<_feeHandlerGroup.length;i++){RewardInfomemoryrewardInfo=_claimRewardsFromKyber(_epoch,_feeHandlerGroup[i],epochDFee,stake,delegatedStake);if(rewardInfo.totalRewards==0){continue;}accruedByFeeHandler[i]=accruedByFeeHandler[i].add(rewardInfo.poolMasterShare);if(!successfulClaimByFeeHandler[_feeHandlerGroup[i]]){successfulClaimByFeeHandler[_feeHandlerGroup[i]]=true;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 485
+column: 8
+content: for(uint256k=0;k<accruedByFeeHandler.length;k++){_sendTokens(rewardTokenByFeeHandler[_feeHandlerGroup[k]],poolMaster,accruedByFeeHandler[k],"cRMaster: poolMaster share transfer failed");}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 677
+column: 8
+content: for(uint256e=0;e<_epochGroup.length;e++){for(uint256f=0;f<_feeHandlerGroup.length;f++){uint256unclaimed=getUnclaimedRewardsMember(_poolMember,_epochGroup[e],_feeHandlerGroup[f]);if(unclaimed>0){epochFeeHanlderRewards[rewardsCounter]=UnclaimedRewardData(_epochGroup[e],_feeHandlerGroup[f],unclaimed,rewardTokenByFeeHandler[_feeHandlerGroup[f]]);rewardsCounter++;}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 678
+column: 12
+content: for(uint256f=0;f<_feeHandlerGroup.length;f++){uint256unclaimed=getUnclaimedRewardsMember(_poolMember,_epochGroup[e],_feeHandlerGroup[f]);if(unclaimed>0){epochFeeHanlderRewards[rewardsCounter]=UnclaimedRewardData(_epochGroup[e],_feeHandlerGroup[f],unclaimed,rewardTokenByFeeHandler[_feeHandlerGroup[f]]);rewardsCounter++;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 739
+column: 8
+content: for(uint256j=0;j<_epochGroup.length;j++){uint256_epoch=_epochGroup[j];for(uint256i=0;i<_feeHandlerGroup.length;i++){uint256poolMemberShare=getUnclaimedRewardsMember(_poolMember,_epoch,_feeHandlerGroup[i]);IERC20rewardToken=rewardTokenByFeeHandler[_feeHandlerGroup[i]];if(poolMemberShare==0){continue;}accruedByFeeHandler[i]=accruedByFeeHandler[i].add(poolMemberShare);claimedDelegateReward[_epoch][_poolMember][_feeHandlerGroup[i]]=true;emitMemberClaimReward(_epoch,_poolMember,_feeHandlerGroup[i],rewardToken,poolMemberShare);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 742
+column: 12
+content: for(uint256i=0;i<_feeHandlerGroup.length;i++){uint256poolMemberShare=getUnclaimedRewardsMember(_poolMember,_epoch,_feeHandlerGroup[i]);IERC20rewardToken=rewardTokenByFeeHandler[_feeHandlerGroup[i]];if(poolMemberShare==0){continue;}accruedByFeeHandler[i]=accruedByFeeHandler[i].add(poolMemberShare);claimedDelegateReward[_epoch][_poolMember][_feeHandlerGroup[i]]=true;emitMemberClaimReward(_epoch,_poolMember,_feeHandlerGroup[i],rewardToken,poolMemberShare);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 774
+column: 8
+content: for(uint256k=0;k<accruedByFeeHandler.length;k++){_sendTokens(rewardTokenByFeeHandler[_feeHandlerGroup[k]],_poolMember,accruedByFeeHandler[k],"cRMember: poolMember share transfer failed");}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 814
+column: 12
+content: for(uint256i=0;i<numbers.length-1;i++){if(numbers[i]>=numbers[i+1]){isOrdered=false;break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 145
+column: 8
+content: for(uint256i=0;i<_kyberFeeHandlers.length;i++){require(_kyberFeeHandlers[i]!=address(0),"ctor: feeHandler is missing");require(rewardTokenByFeeHandler[_kyberFeeHandlers[i]]==IERC20(address(0)),"ctor: repeated feeHandler");feeHandlersList.push(_kyberFeeHandlers[i]);rewardTokenByFeeHandler[_kyberFeeHandlers[i]]=_rewardTokens[i];emitAddFeeHandler(_kyberFeeHandlers[i],rewardTokenByFeeHandler[_kyberFeeHandlers[i]]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 201
+column: 12
+content: for(uint256i=0;i<feeHandlersList.length;i++){if(feeHandlersList[i]==_feeHandler){feeHandlersList[i]=feeHandlersList[feeHandlersList.length-1];break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 394
+column: 8
+content: for(uint256e=0;e<_epochGroup.length;e++){for(uint256f=0;f<_feeHandlerGroup.length;f++){uint256unclaimed=getUnclaimedRewards(_epochGroup[e],IExtendedKyberFeeHandler(_feeHandlerGroup[f]));if(unclaimed>0){epochFeeHanlderRewards[rewardsCounter]=UnclaimedRewardData(_epochGroup[e],_feeHandlerGroup[f],unclaimed,rewardTokenByFeeHandler[_feeHandlerGroup[f]]);rewardsCounter++;}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 395
+column: 12
+content: for(uint256f=0;f<_feeHandlerGroup.length;f++){uint256unclaimed=getUnclaimedRewards(_epochGroup[e],IExtendedKyberFeeHandler(_feeHandlerGroup[f]));if(unclaimed>0){epochFeeHanlderRewards[rewardsCounter]=UnclaimedRewardData(_epochGroup[e],_feeHandlerGroup[f],unclaimed,rewardTokenByFeeHandler[_feeHandlerGroup[f]]);rewardsCounter++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 449
+column: 8
+content: for(uint256j=0;j<_epochGroup.length;j++){uint256_epoch=_epochGroup[j];feeId=getEpochDFeeDataId(_epoch,feeId);DFeeDatastorageepochDFee=delegationFees[feeId];if(!epochDFee.applied){applyFee(epochDFee);}(uint256stake,uint256delegatedStake,)=kyberStaking.getStakerRawData(address(this),_epoch);for(uint256i=0;i<_feeHandlerGroup.length;i++){RewardInfomemoryrewardInfo=_claimRewardsFromKyber(_epoch,_feeHandlerGroup[i],epochDFee,stake,delegatedStake);if(rewardInfo.totalRewards==0){continue;}accruedByFeeHandler[i]=accruedByFeeHandler[i].add(rewardInfo.poolMasterShare);if(!successfulClaimByFeeHandler[_feeHandlerGroup[i]]){successfulClaimByFeeHandler[_feeHandlerGroup[i]]=true;}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 461
+column: 12
+content: for(uint256i=0;i<_feeHandlerGroup.length;i++){RewardInfomemoryrewardInfo=_claimRewardsFromKyber(_epoch,_feeHandlerGroup[i],epochDFee,stake,delegatedStake);if(rewardInfo.totalRewards==0){continue;}accruedByFeeHandler[i]=accruedByFeeHandler[i].add(rewardInfo.poolMasterShare);if(!successfulClaimByFeeHandler[_feeHandlerGroup[i]]){successfulClaimByFeeHandler[_feeHandlerGroup[i]]=true;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 485
+column: 8
+content: for(uint256k=0;k<accruedByFeeHandler.length;k++){_sendTokens(rewardTokenByFeeHandler[_feeHandlerGroup[k]],poolMaster,accruedByFeeHandler[k],"cRMaster: poolMaster share transfer failed");}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 677
+column: 8
+content: for(uint256e=0;e<_epochGroup.length;e++){for(uint256f=0;f<_feeHandlerGroup.length;f++){uint256unclaimed=getUnclaimedRewardsMember(_poolMember,_epochGroup[e],_feeHandlerGroup[f]);if(unclaimed>0){epochFeeHanlderRewards[rewardsCounter]=UnclaimedRewardData(_epochGroup[e],_feeHandlerGroup[f],unclaimed,rewardTokenByFeeHandler[_feeHandlerGroup[f]]);rewardsCounter++;}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 678
+column: 12
+content: for(uint256f=0;f<_feeHandlerGroup.length;f++){uint256unclaimed=getUnclaimedRewardsMember(_poolMember,_epochGroup[e],_feeHandlerGroup[f]);if(unclaimed>0){epochFeeHanlderRewards[rewardsCounter]=UnclaimedRewardData(_epochGroup[e],_feeHandlerGroup[f],unclaimed,rewardTokenByFeeHandler[_feeHandlerGroup[f]]);rewardsCounter++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 739
+column: 8
+content: for(uint256j=0;j<_epochGroup.length;j++){uint256_epoch=_epochGroup[j];for(uint256i=0;i<_feeHandlerGroup.length;i++){uint256poolMemberShare=getUnclaimedRewardsMember(_poolMember,_epoch,_feeHandlerGroup[i]);IERC20rewardToken=rewardTokenByFeeHandler[_feeHandlerGroup[i]];if(poolMemberShare==0){continue;}accruedByFeeHandler[i]=accruedByFeeHandler[i].add(poolMemberShare);claimedDelegateReward[_epoch][_poolMember][_feeHandlerGroup[i]]=true;emitMemberClaimReward(_epoch,_poolMember,_feeHandlerGroup[i],rewardToken,poolMemberShare);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 742
+column: 12
+content: for(uint256i=0;i<_feeHandlerGroup.length;i++){uint256poolMemberShare=getUnclaimedRewardsMember(_poolMember,_epoch,_feeHandlerGroup[i]);IERC20rewardToken=rewardTokenByFeeHandler[_feeHandlerGroup[i]];if(poolMemberShare==0){continue;}accruedByFeeHandler[i]=accruedByFeeHandler[i].add(poolMemberShare);claimedDelegateReward[_epoch][_poolMember][_feeHandlerGroup[i]]=true;emitMemberClaimReward(_epoch,_poolMember,_feeHandlerGroup[i],rewardToken,poolMemberShare);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 774
+column: 8
+content: for(uint256k=0;k<accruedByFeeHandler.length;k++){_sendTokens(rewardTokenByFeeHandler[_feeHandlerGroup[k]],_poolMember,accruedByFeeHandler[k],"cRMember: poolMember share transfer failed");}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 308
+column: 15
+content: left<right
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 15
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 486
+column: 12
+content: _sendTokens(rewardTokenByFeeHandler[_feeHandlerGroup[k]],poolMaster,accruedByFeeHandler[k],"cRMaster: poolMaster share transfer failed")
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 775
+column: 12
+content: _sendTokens(rewardTokenByFeeHandler[_feeHandlerGroup[k]],_poolMember,accruedByFeeHandler[k],"cRMember: poolMember share transfer failed")
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 827
+column: 4
+content: receive
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 828
+column: 15
+content: (rewardTokenByFeeHandler[msg.sender]==ETH_TOKEN_ADDRESS,"only accept ETH from a KyberFeeHandler");
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :13
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :13
+SOLIDITY_UNCHECKED_CALL :2

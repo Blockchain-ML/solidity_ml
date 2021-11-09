@@ -1,0 +1,55 @@
+C:\Users\hp\DataSet\RevenueToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 112
+column: 4
+content: functionapprove(addressspender,uint256value)publicreturns(bool){require(0==value||0==allowance(msg.sender,spender),"Value or allowance non-zero [RevenueToken.sol:117]");returnsuper.approve(spender,value);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 290
+column: 12
+content: for(uint256i=0;i<_balanceRecords.length;i++){require(previousBlockNumber<=_balanceRecords[i].blockNumber,"Invalid balance record block number [RevenueToken.sol:292]");balanceRecords[account].push(_balanceRecords[i]);previousBlockNumber=_balanceRecords[i].blockNumber;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 290
+column: 12
+content: for(uint256i=0;i<_balanceRecords.length;i++){require(previousBlockNumber<=_balanceRecords[i].blockNumber,"Invalid balance record block number [RevenueToken.sol:292]");balanceRecords[account].push(_balanceRecords[i]);previousBlockNumber=_balanceRecords[i].blockNumber;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 12cf32
+severity: 2
+line: 257
+column: 8
+content: for(uint256i=balanceRecords[account].length;i>0;){i=i.sub(1);if(balanceRecords[account][i].blockNumber<=blockNumber)returnint256(i);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 9
+column: 16
+content: >=
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 9
+column: 25
+content: <
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 24
+column: 4
+content: usingSafeMathforuint256;
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_ERC20_APPROVE :1

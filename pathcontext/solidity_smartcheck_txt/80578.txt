@@ -1,0 +1,350 @@
+F:\Blockchain\dataset_new_byID\80578.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 95
+column: 23
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 96
+column: 23
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 97
+column: 35
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 98
+column: 30
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 99
+column: 28
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 101
+column: 57
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 144
+column: 46
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 145
+column: 43
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 149
+column: 80
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 150
+column: 58
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 185
+column: 65
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 209
+column: 92
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 213
+column: 65
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 224
+column: 4
+content: functiongetOfferInfo(uintoffer_index)constantreturns(uintindex,addressowner,ERC20currency,ERC20asset,uintunits,uintprice,uintbalance,uintnext){index=offer_index;OFFERoffer=offers[offer_index];owner=offer.owner;asset=offer.asset;currency=offer.currency;units=offer.units;price=offer.price;balance=offer.balance;next=link[offer_index][NEXT];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 258
+column: 4
+content: functioncountOffersFrom(Micamica,uintoffer_index)constantreturns(uint){if(offer_index==0)return0;return1+countOffersFrom(mica,mica.link(offer_index,NEXT));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 263
+column: 4
+content: functioncountOffers(Micamica,addresscurrency,addressasset)constantreturns(uintcount){count=countOffersFrom(mica,mica.firstOffer(currency,asset));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 267
+column: 4
+content: functiongetMarketOffer(Micamica,address_currency,address_asset,uint_pos)constantreturns(uintindex,addressowner,ERC20currency,ERC20asset,uintunits,uintprice,uintbalance,uintnext){uintoffer_index=mica.firstOffer(_currency,_asset);while(_pos>0&&offer_index!=0){offer_index=mica.link(offer_index,NEXT);_pos--;}returnmica.getOfferInfo(offer_index);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 288
+column: 4
+content: functiongetUserOffer(Micamica,address_user,uint_pos)constantreturns(uintindex,addressowner,ERC20currency,ERC20asset,uintunits,uintprice,uintbalance,uintnext){returnmica.getOfferInfo(mica.user_offers(_user,_pos));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 304
+column: 4
+content: functionbestOffer(Micamica,address_currency,address_asset,uintminBalance)constantreturns(uintbest){uintoffer_index=mica.firstOffer(_currency,_asset);best=offer_index;uintbest_units;uintbest_price;uintbest_balance;uintcurrent_units;uintcurrent_price;uintcurrent_balance;(,,,,best_units,best_price,best_balance,)=mica.getOfferInfo(offer_index);offer_index=mica.link(offer_index,NEXT);while(offer_index!=0){(,,,,current_units,current_price,current_balance,)=mica.getOfferInfo(offer_index);if(current_price*best_units<best_units.safeMul(current_price)&&current_balance>=minBalance){best=offer_index;(best_units,best_price,best_balance)=(current_units,current_price,current_balance);}offer_index=mica.link(offer_index,NEXT);}if(best_balance<minBalance)best=0;returnbest;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 280
+column: 14
+content: _pos>0&&offer_index!=0
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 95
+column: 8
+content: if(units==0)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 96
+column: 8
+content: if(price==0)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 97
+column: 8
+content: if(currency==address(0))throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 98
+column: 8
+content: if(asset==currency)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 99
+column: 8
+content: if(balance<units)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 101
+column: 8
+content: if(!asset.transferFrom(msg.sender,this,balance))throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 144
+column: 8
+content: if(currency_value<unit_lots_to_buy)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 145
+column: 8
+content: if(asset_value<unit_lots_to_buy)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 149
+column: 8
+content: if(!offer.currency.transferFrom(msg.sender,offer.owner,currency_value))throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 150
+column: 8
+content: if(!offer.asset.transfer(msg.sender,asset_value))throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 185
+column: 12
+content: if(!offer.asset.transfer(offer.owner,offer.balance))throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 209
+column: 12
+content: if(!offers[offer_index].asset.transferFrom(msg.sender,this,additional_balance))throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 213
+column: 12
+content: if(offers[offer_index].balance<additional_balance)throw;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 31
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 256
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 87
+column: 4
+content: functionmakeOffer(ERC20currency,ERC20asset,uintunits,uintprice,uintbalance)returns(boolok){if(units==0)throw;if(price==0)throw;if(currency==address(0))throw;if(asset==currency)throw;if(balance<units)throw;if(!asset.transferFrom(msg.sender,this,balance))throw;OFFERmemoryoffer;offer.owner=msg.sender;offer.currency=currency;offer.asset=asset;offer.units=units;offer.balance=balance;offer.price=price;uintofferIndex=nextOfferIndex();offers[offerIndex]=offer;link[offerIndex][NEXT]=firstOffer[currency][asset];link[firstOffer[currency][asset]][PREV]=offerIndex;firstOffer[currency][asset]=offerIndex;UpdateEvent(offerIndex,currency,asset);user_offers[msg.sender][nextUserOfferIndex(msg.sender)]=offerIndex;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 131
+column: 4
+content: functionbuy(uintoffer_index,uintasset_amount_to_buy)returns(boolok){OFFERoffer=offers[offer_index];if(offer.units==0)return;uintunit_lots_to_buy=asset_amount_to_buy.safeDiv(offer.units).min(offer.balance.safeDiv(offer.units));if(unit_lots_to_buy==0)returnfalse;uintcurrency_value=unit_lots_to_buy.safeMul(offer.price);uintasset_value=unit_lots_to_buy.safeMul(offer.units);if(currency_value<unit_lots_to_buy)throw;if(asset_value<unit_lots_to_buy)throw;offers[offer_index].balance=offers[offer_index].balance.safeSub(asset_value);if(!offer.currency.transferFrom(msg.sender,offer.owner,currency_value))throw;if(!offer.asset.transfer(msg.sender,asset_value))throw;if(offer.balance<offer.units){internalCancelOffer(offer_index);}UpdateEvent(offer_index,offer.currency,offer.asset);FillEvent(offer.currency,offer.asset,currency_value,asset_value,offer.owner,msg.sender);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 193
+column: 4
+content: functioncancelOffer(uintoffer_index)returns(boolok){if(msg.sender==offers[offer_index].owner){internalCancelOffer(offer_index);UpdateEvent(offer_index,offers[offer_index].currency,offers[offer_index].asset);returntrue;}returnfalse;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 205
+column: 4
+content: functionfundOffer(uintoffer_index,uintadditional_balance)returns(boolok){if(msg.sender==offers[offer_index].owner){if(!offers[offer_index].asset.transferFrom(msg.sender,this,additional_balance))throw;offers[offer_index].balance=offers[offer_index].balance+additional_balance;if(offers[offer_index].balance<additional_balance)throw;UpdateEvent(offer_index,offers[offer_index].currency,offers[offer_index].asset);returntrue;}returnfalse;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 224
+column: 4
+content: functiongetOfferInfo(uintoffer_index)constantreturns(uintindex,addressowner,ERC20currency,ERC20asset,uintunits,uintprice,uintbalance,uintnext){index=offer_index;OFFERoffer=offers[offer_index];owner=offer.owner;asset=offer.asset;currency=offer.currency;units=offer.units;price=offer.price;balance=offer.balance;next=link[offer_index][NEXT];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 258
+column: 4
+content: functioncountOffersFrom(Micamica,uintoffer_index)constantreturns(uint){if(offer_index==0)return0;return1+countOffersFrom(mica,mica.link(offer_index,NEXT));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 263
+column: 4
+content: functioncountOffers(Micamica,addresscurrency,addressasset)constantreturns(uintcount){count=countOffersFrom(mica,mica.firstOffer(currency,asset));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 267
+column: 4
+content: functiongetMarketOffer(Micamica,address_currency,address_asset,uint_pos)constantreturns(uintindex,addressowner,ERC20currency,ERC20asset,uintunits,uintprice,uintbalance,uintnext){uintoffer_index=mica.firstOffer(_currency,_asset);while(_pos>0&&offer_index!=0){offer_index=mica.link(offer_index,NEXT);_pos--;}returnmica.getOfferInfo(offer_index);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 288
+column: 4
+content: functiongetUserOffer(Micamica,address_user,uint_pos)constantreturns(uintindex,addressowner,ERC20currency,ERC20asset,uintunits,uintprice,uintbalance,uintnext){returnmica.getOfferInfo(mica.user_offers(_user,_pos));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 304
+column: 4
+content: functionbestOffer(Micamica,address_currency,address_asset,uintminBalance)constantreturns(uintbest){uintoffer_index=mica.firstOffer(_currency,_asset);best=offer_index;uintbest_units;uintbest_price;uintbest_balance;uintcurrent_units;uintcurrent_price;uintcurrent_balance;(,,,,best_units,best_price,best_balance,)=mica.getOfferInfo(offer_index);offer_index=mica.link(offer_index,NEXT);while(offer_index!=0){(,,,,current_units,current_price,current_balance,)=mica.getOfferInfo(offer_index);if(current_price*best_units<best_units.safeMul(current_price)&&current_balance>=minBalance){best=offer_index;(best_units,best_price,best_balance)=(current_units,current_price,current_balance);}offer_index=mica.link(offer_index,NEXT);}if(best_balance<minBalance)best=0;returnbest;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 25
+column: 4
+content: boolconstantNEXT=true;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 4
+content: boolconstantPREV=false;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 4
+content: mapping(uint=>OFFER)offers;
+
+SOLIDITY_VISIBILITY :13
+SOLIDITY_SAFEMATH :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :19
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :13
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

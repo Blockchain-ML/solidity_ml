@@ -1,0 +1,32 @@
+F:\Blockchain\dataset_new_byID\79818.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 9
+column: 0
+content: contractFr8ShipmentisFr8Permissioned,LockedToDataHash,HoldsSensorData{boolpublichasBeenActivated;boolpublichasBeenTerminated;bytes32publicpaymentReceiptsHash;bytes32publicnotificationReceiptsHash;constructor(address_protocolAddress)Fr8Permissioned(_protocolAddress)publicpayable{protocolAddress=_protocolAddress;}eventShipmentActivated(address_sender);eventShipmentTerminated(address_sender);eventPaymentReceiptsHashUpdated(address_sender,bytes32_dataHash);eventNotificationReceiptsHashUpdated(address_sender,bytes32_dataHash);modifierisActive(){require(hasBeenActivated&&!hasBeenTerminated);_;}functionactivate()publiconlyEditor{hasBeenActivated=true;emitShipmentActivated(msg.sender);}functionterminate()publiconlyEditorisActive{hasBeenTerminated=true;emitShipmentTerminated(msg.sender);}functionaddSensorDataUploaders(address[]_uploaders)publiconlyEditorisActive{super.addSensorDataUploaders(_uploaders);}functionremoveSensorDataUploaders(address[]_uploaders)publiconlyEditorisActive{super.removeSensorDataUploaders(_uploaders);}functionsetPaymentReceiptsHash(bytes32_dataHash)publiconlyProtocolisActive{paymentReceiptsHash=_dataHash;emitPaymentReceiptsHashUpdated(msg.sender,_dataHash);}functionsetNotificationReceiptsHash(bytes32_dataHash)publiconlyProtocolisActive{notificationReceiptsHash=_dataHash;emitNotificationReceiptsHashUpdated(msg.sender,_dataHash);}functionsetDataHash(bytes32_dataHash)publiconlyEditorisActive{super.setDataHash(_dataHash);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 52
+column: 34
+content: address[]_uploaders
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 57
+column: 37
+content: address[]_uploaders
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :2

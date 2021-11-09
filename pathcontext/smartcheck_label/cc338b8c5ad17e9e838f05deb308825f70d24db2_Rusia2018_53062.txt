@@ -1,0 +1,92 @@
+C:\Users\hp\DataSet\contracts\ropsten\cc\cc338b8c5ad17e9e838f05deb308825f70d24db2_Rusia2018.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 161
+column: 23
+content: 0x0
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 11
+column: 0
+content: contractRusia2018{structTeam{uint256slug;stringname;uint256goals;uint256played;uint256date;boolstatus;}structCompetitor{addressuser;uint256team;uint256value;uint256date;boolstatusPay;boolstatusTeam;}addresspublicowner;addresspublicAPI;uint256publicEntryPrice;boolpublicstopped=false;mapping(address=>Competitor)publicCompetitors;mapping(uint256=>Team)publicTeams;uint256[]publicteams;address[]publiccompetitors;constructor()public{owner=msg.sender;API=msg.sender;}modifieronlyOwner{require(owner==msg.sender);_;}modifieronlyAPI{require(API==msg.sender);_;}modifierisRunning{require(!stopped);_;}modifiervalidAddress{require(0x0!=msg.sender);_;}functionstop()onlyOwnerpublic{stopped=true;}functionstart()onlyOwnerpublic{stopped=false;}functionsetPrice(uint256_EntryPrice)onlyOwnerisRunningpublicreturns(boolsuccess){EntryPrice=_EntryPrice;returntrue;}functionsetAPI(address_API)onlyOwnerisRunningpublicreturns(boolsuccess){API=_API;returntrue;}functionsetTeam(uint256_slug,string_name)onlyOwnerisRunningpublicreturns(boolsuccess){Teams[_slug].slug=_slug;Teams[_slug].name=_name;Teams[_slug].goals=0;Teams[_slug].played=0;Teams[_slug].status=true;Teams[_slug].date=now;teams.push(_slug);emitTeamEvent(_slug,_name,now);returntrue;}function()payableisRunningvalidAddresspublic{require(owner!=msg.sender);uint256value=msg.value;if(value>=EntryPrice){Competitors[msg.sender].user=msg.sender;Competitors[msg.sender].value=value;Competitors[msg.sender].statusPay=true;Competitors[msg.sender].date=now;competitors.push(msg.sender);emitCompetitorEvent(msg.sender,value,now);}else{revert();}}functioncompetitorExists()internalviewreturns(bool){returnCompetitors[msg.sender].statusPay;}functioncompetitorTeam(uint256_slug)isRunningvalidAddresspublicreturns(boolsuccess){require(competitorExists());Competitors[msg.sender].team=_slug;Competitors[msg.sender].statusTeam=true;emitCompetitorTeamEvent(msg.sender,_slug,now);returntrue;}functioncompetitorPAY(uint256_slug)payableisRunningvalidAddresspublic{require(owner!=msg.sender);uint256value=msg.value;if(value>=EntryPrice){Competitors[msg.sender].user=msg.sender;Competitors[msg.sender].value=value;Competitors[msg.sender].statusPay=true;Competitors[msg.sender].team=_slug;Competitors[msg.sender].statusTeam=true;Competitors[msg.sender].date=now;competitors.push(msg.sender);emitCompetitorEvent(msg.sender,value,now);emitCompetitorTeamEvent(msg.sender,_slug,now);}else{revert();}}functiongetBalance()viewpublicreturns(uint256balance){returnaddress(0x0).balance;}functionlistCompetitors()externalviewreturns(address[]){returncompetitors;}functionlistTeams()externalviewreturns(uint256[]){returnteams;}eventTeamEvent(uint256indexed_slug,stringindexed_name,uint256indexed_date);eventCompetitorEvent(addressindexed_user,uint256indexedindexed<missing ';'>_value,uint256indexed_date);eventCompetitorTeamEvent(addressindexed_user,uint256indexed_team,uint256indexed_date);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 81
+column: 4
+content: functionsetPrice(uint256_EntryPrice)onlyOwnerisRunningpublicreturns(boolsuccess){EntryPrice=_EntryPrice;returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 88
+column: 4
+content: functionsetAPI(address_API)onlyOwnerisRunningpublicreturns(boolsuccess){API=_API;returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 97
+column: 4
+content: functionsetTeam(uint256_slug,string_name)onlyOwnerisRunningpublicreturns(boolsuccess){Teams[_slug].slug=_slug;Teams[_slug].name=_name;Teams[_slug].goals=0;Teams[_slug].played=0;Teams[_slug].status=true;Teams[_slug].date=now;teams.push(_slug);emitTeamEvent(_slug,_name,now);returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 114
+column: 8
+content: if(value>=EntryPrice){Competitors[msg.sender].user=msg.sender;Competitors[msg.sender].value=value;Competitors[msg.sender].statusPay=true;Competitors[msg.sender].date=now;competitors.push(msg.sender);emitCompetitorEvent(msg.sender,value,now);}else{revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 145
+column: 8
+content: if(value>=EntryPrice){Competitors[msg.sender].user=msg.sender;Competitors[msg.sender].value=value;Competitors[msg.sender].statusPay=true;Competitors[msg.sender].team=_slug;Competitors[msg.sender].statusTeam=true;Competitors[msg.sender].date=now;competitors.push(msg.sender);emitCompetitorEvent(msg.sender,value,now);emitCompetitorTeamEvent(msg.sender,_slug,now);}else{revert();}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 111
+column: 47
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 97
+column: 37
+content: string_name
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 176
+column: 73
+content: _value,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 176
+column: 81
+content: uint256indexed_date);
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_OVERPOWERED_ROLE :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :2

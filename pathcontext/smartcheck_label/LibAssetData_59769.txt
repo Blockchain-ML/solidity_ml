@@ -1,0 +1,113 @@
+C:\Users\hp\DataSet\LibAssetData.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 95
+column: 42
+content: (success&&returnData.length==32)?returnData.readAddress(12):address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 132
+column: 66
+content: (IAssetProxy(address(0)).transferFrom.selector,assetData,address(0),address(0),0)
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 19
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 688
+column: 15
+content: if(assetProxyId==IAssetData(address(0)).ERC20Bridge.selector){decodeERC20BridgeAssetData(assetData);}else{revert("WRONG_PROXY_ID");}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 506
+column: 4
+content: functiondecodeERC1155AssetData(bytesmemoryassetData)publicpurereturns(bytes4assetProxyId,addresstokenAddress,uint256[]memorytokenIds,uint256[]memorytokenValues,bytesmemorycallbackData){assetProxyId=assetData.readBytes4(0);require(assetProxyId==IAssetData(address(0)).ERC1155Assets.selector,"WRONG_PROXY_ID");assembly{assetData:=add(assetData,36)tokenAddress:=mload(assetData)tokenIds:=add(assetData,mload(add(assetData,32)))tokenValues:=add(assetData,mload(add(assetData,64)))callbackData:=add(assetData,mload(add(assetData,96)))}return(assetProxyId,tokenAddress,tokenIds,tokenValues,callbackData);}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 348
+column: 16
+content: (uint256balance,uint256allowance)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 363
+column: 16
+content: (uint256[]memorybalances,uint256[]memoryallowances)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 412
+column: 16
+content: (bytes4assetProxyId,addresstokenAddress)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 453
+column: 16
+content: (bytes4assetProxyId,addresstokenAddress,uint256tokenId)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 509
+column: 16
+content: (bytes4assetProxyId,addresstokenAddress,uint256[]memorytokenIds,uint256[]memorytokenValues,bytesmemorycallbackData)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 572
+column: 16
+content: (bytes4assetProxyId,uint256[]memoryamounts,bytes[]memorynestedAssetData)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 623
+column: 16
+content: (bytes4assetProxyId,addressstaticCallTargetAddress,bytesmemorystaticCallData,bytes32expectedReturnDataHash)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 650
+column: 16
+content: (bytes4assetProxyId,addresstokenAddress,addressbridgeAddress,bytesmemorybridgeData)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 714
+column: 63
+content: staticcall(balanceOfData)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 524
+column: 8
+content: assembly{assetData:=add(assetData,36)tokenAddress:=mload(assetData)tokenIds:=add(assetData,mload(add(assetData,32)))tokenValues:=add(assetData,mload(add(assetData,64)))callbackData:=add(assetData,mload(add(assetData,96)))}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_SHOULD_RETURN_STRUCT :8
+SOLIDITY_SHOULD_NOT_BE_PURE :1

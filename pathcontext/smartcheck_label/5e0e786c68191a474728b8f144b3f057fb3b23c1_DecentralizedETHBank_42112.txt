@@ -1,0 +1,175 @@
+C:\Users\hp\DataSet\contracts\ropsten\5e\5e0e786c68191a474728b8f144b3f057fb3b23c1_DecentralizedETHBank.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 270
+column: 8
+content: investorIndex.length++
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 398
+column: 28
+content: investorIndex.length++
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 403
+column: 8
+content: investors[investorAddr].deposits.length++
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 117
+column: 8
+content: for(uinti=0;i<addresses.length;i++){emitTransfer(this,addresses[i],tokens);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 439
+column: 8
+content: for(uinti=0;i<investors[investorAddr].depositsNum;i++){if(!investors[investorAddr].deposits[i].closed&&!checkAndCloseDeposit(investors[investorAddr].deposits[i].depositIndex)){continue;}ds=depositsClosed[investors[investorAddr].deposits[i].depositIndex];if(ds.withdrawed){continue;}uintamountForWithrdraw=ds.amount;amountForWithrdraw=amountForWithrdraw.add(ds.dividents).add(ds.dividentsShares);depositsClosed[investors[investorAddr].deposits[i].depositIndex].withdrawed=true;investorAddr.transfer(amountForWithrdraw);emitNewWithdraw(investorAddr,now,amountForWithrdraw);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 574
+column: 8
+content: for(uinti=0;i<depositsNum;i++){if(i+diff>=depositsNum){deletedeposits[i];continue;}if(diff==0&&(deposits[i].closed||deposits[i].invested==0)){diff++;}if(diff==0)continue;do{if(!deposits[i+diff].closed&&deposits[i+diff].invested>0){deposits[i]=deposits[i+diff];investors[deposits[i].investorAddr].deposits[deposits[i].investorDepositIndex].depositIndex=i;break;}diff++;}while(i+diff<depositsNum);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 117
+column: 8
+content: for(uinti=0;i<addresses.length;i++){emitTransfer(this,addresses[i],tokens);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 88
+column: 0
+content: contractERC20AdToken{stringpublicsymbol;stringpublicname;uint8publicdecimals=0;uint256publictotalSupply;mapping(address=>uint256)publicbalanceOf;eventTransfer(addressindexedfrom,addressindexedto,uinttokens);constructor(string_symbol,string_name)public{symbol=_symbol;name=_name;balanceOf[this]=10000000000;totalSupply=10000000000;emitTransfer(address(0),this,10000000000);}functiontransferToken(addressto,uinttokens)publicreturns(boolsuccess){emitTransfer(this,to,tokens);returntrue;}functionmassTransferTokens(address[]addresses,uinttokens)publicreturns(boolsuccess){for(uinti=0;i<addresses.length;i++){emitTransfer(this,addresses[i],tokens);}returntrue;}function()publicpayable{revert();}}
+
+ruleId: SOLIDITY_MSGVALUE_EQUALS_ZERO
+patternId: 1df89a
+severity: 1
+line: 354
+column: 11
+content: msg.value==0
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 162
+column: 14
+content: private
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 124
+column: 31
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 136
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 276
+column: 4
+content: functionisContract(address_addr)privateviewreturns(bool){_addr.requireNotZero();uint32size;assembly{size:=extcodesize(_addr)}return(size>0);}
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 439
+column: 8
+content: for(uinti=0;i<investors[investorAddr].depositsNum;i++){if(!investors[investorAddr].deposits[i].closed&&!checkAndCloseDeposit(investors[investorAddr].deposits[i].depositIndex)){continue;}ds=depositsClosed[investors[investorAddr].deposits[i].depositIndex];if(ds.withdrawed){continue;}uintamountForWithrdraw=ds.amount;amountForWithrdraw=amountForWithrdraw.add(ds.dividents).add(ds.dividentsShares);depositsClosed[investors[investorAddr].deposits[i].depositIndex].withdrawed=true;investorAddr.transfer(amountForWithrdraw);emitNewWithdraw(investorAddr,now,amountForWithrdraw);}
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: d48ac4
+severity: 2
+line: 467
+column: 16
+content: depositIndex>=0
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 124
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 353
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 101
+column: 16
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 101
+column: 32
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 116
+column: 32
+content: address[]addresses
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 304
+column: 24
+content: string_message
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 312
+column: 27
+content: string_url
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :3
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_UPGRADE_TO_050 :7
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_MSGVALUE_EQUALS_ZERO :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UINT_CANT_BE_NEGATIVE :1
+SOLIDITY_TRANSFER_IN_LOOP :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

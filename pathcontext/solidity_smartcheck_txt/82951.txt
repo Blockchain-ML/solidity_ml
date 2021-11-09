@@ -1,0 +1,48 @@
+F:\Blockchain\dataset_new_byID\82951.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 24
+column: 6
+content: for(uinti=0;i<stakees.length;i++){Stakememorydata=fake_data(activeAmount,stakees[i]);updateCacheOnStake(data);updateCacheOnActivate(data);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 37
+column: 4
+content: functionmock_checkSigsAndStakes(bytes32messageHash,address[]memorysigners,bytes32[]memorysigR,bytes32[]memorysigS,uint8[]memorysigV)viewpublicreturns(uint){checkSigsAndStakes(messageHash,signers,sigR,sigS,sigV);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 24
+column: 6
+content: for(uinti=0;i<stakees.length;i++){Stakememorydata=fake_data(activeAmount,stakees[i]);updateCacheOnStake(data);updateCacheOnActivate(data);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 5
+column: 0
+content: contractXyConsensusMockisXyStakingConsensus{functionfake_data(uintamount,addressstakee)internalviewreturns(Stakememory){Stakememorydata=Stake(amount,block.number,0,stakee,msg.sender,true,false);returndata;}constructor(address[]memorystakees)publicXyStakingConsensus(){uintactiveAmount=1000;for(uinti=0;i<stakees.length;i++){Stakememorydata=fake_data(activeAmount,stakees[i]);updateCacheOnStake(data);updateCacheOnActivate(data);}}functionmock_handleResponses(bytes32[]memory_requests,bytesmemoryresponses)publicreturns(uint){returnhandleResponses(_requests,responses);}functionmock_checkSigsAndStakes(bytes32messageHash,address[]memorysigners,bytes32[]memorysigR,bytes32[]memorysigS,uint8[]memorysigV)viewpublicreturns(uint){checkSigsAndStakes(messageHash,signers,sigR,sigS,sigV);}functionfake_updateCacheOnStake(uintamount,addressstakee)public{updateCacheOnStake(fake_data(amount,stakee));}functionfake_updateCacheOnActivate(uintamount,addressstakee)public{updateCacheOnActivate(fake_data(amount,stakee));}functionsubmitResponse(bytes32requestId,uint8requestType,bytesmemoryresponseData,addresspOnDAddress)publicpayable{XyPayOnDelivery(pOnDAddress).submitResponse(requestId,requestType,responseData);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: >=
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 24
+content: <
+
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

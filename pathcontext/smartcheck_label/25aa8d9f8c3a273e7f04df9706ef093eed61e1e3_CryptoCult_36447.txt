@@ -1,0 +1,168 @@
+C:\Users\hp\DataSet\contracts\ropsten\25\25aa8d9f8c3a273e7f04df9706ef093eed61e1e3_CryptoCult.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 45
+column: 4
+content: owner=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 164
+column: 28
+content: (address(0))
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 121
+column: 0
+content: contractCryptoCultisOwnable{structPlayerInfo{bytes32name;uint256actionEnd;uint256flightEnd;uint16currentCity;uint16[]lastActions;uint16[]lastCities;uint256[]lastRates;uint256globalActionIndex;}structActionInfo{bytes32name;bytes32actionString;stringdesc;uint256power;boolup;uint256duration;uint256cooldown;}structCityInfo{bytes32name;uint256posX;uint256posY;}structFlightInfo{uint256duration;uint256cost;}eventPriceChanged(uint256userId,uint256change,uint256value);eventPlayerAction(uint256userId,uint8action,uint16city);eventPlayerFlight(uint256userId,uint16from,uint16to);eventPlayerScoreUpdate(uint256userId,uint256score);eventPlayerAdded(addressplayer,uint256userId);constructor()public{playerAddresses.push(address(0));scores.push(0);}modifierownerOrSender(addressaddr){require(addr!=address(0));require(addr==msg.sender||msg.sender==owner);_;}modifierownerOrPlayer(uint256playerId){require(playerId>0);require(playerAddresses[playerId]==msg.sender||msg.sender==owner);_;}mapping(uint256=>PlayerInfo)players;mapping(address=>uint256)playerIds;address[]playerAddresses;mapping(uint256=>mapping(uint16=>mapping(uint16=>uint256)))cooldowns;mapping(uint8=>ActionInfo)actions;mapping(uint16=>CityInfo)cities;mapping(uint16=>mapping(uint16=>FlightInfo))flights;mapping(uint16=>uint16[])flightConnections;uint256[]scores;uint8[]actionHistory;uint16_citiesCount;uint8_actionsCount;uint256cETHPrice;functioninnerPlayerFlight(uint256playerId,uint16to,uint256duration)private{require(duration>0);require(playerId>0);require(players[playerId].flightEnd<=block.timestamp);require(players[playerId].actionEnd<=block.timestamp);uint16from=players[playerId].currentCity;players[playerId].currentCity=to;players[playerId].flightEnd=block.timestamp+duration;emitPlayerFlight(playerId,from,to);}functionregisterPlayer(addressplayer,bytes32name)publicownerOrSender(player){uint256playerId=playerIds[player];require(playerId==0);playerId=playerAddresses.length;playerIds[player]=playerId;playerAddresses.push(player);scores.push(0);players[playerId].name=name;players[playerId].actionEnd=0;players[playerId].flightEnd=0;players[playerId].currentCity=1;emitPlayerAdded(player,playerId);}functiongetPlayerId(addressplayer)publicviewreturns(uint256){returnplayerIds[player];}functiongetPlayers()publicviewreturns(address[]){returnplayerAddresses;}functionplayersCount()publicviewreturns(uint256){returnplayerAddresses.length-1;}functionactionsCount()publicviewreturns(uint256){return_actionsCount;}functioncitiesCount()publicviewreturns(uint256){return_citiesCount;}functionplayerFlight(uint256playerId,uint16to)publicownerOrPlayer(playerId){uint16from=players[playerId].currentCity;uint256duration=flights[from][to].duration;innerPlayerFlight(playerId,to,duration);}functionchangeRate(uint256playerId,uint256change)private{cETHPrice+=change;emitPriceChanged(playerId,change,cETHPrice);}functionchangeScore(uint256playerId,uint256change)private{scores[playerId]+=change;emitPlayerScoreUpdate(playerId,scores[playerId]);}functionplayerFastFlight(uint256playerId,uint16to)publicpayableownerOrPlayer(playerId){uint16from=players[playerId].currentCity;FlightInfostorageinfo=flights[from][to];require(info.cost>0);require(msg.value>=info.cost);uint256duration=info.duration;innerPlayerFlight(playerId,to,duration/10);}functiongetReward(uintplayerId)privateviewreturns(uint256){return1;}functionplayerAction(uint256playerId,uint8actionId)publicownerOrPlayer(playerId){PlayerInfostorageplayer=players[playerId];require(player.flightEnd<=block.timestamp);require(player.actionEnd<=block.timestamp);require(cooldowns[playerId][player.currentCity][actionId]<=block.timestamp);require(actionId>0);ActionInfostorageaction=actions[actionId];require(action.duration>0);uint256reward=getReward(playerId);changeScore(playerId,reward);player.actionEnd=block.timestamp+action.duration;cooldowns[playerId][player.currentCity][actionId]=block.timestamp+action.cooldown;player.lastActions.push(actionId);player.lastCities.push(player.currentCity);player.lastRates.push(cETHPrice);player.globalActionIndex=actionHistory.length;actionHistory.push(actionId);uint256power=action.up?action.power:-action.power;changeRate(playerId,power);emitPlayerAction(playerId,actionId,player.currentCity);}functionaddAction(bytes32name,bytes32actionString,stringdesc,uint256power,boolup,uint256duration,uint256cooldown)publiconlyOwner{_actionsCount++;uint8id=_actionsCount;actions[id]=ActionInfo(name,actionString,desc,power,up,duration,cooldown);}functionaddCity(bytes32name,uint256posX,uint256posY)publiconlyOwner{_citiesCount++;uint16id=_citiesCount;cities[id]=CityInfo(name,posX,posY);}functionsetFlight(uint16id1,uint16id2,uint256duration,uint256cost)publiconlyOwner{flights[id1][id2]=FlightInfo(duration,cost);flightConnections[id1].push(id2);}functiongetPrice()publicviewreturns(uint256){returncETHPrice;}functiongetFlightConnections(uint16cityId)publicviewreturns(uint16[]){returnflightConnections[cityId];}functiongetPlayer(uint256playerId)publicviewreturns(bytes32,uint256,uint256,uint16){PlayerInfostorageplayer=players[playerId];return(player.name,player.actionEnd,player.flightEnd,player.currentCity);}functiongetCity(uint16cityId)publicviewreturns(bytes32,uint256,uint256){CityInfostorageinfo=cities[cityId];return(info.name,info.posX,info.posY);}functiongetAction(uint8actionId)publicviewreturns(bytes32,bytes32,string,uint256,bool,uint256,uint256){ActionInfostorageaction=actions[actionId];return(action.name,action.actionString,action.desc,action.power,action.up,action.duration,action.cooldown);}functiongetFlight(uint16id1,uint16id2)publicviewreturns(uint256,uint256){FlightInfostorageflightInfo=flights[id1][id2];return(flightInfo.duration,flightInfo.cost);}functiongetScores()publicviewreturns(uint256[]){returnscores;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 354
+column: 4
+content: functionsetFlight(uint16id1,uint16id2,uint256duration,uint256cost)publiconlyOwner{flights[id1][id2]=FlightInfo(duration,cost);flightConnections[id1].push(id2);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 249
+column: 47
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 338
+column: 59
+content: stringdesc
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 367
+column: 70
+content: uint16[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 383
+column: 78
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 396
+column: 46
+content: uint256[]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 182
+column: 4
+content: mapping(uint256=>PlayerInfo)players;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 183
+column: 4
+content: mapping(address=>uint256)playerIds;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 184
+column: 4
+content: address[]playerAddresses;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 186
+column: 4
+content: mapping(uint256=>mapping(uint16=>mapping(uint16=>uint256)))cooldowns;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 189
+column: 4
+content: mapping(uint8=>ActionInfo)actions;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 190
+column: 4
+content: mapping(uint16=>CityInfo)cities;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 191
+column: 4
+content: mapping(uint16=>mapping(uint16=>FlightInfo))flights;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 192
+column: 4
+content: mapping(uint16=>uint16[])flightConnections;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 193
+column: 4
+content: uint256[]scores;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 195
+column: 4
+content: uint8[]actionHistory;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 197
+column: 4
+content: uint16_citiesCount;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 198
+column: 4
+content: uint8_actionsCount;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 202
+column: 4
+content: uint256cETHPrice;
+
+SOLIDITY_VISIBILITY :13
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :5

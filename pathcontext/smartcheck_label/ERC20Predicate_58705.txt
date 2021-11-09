@@ -1,0 +1,302 @@
+C:\Users\hp\DataSet\ERC20Predicate.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 31
+column: 40
+content: 0x2e1a7d4d
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 33
+column: 40
+content: 0xa9059cbb
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 79
+column: 20
+content: 0x0
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 16
+column: 0
+content: contractERC20PredicateisIErcPredicate{usingRLPReaderforbytes;usingRLPReaderforRLPReader.RLPItem;usingSafeMathforuint256;bytes32constantDEPOSIT_EVENT_SIG=0x4e2ca0515ed1aef1395f66b5303bb5d6f1bf9d61a353fa53f73f8ac9973fa9f6;bytes32constantWITHDRAW_EVENT_SIG=0xebff2602b3f468259e1e99f613fed6691f3a6526effe6ef3e768ba7ae7a36c4f;bytes32constantLOG_TRANSFER_EVENT_SIG=0xe6497e3ee548a3372136af2fcb0696db31fc6cf20260707645068bd3fe97f3c4;bytes32constantLOG_FEE_TRANSFER_EVENT_SIG=0x4dfe1bbbcf077ddc3e01291eea2d5c70c2b422b415d95645b9adcfd678cb1d63;bytes4constantWITHDRAW_FUNC_SIG=0x2e1a7d4d;bytes4constantTRANSFER_FUNC_SIG=0xa9059cbb;Registryregistry;constructor(address_withdrawManager,address_depositManager,address_registry)publicIErcPredicate(_withdrawManager,_depositManager){registry=Registry(_registry);}functionstartExitWithBurntTokens(bytescalldatadata)external{RLPReader.RLPItem[]memoryreferenceTxData=data.toRlpItem().toList();bytesmemoryreceipt=referenceTxData[6].toBytes();RLPReader.RLPItem[]memoryinputItems=receipt.toRlpItem().toList();uint256logIndex=referenceTxData[9].toUint();require(logIndex<MAX_LOGS,"Supporting a max of 10 logs");uint256age=withdrawManager.verifyInclusion(data,0,false);inputItems=inputItems[3].toList()[logIndex].toList();addresschildToken=RLPReader.toAddress(inputItems[0]);bytesmemorylogData=inputItems[2].toBytes();inputItems=inputItems[1].toList();require(bytes32(inputItems[0].toUint())==WITHDRAW_EVENT_SIG,"Not a withdraw event signature");addressrootToken=address(RLPReader.toUint(inputItems[1]));require(msg.sender==address(inputItems[2].toUint()),"Withdrawer and burn exit tx do not match");uint256exitAmount=BytesLib.toUint(logData,0);withdrawManager.addExitToQueue(msg.sender,childToken,rootToken,exitAmount,bytes32(0x0),true,age<<1);}functionstartExitForOutgoingErc20Transfer(bytescalldatadata,bytescalldataexitTx)externalpayableisBondProvidedreturns(address,uint256){RLPReader.RLPItem[]memoryreferenceTx=data.toRlpItem().toList();ExitTxDatamemoryexitTxData=processExitTx(exitTx);require(exitTxData.signer==msg.sender,"Should be an outgoing transfer");ReferenceTxDatamemoryreferenceTxData=processReferenceTx(referenceTx[6].toBytes(),referenceTx[9].toUint(),msg.sender,false);require(exitTxData.childToken==referenceTxData.childToken,"Reference and exit tx do not correspond to the same child token");exitTxData.amountOrToken=validateSequential(exitTxData,referenceTxData);referenceTxData.age=withdrawManager.verifyInclusion(data,0,false).add(referenceTxData.age);sendBond();uint256exitId=referenceTxData.age<<1;exitId|=1;withdrawManager.addExitToQueue(msg.sender,referenceTxData.childToken,referenceTxData.rootToken,exitTxData.amountOrToken,exitTxData.txHash,false,exitId);withdrawManager.addInput(exitId,referenceTxData.age,msg.sender,referenceTxData.rootToken);return(referenceTxData.rootToken,exitTxData.amountOrToken);}functionstartExitForIncomingErc20Transfer(bytescalldatadata,bytescalldataexitTx)externalpayableisBondProvidedreturns(address,uint256){RLPReader.RLPItem[]memoryreferenceTx=data.toRlpItem().toList();ExitTxDatamemoryexitTxData=processExitTx(exitTx);require(exitTxData.signer!=msg.sender,"Should be an incoming transfer");ReferenceTxDatamemoryreferenceTxData=processReferenceTx(referenceTx[6].toBytes(),referenceTx[9].toUint(),exitTxData.signer,false);require(exitTxData.childToken==referenceTxData.childToken,"Reference and exit tx do not correspond to the same child token");exitTxData.amountOrToken=validateSequential(exitTxData,referenceTxData);referenceTxData.age=withdrawManager.verifyInclusion(data,0,false).add(referenceTxData.age);ReferenceTxDatamemory_referenceTxData;if(referenceTx.length>10){_referenceTxData=processReferenceTx(referenceTx[16].toBytes(),referenceTx[19].toUint(),msg.sender,false);require(_referenceTxData.childToken==referenceTxData.childToken,"child tokens in the referenced txs do not match");require(_referenceTxData.rootToken==referenceTxData.rootToken,"root tokens in the referenced txs do not match");_referenceTxData.age=withdrawManager.verifyInclusion(data,10,false).add(_referenceTxData.age);}sendBond();uint256exitId=Math.max(referenceTxData.age,_referenceTxData.age)<<1;withdrawManager.addExitToQueue(msg.sender,referenceTxData.childToken,referenceTxData.rootToken,exitTxData.amountOrToken.add(_referenceTxData.closingBalance),exitTxData.txHash,false,exitId);withdrawManager.addInput(exitId,referenceTxData.age,exitTxData.signer,referenceTxData.rootToken);withdrawManager.addInput(exitId,_referenceTxData.age,msg.sender,referenceTxData.rootToken);return(referenceTxData.rootToken,exitTxData.amountOrToken.add(_referenceTxData.closingBalance));}functionverifyDeprecation(bytescalldataexit,bytescalldata<missing ')'>inputUtxo,bytescalldatachallengeData)externalreturns<missing ';'>(bool){PlasmaExitmemory_exit=decodeExit(exit);(uint256<missing ')'>age,addresssigner,,addresschildToken)=decodeInputUtxo(inputUtxo);RLPReader.RLPItem[]memory_challengeData=challengeData.toRlpItem().toList();ExitTxDatamemorychallengeTxData=processChallengeTx(_challengeData[10].toBytes());require(challengeTxData.signer==signer,"Challenge tx not signed by the party who signed the input UTXO to the exit");ReferenceTxDatamemoryreferenceTxData=processReferenceTx(_challengeData[6].toBytes(),_challengeData[9].toUint(),challengeTxData.signer,true);referenceTxData.age=withdrawManager.verifyInclusion(challengeData,0,true).add(referenceTxData.age);require(referenceTxData.childToken==childToken&&challengeTxData.childToken==childToken,"LogTransferReceipt, challengeTx token and challenged utxo token do not match");if(referenceTxData.age<age){require(_exit.txHash==challengeTxData.txHash,"Cannot challenge with the exit tx");}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 19
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 109
+column: 16
+content: (address,uint256)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 202
+column: 16
+content: (address,uint256)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 155
+column: 8
+content: sendBond()
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 272
+column: 8
+content: sendBond()
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 325
+column: 4
+content: functionverifyDeprecation(bytescalldataexit,bytescalldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 22
+column: 4
+content: bytes32constantDEPOSIT_EVENT_SIG=0x4e2ca0515ed1aef1395f66b5303bb5d6f1bf9d61a353fa53f73f8ac9973fa9f6;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 24
+column: 4
+content: bytes32constantWITHDRAW_EVENT_SIG=0xebff2602b3f468259e1e99f613fed6691f3a6526effe6ef3e768ba7ae7a36c4f;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 4
+content: bytes32constantLOG_TRANSFER_EVENT_SIG=0xe6497e3ee548a3372136af2fcb0696db31fc6cf20260707645068bd3fe97f3c4;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 4
+content: bytes32constantLOG_FEE_TRANSFER_EVENT_SIG=0x4dfe1bbbcf077ddc3e01291eea2d5c70c2b422b415d95645b9adcfd678cb1d63;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 31
+column: 4
+content: bytes4constantWITHDRAW_FUNC_SIG=0x2e1a7d4d;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 33
+column: 4
+content: bytes4constantTRANSFER_FUNC_SIG=0xa9059cbb;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 4
+content: Registryregistry;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 327
+column: 23
+content: inputUtxo,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 328
+column: 8
+content: bytescalldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 329
+column: 23
+content: (bool){PlasmaExitmemory
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 330
+column: 26
+content: _exit=decodeExit
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 330
+column: 44
+content: (exit);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 331
+column: 8
+content: (uint256<missing ')'>age,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 331
+column: 22
+content: addresssigner,,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 331
+column: 40
+content: addresschildToken)=decodeInputUtxo(inputUtxo);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 334
+column: 8
+content: RLPReader.RLPItem[]memory_challengeData=challengeData.toRlpItem().toList();
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 337
+column: 8
+content: ExitTxDatamemorychallengeTxData=processChallengeTx(_challengeData[10].toBytes());
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 340
+column: 8
+content: require(challengeTxData.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 341
+column: 28
+content: signer==signer,"Challenge tx not signed by the party who signed the input UTXO to the exit");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 346
+column: 8
+content: ReferenceTxDatamemoryreferenceTxData=processReferenceTx(_challengeData[6].toBytes(),_challengeData[9].toUint(),challengeTxData.signer,true);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 352
+column: 8
+content: referenceTxData.age=withdrawManager.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 353
+column: 13
+content: verifyInclusion(challengeData,0,true).
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 358
+column: 13
+content: add(referenceTxData.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 358
+column: 33
+content: age);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 359
+column: 8
+content: require(referenceTxData.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 360
+column: 28
+content: childToken==childToken&&
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 361
+column: 16
+content: challengeTxData.childToken==childToken,"LogTransferReceipt, challengeTx token and challenged utxo token do not match");if
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 364
+column: 11
+content: (referenceTxData.age<age){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 367
+column: 12
+content: require(_exit.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 368
+column: 22
+content: txHash==challengeTxData.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 368
+column: 48
+content: txHash,"Cannot challenge with the exit tx");
+
+SOLIDITY_VISIBILITY :32
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_UNCHECKED_CALL :2
+SOLIDITY_SHOULD_RETURN_STRUCT :2

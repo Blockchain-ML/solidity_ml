@@ -1,0 +1,17 @@
+F:\Blockchain\dataset_new_byID\79645.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractEventContract{structEvent{addressadmin;stringname;uintdate;uintprice;uintticketCount;uintticketRemaining;}mapping(uint=>Event)publicevents;mapping(address=>mapping(uint=>uint))publictickets;uintpublicnextId;functioncreateEvent(stringcalldataname,uintdate,uintprice,uintticketCount)external{require(date>now,'can only organize event at a future date');require(ticketCount>0,'can only organize event with at least 1 ticket');events[nextId]=Event(msg.sender,name,date,price,ticketCount,ticketCount);nextId++;}functionbuyTicket(uintid,uintquantity)eventExist(id)eventActive(id)payableexternal{Eventstorage_event=events[id];require(_event.date!=0,'this event does not exist');require(now<_event.date,'this event is not active anymore');require(msg.value==(_event.price*quantity),'ether sent must be equal to total ticket cost');require(_event.ticketRemaining>=quantity,'not enough ticket left');_event.ticketRemaining-=quantity;tickets[msg.sender][id]+=quantity;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

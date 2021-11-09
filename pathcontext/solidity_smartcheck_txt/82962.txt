@@ -1,0 +1,122 @@
+F:\Blockchain\dataset_new_byID\82962.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 268
+column: 8
+content: addresslastStakee=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 373
+column: 8
+content: addresslastStakee=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 94
+column: 19
+content: 0x0
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 397
+column: 8
+content: bondStakes[bondId].length--
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 222
+column: 8
+content: for(uinti=0;i<_requests.length;i++){Requeststorageq=requestsById[_requests[i]];require(q.createdAt>0,"Passed a request that does not exist");require(q.responseBlockNumber==0,"Response already submitted");uintnumBytes=q.requestType==uint8(IXyRequester.RequestType.BOOL_CALLBACK)||q.requestType==uint8(IXyRequester.RequestType.BOOL)?1:32;q.responseBlockNumber=numBlocks().add(1);weiMining=weiMining.add(q.weiMining);if(q.requestType==uint8(IXyRequester.RequestType.WITHDRAW)){uintamount=_toUintFromBytes(responses,byteOffset,numBytes);require(amount<=totalStakeAndUnstake(q.requestSender),"Withdraw amount more than total staker's stake");emitWithdrawClaimed(q.requestSender,amount,totalStakeAndUnstake(q.requestSender));SafeERC20.transfer(xyoToken,q.requestSender,amount);}else{bytesmemoryresult=newbytes(numBytes);for(uintj=0;j<numBytes;j++){result[j]=responses[byteOffset+j];}if(q.requestType==uint8(IXyRequester.RequestType.BOOL_CALLBACK)||q.requestType==uint8(IXyRequester.RequestType.UINT_CALLBACK)){IXyRequester(q.requestSender).submitResponse(_requests[i],q.requestType,result);}emitResponse(_requests[i],q.responseBlockNumber,_toUintFromBytes(result,0,numBytes),q.requestType);}byteOffset+=numBytes;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 270
+column: 8
+content: for(uinti=0;i<signers.length;i++){addresssigner=ecrecover(prefixedHash,sigV[i],sigR[i],sigS[i]);require(signers[i]>lastStakee,"Signers array must be ascending");lastStakee=signers[i];require(signers[i]==signer,"Signature mis-match");stake=stake.add(stakeeStake[lastStakee].activeStake);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 374
+column: 8
+content: for(uinti=0;i<stakees.length;i++){require(stakees[i]>lastStakee,"Stakees array must be unique and ascending");lastStakee=stakees[i];bytes32stakingId=stakeFrom(issuer,staker,stakees[i],amounts[i]);bondedStake[stakingId]=bondId;bondStakeIndex[stakingId]=bondStakes[bondId].length;bondStakes[bondId].push(stakingId);_activateStake(stakingId,blockProducerContract.exists(stakees[i])!=true);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 222
+column: 8
+content: for(uinti=0;i<_requests.length;i++){Requeststorageq=requestsById[_requests[i]];require(q.createdAt>0,"Passed a request that does not exist");require(q.responseBlockNumber==0,"Response already submitted");uintnumBytes=q.requestType==uint8(IXyRequester.RequestType.BOOL_CALLBACK)||q.requestType==uint8(IXyRequester.RequestType.BOOL)?1:32;q.responseBlockNumber=numBlocks().add(1);weiMining=weiMining.add(q.weiMining);if(q.requestType==uint8(IXyRequester.RequestType.WITHDRAW)){uintamount=_toUintFromBytes(responses,byteOffset,numBytes);require(amount<=totalStakeAndUnstake(q.requestSender),"Withdraw amount more than total staker's stake");emitWithdrawClaimed(q.requestSender,amount,totalStakeAndUnstake(q.requestSender));SafeERC20.transfer(xyoToken,q.requestSender,amount);}else{bytesmemoryresult=newbytes(numBytes);for(uintj=0;j<numBytes;j++){result[j]=responses[byteOffset+j];}if(q.requestType==uint8(IXyRequester.RequestType.BOOL_CALLBACK)||q.requestType==uint8(IXyRequester.RequestType.UINT_CALLBACK)){IXyRequester(q.requestSender).submitResponse(_requests[i],q.requestType,result);}emitResponse(_requests[i],q.responseBlockNumber,_toUintFromBytes(result,0,numBytes),q.requestType);}byteOffset+=numBytes;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 270
+column: 8
+content: for(uinti=0;i<signers.length;i++){addresssigner=ecrecover(prefixedHash,sigV[i],sigR[i],sigS[i]);require(signers[i]>lastStakee,"Signers array must be ascending");lastStakee=signers[i];require(signers[i]==signer,"Signature mis-match");stake=stake.add(stakeeStake[lastStakee].activeStake);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 374
+column: 8
+content: for(uinti=0;i<stakees.length;i++){require(stakees[i]>lastStakee,"Stakees array must be unique and ascending");lastStakee=stakees[i];bytes32stakingId=stakeFrom(issuer,staker,stakees[i],amounts[i]);bondedStake[stakingId]=bondId;bondStakeIndex[stakingId]=bondStakes[bondId].length;bondStakes[bondId].push(stakingId);_activateStake(stakingId,blockProducerContract.exists(stakees[i])!=true);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: >=
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 24
+content: <
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 9
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 200
+column: 4
+content: function_toUintFromBytes(bytesmemory_bytes,uint_start,uintbytesLen)privatepurereturns(uint256){require(_bytes.length>=(_start+bytesLen));uint256tempUint;assembly{tempUint:=mload(add(add(_bytes,0x20),_start))}returntempUint;}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 321
+column: 16
+content: (bytes32previousBlock,bytes32supportingData,uintstakingBlock,uintcreatedAt,addresscreator)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 204
+column: 8
+content: assembly{tempUint:=mload(add(add(_bytes,0x20),_start))}
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

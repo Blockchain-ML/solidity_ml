@@ -1,0 +1,40 @@
+C:\Users\hp\DataSet\Trade.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 345
+column: 0
+content: contractTradeisKyber,Uniswap{functiongetRateFromSrc(addresssrc,addressdest,uintsrcAmt)publicviewreturns(uint,uint){uintuniswapRate=getExpectedRateSrcUniswap(src,dest,srcAmt);uintkyberRate=getExpectedRateKyber(src,dest,srcAmt);if(uniswapRate>kyberRate){return(uniswapRate,1);}else{return(kyberRate,2);}}functiontradeFromSrc(addresssrc,uintsrcAmt,addressdest,uintminDestAmt,uintdexNum)publicpayablereturns(uint){addresseth=_getAddress("eth");if(dexNum==1){if(src==eth){returntradeSrcUniswap(src,srcAmt,dest,minDestAmt,now+10000000);}else{_allowanceApproveUniswap(src);returntradeSrcUniswap(src,srcAmt,dest,minDestAmt,now+10000000);}}else{if(src==eth){returntradeSrcKyber(src,srcAmt,dest,minDestAmt);}else{_allowanceApproveKyber(src);returntradeSrcKyber(src,srcAmt,dest,minDestAmt);}}}functiontradeFromDest(addresssrc,uintmaxSrcAmt,addressdest,uintdestAmt,uintdexNum)publicpayablereturns(uint){addresseth=_getAddress("eth");if(dexNum==1){if(src==eth){returntradeDestUniswap(src,maxSrcAmt,dest,destAmt,now+10000000);}else{_allowanceApproveUniswap(src);returntradeDestUniswap(src,maxSrcAmt,dest,destAmt,now+10000000);}}else{if(src==eth){returntradeDestKyber(src,maxSrcAmt,dest,destAmt);}else{_allowanceApproveKyber(src);returntradeDestKyber(src,maxSrcAmt,dest,destAmt);}}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 88
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 23
+column: 91
+content: (uint,uint)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 346
+column: 88
+content: (uint,uint)
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_SHOULD_RETURN_STRUCT :2

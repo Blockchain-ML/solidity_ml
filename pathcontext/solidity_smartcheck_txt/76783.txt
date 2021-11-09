@@ -1,0 +1,561 @@
+F:\Blockchain\dataset_new_byID\76783.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 163
+column: 0
+content: contractCrowdsaleisReentrancyGuard{usingSafeMathforuint256;usingSafeERC20forIERC20;IERC20private_token;addresspayableprivate_wallet;uint256private_rate;uint256private_weiRaised;eventTokensPurchased(addressindexedpurchaser,addressindexedbeneficiary,uint256value,uint256amount);constructor(uint256rate,address<missing ')'>payablewallet,IERC20token)public{require(rate>0);require(wallet!=<missing ';'>address(0));require(address<missing ';'>(token)!=address(0));_rate=rate;_wallet=wallet;_token=token;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 409
+column: 0
+content: contractEscrowisSecondary{usingSafeMathforuint256;eventDeposited(addressindexedpayee,uint256weiAmount);eventWithdrawn(addressindexedpayee,uint256weiAmount);mapping(address=>uint256)private_deposits;functiondepositsOf(addresspayee)publicviewreturns(uint256){return_deposits[payee];}functiondeposit(addresspayee)publiconlyPrimarypayable{uint256amount=msg.value;_deposits[payee]=_deposits[payee].add(amount);emitDeposited(payee,amount);}functionwithdraw(addresspayablepayee)publiconlyPrimary{uint256payment=_deposits[payee];_deposits[payee]=0;payee.transfer(payment);emitWithdrawn(payee,payment);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 442
+column: 0
+content: contractConditionalEscrowisEscrow{functionwithdrawalAllowed(addresspayee)publicviewreturns(bool);functionwithdraw(addresspayablepayee)public{require(withdrawalAllowed<missing ';'>(payee));super.withdraw(payee);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 453
+column: 0
+content: contractRefundEscrowisConditionalEscrow{enumState{Active,Refunding,Closed}eventRefundsClosed();eventRefundsEnabled();Stateprivate_state;addresspayableprivate_beneficiary;constructor(addresspayablebeneficiary)public{require(beneficiary!=<missing ';'>address(0));_beneficiary=beneficiary;_state=State.Active;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 512
+column: 0
+content: contractRefundableCrowdsaleisFinalizableCrowdsale{usingSafeMathforuint256;uint256private_goal;RefundEscrowprivate_escrow;constructor(uint256goal)public{require(goal>0);_escrow=newRefundEscrow(wallet());_goal=goal;}functiongoal()publicviewreturns(uint256){return_goal;}functionclaimRefund(addresspayablerefundee)public{require(finalized());require(!goalReached());_escrow.withdraw(refundee);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 564
+column: 0
+content: contractRefundableCrowdsaleImplisRefundableCrowdsale{constructor(uint256openingTime,uint256closingTime,uint256rate,address<missing ')'>payablewallet,IERC20token,uint256goal)publicCrowdsale(rate,wallet,token)TimedCrowdsale(openingTime,closingTime)RefundableCrowdsale(goal){}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 145
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 168
+column: 11
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 171
+column: 20
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 177
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 180
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 282
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 283
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 345
+column: 9
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 377
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 415
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 459
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 460
+column: 20
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 516
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 519
+column: 17
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 91
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 164
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 280
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 343
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 410
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 513
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 75
+column: 4
+content: functionisContract(addressaccount)internalviewreturns(bool){uint256size;assembly{size:=extcodesize(account)}returnsize>0;}
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 95
+column: 8
+content: callOptionalReturn(token,abi.encodeWithSelector(token.transfer.selector,to,value))
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 99
+column: 8
+content: callOptionalReturn(token,abi.encodeWithSelector(token.transferFrom.selector,from,to,value))
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 107
+column: 8
+content: callOptionalReturn(token,abi.encodeWithSelector(token.approve.selector,spender,value))
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 112
+column: 8
+content: callOptionalReturn(token,abi.encodeWithSelector(token.approve.selector,spender,newAllowance))
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 117
+column: 8
+content: callOptionalReturn(token,abi.encodeWithSelector(token.approve.selector,spender,newAllowance))
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 133
+column: 65
+content: call(data)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 186
+column: 4
+content: constructor(uint256rate,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 430
+column: 4
+content: functionwithdraw(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 446
+column: 4
+content: functionwithdraw(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 463
+column: 4
+content: constructor(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 534
+column: 4
+content: functionclaimRefund(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 565
+column: 4
+content: constructor(uint256openingTime,uint256closingTime,uint256rate,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 186
+column: 47
+content: wallet,IERC20
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 187
+column: 15
+content: (rate>0);require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 188
+column: 15
+content: (wallet!=<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 188
+column: 26
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 188
+column: 33
+content: (0));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 189
+column: 8
+content: require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 189
+column: 15
+content: (address<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 189
+column: 23
+content: (token)!=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 189
+column: 34
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 189
+column: 41
+content: (0));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 191
+column: 8
+content: _rate=rate;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 192
+column: 8
+content: _wallet=wallet;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 193
+column: 8
+content: _token=token;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 431
+column: 8
+content: uint256payment=_deposits[payee];
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 433
+column: 8
+content: _deposits[payee]=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 435
+column: 8
+content: payee.transfer(payment);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 437
+column: 8
+content: emitWithdrawn
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 437
+column: 22
+content: (payee,payment);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 447
+column: 15
+content: (withdrawalAllowed<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 447
+column: 33
+content: (payee));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 448
+column: 8
+content: super.withdraw(payee);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 464
+column: 15
+content: (beneficiary!=<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 464
+column: 31
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 464
+column: 38
+content: (0));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 465
+column: 8
+content: _beneficiary=beneficiary;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 466
+column: 8
+content: _state=State.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 466
+column: 23
+content: Active;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 535
+column: 15
+content: (finalized());
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 536
+column: 8
+content: require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 536
+column: 15
+content: (!goalReached());
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 538
+column: 8
+content: _escrow.withdraw(refundee);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 569
+column: 24
+content: wallet,IERC20
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 570
+column: 15
+content: token,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 571
+column: 8
+content: uint256goal)public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 574
+column: 8
+content: Crowdsale(rate,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 574
+column: 24
+content: wallet,token)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 575
+column: 8
+content: TimedCrowdsale(openingTime,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 575
+column: 36
+content: closingTime)RefundableCrowdsale
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 576
+column: 27
+content: (goal){
+
+SOLIDITY_VISIBILITY :45
+SOLIDITY_SAFEMATH :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :6
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :14
+SOLIDITY_UNCHECKED_CALL :6
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

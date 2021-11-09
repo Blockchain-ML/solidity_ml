@@ -1,0 +1,48 @@
+F:\Blockchain\dataset_new_byID\76372.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 42
+column: 8
+content: ownerIDs.length=MAX_LENGTH
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 43
+column: 8
+content: approvedIDs.length=MAX_LENGTH
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 100
+column: 15
+content: tokenId.div(batchSize).mul(batchSize)
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 183
+column: 4
+content: functionapprove(addressto,uint256tokenId)public{addressowner=ownerOf(tokenId);require(to!=owner,"BT: approval to current owner");require(msg.sender==owner||isApprovedForAll(owner,msg.sender),"BT: approve caller is not owner nor approved for all");approvedIDs[tokenId]=_getUserID(to);emitApproval(owner,to,tokenId);}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 8
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 103
+column: 57
+content: (uint48userID,uint16size)
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :2
+SOLIDITY_DIV_MUL :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_ERC20_APPROVE :1

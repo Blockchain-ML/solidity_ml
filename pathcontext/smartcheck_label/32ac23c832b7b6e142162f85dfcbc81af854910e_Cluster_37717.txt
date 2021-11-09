@@ -1,0 +1,339 @@
+C:\Users\hp\DataSet\contracts\ropsten\32\32ac23c832b7b6e142162f85dfcbc81af854910e_Cluster.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 939
+column: 21
+content: disputes.length++
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 980
+column: 8
+content: for(uint8i=0;i<_necessaryVoices;i++){if(_disputes[disputeId].votes[i].choice==Choice.INVESTORWINS){votesForInvestor++;}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 1075
+column: 4
+content: functionaddCrowdsale(uint256rate,addresstoken,uint256openingTime,uint256closingTime)publicreturns(address){require(_usersContracts[msg.sender]==address(0),&39<missing ')'>;addCrowdsale:thesender<missing ';'>alreadyhas<missing ';'>acrowdsale
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1012
+column: 8
+content: for(uint8i=0;i<disputesLength;i++){disputesIDs[i]=_disputesByMilestone[milestoneHash][i];}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 345
+column: 0
+content: contractCrowdsaleisReentrancyGuard,ClusterRole{usingSafeMathforuint256;usingSafeERC20forIERC20;IERC20private_token;uint256private_rate;uint256private_weiRaised;uint256private_tokensSold;structInvestor{uint256eth;uint256tokens;}mapping(address=>Investor)internal_balances;eventDeposited(addressindexedbeneficiary,uint256weiAmount,uint256tokensAmount);eventEthTransfered(addressindexedbeneficiary,uint256weiAmount);eventTokensTransfered(addressindexedbeneficiary,uint256tokensAmount);constructor(uint256rate,addresstoken)public{_rate=rate;_token=IERC20(token);}function()externalpayable{buyTokens(msg.sender);}functionbuyTokens(addressbeneficiary)publicnonReentrantpayable{uint256weiAmount=msg.value;_preValidatePurchase(beneficiary,weiAmount);uint256tokens=_calculateTokensAmount(weiAmount);_processPurchase(beneficiary,weiAmount,tokens);emitDeposited(beneficiary,weiAmount,tokens);}function_preValidatePurchase(addressbeneficiary,uint256weiAmount)internalview{require(weiAmount!=0,"_preValidatePurchase: amount should be bigger then 0");require(beneficiary!=address(0),"_preValidatePurchase: invalid beneficiary address");}function_calculateTokensAmount(uint256weiAmount)internalviewreturns(uint256){returnweiAmount.mul(_rate);}function_processPurchase(addressbeneficiary,uint256weiAmount,uint256tokenAmount)internal{_weiRaised=_weiRaised.add(weiAmount);_tokensSold=_tokensSold.add(tokenAmount);_balances[beneficiary].eth=_balances[beneficiary].eth.add(weiAmount);_balances[beneficiary].tokens=_balances[beneficiary].tokens.add(tokenAmount);}function_withdrawTokens(addressbeneficiary,uint256amount)internal{_token.safeTransfer(beneficiary,amount);emitTokensTransfered(beneficiary,amount);}function_withdrawEther(addresspayablebeneficiary,uint256amount)internal{beneficiary.transfer(amount);emitEthTransfered(beneficiary,amount);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 583
+column: 0
+content: contractResponsibleCrowdsaleisTimedCrowdsale{addresspayableprivate_user;boolprivate_milestonesSetted;uint256private_milestonesAmount;uint256private_approvedMilestones;uint256private_withdrawProcent;uint256privateconstant_timeForWaiting=3days;uint256privateconstant_maxMilestonesAmount=20;enumMilestoneStatus{PENDING,SUBMITED,APPROVED}structDisputeState{uint256activeDisputes;mapping(address=>bool)isAddressOpenedDispute;mapping(address=>bool)isAddressWinDispute;address[]winnedAddressList;}structMilestone{bytes32name;uint256finishTimestamp;uint256submitTimestamp;MilestoneStatusstatus;DisputeStatedisputes;boolvalidHash;mapping(address=>bool)userWasWithdrawn;}mapping(uint256=>bytes32)private_milestones;mapping(bytes32=>Milestone)private_milestoneDetails;constructor(uint256rate,addresstoken,uint256openingTime,uint256closingTime,address<missing ')'>payablecrowdsaleOwner)publicTimedCrowdsale(rate,token,openingTime,closingTime){_user=crowdsaleOwner;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 6
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 112
+column: 20
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 272
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 298
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 349
+column: 11
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 351
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 352
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 353
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 516
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 517
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 584
+column: 20
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 586
+column: 9
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 588
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 589
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 590
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 591
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 592
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 614
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 617
+column: 34
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 856
+column: 15
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 905
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 906
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 911
+column: 13
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 928
+column: 34
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 929
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 1031
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 1033
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 1035
+column: 18
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 233
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 346
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 456
+column: 4
+content: function_withdrawEther(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 619
+column: 4
+content: constructor(uint256rate,addresstoken,uint256openingTime,uint256closingTime,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 456
+column: 44
+content: beneficiary,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 456
+column: 57
+content: uint256amount)internal{
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 457
+column: 8
+content: beneficiary.transfer(amount);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 458
+column: 8
+content: emitEthTransfered
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 458
+column: 26
+content: (beneficiary,amount);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 620
+column: 25
+content: (rate,token,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 620
+column: 39
+content: openingTime,closingTime){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 621
+column: 8
+content: _user=crowdsaleOwner;
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_SAFEMATH :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :28
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

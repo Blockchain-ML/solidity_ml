@@ -1,0 +1,60 @@
+C:\Users\hp\DataSet\CEther.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 10
+column: 0
+content: contractCEtherisCToken{constructor(ComptrollerInterfacecomptroller_,InterestRateModelinterestRateModel_,uintinitialExchangeRateMantissa_,stringmemoryname_,stringmemorysymbol_,uintdecimals_)publicCToken(comptroller_,interestRateModel_,initialExchangeRateMantissa_,name_,symbol_,decimals_){}functionmint()externalpayable{requireNoError(mintInternal(msg.value),"mint failed");}functionredeem(uintredeemTokens)externalreturns(uint){returnredeemInternal(redeemTokens);}functionredeemUnderlying(uintredeemAmount)externalreturns(uint){returnredeemUnderlyingInternal(redeemAmount);}functionborrow(uintborrowAmount)externalreturns(uint){returnborrowInternal(borrowAmount);}functionrepayBorrow()externalpayable{requireNoError(repayBorrowInternal(msg.value),"repayBorrow failed");}functionrepayBorrowBehalf(addressborrower)externalpayable{requireNoError(repayBorrowBehalfInternal(borrower,msg.value),"repayBorrowBehalf failed");}functionliquidateBorrow(addressborrower,CTokencTokenCollateral)externalpayable{requireNoError(liquidateBorrowInternal(borrower,msg.value,cTokenCollateral),"liquidateBorrow failed");}function()externalpayable{requireNoError(mintInternal(msg.value),"mint failed");}functiongetCashPrior()internalviewreturns(uint){(MathErrorerr,uintstartingBalance)=subUInt(address(this).balance,msg.value);require(err==MathError.NO_ERROR);returnstartingBalance;}functioncheckTransferIn(addressfrom,uintamount)internalviewreturns(Error){require(msg.sender==from,"sender mismatch");require(msg.value==amount,"value mismatch");returnError.NO_ERROR;}functiondoTransferIn(addressfrom,uintamount)internalreturns(Error){require(msg.sender==from,"sender mismatch");require(msg.value==amount,"value mismatch");returnError.NO_ERROR;}functiondoTransferOut(addresspayableto,uintamount)internalreturns(Error){to.transfer(amount);returnError.NO_ERROR;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 143
+column: 4
+content: functiondoTransferOut(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 143
+column: 43
+content: to,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 143
+column: 47
+content: uintamount)internalreturns
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 143
+column: 77
+content: (Error){to.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 145
+column: 11
+content: transfer(amount);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 146
+column: 15
+content: Error.NO_ERROR;
+
+SOLIDITY_VISIBILITY :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

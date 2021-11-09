@@ -1,0 +1,118 @@
+F:\Blockchain\dataset_new_byID\78262.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 61
+column: 4
+content: functiongetAuthorityIssuerAddressList(uintstartPos,uintnum)publicconstantreturns(address[]){uinttotalLength=authorityIssuerData.getDatasetLength();uintdataLength;if(totalLength<startPos){returnnewaddress[](EMPTY_ARRAY_SIZE);}elseif(totalLength<=startPos+num){dataLength=totalLength-startPos;}else{dataLength=num;}address[]memoryissuerArray=newaddress[](dataLength);for(uintindex=0;index<dataLength;index++){issuerArray[index]=authorityIssuerData.getAuthorityIssuerFromIndex(startPos+index);}returnissuerArray;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 88
+column: 4
+content: functiongetAuthorityIssuerInfoNonAccValue(addressaddr)publicconstantreturns(bytes32[],int[]){bytes32[16]memoryallBytes32;int[16]memoryallInt;(allBytes32,allInt)=authorityIssuerData.getAuthorityIssuerInfoNonAccValue(addr);bytes32[]memoryfinalBytes32=newbytes32[](16);int[]memoryfinalInt=newint[](16);for(uintindex=0;index<16;index++){finalBytes32[index]=allBytes32[index];finalInt[index]=allInt[index];}return(finalBytes32,finalInt);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 108
+column: 4
+content: functionisAuthorityIssuer(addressaddr)publicconstantreturns(bool){returnauthorityIssuerData.isAuthorityIssuer(addr);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 118
+column: 4
+content: functiongetAddressFromName(bytes32name)publicconstantreturns(address){returnauthorityIssuerData.getAddressFromName(name);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 11
+column: 24
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 12
+column: 19
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 15
+column: 18
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 16
+column: 18
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 17
+column: 18
+content: private
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 40
+column: 44
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 53
+column: 44
+content: tx.origin
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 36
+column: 8
+content: bytesaccValue
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 67
+column: 17
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 93
+column: 17
+content: bytes32[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 93
+column: 28
+content: int[]
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :5
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_TX_ORIGIN :2

@@ -1,0 +1,98 @@
+C:\Users\hp\DataSet\ChildERC20.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 17
+column: 34
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 17
+column: 60
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 23
+column: 35
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 35
+column: 46
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 73
+column: 30
+content: 0x0
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 85
+column: 4
+content: functionapprove(address,uint256)publicreturns(bool){revert("Disabled feature");}
+
+ruleId: SOLIDITY_ERC20_FUNCTIONS_ALWAYS_RETURN_FALSE
+patternId: b180ca
+severity: 2
+line: 85
+column: 4
+content: functionapprove(address,uint256)publicreturns(bool){revert("Disabled feature");}
+
+ruleId: SOLIDITY_ERC20_FUNCTIONS_ALWAYS_RETURN_FALSE
+patternId: b180ca
+severity: 2
+line: 89
+column: 4
+content: functiontransferFrom(address,address,uint256)publicreturns(bool){revert("Disabled feature");}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 81
+column: 4
+content: functionallowance(address,address)publicviewreturns(uint256){revert("Disabled feature");}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 85
+column: 4
+content: functionapprove(address,uint256)publicreturns(bool){revert("Disabled feature");}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 89
+column: 4
+content: functiontransferFrom(address,address,uint256)publicreturns(bool){revert("Disabled feature");}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 9
+column: 0
+content: contractChildERC20isBaseERC20,ERC20,ERC20Detailed{constructor(address_owner,address_token,stringmemory_name,stringmemory_symbol,uint8_decimals)publicERC20Detailed(_name,_symbol,_decimals){require(_token!=address(0x0)&&_owner!=address(0x0));parentOwner=_owner;token=_token;}functionsetParent(address_parent)publicisParentOwner{require(_parent!=address(0x0));parent=_parent;}functiondeposit(addressuser,uint256amount)publiconlyOwner{require(amount>0&&user!=address(0x0));uint256input1=balanceOf(user);_mint(user,amount);emitDeposit(token,user,amount,input1,balanceOf(user));}functionwithdraw(uint256amount)publicpayable{addressuser=msg.sender;uint256input=balanceOf(user);require(amount>0&&input>=amount);_burn(user,amount);emitWithdraw(token,user,amount,input,balanceOf(user));}functiontransfer(addressto,uint256value)publicreturns(bool){if(parent!=address(0x0)&&!IParentToken(parent).beforeTransfer(msg.sender,to,value)){returnfalse;}return_transferFrom(msg.sender,to,value);}functionallowance(address,address)publicviewreturns(uint256){revert("Disabled feature");}functionapprove(address,uint256)publicreturns(bool){revert("Disabled feature");}functiontransferFrom(address,address,uint256)publicreturns(bool){revert("Disabled feature");}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+SOLIDITY_ERC20_FUNCTIONS_ALWAYS_RETURN_FALSE :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :3
+SOLIDITY_ADDRESS_HARDCODED :5
+SOLIDITY_ERC20_APPROVE :1

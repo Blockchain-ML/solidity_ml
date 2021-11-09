@@ -1,0 +1,105 @@
+C:\Users\hp\DataSet\contracts\ropsten\05\05882d9a0904aee1e78ca85269decfb0e082be3a_PrimeraProxy.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 2
+column: 0
+content: contractPrimera{functionsetOwner(address_owner)publicreturns(bool);functioncall(addresscontractAddress,uint256value,uint256gaslimit,bytesmemorydata)publicreturns(bool);functionapprove(addresstoken,addressspender,uint256value)publicreturns(bool);functionreceive()publicpayablereturns(bool);functionsend(addressto,uint256value)publicreturns(bool);functiontransfer(addresstoken,addressto,uint256value)publicreturns(bool);functiontransferFrom(addresstoken,addressfrom,addressto,uint256value)publicreturns(bool);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 44
+column: 4
+content: functionsetOwner(address_owner)publiconlyOwner{if(!account.setOwner(_owner))revert();}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 41
+column: 8
+content: if(!a.transfer(address(account),b))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 45
+column: 8
+content: if(!account.setOwner(_owner))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 48
+column: 8
+content: if(!account.approve(token,spender,value))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 51
+column: 8
+content: if(!account.call(contractAddress,value,gaslimit,data))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 54
+column: 8
+content: if(!account.receive.value(msg.value)())revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 57
+column: 8
+content: if(!account.send(to,value))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 60
+column: 8
+content: if(!account.transfer(token,to,value))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 63
+column: 8
+content: if(!account.transferFrom(token,from,to,value))revert();
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 51
+column: 21
+content: call(contractAddress,value,gaslimit,data)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 16
+column: 4
+content: addressowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 17
+column: 4
+content: Primeraaccount;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :8
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1

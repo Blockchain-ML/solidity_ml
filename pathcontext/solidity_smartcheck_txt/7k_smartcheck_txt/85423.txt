@@ -1,0 +1,55 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\85423.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 26
+column: 8
+content: for(uinti=0;i<consPayload.length;i++){clone[99+i]=consPayload[i];}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 9
+column: 4
+content: functioncreate2Clone(addresstarget,uintsaltNonce,bytesmemoryconsData)internalreturns(addressresult){bytesmemoryconsPayload=abi.encodeWithSignature("cloneConstructor(bytes)",consData);bytesmemoryclone=newbytes(consPayload.length+99);assembly{mstore(add(clone,0x20),0x3d3d606380380380913d393d73bebebebebebebebebebebebebebebebebebebe)mstore(add(clone,0x2d),mul(address,0x01000000000000000000000000))mstore(add(clone,0x41),0x5af4602a57600080fd5b602d8060366000396000f3363d3d373d3d3d363d73be)mstore(add(clone,0x60),mul(target,0x01000000000000000000000000))mstore(add(clone,116),0x5af43d82803e903d91602b57fd5bf30000000000000000000000000000000000)}for(uinti=0;i<consPayload.length;i++){clone[99+i]=consPayload[i];}bytes32salt=keccak256(abi.encode(msg.sender,saltNonce));assembly{letlen:=mload(clone)letdata:=add(clone,0x20)result:=create2(0,data,len,salt)}require(result!=address(0),"create2 failed");}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 26
+column: 8
+content: for(uinti=0;i<consPayload.length;i++){clone[99+i]=consPayload[i];}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: >=
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 25
+content: ^
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 13
+column: 8
+content: assembly{mstore(add(clone,0x20),0x3d3d606380380380913d393d73bebebebebebebebebebebebebebebebebebebe)mstore(add(clone,0x2d),mul(address,0x01000000000000000000000000))mstore(add(clone,0x41),0x5af4602a57600080fd5b602d8060366000396000f3363d3d373d3d3d363d73be)mstore(add(clone,0x60),mul(target,0x01000000000000000000000000))mstore(add(clone,116),0x5af43d82803e903d91602b57fd5bf30000000000000000000000000000000000)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 32
+column: 8
+content: assembly{letlen:=mload(clone)letdata:=add(clone,0x20)result:=create2(0,data,len,salt)}
+
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :2

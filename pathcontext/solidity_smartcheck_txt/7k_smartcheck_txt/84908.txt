@@ -1,0 +1,202 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\84908.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 44
+column: 20
+content: 0x0
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 123
+column: 2
+content: functiongetBroker()constantreturns(address,uint){return(broker,brokerFee);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 129
+column: 2
+content: functiongetSeller()constantreturns(address){return(seller);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 263
+column: 2
+content: functiongetInfo()constantreturns(State,string,uint,string,uint,uint){return(state,item.name,item.price,item.detail,item.documents.length,developerfee);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 267
+column: 2
+content: functiongetFileAt(uintindex)constantreturns(uint,bytes32,string,string,FileState){return(index,item.documents[index].purpose,item.documents[index].name,item.documents[index].ipfshash,item.documents[index].state);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 151
+column: 21
+content: string_a
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 83
+column: 2
+content: functionBroker(boolisbroker){if(creator==address(0)){if(isbroker)broker=msg.sender;elseseller=msg.sender;creator=msg.sender;state=State.Created;brokerFee=50;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 100
+column: 2
+content: functionjoinAsBuyer(){if(buyer==address(0)){buyer=msg.sender;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 106
+column: 2
+content: functionjoinAsBroker(){if(broker==address(0)){broker=msg.sender;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 112
+column: 2
+content: functioncreateOrSet(stringname,uintprice,stringdetail)inState(State.Created)onlyCreator{require(price>minimumdeveloperfee);item.name=name;item.price=price;item.detail=detail;developerfee=(price/1000)<minimumdeveloperfee?minimumdeveloperfee:(price/1000);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 123
+column: 2
+content: functiongetBroker()constantreturns(address,uint){return(broker,brokerFee);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 129
+column: 2
+content: functiongetSeller()constantreturns(address){return(seller);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 135
+column: 2
+content: functionsetBroker(address_address,uintfee){brokerFee=fee;broker=_address;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 141
+column: 2
+content: functionsetBrokerFee(uintfee){brokerFee=fee;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 146
+column: 2
+content: functionsetSeller(address_address){seller=_address;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 176
+column: 2
+content: functionaddDocument(bytes32_purpose,string_name,string_ipfshash){require(state!=State.Inactive);require(state!=State.Locked);item.documents.push(File({purpose:_purpose,name:_name,ipfshash:_ipfshash,state:FileState.Created}));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 187
+column: 2
+content: functiondeleteDocument(uintindex){require(state!=State.Inactive);require(state!=State.Locked);if(index<item.documents.length){item.documents[index].state=FileState.Invalidated;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 196
+column: 2
+content: functionvalidate()onlyBrokerinState(State.Created){Validated();state=State.Validated;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 211
+column: 2
+content: functionabort()onlySellerinState(State.Created){Aborted();state=State.Inactive;seller.transfer(this.balance);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 221
+column: 2
+content: functionabortByBroker()onlyBroker{require(state!=State.Inactive);state=State.Inactive;Aborted();buyer.transfer(this.balance);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 233
+column: 2
+content: functionconfirmPurchase()inState(State.Validated)condition(msg.value==item.price)payable{state=State.Locked;buyer=msg.sender;PurchaseConfirmed();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 245
+column: 2
+content: functionconfirmReceived()onlyBrokerinState(State.Locked){state=State.Inactive;seller.transfer(this.balance-brokerFee-developerfee);broker.transfer(brokerFee);developer.transfer(developerfee);ItemReceived();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 263
+column: 2
+content: functiongetInfo()constantreturns(State,string,uint,string,uint,uint){return(state,item.name,item.price,item.detail,item.documents.length,developerfee);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 267
+column: 2
+content: functiongetFileAt(uintindex)constantreturns(uint,bytes32,string,string,FileState){return(index,item.documents[index].purpose,item.documents[index].name,item.documents[index].ipfshash,item.documents[index].state);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 41
+column: 2
+content: uintminimumdeveloperfee=0.1finney;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 42
+column: 2
+content: addressdeveloper=0x001973f023e4c03ef60ea34084b63e7790d463e595;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 2
+content: addresscreator=0x0;
+
+SOLIDITY_VISIBILITY :21
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :1

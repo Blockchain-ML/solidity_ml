@@ -1,0 +1,136 @@
+C:\Users\hp\DataSet\contracts\ropsten\70\703eb0d74d6018b20b71074614203e87268dd3cc_VRFBet.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 35
+column: 21
+content: 0xe0832c4f024D2427bBC6BD0C4931096d2ab5CCaF
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 37
+column: 55
+content: 0x3F48Ad253D25aC0be2e357a9eBFED72313C4a9E8
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 10
+column: 4
+content: functiontotalSupply()publicconstantreturns(uint);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 11
+column: 4
+content: functionbalanceOf(addresstokenOwner)publicconstantreturns(uintbalance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 12
+column: 4
+content: functionallowance(addresstokenOwner,addressspender)publicconstantreturns(uintremaining);
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 124
+column: 11
+content: 2*(num/2)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 146
+column: 4
+content: for(uinti=index;i<indexBetPlace;i++){if(betQueue[i].bettor==bettor){if(i<indexBetPlace-1){return1;}else{return2;}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 72
+column: 4
+content: while(betQueue[index].blockPlaced!=0){if(betQueue[index+1].blockPlaced!=0){if(betQueue[index+1].blockPlaced+250>block.number){if(block.number>betQueue[index+1].blockPlaced){uinttotalbet=betQueue[index].betAmount+betQueue[index+1].betAmount;uintrandval=random(totalbet,betQueue[index+1].blockPlaced,betQueue[index+1].bettor);if(randval<betQueue[index].betAmount){payout(betQueue[index].bettor,totalbet);emitBetFinalized(betQueue[index].bettor,betQueue[index].betAmount,betQueue[index+1].betAmount,totalbet);emitBetFinalized(betQueue[index+1].bettor,betQueue[index+1].betAmount,betQueue[index].betAmount,totalbet);}else{payout(betQueue[index+1].bettor,totalbet);emitBetFinalized(betQueue[index].bettor,betQueue[index].betAmount,betQueue[index+1].betAmount,totalbet);emitBetFinalized(betQueue[index+1].bettor,betQueue[index+1].betAmount,betQueue[index].betAmount,totalbet);}index+=2;}else{return;}}else{payout(betQueue[index+1].bettor,betQueue[index+1].betAmount);payout(betQueue[index].bettor,betQueue[index].betAmount);index+=2;emitBetFinalized(betQueue[index].bettor,betQueue[index].betAmount,betQueue[index+1].betAmount,betQueue[index].betAmount);emitBetFinalized(betQueue[index+1].bettor,betQueue[index+1].betAmount,betQueue[index].betAmount,betQueue[index+1].betAmount);}}else{return;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractAutomatedExchange{functionbuyTokens()publicpayable;functioncalculateTokenSell(uint256tokens)publicviewreturns(uint256);functioncalculateTokenBuy(uint256eth,uint256contractBalance)publicviewreturns(uint256);functionbalanceOf(addresstokenOwner)publicviewreturns(uintbalance);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 25
+column: 2
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 22
+column: 74
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 43
+column: 72
+content: bytesdata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 59
+column: 2
+content: functionplaceBetTESTONLY(uintnumTokens){_placeBet(numTokens,msg.sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 62
+column: 2
+content: functionpayout(addressto,uintnumTokens){emitPayout(to,numTokens);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 2
+content: addressvrfAddress=0xe0832c4f024D2427bBC6BD0C4931096d2ab5CCaF;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 36
+column: 2
+content: VerifyTokenvrfcontract=VerifyToken(vrfAddress);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 2
+content: AutomatedExchangeexchangecontract=AutomatedExchange(0x3F48Ad253D25aC0be2e357a9eBFED72313C4a9E8);
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_DIV_MUL :1

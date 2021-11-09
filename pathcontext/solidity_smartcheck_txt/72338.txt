@@ -1,0 +1,32 @@
+F:\Blockchain\dataset_new_byID\72338.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 24
+column: 4
+content: functioncreatePair(addresstokenA,addresstokenB)externalreturns(addresspair){require(tokenA!=tokenB,'UniswapV2: IDENTICAL_ADDRESSES');(addresstoken0,addresstoken1)=tokenA<tokenB?(tokenA,tokenB):(tokenB,tokenA);require(token0!=address(0),'UniswapV2: ZERO_ADDRESS');require(getPair[token0][token1]==address(0),'UniswapV2: PAIR_EXISTS');bytesmemorybytecode=type(UniswapV2Pair).creationCode;bytes32salt=keccak256(abi.encodePacked(token0,token1));assembly{pair:=create2(0,add(bytecode,32),mload(bytecode),salt)}IUniswapV2Pair(pair).initialize(token0,token1);getPair[token0][token1]=pair;getPair[token1][token0]=pair;allPairs.push(pair);emitPairCreated(token0,token1,pair,allPairs.length);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 41
+column: 4
+content: functionsetFeeTo(address_feeTo)external{require(msg.sender==feeToSetter,'UniswapV2: FORBIDDEN');feeTo=_feeTo;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 46
+column: 4
+content: functionsetFeeToSetter(address_feeToSetter)external{require(msg.sender==feeToSetter,'UniswapV2: FORBIDDEN');feeToSetter=_feeToSetter;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 31
+column: 8
+content: assembly{pair:=create2(0,add(bytecode,32),mload(bytecode),salt)}
+
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1

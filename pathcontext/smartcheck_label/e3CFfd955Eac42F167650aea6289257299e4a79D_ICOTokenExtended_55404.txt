@@ -1,0 +1,98 @@
+C:\Users\hp\DataSet\contracts\ropsten\e3\e3CFfd955Eac42F167650aea6289257299e4a79D_ICOTokenExtended.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 14
+column: 4
+content: functiongetOwner()constantpublicreturns(address);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 18
+column: 4
+content: functiongetImplementation()constantpublicreturns(address);
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 368
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 470
+column: 2
+content: functionapprove(address_spender,uint256_value)publicwhenNotPausedreturns(bool){returnsuper.approve(_spender,_value);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 213
+column: 4
+content: functionsetRate(uintnewRate)externalonlyOwnerwhenNotPausedreturns(bool){require(newRate>0);uintoldRate=rate;rate=newRate;emitLogRateChanged(oldRate,newRate,msg.sender);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 232
+column: 4
+content: functionsetMinWeiAmount(uintnewMinWeiAmount)externalonlyOwnerwhenNotPausedreturns(bool){require(newMinWeiAmount>0);require(newMinWeiAmount%10==0);uintoldMinWeiAmount=minWeiAmount;minWeiAmount=newMinWeiAmount;emitLogMinWeiAmountChanged(oldMinWeiAmount,minWeiAmount,msg.sender);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 534
+column: 4
+content: functionsetRefunder(addressrefunderAddress)externalonlyOwnernonZeroAddress(refunderAddress){refunder=refunderAddress;emitLogRefunderSet(refunderAddress);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 541
+column: 4
+content: functionsetExchangeOracle(addressexchangeOracleAddress)externalonlyOwnernonZeroAddress(exchangeOracleAddress){aiurExchangeOracle=ExchangeOracle(exchangeOracleAddress);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 545
+column: 4
+content: functionsetHookOperator(addresshookOperatorAddress)externalonlyOwnernonZeroAddress(hookOperatorAddress){hookOperator=IHookOperator(hookOperatorAddress);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 188
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 277
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 279
+column: 2
+content: mapping(address=>uint256)balances;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :2
+SOLIDITY_OVERPOWERED_ROLE :5
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ERC20_APPROVE :2

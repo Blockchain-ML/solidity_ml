@@ -1,0 +1,77 @@
+F:\Blockchain\dataset_new_byID\80008.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 80
+column: 2
+content: for(uinti=0;i<len;i++){privileges[addrs[i]]=privLevels[i];emitLogPrivilegeChanged(addrs[i],privLevels[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 120
+column: 2
+content: for(uinti=0;i<len;i++){Transactionmemorytxn=txns[i];require(txn.identityContract==address(this),'TRANSACTION_NOT_FOR_CONTRACT');require(txn.feeTokenAddr==feeTokenAddr,'EXECUTE_NEEDS_SINGLE_TOKEN');require(txn.nonce==nonce,'WRONG_NONCE');bytes32hash=keccak256(abi.encode(txn.identityContract,txn.nonce,txn.feeTokenAddr,txn.feeAmount,txn.to,txn.value,txn.data));addresssigner=SignatureValidator.recoverAddr(hash,signatures[i]);require(privileges[signer]>=uint8(PrivilegeLevel.Transactions),'INSUFFICIENT_PRIVILEGE_TRANSACTION');nonce=nonce.add(1);feeAmount=feeAmount.add(txn.feeAmount);executeCall(txn.to,txn.value,txn.data);require(privileges[signer]>=uint8(PrivilegeLevel.Transactions),'PRIVILEGE_NOT_DOWNGRADED');}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 152
+column: 2
+content: for(uinti=0;i<len;i++){Transactionmemorytxn=txns[i];require(txn.nonce==nonce,'WRONG_NONCE');nonce=nonce.add(1);executeCall(txn.to,txn.value,txn.data);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 171
+column: 2
+content: for(uinti=0;i<len;i++){RoutineOperationmemoryop=operations[i];if(op.mode==RoutineOp.ChannelWithdraw){executeCall(auth.outpace,0,abi.encodePacked(CHANNEL_WITHDRAW_SELECTOR,op.data));}elseif(op.mode==RoutineOp.ChannelWithdrawExpired){executeCall(auth.outpace,0,abi.encodePacked(CHANNEL_WITHDRAW_EXPIRED_SELECTOR,op.data));}else{revert('INVALID_MODE');}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 27
+column: 8
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 28
+column: 8
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 176
+column: 10
+content: if(op.mode==RoutineOp.ChannelWithdrawExpired){executeCall(auth.outpace,0,abi.encodePacked(CHANNEL_WITHDRAW_EXPIRED_SELECTOR,op.data));}else{revert('INVALID_MODE');}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 12
+column: 1
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 198
+column: 2
+content: assembly{letresult:=call(gas(),to,value,add(data,0x20),mload(data),0,0)switchresultcase0{letsize:=returndatasize()letptr:=mload(0x40)returndatacopy(ptr,0,size)revert(ptr,size)}default{}}
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4
+SOLIDITY_USING_INLINE_ASSEMBLY :1

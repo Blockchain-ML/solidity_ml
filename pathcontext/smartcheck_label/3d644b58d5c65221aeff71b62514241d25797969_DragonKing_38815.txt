@@ -1,0 +1,286 @@
+C:\Users\hp\DataSet\contracts\ropsten\3d\3d644b58d5c65221aeff71b62514241d25797969_DragonKing.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 691
+column: 2
+content: functiongetCharacter(uint32characterId)constantpublicreturns(uint8,uint128,address){return(characters[characterId].characterType,characters[characterId].value,characters[characterId].owner);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 700
+column: 2
+content: functiongetCharacterIndex(uint32characterId)constantpublicreturns(uint16){for(uint16i=0;i<ids.length;i++){if(ids[i]==characterId){returni;}}revert();}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 714
+column: 2
+content: functionget10Characters(uint16startIndex)constantpublicreturns(uint32[10]characterIds,uint8[10]types,uint128[10]values,address[10]owners){uint32endIndex=startIndex+10>numCharacters?numCharacters:startIndex+10;uint8j=0;uint32id;for(uint16i=startIndex;i<endIndex;i++){id=ids[i];characterIds[j]=id;types[j]=characters[id].characterType;values[j]=characters[id].value;owners[j]=characters[id].owner;j++;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 733
+column: 2
+content: functiongetNumDragons()constantpublicreturns(uint16numDragons){for(uint8i=0;i<DRAGON_MAX_TYPE;i++)numDragons+=numCharactersXType[i];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 742
+column: 2
+content: functiongetNumArchers()constantpublicreturns(uint16numArchers){for(uint8i=ARCHER_MIN_TYPE;i<=ARCHER_MAX_TYPE;i++)numArchers+=numCharactersXType[i];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 751
+column: 2
+content: functiongetNumKnights()constantpublicreturns(uint16numKnights){for(uint8i=KNIGHT_MIN_TYPE;i<=KNIGHT_MAX_TYPE;i++)numKnights+=numCharactersXType[i];}
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 527
+column: 16
+content: totalAmount/10*9
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 509
+column: 4
+content: for(uint16i=0;i<numCharacters;i++){if(ids[i]<newOldest&&characters[ids[i]].characterType<=DRAGON_MAX_TYPE)newOldest=ids[i];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 543
+column: 4
+content: for(uint16i=0;i<numCharacters;i++){cType=characters[ids[i]].characterType;if(cType<size)characters[ids[i]].value+=shares[characters[ids[i]].characterType];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 564
+column: 4
+content: for(uint16i=0;i<numCharacters;i++){characters[ids[i]].owner.transfer(characters[ids[i]].value);deletecharacters[ids[i]];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 701
+column: 4
+content: for(uint16i=0;i<ids.length;i++){if(ids[i]==characterId){returni;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 734
+column: 4
+content: for(uint8i=0;i<DRAGON_MAX_TYPE;i++)numDragons+=numCharactersXType[i];
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 743
+column: 4
+content: for(uint8i=ARCHER_MIN_TYPE;i<=ARCHER_MAX_TYPE;i++)numArchers+=numCharactersXType[i];
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 752
+column: 4
+content: for(uint8i=KNIGHT_MIN_TYPE;i<=KNIGHT_MAX_TYPE;i++)numKnights+=numCharactersXType[i];
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 279
+column: 8
+content: while(nchars>0&&characters[ids[nchars-1]].owner==msg.sender&&characters[ids[nchars-1]].purchaseTimestamp+1days<now&&(characters[ids[i]].characterType<BALLOON_MIN_TYPE||characters[ids[i]].characterType>BALLOON_MAX_TYPE)){nchars--;lastId=ids[nchars];numCharactersXType[characters[lastId].characterType]--;playerBalance+=characters[lastId].value;removed[count]=lastId;count++;if(lastId==oldest)oldest=0;deletecharacters[lastId];}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 86
+column: 2
+content: functiontransferFrom(address_from,address_to,uint256_value)publicreturns(boolsuccess){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 87
+column: 2
+content: functiontransfer(address_to,uint256_value)publicreturns(boolsuccess){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 733
+column: 2
+content: functiongetNumDragons()constantpublicreturns(uint16numDragons){for(uint8i=0;i<DRAGON_MAX_TYPE;i++)numDragons+=numCharactersXType[i];}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 742
+column: 2
+content: functiongetNumArchers()constantpublicreturns(uint16numArchers){for(uint8i=ARCHER_MIN_TYPE;i<=ARCHER_MAX_TYPE;i++)numArchers+=numCharactersXType[i];}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 751
+column: 2
+content: functiongetNumKnights()constantpublicreturns(uint16numKnights){for(uint8i=KNIGHT_MIN_TYPE;i<=KNIGHT_MAX_TYPE;i++)numKnights+=numCharactersXType[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 701
+column: 4
+content: for(uint16i=0;i<ids.length;i++){if(ids[i]==characterId){returni;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 279
+column: 15
+content: nchars>0&&characters[ids[nchars-1]].owner==msg.sender&&characters[ids[nchars-1]].purchaseTimestamp+1days<now&&(characters[ids[i]].characterType<BALLOON_MIN_TYPE||characters[ids[i]].characterType>BALLOON_MAX_TYPE)
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 19
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 217
+column: 4
+content: if(characterType>=costs.length||msg.value<costs[characterType]||nchars+amount>maxCharacters)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 622
+column: 9
+content: if(msg.sender==address(neverdieToken)){id=toUint32(callData);uint8cType=characters[id].characterType;require(characters[id].value==values[cType]);uint256lifePrice;uint8max;if(cType<=KNIGHT_MAX_TYPE||(cType>=ARCHER_MIN_TYPE&&cType<=ARCHER_MAX_TYPE)){lifePrice=((cType%6)+1)*protectionPrice;max=3;}elseif(cType>=BALLOON_MIN_TYPE&&cType<=BALLOON_MAX_TYPE){lifePrice=(((cType+3)%6)+1)*protectionPrice*2;max=6;}elseif(cType>=WIZARD_MIN_TYPE&&cType<=WIZARD_MAX_TYPE){lifePrice=(((cType+3)%6)+1)*protectionPrice*2;max=3;}price=0;uint8i=protection[id];for(i;i<max&&value>=price+lifePrice*(i+1);i++){price+=lifePrice*(i+1);}assert(neverdieToken.transferFrom(sender,this,price));protectCharacter(id,i);}elserevert();
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 764
+column: 2
+content: functiontoUint32(bytesb)internalpurereturns(uint32){bytes32newB;assembly{newB:=mload(0xa0)}returnuint32(newB);}
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 564
+column: 4
+content: for(uint16i=0;i<numCharacters;i++){characters[ids[i]].owner.transfer(characters[ids[i]].value);deletecharacters[ids[i]];}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 479
+column: 16
+content: keccak256(block.blockhash(block.number-1),now,numCharacters,nonce)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 609
+column: 81
+content: bytescallData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 764
+column: 20
+content: bytesb
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 766
+column: 4
+content: assembly{newB:=mload(0xa0)}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 437
+column: 2
+content: functionisValidAdversary(uint8characterType,uint8adversaryType)returns(bool){if(characterType>=KNIGHT_MIN_TYPE&&characterType<=KNIGHT_MAX_TYPE){return(adversaryType<=DRAGON_MAX_TYPE);}elseif(characterType>=WIZARD_MIN_TYPE&&characterType<=WIZARD_MAX_TYPE){return(adversaryType<BALLOON_MIN_TYPE||adversaryType>BALLOON_MAX_TYPE);}elseif(characterType>=DRAGON_MIN_TYPE&&characterType<=DRAGON_MAX_TYPE){return(adversaryType>=WIZARD_MIN_TYPE);}elseif(characterType>=ARCHER_MIN_TYPE&&characterType<=ARCHER_MAX_TYPE){return(adversaryType>=BALLOON_MIN_TYPE&&adversaryType<=BALLOON_MAX_TYPE);}returnfalse;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 107
+column: 2
+content: mapping(uint32=>Character)characters;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 109
+column: 2
+content: mapping(uint32=>bool)teleported;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 115
+column: 2
+content: uint8fee;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 165
+column: 2
+content: TokenteleportToken;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 169
+column: 2
+content: TokenneverdieToken;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 176
+column: 2
+content: TokensklToken;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 178
+column: 2
+content: TokenxperToken;
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :5
+SOLIDITY_EXTRA_GAS_IN_LOOPS :8
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_DIV_MUL :1
+SOLIDITY_TRANSFER_IN_LOOP :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

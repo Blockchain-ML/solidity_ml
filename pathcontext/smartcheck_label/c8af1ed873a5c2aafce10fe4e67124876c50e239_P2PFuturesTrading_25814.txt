@@ -1,0 +1,218 @@
+C:\Users\hp\DataSet\contracts\mainnet\c8\c8af1ed873a5c2aafce10fe4e67124876c50e239_P2PFuturesTrading.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 33
+column: 28
+content: 0x335854eF79Fff47F9050ca853c7f3bA53eeEEE93
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 40
+column: 3
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 48
+column: 3
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 61
+column: 3
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 66
+column: 3
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 93
+column: 3
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 117
+column: 4
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 132
+column: 3
+content: throw
+
+ruleId: SOLIDITY_MSGVALUE_EQUALS_ZERO
+patternId: 1df89a
+severity: 1
+line: 39
+column: 5
+content: msg.value==0
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 39
+column: 2
+content: if(msg.value==0||tokenAmount==0||endTradeBlock<=block.number+220){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 47
+column: 2
+content: if(t1.initialized||t2.initialized){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 60
+column: 2
+content: if(!t.initialized||t.finalized){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 65
+column: 2
+content: if(!(t.tokenAddress==tokenAddress&&t.tokenAmount==tokenAmount&&t.etherAmount==etherAmount&&t.etherCollateralAmount==msg.value&&t.endTradeBlock==endTradeBlock)){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 87
+column: 7
+content: if(tokenSellerTrade.initialized&&tokenSellerTrade.finalized){t=tokenSellerTrade;tokenBuyerAddress=otherPersonAddress;tokenSellerAddress=msg.sender;}else{throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 110
+column: 3
+content: if(t.endTradeBlock<block.number){tokenBuyerAddress.transfer(t.etherAmount+t.etherCollateralAmount-collateralFee);developerAddress.transfer(collateralFee);return;}else{throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 131
+column: 2
+content: if(!t.initialized||t.finalized){throw;}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 43
+column: 2
+content: Tradet1=trades[msg.sender][tokenSellerAddress]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 44
+column: 2
+content: Tradet2=trades[tokenSellerAddress][msg.sender]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 57
+column: 2
+content: Tradet=trades[tokenBuyerAddress][msg.sender]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 74
+column: 5
+content: Tradet
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 78
+column: 2
+content: TradetokenBuyerTrade=trades[msg.sender][otherPersonAddress]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 79
+column: 2
+content: TradetokenSellerTrade=trades[otherPersonAddress][msg.sender]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 128
+column: 2
+content: Tradet=trades[msg.sender][tokenSellerAddress]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 13
+column: 1
+content: functiontransferFrom(address_from,address_to,uint256_value)returns(boolsuccess);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 37
+column: 1
+content: functionstartTrade(addresstokenSellerAddress,addresstokenAddress,uinttokenAmount,uintetherCollateralAmount,uintendTradeBlock)payable{if(msg.value==0||tokenAmount==0||endTradeBlock<=block.number+220){throw;}Tradet1=trades[msg.sender][tokenSellerAddress];Tradet2=trades[tokenSellerAddress][msg.sender];if(t1.initialized||t2.initialized){throw;}trades[msg.sender][tokenSellerAddress]=Trade(tokenAddress,tokenAmount,msg.value,etherCollateralAmount,endTradeBlock,true,false);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 56
+column: 1
+content: functionfinalizeTrade(addresstokenBuyerAddress,uintetherAmount,addresstokenAddress,uinttokenAmount,uintendTradeBlock)payable{Tradet=trades[tokenBuyerAddress][msg.sender];if(!t.initialized||t.finalized){throw;}if(!(t.tokenAddress==tokenAddress&&t.tokenAmount==tokenAmount&&t.etherAmount==etherAmount&&t.etherCollateralAmount==msg.value&&t.endTradeBlock==endTradeBlock)){throw;}t.finalized=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 73
+column: 1
+content: functioncompleteTrade(addressotherPersonAddress){Tradet;addresstokenBuyerAddress;addresstokenSellerAddress;TradetokenBuyerTrade=trades[msg.sender][otherPersonAddress];TradetokenSellerTrade=trades[otherPersonAddress][msg.sender];if(tokenBuyerTrade.initialized&&tokenBuyerTrade.finalized){t=tokenBuyerTrade;tokenBuyerAddress=msg.sender;tokenSellerAddress=otherPersonAddress;}elseif(tokenSellerTrade.initialized&&tokenSellerTrade.finalized){t=tokenSellerTrade;tokenBuyerAddress=otherPersonAddress;tokenSellerAddress=msg.sender;}else{throw;}ERC20token=ERC20(t.tokenAddress);uinttokenSellerFee=t.tokenAmount*5/1000;uinttokenBuyerFee=t.etherAmount*5/1000;uintcollateralFee=t.etherCollateralAmount/100;t.initialized=false;t.finalized=false;if(!token.transferFrom(tokenSellerAddress,tokenBuyerAddress,t.tokenAmount-tokenSellerFee)||!token.transferFrom(tokenSellerAddress,developerAddress,tokenSellerFee)){if(t.endTradeBlock<block.number){tokenBuyerAddress.transfer(t.etherAmount+t.etherCollateralAmount-collateralFee);developerAddress.transfer(collateralFee);return;}else{throw;}}tokenSellerAddress.transfer(t.etherAmount+t.etherCollateralAmount-tokenBuyerFee);developerAddress.transfer(tokenBuyerFee);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 127
+column: 1
+content: functioncancelTrade(addresstokenSellerAddress){Tradet=trades[msg.sender][tokenSellerAddress];if(!t.initialized||t.finalized){throw;}t.initialized=false;msg.sender.transfer(t.etherAmount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 33
+column: 1
+content: addressdeveloperAddress=0x335854eF79Fff47F9050ca853c7f3bA53eeEEE93;
+
+SOLIDITY_VISIBILITY :6
+SOLIDITY_MSGVALUE_EQUALS_ZERO :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :7
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :7
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :7

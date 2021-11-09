@@ -1,0 +1,203 @@
+C:\Users\hp\DataSet\LoopringToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 128
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 137
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 146
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 155
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 180
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 227
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 198
+column: 4
+content: functionprice()publicconstantreturns(uinttokens){returncomputeTokenAmount(1ether);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 238
+column: 4
+content: functioncomputeTokenAmount(uintethAmount)internalconstantreturns(uinttokens){uintphase=(block.number-firstblock).div(BLOCKS_PER_PHASE);if(phase>=bonusPercentages.length){phase=bonusPercentages.length-1;}uinttokenBase=ethAmount.mul(BASE_RATE);uinttokenBonus=tokenBase.mul(bonusPercentages[phase]).div(100);tokens=tokenBase.add(tokenBonus);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 315
+column: 4
+content: functionsaleStarted()constantreturns(bool){return(firstblock>0&&block.number>=firstblock);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 320
+column: 4
+content: functionsaleEnded()constantreturns(bool){returnfirstblock>0&&(saleDue()||hardCapReached());}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 325
+column: 4
+content: functionsaleDue()constantreturns(bool){returnblock.number>=firstblock+BLOCKS_PER_PHASE*NUM_OF_PHASE;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 330
+column: 4
+content: functionhardCapReached()constantreturns(bool){returntotalEthReceived>=HARD_CAP;}
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 296
+column: 31
+content: totalSupply.div(1000-unsoldRatioInThousand).mul(unsoldRatioInThousand)
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 18
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 124
+column: 8
+content: if(target==msg.sender){_;}else{InvalidCaller(msg.sender);throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 133
+column: 8
+content: if(!saleStarted()){_;}else{InvalidState("Sale has not started yet");throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 142
+column: 8
+content: if(saleStarted()&&!saleEnded()){_;}else{InvalidState("Sale is not in progress");throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 151
+column: 8
+content: if(saleEnded()){_;}else{InvalidState("Sale is not ended yet");throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 178
+column: 8
+content: if(_firstblock<=block.number){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 226
+column: 8
+content: if(!target.send(msg.value)){throw;}
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 226
+column: 20
+content: send(msg.value)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 167
+column: 4
+content: functionLoopringToken(address_target){target=_target;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 204
+column: 4
+content: function()payable{issueToken(msg.sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 210
+column: 4
+content: functionissueToken(addressrecipient)payableinProgress{assert(msg.value>=0.01ether);uinttokens=computeTokenAmount(msg.value);totalEthReceived=totalEthReceived.add(msg.value);totalSupply=totalSupply.add(tokens);balances[recipient]=balances[recipient].add(tokens);Issue(issueIndex++,recipient,msg.value,tokens);if(!target.send(msg.value)){throw;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 315
+column: 4
+content: functionsaleStarted()constantreturns(bool){return(firstblock>0&&block.number>=firstblock);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 320
+column: 4
+content: functionsaleEnded()constantreturns(bool){returnfirstblock>0&&(saleDue()||hardCapReached());}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 325
+column: 4
+content: functionsaleDue()constantreturns(bool){returnblock.number>=firstblock+BLOCKS_PER_PHASE*NUM_OF_PHASE;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 330
+column: 4
+content: functionhardCapReached()constantreturns(bool){returntotalEthReceived>=HARD_CAP;}
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :12
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :6
+SOLIDITY_SEND :1
+SOLIDITY_DIV_MUL :1

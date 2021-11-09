@@ -1,0 +1,183 @@
+C:\Users\hp\DataSet\contracts\ropsten\b5\b50d78772f3239c67d2d2c5ea35fe109f802c53c_heart.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 150
+column: 4
+content: for(uint256i=0;i<balances[msg.sender];i++){if(holdDB[msg.sender][i]==heartDB[msg.sender].graphicHash){heartSent=i;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 155
+column: 4
+content: for(uint256j=heartSent;j<balances[msg.sender];j++){holdDB[msg.sender][j]=holdDB[msg.sender][j];}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 20
+column: 0
+content: contractheartisowned{uint256issuedTokens;uint8decimalSpaces;stringabbriveration;stringtokenName;uint256minimumCalimValue;mapping(address=>uint256)balances;mapping(address=>HeartData)heartDB;mapping(bytes32=>LocationData)locationDB;mapping(address=>mapping(uint256=>bytes32))holdDB;mapping(address=>mapping(address=>bool))allowanceApproval;structHeartData{bytes32graphicHash;boolclaimed;stringmessage;}structLocationData{addressoriginalOwner;addresscurrentHolder;}modifiernotClaimed{require(!heartDB[msg.sender].claimed);_;}constructor(uint256_initialTokenMint,string_symbol,string_tokenName,uint256_minimumCalimValue)public{issuedTokens=_initialTokenMint;balances[msg.sender]=_initialTokenMint;decimalSpaces=0;abbriveration=_symbol;tokenName=_tokenName;minimumCalimValue=_minimumCalimValue;}eventTransfer(addressindexed_from,addressindexed_to,string_message);eventApproval(addressindexed_owner,addressindexed_spender,uint256_value);eventGeneration(addressindexed_recipient,bytes32_graphicHash);functionname()viewpublicreturns(string_name){returntokenName;}functionsymbol()viewpublicreturns(string_symbol){returnabbriveration;}functiondecimals()viewpublicreturns(uint8_decimals){returndecimalSpaces;}functiontotalSupply()viewpublicreturns(uint256_totalSupply){returnissuedTokens;}functionbalanceOf(address_owner)viewpublicreturns(uint256_balance){returnbalances[_owner];}functionminimumDonation()viewpublicreturns(uint256_minimumDonationValue){returnminimumCalimValue;}functionheldTokens(address_holder,uint256_tokenNumber)viewpublicreturns(bytes32_graphicHash,address_originalOwner){return(holdDB[_holder][_tokenNumber],locationDB[holdDB[_holder][_tokenNumber]].originalOwner);}functionclaimToken()publicpayablenotClaimedreturns(boolsuccess){require(msg.value>=minimumCalimValue);if(generate(msg.sender)){returntrue;}else{revert();}}functiongenerate(address_beneficiary)internalreturns(boolsuccess){require(!heartDB[_beneficiary].claimed);issuedTokens+=1;balances[_beneficiary]+=1;heartDB[_beneficiary].graphicHash=keccak256(_beneficiary,now,issuedTokens);heartDB[_beneficiary].claimed=true;locationDB[heartDB[_beneficiary].graphicHash].originalOwner=_beneficiary;locationDB[heartDB[_beneficiary].graphicHash].currentHolder=_beneficiary;holdDB[_beneficiary][balances[_beneficiary]-1]=heartDB[_beneficiary].graphicHash;emitGeneration(_beneficiary,heartDB[_beneficiary].graphicHash);returntrue;}functionsetMinimumClaimValue(uint256_minimumCalimValue)publiconlyOwner{minimumCalimValue=_minimumCalimValue;}functiontransfer(address_to,string_message)publicreturns(boolsucces){require(msg.sender==locationDB[heartDB[msg.sender].graphicHash].originalOwner);locationDB[heartDB[msg.sender].graphicHash].currentHolder=_to;heartDB[msg.sender].message=_message;holdDB[_to][balances[_to]-1]=heartDB[msg.sender].graphicHash;uint256heartSent;for(uint256i=0;i<balances[msg.sender];i++){if(holdDB[msg.sender][i]==heartDB[msg.sender].graphicHash){heartSent=i;}}for(uint256j=heartSent;j<balances[msg.sender];j++){holdDB[msg.sender][j]=holdDB[msg.sender][j];}balances[msg.sender]-=1;balances[_to]+=1;emitTransfer(msg.sender,_to,_message);returntrue;}functionreturnHrt(address_to,string_message)publicreturns(boolsuccess){require(msg.sender==locationDB[heartDB[_to].graphicHash].currentHolder);heartDB[_to].message=_message;locationDB[heartDB[_to].graphicHash].currentHolder=locationDB[heartDB[_to].graphicHash].originalOwner;balances[msg.sender]-=1;balances[_to]+=1;emitTransfer(msg.sender,_to,_message);returntrue;}functionretreiveHrt(string_message)publicreturns(boolsuccess){require(msg.sender!=locationDB[heartDB[msg.sender].graphicHash].currentHolder);heartDB[msg.sender].message=_message;balances[locationDB[heartDB[msg.sender].graphicHash].currentHolder]-=1;balances[msg.sender]+=1;locationDB[heartDB[msg.sender].graphicHash].currentHolder=locationDB[heartDB[msg.sender].graphicHash].originalOwner;emitTransfer(locationDB[heartDB[msg.sender].graphicHash].currentHolder,msg.sender,_message);returntrue;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 140
+column: 2
+content: functionsetMinimumClaimValue(uint256_minimumCalimValue)publiconlyOwner{minimumCalimValue=_minimumCalimValue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 119
+column: 4
+content: if(generate(msg.sender)){returntrue;}else{revert();}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 131
+column: 40
+content: keccak256(_beneficiary,now,issuedTokens)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 62
+column: 41
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 62
+column: 57
+content: string_tokenName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 85
+column: 39
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 89
+column: 41
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 144
+column: 33
+content: string_message
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 164
+column: 34
+content: string_message
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 174
+column: 23
+content: string_message
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 6
+column: 2
+content: constructor(){owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 21
+column: 2
+content: uint256issuedTokens;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 22
+column: 2
+content: uint8decimalSpaces;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 23
+column: 2
+content: stringabbriveration;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 24
+column: 2
+content: stringtokenName;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 2
+content: uint256minimumCalimValue;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 30
+column: 2
+content: mapping(address=>HeartData)heartDB;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 32
+column: 2
+content: mapping(bytes32=>LocationData)locationDB;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 34
+column: 2
+content: mapping(address=>mapping(uint256=>bytes32))holdDB;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 36
+column: 2
+content: mapping(address=>mapping(address=>bool))allowanceApproval;
+
+SOLIDITY_VISIBILITY :11
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_UPGRADE_TO_050 :8

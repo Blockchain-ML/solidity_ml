@@ -1,0 +1,62 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\86857.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 21
+column: 4
+content: functionsetFundingAssetAddress(address_addr)public{require(initialized==false&&msg.sender==deployer);FundingAssetAddress=_addr;initialized=true;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 32
+column: 8
+content: if(msg.value>0){if(isContract(FundingAssetAddress)){if(FundingAssetAddress.call.value(msg.value)(bytes4(bytes32(keccak256("receivePayment(address,uint8)"))),msg.sender,typeId)){EventInputPaymentReceived(msg.sender,msg.value,typeId);returntrue;}else{revert();}}else{revert();}}else{revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 33
+column: 12
+content: if(isContract(FundingAssetAddress)){if(FundingAssetAddress.call.value(msg.value)(bytes4(bytes32(keccak256("receivePayment(address,uint8)"))),msg.sender,typeId)){EventInputPaymentReceived(msg.sender,msg.value,typeId);returntrue;}else{revert();}}else{revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 34
+column: 16
+content: if(FundingAssetAddress.call.value(msg.value)(bytes4(bytes32(keccak256("receivePayment(address,uint8)"))),msg.sender,typeId)){EventInputPaymentReceived(msg.sender,msg.value,typeId);returntrue;}else{revert();}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 50
+column: 4
+content: functionisContract(addressaddr)internalviewreturns(bool){uintsize;assembly{size:=extcodesize(addr)}returnsize>0;}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 34
+column: 39
+content: call.value(msg.value)(bytes4(bytes32(keccak256("receivePayment(address,uint8)"))),msg.sender,typeId)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 27
+column: 16
+content: public
+
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :3
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

@@ -1,0 +1,100 @@
+F:\Blockchain\solidity_dataset_work\4k_dataset\96093.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 123
+column: 4
+content: functionbalanceOf(addresswho)constantpublicreturns(uint);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 190
+column: 4
+content: functionbalanceOf(address_owner)publicconstantreturns(uintbalance){returnbalances[_owner];}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 91
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 130
+column: 0
+content: contractWubCoinisERC223Interface,ERC20CompatibleToken{usingSafeMathforuint;stringpublicname="WubCoin";stringpublicsymbol="WUB";uint8publicdecimals=18;uint256publictotalSupply=15000000*10**18;constructor(addresscompanyWallet)public{balances[companyWallet]=balances[companyWallet].add(totalSupply);emitTransfer(0x0,companyWallet,totalSupply);}function()publicpayable{revert();}functiontransfer(address_to,uint_value,bytes_data)public{uintcodeLength;assembly{codeLength:=extcodesize(_to)}balances[msg.sender]=balances[msg.sender].sub(_value);balances[_to]=balances[_to].add(_value);if(codeLength>0){ERC223ReceivingContractreceiver=ERC223ReceivingContract(_to);receiver.tokenFallback(msg.sender,_value,_data);}emitTransfer(msg.sender,_to,_value);}functiontransfer(address_to,uint_value)public{uintcodeLength;bytesmemoryempty;assembly{codeLength:=extcodesize(_to)}balances[msg.sender]=balances[msg.sender].sub(_value);balances[_to]=balances[_to].add(_value);if(codeLength>0){ERC223ReceivingContractreceiver=ERC223ReceivingContract(_to);receiver.tokenFallback(msg.sender,_value,empty);}emitTransfer(msg.sender,_to,_value);}functionbalanceOf(address_owner)publicconstantreturns(uintbalance){returnbalances[_owner];}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 144
+column: 30
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 58
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 131
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 144
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 10
+column: 55
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 125
+column: 46
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 150
+column: 48
+content: bytes_data
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 60
+column: 4
+content: mapping(address=>uint)balances;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_ERC20_APPROVE :1

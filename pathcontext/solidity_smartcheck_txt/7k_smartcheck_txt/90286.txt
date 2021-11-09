@@ -1,0 +1,166 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\90286.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 94
+column: 12
+content: for(i=0;i<red.members.length;i++){balances[red.members[i]]+=INVEST_AMOUNT;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 97
+column: 12
+content: for(i=0;i<blue.members.length;i++){balances[blue.members[i]]+=INVEST_AMOUNT;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 119
+column: 16
+content: for(i=0;i<blue.members.length;i++){balances[blue.members[i]]+=(INVEST_AMOUNT+gainPerMember);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 139
+column: 16
+content: for(i=0;i<red.members.length;i++){balances[red.members[i]]+=(INVEST_AMOUNT+gainPerMember);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 44
+column: 8
+content: while(amount>=INVEST_AMOUNT){red.members.push(msg.sender);red.nbrMembers++;amount-=INVEST_AMOUNT;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 68
+column: 8
+content: while(amount>=INVEST_AMOUNT){blue.members.push(msg.sender);blue.nbrMembers++;amount-=INVEST_AMOUNT;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 94
+column: 12
+content: for(i=0;i<red.members.length;i++){balances[red.members[i]]+=INVEST_AMOUNT;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 97
+column: 12
+content: for(i=0;i<blue.members.length;i++){balances[blue.members[i]]+=INVEST_AMOUNT;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 119
+column: 16
+content: for(i=0;i<blue.members.length;i++){balances[blue.members[i]]+=(INVEST_AMOUNT+gainPerMember);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 139
+column: 16
+content: for(i=0;i<red.members.length;i++){balances[red.members[i]]+=(INVEST_AMOUNT+gainPerMember);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 44
+column: 15
+content: amount>=INVEST_AMOUNT
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 68
+column: 15
+content: amount>=INVEST_AMOUNT
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 174
+column: 19
+content: send(balances[msg.sender])
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 26
+column: 4
+content: functiontickingBomb(){newRound();creator=msg.sender;gameNbr=0;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 32
+column: 4
+content: functionhelpRed(){uinti;uintamount=msg.value;checkIfExploded();red.lastUpdate=block.timestamp;while(amount>=INVEST_AMOUNT){red.members.push(msg.sender);red.nbrMembers++;amount-=INVEST_AMOUNT;}if(amount>0){msg.sender.send(amount);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 56
+column: 4
+content: functionhelpBlue(){uinti;uintamount=msg.value;checkIfExploded();blue.lastUpdate=block.timestamp;while(amount>=INVEST_AMOUNT){blue.members.push(msg.sender);blue.nbrMembers++;amount-=INVEST_AMOUNT;}if(amount>0){msg.sender.send(amount);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 80
+column: 4
+content: functioncheckIfExploded(){if(checkTime()){newRound();}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 164
+column: 4
+content: function(){if(red.lastUpdate<blue.lastUpdate){helpRed();}else{helpBlue();}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 173
+column: 4
+content: functioncollectBalance(){msg.sender.send(balances[msg.sender]);balances[msg.sender]=0;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 179
+column: 4
+content: functionsendBalance(addressplayer){if(msg.sender==creator){player.send(balances[player]);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 185
+column: 4
+content: functionnewOwner(addressnewOwner){if(msg.sender==creator){creator=newOwner;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 4
+content: uintconstantFEE=3;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 4
+content: addresscreator;
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_EXTRA_GAS_IN_LOOPS :6
+SOLIDITY_GAS_LIMIT_IN_LOOPS :6
+SOLIDITY_UNCHECKED_CALL :1

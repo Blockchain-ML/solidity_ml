@@ -1,0 +1,97 @@
+F:\Blockchain\dataset_new_byID\77034.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 56
+column: 4
+content: functiongenerateMillageResult(uintnum)constantprivatereturns(uintmillage){if(num<thousand){returnnum*thousand;}else{return(num%thousand)*thousand;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 65
+column: 4
+content: functiongenerateLatitudeResult(uintnum)constantprivatereturns(bytes11latitude){returnbytes11(num*num*num%hundred);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 70
+column: 4
+content: functiongenerateLongitudeResult(uintnum)constantprivatereturns(bytes11longitude){returnbytes11(num*num%hundred);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 75
+column: 4
+content: functionsetCarAssetLogicAddr(addresscontractAddress)onlyOwnerreturns(boolresult){require(contractAddress!=address(0));carAssetLogicAddr=contractAddress;returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 21
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 22
+column: 9
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 23
+column: 9
+content: private
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 8
+column: 4
+content: functionupdateViaIotSimulator(uint24id,bytes11latitude,bytes11longitude,bytes32imageUrl);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 15
+column: 4
+content: functionupdateAvailabilityViaIotSimulator(uint24id,boolavailability);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 27
+column: 4
+content: functiongenerateIotOutput(uint24id,uintsalt)returns(boolresult){require(id!=0);require(carAssetLogicAddr!=address(0));uintnumber=id+salt;CarAssetLogicInterfacecarAssetLogic=CarAssetLogicInterface(carAssetLogicAddr);carAssetLogic.updateViaIotSimulator(id,generateLongitudeResult(number),generateLatitudeResult(number),"/link");returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 43
+column: 4
+content: functiongenerateIotAvailability(uint24id,boolavailability)returns(boolresult){require(id!=0);require(carAssetLogicAddr!=address(0));CarAssetLogicInterfacecarAssetLogic=CarAssetLogicInterface(carAssetLogicAddr);carAssetLogic.updateAvailabilityViaIotSimulator(id,availability);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 75
+column: 4
+content: functionsetCarAssetLogicAddr(addresscontractAddress)onlyOwnerreturns(boolresult){require(contractAddress!=address(0));carAssetLogicAddr=contractAddress;returntrue;}
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :3

@@ -1,0 +1,142 @@
+F:\Blockchain\dataset_new_byID\77684.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 140
+column: 8
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 84
+column: 2
+content: functionhasWon(uint_proposalID)boardConfigured(msg.sender)bondPosted(msg.sender,_proposalID)publicconstantreturns(bool){BoardRoomboard=BoardRoom(msg.sender);uintnay=board.positionWeightOf(_proposalID,0);uintyea=board.positionWeightOf(_proposalID,1);for(uinti=0;i<curators[msg.sender].length;i++){var(position,weight,created)=board.voteOf(_proposalID,curators[msg.sender][i]);if(position==0){returnfalse;}}uintquorum=StandardToken(token.token()).totalSupply();uintdivisor=20;if(block.number>startBlock+5000){divisor=40;}if(block.number>startBlock+10000){divisor=60;}if((yea+nay)>quorum/divisor&&yea>nay){returntrue;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 113
+column: 2
+content: functioncanVote(address_sender,uint_proposalID)boardConfigured(msg.sender)bondPosted(msg.sender,_proposalID)publicconstantreturns(bool){BoardRoomboard=BoardRoom(msg.sender);uintcreated=board.createdOn(_proposalID);uintdebatePeriod=board.debatePeriodOf(_proposalID);if(votingWeightOf(_sender,_proposalID)>0&&now<(created+debatePeriod)&&token.frozenUntil(_sender)>(created+debatePeriod)&&delegated[msg.sender][_proposalID][_sender]==false&&board.hasVoted(_proposalID,_sender)==false){returntrue;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 128
+column: 2
+content: functioncanPropose(address_sender)boardConfigured(msg.sender)publicconstantreturns(bool){if(token.balanceOf(_sender)>0){returntrue;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 145
+column: 2
+content: functionvotingWeightOf(address_sender,uint_proposalID)boardConfigured(msg.sender)bondPosted(msg.sender,_proposalID)publicconstantreturns(uint){if(delegated[msg.sender][_proposalID][_sender]==false){returntoken.balanceOf(_sender)+delegatedWeight[msg.sender][_proposalID][_sender];}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 30
+column: 6
+content: for(uinti=0;i<curators[_board].length;i++){isCurator[_board][curators[_board][i]]=true;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 45
+column: 6
+content: for(uinti=0;i<curators[msg.sender].length;i++){if(curators[msg.sender][i]==_curator){deletecurators[msg.sender][i];}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 55
+column: 4
+content: for(uinti=0;i<curators[msg.sender].length;i++){if(curators[_board][i]==msg.sender){deletecurators[_board][i];}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 90
+column: 4
+content: for(uinti=0;i<curators[msg.sender].length;i++){var(position,weight,created)=board.voteOf(_proposalID,curators[msg.sender][i]);if(position==0){returnfalse;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 30
+column: 6
+content: for(uinti=0;i<curators[_board].length;i++){isCurator[_board][curators[_board][i]]=true;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 45
+column: 6
+content: for(uinti=0;i<curators[msg.sender].length;i++){if(curators[msg.sender][i]==_curator){deletecurators[msg.sender][i];}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 55
+column: 4
+content: for(uinti=0;i<curators[msg.sender].length;i++){if(curators[_board][i]==msg.sender){deletecurators[_board][i];}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 90
+column: 4
+content: for(uinti=0;i<curators[msg.sender].length;i++){var(position,weight,created)=board.voteOf(_proposalID,curators[msg.sender][i]);if(position==0){returnfalse;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 139
+column: 6
+content: if(!_destination.send(balanceToSend)){throw;}
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 139
+column: 24
+content: send(balanceToSend)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 20
+column: 51
+content: address[]_curators
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 62
+column: 2
+content: functiondepositBond(address_board,uint_proposalID)payable{bonds[_board][_proposalID]+=msg.value;balance[_board]+=msg.value;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 134
+column: 2
+content: functionwidthrawBondFunds(address_destination)payable{if(balance[msg.sender]>0){uintbalanceToSend=balance[msg.sender];balance[msg.sender]=0;if(!_destination.send(balanceToSend)){throw;}}}
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_SEND :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :4
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4

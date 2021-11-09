@@ -1,0 +1,9 @@
+C:\Users\hp\DataSet\DummySTO.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 10
+column: 0
+content: contractDummySTOisDummySTOStorage,STO{eventGenerateTokens(address_investor,uint256_amount);constructor(address_securityToken,address_polyToken)publicModule(_securityToken,_polyToken){}functionconfigure(uint256_startTime,uint256_endTime,uint256_cap,stringmemory_someString)publiconlyFactory{startTime=_startTime;endTime=_endTime;cap=_cap;someString=_someString;}functiongetInitFunction()publicpurereturns(bytes4){returnthis.configure.selector;}functiongenerateTokens(address_investor,uint256_amount)publicwithPerm(ADMIN){require(!paused,"Should not be paused");require(_amount>0,"Amount should be greater than 0");require(_canBuy(_investor),"Unauthorized");securityToken.issue(_investor,_amount,"");if(investors[_investor]==0){investorCount=investorCount+1;}investors[_investor]=investors[_investor]+_amount;emitGenerateTokens(_investor,_amount);}functiongetNumberInvestors()publicviewreturns(uint256){returninvestorCount;}functiongetTokensSold()externalviewreturns(uint256){return0;}functiongetPermissions()publicviewreturns(bytes32[]memory){bytes32[]memoryallPermissions=newbytes32[](1);allPermissions[0]=ADMIN;returnallPermissions;}function()externalpayable{}}
+
+SOLIDITY_LOCKED_MONEY :1

@@ -1,0 +1,295 @@
+C:\Users\hp\DataSet\contracts\ropsten\9d\9d7940826bd2f9256ab357ffced21b62a2c69a26_StandardToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 41
+column: 2
+content: functiontimes(uint256a,uint256b)constantreturns(boolerr,uint256res){assembly{res:=mul(a,b)jumpi(allGood,or(iszero(b),eq(div(res,b),a)))err:=1res:=0allGood:}if(err)Err("times func overflow");}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 59
+column: 2
+content: functiondividedBy(uint256a,uint256b)constantreturns(boolerr,uint256res){assembly{jumpi(e,iszero(b))res:=div(a,b)mstore(add(mload(0x40),0x20),res)return(mload(0x40),0x40)e:}Err("tried to divide by zero");return(true,0);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 77
+column: 2
+content: functionplus(uint256a,uint256b)constantreturns(boolerr,uint256res){assembly{res:=add(a,b)jumpi(allGood,and(eq(sub(res,b),a),gt(res,b)))err:=1res:=0allGood:}if(err)Err("plus func overflow");}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 95
+column: 2
+content: functionminus(uint256a,uint256b)constantreturns(boolerr,uint256res){assembly{res:=sub(a,b)jumpi(allGood,eq(and(eq(add(res,b),a),or(lt(res,a),eq(res,a))),1))err:=1res:=0allGood:}if(err)Err("minus func underflow");}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 412
+column: 2
+content: functionname()constantreturns(string){returntoken.name;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 416
+column: 2
+content: functionsymbol()constantreturns(string){returntoken.symbol;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 420
+column: 2
+content: functiondecimals()constantreturns(uint8){returntoken.decimals;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 424
+column: 2
+content: functiontotalSupply()constantreturns(uint256){returntoken.totalSupply;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 428
+column: 2
+content: functionbalanceOf(addresswho)constantreturns(uint256){returntoken.balanceOf(who);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 432
+column: 2
+content: functionallowance(addressowner,addressspender)constantreturns(uint256){returntoken.allowance(owner,spender);}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 444
+column: 2
+content: functionapprove(addressspender,uintvalue)returns(boolok){returntoken.approve(spender,value);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 41
+column: 2
+content: functiontimes(uint256a,uint256b)constantreturns(boolerr,uint256res){assembly{res:=mul(a,b)jumpi(allGood,or(iszero(b),eq(div(res,b),a)))err:=1res:=0allGood:}if(err)Err("times func overflow");}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 77
+column: 2
+content: functionplus(uint256a,uint256b)constantreturns(boolerr,uint256res){assembly{res:=add(a,b)jumpi(allGood,and(eq(sub(res,b),a),gt(res,b)))err:=1res:=0allGood:}if(err)Err("plus func overflow");}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 95
+column: 2
+content: functionminus(uint256a,uint256b)constantreturns(boolerr,uint256res){assembly{res:=sub(a,b)jumpi(allGood,eq(and(eq(add(res,b),a),or(lt(res,a),eq(res,a))),1))err:=1res:=0allGood:}if(err)Err("minus func underflow");}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 172
+column: 16
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 173
+column: 16
+content: string_symbol
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 42
+column: 4
+content: assembly{res:=mul(a,b)jumpi(allGood,or(iszero(b),eq(div(res,b),a)))err:=1res:=0allGood:}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 60
+column: 4
+content: assembly{jumpi(e,iszero(b))res:=div(a,b)mstore(add(mload(0x40),0x20),res)return(mload(0x40),0x40)e:}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 78
+column: 4
+content: assembly{res:=add(a,b)jumpi(allGood,and(eq(sub(res,b),a),gt(res,b)))err:=1res:=0allGood:}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 96
+column: 4
+content: assembly{res:=sub(a,b)jumpi(allGood,eq(and(eq(add(res,b),a),or(lt(res,a),eq(res,a))),1))err:=1res:=0allGood:}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 41
+column: 2
+content: functiontimes(uint256a,uint256b)constantreturns(boolerr,uint256res){assembly{res:=mul(a,b)jumpi(allGood,or(iszero(b),eq(div(res,b),a)))err:=1res:=0allGood:}if(err)Err("times func overflow");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 59
+column: 2
+content: functiondividedBy(uint256a,uint256b)constantreturns(boolerr,uint256res){assembly{jumpi(e,iszero(b))res:=div(a,b)mstore(add(mload(0x40),0x20),res)return(mload(0x40),0x40)e:}Err("tried to divide by zero");return(true,0);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 77
+column: 2
+content: functionplus(uint256a,uint256b)constantreturns(boolerr,uint256res){assembly{res:=add(a,b)jumpi(allGood,and(eq(sub(res,b),a),gt(res,b)))err:=1res:=0allGood:}if(err)Err("plus func overflow");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 95
+column: 2
+content: functionminus(uint256a,uint256b)constantreturns(boolerr,uint256res){assembly{res:=sub(a,b)jumpi(allGood,eq(and(eq(add(res,b),a),or(lt(res,a),eq(res,a))),1))err:=1res:=0allGood:}if(err)Err("minus func underflow");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 400
+column: 2
+content: functionStandardToken(addressowner,stringname,stringsymbol,uint8decimals,uint256initialSupply,boolallowMinting){if(owner==0x0)owner=msg.sender;token.init(owner,name,symbol,decimals,initialSupply,allowMinting);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 412
+column: 2
+content: functionname()constantreturns(string){returntoken.name;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 416
+column: 2
+content: functionsymbol()constantreturns(string){returntoken.symbol;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 420
+column: 2
+content: functiondecimals()constantreturns(uint8){returntoken.decimals;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 424
+column: 2
+content: functiontotalSupply()constantreturns(uint256){returntoken.totalSupply;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 428
+column: 2
+content: functionbalanceOf(addresswho)constantreturns(uint256){returntoken.balanceOf(who);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 432
+column: 2
+content: functionallowance(addressowner,addressspender)constantreturns(uint256){returntoken.allowance(owner,spender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 436
+column: 2
+content: functiontransfer(addressto,uintvalue)returns(boolok){returntoken.transfer(to,value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 440
+column: 2
+content: functiontransferFrom(addressfrom,addressto,uintvalue)returns(boolok){returntoken.transferFrom(from,to,value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 444
+column: 2
+content: functionapprove(addressspender,uintvalue)returns(boolok){returntoken.approve(spender,value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 448
+column: 2
+content: functionapproveChange(address_spender,uint256_valueChange,bool_increase)returns(boolok){returntoken.approveChange(_spender,_valueChange,_increase);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 452
+column: 2
+content: functionchangeOwner(address_newOwner)returns(boolok){returntoken.changeOwner(_newOwner);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 456
+column: 2
+content: functionmintToken(uint256_amount)returns(boolok){returntoken.mintToken(_amount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 460
+column: 2
+content: functioncloseMint()returns(boolok){returntoken.closeMint();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 464
+column: 2
+content: functionburnToken(uint256_amount)returns(boolok){returntoken.burnToken(_amount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 398
+column: 2
+content: TokenLib.TokenStoragetoken;
+
+SOLIDITY_VISIBILITY :20
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :10
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :3
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_USING_INLINE_ASSEMBLY :4
+SOLIDITY_ERC20_APPROVE :1

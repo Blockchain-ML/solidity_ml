@@ -1,0 +1,39 @@
+F:\Blockchain\dataset_new_byID\79227.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractMarket{enumStatus{PENDING,DONE}structTrade{uintid;uintofferId;addressbuyer;addressseller;uintprice;Statusstatus;}structOffer{uintid;addressseller;stringdescription;uintprice;Statusstatus;}mapping(uint=>Trade)publictrades;mapping(uint=>Offer)publicoffers;mapping(address=>uint)publicbalances;mapping(address=>uint)publicavailableBalances;mapping(address=>bool)publicmembers;addressadmin;uintlastOfferId=1;uintlastTradeId=1;constructor()public{admin=msg.sender;}functionsell(stringcalldatadescription,uintprice)externalonlyMember(msg.sender,true){require(price>0,'cannot sell free items');uintofferId=lastOfferId++;offers[offerId]=Offer(offerId,msg.sender,description,price,Status.PENDING);}functionbuy(uintofferId)externalonlyMember(msg.sender,true){Offerstorageoffer=offers[offerId];require(offer.id>0,'offer must exist');require(offer.status==Status.PENDING,'offer must be pending');require(availableBalances[msg.sender]>=offer.price);availableBalances[msg.sender]-=offer.price;offer.status=Status.DONE;uinttradeId=lastTradeId++;trades[lastTradeId++]=Trade(tradeId,offer.id,msg.sender,offer.seller,offer.price,Status.PENDING);}functiondeposit()externalpayableonlyMember(msg.sender,true){balances[msg.sender]+=msg.value;availableBalances[msg.sender]+=msg.value;}functionsettle(uinttxId)externalonlyAdmin(){Tradestoragetrade=trades[txId];require(trade.id!=0,'trade must exist');require(trade.status==Status.PENDING,'trade must be in PENDING state');trade.status=Status.DONE;availableBalances[msg.sender]+=trade.price;_transfer(trade.buyer,trade.seller,trade.price);}functionregister(addressmember)externalonlyMember(member,false)onlyAdmin(){members[member]=true;balances[member]+=500;availableBalances[member]+=500;}functionunregister(addressmember)externalonlyMember(member,true)onlyAdmin(){uintmemberBalance=balances[member];members[member]=false;_transfer(member,address(this),memberBalance);}function_transfer(addressfrom,addressto,uintamount)internal{require(balances[from]>=amount,'cannot transfer more than current balance');balances[from]-=amount;availableBalances[from]-=amount;balances[to]+=amount;availableBalances[to]+=amount;}function()externalpayable{}modifieronlyMember(addressmember,boolregistered){if(registered){require(members[member]==true,'must be registered');}else{require(members[member]==false,'must NOT be registered');}_;}modifieronlyAdmin(){require(msg.sender==admin,'only admin');_;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 4
+content: addressadmin;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 30
+column: 4
+content: uintlastOfferId=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 31
+column: 4
+content: uintlastTradeId=1;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

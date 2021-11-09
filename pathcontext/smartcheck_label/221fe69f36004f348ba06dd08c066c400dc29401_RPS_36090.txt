@@ -1,0 +1,83 @@
+C:\Users\hp\DataSet\contracts\ropsten\22\221fe69f36004f348ba06dd08c066c400dc29401_RPS.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 81
+column: 4
+content: functionwin(Move_c1,Move_c2)constantreturns(boolw){if(_c1==_c2)returnfalse;elseif(_c1==Move.Null)returnfalse;elseif(uint(_c1)%2==uint(_c2)%2)return(_c1<_c2);elsereturn(_c1>_c2);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 63
+column: 11
+content: send(2*stake)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 72
+column: 11
+content: send(stake)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 43
+column: 16
+content: keccak256(_c1,_salt)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 16
+column: 4
+content: functionRPS(bytes32_c1Hash,address_j2)payable{stake=msg.value;j1=msg.sender;j2=_j2;c1Hash=_c1Hash;lastAction=now;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 27
+column: 4
+content: functionplay(Move_c2)payable{require(c2==Move.Null);require(msg.value==stake);require(msg.sender==j2);c2=_c2;lastAction=now;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 40
+column: 4
+content: functionsolve(Move_c1,uint256_salt){require(c2!=Move.Null);require(msg.sender==j1);require(keccak256(_c1,_salt)==c1Hash);if(win(_c1,c2))j1.send(2*stake);elseif(win(c2,_c1))j2.send(2*stake);else{j1.send(stake);j2.send(stake);}stake=0;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 60
+column: 4
+content: functionj1Timeout(){require(c2!=Move.Null);require(now>lastAction+TIMEOUT);j2.send(2*stake);stake=0;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 69
+column: 4
+content: functionj2Timeout(){require(c2==Move.Null);require(now>lastAction+TIMEOUT);j1.send(stake);stake=0;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 81
+column: 4
+content: functionwin(Move_c1,Move_c2)constantreturns(boolw){if(_c1==_c2)returnfalse;elseif(_c1==Move.Null)returnfalse;elseif(uint(_c1)%2==uint(_c2)%2)return(_c1<_c2);elsereturn(_c1>_c2);}
+
+SOLIDITY_VISIBILITY :6
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_UNCHECKED_CALL :2

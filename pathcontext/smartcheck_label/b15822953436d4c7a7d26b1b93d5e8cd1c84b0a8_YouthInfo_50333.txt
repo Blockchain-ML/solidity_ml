@@ -1,0 +1,74 @@
+C:\Users\hp\DataSet\contracts\ropsten\b1\b15822953436d4c7a7d26b1b93d5e8cd1c84b0a8_YouthInfo.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractYouthInfo{structPerson{uintage;stringname;stringfatherName;stringlocation;uintid;}mapping(uint=>Person)publicpersonsMap;mapping(string=>string)privatepersonValidity;uintpublicpersonCount;uintprivateageRange;constructor()public{personCount=0;ageRange=18;}modifiercheckAge(uint_age){require(_age>=ageRange,&39<missing ')'>;Agemust<missing ';'>begreater<missing ';'>than<missing ';'>18&39;);_;}modifierisUnique(string_name,string_fatherName){stringstoragefatherName=personValidity[_name];require(keccak256(abi.encodePacked(fatherName))!=keccak256(abi.encodePacked(_fatherName)),&39<missing ')'>;Personalready<missing ';'>exists&39;);_;}functionaddPerson(uint_age,string_name,string_fatherName,string_location)publicpayablecheckAge(_age)isUnique(_name,_fatherName){personsMap[personCount]=Person(_age,_name,_fatherName,_location,personCount);personValidity[_name]=_fatherName;personCount++;}functiongetPersonInfo(uintid)publicviewreturns(uint,string,string,string,uint){return(personsMap[id].age,personsMap[id].name,personsMap[id].fatherName,personsMap[id].location,personsMap[id].id);}functionupdatePersonLocation(uintid,string_location)public{personsMap[id].location=_location;}}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 13
+column: 30
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 16
+column: 9
+content: private
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 34
+column: 34
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 34
+column: 48
+content: string_fatherName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 35
+column: 8
+content: string_location
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 41
+column: 62
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 41
+column: 70
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 41
+column: 78
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 46
+column: 43
+content: string_location
+
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_UPGRADE_TO_050 :7

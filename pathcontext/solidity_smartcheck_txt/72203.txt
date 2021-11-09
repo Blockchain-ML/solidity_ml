@@ -1,0 +1,242 @@
+F:\Blockchain\dataset_new_byID\72203.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 163
+column: 8
+content: if(from>to){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 166
+column: 8
+content: if(to>b.length){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 197
+column: 8
+content: if(from>to){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 200
+column: 8
+content: if(to>b.length){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 220
+column: 8
+content: if(b.length==0){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 265
+column: 8
+content: if(b.length<index+20){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 296
+column: 8
+content: if(b.length<index+20){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 341
+column: 8
+content: if(b.length<index+32){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 367
+column: 8
+content: if(b.length<index+32){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 423
+column: 8
+content: if(b.length<index+4){revert();}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 15
+column: 4
+content: functionrawAddress(bytesmemoryinput)internalpurereturns(uint256memoryAddress){assembly{memoryAddress:=input}returnmemoryAddress;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 29
+column: 4
+content: functioncontentAddress(bytesmemoryinput)internalpurereturns(uint256memoryAddress){assembly{memoryAddress:=add(input,32)}returnmemoryAddress;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 44
+column: 4
+content: functionmemCopy(uint256dest,uint256source,uint256length)internalpure{if(length<32){assembly{letmask:=sub(exp(256,sub(32,length)),1)lets:=and(mload(source),not(mask))letd:=and(mload(dest),mask)mstore(dest,or(s,d))}}else{if(source==dest){return;}if(source>dest){assembly{length:=sub(length,32)letsEnd:=add(source,length)letdEnd:=add(dest,length)letlast:=mload(sEnd)for{}lt(source,sEnd){}{mstore(dest,mload(source))source:=add(source,32)dest:=add(dest,32)}mstore(dEnd,last)}}else{assembly{length:=sub(length,32)letsEnd:=add(source,length)letdEnd:=add(dest,length)letfirst:=mload(source)for{}slt(dest,dEnd){}{mstore(dEnd,mload(sEnd))sEnd:=sub(sEnd,32)dEnd:=sub(dEnd,32)}mstore(dest,first)}}}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 186
+column: 4
+content: functionsliceDestructive(bytesmemoryb,uint256from,uint256to)internalpurereturns(bytesmemoryresult){if(from>to){revert();}if(to>b.length){revert();}assembly{result:=add(b,from)mstore(result,sub(to,from))}returnresult;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 215
+column: 4
+content: functionpopLastByte(bytesmemoryb)internalpurereturns(bytes1result){if(b.length==0){revert();}result=b[b.length-1];assembly{letnewLen:=sub(mload(b),1)mstore(b,newLen)}returnresult;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 257
+column: 4
+content: functionreadAddress(bytesmemoryb,uint256index)internalpurereturns(addressresult){if(b.length<index+20){revert();}index+=20;assembly{result:=and(mload(add(b,index)),0xffffffffffffffffffffffffffffffffffffffff)}returnresult;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 288
+column: 4
+content: functionwriteAddress(bytesmemoryb,uint256index,addressinput)internalpure{if(b.length<index+20){revert();}index+=20;assembly{letneighbors:=and(mload(add(b,index)),0xffffffffffffffffffffffff0000000000000000000000000000000000000000)input:=and(input,0xffffffffffffffffffffffffffffffffffffffff)mstore(add(b,index),xor(input,neighbors))}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 333
+column: 4
+content: functionreadBytes32(bytesmemoryb,uint256index)internalpurereturns(bytes32result){if(b.length<index+32){revert();}index+=32;assembly{result:=mload(add(b,index))}returnresult;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 359
+column: 4
+content: functionwriteBytes32(bytesmemoryb,uint256index,bytes32input)internalpure{if(b.length<index+32){revert();}index+=32;assembly{mstore(add(b,index),input)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 415
+column: 4
+content: functionreadBytes4(bytesmemoryb,uint256index)internalpurereturns(bytes4result){if(b.length<index+4){revert();}index+=32;assembly{result:=mload(add(b,index))result:=and(result,0xFFFFFFFF00000000000000000000000000000000000000000000000000000000)}returnresult;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 445
+column: 4
+content: functionwriteLength(bytesmemoryb,uint256length)internalpure{assembly{mstore(b,length)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 20
+column: 8
+content: assembly{memoryAddress:=input}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 34
+column: 8
+content: assembly{memoryAddress:=add(input,32)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 56
+column: 12
+content: assembly{letmask:=sub(exp(256,sub(32,length)),1)lets:=and(mload(source),not(mask))letd:=and(mload(dest),mask)mstore(dest,or(s,d))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 84
+column: 16
+content: assembly{length:=sub(length,32)letsEnd:=add(source,length)letdEnd:=add(dest,length)letlast:=mload(sEnd)for{}lt(source,sEnd){}{mstore(dest,mload(source))source:=add(source,32)dest:=add(dest,32)}mstore(dEnd,last)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 113
+column: 16
+content: assembly{length:=sub(length,32)letsEnd:=add(source,length)letdEnd:=add(dest,length)letfirst:=mload(source)for{}slt(dest,dEnd){}{mstore(dEnd,mload(sEnd))sEnd:=sub(sEnd,32)dEnd:=sub(dEnd,32)}mstore(dest,first)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 205
+column: 8
+content: assembly{result:=add(b,from)mstore(result,sub(to,from))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 227
+column: 8
+content: assembly{letnewLen:=sub(mload(b),1)mstore(b,newLen)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 275
+column: 8
+content: assembly{result:=and(mload(add(b,index)),0xffffffffffffffffffffffffffffffffffffffff)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 306
+column: 8
+content: assembly{letneighbors:=and(mload(add(b,index)),0xffffffffffffffffffffffff0000000000000000000000000000000000000000)input:=and(input,0xffffffffffffffffffffffffffffffffffffffff)mstore(add(b,index),xor(input,neighbors))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 349
+column: 8
+content: assembly{result:=mload(add(b,index))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 375
+column: 8
+content: assembly{mstore(add(b,index),input)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 431
+column: 8
+content: assembly{result:=mload(add(b,index))result:=and(result,0xFFFFFFFF00000000000000000000000000000000000000000000000000000000)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 449
+column: 8
+content: assembly{mstore(b,length)}
+
+SOLIDITY_REVERT_REQUIRE :10
+SOLIDITY_USING_INLINE_ASSEMBLY :13
+SOLIDITY_SHOULD_NOT_BE_PURE :11

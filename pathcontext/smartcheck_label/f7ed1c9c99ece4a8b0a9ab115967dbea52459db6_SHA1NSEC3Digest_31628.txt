@@ -1,0 +1,167 @@
+C:\Users\hp\DataSet\contracts\mainnet\f7\f7ed1c9c99ece4a8b0a9ab115967dbea52459db6_SHA1NSEC3Digest.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 315
+column: 4
+content: functionsha1(bytesdata)internalpurereturns(bytes20ret){assembly{letscratch:=mload(0x40)letlen:=mload(data)data:=add(data,32)lettotallen:=add(and(add(len,1),0xFFFFFFFFFFFFFFC0),64)switchlt(sub(totallen,len),9)case1{totallen:=add(totallen,64)}leth:=0x6745230100EFCDAB890098BADCFE001032547600C3D2E1F0functionreadword(ptr,off,count)->result{result:=0iflt(off,count){result:=mload(add(ptr,off))count:=sub(count,off)iflt(count,32){letmask:=not(sub(exp(256,sub(32,count)),1))result:=and(result,mask)}}}for{leti:=0}lt(i,totallen){i:=add(i,64)}{mstore(scratch,readword(data,i,len))mstore(add(scratch,32),readword(data,add(i,32),len))switchlt(sub(len,i),64)case1{mstore8(add(scratch,sub(len,i)),0x80)}switcheq(i,sub(totallen,64))case1{mstore(add(scratch,32),or(mload(add(scratch,32)),mul(len,8)))}for{letj:=64}lt(j,128){j:=add(j,12)}{lettemp:=xor(xor(mload(add(scratch,sub(j,12))),mload(add(scratch,sub(j,32)))),xor(mload(add(scratch,sub(j,56))),mload(add(scratch,sub(j,64)))))temp:=or(and(mul(temp,2),0xFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFE),and(div(temp,0x80000000),0x0000000100000001000000010000000100000001000000010000000100000001))mstore(add(scratch,j),temp)}for{letj:=128}lt(j,320){j:=add(j,24)}{lettemp:=xor(xor(mload(add(scratch,sub(j,24))),mload(add(scratch,sub(j,64)))),xor(mload(add(scratch,sub(j,112))),mload(add(scratch,sub(j,128)))))temp:=or(and(mul(temp,4),0xFFFFFFFCFFFFFFFCFFFFFFFCFFFFFFFCFFFFFFFCFFFFFFFCFFFFFFFCFFFFFFFC),and(div(temp,0x40000000),0x0000000300000003000000030000000300000003000000030000000300000003))mstore(add(scratch,j),temp)}letx:=hletf:=0letk:=0for{letj:=0}lt(j,80){j:=add(j,1)}{switchdiv(j,20)case0{f:=xor(div(x,0x100000000000000000000),div(x,0x10000000000))f:=and(div(x,0x1000000000000000000000000000000),f)f:=xor(div(x,0x10000000000),f)k:=0x5A827999}case1{f:=xor(div(x,0x1000000000000000000000000000000),div(x,0x100000000000000000000))f:=xor(div(x,0x10000000000),f)k:=0x6ED9EBA1}case2{f:=or(div(x,0x1000000000000000000000000000000),div(x,0x100000000000000000000))f:=and(div(x,0x10000000000),f)f:=or(and(div(x,0x1000000000000000000000000000000),div(x,0x100000000000000000000)),f)k:=0x8F1BBCDC}case3{f:=xor(div(x,0x1000000000000000000000000000000),div(x,0x100000000000000000000))f:=xor(div(x,0x10000000000),f)k:=0xCA62C1D6}lettemp:=and(div(x,0x80000000000000000000000000000000000000000000000),0x1F)temp:=or(and(div(x,0x800000000000000000000000000000000000000),0xFFFFFFE0),temp)temp:=add(f,temp)temp:=add(and(x,0xFFFFFFFF),temp)temp:=add(k,temp)temp:=add(div(mload(add(scratch,mul(j,4))),0x100000000000000000000000000000000000000000000000000000000),temp)x:=or(div(x,0x10000000000),mul(temp,0x10000000000000000000000000000000000000000))x:=or(and(x,0xFFFFFFFF00FFFFFFFF000000000000FFFFFFFF00FFFFFFFF),mul(or(and(div(x,0x4000000000000),0xC0000000),and(div(x,0x400000000000000000000),0x3FFFFFFF)),0x100000000000000000000))}h:=and(add(h,x),0xFFFFFFFF00FFFFFFFF00FFFFFFFF00FFFFFFFF00FFFFFFFF)}ret:=mul(or(or(or(or(and(div(h,0x100000000),0xFFFFFFFF00000000000000000000000000000000),and(div(h,0x1000000),0xFFFFFFFF000000000000000000000000)),and(div(h,0x10000),0xFFFFFFFF0000000000000000)),and(div(h,0x100),0xFFFFFFFF00000000)),and(h,0xFFFFFFFF)),0x1000000000000000000000000)}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 46
+column: 4
+content: functioninit(buffermemorybuf,uintcapacity)internalpurereturns(buffermemory){if(capacity%32!=0){capacity+=32-(capacity%32);}buf.capacity=capacity;assembly{letptr:=mload(0x40)mstore(buf,ptr)mstore(ptr,0)mstore(0x40,add(ptr,capacity))}returnbuf;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 92
+column: 4
+content: functiontruncate(buffermemorybuf)internalpurereturns(buffermemory){assembly{letbufptr:=mload(buf)mstore(bufptr,0)}returnbuf;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 109
+column: 4
+content: functionwrite(buffermemorybuf,uintoff,bytesdata,uintlen)internalpurereturns(buffermemory){require(len<=data.length);if(off+len+buf.buf.length>buf.capacity){resize(buf,max(buf.capacity,len+off)*2);}uintdest;uintsrc;assembly{letbufptr:=mload(buf)letbuflen:=mload(bufptr)dest:=add(add(bufptr,32),off)ifgt(add(len,off),buflen){mstore(bufptr,add(len,off))}src:=add(data,32)}for(;len>=32;len-=32){assembly{mstore(dest,mload(src))}dest+=32;src+=32;}uintmask=256**(32-len)-1;assembly{letsrcpart:=and(mload(src),not(mask))letdestpart:=and(mload(dest),mask)mstore(dest,or(destpart,srcpart))}returnbuf;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 183
+column: 4
+content: functionwriteUint8(buffermemorybuf,uintoff,uint8data)internalpurereturns(buffermemory){if(off>buf.capacity){resize(buf,buf.capacity*2);}assembly{letbufptr:=mload(buf)letbuflen:=mload(bufptr)letdest:=add(add(bufptr,off),32)mstore8(dest,data)ifeq(off,buflen){mstore(bufptr,add(buflen,1))}}returnbuf;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 224
+column: 4
+content: functionwrite(buffermemorybuf,uintoff,bytes32data,uintlen)privatepurereturns(buffermemory){if(len+off>buf.capacity){resize(buf,max(buf.capacity,len)*2);}uintmask=256**len-1;data=data>>(8*(32-len));assembly{letbufptr:=mload(buf)letdest:=add(add(bufptr,off),len)mstore(dest,or(and(mload(dest),not(mask)),data))ifgt(add(off,len),mload(bufptr)){mstore(bufptr,add(off,len))}}returnbuf;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 289
+column: 4
+content: functionwriteInt(buffermemorybuf,uintoff,uintdata,uintlen)privatepurereturns(buffermemory){if(len+off>buf.capacity){resize(buf,max(buf.capacity,len+off)*2);}uintmask=256**len-1;assembly{letbufptr:=mload(buf)letdest:=add(add(bufptr,off),len)mstore(dest,or(and(mload(dest),not(mask)),data))ifgt(add(off,len),mload(bufptr)){mstore(bufptr,add(off,len))}}returnbuf;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 315
+column: 4
+content: functionsha1(bytesdata)internalpurereturns(bytes20ret){assembly{letscratch:=mload(0x40)letlen:=mload(data)data:=add(data,32)lettotallen:=add(and(add(len,1),0xFFFFFFFFFFFFFFC0),64)switchlt(sub(totallen,len),9)case1{totallen:=add(totallen,64)}leth:=0x6745230100EFCDAB890098BADCFE001032547600C3D2E1F0functionreadword(ptr,off,count)->result{result:=0iflt(off,count){result:=mload(add(ptr,off))count:=sub(count,off)iflt(count,32){letmask:=not(sub(exp(256,sub(32,count)),1))result:=and(result,mask)}}}for{leti:=0}lt(i,totallen){i:=add(i,64)}{mstore(scratch,readword(data,i,len))mstore(add(scratch,32),readword(data,add(i,32),len))switchlt(sub(len,i),64)case1{mstore8(add(scratch,sub(len,i)),0x80)}switcheq(i,sub(totallen,64))case1{mstore(add(scratch,32),or(mload(add(scratch,32)),mul(len,8)))}for{letj:=64}lt(j,128){j:=add(j,12)}{lettemp:=xor(xor(mload(add(scratch,sub(j,12))),mload(add(scratch,sub(j,32)))),xor(mload(add(scratch,sub(j,56))),mload(add(scratch,sub(j,64)))))temp:=or(and(mul(temp,2),0xFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFE),and(div(temp,0x80000000),0x0000000100000001000000010000000100000001000000010000000100000001))mstore(add(scratch,j),temp)}for{letj:=128}lt(j,320){j:=add(j,24)}{lettemp:=xor(xor(mload(add(scratch,sub(j,24))),mload(add(scratch,sub(j,64)))),xor(mload(add(scratch,sub(j,112))),mload(add(scratch,sub(j,128)))))temp:=or(and(mul(temp,4),0xFFFFFFFCFFFFFFFCFFFFFFFCFFFFFFFCFFFFFFFCFFFFFFFCFFFFFFFCFFFFFFFC),and(div(temp,0x40000000),0x0000000300000003000000030000000300000003000000030000000300000003))mstore(add(scratch,j),temp)}letx:=hletf:=0letk:=0for{letj:=0}lt(j,80){j:=add(j,1)}{switchdiv(j,20)case0{f:=xor(div(x,0x100000000000000000000),div(x,0x10000000000))f:=and(div(x,0x1000000000000000000000000000000),f)f:=xor(div(x,0x10000000000),f)k:=0x5A827999}case1{f:=xor(div(x,0x1000000000000000000000000000000),div(x,0x100000000000000000000))f:=xor(div(x,0x10000000000),f)k:=0x6ED9EBA1}case2{f:=or(div(x,0x1000000000000000000000000000000),div(x,0x100000000000000000000))f:=and(div(x,0x10000000000),f)f:=or(and(div(x,0x1000000000000000000000000000000),div(x,0x100000000000000000000)),f)k:=0x8F1BBCDC}case3{f:=xor(div(x,0x1000000000000000000000000000000),div(x,0x100000000000000000000))f:=xor(div(x,0x10000000000),f)k:=0xCA62C1D6}lettemp:=and(div(x,0x80000000000000000000000000000000000000000000000),0x1F)temp:=or(and(div(x,0x800000000000000000000000000000000000000),0xFFFFFFE0),temp)temp:=add(f,temp)temp:=add(and(x,0xFFFFFFFF),temp)temp:=add(k,temp)temp:=add(div(mload(add(scratch,mul(j,4))),0x100000000000000000000000000000000000000000000000000000000),temp)x:=or(div(x,0x10000000000),mul(temp,0x10000000000000000000000000000000000000000))x:=or(and(x,0xFFFFFFFF00FFFFFFFF000000000000FFFFFFFF00FFFFFFFF),mul(or(and(div(x,0x4000000000000),0xC0000000),and(div(x,0x400000000000000000000),0x3FFFFFFF)),0x100000000000000000000))}h:=and(add(h,x),0xFFFFFFFF00FFFFFFFF00FFFFFFFF00FFFFFFFF00FFFFFFFF)}ret:=mul(or(or(or(or(and(div(h,0x100000000),0xFFFFFFFF00000000000000000000000000000000),and(div(h,0x1000000),0xFFFFFFFF000000000000000000000000)),and(div(h,0x10000),0xFFFFFFFF0000000000000000)),and(div(h,0x100),0xFFFFFFFF00000000)),and(h,0xFFFFFFFF)),0x1000000000000000000000000)}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 67
+column: 23
+content: bytesb
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 109
+column: 48
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 160
+column: 39
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 171
+column: 39
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 315
+column: 18
+content: bytesdata
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 52
+column: 8
+content: assembly{letptr:=mload(0x40)mstore(buf,ptr)mstore(ptr,0)mstore(0x40,add(ptr,capacity))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 93
+column: 8
+content: assembly{letbufptr:=mload(buf)mstore(bufptr,0)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 118
+column: 8
+content: assembly{letbufptr:=mload(buf)letbuflen:=mload(bufptr)dest:=add(add(bufptr,32),off)ifgt(add(len,off),buflen){mstore(bufptr,add(len,off))}src:=add(data,32)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 134
+column: 12
+content: assembly{mstore(dest,mload(src))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 143
+column: 8
+content: assembly{letsrcpart:=and(mload(src),not(mask))letdestpart:=and(mload(dest),mask)mstore(dest,or(destpart,srcpart))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 188
+column: 8
+content: assembly{letbufptr:=mload(buf)letbuflen:=mload(bufptr)letdest:=add(add(bufptr,off),32)mstore8(dest,data)ifeq(off,buflen){mstore(bufptr,add(buflen,1))}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 232
+column: 8
+content: assembly{letbufptr:=mload(buf)letdest:=add(add(bufptr,off),len)mstore(dest,or(and(mload(dest),not(mask)),data))ifgt(add(off,len),mload(bufptr)){mstore(bufptr,add(off,len))}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 295
+column: 8
+content: assembly{letbufptr:=mload(buf)letdest:=add(add(bufptr,off),len)mstore(dest,or(and(mload(dest),not(mask)),data))ifgt(add(off,len),mload(bufptr)){mstore(bufptr,add(off,len))}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 316
+column: 8
+content: assembly{letscratch:=mload(0x40)letlen:=mload(data)data:=add(data,32)lettotallen:=add(and(add(len,1),0xFFFFFFFFFFFFFFC0),64)switchlt(sub(totallen,len),9)case1{totallen:=add(totallen,64)}leth:=0x6745230100EFCDAB890098BADCFE001032547600C3D2E1F0functionreadword(ptr,off,count)->result{result:=0iflt(off,count){result:=mload(add(ptr,off))count:=sub(count,off)iflt(count,32){letmask:=not(sub(exp(256,sub(32,count)),1))result:=and(result,mask)}}}for{leti:=0}lt(i,totallen){i:=add(i,64)}{mstore(scratch,readword(data,i,len))mstore(add(scratch,32),readword(data,add(i,32),len))switchlt(sub(len,i),64)case1{mstore8(add(scratch,sub(len,i)),0x80)}switcheq(i,sub(totallen,64))case1{mstore(add(scratch,32),or(mload(add(scratch,32)),mul(len,8)))}for{letj:=64}lt(j,128){j:=add(j,12)}{lettemp:=xor(xor(mload(add(scratch,sub(j,12))),mload(add(scratch,sub(j,32)))),xor(mload(add(scratch,sub(j,56))),mload(add(scratch,sub(j,64)))))temp:=or(and(mul(temp,2),0xFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFEFFFFFFFE),and(div(temp,0x80000000),0x0000000100000001000000010000000100000001000000010000000100000001))mstore(add(scratch,j),temp)}for{letj:=128}lt(j,320){j:=add(j,24)}{lettemp:=xor(xor(mload(add(scratch,sub(j,24))),mload(add(scratch,sub(j,64)))),xor(mload(add(scratch,sub(j,112))),mload(add(scratch,sub(j,128)))))temp:=or(and(mul(temp,4),0xFFFFFFFCFFFFFFFCFFFFFFFCFFFFFFFCFFFFFFFCFFFFFFFCFFFFFFFCFFFFFFFC),and(div(temp,0x40000000),0x0000000300000003000000030000000300000003000000030000000300000003))mstore(add(scratch,j),temp)}letx:=hletf:=0letk:=0for{letj:=0}lt(j,80){j:=add(j,1)}{switchdiv(j,20)case0{f:=xor(div(x,0x100000000000000000000),div(x,0x10000000000))f:=and(div(x,0x1000000000000000000000000000000),f)f:=xor(div(x,0x10000000000),f)k:=0x5A827999}case1{f:=xor(div(x,0x1000000000000000000000000000000),div(x,0x100000000000000000000))f:=xor(div(x,0x10000000000),f)k:=0x6ED9EBA1}case2{f:=or(div(x,0x1000000000000000000000000000000),div(x,0x100000000000000000000))f:=and(div(x,0x10000000000),f)f:=or(and(div(x,0x1000000000000000000000000000000),div(x,0x100000000000000000000)),f)k:=0x8F1BBCDC}case3{f:=xor(div(x,0x1000000000000000000000000000000),div(x,0x100000000000000000000))f:=xor(div(x,0x10000000000),f)k:=0xCA62C1D6}lettemp:=and(div(x,0x80000000000000000000000000000000000000000000000),0x1F)temp:=or(and(div(x,0x800000000000000000000000000000000000000),0xFFFFFFE0),temp)temp:=add(f,temp)temp:=add(and(x,0xFFFFFFFF),temp)temp:=add(k,temp)temp:=add(div(mload(add(scratch,mul(j,4))),0x100000000000000000000000000000000000000000000000000000000),temp)x:=or(div(x,0x10000000000),mul(temp,0x10000000000000000000000000000000000000000))x:=or(and(x,0xFFFFFFFF00FFFFFFFF000000000000FFFFFFFF00FFFFFFFF),mul(or(and(div(x,0x4000000000000),0xC0000000),and(div(x,0x400000000000000000000),0x3FFFFFFF)),0x100000000000000000000))}h:=and(add(h,x),0xFFFFFFFF00FFFFFFFF00FFFFFFFF00FFFFFFFF00FFFFFFFF)}ret:=mul(or(or(or(or(and(div(h,0x100000000),0xFFFFFFFF00000000000000000000000000000000),and(div(h,0x1000000),0xFFFFFFFF000000000000000000000000)),and(div(h,0x10000),0xFFFFFFFF0000000000000000)),and(div(h,0x100),0xFFFFFFFF00000000)),and(h,0xFFFFFFFF)),0x1000000000000000000000000)}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_UPGRADE_TO_050 :5
+SOLIDITY_USING_INLINE_ASSEMBLY :9
+SOLIDITY_SHOULD_NOT_BE_PURE :7

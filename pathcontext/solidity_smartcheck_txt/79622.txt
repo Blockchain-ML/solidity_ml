@@ -1,0 +1,17 @@
+F:\Blockchain\dataset_new_byID\79622.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 9
+column: 0
+content: contractEtherRouterisDSAuth{Resolverpublicresolver;function()externalpayable{if(msg.sig==0){return;}addressdestination=resolver.lookup(msg.sig);assembly{letsize:=extcodesize(destination)ifeq(size,0){revert(0,0)}calldatacopy(mload(0x40),0,calldatasize)letresult:=delegatecall(gas,destination,mload(0x40),calldatasize,mload(0x40),0)returndatacopy(mload(0x40),0,returndatasize)switchresultcase1{return(mload(0x40),returndatasize)}default{revert(mload(0x40),returndatasize)}}}functionsetResolver(address_resolver)publicauth{resolver=Resolver(_resolver);}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 35
+column: 4
+content: assembly{letsize:=extcodesize(destination)ifeq(size,0){revert(0,0)}calldatacopy(mload(0x40),0,calldatasize)letresult:=delegatecall(gas,destination,mload(0x40),calldatasize,mload(0x40),0)returndatacopy(mload(0x40),0,returndatasize)switchresultcase1{return(mload(0x40),returndatasize)}default{revert(mload(0x40),returndatasize)}}
+
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1

@@ -1,0 +1,79 @@
+C:\Users\hp\DataSet\contracts\mainnet\5d\5da1d4bb862c91392a0147e5e9fbb09c0d2382a6_TokenVesting.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 112
+column: 43
+content: 0xD2A0cADD34De9E514D5c87C3c1BfC30bC7a05bF9
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 113
+column: 43
+content: 0xbAf2A44d11Ded7d0ba1D03a3baE3b36E6125Ac24
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 120
+column: 34
+content: 0xc9ca0a382ae69dba0c8ff2c00c1662529ddee430
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 167
+column: 30
+content: timeGap.div(month).mul(month)
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 105
+column: 0
+content: contractTokenVesting{usingSafeMathforuint256;usingSafeERC20forERC20Basic;eventReleased(uint256amount);addresspublicconstantbeneficiary1=0xD2A0cADD34De9E514D5c87C3c1BfC30bC7a05bF9;addresspublicconstantbeneficiary2=0xbAf2A44d11Ded7d0ba1D03a3baE3b36E6125Ac24;uint256publicconstantstart=1548086400;uint256publicconstantduration=15638400;uint256publicconstantmonth=2606400;ERC20Basictoken=ERC20Basic(0xc9ca0a382ae69dba0c8ff2c00c1662529ddee430);uint256publicreleased;functionTokenVesting()public{}function()payablepublic{if(msg.value>0){revert();}uint256unreleased=releasableAmount();require(unreleased>0);uint256unreleasedHalf=unreleased.div(2);released=released.add(unreleasedHalf.mul(2));token.safeTransfer(beneficiary1,unreleasedHalf);token.safeTransfer(beneficiary2,unreleasedHalf);emitReleased(unreleasedHalf.mul(2));}functionreleasableAmount()publicviewreturns(uint256){uint256amount=vestedAmount().sub(released);uint256currentBalance=token.balanceOf(this);if(amount>currentBalance){returncurrentBalance;}returnamount;}functionvestedAmount()publicviewreturns(uint256){uint256currentBalance=token.balanceOf(this);uint256totalBalance=currentBalance.add(released);if(block.timestamp<start){return0;}elseif(block.timestamp>=start.add(duration)){returntotalBalance;}else{uint256timeGap=block.timestamp.sub(start);if(timeGap<month){return0;}else{uint256sec=timeGap.div(month).mul(month);returntotalBalance.mul(sec).div(duration);}}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 129
+column: 8
+content: if(msg.value>0){revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 106
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 128
+column: 23
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 120
+column: 4
+content: ERC20Basictoken=ERC20Basic(0xc9ca0a382ae69dba0c8ff2c00c1662529ddee430);
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_DIV_MUL :1

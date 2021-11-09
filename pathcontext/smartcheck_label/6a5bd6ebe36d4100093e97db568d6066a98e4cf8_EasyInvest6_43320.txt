@@ -1,0 +1,25 @@
+C:\Users\hp\DataSet\contracts\ropsten\6a\6a5bd6ebe36d4100093e97db568d6066a98e4cf8_EasyInvest6.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 24
+column: 0
+content: contractEasyInvest6{mapping(address=>uint)publicinvested;mapping(address=>uint)publicdates;uintpublictotalInvested;uintpubliccanInvest=50ether;uintconstantpublicMAX_LIMIT=5ether;uintpublicrefreshTime=now+24hours;uintconstantMAX_GAS=50;uintconstantpublicSTART_BLOCK=4466485;function()externalpayable{require(block.number>=START_BLOCK);require(tx.gasprice<=MAX_GAS*1000000000);require(msg.value<=MAX_LIMIT,"Deposit is too big");if(invested[msg.sender]!=0){uintamount=invested[msg.sender]*6*(now-dates[msg.sender])/100/24hours;if(amount>address(this).balance){amount=address(this).balance;}msg.sender.transfer(amount);}dates[msg.sender]=now;if(refreshTime<=now){canInvest+=totalInvested/40;refreshTime+=24hours;}if(msg.value>0){require(msg.value<=canInvest);invested[msg.sender]+=msg.value;canInvest-=msg.value;totalInvested+=msg.value;}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 42
+column: 1
+content: uintconstantMAX_GAS=50;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

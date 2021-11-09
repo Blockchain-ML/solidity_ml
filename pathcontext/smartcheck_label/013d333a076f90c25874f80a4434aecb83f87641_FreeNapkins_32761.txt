@@ -1,0 +1,17 @@
+C:\Users\hp\DataSet\contracts\ropsten\01\013d333a076f90c25874f80a4434aecb83f87641_FreeNapkins.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 4
+column: 0
+content: contractFreeNapkins{mapping(address=>uint256)publicnapkinCount;mapping(address=>uint256)publicethStored;uintpubliclastNapkinTime=now;uintpublicCOUNTDOWN_TIME=5minutes;stringpublicmessage="test message";functiongetFreeNapkins()public{require(napkinCount[msg.sender]<=50);napkinCount[msg.sender]+=10;lastNapkinTime=now;}functioncountdownIsUp()publicviewreturns(bool){returnlastNapkinTime+COUNTDOWN_TIME<now;}functionputEth()publicpayable{ethStored[msg.sender]=ethStored[msg.sender]+msg.value;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

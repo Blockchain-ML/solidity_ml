@@ -1,0 +1,248 @@
+C:\Users\hp\DataSet\contracts\mainnet\4d\4d61ff5bf098e5a960ff0172067fda3e652be901_FeedCrowdsale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 77
+column: 5
+content: functiontotalSupply()externalconstantreturns(uint);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 78
+column: 5
+content: functionbalanceOf(addresstokenOwner)externalconstantreturns(uintbalance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 79
+column: 5
+content: functionallowance(addresstokenOwner,addressspender)externalconstantreturns(uintremaining);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 277
+column: 2
+content: functionvalidPurchase()internalconstantreturns(bool){boolwithinPeriod=now>=startTime&&now<=endTime;boolnonZeroPurchase=msg.value!=0;returnwithinPeriod&&nonZeroPurchase;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 284
+column: 2
+content: functionhasEnded()publicconstantreturns(bool){returnnow>endTime;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 317
+column: 5
+content: functionremainingTokensForSale()publicconstantreturns(uint){returnmaxTokensToSale.sub(TOKENS_SOLD);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 335
+column: 9
+content: for(uinti=0;i<tokenBuyers.length;i++){uintetherAmount=EthersSentByBuyers[tokenBuyers[i]];if(etherAmount>0){tokenBuyers[i].transfer(etherAmount);EthersSentByBuyers[tokenBuyers[i]]=0;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 335
+column: 9
+content: for(uinti=0;i<tokenBuyers.length;i++){uintetherAmount=EthersSentByBuyers[tokenBuyers[i]];if(etherAmount>0){tokenBuyers[i].transfer(etherAmount);EthersSentByBuyers[tokenBuyers[i]]=0;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 292
+column: 4
+content: functionsetPriceRate(uint256newPrice)publiconlyOwner{ratePerWei=newPrice;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 376
+column: 6
+content: functionsetPrivateSaleEndDate(uint256timestamp)publiconlyOwner{token.addPrivateSaleEndDate(timestamp);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 383
+column: 7
+content: functionsetPreSaleEndDate(uint256timestamp)publiconlyOwner{token.addPreSaleEndDate(timestamp);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 390
+column: 8
+content: functionsetICOEndDate(uinttimestamp)publiconlyOwner{token.addICOEndDate(timestamp);}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 188
+column: 13
+content: if(timeElapsedInDays>=30&&timeElapsedInDays<51){revert();}elseif(timeElapsedInDays>=51&&timeElapsedInDays<72){require(amountSent>=minimumContributionInPreICO&&amountSent<=maximumContributionInPreICO);if(amountSent>=1.68ether&&amountSent<17ether){bonus=tokens.mul(5);bonus=bonus.div(100);require(TOKENS_SOLD.add(tokens.add(bonus))<=maxTokensToSaleInPreICO);}elseif(amountSent>=17ether&&amountSent<169ether){bonus=tokens.mul(10);bonus=bonus.div(100);require(TOKENS_SOLD.add(tokens.add(bonus))<=maxTokensToSaleInPreICO);}elseif(amountSent>=169ether&&amountSent<841ether){bonus=tokens.mul(15);bonus=bonus.div(100);require(TOKENS_SOLD.add(tokens.add(bonus))<=maxTokensToSaleInPreICO);}elseif(amountSent>=841ether&&amountSent<1680ether){bonus=tokens.mul(20);bonus=bonus.div(100);require(TOKENS_SOLD.add(tokens.add(bonus))<=maxTokensToSaleInPreICO);}if(EthersSentByBuyers[sender]==0){EthersSentByBuyers[sender]=amountSent;tokenBuyers.push(sender);}else{EthersSentByBuyers[sender]=EthersSentByBuyers[sender].add(amountSent);}weiRaisedInPreICO=weiRaisedInPreICO.add(amountSent);token.addPreSaleBuyer(sender,tokens.add(bonus));}elseif(timeElapsedInDays>=72&&timeElapsedInDays<83){revert();}elseif(timeElapsedInDays>=83){require(amountSent<=maximumContributionInMainICO);bonus=0;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 234
+column: 13
+content: if(timeElapsedInDays>=72&&timeElapsedInDays<83){revert();}elseif(timeElapsedInDays>=83){require(amountSent<=maximumContributionInMainICO);bonus=0;}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 96
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 335
+column: 9
+content: for(uinti=0;i<tokenBuyers.length;i++){uintetherAmount=EthersSentByBuyers[tokenBuyers[i]];if(etherAmount>0){tokenBuyers[i].transfer(etherAmount);EthersSentByBuyers[tokenBuyers[i]]=0;}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 169
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 348
+column: 40
+content: address[]members
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 114
+column: 2
+content: uint256TOKENS_SOLD;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 116
+column: 2
+content: uint256maxTokensToSaleInPrivateSale;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 117
+column: 2
+content: uint256maxTokensToSaleInPreICO;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 118
+column: 2
+content: uint256maxTokensToSale;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 120
+column: 2
+content: uint256bonusInPrivateSale;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 122
+column: 2
+content: boolisCrowdsalePaused=false;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 124
+column: 2
+content: uint256minimumContributionInPrivatePhase;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 125
+column: 2
+content: uint256minimumContributionInPreICO;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 126
+column: 2
+content: uint256maximumContributionInPreICO;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 127
+column: 2
+content: uint256maximumContributionInMainICO;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 129
+column: 2
+content: uint256totalDurationInDays=112days;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 130
+column: 2
+content: uint256decimals=18;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 132
+column: 2
+content: uint256hardCap=46200ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 133
+column: 2
+content: uint256softCapForPreICO=1680ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 135
+column: 2
+content: address[]tokenBuyers;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 137
+column: 2
+content: mapping(address=>uint256)EthersSentByBuyers;
+
+SOLIDITY_VISIBILITY :16
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :4
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :6
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_TRANSFER_IN_LOOP :1

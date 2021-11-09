@@ -1,0 +1,192 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\85076.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 160
+column: 6
+content: purchases.ticketsBought.length=SafeMath.add(purchases.ticketsBought.length,1)
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 59
+column: 2
+content: functionbalanceOf(addressplayer)publicconstantreturns(uint256);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 259
+column: 2
+content: functiongetRafflePlayers(uint256raffleId)externalconstantreturns(address[]){return(rafflePlayers[raffleId]);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 264
+column: 2
+content: functiongetPlayersTickets(addressplayer)externalconstantreturns(uint256[],uint256[]){TicketPurchasesstorageplayersTickets=ticketsBoughtByPlayer[player];if(playersTickets.raffleRareId==raffleRareId){uint256[]memorystartIds=newuint256[](playersTickets.numPurchases);uint256[]memoryendIds=newuint256[](playersTickets.numPurchases);for(uint256i=0;i<playersTickets.numPurchases;i++){startIds[i]=playersTickets.ticketsBought[i].startId;endIds[i]=playersTickets.ticketsBought[i].endId;}}return(startIds,endIds);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 282
+column: 2
+content: functiongetLatestRaffleInfo()externalconstantreturns(uint256,uint256,uint256,address,uint256){return(raffleEndTime,raffleRareId,raffleTicketsBought,raffleWinner,raffleTicketThatWon);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 213
+column: 4
+content: for(uint256i=0;i<rafflePlayers[raffleRareId].length;i++){addressplayer=rafflePlayers[raffleRareId][i];TicketPurchasesstorageplayersTickets=ticketsBoughtByPlayer[player];uint256endIndex=playersTickets.numPurchases-1;if(raffleTicketThatWon>=playersTickets.ticketsBought[0].startId&&raffleTicketThatWon<=playersTickets.ticketsBought[endIndex].endId){for(uint256j=0;j<playersTickets.numPurchases;j++){TicketPurchasestorageplayerTicket=playersTickets.ticketsBought[j];if(raffleTicketThatWon>=playerTicket.startId&&raffleTicketThatWon<=playerTicket.endId){assignRafflePrize(player);return;}}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 213
+column: 4
+content: for(uint256i=0;i<rafflePlayers[raffleRareId].length;i++){addressplayer=rafflePlayers[raffleRareId][i];TicketPurchasesstorageplayersTickets=ticketsBoughtByPlayer[player];uint256endIndex=playersTickets.numPurchases-1;if(raffleTicketThatWon>=playersTickets.ticketsBought[0].startId&&raffleTicketThatWon<=playersTickets.ticketsBought[endIndex].endId){for(uint256j=0;j<playersTickets.numPurchases;j++){TicketPurchasestorageplayerTicket=playersTickets.ticketsBought[j];if(raffleTicketThatWon>=playerTicket.startId&&raffleTicketThatWon<=playerTicket.endId){assignRafflePrize(player);return;}}}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 38
+column: 2
+content: functionsetAdminContract(address_addr,bool_useful)publiconlyOwner{require(_addr!=address(0));adminContracts[_addr]=_useful;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 92
+column: 2
+content: functionsetCardsAddress(address_address)externalonlyOwner{cards=CardsInterface(_address);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 97
+column: 2
+content: functionsetRareAddress(address_address)externalonlyOwner{rare=RareInterface(_address);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 123
+column: 38
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 124
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 126
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 127
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 130
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 131
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 132
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 133
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 134
+column: 7
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 135
+column: 10
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 82
+column: 2
+content: usingSafeMathforSafeMath;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 23rt6g
+severity: 1
+line: 59
+column: 37
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 23rt6g
+severity: 1
+line: 61
+column: 77
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 33
+column: 2
+content: mapping(address=>bool)adminContracts;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 36
+column: 2
+content: mapping(address=>bool)actionContracts;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :3
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :10
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

@@ -1,0 +1,48 @@
+C:\Users\hp\DataSet\KYCCrowdsale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 41
+column: 48
+content: 0x1000
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 11
+column: 0
+content: contractKYCCrowdsaleisAllocatedCrowdsaleMixin,KYCPayloadDeserializer{addresspublicsignerAddress;eventSignerChanged(addresssigner);functionKYCCrowdsale(address_token,PricingStrategy_pricingStrategy,address_multisigWallet,uint_start,uint_end,uint_minimumFundingGoal,address_beneficiary)CrowdsaleBase(_token,_pricingStrategy,_multisigWallet,_start,_end,_minimumFundingGoal)AllocatedCrowdsaleMixin(_beneficiary){}functionbuyWithKYCData(bytesdataframe,uint8v,bytes32r,bytes32s)publicpayablereturns(uinttokenAmount){uint_tokenAmount;uintmultiplier=10**18;if(earlyParticipantWhitelist[msg.sender]){_tokenAmount=investInternal(msg.sender,0x1000);}else{bytes32hash=sha256(dataframe);var(whitelistedAddress,customerId,minETH,maxETH,pricingInfo)=getKYCPayload(dataframe);require(ecrecover(hash,v,r,s)==signerAddress);require(whitelistedAddress==msg.sender);uint256tokensTotal=calculateTokens(msg.value,pricingInfo);_tokenAmount=buyTokens(msg.sender,customerId,tokensTotal);}if(!earlyParticipantWhitelist[msg.sender]){require(investedAmountOf[msg.sender]>=minETH*multiplier/10000);require(investedAmountOf[msg.sender]<=maxETH*multiplier/10000);}return_tokenAmount;}functionsetSignerAddress(address_signerAddress)onlyOwner{signerAddress=_signerAddress;SignerChanged(signerAddress);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 77
+column: 2
+content: functionsetSignerAddress(address_signerAddress)onlyOwner{signerAddress=_signerAddress;SignerChanged(signerAddress);}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 31
+column: 26
+content: bytesdataframe
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 22
+column: 2
+content: functionKYCCrowdsale(address_token,PricingStrategy_pricingStrategy,address_multisigWallet,uint_start,uint_end,uint_minimumFundingGoal,address_beneficiary)CrowdsaleBase(_token,_pricingStrategy,_multisigWallet,_start,_end,_minimumFundingGoal)AllocatedCrowdsaleMixin(_beneficiary){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 77
+column: 2
+content: functionsetSignerAddress(address_signerAddress)onlyOwner{signerAddress=_signerAddress;SignerChanged(signerAddress);}
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :1

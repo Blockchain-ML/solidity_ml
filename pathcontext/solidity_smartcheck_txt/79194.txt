@@ -1,0 +1,390 @@
+F:\Blockchain\dataset_new_byID\79194.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 100
+column: 35
+content: 0x1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 101
+column: 46
+content: 0x1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 242
+column: 64
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 243
+column: 79
+content: 0x0
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 321
+column: 16
+content: workingGroupIds.length--
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 437
+column: 8
+content: for(uinti=0;i<grp.members.length;i++){addressmember=grp.members[i];(uintprev,boolremoved)=removeIdFromList(nodeToGroupIdList[member],grp.groupId);if(removed&&prev==HEAD_I){if(backToPendingPool&&pendingNodeList[member]==address(0)){insertToPendingNodeListTail(member);}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 388
+column: 8
+content: while(curr!=HEAD_A&&curr!=node){prev=curr;curr=list[prev];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 403
+column: 8
+content: while(curr!=HEAD_I&&curr!=id){prev=curr;curr=list[prev];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 420
+column: 8
+content: while(curr!=HEAD_I){PendingGroupstoragepgrp=pendingGroups[curr];(,boolfound)=findNodeFromList(pgrp.memberList,node);if(found){cleanUpPendingGroup(curr);returntrue;}prev=curr;curr=pendingGroupList[prev];}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 299
+column: 4
+content: functiongetCodeSize(addressaddr)privateviewreturns(uintsize){assembly{size:=extcodesize(addr)}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 437
+column: 8
+content: for(uinti=0;i<grp.members.length;i++){addressmember=grp.members[i];(uintprev,boolremoved)=removeIdFromList(nodeToGroupIdList[member],grp.groupId);if(removed&&prev==HEAD_I){if(backToPendingPool&&pendingNodeList[member]==address(0)){insertToPendingNodeListTail(member);}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 388
+column: 15
+content: curr!=HEAD_A&&curr!=node
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 403
+column: 15
+content: curr!=HEAD_I&&curr!=id
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 420
+column: 15
+content: curr!=HEAD_I
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 241
+column: 4
+content: functionsetProxyFund(addressnewFund,addressnewFundToken)publiconlyOwner{require(newFund!=proxyFundsAddr&&newFund!=address(0x0),"not-valid-parameter");require(newFundToken!=proxyFundsTokenAddr&&newFundToken!=address(0x0),"not-valid-parameter");emitUpdateProxyFund(proxyFundsAddr,newFund,proxyFundsTokenAddr,newFundToken);proxyFundsAddr=newFund;proxyFundsTokenAddr=newFundToken;DOSPaymentInterface(addressBridge.getPaymentAddress()).setPaymentMethod(proxyFundsAddr,proxyFundsTokenAddr);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 251
+column: 4
+content: functionsetGroupSize(uintnewSize)publiconlyOwner{require(newSize!=groupSize&&newSize%2!=0,"not-valid-parameter");emitUpdateGroupSize(groupSize,newSize);groupSize=newSize;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 257
+column: 4
+content: functionsetBootstrapStartThreshold(uintnewThreshold)publiconlyOwner{require(newThreshold!=bootstrapStartThreshold,"not-valid-parameter");emitUpdatebootstrapStartThreshold(bootstrapStartThreshold,newThreshold);bootstrapStartThreshold=newThreshold;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 263
+column: 4
+content: functionsetBootstrapCommitDuration(uintnewDuration)publiconlyOwner{require(newDuration!=bootstrapCommitDuration&&newDuration!=0,"not-valid-parameter");emitUpdateBootstrapCommitDuration(bootstrapCommitDuration,newDuration);bootstrapCommitDuration=newDuration;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 269
+column: 4
+content: functionsetBootstrapRevealDuration(uintnewDuration)publiconlyOwner{require(newDuration!=bootstrapRevealDuration&&newDuration!=0,"not-valid-parameter");emitUpdateBootstrapRevealDuration(bootstrapRevealDuration,newDuration);bootstrapRevealDuration=newDuration;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 275
+column: 4
+content: functionsetGroupMaturityPeriod(uintnewPeriod)publiconlyOwner{require(newPeriod!=groupMaturityPeriod&&newPeriod!=0,"not-valid-parameter");emitUpdateGroupMaturityPeriod(groupMaturityPeriod,newPeriod);groupMaturityPeriod=newPeriod;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 281
+column: 4
+content: functionsetLifeDiversity(uintnewDiversity)publiconlyOwner{require(newDiversity!=lifeDiversity&&newDiversity!=0,"not-valid-parameter");emitUpdateLifeDiversity(lifeDiversity,newDiversity);lifeDiversity=newDiversity;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 287
+column: 4
+content: functionsetPendingGroupMaxLife(uintnewLife)publiconlyOwner{require(newLife!=pendingGroupMaxLife&&newLife!=0,"not-valid-parameter");emitUpdatePendingGroupMaxLife(pendingGroupMaxLife,newLife);pendingGroupMaxLife=newLife;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 293
+column: 4
+content: functionsetSystemRandomHardLimit(uintnewLimit)publiconlyOwner{require(newLimit!=refreshSystemRandomHardLimit&&newLimit!=0,"not-valid-parameter");emitUpdateSystemRandomHardLimit(refreshSystemRandomHardLimit,newLimit);refreshSystemRandomHardLimit=newLimit;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 71
+column: 9
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 98
+column: 9
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 100
+column: 9
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 101
+column: 12
+content: private
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 299
+column: 4
+content: functiongetCodeSize(addressaddr)privateviewreturns(uintsize){assembly{size:=extcodesize(addr)}}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 213
+column: 54
+content: (uint,uint[4]memory,uint,uint,address[]memory)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 223
+column: 66
+content: (uint,uint[4]memory,uint,uint,address[]memory)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 375
+column: 103
+content: (address,bool)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 385
+column: 106
+content: (address,bool)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 400
+column: 90
+content: (uint,bool)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 453
+column: 4
+content: functionquery(addressfrom,uinttimeout,stringcalldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 73
+column: 4
+content: mapping(uint=>PendingRequest)PendingRequests;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 115
+column: 4
+content: mapping(uint=>Group)workingGroups;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 132
+column: 4
+content: GrouplastHandledGroup;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 456
+column: 24
+content: dataSource,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 457
+column: 8
+content: stringcalldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 460
+column: 20
+content: (from,<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 460
+column: 27
+content: uint(TrafficType.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 460
+column: 44
+content: UserQuery))returns
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 461
+column: 16
+content: (uint){if
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 463
+column: 11
+content: (getCodeSize<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 463
+column: 23
+content: (from)>0){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 464
+column: 12
+content: bytesmemorybs=bytes(selector);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 468
+column: 15
+content: (bs.length==0||bs[0]=='$'||
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 468
+column: 50
+content: bs[0]=='/'){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 469
+column: 16
+content: uintqueryId=uint(keccak256(abi.encode(++requestIdSeed,from,timeout,dataSource,selector)));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 470
+column: 16
+content: uintidx=dispatchJob(TrafficType.UserQuery,queryId);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 472
+column: 19
+content: (idx==UINTMAX){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 473
+column: 20
+content: emitLogMessage
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 473
+column: 35
+content: ("skipped-user-query-no-live-wgrp");return0;
+
+SOLIDITY_VISIBILITY :20
+SOLIDITY_OVERPOWERED_ROLE :9
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :4
+SOLIDITY_EXTRA_GAS_IN_LOOPS :4
+SOLIDITY_ADDRESS_HARDCODED :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4
+SOLIDITY_SHOULD_RETURN_STRUCT :5
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

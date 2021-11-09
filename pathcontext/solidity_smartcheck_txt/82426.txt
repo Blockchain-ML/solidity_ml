@@ -1,0 +1,41 @@
+F:\Blockchain\dataset_new_byID\82426.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 17
+column: 0
+content: contractTestNetOracleisBZxOracle{usingSafeMathforuint256;addresspublicfaucetContract;constructor(address_vaultContract,address_kyberContract,address_wethContract,address_bZRxTokenContract)publicBZxOracle(_vaultContract,_kyberContract,_wethContract,_bZRxTokenContract)payable{}function()publicpayable{}functionsetFaucetContractAddress(addressnewAddress)publiconlyOwner{require(newAddress!=faucetContract&&newAddress!=address(0));faucetContract=newAddress;}function_getExpectedRate(addresssourceTokenAddress,addressdestTokenAddress,uint)internalviewreturns(uintexpectedRate,uintslippageRate){if(sourceTokenAddress==destTokenAddress){expectedRate=10**18;slippageRate=0;}else{expectedRate=10**18;slippageRate=0;}}function_doTrade(addresssourceTokenAddress,addressdestTokenAddress,uintsourceTokenAmount,uintmaxDestTokenAmount)internalreturns(uintdestTokenAmount){if(sourceTokenAddress==destTokenAddress){if(maxDestTokenAmount<MAX_FOR_KYBER){destTokenAmount=maxDestTokenAmount;}else{destTokenAmount=sourceTokenAmount;}}else{(uinttradeRate,)=getTradeData(sourceTokenAddress,destTokenAddress,0);destTokenAmount=sourceTokenAmount.mul(tradeRate).div(_getDecimalPrecision(sourceTokenAddress,destTokenAddress));if(destTokenAmount>maxDestTokenAmount){destTokenAmount=maxDestTokenAmount;}_transferToken(sourceTokenAddress,faucetContract,sourceTokenAmount);require(Faucet(faucetContract).oracleExchange(destTokenAddress,vaultContract,destTokenAmount),"TestNetFaucet::_doTrade: trade failed");}}function_doTradeForEth(address,uintsourceTokenAmount,address,uintdestEthAmountNeeded)internalreturns(uintdestTokenAmountReceived){destTokenAmountReceived=destEthAmountNeeded<sourceTokenAmount?destEthAmountNeeded:sourceTokenAmount;}function_doTradeWithEth(address,uintsourceEthAmount,address,uintdestTokenAmountNeeded)internalreturns(uintdestTokenAmountReceived){destTokenAmountReceived=destTokenAmountNeeded<sourceEthAmount?destTokenAmountNeeded:sourceEthAmount;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 40
+column: 4
+content: functionsetFaucetContractAddress(addressnewAddress)publiconlyOwner{require(newAddress!=faucetContract&&newAddress!=address(0));faucetContract=newAddress;}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 18
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 57
+column: 16
+content: (uintexpectedRate,uintslippageRate)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 36
+column: 15
+content: public
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

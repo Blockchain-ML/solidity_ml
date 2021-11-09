@@ -1,0 +1,62 @@
+F:\Blockchain\dataset_new_byID\77612.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 31
+column: 4
+content: while(current!=0&&current!=_id&&objects[current].next!=_id){current=objects[current].next;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 19
+column: 2
+content: functionaddEntry(uint_number,string_name)publicreturns(bool){Objectmemoryobject=Object(head,_number,_name);bytes32id=keccak256(object.number,object.name,now,length);objects[id]=object;head=id;length=length+1;AddEntry(head,object.number,object.name,object.next);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 28
+column: 2
+content: functionremoveEntry(bytes32_id)publicreturns(bool){require(length>0);bytes32current=head;while(current!=0&&current!=_id&&objects[current].next!=_id){current=objects[current].next;}require(current!=0);if(current!=_id){objects[current].next=objects[_id].next;}else{head=objects[_id].next;}length=length-1;RemoveEntry(head,objects[_id].number,objects[_id].name,objects[_id].next);deleteobjects[_id];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 31
+column: 11
+content: current!=0&&current!=_id&&objects[current].next!=_id
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 21
+column: 17
+content: keccak256(object.number,object.name,now,length)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 19
+column: 33
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 54
+column: 69
+content: string
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

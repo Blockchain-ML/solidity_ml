@@ -1,0 +1,17 @@
+C:\Users\hp\DataSet\contracts\ropsten\2c\2c75af28883efbb28caae97eeb52cead41e317a7_LibOrder.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 122
+column: 4
+content: functionhashOrder(Ordermemoryorder)internalpurereturns(bytes32result){bytes32schemaHash=EIP712_ORDER_SCHEMA_HASH;bytes32makerAssetDataHash=keccak256(order.makerAssetData);bytes32takerAssetDataHash=keccak256(order.takerAssetData);assembly{lettemp1:=mload(sub(order,32))lettemp2:=mload(add(order,320))lettemp3:=mload(add(order,352))mstore(sub(order,32),schemaHash)mstore(add(order,320),makerAssetDataHash)mstore(add(order,352),takerAssetDataHash)result:=keccak256(sub(order,32),416)mstore(sub(order,32),temp1)mstore(add(order,320),temp2)mstore(add(order,352),temp3)}returnresult;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 147
+column: 8
+content: assembly{lettemp1:=mload(sub(order,32))lettemp2:=mload(add(order,320))lettemp3:=mload(add(order,352))mstore(sub(order,32),schemaHash)mstore(add(order,320),makerAssetDataHash)mstore(add(order,352),takerAssetDataHash)result:=keccak256(sub(order,32),416)mstore(sub(order,32),temp1)mstore(add(order,320),temp2)mstore(add(order,352),temp3)}
+
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

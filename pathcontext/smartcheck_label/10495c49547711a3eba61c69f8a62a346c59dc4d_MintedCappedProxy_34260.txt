@@ -1,0 +1,162 @@
+C:\Users\hp\DataSet\contracts\ropsten\10\10495c49547711a3eba61c69f8a62a346c59dc4d_MintedCappedProxy.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 433
+column: 2
+content: functionapprove(address_spender,uint_amt)externalreturns(bool){app_storage.exec(msg.sender,app_exec_id,msg.data);emitApproval(msg.sender,_spender,_amt);returntrue;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 79
+column: 2
+content: functiongetSelector(bytesmemory_calldata)internalpurereturns(bytes4selector){assembly{selector:=and(mload(add(0x20,_calldata)),0xffffffff00000000000000000000000000000000000000000000000000000000)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 93
+column: 2
+content: functiontoStr(bytes32_val)internalpurereturns(stringmemorystr){assembly{str:=mload(0x40)mstore(str,0x20)mstore(add(0x20,str),_val)mstore(0x40,add(0x40,str))}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 18
+column: 0
+content: contractProxy{addresspublicproxy_admin;StorageInterfacepublicapp_storage;bytes32publicregistry_exec_id;addresspublicprovider;bytes32publicapp_name;bytes32publicapp_version;bytes32publicapp_exec_id;addresspublicapp_index;bytes4internalconstantEXEC_SEL=bytes4(keccak256(&39<missing ')'>;exec(address,<missing ';'>bytes32,bytes)&39;));eventStorageException(bytes32indexedexecution_id,stringmessage);function()externalpayable{require(msg.sender==address(app_storage));}constructor(address_storage,bytes32_registry_exec_id,address_provider,bytes32_app_name)public{proxy_admin=msg.sender;app_storage=StorageInterface(_storage);registry_exec_id=_registry_exec_id;provider=_provider;app_name=_app_name;}functionexec(bytes_calldata)externalpayablereturns(bool);functioncheckErrors()internal{stringmemorymessage;<missing ';'>bytes4<missing ';'>err_sel=bytes4(keccak256(&39<missing ')'>;Error(string)&39;));assembly{letptr:=mload(0x40)returndatacopy(ptr,0,returndatasize)mstore(0x40,add(ptr,returndatasize))ifeq(mload(ptr),and(err_sel,0xffffffff00000000000000000000000000000000000000000000000000000000)){message:=add(0x24,ptr)}}if(bytes(message).length==0)emitStorageException(app_exec_id,"No error recieved");elseemitStorageException(app_exec_id,message);}functiongetSelector(bytesmemory_calldata)internalpurereturns(bytes4selector){assembly{selector:=and(mload(add(0x20,_calldata)),0xffffffff00000000000000000000000000000000000000000000000000000000)}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 79
+column: 2
+content: functiongetSelector(bytesmemory_calldata)internalpurereturns(bytes4selector){assembly{selector:=and(mload(add(0x20,_calldata)),0xffffffff00000000000000000000000000000000000000000000000000000000)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 93
+column: 2
+content: functiontoStr(bytes32_val)internalpurereturns(stringmemorystr){assembly{str:=mload(0x40)mstore(str,0x20)mstore(add(0x20,str),_val)mstore(0x40,add(0x40,str))}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 553
+column: 2
+content: functioncheckReturn()internalpurereturns(boolsuccess){success=false;assembly{ifeq(returndatasize,0x60){letptr:=mload(0x40)returndatacopy(ptr,0,returndatasize)ifiszero(iszero(mload(ptr))){success:=1}ifiszero(iszero(mload(add(0x20,ptr)))){success:=1}ifiszero(iszero(mload(add(0x40,ptr)))){success:=1}}}returnsuccess;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 60
+column: 4
+content: assembly{letptr:=mload(0x40)returndatacopy(ptr,0,returndatasize)mstore(0x40,add(ptr,returndatasize))ifeq(mload(ptr),and(err_sel,0xffffffff00000000000000000000000000000000000000000000000000000000)){message:=add(0x24,ptr)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 80
+column: 4
+content: assembly{selector:=and(mload(add(0x20,_calldata)),0xffffffff00000000000000000000000000000000000000000000000000000000)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 94
+column: 4
+content: assembly{str:=mload(0x40)mstore(str,0x20)mstore(add(0x20,str),_val)mstore(0x40,add(0x40,str))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 555
+column: 4
+content: assembly{ifeq(returndatasize,0x60){letptr:=mload(0x40)returndatacopy(ptr,0,returndatasize)ifiszero(iszero(mload(ptr))){success:=1}ifiszero(iszero(mload(add(0x20,ptr)))){success:=1}ifiszero(iszero(mload(add(0x40,ptr)))){success:=1}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 33
+column: 60
+content: exec
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 33
+column: 64
+content: (address,<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 33
+column: 73
+content: bytes32,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 33
+column: 81
+content: bytes)&39;));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 461
+column: 67
+content: updateInstance
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 461
+column: 81
+content: (bytes32,<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 461
+column: 90
+content: bytes32,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 461
+column: 98
+content: bytes32)&39;));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 462
+column: 67
+content: updateExec
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 462
+column: 77
+content: (address)&39;));
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_USING_INLINE_ASSEMBLY :4
+SOLIDITY_SHOULD_NOT_BE_PURE :3
+SOLIDITY_ERC20_APPROVE :1

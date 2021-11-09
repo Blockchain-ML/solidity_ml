@@ -1,0 +1,39 @@
+F:\Blockchain\dataset_new_byID\81981.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 9
+column: 1
+content: functionCreateProof(uint256secret,uint256message)constantinternalreturns(uint256[2]out_pubkey,uint256out_s,uint256out_e){Curve.G1PointmemoryxG=Curve.g1mul(Curve.P1(),secret%Curve.N());out_pubkey[0]=xG.X;out_pubkey[1]=xG.Y;uint256k=uint256(keccak256(abi.encodePacked(message,secret)))%Curve.N();Curve.G1PointmemorykG=Curve.g1mul(Curve.P1(),k);out_e=uint256(keccak256(abi.encodePacked(out_pubkey[0],out_pubkey[1],kG.X,kG.Y,message)));out_s=Curve.submod(k,mulmod(secret,out_e,Curve.N()));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 23
+column: 1
+content: functionCalcProof(uint256[2]pubkey,uint256message,uint256s,uint256e)constantinternalreturns(uint256){Curve.G1PointmemorysG=Curve.g1mul(Curve.P1(),s%Curve.N());Curve.G1PointmemoryxG=Curve.G1Point(pubkey[0],pubkey[1]);Curve.G1PointmemorykG=Curve.g1add(sG,Curve.g1mul(xG,e));returnuint256(keccak256(abi.encodePacked(pubkey[0],pubkey[1],kG.X,kG.Y,message)));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 33
+column: 1
+content: functionVerifyProof(uint256[2]pubkey,uint256message,uint256s,uint256e)constantinternalreturns(bool){returne==CalcProof(pubkey,message,s,e);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 11
+column: 13
+content: (uint256[2]out_pubkey,uint256out_s,uint256out_e)
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

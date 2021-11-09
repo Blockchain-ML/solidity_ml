@@ -1,0 +1,99 @@
+F:\Blockchain\solidity_dataset_work\4k_dataset\92957.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 157
+column: 2
+content: functionapprove(address_spender,uint256_amount)publicreturns(boolsuccess){allowed[msg.sender][_spender]=_amount;emitApproval(msg.sender,_spender,_amount);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 187
+column: 1
+content: contractDayDayTokenisBurnableToken{stringpublicname;stringpublicsymbol;uint8publicdecimals=2;function()publicpayable{revert();}functionDayDayToken(addresswallet)public{owner=msg.sender;ownerWallet=wallet;totalSupply=300000000000;totalSupply=totalSupply.mul(10**uint256(decimals));name="DayDayToken";symbol="DD";balances[wallet]=totalSupply;startTime=now;emitTransfer(address(0),msg.sender,totalSupply);}functiongetTokenDetail()publicviewreturns(string,string,uint256){return(name,symbol,totalSupply);}functionlockTokensForAddress(addresslockedAddress,uintlockupAmount,uintlockDays)publiconlyOwner{lockupAmount=lockupAmount*10**uint(decimals);require(balances[msg.sender]>=lockupAmount);balances[msg.sender]=balances[msg.sender].sub(lockupAmount);balances[lockedAddress]=balances[lockedAddress].add(lockupAmount);lockDays=lockDays*1days;lockup=Lockup({lockupTime:lockDays,lockupAmount:lockupAmount*10**uint256(decimals)});lockupParticipants[lockedAddress]=lockup;}functionunlockTokensForAddress(addresslockedAddress)publiconlyOwner{lockupParticipants[lockedAddress].lockupAmount=0;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 194
+column: 31
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 84
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 194
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 215
+column: 51
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 215
+column: 59
+content: string
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 87
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 88
+column: 2
+content: addressownerWallet;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 94
+column: 2
+content: Lockuplockup;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 95
+column: 2
+content: mapping(address=>Lockup)lockupParticipants;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 98
+column: 2
+content: uint256startTime;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_ERC20_APPROVE :1

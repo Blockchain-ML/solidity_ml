@@ -1,0 +1,145 @@
+F:\Blockchain\dataset_new_byID\80377.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 19
+column: 35
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 24
+column: 25
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 28
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 43
+column: 52
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 49
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 61
+column: 18
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 52
+column: 4
+content: functionisLocked(bytes32libName,uintversionNum)constantreturns(bool){returnfunds[libName][versionNum].threshold>funds[libName][versionNum].totalValue;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 56
+column: 4
+content: functionget(bytes32libName,uintversionNum)constantreturns(address,uint,uint){Fundf=funds[libName][versionNum];return(f.author,f.threshold,f.totalValue);}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 19
+column: 8
+content: if(creator!=msg.sender)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 24
+column: 8
+content: if(author==0)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 27
+column: 8
+content: if(owner!=msg.sender&&funds[libName][versionNum].author!=msg.sender)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 43
+column: 8
+content: if(funds[libName][versionNum].author==0)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 48
+column: 8
+content: if(!funds[libName][versionNum].author.send(msg.value))throw;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 57
+column: 8
+content: Fundf=funds[libName][versionNum]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 18
+column: 4
+content: functionsetOwner(addresso){if(creator!=msg.sender)throw;owner=o;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 23
+column: 4
+content: functionsetThreshold(bytes32libName,uintversionNum,uintthreshold,addressauthor){if(author==0)throw;if(owner!=msg.sender&&funds[libName][versionNum].author!=msg.sender)throw;if(funds[libName][versionNum].author==0){Setup(libName,versionNum,threshold,author);funds[libName][versionNum].threshold=threshold;funds[libName][versionNum].author=author;}else{Update(libName,versionNum,threshold);funds[libName][versionNum].threshold=threshold;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 42
+column: 4
+content: functionaddTo(bytes32libName,uintversionNum){if(funds[libName][versionNum].author==0)throw;funds[libName][versionNum].totalValue+=msg.value;FundsAdded(libName,versionNum,msg.sender,msg.value,funds[libName][versionNum].totalValue);if(!funds[libName][versionNum].author.send(msg.value))throw;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 52
+column: 4
+content: functionisLocked(bytes32libName,uintversionNum)constantreturns(bool){returnfunds[libName][versionNum].threshold>funds[libName][versionNum].totalValue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 56
+column: 4
+content: functionget(bytes32libName,uintversionNum)constantreturns(address,uint,uint){Fundf=funds[libName][versionNum];return(f.author,f.threshold,f.totalValue);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 61
+column: 4
+content: function(){throw;}
+
+SOLIDITY_VISIBILITY :6
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :8
+SOLIDITY_REVERT_REQUIRE :5
+SOLIDITY_UPGRADE_TO_050 :1

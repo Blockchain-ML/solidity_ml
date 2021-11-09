@@ -1,0 +1,299 @@
+C:\Users\hp\DataSet\GitToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 124
+column: 2
+content: functiontotalSupply()constantreturns(uint_supply){returngittoken.totalSupply;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 133
+column: 2
+content: functiondecimals()constantreturns(uint_decimals){returngittoken.decimals;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 143
+column: 2
+content: functionorganization()constantreturns(string_organization){returngittoken.organization;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 151
+column: 2
+content: functionname()constantreturns(string_name){returngittoken.name;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 159
+column: 2
+content: functionsymbol()constantreturns(string_symbol){returngittoken.symbol;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 168
+column: 2
+content: functionbalanceOf(address_holder)constantreturns(uint_balance){returngittoken.balances[_holder];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 243
+column: 2
+content: functionallowance(address_owner,address_spender)constantreturns(uint_allowance){returngittoken.allowed[_owner][_spender];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 325
+column: 2
+content: functiongetAuctionRound()constantreturns(uint){returngittoken.auctionRound;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 329
+column: 2
+content: functiongetAuctionDetails(uintauctionRound)constantreturns(uint[11],uint[],uint[]){return([gittoken.auctionDetails[auctionRound].round,gittoken.auctionDetails[auctionRound].startDate,gittoken.auctionDetails[auctionRound].endDate,gittoken.auctionDetails[auctionRound].lockDate,gittoken.auctionDetails[auctionRound].tokensOffered,gittoken.auctionDetails[auctionRound].initialPrice,gittoken.auctionDetails[auctionRound].wtdAvgExRate,gittoken.auctionDetails[auctionRound].fundsCollected,gittoken.auctionDetails[auctionRound].fundLimit,gittoken.auctionDetails[auctionRound].numBids,gittoken.auctionDetails[auctionRound].tokenLimitFactor],gittoken.auctionDetails[auctionRound].ethValues,gittoken.auctionDetails[auctionRound].exRateValues);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 355
+column: 2
+content: functiongetContributorAddress(string_username)constantreturns(address_contributorAddress){returngittoken.contributorAddresses[_username];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 364
+column: 2
+content: functiongetContributorUsername(address_contributorAddress)constantreturns(string_username){returngittoken.contributorUsernames[_contributorAddress];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 372
+column: 2
+content: functiongetTokenLockUntilDate()constantreturns(uint_lockedUntil){returngittoken.lockTokenTransfersUntil;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 381
+column: 2
+content: functiongetUnclaimedRewards(string_username)constantreturns(uint_value){returngittoken.unclaimedRewards[_username];}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 223
+column: 2
+content: functionapprove(address_spender,uint_value)publiconlyPayloadSize(2)returns(bool){require(_value==0&&gittoken.allowed[msg.sender][_spender]==0);gittoken.allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);}
+
+ruleId: SOLIDITY_ERC20_FUNCTIONS_ALWAYS_RETURN_FALSE
+patternId: b180ca
+severity: 2
+line: 223
+column: 2
+content: functionapprove(address_spender,uint_value)publiconlyPayloadSize(2)returns(bool){require(_value==0&&gittoken.allowed[msg.sender][_spender]==0);gittoken.allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 223
+column: 2
+content: functionapprove(address_spender,uint_value)publiconlyPayloadSize(2)returns(bool){require(_value==0&&gittoken.allowed[msg.sender][_spender]==0);gittoken.allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 33
+column: 0
+content: contractGitTokenisOwnable{usingSafeMathforuint;usingGitTokenLibforGitTokenLib.Data;GitTokenLib.Datagittoken;eventApproval(addressindexedowner,addressindexedspender,uintvalue);eventTransfer(addressindexedfrom,addressindexedto,uintvalue);eventContribution(addressindexedcontributor,stringusername,stringrewardType,uintrewardValue,uintreservedValue,uintdate);eventContributorVerified(addressindexedcontributor,stringusername,uintdate);eventAuction(uint[8]auctionDetails);eventAuctionBid(uint[9]bidDetails);functionGitToken(address_contributor,string_username,string_name,string_organization,string_symbol,uint_decimals){if(_contributor!=0x0){owner[_contributor]=true;gittoken.contributorUsernames[_contributor]=_username;gittoken.contributorAddresses[_username]=_contributor;}gittoken.totalSupply=0;gittoken.name=_name;gittoken.organization=_organization;gittoken.symbol=_symbol;gittoken.decimals=_decimals;}functiontotalSupply()constantreturns(uint_supply){returngittoken.totalSupply;}functiondecimals()constantreturns(uint_decimals){returngittoken.decimals;}functionorganization()constantreturns(string_organization){returngittoken.organization;}functionname()constantreturns(string_name){returngittoken.name;}functionsymbol()constantreturns(string_symbol){returngittoken.symbol;}functionbalanceOf(address_holder)constantreturns(uint_balance){returngittoken.balances[_holder];}functiontransfer(address_to,uint_value)externalTokenTransfersLockedpublicreturns(bool){require(gittoken._transfer(_to,_value));Transfer(msg.sender,_to,_value);returntrue;}functiontransferFrom(address_from,address_to,uint_value)externalTokenTransfersLockedpubliconlyPayloadSize(3)returns(bool){require(gittoken._transferFrom(_from,_to,_value));Transfer(_from,_to,_value);returntrue;}functionapprove(address_spender,uint_value)publiconlyPayloadSize(2)returns(bool){require(_value==0&&gittoken.allowed[msg.sender][_spender]==0);gittoken.allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);}functionallowance(address_owner,address_spender)constantreturns(uint_allowance){returngittoken.allowed[_owner][_spender];}functionverifyContributor(address_contributor,string_username)onlyOwnerpublicreturns(bool){require(gittoken._verifyContributor(_contributor,_username));ContributorVerified(_contributor,_username,now);returntrue;}functionrewardContributor(string_username,string_rewardType,uint_rewardValue,uint_reservedValue,string_deliveryID)onlyOwnerpublicreturns(bool){require(gittoken._rewardContributor(_username,_rewardValue,_reservedValue,_deliveryID));Contribution(gittoken.contributorAddresses[_username],_username,_rewardType,_rewardValue,_reservedValue,now);returntrue;}functioninitializeAuction(uint_initialPrice,uint_delay,uint_tokenLimitFactor,bool_lockTokens)onlyOwnerpublicreturns(bool){Auction(gittoken._initializeAuction(_initialPrice,_delay,_tokenLimitFactor,_lockTokens));returntrue;}functionexecuteBid(uint_auctionRound,uint_exchangeRate)payablepublicreturns(bool){AuctionBid(gittoken._executeBid(_auctionRound,_exchangeRate));returntrue;}functiongetAuctionRound()constantreturns(uint){returngittoken.auctionRound;}functiongetAuctionDetails(uintauctionRound)constantreturns(uint[11],uint[],uint[]){return([gittoken.auctionDetails[auctionRound].round,gittoken.auctionDetails[auctionRound].startDate,gittoken.auctionDetails[auctionRound].endDate,gittoken.auctionDetails[auctionRound].lockDate,gittoken.auctionDetails[auctionRound].tokensOffered,gittoken.auctionDetails[auctionRound].initialPrice,gittoken.auctionDetails[auctionRound].wtdAvgExRate,gittoken.auctionDetails[auctionRound].fundsCollected,gittoken.auctionDetails[auctionRound].fundLimit,gittoken.auctionDetails[auctionRound].numBids,gittoken.auctionDetails[auctionRound].tokenLimitFactor],gittoken.auctionDetails[auctionRound].ethValues,gittoken.auctionDetails[auctionRound].exRateValues);}functiongetContributorAddress(string_username)constantreturns(address_contributorAddress){returngittoken.contributorAddresses[_username];}functiongetContributorUsername(address_contributorAddress)constantreturns(string_username){returngittoken.contributorUsernames[_contributorAddress];}functiongetTokenLockUntilDate()constantreturns(uint_lockedUntil){returngittoken.lockTokenTransfersUntil;}functiongetUnclaimedRewards(string_username)constantreturns(uint_value){returngittoken.unclaimedRewards[_username];}function(){revert();}modifieronlyPayloadSize(uintinputLength){require(msg.data.length==inputLength*32+4);_;}modifierexternalTokenTransfersLocked(){require(now>gittoken.lockTokenTransfersUntil);_;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 307
+column: 2
+content: functioninitializeAuction(uint_initialPrice,uint_delay,uint_tokenLimitFactor,bool_lockTokens)onlyOwnerpublicreturns(bool){Auction(gittoken._initializeAuction(_initialPrice,_delay,_tokenLimitFactor,_lockTokens));returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 22
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 385
+column: 14
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 35
+column: 2
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 256
+column: 4
+content: string_username
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 277
+column: 4
+content: string_username
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 278
+column: 4
+content: string_rewardType
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 281
+column: 4
+content: string_deliveryID
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 96
+column: 2
+content: functionGitToken(address_contributor,string_username,string_name,string_organization,string_symbol,uint_decimals){if(_contributor!=0x0){owner[_contributor]=true;gittoken.contributorUsernames[_contributor]=_username;gittoken.contributorAddresses[_username]=_contributor;}gittoken.totalSupply=0;gittoken.name=_name;gittoken.organization=_organization;gittoken.symbol=_symbol;gittoken.decimals=_decimals;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 124
+column: 2
+content: functiontotalSupply()constantreturns(uint_supply){returngittoken.totalSupply;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 133
+column: 2
+content: functiondecimals()constantreturns(uint_decimals){returngittoken.decimals;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 143
+column: 2
+content: functionorganization()constantreturns(string_organization){returngittoken.organization;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 151
+column: 2
+content: functionname()constantreturns(string_name){returngittoken.name;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 159
+column: 2
+content: functionsymbol()constantreturns(string_symbol){returngittoken.symbol;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 168
+column: 2
+content: functionbalanceOf(address_holder)constantreturns(uint_balance){returngittoken.balances[_holder];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 243
+column: 2
+content: functionallowance(address_owner,address_spender)constantreturns(uint_allowance){returngittoken.allowed[_owner][_spender];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 325
+column: 2
+content: functiongetAuctionRound()constantreturns(uint){returngittoken.auctionRound;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 329
+column: 2
+content: functiongetAuctionDetails(uintauctionRound)constantreturns(uint[11],uint[],uint[]){return([gittoken.auctionDetails[auctionRound].round,gittoken.auctionDetails[auctionRound].startDate,gittoken.auctionDetails[auctionRound].endDate,gittoken.auctionDetails[auctionRound].lockDate,gittoken.auctionDetails[auctionRound].tokensOffered,gittoken.auctionDetails[auctionRound].initialPrice,gittoken.auctionDetails[auctionRound].wtdAvgExRate,gittoken.auctionDetails[auctionRound].fundsCollected,gittoken.auctionDetails[auctionRound].fundLimit,gittoken.auctionDetails[auctionRound].numBids,gittoken.auctionDetails[auctionRound].tokenLimitFactor],gittoken.auctionDetails[auctionRound].ethValues,gittoken.auctionDetails[auctionRound].exRateValues);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 355
+column: 2
+content: functiongetContributorAddress(string_username)constantreturns(address_contributorAddress){returngittoken.contributorAddresses[_username];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 364
+column: 2
+content: functiongetContributorUsername(address_contributorAddress)constantreturns(string_username){returngittoken.contributorUsernames[_contributorAddress];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 372
+column: 2
+content: functiongetTokenLockUntilDate()constantreturns(uint_lockedUntil){returngittoken.lockTokenTransfersUntil;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 381
+column: 2
+content: functiongetUnclaimedRewards(string_username)constantreturns(uint_value){returngittoken.unclaimedRewards[_username];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 385
+column: 2
+content: function(){revert();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 2
+content: GitTokenLib.Datagittoken;
+
+SOLIDITY_VISIBILITY :16
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_ERC20_FUNCTIONS_ALWAYS_RETURN_FALSE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :13
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_ERC20_APPROVE :1

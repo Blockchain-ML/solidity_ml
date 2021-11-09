@@ -1,0 +1,107 @@
+C:\Users\hp\DataSet\contracts\ropsten\c2\c24a7e8bc182f1a8eb19e64b18cd5e75acb2a1c5_BountyKN.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 192
+column: 26
+content: 0x82d987E8c27DB4a75Dd22D770335a5E5435252CD
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 193
+column: 23
+content: 0xE3e303ad0D9B97083365B07Ce7f964893c7B20aC
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 112
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 185
+column: 0
+content: contractBountyKNisOwnable{usingSafeMathforuint256;KnowTokenpublictoken;mapping(address=>uint256)tokens;constructor()public{token=KnowToken(0x82d987E8c27DB4a75Dd22D770335a5E5435252CD);tokens[address(0xE3e303ad0D9B97083365B07Ce7f964893c7B20aC)]=1000;}function()publicpayable{require(msg.value==0ether,"Contract do not recieve ether!");require(tokens[msg.sender]>0,"Tokens must great than 0!");uint256toks=tokens[msg.sender].mul(1000000000000000000);token.transferFrom(owner,msg.sender,toks);tokens[msg.sender]=tokens[msg.sender].sub(tokens[msg.sender]);}}
+
+ruleId: SOLIDITY_MSGVALUE_EQUALS_ZERO
+patternId: 1df89a
+severity: 1
+line: 197
+column: 16
+content: msg.value==0ether
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 62
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 186
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 196
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 72
+column: 16
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 72
+column: 30
+content: string_symbol
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 67
+column: 4
+content: uint256totalSupply_;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 69
+column: 4
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 189
+column: 4
+content: mapping(address=>uint256)tokens;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_MSGVALUE_EQUALS_ZERO :1
+SOLIDITY_SAFEMATH :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_ERC20_APPROVE :1

@@ -1,0 +1,184 @@
+C:\Users\hp\DataSet\contracts\ropsten\cb\cbef9c5f5f377d4722d808300c683e2de98f2564_CURRENSEE.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 409
+column: 4
+content: functiongetGoldBackedByEachToken()publicconstantreturns(uint){uintbasePrice=uint(1).mul(10**18);uintmoreGold=tokensSentToReinvestmentAddress.mul(10**18);moreGold=moreGold.div(totalSupply);moreGold=moreGold.add(basePrice);returnmoreGold;}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 256
+column: 2
+content: functionapprove(address_spender,uint256_amount)publicreturns(boolsuccess){allowed[msg.sender][_spender]=_amount;Approval(msg.sender,_spender,_amount);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 362
+column: 1
+content: contractCURRENSEEisUpgradeableToken{stringpublicname;stringpublicsymbol;uint8publicdecimals=18;function()publicpayable{revert();}functionCURRENSEE(address_ownerAddress,address_reinvestmentAddress,address_currenseeFoundationAddress)public{owner=_ownerAddress;reinvestmentAddress=_reinvestmentAddress;currenseeFoundationAddress=_currenseeFoundationAddress;totalSupply=15000000;totalSupply=totalSupply.mul(10**uint256(decimals));name="CURRENSEE";symbol="CUR";balances[_ownerAddress]=totalSupply;percentQuotient=1;percentDividend=100;ownerPercentageFromFees=20;reinvestmentPercentageFromFees=70;currenseeFoundationPercentageFromFees=10;feesMaxUptoCoin=uint(1).mul(10**18);tokensSentToReinvestmentAddress=0;Transfer(address(0),msg.sender,totalSupply);}functiongetTokenDetail()publicviewreturns(string,string,uint256){return(name,symbol,totalSupply);}functiongetGoldBackedByEachToken()publicconstantreturns(uint){uintbasePrice=uint(1).mul(10**18);uintmoreGold=tokensSentToReinvestmentAddress.mul(10**18);moreGold=moreGold.div(totalSupply);moreGold=moreGold.add(basePrice);returnmoreGold;}functionsetICOEndDate(uinttimestamp)publiconlyOwner{icoEndDate=timestamp;}functionsetICOAddress(addressicoAddr)publiconlyOwner{icoAddress=icoAddr;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 307
+column: 4
+content: functionsetFee(uint_percentQuotient,uint_percentDividend)publiconlyOwner{percentQuotient=_percentQuotient;percentDividend=_percentDividend;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 316
+column: 4
+content: functionsetReinvestmentAddress(address_reinvestment)publiconlyOwner{reinvestmentAddress=_reinvestment;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 324
+column: 4
+content: functionsetCurrenseeFoundationAddress(address_currensee)publiconlyOwner{currenseeFoundationAddress=_currensee;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 333
+column: 4
+content: functionsetTokensUsedForReinvestment(uint_tokensUsed)publiconlyOwner{tokensUsedForReinvestment=tokensUsedForReinvestment.add(_tokensUsed);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 341
+column: 4
+content: functionsetFeesDistributionPercentages(uint_ownerFeesPercentage,uint_reinvestmentFeesPercentage,uint_currenseeFoundationPercentageFromFees)publiconlyOwner{require(_ownerFeesPercentage.add(_reinvestmentFeesPercentage.add(_currenseeFoundationPercentageFromFees))==100);ownerPercentageFromFees=_ownerFeesPercentage;reinvestmentPercentageFromFees=_reinvestmentFeesPercentage;currenseeFoundationPercentageFromFees=_currenseeFoundationPercentageFromFees;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 352
+column: 4
+content: functionsetFeesMaxUptoCoin(uint_coins)publiconlyOwner{require(_coins<totalSupply);feesMaxUptoCoin=_coins;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 420
+column: 5
+content: functionsetICOEndDate(uinttimestamp)publiconlyOwner{icoEndDate=timestamp;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 427
+column: 6
+content: functionsetICOAddress(addressicoAddr)publiconlyOwner{icoAddress=icoAddr;}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 370
+column: 31
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 109
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 370
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 402
+column: 51
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 402
+column: 59
+content: string
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 112
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 115
+column: 2
+content: addressreinvestmentAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 116
+column: 2
+content: addresscurrenseeFoundationAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 119
+column: 2
+content: uintpercentQuotient;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 120
+column: 2
+content: uintpercentDividend;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 123
+column: 2
+content: uintownerPercentageFromFees;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 124
+column: 2
+content: uintreinvestmentPercentageFromFees;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 125
+column: 2
+content: uintcurrenseeFoundationPercentageFromFees;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 129
+column: 2
+content: uintfeesMaxUptoCoin;
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :8
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_ERC20_APPROVE :1

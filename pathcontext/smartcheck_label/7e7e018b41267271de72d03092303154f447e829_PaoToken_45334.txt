@@ -1,0 +1,164 @@
+C:\Users\hp\DataSet\contracts\ropsten\7e\7e7e018b41267271de72d03092303154f447e829_PaoToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 171
+column: 32
+content: 0x5A0DA1fD7f6b084A81F07fb9d641D295b2E7e669
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 210
+column: 4
+content: functionapprove(address_spender,uint256_value)isTokenTransferpublicreturns(boolsuccess){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 349
+column: 0
+content: contractJPYCisCoolPandaToken{usingSafeMathforuint256;stringpublicname="Japan Yen Coin";uint256_initialSupply=10000000000*10**uint256(decimals);uint256publictotalSupply;uint256publictokenPrice=47000;stringpublicsymbol="JPYC";addresspublicpaoContactAddress;eventIssue(uint256amount);constructor()public{totalSupply=_initialSupply;balances[fundWallet]=_initialSupply;}function()payablepublic{uintamount=msg.value.mul(tokenPrice);_giveToken(msg.sender,amount);fundWallet.transfer(msg.value);}function_giveToken(address_to,uint256_value)isTokenTransferinternal{require(_to!=0x0);require(totalSupply.add(_value)>=totalSupply);require(balances[_to].add(_value)>=balances[_to]);totalSupply=totalSupply.add(_value);balances[_to]=balances[_to].add(_value);emitTransfer(address(this),_to,_value);}functionissue(uint256amount)externalonlyOwner{_giveToken(fundWallet,amount);emitIssue(amount);}functionsetPaoContactAddress(address_newAddr)externalonlyOwner{require(_newAddr!=address(0));paoContactAddress=_newAddr;}functiongiveBonus(address_to,uint256_value)isTokenTransferexternalreturns(boolsuccess){require(_to!=address(0));if(msg.sender==paoContactAddress){_giveToken(_to,_value);returntrue;}returnfalse;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 230
+column: 4
+content: functionsetFundWallet(address_newAddr)externalonlyOwner{require(_newAddr!=address(0));fundWallet=_newAddr;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 239
+column: 4
+content: functionsetTokenPrice(uint256_newBuyPrice)externalonlyOwner{tokenPrice=_newBuyPrice;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 322
+column: 4
+content: functionsetMinBuyAmount(uint256_amount)externalonlyOwner{minBuyAmount=_amount;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 326
+column: 4
+content: functionsetLevelPAO(uint256_lv1,uint256_lv2,uint256_lv3,uint256_lv4)externalonlyOwner{_levelPAO[1]=_lv1;_levelPAO[2]=_lv2;_levelPAO[3]=_lv3;_levelPAO[4]=_lv4;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 333
+column: 4
+content: functionsetLevelBonusJPYC(uint256_lv1,uint256_lv2,uint256_lv3,uint256_lv4)externalonlyOwner{_levelBonusJPYC[1]=_lv1;_levelBonusJPYC[2]=_lv2;_levelBonusJPYC[3]=_lv3;_levelBonusJPYC[4]=_lv4;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 344
+column: 4
+content: functionsetJpycContactAddress(address_tokenAddress)externalonlyOwner{jpyc=JPYC(_tokenAddress);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 389
+column: 4
+content: functionsetPaoContactAddress(address_newAddr)externalonlyOwner{require(_newAddr!=address(0));paoContactAddress=_newAddr;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 104
+column: 12
+content: if(lockaddress[msg.sender]){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 115
+column: 8
+content: if(lockaddress[msg.sender]){revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 168
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 247
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 350
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 280
+column: 24
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 367
+column: 24
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 92
+column: 4
+content: mapping(address=>bool)lockaddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 154
+column: 4
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 253
+column: 4
+content: uintfundRatio=6;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 353
+column: 4
+content: uint256_initialSupply=10000000000*10**uint256(decimals);
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_SAFEMATH :3
+SOLIDITY_OVERPOWERED_ROLE :7
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_ERC20_APPROVE :1

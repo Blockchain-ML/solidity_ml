@@ -1,0 +1,196 @@
+C:\Users\hp\DataSet\MarketplacePredicate.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 23
+column: 45
+content: 0xe660b9e4
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 17
+column: 0
+content: contractMarketplacePredicateisPredicateUtils{usingRLPReaderforbytes;usingRLPReaderforRLPReader.RLPItem;usingSafeMathforuint256;bytes4constantEXECUTE_ORDER_FUNC_SIG=0xe660b9e4;Registrypublicregistry;IRootChainpublicrootChain;structExecuteOrderData{bytesdata1;bytesdata2;bytes32orderId;uint256expiration;addresstaker;}structOrder{addresstoken;bytessig;uint256amount;}structExitTxData{uint256amount1;uint256amount2;addresstoken1;addresstoken2;addresscounterParty;bytes32txHash;uint256expiration;}structReferenceTxData{uint256closingBalance;uint256age;addresschildToken;addressrootToken;}constructor(address_rootChain,address_withdrawManager,address_registry)public{withdrawManager=IWithdrawManager(_withdrawManager);rootChain=IRootChain(_rootChain);registry=Registry(_registry);}functionstartExit(bytescalldatadata,bytescalldataexitTx)externalpayableisBondProvided{RLPReader.RLPItem[]memoryreferenceTx=data.toRlpItem().toList();(addresspredicate,bytesmemorypreState)=abi.decode(referenceTx[0].toBytes(),<missing ')'>(<missing ';'><missing ';'>address,<missing ';'><missing ';'>bytes));require(uint8(registry.predicates(predicate))!=0,"Not a valid predicate");ExitTxDatamemoryexitTxData=processExitTx(exitTx,msg.sender);require(exitTxData.expiration>rootChain.getLastChildBlock(),"The inflight exit is not valid, because the marketplace order has expired");ReferenceTxDatamemoryreference1=processLogTransferReceipt(predicate,preState,msg.sender,true,false);validateTokenBalance(reference1.childToken,exitTxData.token1,reference1.closingBalance,exitTxData.amount1);(predicate,preState)=abi.decode(referenceTx[1].toBytes(),<missing ')'>(<missing ';'><missing ';'>address,<missing ';'><missing ';'>bytes));require(uint8(registry.predicates(predicate))!=0,"Not a valid predicate");ReferenceTxDatamemoryreference2=processLogTransferReceipt(predicate,preState,exitTxData.counterParty,true,false);validateTokenBalance(reference2.childToken,exitTxData.token2,reference2.closingBalance,exitTxData.amount2);addressexitChildToken=address(RLPReader.toUint(referenceTx[referenceTx.length-1]));ReferenceTxDatamemoryreference3;if(referenceTx.length==4){(predicate,preState)=abi.decode(referenceTx[3].toBytes(),<missing ')'>(<missing ';'><missing ';'>address,<missing ';'><missing ';'>bytes));reference3=processLogTransferReceipt(predicate,preState,msg.sender,true,false);require(reference2.childToken==reference3.childToken,"Child token doesnt match");}sendBond();uint256exitId=Math.max(Math.max(reference1.age,reference2.age),reference3.age)<<1;if(exitChildToken==reference1.childToken){withdrawManager.addExitToQueue(msg.sender,exitChildToken,reference1.rootToken,reference1.closingBalance.sub(exitTxData.amount1),exitTxData.txHash,false,exitId);}elseif(exitChildToken==reference2.childToken){withdrawManager.addExitToQueue(msg.sender,exitChildToken,reference2.rootToken,exitTxData.amount2.add(reference3.closingBalance),exitTxData.txHash,false,exitId);}withdrawManager.addInput(exitId,reference1.age,msg.sender,reference1.rootToken);withdrawManager.addInput(exitId,reference2.age,exitTxData.counterParty,reference2.rootToken);withdrawManager.addInput(exitId,0,msg.sender,reference3.rootToken);}functionverifyDeprecation(bytescalldataexit,bytescalldata<missing ')'>inputUtxo,bytescalldatachallengeData)externalviewreturns<missing ';'>(bool){PlasmaExitmemory_exit=decodeExit(exit);(uint256<missing ')'>age,addressutxoOwner,addresspredicate,addresschildToken)=decodeInputUtxo(inputUtxo);RLPReader.RLPItem[]memory_challengeData=challengeData.toRlpItem().toList();ExitTxDatamemorychallengeTxData=processExitTx(_challengeData[10].toBytes(),utxoOwner);ReferenceTxDatamemoryreferenceTxData=processLogTransferReceipt(predicate,challengeData,utxoOwner,true,true);if(registry.predicates<missing ';'>(predicate)==Registry.Type.ERC721){require(referenceTxData.closingBalance==_exit.receiptAmountOrNFTId&&challengeTxData.amount1==_exit.receiptAmountOrNFTId,"LogTransferReceipt, challengeTx NFT and challenged utxo NFT do not match");}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 20
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 171
+column: 8
+content: sendBond()
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 238
+column: 4
+content: functionverifyDeprecation(bytescalldataexit,bytescalldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 23
+column: 4
+content: bytes4constantEXECUTE_ORDER_FUNC_SIG=0xe660b9e4;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 240
+column: 23
+content: inputUtxo,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 241
+column: 8
+content: bytescalldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 242
+column: 28
+content: (bool){PlasmaExitmemory
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 243
+column: 26
+content: _exit=decodeExit
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 243
+column: 44
+content: (exit);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 244
+column: 8
+content: (uint256<missing ')'>age,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 244
+column: 22
+content: addressutxoOwner,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 244
+column: 41
+content: addresspredicate,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 244
+column: 60
+content: addresschildToken)=decodeInputUtxo(inputUtxo);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 248
+column: 8
+content: RLPReader.RLPItem[]memory_challengeData=challengeData.toRlpItem().toList();
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 251
+column: 8
+content: ExitTxDatamemorychallengeTxData=processExitTx(_challengeData[10].toBytes(),utxoOwner);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 259
+column: 8
+content: ReferenceTxDatamemoryreferenceTxData=processLogTransferReceipt(predicate,challengeData,utxoOwner,true,true);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 268
+column: 11
+content: (registry.predicates<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 268
+column: 31
+content: (predicate)==Registry.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 268
+column: 55
+content: Type.ERC721){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 269
+column: 12
+content: require(referenceTxData.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 270
+column: 32
+content: closingBalance==_exit.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 270
+column: 56
+content: receiptAmountOrNFTId&&challengeTxData.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 271
+column: 36
+content: amount1==_exit.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 271
+column: 53
+content: receiptAmountOrNFTId,"LogTransferReceipt, challengeTx NFT and challenged utxo NFT do not match");
+
+SOLIDITY_VISIBILITY :22
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UNCHECKED_CALL :1

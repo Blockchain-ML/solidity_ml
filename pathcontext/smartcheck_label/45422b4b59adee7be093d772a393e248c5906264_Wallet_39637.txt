@@ -1,0 +1,133 @@
+C:\Users\hp\DataSet\contracts\ropsten\45\45422b4b59adee7be093d772a393e248c5906264_Wallet.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 38
+column: 8
+content: while(a<=forkLists.length){_balances[forkLists[a]][tokenAddress]=Token(tokenAddress).balanceOf(forkLists[a]);a++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 54
+column: 8
+content: while(b<forkLists.length){if(!WalletForkFace(forkLists[b]).changeUnforked(newWallet)){break;}else{emitMainWalletMoved(address(this),newWallet);}b++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 80
+column: 8
+content: while(c<forkLists.length){if(_balances[forkLists[c]][tokenAddress]>0){d=_balances[forkLists[c]][tokenAddress];if(!WalletForkFace(forkLists[c]).sendToken(tokenAddress,address(this),d,_tokenGas[tokenAddress])){break;}else{_balances[forkLists[c]][tokenAddress]=0;emitCollected(forkLists[c],tokenAddress,d,_tokenGas[tokenAddress]);}c++;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 98
+column: 8
+content: while(e<forkLists.length){if(forkLists[e].balance>0){f=forkLists[e].balance;if(!WalletForkFace(forkLists[e]).sendEther(address(this),f,defaultGas)){break;}else{emitCollected(forkLists[e],address(0),f,defaultGas);}}e++;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 38
+column: 15
+content: a<=forkLists.length
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 54
+column: 15
+content: b<forkLists.length
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 80
+column: 15
+content: c<forkLists.length
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 98
+column: 15
+content: e<forkLists.length
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 125
+column: 12
+content: if(!x.transfer(dest,amount))revert();
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 31
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 32
+column: 46
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 111
+column: 69
+content: bytesmsgData
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 16
+column: 4
+content: addressadmin;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 17
+column: 4
+content: address[]forkLists;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 18
+column: 4
+content: addressforkFactory;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 4
+content: mapping(address=>uint)_tokenGas;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 20
+column: 4
+content: mapping(address=>mapping(address=>uint))_balances;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :4
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4

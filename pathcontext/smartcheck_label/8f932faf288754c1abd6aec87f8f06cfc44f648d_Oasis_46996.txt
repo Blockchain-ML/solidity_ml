@@ -1,0 +1,324 @@
+C:\Users\hp\DataSet\contracts\ropsten\8f\8f932faf288754c1abd6aec87f8f06cfc44f648d_Oasis.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 651
+column: 26
+content: (money*per/1000)*pers[0]
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 655
+column: 26
+content: (money*per/1000)*pers[1]
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 659
+column: 26
+content: (money*per/1000)*pers[2]
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 796
+column: 18
+content: amount*(keyprice/1ether)
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 888
+column: 14
+content: ((basekeylasts/basekeysub)-4)*1ether
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 913
+column: 21
+content: buyprice*(buynum/1ether)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 304
+column: 2
+content: for(uint256i=0;i<mycantime[tokenOwner].length;i++){uint256stime=mycantime[tokenOwner][i];uint256smoney=mycanmoney[tokenOwner][i];uint256lefttimes=_now-stime;if(lefttimes>=onceOuttime){uint256leftpers=lefttimes/onceOuttime;if(leftpers>100){leftpers=100;}_left=smoney*leftpers/100+_left;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 333
+column: 2
+content: for(uint256i=0;i<myruntime[tokenOwner].length;i++){uint256stime=myruntime[tokenOwner][i];uint256smoney=myrunmoney[tokenOwner][i];uint256lefttimes=_now-stime;if(lefttimes>=onceOuttime){uint256leftpers=lefttimes/onceOuttime;if(leftpers>100){leftpers=100;}_left=smoney*leftpers/100+_left;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 579
+column: 9
+content: for(;i<userlevels[1].length;i++){if(userlevels[1][i]==user){has=true;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 594
+column: 13
+content: for(;i<userlevels[1].length;i++){if(userlevels[1][i]==user){deleteuserlevels[1][i];}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 604
+column: 12
+content: for(;i<userlevels[2].length;i++){if(userlevels[2][i]==user){has=true;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 620
+column: 13
+content: for(;i<userlevels[2].length;i++){if(userlevels[2][i]==user){deleteuserlevels[2][i];}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 630
+column: 12
+content: for(;i<userlevels[3].length;i++){if(userlevels[3][i]==user){has=true;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 687
+column: 5
+content: for(uinti=0;i<moneydata.length;i++){if(timedata[i]>t&&timedata[i]<d&&moneydata[i]>=maxmoney){maxmoney=moneydata[i];addr=mansdata[i];}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 252
+column: 1
+content: functionaddmoney(address_addr,uint256_money,uint_day)privatereturns(bool){eths[_addr]+=_money;mycanmoney[_addr].push(_money);mycantime[_addr].push((now-(_day*86400)));}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 539
+column: 1
+content: functiongetprize()onlySystemStart()publicreturns(bool){uintd=getyestoday();addressuser=msg.sender;uintlevel=getlevel(user);uintmoney=myprizedayget[user][d];uintmymans=mysunsdaynum[user][d];if(level>0&&money>0){uintp=level-1;uintactivedtime=prizeactivetime[p];require(activedtime>0);require(activedtime<now);uintallmoney=allprize-allprizeused;if(now-activedtime>sysday){p=gettruelevel(mymans,money);}uintps=(allmoney*prizeper[p]/100)/userlevels[level].length;addmoney(user,ps,100);myprizedayget[user][d]-=money;allprizeused+=money;}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 645
+column: 1
+content: functiongetfromsun(addressaddr,uintmoney,uintamount)privatereturns(bool){addressf1=fromaddr[addr];addressf2=fromaddr[f1];addressf3=fromaddr[f2];uintd=gettoday();if(f1!=address(0)&&mysuns[f1].length>=mans[0]){addrunmoney(f1,((money*per/1000)*pers[0])/100,0);myprizedayget[f1][d]+=amount;}if(f2!=address(0)&&mysuns[f2].length>=mans[1]){addrunmoney(f2,((money*per/1000)*pers[1])/100,0);myprizedayget[f2][d]+=amount;}if(f3!=address(0)&&mysuns[f3].length>=mans[2]){addrunmoney(f3,((money*per/1000)*pers[2])/100,0);myprizedayget[f3][d]+=amount;}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 694
+column: 1
+content: functiongetluckyprize()onlySystemStart()publicreturns(bool){addressuser=msg.sender;require(user==getluckyuser());uintd=getyestoday();require(daysusereths[user][d]>0);addmoney(user,dayseths[d]*luckyper/1000,100);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 702
+column: 1
+content: functionruntoeth(uintamount)onlySystemStart()publicreturns(bool){addressuser=msg.sender;uintcan=getcanuserun(user);uintkn=balances[user];uintusekey=amount*runper/100;require(usekey<=kn);require(runs[user]>=can);require(can>=amount);reducerunmoney(user,amount);addmoney(user,amount,100);transfer(owner,usekey);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 810
+column: 1
+content: functionmoneybuy(addressuser,uintamount)privatereturns(bool){uintmoney=amount*4;uintd=gettoday();uintt=getyestoday();if(fromaddr[user]==address(0)){money=amount*3;}uintyestodaymoney=daysgeteths[t]*subper/100;if(daysgeteths[d]>yestodaymoney&&yestodaymoney>0){if(fromaddr[user]==address(0)){money=amount*2;}else{money=amount*3;}}ethnum[tags]+=money;addmoney(user,money,0);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 866
+column: 1
+content: functionsellkey(uint256amount)onlySystemStart()publicreturns(bool){addressuser=msg.sender;require(balances[user]>=amount);uintmoney=(keyprice*amount*(100-sellkeyper)/100)/1ether;require(chkend(money)==false);require(address(this).balance/2>money);userethsused[user]+=money;userethnumused[tags]+=money;_transfer(user,owner,amount);user.transfer(money);setend();}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 304
+column: 2
+content: for(uint256i=0;i<mycantime[tokenOwner].length;i++){uint256stime=mycantime[tokenOwner][i];uint256smoney=mycanmoney[tokenOwner][i];uint256lefttimes=_now-stime;if(lefttimes>=onceOuttime){uint256leftpers=lefttimes/onceOuttime;if(leftpers>100){leftpers=100;}_left=smoney*leftpers/100+_left;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 333
+column: 2
+content: for(uint256i=0;i<myruntime[tokenOwner].length;i++){uint256stime=myruntime[tokenOwner][i];uint256smoney=myrunmoney[tokenOwner][i];uint256lefttimes=_now-stime;if(lefttimes>=onceOuttime){uint256leftpers=lefttimes/onceOuttime;if(leftpers>100){leftpers=100;}_left=smoney*leftpers/100+_left;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 687
+column: 5
+content: for(uinti=0;i<moneydata.length;i++){if(timedata[i]>t&&timedata[i]<d&&moneydata[i]>=maxmoney){maxmoney=moneydata[i];addr=mansdata[i];}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 481
+column: 1
+content: functionsetactive(boolt)public{require(msg.sender==owner);actived=t;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 833
+column: 20
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 1
+content: uint_totalSupply;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 7
+column: 1
+content: uintbasekeynum;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 8
+column: 1
+content: uintbasekeysub;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 1
+content: uintbasekeylast;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: uintstartprice;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 11
+column: 4
+content: uintstartbasekeynum;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 4
+content: uintstartbasekeylast;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 1
+content: addressowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 51
+column: 1
+content: mapping(address=>uint)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 1
+content: mapping(address=>uint)systemtag;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 53
+column: 1
+content: mapping(address=>uint)eths;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 54
+column: 1
+content: mapping(address=>uint)tzs;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 55
+column: 1
+content: mapping(address=>uint)usereths;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 56
+column: 1
+content: mapping(address=>uint)userethsused;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 57
+column: 1
+content: mapping(address=>uint)runs;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 58
+column: 1
+content: mapping(address=>uint)used;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 59
+column: 1
+content: mapping(address=>uint)runused;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 60
+column: 1
+content: mapping(address=>mapping(address=>uint))allowed;
+
+SOLIDITY_VISIBILITY :18
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :7
+SOLIDITY_EXTRA_GAS_IN_LOOPS :8
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_DIV_MUL :6

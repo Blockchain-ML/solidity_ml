@@ -1,0 +1,47 @@
+C:\Users\hp\DataSet\SignatureValidator.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 16
+column: 4
+content: functionisValidSignature(bytes32hash,addresssigner,bytessignature)internalpurereturns(bool){require(signature.length==66);SignatureModemode=SignatureMode(uint8(signature[0]));uint8v=uint8(signature[1]);bytes32r;bytes32s;assembly{r:=mload(add(signature,34))s:=mload(add(signature,66))}if(mode==SignatureMode.GETH){hash=keccak256("\x19Ethereum Signed Message:\n32",hash);}elseif(mode==SignatureMode.TREZOR){hash=keccak256("\x19Ethereum Signed Message:\n\x20",hash);}returnecrecover(hash,v,r,s)==signer;}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 29
+column: 19
+content: keccak256("\x19Ethereum Signed Message:\n32",hash)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 31
+column: 19
+content: keccak256("\x19Ethereum Signed Message:\n\x20",hash)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 16
+column: 60
+content: bytessignature
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 23
+column: 8
+content: assembly{r:=mload(add(signature,34))s:=mload(add(signature,66))}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

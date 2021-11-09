@@ -1,0 +1,140 @@
+F:\Blockchain\dataset_new_byID\81833.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 96
+column: 18
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 16
+column: 31
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 92
+column: 18
+content: throw
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 79
+column: 2
+content: functiondynamicLength(bytes4sig,bytesmsgData)returns(uintoutsize){uintr;addresslengthDestination=lengthPointers[sig].destination;bytes4lengthSig=lengthPointers[sig].sig;assembly{mstore(mload(0x40),lengthSig)calldatacopy(add(4,mload(0x40)),4,sub(calldatasize,4))r:=delegatecall(sub(gas,700),lengthDestination,mload(0x40),calldatasize,mload(0x40),32)outsize:=mul(mload(0x40),32)}if(r!=1){throw;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 16
+column: 4
+content: if(msg.sender!=admin){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 92
+column: 4
+content: if(r!=1){throw;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 84
+column: 4
+content: assembly{mstore(mload(0x40),lengthSig)calldatacopy(add(4,mload(0x40)),4,sub(calldatasize,4))r:=delegatecall(sub(gas,700),lengthDestination,mload(0x40),calldatasize,mload(0x40),32)outsize:=mul(mload(0x40),32)}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 20
+column: 2
+content: functionResolver(address_fallback){admin=msg.sender;fallback=_fallback;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 26
+column: 2
+content: functionlookup(bytes4sig,bytesmsgData)returns(address,uint){if(address(replacement)!=0){returnreplacement.lookup(sig,msgData);}return(destination(sig,msgData),outsize(sig,msgData));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 2
+content: functionsetAdmin(address_admin)onlyAdmin{admin=_admin;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 38
+column: 2
+content: functionreplace(Resolver_replacement)onlyAdmin{replacement=_replacement;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 42
+column: 2
+content: functionregister(stringsignature,addressdestination,uintoutsize)onlyAdmin{pointers[stringToSig(signature)]=Pointer(destination,outsize);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 46
+column: 2
+content: functionregisterLengthFunction(stringmainSignature,stringlengthSignature,addressdestination)onlyAdmin{lengthPointers[stringToSig(mainSignature)]=LengthPointer(stringToSig(lengthSignature),destination);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 50
+column: 2
+content: functionsetFallback(address_fallback)onlyAdmin{FallbackChanged(fallback,_fallback);fallback=_fallback;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 57
+column: 2
+content: functiondestination(bytes4sig,bytesmsgData)returns(address){addressstoredDestination=pointers[sig].destination;if(storedDestination!=0){returnstoredDestination;}else{returnfallback;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 66
+column: 2
+content: functionoutsize(bytes4sig,bytesmsgData)returns(uint){if(lengthPointers[sig].destination!=0){returndynamicLength(sig,msgData);}elseif(pointers[sig].destination!=0){returnpointers[sig].outsize;}else{return32;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 79
+column: 2
+content: functiondynamicLength(bytes4sig,bytesmsgData)returns(uintoutsize){uintr;addresslengthDestination=lengthPointers[sig].destination;bytes4lengthSig=lengthPointers[sig].sig;assembly{mstore(mload(0x40),lengthSig)calldatacopy(add(4,mload(0x40)),4,sub(calldatasize,4))r:=delegatecall(sub(gas,700),lengthDestination,mload(0x40),calldatasize,mload(0x40),32)outsize:=mul(mload(0x40),32)}if(r!=1){throw;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 95
+column: 2
+content: functionstringToSig(stringsignature)returns(bytes4){returnbytes4(sha3(signature));}
+
+SOLIDITY_VISIBILITY :11
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1

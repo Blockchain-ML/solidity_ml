@@ -1,0 +1,33 @@
+F:\Blockchain\dataset_new_byID\78622.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 60
+column: 4
+content: functiongetRecoveredAddress(bytessig,bytes32dataHash)publicpurereturns(addressaddr){bytes32ra;bytes32sa;uint8va;if(sig.length!=65){return(0);}assembly{ra:=mload(add(sig,32))sa:=mload(add(sig,64))va:=byte(0,mload(add(sig,96)))}if(va<27){va+=27;}addressrecoveredAddress=ecrecover(dataHash,va,ra,sa);return(recoveredAddress);}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 60
+column: 33
+content: bytessig
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 75
+column: 8
+content: assembly{ra:=mload(add(sig,32))sa:=mload(add(sig,64))va:=byte(0,mload(add(sig,96)))}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

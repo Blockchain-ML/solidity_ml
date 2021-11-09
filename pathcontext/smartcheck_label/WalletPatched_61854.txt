@@ -1,0 +1,120 @@
+C:\Users\hp\DataSet\WalletPatched.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 69
+column: 43
+content: 0xcafecafecafecafecafecafecafecafecafecafe
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 22
+column: 24
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 50
+column: 49
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 54
+column: 2
+content: functiongetOwner(uintownerIndex)constantreturns(address){returnaddress(m_owners[ownerIndex+1]);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 60
+column: 2
+content: functionhasConfirmed(bytes32_operation,address_owner)externalconstantreturns(bool){return_walletLibrary.delegatecall(msg.data);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 64
+column: 2
+content: functionisOwner(address_addr)constantreturns(bool){return_walletLibrary.delegatecall(msg.data);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 16
+column: 0
+content: contractWalletisWalletEvents{functionWallet(address[]_owners,uint_required,uint_daylimit){bytes4sig=bytes4(sha3("initWallet(address[],uint256,uint256)"));addresstarget=_walletLibrary;uintargarraysize=(2+_owners.length);uintargsize=(2+argarraysize)*32;boolret;assembly{mstore(0x0,sig)codecopy(0x4,sub(codesize,argsize),argsize)ret:=delegatecall(sub(gas,10000),target,0x0,add(argsize,0x4),0x0,0x0)}}function()payable{if(msg.value>0)Deposit(msg.sender,msg.value);elseif(msg.data.length>0)if(!_walletLibrary.delegatecall(msg.data))throw;}functiongetOwner(uintownerIndex)constantreturns(address){returnaddress(m_owners[ownerIndex+1]);}functionhasConfirmed(bytes32_operation,address_owner)externalconstantreturns(bool){return_walletLibrary.delegatecall(msg.data);}functionisOwner(address_addr)constantreturns(bool){return_walletLibrary.delegatecall(msg.data);}addressconstant_walletLibraryDefault=0xcafecafecafecafecafecafecafecafecafecafe;addressinternal_walletLibrary=_walletLibraryDefault;uintpublicm_required;uintpublicm_numOwners;uintpublicm_dailyLimit;uintpublicm_spentToday;uintpublicm_lastDay;uint[256]m_owners;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 12
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 50
+column: 6
+content: if(!_walletLibrary.delegatecall(msg.data))throw;
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 31
+column: 4
+content: assembly{mstore(0x0,sig)codecopy(0x4,sub(codesize,argsize),argsize)ret:=delegatecall(sub(gas,10000),target,0x0,add(argsize,0x4),0x0,0x0)}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 20
+column: 2
+content: functionWallet(address[]_owners,uint_required,uint_daylimit){bytes4sig=bytes4(sha3("initWallet(address[],uint256,uint256)"));addresstarget=_walletLibrary;uintargarraysize=(2+_owners.length);uintargsize=(2+argarraysize)*32;boolret;assembly{mstore(0x0,sig)codecopy(0x4,sub(codesize,argsize),argsize)ret:=delegatecall(sub(gas,10000),target,0x0,add(argsize,0x4),0x0,0x0)}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 45
+column: 2
+content: function()payable{if(msg.value>0)Deposit(msg.sender,msg.value);elseif(msg.data.length>0)if(!_walletLibrary.delegatecall(msg.data))throw;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 54
+column: 2
+content: functiongetOwner(uintownerIndex)constantreturns(address){returnaddress(m_owners[ownerIndex+1]);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 64
+column: 2
+content: functionisOwner(address_addr)constantreturns(bool){return_walletLibrary.delegatecall(msg.data);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 69
+column: 2
+content: addressconstant_walletLibraryDefault=0xcafecafecafecafecafecafecafecafecafecafe;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 82
+column: 2
+content: uint[256]m_owners;
+
+SOLIDITY_VISIBILITY :6
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1

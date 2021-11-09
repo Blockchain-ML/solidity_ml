@@ -1,0 +1,106 @@
+C:\Users\hp\DataSet\contracts\ropsten\f3\f30306020689f9e9d8c23b352f7559b8aa4ee099_TokenDistributor.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 297
+column: 8
+content: for(uintindex=1;index<purchasedList.length;index++){if(purchasedList[index].product==_product&&purchasedList[index].buyer==_buyer){returnpurchasedList[index].amount;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 311
+column: 8
+content: for(uintindex=1;index<purchasedList.length;index++){if(purchasedList[index].product==_product){purchasedList[index].criterionTime=_criterionTime;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 323
+column: 8
+content: for(uintindex=1;index<purchasedList.length;index++){if(purchasedList[index].product==_product&&!purchasedList[index].release&&!purchasedList[index].refund){Productproduct=Product(purchasedList[index].product);require(purchasedList[index].criterionTime!=0);require(block.timestamp>=purchasedList[index].criterionTime.add(product.lockup()*1days));purchasedList[index].release=true;require(token.balanceOf(address(this))>=purchasedList[index].amount);token.safeTransfer(purchasedList[index].buyer,purchasedList[index].amount);emitReceipt(purchasedList[index].id,purchasedList[index].buyer,purchasedList[index].product,purchasedList[index].amount,purchasedList[index].criterionTime,purchasedList[index].release,purchasedList[index].refund);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 306
+column: 4
+content: functionsetCriterionTime(address_product,uint256_criterionTime)externalonlyOwnervalidAddress(_product){for(uintindex=1;index<purchasedList.length;index++){if(purchasedList[index].product==_product){purchasedList[index].criterionTime=_criterionTime;}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 219
+column: 12
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 94
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 203
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 257
+column: 21
+content: keccak256(_buyer,block.timestamp,nonce)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 105
+column: 8
+content: string_name
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 7
+column: 4
+content: mapping(address=>bool)owners;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 216
+column: 4
+content: ERC20token;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 217
+column: 4
+content: Purchased[]purchasedList;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 218
+column: 4
+content: mapping(bytes32=>uint256)indexId;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_SAFEMATH :2
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_UPGRADE_TO_050 :2

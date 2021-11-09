@@ -1,0 +1,579 @@
+C:\Users\hp\DataSet\contracts\ropsten\13\133dd1ee089dad05007ab94412ef299e4422555b_DEXHIGH.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: om991k
+severity: 2
+line: 1025
+column: 27
+content: call.value(amount)()
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 619
+column: 30
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 624
+column: 30
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 625
+column: 36
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 528
+column: 2
+content: functiontotalSupply()constantpublicreturns(uint256supply){}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 532
+column: 2
+content: functionbalanceOf(address_owner)constantpublicreturns(uint256balance){}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 556
+column: 2
+content: functionallowance(address_owner,address_spender)constantreturns(uint256remaining){}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 592
+column: 2
+content: functionbalanceOf(address_owner)constantreturns(uint256balance){returnbalances[_owner];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 602
+column: 2
+content: functionallowance(address_owner,address_spender)constantreturns(uint256remaining){returnallowed[_owner][_spender];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 796
+column: 4
+content: functionGetAskSeries(addresstoken)publicconstantreturns(uint32[]){Pairpair=pairs[token];uint32bestBid=pair.bestAsk;uint32[]bidSeries;ListItemitem=pair.orderbook[bestBid];if(bestBid!=0){bidSeries.push(bestBid);}inti=0;while(item.next!=0){bidSeries.push(item.next);item=pair.orderbook[item.next];if(i++>10)break;}returnbidSeries;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1118
+column: 4
+content: functiongetBalance(addresstoken,addresstrader)publicconstantreturns(uintavailable,uintreserved){available=balances[token][trader].available;reserved=balances[token][trader].reserved;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1124
+column: 4
+content: functiongetBalanceETH(addresstrader)publicconstantreturns(uintavailable,uintreserved){available=balances[0][trader].available;reserved=balances[0][trader].reserved;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1130
+column: 4
+content: functiongetOrderBookInfo(addresstoken)publicconstantreturns(uint32bestBid,uint32bestAsk){Pairmemorypair=pairs[token];bestBid=pair.bestBid;bestAsk=pair.bestAsk;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1137
+column: 4
+content: functiongetOrder(addresstoken,uint32id)publicconstantreturns(uintprice,boolsell,uintamount,uint32next,uint32prev){Ordermemoryorder=orders[id];price=order.price;sell=order.sell;amount=order.amount;next=pairs[token].orderbook[id].next;prev=pairs[token].orderbook[id].prev;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1147
+column: 4
+content: functionGetMyOrders()publicconstantreturns(address[]memory_tokens,uint[]memory_amounts,uint[]memory_prices,bool[]memory_sells,uint64[]memory_timestamps){OpenOrderstorageopenOrder=holder_OpenOrder[msg.sender];uint32id=openOrder.startId;uint32N=openOrder.orderN;_tokens=newaddress[](N);_amounts=newuint[](N);_prices=newuint[](N);_sells=newbool[](N);_timestamps=newuint64[](N);if(id!=0){Ordermemoryorder;uint32i=0;while(id!=0){order=orders[id];_tokens[i]=order.token;_amounts[i]=order.amount;_prices[i]=order.price;_sells[i]=order.sell;_timestamps[i]=order.timestamp;id=openOrder.id_orderList[id].next;i++;}}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1181
+column: 8
+content: functionGetFixedPrice(uintlPrice)publicconstantreturns(uint){returnGetPriceByN(GetNbyPrice(lPrice));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1186
+column: 4
+content: functionGetTickSize(uintlPrice)publicconstantreturns(uinttickSize){uintdigit=0;uintfirstNum=0;(tickSize,digit,firstNum)=GetTickSize3(lPrice);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1193
+column: 4
+content: functionGetTickSize3(uintlPrice)publicconstantreturns(uinttickSize,uintdigit,uintfirstNum){digit=0;tickSize=1;while(lPrice>=10){digit++;if(digit>3)tickSize*=10;lPrice/=10;}firstNum=lPrice;if(firstNum>=5&&digit>=3)tickSize=tickSize*5;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1210
+column: 4
+content: functionGetUpTickPrice(uintlPrice)publicconstantreturns(uint){lPrice=GetFixedPrice(lPrice);returnlPrice+GetTickSize(lPrice);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1216
+column: 4
+content: functionGetDownTickPrice(uintlPrice)publicconstantreturns(uint){uinttemp=lPrice;lPrice=GetFixedPrice(lPrice);if(lPrice<temp)returnlPrice;else{uinttickSize=GetTickSize(lPrice-1);if(lPrice>tickSize){returnlPrice-tickSize;}else{return1;}}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1237
+column: 4
+content: functionGetNbyPrice(uintlPrice)publicconstantreturns(uint){uintlTickSize=0;uintdigit=0;uintfirstNum=0;uintbaseN;(baseN,lTickSize,digit,firstNum)=GetBaseN(lPrice);uintlBasePrice=GetBasePrice(digit,firstNum);return(uint)((lPrice-lBasePrice)/lTickSize)+baseN;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1249
+column: 4
+content: functionGetBaseN(uintlPrice)privateconstantreturns(uintN,uintlTickSize,uintdigit,uintfirstNum){(lTickSize,digit,firstNum)=GetTickSize3(lPrice);if(digit>=3){N=1000+(digit-3)*(4000+1000);if(firstNum>=5)N+=4000;}elseN=0;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1264
+column: 4
+content: functionGetPriceByN(uintN)publicconstantreturns(uint){if(N>1000){uinti=1000;uintprice=i;uinttickSize=1;while(true){if(i+4000>N)break;price+=4000*tickSize;tickSize*=5;i+=4000;if(i+1000>N)break;price+=1000*tickSize;tickSize*=2;i+=1000;}return(N-i)*tickSize+price;}elsereturnN;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1290
+column: 4
+content: functionGetBasePrice(uintdigit,uintfirstNum)privateconstantreturns(uint){uintlBasePrice=0;if(digit>=3){lBasePrice=1;for(uinti=0;i<digit;i++)lBasePrice*=10;if(firstNum>=5)lBasePrice*=5;}returnlBasePrice;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 1307
+column: 4
+content: functionGetHoga(addresstoken,uint32hogaN,boolisExpand)publicconstantreturns(uint[]memorypriceB,uint[]memoryvolumeB,uint[]memorypriceA,uint[]memoryvolumeA){priceB=newuint[](hogaN);volumeB=newuint[](hogaN);priceA=newuint[](hogaN);volumeA=newuint[](hogaN);Pairstoragepair=pairs[token];Ordermemoryorder;uint32i;uint32n=0;uint32currentOrderId=pair.bestBid;currentOrderId=pair.bestBid;n=0;while(n<hogaN&&currentOrderId>0){order=orders[currentOrderId];if(currentOrderId==pair.bestBid){priceB[n]=order.price;}if(priceB[n]==order.price)volumeB[n]+=order.amount;else{if(++n>=hogaN){n=hogaN-1;break;}priceB[n]=order.price;volumeB[n]=order.amount;}currentOrderId=pair.orderbook[currentOrderId].next;}if(isExpand==true){if(pair.bestBid>0){for(i=n+1;i<hogaN;i++){if(priceB[i-1]==1)break;priceB[i]=GetDownTickPrice(priceB[i-1]);}}}currentOrderId=pair.bestAsk;n=0;while(n<hogaN&&currentOrderId>0){order=orders[currentOrderId];if(currentOrderId==pair.bestAsk){priceA[n]=order.price;}if(priceA[n]==order.price)volumeA[n]+=order.amount;else{if(++n>=hogaN){n=hogaN-1;break;}priceA[n]=order.price;volumeA[n]=order.amount;}currentOrderId=pair.orderbook[currentOrderId].next;}if(isExpand==true){if(pair.bestBid>0||pair.bestAsk>0){if(pair.bestAsk==0){priceA[0]=GetUpTickPrice(priceB[0]);}for(i=n+1;i<hogaN;i++){priceA[i]=GetUpTickPrice(priceA[i-1]);}}}}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 596
+column: 2
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess){allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 928
+column: 8
+content: while(currentOrderId!=0&&order.amount>0&&((order.sell&&order.price<=orders[currentOrderId].price)||(!order.sell&&order.price>=orders[currentOrderId].price))){OrdermemorymatchingOrder=orders[currentOrderId];uinttradeAmount;if(matchingOrder.amount>=order.amount){tradeAmount=order.amount;matchingOrder.amount-=order.amount;order.amount=0;}else{tradeAmount=matchingOrder.amount;order.amount-=matchingOrder.amount;matchingOrder.amount=0;}BalancestoragebalanceToken;BalancestoragebalanceETH;if(order.sell==true){balanceToken=balances[token][order.owner];balanceETH=balances[0][order.owner];balanceToken.reserved-=tradeAmount;balanceToken.available+=tradeAmount;balanceETH.reserved-=tradeAmount*matchingOrder.price;balanceETH.available+=tradeAmount*matchingOrder.price;}else{balanceETH=balances[0][order.owner];balanceToken=balances[token][order.owner];balanceETH.reserved-=tradeAmount*order.price;balanceETH.available+=tradeAmount*(order.price-matchingOrder.price);balanceToken.available+=tradeAmount;BalancestoragebalanceETHCp=balances[0][matchingOrder.owner];BalancestoragebalanceTokenCp=balances[token][matchingOrder.owner];balanceTokenCp.reserved-=tradeAmount;balanceETHCp.available+=tradeAmount*matchingOrder.price;}NewTrade(token,currentOrderId,id,order.sell,matchingOrder.price,tradeAmount,uint64(now));if(matchingOrder.amount!=0){orders[currentOrderId]=matchingOrder;break;}ListItemmemoryitem=excludeItem(pair,currentOrderId,matchingOrder.sell);RemoveOpenOrder(currentOrderId);currentOrderId=item.next;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 528
+column: 2
+content: functiontotalSupply()constantpublicreturns(uint256supply){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 532
+column: 2
+content: functionbalanceOf(address_owner)constantpublicreturns(uint256balance){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 538
+column: 2
+content: functiontransfer(address_to,uint256_value)publicreturns(boolsuccess){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 545
+column: 2
+content: functiontransferFrom(address_from,address_to,uint256_value)returns(boolsuccess){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 551
+column: 2
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 556
+column: 2
+content: functionallowance(address_owner,address_spender)constantreturns(uint256remaining){}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 36
+column: 27
+content: id!=0&&value==tree.items[id].value
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 54
+column: 27
+content: id!=0&&value==tree.items[id].value
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 67
+column: 27
+content: id!=0&&value==tree.items[id].value
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 82
+column: 27
+content: id!=0&&value==tree.items[id].value
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 100
+column: 27
+content: id!=0&&value==tree.items[id].value
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 113
+column: 27
+content: id!=0&&value==tree.items[id].value
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 928
+column: 15
+content: currentOrderId!=0&&order.amount>0&&((order.sell&&order.price<=orders[currentOrderId].price)||(!order.sell&&order.price>=orders[currentOrderId].price))
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 1271
+column: 19
+content: true
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 1326
+column: 15
+content: n<hogaN&&currentOrderId>0
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 1368
+column: 15
+content: n<hogaN&&currentOrderId>0
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 619
+column: 4
+content: if(msg.sender!=minter)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 624
+column: 4
+content: if(msg.sender!=minter)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 625
+column: 4
+content: if(balances[account]<amount)throw;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 1249
+column: 60
+content: (uintN,uintlTickSize,uintdigit,uintfirstNum)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 1025
+column: 27
+content: call.value(amount)()
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 762
+column: 58
+content: uint32[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 786
+column: 41
+content: uint32[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 796
+column: 67
+content: uint32[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 915
+column: 58
+content: Orderorder
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1045
+column: 85
+content: ListItem
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 646
+column: 8
+content: ListItemlistItem
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 666
+column: 12
+content: ListItemreplaceItem
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 764
+column: 8
+content: Pairpair=pairs[token]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 766
+column: 8
+content: uint32[]bidSeries
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 767
+column: 8
+content: ListItemitem=pair.orderbook[bestBid]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 788
+column: 8
+content: uint32[]series
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 798
+column: 8
+content: Pairpair=pairs[token]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 800
+column: 8
+content: uint32[]bidSeries
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 801
+column: 8
+content: ListItemitem=pair.orderbook[bestBid]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 545
+column: 2
+content: functiontransferFrom(address_from,address_to,uint256_value)returns(boolsuccess){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 551
+column: 2
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 556
+column: 2
+content: functionallowance(address_owner,address_spender)constantreturns(uint256remaining){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 567
+column: 2
+content: functiontransfer(address_to,uint256_value)returns(boolsuccess){if(balances[msg.sender]>=_value&&balances[_to]+_value>balances[_to]){balances[msg.sender]-=_value;balances[_to]+=_value;Transfer(msg.sender,_to,_value);returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 580
+column: 2
+content: functiontransferFrom(address_from,address_to,uint256_value)returns(boolsuccess){if(balances[_from]>=_value&&allowed[_from][msg.sender]>=_value&&balances[_to]+_value>balances[_to]){balances[_to]+=_value;balances[_from]-=_value;allowed[_from][msg.sender]-=_value;Transfer(_from,_to,_value);returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 592
+column: 2
+content: functionbalanceOf(address_owner)constantreturns(uint256balance){returnbalances[_owner];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 596
+column: 2
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess){allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 602
+column: 2
+content: functionallowance(address_owner,address_spender)constantreturns(uint256remaining){returnallowed[_owner][_spender];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 615
+column: 2
+content: functionReserveToken(){minter=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 618
+column: 2
+content: functioncreate(addressaccount,uintamount){if(msg.sender!=minter)throw;balances[account]=safeAdd(balances[account],amount);totalSupply=safeAdd(totalSupply,amount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 623
+column: 2
+content: functiondestroy(addressaccount,uintamount){if(msg.sender!=minter)throw;if(balances[account]<amount)throw;balances[account]=safeSub(balances[account],amount);totalSupply=safeSub(totalSupply,amount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 660
+column: 4
+content: functionRemoveOpenOrder(uint32id){OpenOrderstorageopenOrder=holder_OpenOrder[msg.sender];if(id!=0){ListItemstorageremoveItem=openOrder.id_orderList[id];ListItemreplaceItem;if(removeItem.next!=0){replaceItem=openOrder.id_orderList[removeItem.next];replaceItem.prev=removeItem.prev;}if(removeItem.prev!=0){replaceItem=openOrder.id_orderList[removeItem.prev];replaceItem.next=removeItem.next;}if(id==openOrder.startId){openOrder.startId=removeItem.next;}deleteopenOrder.id_orderList[id];openOrder.orderN-=1;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 606
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 608
+column: 2
+content: mapping(address=>mapping(address=>uint256))allowed;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 641
+column: 4
+content: mapping(address=>OpenOrder)holder_OpenOrder;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 722
+column: 4
+content: uint32lastOrderId;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 723
+column: 4
+content: mapping(uint32=>Order)orders;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 724
+column: 4
+content: mapping(address=>Pair)pairs;
+
+SOLIDITY_VISIBILITY :18
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :24
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :3
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :6
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :15
+SOLIDITY_GAS_LIMIT_IN_LOOPS :10
+SOLIDITY_CALL_WITHOUT_DATA :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_ERC20_APPROVE :1

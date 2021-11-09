@@ -1,0 +1,126 @@
+C:\Users\hp\DataSet\TestDydx.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 59
+column: 8
+content: for(uint256marketId=0;marketId<config.markets.length;++marketId){_markets.push(config.markets[marketId]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 62
+column: 8
+content: for(uint256i=0;i<config.operators.length;++i){OperatorConfigmemoryop=config.operators[i];_operators[_getOperatorHash(op.owner,op.operator)]=true;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 66
+column: 8
+content: for(uint256i=0;i<config.accounts.length;++i){AccountConfigmemoryacct=config.accounts[i];for(uint256marketId=0;marketId<acct.balances.length;++marketId){_balance[_getBalanceHash(acct.owner,acct.accountId,marketId)]=acct.balances[marketId];}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 68
+column: 12
+content: for(uint256marketId=0;marketId<acct.balances.length;++marketId){_balance[_getBalanceHash(acct.owner,acct.accountId,marketId)]=acct.balances[marketId];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 116
+column: 8
+content: for(uint256marketId=0;marketId<_markets.length;++marketId){int256balance=_balance[_getBalanceHash(account.owner,account.number,marketId)];balance=balance*int256(getMarketPrice(marketId).value);if(balance>=0){supplyValue.value+=uint256(balance);}else{borrowValue.value+=uint256(-balance);}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 109
+column: 4
+content: functiongetAdjustedAccountValues(IDydx.AccountInfocalldataaccount)externalviewreturns(IDydx.ValuememorysupplyValue,IDydx.ValuememoryborrowValue){for(uint256marketId=0;marketId<_markets.length;++marketId){int256balance=_balance[_getBalanceHash(account.owner,account.number,marketId)];balance=balance*int256(getMarketPrice(marketId).value);if(balance>=0){supplyValue.value+=uint256(balance);}else{borrowValue.value+=uint256(-balance);}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 59
+column: 8
+content: for(uint256marketId=0;marketId<config.markets.length;++marketId){_markets.push(config.markets[marketId]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 62
+column: 8
+content: for(uint256i=0;i<config.operators.length;++i){OperatorConfigmemoryop=config.operators[i];_operators[_getOperatorHash(op.owner,op.operator)]=true;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 66
+column: 8
+content: for(uint256i=0;i<config.accounts.length;++i){AccountConfigmemoryacct=config.accounts[i];for(uint256marketId=0;marketId<acct.balances.length;++marketId){_balance[_getBalanceHash(acct.owner,acct.accountId,marketId)]=acct.balances[marketId];}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 68
+column: 12
+content: for(uint256marketId=0;marketId<acct.balances.length;++marketId){_balance[_getBalanceHash(acct.owner,acct.accountId,marketId)]=acct.balances[marketId];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 116
+column: 8
+content: for(uint256marketId=0;marketId<_markets.length;++marketId){int256balance=_balance[_getBalanceHash(account.owner,account.number,marketId)];balance=balance*int256(getMarketPrice(marketId).value);if(balance>=0){supplyValue.value+=uint256(balance);}else{borrowValue.value+=uint256(-balance);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 19
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 52
+column: 30
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 53
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 54
+column: 17
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 55
+column: 12
+content: private
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 114
+column: 16
+content: (IDydx.ValuememorysupplyValue,IDydx.ValuememoryborrowValue)
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :4
+SOLIDITY_EXTRA_GAS_IN_LOOPS :5
+SOLIDITY_GAS_LIMIT_IN_LOOPS :5
+SOLIDITY_SHOULD_RETURN_STRUCT :1

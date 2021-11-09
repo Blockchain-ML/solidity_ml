@@ -1,0 +1,54 @@
+C:\Users\hp\DataSet\ERC1400RawERC20.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 139
+column: 2
+content: functionapprove(addressspender,uint256value)externalreturns(bool){require(spender!=address(0),"A5");_allowed[msg.sender][spender]=value;emitApproval(msg.sender,spender,value);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 200
+column: 2
+content: functionsetHookContract(addressvalidatorAddress,stringcalldatainterfaceLabel)externalonlyOwner{ERC1400Raw._setHookContract(validatorAddress,interfaceLabel);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 154
+column: 4
+content: _callPreTransferHooks("",msg.sender,msg.sender,to,value,"","")
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 158
+column: 4
+content: _callPostTransferHooks("",msg.sender,msg.sender,to,value,"","")
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 181
+column: 4
+content: _callPreTransferHooks("",msg.sender,from,to,value,"","")
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 185
+column: 4
+content: _callPostTransferHooks("",msg.sender,from,to,value,"","")
+
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UNCHECKED_CALL :4
+SOLIDITY_ERC20_APPROVE :1

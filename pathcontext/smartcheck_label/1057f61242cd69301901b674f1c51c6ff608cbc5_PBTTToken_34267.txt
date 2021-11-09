@@ -1,0 +1,233 @@
+C:\Users\hp\DataSet\contracts\ropsten\10\1057f61242cd69301901b674f1c51c6ff608cbc5_PBTTToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 47
+column: 8
+content: proposedOwner=address(0)
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 292
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(boolsuccess){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 30
+column: 4
+content: functioninitiateOwnershipTransfer(address_proposedOwner)publiconlyOwnerreturns(bool){require(_proposedOwner!=address(0));require(_proposedOwner!=address(this));require(_proposedOwner!=owner);proposedOwner=_proposedOwner;emitOwnershipTransferInitiated(proposedOwner);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 91
+column: 4
+content: functionsetOpsAddress(address_newOpsAddress)publiconlyOwnerreturns(bool){require(_newOpsAddress!=owner);require(_newOpsAddress!=address(this));opsAddress=_newOpsAddress;emitOpsAddressUpdated(opsAddress);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 422
+column: 4
+content: functionsetEtherPrices(uint256newBuyPriceEth,uint256newSellPriceEth)publiconlyOwner{buyPriceEth=newBuyPriceEth;sellPriceEth=newSellPriceEth;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 427
+column: 4
+content: functionsetGasForPBTT(uintnewGasAmountInWei)publiconlyOwner{gasForPBTT=newGasAmountInWei;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 432
+column: 4
+content: functionsetPBTTForGas(uintnewPBTTAmount)publiconlyOwner{PBTTForGas=newPBTTAmount;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 436
+column: 4
+content: functionsetGasReserve(uintnewGasReserveInWei)publiconlyOwner{gasReserve=newGasReserveInWei;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 440
+column: 4
+content: functionsetMinBalance(uintminimumBalanceInWei)publiconlyOwner{minBalanceForAccounts=minimumBalanceInWei;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 210
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 211
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 212
+column: 12
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 407
+column: 8
+content: if(_value<PBTTForGas)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 455
+column: 8
+content: if(buyPriceEth==0||msg.value<buyPriceEth)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 457
+column: 8
+content: if(balances[owner]<amount)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 467
+column: 8
+content: if(sellPriceEth==0||amount<PBTTForGas)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 469
+column: 8
+content: if(balances[msg.sender]<amount)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 472
+column: 8
+content: if(address(this).balance.sub(revenue)<gasReserve)revert();
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 444
+column: 24
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 185
+column: 41
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 186
+column: 43
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 219
+column: 16
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 219
+column: 30
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 233
+column: 41
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 238
+column: 43
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 317
+column: 16
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 317
+column: 30
+content: string_symbol
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 216
+column: 4
+content: mapping(address=>mapping(address=>uint256))allowed;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 366
+column: 53
+content: PBTT&39;;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 367
+column: 53
+content: PurpleButterfly
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 367
+column: 70
+content: Token(PBTT)&39;;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_OVERPOWERED_ROLE :7
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :6
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :3
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :9
+SOLIDITY_ERC20_APPROVE :1

@@ -1,0 +1,541 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\89873.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 29
+column: 4
+content: functiongetOwnerAddress()externalconstantreturns(address){returnowner;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 116
+column: 4
+content: functiongetRoyaltyPercent(address_toRoyaltyPartner)publicconstantreturns(uint){returnroyaltyPartners[_toRoyaltyPartner].percent;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 122
+column: 4
+content: functiongetRoyaltyExists(address_toRoyaltyPartner)publicconstantreturns(bool){returnroyaltyPartners[_toRoyaltyPartner].exists;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 128
+column: 4
+content: functiongetTotalPercent()externalconstantreturns(uint){returntotalPercent;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 134
+column: 4
+content: functiongetRoyaltyPartners()publicconstantreturns(address[5]_arrRoyaltyAddress,uint[5]_arrRoyaltyPercent){for(uinti=0;i<MAX_ROYALTY;i++){_arrRoyaltyAddress[i]=royaltyIndex[i];_arrRoyaltyPercent[i]=royaltyPartners[royaltyIndex[i]].percent;}return(_arrRoyaltyAddress,_arrRoyaltyPercent);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 179
+column: 4
+content: functiongetDispute()publicconstantreturns(address){returnaddressDispute;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 215
+column: 4
+content: functiongetComposer()externalconstantreturns(string_hash,string_digital,bool_isTempRegistration){_hash=hash;_digital=digitalSignature;_isTempRegistration=isTempRegistration;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 282
+column: 4
+content: functiongetStatus()constantprivatereturns(licensedState){if(isCompleted==true){returnlicensedState.Licensed;}else{if(block.timestamp>(dateIssue+ExpiryTime)){returnlicensedState.Expired;}else{returnlicensedState.Pending;}}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 296
+column: 4
+content: functiongetContractStatus()constantpublicreturns(string){licensedStatecurrentState=getStatus();if(currentState==licensedState.Pending){return"Pending";}elseif(currentState==licensedState.Expired){return"Expired";}else{return"Licensed";}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 324
+column: 4
+content: functiongetContractAddress()externalconstantreturns(address){returnthis;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 330
+column: 4
+content: functiongetOwnerAddress()externalconstantreturns(address){return(buyAddress);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 345
+column: 4
+content: functioncheckPrice(uint256_price)publicconstantreturns(bool){require(msg.sender==token);return(_price>=price)?true:false;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 87
+column: 8
+content: for(uinti=0;i<_arrRoyaltyAddress.length;i++){require(_arrRoyaltyAddress[i]!=owner);require(totalPercent<=100);royaltyIndex[i]=_arrRoyaltyAddress[i];royaltyPartners[_arrRoyaltyAddress[i]]=RoyaltyPartner(_arrRoyaltyPercent[i],false,true);totalPercent+=_arrRoyaltyPercent[i];countRoyaltyPartner++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 135
+column: 8
+content: for(uinti=0;i<MAX_ROYALTY;i++){_arrRoyaltyAddress[i]=royaltyIndex[i];_arrRoyaltyPercent[i]=royaltyPartners[royaltyIndex[i]].percent;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 42
+column: 4
+content: functiongetRegistration()publicviewreturns(string,address,string,string,uint,string,string,address[5],uint[5]){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 204
+column: 4
+content: functiongetRegistration()publicviewreturns(string_songTitle,address_owner,string_hash,string_digital,uint_type,string_professionalName,string,address[5],uint[5]){_owner=owner;_songTitle=songTitle;_hash=hash;_digital=digitalSignature;_type=rtype;_professionalName="";}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 87
+column: 8
+content: for(uinti=0;i<_arrRoyaltyAddress.length;i++){require(_arrRoyaltyAddress[i]!=owner);require(totalPercent<=100);royaltyIndex[i]=_arrRoyaltyAddress[i];royaltyPartners[_arrRoyaltyAddress[i]]=RoyaltyPartner(_arrRoyaltyPercent[i],false,true);totalPercent+=_arrRoyaltyPercent[i];countRoyaltyPartner++;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 226
+column: 4
+content: functionsetTempRegistration(bool_isTempRegistration)onlyOwnerpublic{isTempRegistration=_isTempRegistration;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 5
+column: 51
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 5
+column: 68
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 5
+column: 76
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 5
+column: 90
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 5
+column: 98
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 42
+column: 51
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 42
+column: 68
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 42
+column: 76
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 42
+column: 90
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 42
+column: 98
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 66
+column: 8
+content: string_songTitle
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 67
+column: 8
+content: string_hash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 68
+column: 8
+content: string_digital
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 70
+column: 8
+content: string_dateOfPublish
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 72
+column: 8
+content: string_professionalName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 73
+column: 8
+content: string_duration
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 74
+column: 8
+content: uint[]_arrRoyaltyPercent
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 75
+column: 8
+content: address[]_arrRoyaltyAddress
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 99
+column: 51
+content: string_songTitle
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 99
+column: 86
+content: string_hash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 99
+column: 100
+content: string_digital
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 99
+column: 129
+content: string_professionalName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 99
+column: 155
+content: string_duration
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 189
+column: 8
+content: string_songTitle
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 190
+column: 8
+content: string_hash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 191
+column: 8
+content: string_digital
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 192
+column: 8
+content: string_dateOfPublish
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 204
+column: 51
+content: string_songTitle
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 204
+column: 86
+content: string_hash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 204
+column: 100
+content: string_digital
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 204
+column: 129
+content: string_professionalName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 204
+column: 155
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 265
+column: 8
+content: stringterritorityOfLicense
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 266
+column: 8
+content: stringrightOfLicense
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 268
+column: 8
+content: string_hashOfLicense
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 296
+column: 58
+content: string
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 4
+content: stringdateOfPublish;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 16
+column: 4
+content: uintrtype;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 4
+content: uintconstantMAX_ROYALTY=5;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 48
+column: 4
+content: uinttotalPercent=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 49
+column: 4
+content: uintcountRoyaltyPartner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 50
+column: 4
+content: addressaddressDispute;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 51
+column: 4
+content: addressaddrMultiSign;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 60
+column: 4
+content: mapping(uint=>address)royaltyIndex;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 61
+column: 4
+content: mapping(address=>RoyaltyPartner)royaltyPartners;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 185
+column: 4
+content: boolisTempRegistration=false;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 237
+column: 4
+content: uintconstantExpiryTime=30*24*60*60;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 239
+column: 4
+content: addresstoken;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 240
+column: 4
+content: addressbuyAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 241
+column: 4
+content: addresssongAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 242
+column: 4
+content: stringterritority;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 243
+column: 4
+content: stringright;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 244
+column: 4
+content: uintperiod;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 245
+column: 4
+content: uint256dateIssue;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 246
+column: 4
+content: boolisCompleted;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 247
+column: 4
+content: uintprice;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 248
+column: 4
+content: stringhashOfLicense;
+
+SOLIDITY_VISIBILITY :21
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :12
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_UPGRADE_TO_050 :36
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

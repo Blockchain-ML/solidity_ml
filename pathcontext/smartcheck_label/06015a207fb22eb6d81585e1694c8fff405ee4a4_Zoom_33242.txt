@@ -1,0 +1,25 @@
+C:\Users\hp\DataSet\contracts\ropsten\06\06015a207fb22eb6d81585e1694c8fff405ee4a4_Zoom.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 13
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 18
+column: 4
+content: functioncombine(bytesmemoryinputData)publicviewreturns(bytesmemory,bytesmemory){bytesmemoryinternalAddresses;bytesmemoryresultOffsets;bytesmemoryOutputBuffer;assembly{letptr:=add(inputData,32)letcallnum:=add(mul(byte(0,mload(add(ptr,2))),256),byte(0,mload(add(ptr,3))))mstore(0x40,msize())internalAddresses:=mload(0x40)mstore(internalAddresses,mul(callnum,64))for{letn:=0}lt(n,mul(callnum,2)){n:=add(n,1)}{mstore(add(add(internalAddresses,32),mul(n,32)),0)}mstore(0x40,msize())resultOffsets:=mload(0x40)mstore(resultOffsets,mul(callnum,32))for{letn:=0}lt(n,callnum){n:=add(n,1)}{mstore(add(add(resultOffsets,32),mul(n,32)),0)}ptr:=add(ptr,6)mstore(0x40,msize())OutputBuffer:=add(mload(0x40),32)letactualResultLength:=0letthisOutputPointer:=add(OutputBuffer,32)for{letcallNumber:=0}lt(callNumber,callnum){callNumber:=add(callNumber,1)}{letdataLength:=add(mul(byte(0,mload(add(ptr,1))),256),byte(0,mload(add(ptr,2))))mstore(0x00,0x0000000000000000000000000000000000000000000000000000000000000000)switchbyte(0,mload(ptr))case2{letresult_id:=add(mul(byte(0,mload(add(ptr,3))),256),byte(0,mload(add(ptr,4))))letresultStartAddress:=add(add(internalAddresses,32),mul(result_id,64))letoffset:=add(mul(byte(0,mload(add(ptr,5))),256),byte(0,mload(add(ptr,6))))mstore(0x00,and(mload(sub(add(mload(resultStartAddress),offset),12)),sub(exp(256,20),1)))ptr:=add(ptr,8)}default{ptr:=add(ptr,8)mstore(0x00,and(mload(sub(ptr,12)),sub(exp(256,20),1)))ptr:=add(ptr,20)}lettoAddress:=mload(0x00){letsuccess:=staticcall(500000,toAddress,ptr,dataLength,0,0)returndatacopy(thisOutputPointer,0,returndatasize())mstore(add(add(internalAddresses,32),mul(callNumber,64)),thisOutputPointer)mstore(add(add(internalAddresses,64),mul(callNumber,64)),returndatasize())ptr:=add(ptr,dataLength)thisOutputPointer:=add(thisOutputPointer,returndatasize())actualResultLength:=add(actualResultLength,returndatasize())mstore(add(add(resultOffsets,32),mul(callNumber,32)),sub(actualResultLength,returndatasize()))}}mstore(OutputBuffer,actualResultLength)mstore(0x40,add(thisOutputPointer,32))}return(OutputBuffer,resultOffsets);}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 36
+column: 8
+content: assembly{letptr:=add(inputData,32)letcallnum:=add(mul(byte(0,mload(add(ptr,2))),256),byte(0,mload(add(ptr,3))))mstore(0x40,msize())internalAddresses:=mload(0x40)mstore(internalAddresses,mul(callnum,64))for{letn:=0}lt(n,mul(callnum,2)){n:=add(n,1)}{mstore(add(add(internalAddresses,32),mul(n,32)),0)}mstore(0x40,msize())resultOffsets:=mload(0x40)mstore(resultOffsets,mul(callnum,32))for{letn:=0}lt(n,callnum){n:=add(n,1)}{mstore(add(add(resultOffsets,32),mul(n,32)),0)}ptr:=add(ptr,6)mstore(0x40,msize())OutputBuffer:=add(mload(0x40),32)letactualResultLength:=0letthisOutputPointer:=add(OutputBuffer,32)for{letcallNumber:=0}lt(callNumber,callnum){callNumber:=add(callNumber,1)}{letdataLength:=add(mul(byte(0,mload(add(ptr,1))),256),byte(0,mload(add(ptr,2))))mstore(0x00,0x0000000000000000000000000000000000000000000000000000000000000000)switchbyte(0,mload(ptr))case2{letresult_id:=add(mul(byte(0,mload(add(ptr,3))),256),byte(0,mload(add(ptr,4))))letresultStartAddress:=add(add(internalAddresses,32),mul(result_id,64))letoffset:=add(mul(byte(0,mload(add(ptr,5))),256),byte(0,mload(add(ptr,6))))mstore(0x00,and(mload(sub(add(mload(resultStartAddress),offset),12)),sub(exp(256,20),1)))ptr:=add(ptr,8)}default{ptr:=add(ptr,8)mstore(0x00,and(mload(sub(ptr,12)),sub(exp(256,20),1)))ptr:=add(ptr,20)}lettoAddress:=mload(0x00){letsuccess:=staticcall(500000,toAddress,ptr,dataLength,0,0)returndatacopy(thisOutputPointer,0,returndatasize())mstore(add(add(internalAddresses,32),mul(callNumber,64)),thisOutputPointer)mstore(add(add(internalAddresses,64),mul(callNumber,64)),returndatasize())ptr:=add(ptr,dataLength)thisOutputPointer:=add(thisOutputPointer,returndatasize())actualResultLength:=add(actualResultLength,returndatasize())mstore(add(add(resultOffsets,32),mul(callNumber,32)),sub(actualResultLength,returndatasize()))}}mstore(OutputBuffer,actualResultLength)mstore(0x40,add(thisOutputPointer,32))}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

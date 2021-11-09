@@ -1,0 +1,98 @@
+C:\Users\hp\DataSet\contracts\ropsten\2c\2c3d279b560edb9cfbea4a18e332580019123112_SilcCrowdsale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 215
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 637
+column: 0
+content: contractSilcCrowdsaleisCappedCrowdsale,MyRefundableCrowdsale{enumCrowdsaleStage{preSale,mainSale1,mainSale2}CrowdsaleStagepublicstage=CrowdsaleStage.preSale;uint256publicmaxTokens=20000000000000000000000000;uint256publictokensForEcosystem=3500000000000000000000000;uint256publictokensForTeam=2500000000000000000000000;uint256publictokensForAdvisory=1000000000000000000000000;uint256publictotalTokensForSale=3000000000000000000000000;uint256publictotalTokensForSaleDuringpreSale=500000000000000000000000;uint256publicrateForpreSale=110000;uint256publicrateFormainSale1=105000;uint256publicrateFormainSale2=100000;uint256publictotalWeiRaisedDuringpreSale;uint256publictotalWeiRaisedDuringmainSale1;uint256publictotalWeiRaisedDuringmainSale2;uint256publictotalTokenSupply;eventEthTransferred(stringtext);eventEthRefunded(stringtext);functionSilcCrowdsale(uint256_startTime,uint256_endTime,uint256_rate,address_wallet,uint256_goal,uint256_cap)CappedCrowdsale(_cap)FinalizableCrowdsale()MyRefundableCrowdsale(_goal)Crowdsale(_startTime,_endTime,_rate,_wallet)public{require(_goal<=_cap);}functioncreateTokenContract()internalreturns(MintableToken){returnnewSilcToken();}functionsetCrowdsaleStage(uintvalue)publiconlyOwner{CrowdsaleStage_stage;if(uint(CrowdsaleStage.preSale)==value){_stage=CrowdsaleStage.preSale;}elseif(uint(CrowdsaleStage.mainSale1)==value){_stage=CrowdsaleStage.mainSale1;}elseif(uint(CrowdsaleStage.mainSale2)==value){_stage=CrowdsaleStage.mainSale2;}stage=_stage;if(stage==CrowdsaleStage.preSale){setCurrentRate(rateForpreSale);}elseif(stage==CrowdsaleStage.mainSale1){setCurrentRate(rateFormainSale1);}elseif(stage==CrowdsaleStage.mainSale2){setCurrentRate(rateFormainSale2);}}functionsetCurrentRate(uint256_rate)private{rate=_rate;}function()externalpayable{buyTokens(msg.sender);totalTokenSupply=token.totalSupply();if(stage==CrowdsaleStage.preSale){totalWeiRaisedDuringpreSale=totalWeiRaisedDuringpreSale.add(msg.value);}elseif(stage==CrowdsaleStage.mainSale1){totalWeiRaisedDuringmainSale1=totalWeiRaisedDuringmainSale1.add(msg.value);}elseif(stage==CrowdsaleStage.mainSale2){totalWeiRaisedDuringmainSale2=totalWeiRaisedDuringmainSale2.add(msg.value);}}mapping(address=>uint256)tokenIssued;functionbuyTokens(addressbeneficiary)publicpayable{require(beneficiary!=address(0));require(validPurchase());uint256weiAmount=msg.value;uint256tokens=weiAmount.mul(rate);weiRaised=weiRaised.add(weiAmount);token.mint(beneficiary,tokens);tokenIssued[beneficiary]=tokenIssued[beneficiary].add(tokens);TokenPurchase(msg.sender,beneficiary,weiAmount,tokens);forwardFunds();}functiongetTokenIssued(addressinvestor)publicviewreturns(uint256token){returntokenIssued[investor];}functionforwardFunds()internal{if(stage==CrowdsaleStage.preSale){EthTransferred("forwarding funds to refundable vault");super.forwardFunds();}elseif(stage==CrowdsaleStage.mainSale1){EthTransferred("forwarding funds to refundable vault");super.forwardFunds();}elseif(stage==CrowdsaleStage.mainSale2){EthTransferred("forwarding funds to refundable vault");super.forwardFunds();}}functionfinish(address_teamFund,address_ecosystemFund,address_advisoryFund)publiconlyOwner{require(!isFinalized);uint256alreadyMinted=token.totalSupply();require(alreadyMinted<maxTokens);uint256unsoldTokens=totalTokensForSale-alreadyMinted;if(unsoldTokens>0){tokensForEcosystem=tokensForEcosystem+unsoldTokens;}token.mint(_teamFund,tokensForTeam);token.mint(_ecosystemFund,tokensForEcosystem);token.mint(_advisoryFund,tokensForAdvisory);finalize();}eventLogEvent(bytes32message,uint256value);eventRefundRequestCompleted(addressinvestor,uint256weiRefunded);functionrefundRequest()public{addressinvestor=msg.sender;SilcTokensilcToken=SilcToken(address(token));uint256tokenValance=token.balanceOf(investor);require(tokenValance!=0);require(tokenValance==tokenIssued[investor]);silcToken.burn(investor,token.balanceOf(investor));tokenIssued[investor]=0;uint256weiRefunded=vault.refundWhenNotClosed(investor);weiRaised=weiRaised.sub(weiRefunded);if(stage==CrowdsaleStage.preSale){totalWeiRaisedDuringpreSale=totalWeiRaisedDuringpreSale.sub(weiRefunded);}RefundRequestCompleted(investor,weiRefunded);}functionhasEnded()publicviewreturns(bool){returntrue;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 697
+column: 2
+content: functionsetCrowdsaleStage(uintvalue)publiconlyOwner{CrowdsaleStage_stage;if(uint(CrowdsaleStage.preSale)==value){_stage=CrowdsaleStage.preSale;}elseif(uint(CrowdsaleStage.mainSale1)==value){_stage=CrowdsaleStage.mainSale1;}elseif(uint(CrowdsaleStage.mainSale2)==value){_stage=CrowdsaleStage.mainSale2;}stage=_stage;if(stage==CrowdsaleStage.preSale){setCurrentRate(rateForpreSale);}elseif(stage==CrowdsaleStage.mainSale1){setCurrentRate(rateFormainSale1);}elseif(stage==CrowdsaleStage.mainSale2){setCurrentRate(rateFormainSale2);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 59
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 346
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 446
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 479
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 517
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 588
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 565
+column: 2
+content: functionMyRefundVault(address_wallet)RefundVault(_wallet){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 61
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 750
+column: 2
+content: mapping(address=>uint256)tokenIssued;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_SAFEMATH :6
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ERC20_APPROVE :1

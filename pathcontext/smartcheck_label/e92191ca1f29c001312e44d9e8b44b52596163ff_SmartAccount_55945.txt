@@ -1,0 +1,256 @@
+C:\Users\hp\DataSet\contracts\ropsten\e9\e92191ca1f29c001312e44d9e8b44b52596163ff_SmartAccount.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 31
+column: 13
+content: (address(0))
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 51
+column: 13
+content: (address(0))
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 611
+column: 4
+content: extensions.length--
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 357
+column: 4
+content: for(uint8i=0;i<roles.length;i++){require(roles[i]==ROLE_TRANSFER_ETHER||roles[i]==ROLE_TRANSFER_TOKEN||roles[i]==ROLE_TRANSFER_OWNERSHIP,"Invalid account role");}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 381
+column: 4
+content: for(uint8i=0;i<_roles.length;i++){addRole(_address,_roles[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 395
+column: 4
+content: for(uint8i=0;i<_roles.length;i++){removeRole(_address,_roles[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 585
+column: 4
+content: for(uint256i=0;i<extensions.length;++i){require(extensions[i].extension!=_extension,"Extension already added");}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 600
+column: 6
+content: for(uint256i=0;i<extensions.length;++i){if(extensions[i].extension==_extension){toBeRemoved=extensions[i];extensions[i]=last;break;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 633
+column: 4
+content: for(uint256i=0;i<extensions.length;++i){if(extensions[i].extension==msg.sender){extension=extensions[i];break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 357
+column: 4
+content: for(uint8i=0;i<roles.length;i++){require(roles[i]==ROLE_TRANSFER_ETHER||roles[i]==ROLE_TRANSFER_TOKEN||roles[i]==ROLE_TRANSFER_OWNERSHIP,"Invalid account role");}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 381
+column: 4
+content: for(uint8i=0;i<_roles.length;i++){addRole(_address,_roles[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 395
+column: 4
+content: for(uint8i=0;i<_roles.length;i++){removeRole(_address,_roles[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 585
+column: 4
+content: for(uint256i=0;i<extensions.length;++i){require(extensions[i].extension!=_extension,"Extension already added");}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 600
+column: 6
+content: for(uint256i=0;i<extensions.length;++i){if(extensions[i].extension==_extension){toBeRemoved=extensions[i];extensions[i]=last;break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 633
+column: 4
+content: for(uint256i=0;i<extensions.length;++i){if(extensions[i].extension==msg.sender){extension=extensions[i];break;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 184
+column: 34
+content: private
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 20
+column: 2
+content: functionrecover(bytes32hash,bytessig)internalpurereturns(address){bytes32r;bytes32s;uint8v;if(sig.length!=65){return(address(0));}assembly{r:=mload(add(sig,32))s:=mload(add(sig,64))v:=byte(0,mload(add(sig,96)))}if(v<27){v+=27;}if(v!=27&&v!=28){return(address(0));}else{returnecrecover(hash,v,r,s);}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 624
+column: 2
+content: functionvalidCall(uint256_value,bytes_data)viewinternalreturns(bool){if(hasRole(msg.sender,ROLE_BOUNCER)){returntrue;}Extensionmemoryextension;for(uint256i=0;i<extensions.length;++i){if(extensions[i].extension==msg.sender){extension=extensions[i];break;}}if(extension.extension==address(0)){returnfalse;}if(_value>0){returnhasRole(msg.sender,ROLE_TRANSFER_ETHER);}if(_data.length==0){returnfalse;}bytes4functionSignature;assembly{functionSignature:=mload(add(_data,32))}if(functionSignature==TRANSFER_TOKEN||functionSignature==TRANSFER_TOKEN_DATA||functionSignature==TRANSFER_TOKEN_CUSTOM){returnhasRole(msg.sender,ROLE_TRANSFER_TOKEN);}returntrue;}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 20
+column: 33
+content: bytessig
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 317
+column: 46
+content: bytes_sig
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 333
+column: 41
+content: bytes_sig
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 375
+column: 20
+content: bytes32[]_roles
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 389
+column: 23
+content: bytes32[]_roles
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 402
+column: 42
+content: bytes32[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 545
+column: 86
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 545
+column: 99
+content: bytes_sign
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 562
+column: 26
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 574
+column: 80
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 624
+column: 37
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 669
+column: 88
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 680
+column: 80
+content: bytes_data
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 38
+column: 4
+content: assembly{r:=mload(add(sig,32))s:=mload(add(sig,64))v:=byte(0,mload(add(sig,96)))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 567
+column: 4
+content: assembly{newContract:=create(0,add(_data,0x20),mload(_data))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 649
+column: 4
+content: assembly{functionSignature:=mload(add(_data,32))}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :6
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :13
+SOLIDITY_GAS_LIMIT_IN_LOOPS :6
+SOLIDITY_USING_INLINE_ASSEMBLY :3
+SOLIDITY_SHOULD_NOT_BE_VIEW :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

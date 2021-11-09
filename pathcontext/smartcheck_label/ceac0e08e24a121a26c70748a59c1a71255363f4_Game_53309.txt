@@ -1,0 +1,33 @@
+C:\Users\hp\DataSet\contracts\ropsten\ce\ceac0e08e24a121a26c70748a59c1a71255363f4_Game.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractGame{usingSafeMathforuint256;structTeam{stringname;}mapping(uint256=>Team)publicteams;mapping(string=>bool)privateteamNames;uint256publicnumberOfTeams;eventCreateTeam(addressindexedplayer,stringindexedteamName,uint256indexedteamNumber);eventJoinTeam(addressindexedplayer,stringindexedteamName,uint256indexedteamNumber);eventLeaveTeam(addressindexedplayer,stringindexedteamName,uint256indexedteamNumber);structPlayer{uint256team;booljoinedTeam;}mapping(address=>Player)publicaddressToPlayers;mapping(address=>bool)publicplayers;uint256publicnumberOfPlayers;eventNewPlayer(addressindexedplayer);structUnit{addressowner;UnitTypeunitType;}enumUnitType{TYPE1,TYPE2,TYPE3}mapping(uint256=>mapping(uint256=>uint256))publicskillMap;mapping(uint256=>Unit)publicunits;uint256publicnumberOfUnits;uint256constantpublicUNIT_COST=0.0ether;eventCreateUnit(addressindexedplayer,UnitTypeindexedunitType);structFight{uint256blocknumber;uint256attackingUnit;uint256defendingUnit;}mapping(uint256=>Fight)publicfights;uint256publicnumberOfFights;uint256publicnumberOfResolvedFights;eventFightStart(addressindexedattacker,addressindexeddefender,uint256attackingUnit,uint256defendingUnit);eventFightOver(addressindexedattacker,addressindexeddefender,uint256attackingUnit,uint256defendingUnit,uint256attackingUnitSkill,uint256randomNumber);modifierprogressGame(){if(numberOfResolvedFights<numberOfFights){FightmemoryfightToResolve=fights[numberOfResolvedFights];if(block.number-256>fightToResolve.blocknumber){fightToResolve.blocknumber=block.number;}elseif(fightToResolve.blocknumber!=block.number){UnitmemoryattackingUnit=units[fightToResolve.attackingUnit];UnitmemorydefendingUnit=units[fightToResolve.defendingUnit];uint256attackingUnitSkill=skillMap[uint256(attackingUnit.unitType)][uint256(defendingUnit.unitType)];uint256randomNumber=uint256(blockhash(fightToResolve.blocknumber))%10;if(attackingUnitSkill>=randomNumber){units[fightToResolve.defendingUnit]=units[numberOfUnits-1];}else{units[fightToResolve.attackingUnit]=units[numberOfUnits-1];}numberOfUnits--;numberOfResolvedFights++;emitFightOver(attackingUnit.owner,defendingUnit.owner,fightToResolve.attackingUnit,fightToResolve.defendingUnit,attackingUnitSkill,randomNumber);}}_;}modifiermanagePlayer(){if(!players[msg.sender]){addressToPlayers[msg.sender]=Player(0,false);numberOfPlayers++;players[msg.sender]=true;emitNewPlayer(msg.sender);}_;}constructor()public{skillMap[0][0]=4;skillMap[0][1]=6;skillMap[0][2]=2;skillMap[1][0]=2;skillMap[1][1]=4;skillMap[1][2]=6;skillMap[2][0]=6;skillMap[2][1]=2;skillMap[2][2]=4;}functioncreateUnit(UnitTypeunitType)externalpayableprogressGamemanagePlayer{require(msg.value==UNIT_COST);units[numberOfUnits]=Unit(msg.sender,unitType);numberOfUnits++;emitCreateUnit(msg.sender,unitType);}functionisLegalAttack(uint256attackingUnit,uint256defendingUnit)privateviewreturns(bool){Playermemoryattacker=addressToPlayers[units[attackingUnit].owner];Playermemorydefender=addressToPlayers[units[defendingUnit].owner];return(!attacker.joinedTeam||!defender.joinedTeam||attacker.team!=defender.team);}functionattackUnit(uint256attackingUnit,uint256defendingUnit)externalprogressGame{require(attackingUnit<numberOfUnits&&defendingUnit<numberOfUnits);require(units[attackingUnit].owner==msg.sender);require(units[defendingUnit].owner!=msg.sender);require(isLegalAttack(attackingUnit,defendingUnit));fights[numberOfFights]=Fight(block.number,attackingUnit,defendingUnit);numberOfFights++;emitFightStart(msg.sender,units[defendingUnit].owner,attackingUnit,defendingUnit);}functioncreateTeam(stringname)externalprogressGamemanagePlayer{require(!teamNames[name]);Playerstorageplayer=addressToPlayers[msg.sender];require(!player.joinedTeam);player.team=numberOfTeams;player.joinedTeam=true;teams[numberOfTeams]=Team(name);teamNames[name]=true;emitCreateTeam(msg.sender,name,numberOfTeams);numberOfTeams++;}functionjoinTeam(uint256teamNumber)externalprogressGamemanagePlayer{require(teamNumber<numberOfTeams);Playerstorageplayer=addressToPlayers[msg.sender];require(!player.joinedTeam);player.team=teamNumber;player.joinedTeam=true;emitJoinTeam(msg.sender,teams[teamNumber].name,teamNumber);}functionleaveTeam(uint256teamNumber)externalprogressGame{Playerstorageplayer=addressToPlayers[msg.sender];require(player.joinedTeam&&player.team==teamNumber);player.joinedTeam=false;emitLeaveTeam(msg.sender,teams[teamNumber].name,teamNumber);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 14
+column: 29
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 5
+column: 4
+content: usingSafeMathforuint256;
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1

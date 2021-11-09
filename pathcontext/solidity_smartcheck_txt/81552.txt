@@ -1,0 +1,117 @@
+F:\Blockchain\dataset_new_byID\81552.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 7
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 43
+column: 26
+content: Employeeemployee
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 50
+column: 4
+content: functioncheckEmployee(uintindex)returns(addressemployeeId,uintsalary,uintlastPayday){employeeId=employeeList[index];varemployee=employees[employeeId];salary=employee.salary;lastPayday=employee.lastPayday;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 57
+column: 4
+content: functionaddEmployee(addressemployeeId,uintsalary)onlyOwner{varemployee=employees[employeeId];assert(employee.id==0x0);employees[employeeId]=Employee(employeeId,salary.mul(1ether),now);totalSalary=totalSalary.add(employees[employeeId].salary);totalEmployee=totalEmployee.add(1);employeeList.push(employeeId);NewEmployee(employeeId);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 68
+column: 4
+content: functionremoveEmployee(addressemployeeId)onlyOwneremployeeExit(employeeId){varemployee=employees[employeeId];_partialPaid(employee);totalSalary=totalSalary.sub(employee.salary);deleteemployees[employeeId];totalEmployee=totalEmployee.sub(1);RemoveEmployee(employeeId);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 78
+column: 4
+content: functionupdateEmployee(addressemployeeId,uintsalary)onlyOwneremployeeExit(employeeId){varemployee=employees[employeeId];_partialPaid(employee);totalSalary=totalSalary.sub(employee.salary);employee.salary=salary.mul(1ether);employee.lastPayday=now;totalSalary=totalSalary.add(employee.salary);UpdateEmployee(employeeId);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 89
+column: 4
+content: functionaddFund()payablereturns(uint){NewFund(this.balance);returnthis.balance;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 94
+column: 4
+content: functioncalculateRunway()returns(uint){returnthis.balance.div(totalSalary);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 98
+column: 4
+content: functionhasEnoughFund()returns(bool){returncalculateRunway()>0;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 102
+column: 4
+content: functiongetPaid()employeeExit(msg.sender){varemployee=employees[msg.sender];uintnextPayday=employee.lastPayday.add(payDuration);assert(nextPayday<now);employee.lastPayday=nextPayday;employee.id.transfer(employee.salary);GetPaid(employee.id);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 113
+column: 4
+content: functioncheckInfo()returns(uintbalance,uintrunway,uintemployeeCount){balance=this.balance;employeeCount=totalEmployee;if(totalSalary>0){runway=calculateRunway();}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 14
+column: 4
+content: uintconstantpayDuration=10seconds;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 16
+column: 4
+content: uinttotalSalary;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 17
+column: 4
+content: uinttotalEmployee;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 18
+column: 4
+content: address[]employeeList;
+
+SOLIDITY_VISIBILITY :13
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :1

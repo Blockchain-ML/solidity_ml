@@ -1,0 +1,69 @@
+C:\Users\hp\DataSet\contracts\ropsten\8c\8Cb5E5F0A8a4B67618054d40d62D232680Cdb6B5_CampaignMango.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 148
+column: 0
+content: contractCampaignMango{usingSafeMathforuint256;structRequest{stringdescription;uint256value;addresspayablerecipient;boolcomplete;uint256approvalCount;mapping(address=>bool)approvals;}Request[]publicrequests;addresspublicmanager;uint256minimumContribution;uint8approversFactor;mapping(address=>bool)publicapprovers;uint256publicapproversCount;modifierrestricted(){require(msg.sender==manager);_;}constructor(addresscreator,uint256minimum,uint8factor)public{require(factor>=2);require(factor<=10);manager=creator;approversFactor=factor;minimumContribution=minimum;}functioncontribute()publicpayable{require(msg.value>=minimumContribution);approvers[msg.sender]=true;approversCount++;}functioncreateRequest(stringmemorydescription,uint256value,address<missing ')'>payablerecipient)publicrestricted{RequestmemorynewRequest=Request({description:description,value:value,recipient:recipient,complete:false,approvalCount:0});requests.push(newRequest);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 20
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 28
+column: 20
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 150
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 209
+column: 4
+content: functioncreateRequest(stringmemorydescription,uint256value,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 164
+column: 4
+content: uint256minimumContribution;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 175
+column: 4
+content: uint8approversFactor;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 212
+column: 8
+content: RequestmemorynewRequest=Request({description:description,value:value,recipient:recipient,complete:false,approvalCount:0});
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 220
+column: 8
+content: requests.push(newRequest);
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1

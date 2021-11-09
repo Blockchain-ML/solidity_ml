@@ -1,0 +1,62 @@
+F:\Blockchain\dataset_new_byID\80550.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 11
+column: 8
+content: for(uint256i=32;i<=proof.length;i+=32){assembly{el:=mload(add(proof,i))}if(h<el){h=keccak256(abi.encode(h,el));}else{h=keccak256(abi.encode(el,h));}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 37
+column: 8
+content: for(uint256j=32;j<=proof.length;j+=32){assembly{el:=mload(add(proof,j))}remaining=(proof.length-j+32)/32;while(remaining>0&&index%2==1&&index>2**remaining){index=uint(index)/2+1;}if(index%2==0){h=keccak256(abi.encode(el,h));index=index/2;}else{h=keccak256(abi.encode(h,el));index=uint(index)/2+1;}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 7
+column: 4
+content: functioncheckProof(bytesmemoryproof,bytes32root,bytes32hash)publicreturns(bool){bytes32el;bytes32h=hash;for(uint256i=32;i<=proof.length;i+=32){assembly{el:=mload(add(proof,i))}if(h<el){h=keccak256(abi.encode(h,el));}else{h=keccak256(abi.encode(el,h));}}emitResult(h==root);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 27
+column: 4
+content: functioncheckProofOrdered(bytesmemoryproof,bytes32root,bytes32hash,uint256index)publicreturns(bool){bytes32el;bytes32h=hash;uint256remaining;for(uint256j=32;j<=proof.length;j+=32){assembly{el:=mload(add(proof,j))}remaining=(proof.length-j+32)/32;while(remaining>0&&index%2==1&&index>2**remaining){index=uint(index)/2+1;}if(index%2==0){h=keccak256(abi.encode(el,h));index=index/2;}else{h=keccak256(abi.encode(h,el));index=uint(index)/2+1;}}emitResult(h==root);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 48
+column: 19
+content: remaining>0&&index%2==1&&index>2**remaining
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 12
+column: 12
+content: assembly{el:=mload(add(proof,i))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 38
+column: 12
+content: assembly{el:=mload(add(proof,j))}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :2

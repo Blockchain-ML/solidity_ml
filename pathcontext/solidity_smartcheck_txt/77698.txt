@@ -1,0 +1,38 @@
+F:\Blockchain\dataset_new_byID\77698.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 12
+column: 2
+content: functionhasWon(uint_proposalID)publicconstantreturns(bool){BoardRoomboard=BoardRoom(msg.sender);uintnay=board.positionWeightOf(_proposalID,0);uintyea=board.positionWeightOf(_proposalID,1);if((yea+nay)>StandardToken(token.token()).totalSupply()/20&&yea>nay){returntrue;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 24
+column: 2
+content: functioncanVote(address_sender,uint_proposalID)publicconstantreturns(bool){BoardRoomboard=BoardRoom(msg.sender);uintcreated=board.createdOn(_proposalID);uintdebatePeriod=board.debatePeriodOf(_proposalID);if(votingWeightOf(_sender,_proposalID)>0&&now<(created+debatePeriod)&&token.frozenUntil(_sender)>(created+debatePeriod)&&board.hasVoted(_proposalID,_sender)==false){returntrue;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 38
+column: 2
+content: functioncanPropose(address_sender)publicconstantreturns(bool){if(token.balanceOf(_sender)>0){returntrue;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 44
+column: 2
+content: functionvotingWeightOf(address_sender,uint_proposalID)publicconstantreturns(uint){returntoken.balanceOf(_sender);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1

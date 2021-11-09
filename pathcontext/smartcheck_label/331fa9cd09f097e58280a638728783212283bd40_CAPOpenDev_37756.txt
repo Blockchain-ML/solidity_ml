@@ -1,0 +1,498 @@
+C:\Users\hp\DataSet\contracts\ropsten\33\331fa9cd09f097e58280a638728783212283bd40_CAPOpenDev.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 58
+column: 4
+content: owner=address(0)
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 514
+column: 4
+content: owners.length-=1
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 634
+column: 2
+content: functionisConfirmed(uinttransactionId)publicconstantreturns(bool){uintcount=0;for(uinti=0;i<owners.length;i++){if(confirmations[transactionId][owners[i]])count+=1;if(count==required)returntrue;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 678
+column: 2
+content: functiongetConfirmationCount(uinttransactionId)publicconstantreturns(uintcount){for(uinti=0;i<owners.length;i++)if(confirmations[transactionId][owners[i]])count+=1;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 692
+column: 2
+content: functiongetTransactionCount(boolpending,boolexecuted)publicconstantreturns(uintcount){for(uinti=0;i<transactionCount;i++)if(pending&&!transactions[i].executed||executed&&transactions[i].executed)count+=1;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 705
+column: 2
+content: functiongetOwners()publicconstantreturns(address[]){returnowners;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 716
+column: 2
+content: functiongetConfirmations(uinttransactionId)publicconstantreturns(address[]_confirmations){address[]memoryconfirmationsTemp=newaddress[](owners.length);uintcount=0;uinti;for(i=0;i<owners.length;i++)if(confirmations[transactionId][owners[i]]){confirmationsTemp[count]=owners[i];count+=1;}_confirmations=newaddress[](count);for(i=0;i<count;i++){_confirmations[i]=confirmationsTemp[i];}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 741
+column: 2
+content: functiongetTransactionIds(uintfrom,uintto,boolpending,boolexecuted)publicconstantreturns(uint[]_transactionIds){uint[]memorytransactionIdsTemp=newuint[](transactionCount);uintcount=0;uinti;for(i=0;i<transactionCount;i++)if(pending&&!transactions[i].executed||executed&&transactions[i].executed){transactionIdsTemp[count]=i;count+=1;}_transactionIds=newuint[](to-from);for(i=from;i<to;i++)_transactionIds[i-from]=transactionIdsTemp[i];}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 207
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 352
+column: 4
+content: for(uint256i=0;i<addrs.length;i++){list[_contract][addrs[i]]=true;emitLogWhitelistAdded(addrs[i],now);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 362
+column: 4
+content: for(uint256i=0;i<addrs.length;i++){list[_contract][addrs[i]]=false;emitLogWhitelistDeleted(addrs[i],now);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 479
+column: 4
+content: for(uinti=0;i<_owners.length;i++){require(!isOwner[_owners[i]]&&_owners[i]!=0);isOwner[_owners[i]]=true;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 509
+column: 4
+content: for(uinti=0;i<owners.length-1;i++)if(owners[i]==owner){owners[i]=owners[owners.length-1];break;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 529
+column: 4
+content: for(uinti=0;i<owners.length;i++)if(owners[i]==owner){owners[i]=newOwner;break;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 640
+column: 4
+content: for(uinti=0;i<owners.length;i++){if(confirmations[transactionId][owners[i]])count+=1;if(count==required)returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 683
+column: 4
+content: for(uinti=0;i<owners.length;i++)if(confirmations[transactionId][owners[i]])count+=1;
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 697
+column: 4
+content: for(uinti=0;i<transactionCount;i++)if(pending&&!transactions[i].executed||executed&&transactions[i].executed)count+=1;
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 724
+column: 4
+content: for(i=0;i<owners.length;i++)if(confirmations[transactionId][owners[i]]){confirmationsTemp[count]=owners[i];count+=1;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 749
+column: 4
+content: for(i=0;i<transactionCount;i++)if(pending&&!transactions[i].executed||executed&&transactions[i].executed){transactionIdsTemp[count]=i;count+=1;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 797
+column: 2
+content: functionwithdraw(uint256_value)onlyOwnerexternalreturns(bool){require(_value>0);msg.sender.transfer(_value);emitLogSmallWithdraw(_value,now);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 805
+column: 2
+content: functionsetCAPAddress(address_cap)onlyOwnerexternalreturns(bool){cap_address=_cap;emitLogSmallCAPAddressSet(_cap,now);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 841
+column: 2
+content: functionsetCAPAddress(address_cap)externalownerExists(msg.sender)returns(bool){cap_address=_cap;emitLogLargeCAPAddressSet(cap_address,now);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 678
+column: 2
+content: functiongetConfirmationCount(uinttransactionId)publicconstantreturns(uintcount){for(uinti=0;i<owners.length;i++)if(confirmations[transactionId][owners[i]])count+=1;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 692
+column: 2
+content: functiongetTransactionCount(boolpending,boolexecuted)publicconstantreturns(uintcount){for(uinti=0;i<transactionCount;i++)if(pending&&!transactions[i].executed||executed&&transactions[i].executed)count+=1;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 352
+column: 4
+content: for(uint256i=0;i<addrs.length;i++){list[_contract][addrs[i]]=true;emitLogWhitelistAdded(addrs[i],now);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 362
+column: 4
+content: for(uint256i=0;i<addrs.length;i++){list[_contract][addrs[i]]=false;emitLogWhitelistDeleted(addrs[i],now);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 479
+column: 4
+content: for(uinti=0;i<_owners.length;i++){require(!isOwner[_owners[i]]&&_owners[i]!=0);isOwner[_owners[i]]=true;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 529
+column: 4
+content: for(uinti=0;i<owners.length;i++)if(owners[i]==owner){owners[i]=newOwner;break;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 640
+column: 4
+content: for(uinti=0;i<owners.length;i++){if(confirmations[transactionId][owners[i]])count+=1;if(count==required)returntrue;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 683
+column: 4
+content: for(uinti=0;i<owners.length;i++)if(confirmations[transactionId][owners[i]])count+=1;
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 724
+column: 4
+content: for(i=0;i<owners.length;i++)if(confirmations[transactionId][owners[i]]){confirmationsTemp[count]=owners[i];count+=1;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 374
+column: 0
+content: contractMultiSigWallet{eventConfirmation(addressindexedsender,uintindexedtransactionId,uinttimestamp);eventRevocation(addressindexedsender,uintindexedtransactionId,uinttimestamp);eventSubmission(uintindexedtransactionId,uinttimestamp);eventExecution(uintindexedtransactionId,uinttimestamp);eventExecutionFailure(uintindexedtransactionId,uinttimestamp);eventDeposit(addressindexedsender,uintvalue,uinttimestamp);eventOwnerAddition(addressindexedowner,uinttimestamp);eventOwnerRemoval(addressindexedowner,uinttimestamp);eventRequirementChange(uintrequired,uinttimestamp);uintconstantpublicMAX_OWNER_COUNT=50;mapping(uint=>Transaction)publictransactions;mapping(uint=>mapping(address=>bool))publicconfirmations;mapping(address=>bool)publicisOwner;address[]publicowners;uintpublicrequired;uintpublictransactionCount;structTransaction{addressdestination;uintvalue;bytesdata;boolexecuted;}modifieronlyWallet(){require(msg.sender==address(this));_;}modifierownerDoesNotExist(addressowner){require(!isOwner[owner]);_;}modifierownerExists(addressowner){require(isOwner[owner]);_;}modifiertransactionExists(uinttransactionId){require(transactions[transactionId].destination!=0);_;}modifierconfirmed(uinttransactionId,addressowner){require(confirmations[transactionId][owner]);_;}modifiernotConfirmed(uinttransactionId,addressowner){require(!confirmations[transactionId][owner]);_;}modifiernotExecuted(uinttransactionId){require(!transactions[transactionId].executed);_;}modifiernotNull(address_address){require(_address!=0);_;}modifiervalidRequirement(uintownerCount,uint_required){require(ownerCount<=MAX_OWNER_COUNT&&_required<=ownerCount&&_required!=0&&ownerCount!=0);_;}function()publicpayable{if(msg.value>0)emitDeposit(msg.sender,msg.value,now);}constructor(address[]_owners,uint_required)publicvalidRequirement(_owners.length,_required){for(uinti=0;i<_owners.length;i++){require(!isOwner[_owners[i]]&&_owners[i]!=0);isOwner[_owners[i]]=true;}owners=_owners;required=_required;}functionaddOwner(addressowner)publiconlyWalletownerDoesNotExist(owner)notNull(owner)validRequirement(owners.length+1,required){isOwner[owner]=true;owners.push(owner);emitOwnerAddition(owner,now);}functionremoveOwner(addressowner)publiconlyWalletownerExists(owner){isOwner[owner]=false;for(uinti=0;i<owners.length-1;i++)if(owners[i]==owner){owners[i]=owners[owners.length-1];break;}owners.length-=1;if(required>owners.length)changeRequirement(owners.length);emitOwnerRemoval(owner,now);}functionreplaceOwner(addressowner,addressnewOwner)publiconlyWalletownerExists(owner)ownerDoesNotExist(newOwner){for(uinti=0;i<owners.length;i++)if(owners[i]==owner){owners[i]=newOwner;break;}isOwner[owner]=false;isOwner[newOwner]=true;emitOwnerRemoval(owner,now);emitOwnerAddition(newOwner,now);}functionchangeRequirement(uint_required)publiconlyWalletvalidRequirement(owners.length,_required){required=_required;emitRequirementChange(_required,now);}functionsubmitTransaction(addressdestination,uintvalue,bytesdata)publicreturns(uinttransactionId){transactionId=addTransaction(destination,value,data);confirmTransaction(transactionId);}functionconfirmTransaction(uinttransactionId)publicownerExists(msg.sender)transactionExists(transactionId)notConfirmed(transactionId,msg.sender){confirmations[transactionId][msg.sender]=true;emitConfirmation(msg.sender,transactionId,now);executeTransaction(transactionId);}functionrevokeConfirmation(uinttransactionId)publicownerExists(msg.sender)confirmed(transactionId,msg.sender)notExecuted(transactionId){confirmations[transactionId][msg.sender]=false;emitRevocation(msg.sender,transactionId,now);}functionexecuteTransaction(uinttransactionId)publicownerExists(msg.sender)confirmed(transactionId,msg.sender)notExecuted(transactionId){if(isConfirmed(transactionId)){Transactionstoragetxn=transactions[transactionId];txn.executed=true;if(external_call(txn.destination,txn.value,txn.data.length,txn.data))emitExecution(transactionId,now);else{emitExecutionFailure(transactionId,now);txn.executed=false;}}}functionexternal_call(addressdestination,uintvalue,uintdataLength,bytesdata)privatereturns(bool){boolresult;assembly{letx:=mload(0x40)letd:=add(data,32)result:=call(sub(gas,34710),destination,value,d,dataLength,x,0)}returnresult;}functionisConfirmed(uinttransactionId)publicconstantreturns(bool){uintcount=0;for(uinti=0;i<owners.length;i++){if(confirmations[transactionId][owners[i]])count+=1;if(count==required)returntrue;}}functionaddTransaction(addressdestination,uintvalue,bytesdata)internalnotNull(destination)returns(uinttransactionId){transactionId=transactionCount;transactions[transactionId]=Transaction({destination:destination,value:value,data:data,executed:false});transactionCount+=1;emitSubmission(transactionId,now);}functiongetConfirmationCount(uinttransactionId)publicconstantreturns(uintcount){for(uinti=0;i<owners.length;i++)if(confirmations[transactionId][owners[i]])count+=1;}functiongetTransactionCount(boolpending,boolexecuted)publicconstantreturns(uintcount){for(uinti=0;i<transactionCount;i++)if(pending&&!transactions[i].executed||executed&&transactions[i].executed)count+=1;}functiongetOwners()publicconstantreturns(address[]){returnowners;}functiongetConfirmations(uinttransactionId)publicconstantreturns(address[]_confirmations){address[]memoryconfirmationsTemp=newaddress[](owners.length);uintcount=0;uinti;for(i=0;i<owners.length;i++)if(confirmations[transactionId][owners[i]]){confirmationsTemp[count]=owners[i];count+=1;}_confirmations=newaddress[](count);for(i=0;i<count;i++){_confirmations[i]=confirmationsTemp[i];}}functiongetTransactionIds(uintfrom,uintto,boolpending,boolexecuted)publicconstantreturns(uint[]_transactionIds){uint[]memorytransactionIdsTemp=newuint[](transactionCount);uintcount=0;uinti;for(i=0;i<transactionCount;i++)if(pending&&!transactions[i].executed||executed&&transactions[i].executed){transactionIdsTemp[count]=i;count+=1;}_transactionIds=newuint[](to-from);for(i=from;i<to;i++)_transactionIds[i-from]=transactionIdsTemp[i];}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 850
+column: 0
+content: contractCAPOpenDevisStandardToken,Ownable{usingSafeMathforuint256;stringpublicconstantname="CAPOpen";stringpublicconstantsymbol="CAPO";uint256publicconstantdecimals=18;uint256publicconstantBASE=10000;uint256publicminimum=0.01ether;uint256publicplatform_fee=200;uint256publicroi=10500;uint256publicperformance_bonus=2000;uint256publicredeem_level=3ether;uint256publicmax_request_quota=55;uint256publicrequest_buy_limit=3;uint256publicrequest_buy_limit_interval=3minutes;uint256publicrequest_redeem_limit=3;uint256publicrequest_redeem_limit_interval=3minutes;uint256publicstart_time=0;uint256publicend_time=0;uint256publicperiod=100days;uint256publicwei_raised=0;uint256publictoken_issued=0;uint256publicsoft_cap=1ether;uint256publicnav=10000;uint256publicinitial_nav=10000;uint256publicrequest_quota=0;boolpublicisFixed=false;boolpublictradeable=false;boolpublicissuable=false;boolpublicis_fund_raising_period=true;boolpublicsoft_cap_reached=true;addresspublicoperator;addresspublicvault;addresspublicfee_wallet;SmallWalletpublicsmall_wallet;LargeWalletpubliclarge_wallet;Whitelistpublicwhitelist;Request[]publicredeem_requests;Request[]publicbuy_requests;mapping(address=>Member)publicmembers;mapping(address=>RequestTime)publicredeem_time_records;mapping(address=>RequestTime)publicbuy_time_records;structMember{boolbuy_status;boolredeem_status;uint256self_nav;}structRequestTime{uint256count;uint256time;}structRequest{addressparticipant;uint256token;uint256timestamp;}eventLogStart(uint256timestamp);eventLogRestart(uint256start_time,uint256timestamp);eventLogFinalize(uint256timestamp);eventLogTradingEnabled(uint256timestamp);eventLogTradingDisabled(uint256timestamp);eventLogNavUpdated(uint256indexedold_nav,uint256indexednew_nav,uint256timestamp);eventLogVaultChanged(addressindexedsender,addressvault,uint256timestamp);eventLogTokenBurned(addressindexedburner,uint256indexedvalue,uint256timestamp);eventLogIsFixedSet(uint256timestamp);eventLogMinimumSet(uint256minimum,uint256timestamp);eventLogPlatformFeeSet(uint256platform_fee,uint256timestamp);eventLogROISet(uint256roi,uint256timestamp);eventLogPerformanceBonusSet(uint256performance_bonus,uint256timestamp);eventLogRedeemLevelSet(uint256redeem_level,uint256timestamp);eventLogMaxRequestQuotaSet(uint256max_request_quota,uint256timestamp);eventLogBuyRequestLimitSet(uint256request_buy_limit,uint256timestamp);eventLogBuyRequestLimitIntervalSet(uint256request_buy_limit_interval,uint256timestamp);eventLogRedeemRequestLimitSet(uint256request_redeem_limit,uint256timestamp);eventLogRedeemRequestLimitIntervalSet(uint256request_redeem_limit_interval,uint256timestamp);eventLogVaultAddressSet(addressvault,uint256timestamp);eventLogFeeWalletAddressSet(addressfee_wallet,uint256timestamp);eventLogLargeWalletAddressSet(addresslarge_wallet,uint256timestamp);eventLogSmallWalletAddressSet(addresssmall_wallet,uint256timestamp);eventLogWhitelistAddressSet(addresswhitelist,uint256timestamp);eventLogOperatorAddressSet(addressoperator,uint256timestamp);eventLogRedeem(addressindexedsender,uint256tokens,uint256nav,uint256value,uint256timestamp);eventLogRequestRedeem(addressindexedsender,uint256tokens,uint256timestamp);eventLogTokenBought(addressindexedparticipant,uint256value,uint256nav,uint256timestamp);eventLogRequestBuy(addressindexedsender,uint256tokens,uint256timestamp);eventLogRequestRedeemFull(uint256timestamp);eventLogRequestBuyFull(uint256timestamp);eventLogAddressLocked(addressindexedparticipant,uint256timestamp);modifieronlyWhitelist{require(isWhitelist(msg.sender));_;}modifieronlyOperator{require(msg.sender==operator);_;}modifiervalidAddress(addressaddr){require(addr!=address(0));_;}modifierrequestQuotaNotReached(){require(request_quota<=max_request_quota);_;}modifierNotFixed(){require(!isFixed);_;}constructor(address_vault,address_fee_wallet,address_small_wallet,address_large_wallet,address_whitelist,address_operator,uint256_totalSupply)validAddress(_vault)public{totalSupply_=_totalSupply;vault=_vault;fee_wallet=_fee_wallet;operator=_operator;small_wallet=SmallWallet(_small_wallet);large_wallet=LargeWallet(_large_wallet);whitelist=Whitelist(_whitelist);balances[owner]=totalSupply_;}function()publicpayable{require(msg.value>=0);}functiongetTokenAmount(uint256_value)publicviewreturns(uint256){require(_value>=minimum);return_value;}functiongetRedeemValue(uint256tokens,addressparticipant)publicviewreturns(uint256){require(tokens>0);if(nav.mul(BASE).div(members[participant].self_nav)<roi.add(10000)){returntokens.mul(nav).div(BASE);}uint256contractCoefficient=nav.mul(BASE.sub(performance_bonus)).div(BASE);uint256walletCoefficient=members[participant].self_nav.mul(performance_bonus).div(BASE);returntokens.mul(walletCoefficient.add(contractCoefficient)).div(BASE);}functiongetBuyRequestsLength()publicviewreturns(uint256){returnbuy_requests.length;}functiongetRedeemRequestsLength()publicviewreturns(uint256){returnredeem_requests.length;}functionisBuyLocked(addressparticipant)publicviewreturns(bool){if(buy_time_records[participant].count+1<=request_buy_limit){returnfalse;}returntrue;}functionisRedeemLocked(addressparticipant)publicviewreturns(bool){if(redeem_time_records[participant].count+1<=request_redeem_limit){returnfalse;}returntrue;}functionisWhitelist(addressaddr)publicviewreturns(bool){returnwhitelist.isWhite(address(this),addr);}functionstart()externalonlyOwnerreturns(bool){require(issuable==false);require(start_time==0);issuable=true;start_time=block.timestamp;end_time=block.timestamp+period;emitLogStart(block.timestamp);returntrue;}functionfinalize()externalonlyOwner{require(start_time!=0);if(wei_raised>soft_cap){uint256value=address(this).balance;}else{soft_cap_reached=false;}nav=9800;is_fund_raising_period=false;emitLogFinalize(block.timestamp);emitLogNavUpdated(0,nav,block.timestamp);}functionfreeze()externalonlyOwnerreturns(bool){require(issuable==true);issuable=false;returntrue;}functionenableTrading()externalonlyOwnerreturns(bool){tradeable=true;emitLogTradingEnabled(block.timestamp);returntrue;}functiondisableTrading()externalonlyOwnerreturns(bool){tradeable=false;emitLogTradingDisabled(block.timestamp);returntrue;}functionclearRequests()externalonlyOwnerreturns(bool){deletebuy_requests;deleteredeem_requests;returntrue;}functionrestart(uint256_period)externalonlyOwnerNotFixedreturns(bool){issuable=true;start_time=block.timestamp;period=_period;end_time=block.timestamp+period;emitLogRestart(start_time,period);returntrue;}functionsetIsFixed()externalonlyOwnerNotFixedreturns(bool){isFixed=true;emitLogIsFixedSet(block.timestamp);returntrue;}functionsetMinimum(uint256_minimum)externalonlyOwnerNotFixedreturns(bool){minimum=_minimum;emitLogMinimumSet(minimum,block.timestamp);returntrue;}functionsetPlatformFee(uint256_platform_fee)externalonlyOwnerNotFixedreturns(bool){platform_fee=_platform_fee;emitLogPlatformFeeSet(platform_fee,block.timestamp);returntrue;}functionsetROI(uint256_roi)externalonlyOwnerNotFixedreturns(bool){roi=_roi;emitLogROISet(roi,block.timestamp);returntrue;}functionsetPerformanceBonus(uint256_performance_bonus)externalonlyOwnerNotFixedreturns(bool){performance_bonus=_performance_bonus;emitLogPerformanceBonusSet(performance_bonus,block.timestamp);returntrue;}functionsetRedeemLevel(uint256_redeem_level)externalonlyOwnerNotFixedreturns(bool){redeem_level=_redeem_level;emitLogRedeemLevelSet(redeem_level,block.timestamp);returntrue;}functionsetMaxRequestQuota(uint256_max_request_quota)externalonlyOwnerNotFixedreturns(bool){max_request_quota=_max_request_quota;emitLogMaxRequestQuotaSet(max_request_quota,block.timestamp);returntrue;}functionsetBuyRequestLimit(uint256_request_buy_limit)externalonlyOwnerNotFixedreturns(bool){request_buy_limit=_request_buy_limit;emitLogBuyRequestLimitSet(request_buy_limit,block.timestamp);returntrue;}functionsetBuyRequestLimitInterval(uint256_request_buy_limit_interval)externalonlyOwnerNotFixedreturns(bool){request_buy_limit_interval=_request_buy_limit_interval;emitLogBuyRequestLimitIntervalSet(request_buy_limit_interval,block.timestamp);returntrue;}functionsetRedeemRequestLimit(uint256_request_redeem_limit)externalonlyOwnerNotFixedreturns(bool){request_redeem_limit=_request_redeem_limit;emitLogRedeemRequestLimitSet(request_redeem_limit,block.timestamp);returntrue;}functionsetRedeemRequestLimitInterval(uint256_request_redeem_limit_interval)externalonlyOwnerNotFixedreturns(bool){request_redeem_limit_interval=_request_redeem_limit_interval;emitLogRedeemRequestLimitIntervalSet(request_redeem_limit_interval,block.timestamp);returntrue;}functionsetVaultAddress(address_vault)externalonlyOwnerreturns(bool){vault=_vault;emitLogVaultAddressSet(vault,block.timestamp);returntrue;}functionsetFeeWalletAddress(address_fee_wallet)externalonlyOwnerreturns(bool){fee_wallet=_fee_wallet;emitLogFeeWalletAddressSet(fee_wallet,block.timestamp);returntrue;}functionsetLargeWalletAddress(address_large_wallet)externalonlyOwnerreturns(bool){large_wallet=LargeWallet(_large_wallet);emitLogLargeWalletAddressSet(large_wallet,block.timestamp);returntrue;}functionsetSmallWalletAddress(address_small_wallet)externalonlyOwnerreturns(bool){small_wallet=SmallWallet(_small_wallet);emitLogSmallWalletAddressSet(small_wallet,block.timestamp);returntrue;}functionsetWhitelistAddress(address_whitelist)externalonlyOwnerreturns(bool){whitelist=Whitelist(_whitelist);emitLogWhitelistAddressSet(whitelist,block.timestamp);returntrue;}functionsetOperatorAddress(address_operator)externalonlyOwnerreturns(bool){operator=_operator;emitLogOperatorAddressSet(operator,block.timestamp);returntrue;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 805
+column: 2
+content: functionsetCAPAddress(address_cap)onlyOwnerexternalreturns(bool){cap_address=_cap;emitLogSmallCAPAddressSet(_cap,now);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1132
+column: 2
+content: functionsetMinimum(uint256_minimum)externalonlyOwnerNotFixedreturns(bool){minimum=_minimum;emitLogMinimumSet(minimum,block.timestamp);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1137
+column: 2
+content: functionsetPlatformFee(uint256_platform_fee)externalonlyOwnerNotFixedreturns(bool){platform_fee=_platform_fee;emitLogPlatformFeeSet(platform_fee,block.timestamp);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1142
+column: 2
+content: functionsetROI(uint256_roi)externalonlyOwnerNotFixedreturns(bool){roi=_roi;emitLogROISet(roi,block.timestamp);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1147
+column: 2
+content: functionsetPerformanceBonus(uint256_performance_bonus)externalonlyOwnerNotFixedreturns(bool){performance_bonus=_performance_bonus;emitLogPerformanceBonusSet(performance_bonus,block.timestamp);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1152
+column: 2
+content: functionsetRedeemLevel(uint256_redeem_level)externalonlyOwnerNotFixedreturns(bool){redeem_level=_redeem_level;emitLogRedeemLevelSet(redeem_level,block.timestamp);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1157
+column: 2
+content: functionsetMaxRequestQuota(uint256_max_request_quota)externalonlyOwnerNotFixedreturns(bool){max_request_quota=_max_request_quota;emitLogMaxRequestQuotaSet(max_request_quota,block.timestamp);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1162
+column: 2
+content: functionsetBuyRequestLimit(uint256_request_buy_limit)externalonlyOwnerNotFixedreturns(bool){request_buy_limit=_request_buy_limit;emitLogBuyRequestLimitSet(request_buy_limit,block.timestamp);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1167
+column: 2
+content: functionsetBuyRequestLimitInterval(uint256_request_buy_limit_interval)externalonlyOwnerNotFixedreturns(bool){request_buy_limit_interval=_request_buy_limit_interval;emitLogBuyRequestLimitIntervalSet(request_buy_limit_interval,block.timestamp);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1172
+column: 2
+content: functionsetRedeemRequestLimit(uint256_request_redeem_limit)externalonlyOwnerNotFixedreturns(bool){request_redeem_limit=_request_redeem_limit;emitLogRedeemRequestLimitSet(request_redeem_limit,block.timestamp);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1177
+column: 2
+content: functionsetRedeemRequestLimitInterval(uint256_request_redeem_limit_interval)externalonlyOwnerNotFixedreturns(bool){request_redeem_limit_interval=_request_redeem_limit_interval;emitLogRedeemRequestLimitIntervalSet(request_redeem_limit_interval,block.timestamp);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1183
+column: 2
+content: functionsetVaultAddress(address_vault)externalonlyOwnerreturns(bool){vault=_vault;emitLogVaultAddressSet(vault,block.timestamp);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1188
+column: 2
+content: functionsetFeeWalletAddress(address_fee_wallet)externalonlyOwnerreturns(bool){fee_wallet=_fee_wallet;emitLogFeeWalletAddressSet(fee_wallet,block.timestamp);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1193
+column: 2
+content: functionsetLargeWalletAddress(address_large_wallet)externalonlyOwnerreturns(bool){large_wallet=LargeWallet(_large_wallet);emitLogLargeWalletAddressSet(large_wallet,block.timestamp);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1198
+column: 2
+content: functionsetSmallWalletAddress(address_small_wallet)externalonlyOwnerreturns(bool){small_wallet=SmallWallet(_small_wallet);emitLogSmallWalletAddressSet(small_wallet,block.timestamp);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1203
+column: 2
+content: functionsetWhitelistAddress(address_whitelist)externalonlyOwnerreturns(bool){whitelist=Whitelist(_whitelist);emitLogWhitelistAddressSet(whitelist,block.timestamp);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1208
+column: 2
+content: functionsetOperatorAddress(address_operator)externalonlyOwnerreturns(bool){operator=_operator;emitLogOperatorAddressSet(operator,block.timestamp);returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 96
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 851
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 463
+column: 13
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 782
+column: 14
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 999
+column: 14
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 351
+column: 43
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 361
+column: 43
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 475
+column: 14
+content: address[]_owners
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 556
+column: 62
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 611
+column: 75
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 656
+column: 59
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 708
+column: 11
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 719
+column: 11
+content: address[]_confirmations
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 744
+column: 11
+content: uint[]_transactionIds
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 828
+column: 14
+content: address[]_owners
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 613
+column: 4
+content: assembly{letx:=mload(0x40)letd:=add(data,32)result:=call(sub(gas,34710),destination,value,d,dataLength,x,0)}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 98
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 100
+column: 2
+content: uint256totalSupply_;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_OVERPOWERED_ROLE :17
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :5
+SOLIDITY_EXTRA_GAS_IN_LOOPS :10
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :13
+SOLIDITY_GAS_LIMIT_IN_LOOPS :7
+SOLIDITY_ERC20_APPROVE :1
+SOLIDITY_SAFEMATH :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :6
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_USING_INLINE_ASSEMBLY :1

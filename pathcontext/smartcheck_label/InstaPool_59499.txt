@@ -1,0 +1,191 @@
+C:\Users\hp\DataSet\InstaPool.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 98
+column: 30
+content: 0x498b3BfaBE9F73db90D252bCD4Fa9548Cd0Fd981
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 99
+column: 37
+content: 0x3d9819210A31b4961b30EF54bE2aeD79B9c9Cd3B
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 100
+column: 35
+content: 0x448a5065aeBB8E423F0896E6c5D525C040f59af3
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 102
+column: 43
+content: 0x0f0EBD0d7672362D11e0b6d219abA30b0588954E
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 103
+column: 43
+content: 0xd8db02A498E9AFbf4A32BC006DC1940495b4e592
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 105
+column: 30
+content: 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 106
+column: 26
+content: 0x4Ddc2D193948926D02f9B1fE9e1daa0718270ED5
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 107
+column: 26
+content: 0xF5DCe57282A584D2746FaF1593d3121Fcac444dC
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 108
+column: 27
+content: 0x39AA39c021dfbaE8faC545936693aC917d5E7563
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 132
+column: 12
+content: for(uinti=0;i<cErc20.length;i++){if(cErc20[i]!=address(0)){if(tknAmt[i]>0){CTokenInterfacectknContract=CTokenInterface(cErc20[i]);if(cErc20[i]!=cEth){addresstknAddr=ctknContract.underlying();assert(ctknContract.borrow(tknAmt[i])==0);assert(TokenInterface(tknAddr).transfer(msg.sender,tknAmt[i]));}else{assert(ctknContract.borrow(tknAmt[i])==0);msg.sender.transfer(tknAmt[i]);}}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 153
+column: 12
+content: for(uinti=0;i<cErc20.length;i++){if(cErc20[i]!=address(0)){CTokenInterfacectknContract=CTokenInterface(cErc20[i]);uinttknBorrowed=ctknContract.borrowBalanceCurrent(address(this));if(tknBorrowed>0){if(cErc20[i]!=cEth){assert(ctknContract.repayBorrow(tknBorrowed)==0);}else{cethContract.repayBorrow.value(tknBorrowed)();}}assert(ctknContract.borrowBalanceCurrent(address(this))==0);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 132
+column: 12
+content: for(uinti=0;i<cErc20.length;i++){if(cErc20[i]!=address(0)){if(tknAmt[i]>0){CTokenInterfacectknContract=CTokenInterface(cErc20[i]);if(cErc20[i]!=cEth){addresstknAddr=ctknContract.underlying();assert(ctknContract.borrow(tknAmt[i])==0);assert(TokenInterface(tknAddr).transfer(msg.sender,tknAmt[i]));}else{assert(ctknContract.borrow(tknAmt[i])==0);msg.sender.transfer(tknAmt[i]);}}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 153
+column: 12
+content: for(uinti=0;i<cErc20.length;i++){if(cErc20[i]!=address(0)){CTokenInterfacectknContract=CTokenInterface(cErc20[i]);uinttknBorrowed=ctknContract.borrowBalanceCurrent(address(this));if(tknBorrowed>0){if(cErc20[i]!=cEth){assert(ctknContract.repayBorrow(tknBorrowed)==0);}else{cethContract.repayBorrow.value(tknBorrowed)();}}assert(ctknContract.borrowBalanceCurrent(address(this))==0);}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 332
+column: 0
+content: contractInstaPoolisControllers{constructor()public{TubInterfacetub=TubInterface(saiTubAddress);CDPID=tub.open();TokenInterfaceweth=tub.gem();TokenInterfacepeth=tub.skr();TokenInterfacedai=tub.sai();TokenInterfacemkr=tub.gov();weth.approve(saiTubAddress,uint(-1));peth.approve(saiTubAddress,uint(-1));dai.approve(saiTubAddress,uint(-1));mkr.approve(saiTubAddress,uint(-1));dai.approve(cDai,uint(-1));TokenInterface(usdcAddr).approve(cUsdc,uint(-1));TokenInterface(cDai).approve(cDai,uint(-1));TokenInterface(cUsdc).approve(cUsdc,uint(-1));TokenInterface(cEth).approve(cEth,uint(-1));address[]memoryenterMarketArr=newaddress[](3);enterMarketArr[0]=cEth;enterMarketArr[1]=cDai;enterMarketArr[2]=cUsdc;ComptrollerInterface(comptrollerAddr).enterMarkets(enterMarketArr);}function()externalpayable{}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 42
+column: 49
+content: (address,uint,uint,uint)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 64
+column: 37
+content: (bytes32,bool)
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 132
+column: 12
+content: for(uinti=0;i<cErc20.length;i++){if(cErc20[i]!=address(0)){if(tknAmt[i]>0){CTokenInterfacectknContract=CTokenInterface(cErc20[i]);if(cErc20[i]!=cEth){addresstknAddr=ctknContract.underlying();assert(ctknContract.borrow(tknAmt[i])==0);assert(TokenInterface(tknAddr).transfer(msg.sender,tknAmt[i]));}else{assert(ctknContract.borrow(tknAmt[i])==0);msg.sender.transfer(tknAmt[i]);}}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 269
+column: 4
+content: functionaccessToken(address[]calldatactknAddr,uint[]calldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 78
+column: 4
+content: uintconstantWAD=10**18;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 79
+column: 4
+content: uintconstantRAY=10**27;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 269
+column: 70
+content: tknAmt,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 269
+column: 78
+content: boolisCompound)external
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 269
+column: 104
+content: isUserWallet{if
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 270
+column: 11
+content: (isCompound){mintAndBorrow
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 271
+column: 25
+content: (ctknAddr,tknAmt);
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_ADDRESS_HARDCODED :9
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_SHOULD_RETURN_STRUCT :2
+SOLIDITY_TRANSFER_IN_LOOP :1

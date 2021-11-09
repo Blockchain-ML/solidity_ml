@@ -1,0 +1,123 @@
+C:\Users\hp\DataSet\FeeDisbursalController.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 63
+column: 4
+content: functiononAccept(address,address,addressclaimer)publicconstantreturns(boolallow){returncanClaim(claimer);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 71
+column: 4
+content: functiononReject(address,address,addressclaimer)publicconstantreturns(boolallow){allow=canClaim(claimer);if(!allow){allow=UNIVERSE.isAnyOfInterfaceCollectionInstance(ALLOWED_DISBURSER_INTERFACES,claimer);}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 83
+column: 4
+content: functiononDisburse(addresstoken,addressdisburser,uint256amount,address,uint256recycleAfterDuration)publicconstantreturns(boolallow){booldisburserAllowed=(disburser==EURO_LOCK||disburser==ETHER_LOCK||disburser==msg.sender)||(disburser==ICBM_EURO_LOCK||disburser==ICBM_ETHER_LOCK)||(UNIVERSE.isAnyOfInterfaceCollectionInstance(ALLOWED_DISBURSER_INTERFACES,disburser))||(ACCESS_POLICY.allowed(disburser,ROLE_DISBURSER,msg.sender,msg.sig));returnamount>0&&isDisbursableToken(token)&&disburserAllowed&&recycleAfterDuration>0;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 97
+column: 4
+content: functiononRecycle(address,address,address[],uint256)publicconstantreturns(boolallow){returntrue;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 107
+column: 4
+content: functiononChangeFeeDisbursalController(addresssender,IFeeDisbursalControllernewController)publicconstantreturns(bool){(bytes32controllerContractId,)=newController.contractId();returnACCESS_POLICY.allowed(sender,ROLE_DISBURSAL_MANAGER,msg.sender,msg.sig)&&controllerContractId==FEE_DISBURSAL_CONTROLLER;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 134
+column: 4
+content: functionisDisbursableToken(addresstoken)publicconstantreturns(bool){returnUNIVERSE.isAnyOfInterfaceCollectionInstance(ALLOWED_DISBURSAL_TOKEN_INTERFACES,token)||token==NEUMARK;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 147
+column: 4
+content: functioncanClaim(addressclaimer)privateconstantreturns(boolallow){IIdentityRegistryregistry=IIdentityRegistry(UNIVERSE.identityRegistry());IdentityClaimsmemoryclaims=deserializeClaims(registry.getClaims(claimer));returnclaims.isVerified&&!claims.accountFrozen;}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 24
+column: 13
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 26
+column: 13
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 31
+column: 13
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 32
+column: 18
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 33
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 34
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 35
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 36
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 37
+column: 12
+content: private
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 97
+column: 68
+content: address[]
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :7
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :9
+SOLIDITY_UPGRADE_TO_050 :1

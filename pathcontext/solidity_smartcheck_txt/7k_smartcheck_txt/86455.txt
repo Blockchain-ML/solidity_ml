@@ -1,0 +1,24 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\86455.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 23
+column: 2
+content: functioninitIntervals()onlyOwnervalidateIntervals{require(owner==crowdsale.owner());bonusIntervals.push(BonusInterval(crowdsale.startTime()+1days,10));bonusIntervals.push(BonusInterval(crowdsale.startTime()+2days,8));bonusIntervals.push(BonusInterval(crowdsale.startTime()+3days,6));bonusIntervals.push(BonusInterval(crowdsale.startTime()+4days,4));bonusIntervals.push(BonusInterval(crowdsale.startTime()+5days,2));bonusIntervals.push(BonusInterval(crowdsale.startTime()+6days,0));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 36
+column: 2
+content: functionreturnUnsoldTokens(address_wallet)onlyCrowdsale{require(crowdsale.endTime()<=now);if(token.balanceOf(this)==0){UnsoldTokensReturned(_wallet,0);return;}uint256balance=token.balanceOf(this).sub(totalContributed);require(balance>0);if(token.transfer(_wallet,balance)){UnsoldTokensReturned(_wallet,balance);}}
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_PRAGMAS_VERSION :1

@@ -1,0 +1,25 @@
+F:\Blockchain\dataset_new_byID\76443.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 8
+column: 0
+content: contractBaseAdminUpgradeabilityProxyisUpgradeabilityAdmin,BaseUpgradeabilityProxy{eventAdminChanged(addresspreviousAdmin,addressnewAdmin);modifierifAdmin(){require(msg.sender==_admin());_;}functionadmin()externalviewreturns(address){return_admin();}functionimplementation()externalviewreturns(address){return_implementation();}functionchangeAdmin(addressnewAdmin)externalifAdmin{require(newAdmin!=address(0),"Cannot change the admin of a proxy to the zero address");emitAdminChanged(_admin(),newAdmin);_setAdmin(newAdmin);}functionupgradeTo(addressnewImplementation)externalifAdmin{_upgradeTo(newImplementation);}functionupgradeToAndCall(addressnewImplementation,bytescalldatadata)payableexternalifAdmin{_upgradeTo(newImplementation);(boolsuccess,)=newImplementation.delegatecall(data);require(success);}function_setAdmin(addressnewAdmin)internal{bytes32slot=ADMIN_SLOT;assembly{sstore(slot,newAdmin)}}}
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 43
+column: 44
+content: delegatecall(data)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 51
+column: 8
+content: assembly{sstore(slot,newAdmin)}
+
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_UNCHECKED_CALL :1

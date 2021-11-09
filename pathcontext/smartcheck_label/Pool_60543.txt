@@ -1,0 +1,54 @@
+C:\Users\hp\DataSet\Pool.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 142
+column: 4
+content: functiongetPendingProposalReward(address_memberAddress,uint_lastRewardProposalId)publicviewreturns(uintpendingGBTReward,uintpendingDAppReward){uintallProposalLength=governanceDat.getProposalLength();uintfinalVredict;uint8proposalStatus;uintcalcReward;uintsubCat;boolrewardClaimed;for(uinti=_lastRewardProposalId;i<allProposalLength;i++){if(_memberAddress==governanceDat.getProposalOwner(i)){(rewardClaimed,subCat,proposalStatus,finalVredict)=governanceDat.getProposalDetailsById3(i,_memberAddress);if(proposalStatus>2&&finalVredict>0&&governanceDat.getProposalIncentive(i)!=0&&!rewardClaimed){calcReward=(proposalCategory.getRewardPercProposal(subCat).mul(governanceDat.getProposalIncentive(i))).div(100);if(proposalCategory.isSubCategoryExternal(subCat))pendingGBTReward+=calcReward;elsependingDAppReward+=calcReward;}}}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 173
+column: 4
+content: functiongetPendingSolutionReward(address_memberAddress,uint_lastRewardSolutionProposalId)publicviewreturns(uintpendingGBTReward,uintpendingDAppReward){uintallProposalLength=governanceDat.getProposalLength();uintcalcReward;uinti;uintfinalVerdict;uintsolutionId;uintproposalId;uinttotalReward;uintsubCategory;for(i=_lastRewardSolutionProposalId;i<allProposalLength;i++){(proposalId,solutionId,,finalVerdict,totalReward,subCategory)=gov.getSolutionIdAgainstAddressProposal(_memberAddress,i);if(finalVerdict>0&&finalVerdict==solutionId&&proposalId==i&&!governanceDat.getRewardClaimed(i,_memberAddress)){calcReward=(proposalCategory.getRewardPercSolution(subCategory)*totalReward)/100;if(proposalCategory.isSubCategoryExternal(subCategory))pendingGBTReward+=calcReward;elsependingDAppReward+=calcReward;}}}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 29
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 110
+column: 22
+content: callRewardClaimed(_claimer,_ownerProposals,_voterProposals,pendingGBTReward,pendingDAppReward,pendingReputation)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 38
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 81
+column: 43
+content: uint[]_ownerProposals
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 81
+column: 67
+content: uint[]_voterProposals
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_UNCHECKED_CALL :1

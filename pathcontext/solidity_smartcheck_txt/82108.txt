@@ -1,0 +1,623 @@
+F:\Blockchain\dataset_new_byID\82108.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 78
+column: 36
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 523
+column: 52
+content: 0x0
+
+ruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: lr991l
+severity: 1
+line: 371
+column: 19
+content: call.gas(safeGas).value(value)()
+
+ruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: lr991l
+severity: 1
+line: 375
+column: 35
+content: call.gas(safeGas).value(value)()
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 157
+column: 4
+content: functiongetBankroll()constantreturns(uint){if((invested<investorsProfit)||(invested+investorsProfit<invested)||(invested+investorsProfit<investorsLosses)){return0;}else{returninvested+investorsProfit-investorsLosses;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 171
+column: 4
+content: functiongetMinInvestment()constantreturns(uint){if(numInvestors==MAX_INVESTORS){uintinvestorID=searchSmallestInvestor();returngetBalance(investors[investorID].investorAddress);}else{return0;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 184
+column: 4
+content: functiongetLossesShare(addresscurrentInvestor)constantreturns(uint){return(investors[investorIDs[currentInvestor]].amountInvested*investorsLosses)/invested;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 191
+column: 4
+content: functiongetProfitShare(addresscurrentInvestor)constantreturns(uint){return(investors[investorIDs[currentInvestor]].amountInvested*investorsProfit)/invested;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 198
+column: 4
+content: functiongetBalance(addresscurrentInvestor)constantreturns(uint){uintinvested=investors[investorIDs[currentInvestor]].amountInvested;uintprofit=getProfitShare(currentInvestor);uintlosses=getLossesShare(currentInvestor);if((invested+profit<profit)||(invested+profit<invested)||(invested+profit<losses))return0;elsereturninvested+profit-losses;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 214
+column: 4
+content: functionsearchSmallestInvestor()constantreturns(uint){uintinvestorID=1;for(uinti=1;i<=numInvestors;i++){if(getBalance(investors[i].investorAddress)<getBalance(investors[investorID].investorAddress)){investorID=i;}}returninvestorID;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 695
+column: 4
+content: functiongetSpinsContainer(bytes32myid)constantreturns(address,uint){return(spins[myid].playerAddress,spins[myid].amountWagered);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 702
+column: 4
+content: functiongetMinAmountToWager(uint_nSpins)onlyValidNumberOfSpins(_nSpins)constantreturns(uint){uintgas=_nSpins*ORACLIZE_PER_SPIN_GAS_LIMIT+ORACLIZE_BASE_GAS_LIMIT+safeGas;uintoraclizeFee=OraclizeI(OAR.getAddress()).getPrice("random",gas);returnminBet+oraclizeFee/multipliers[0]+oraclizeFee;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 711
+column: 4
+content: functiongetMaxAmountToWager(uint_nSpins)onlyValidNumberOfSpins(_nSpins)constantreturns(uint){uintoraclizeFee=OraclizeI(OAR.getAddress()).getPrice("random",_nSpins*ORACLIZE_PER_SPIN_GAS_LIMIT+ORACLIZE_BASE_GAS_LIMIT+safeGas);uintmaxWage=(CAPITAL_RISK*getBankroll())*10000/((10000-INVESTORS_EDGE)*10000*multipliers[0]);returnmaxWage+oraclizeFee;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 219
+column: 8
+content: for(uinti=1;i<=numInvestors;i++){if(getBalance(investors[i].investorAddress)<getBalance(investors[investorID].investorAddress)){investorID=i;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 247
+column: 8
+content: for(uinti=1;i<=numInvestors;i++){addresscurrentInvestor=investors[i].investorAddress;uintprofitOfInvestor=getProfitShare(currentInvestor);uintlossesOfInvestor=getLossesShare(currentInvestor);if((investors[i].amountInvested+profitOfInvestor>=investors[i].amountInvested)&&(investors[i].amountInvested+profitOfInvestor>=lossesOfInvestor)){investors[i].amountInvested+=profitOfInvestor-lossesOfInvestor;LOG_InvestorCapitalUpdate(currentInvestor,(int)(profitOfInvestor-lossesOfInvestor));}else{isStopped=true;LOG_EmergencyAutoStop();}copyInvested+=investors[i].amountInvested;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 561
+column: 8
+content: for(uinti=0;i<_prob.length;i++){sum+=_prob[i]*_payouts[i];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 612
+column: 12
+content: for(uintj=0;j<probabilities.length;j++){rangeUpperEnd+=probabilities[j];if(numberDrawn<rangeUpperEnd){amountWonSpin=(spins[myid].amountWagered*multipliers[j])/nSpins;amountWonTotal+=amountWonSpin;break;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 676
+column: 8
+content: for(uinti=0;i<_probabilities.length;i++){probabilities.push(_probabilities[i]);if(lastProbability>=_probabilities[i])revert();lastProbability=_probabilities[i];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 682
+column: 8
+content: for(i=0;i<_multipliers.length;i++){multipliers.push(_multipliers[i]);if(lastMultiplier<=_multipliers[i])revert();lastMultiplier=_multipliers[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 561
+column: 8
+content: for(uinti=0;i<_prob.length;i++){sum+=_prob[i]*_payouts[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 612
+column: 12
+content: for(uintj=0;j<probabilities.length;j++){rangeUpperEnd+=probabilities[j];if(numberDrawn<rangeUpperEnd){amountWonSpin=(spins[myid].amountWagered*multipliers[j])/nSpins;amountWonTotal+=amountWonSpin;break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 676
+column: 8
+content: for(uinti=0;i<_probabilities.length;i++){probabilities.push(_probabilities[i]);if(lastProbability>=_probabilities[i])revert();lastProbability=_probabilities[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 682
+column: 8
+content: for(i=0;i<_multipliers.length;i++){multipliers.push(_multipliers[i]);if(lastMultiplier<=_multipliers[i])revert();lastMultiplier=_multipliers[i];}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 471
+column: 0
+content: contractSlotisusingOraclize,EmergencyWithdrawalModule,DSMath{uintconstantINVESTORS_EDGE=200;uintconstantHOUSE_EDGE=50;uintconstantCAPITAL_RISK=250;uintconstantMAX_SPINS=16;uintminBet=1wei;structSpinsContainer{addressplayerAddress;uintnSpins;uintamountWagered;}mapping(bytes32=>SpinsContainer)spins;uint[]publicprobabilities;uint[]publicmultipliers;uintpublictotalAmountWagered;eventLOG_newSpinsContainer(bytes32myid,addressplayerAddress,uintamountWagered,uintnSpins);eventLOG_SpinExecuted(bytes32myid,addressplayerAddress,uintspinIndex,uintnumberDrawn,uintgrossPayoutForSpin);eventLOG_SpinsContainerInfo(bytes32myid,addressplayerAddress,uintnetPayout);LedgerProofVerifyIexternalContract;functionSlot(address_verifierAddr){externalContract=LedgerProofVerifyI(_verifierAddr);}functionoraclize_randomDS_setCommitment(bytes32queryId,bytes32commitment)internal{externalContract.external_oraclize_randomDS_setCommitment(queryId,commitment);}modifieroraclize_randomDS_proofVerify(bytes32_queryId,string_result,bytes_proof){assert(externalContract.external_oraclize_randomDS_proofVerify(_proof,_queryId,bytes(_result),oraclize_getNetworkName()));_;}modifieronlyOraclize{assert(msg.sender==oraclize_cbAddress());_;}modifieronlyIfSpinsExist(bytes32myid){assert(spins[myid].playerAddress!=address(0x0));_;}functionisValidSize(uint_amountWagered)internalreturns(bool){uintnetPotentialPayout=(_amountWagered*(10000-INVESTORS_EDGE)*multipliers[0])/10000;uintmaxAllowedPayout=(CAPITAL_RISK*getBankroll())/10000;return((netPotentialPayout<=maxAllowedPayout)&&(_amountWagered>=minBet));}modifieronlyIfEnoughFunds(bytes32myid){if(isValidSize(spins[myid].amountWagered)){_;}else{addressplayerAddress=spins[myid].playerAddress;uintamountWagered=spins[myid].amountWagered;deletespins[myid];safeSend(playerAddress,amountWagered);return;}}modifieronlyValidNumberOfSpins(uint_nSpins){assert(_nSpins<=MAX_SPINS);assert(_nSpins>0);_;}modifieronlyIfFair(uint[]_prob,uint[]_payouts){if(_prob.length!=_payouts.length)revert();uintsum=0;for(uinti=0;i<_prob.length;i++){sum+=_prob[i]*_payouts[i];}assert(sum==10000);_;}function()payable{buySpins(1);}functionbuySpins(uint_nSpins)payableonlyValidNumberOfSpins(_nSpins)onlyIfNotStopped{uintgas=_nSpins*ORACLIZE_PER_SPIN_GAS_LIMIT+ORACLIZE_BASE_GAS_LIMIT+safeGas;uintoraclizeFee=OraclizeI(OAR.getAddress()).getPrice("random",gas);assert(oraclizeFee/multipliers[0]+oraclizeFee<msg.value);uintamountWagered=msg.value-oraclizeFee;assert(isValidSize(amountWagered));bytes32queryId=oraclize_newRandomDSQuery(0,2*_nSpins,gas);spins[queryId]=SpinsContainer(msg.sender,_nSpins,amountWagered);LOG_newSpinsContainer(queryId,msg.sender,amountWagered,_nSpins);totalAmountWagered+=amountWagered;}functionexecuteSpins(bytes32myid,bytesrandomBytes)privatereturns(uint){uintamountWonTotal=0;uintamountWonSpin=0;uintnumberDrawn=0;uintrangeUpperEnd=0;uintnSpins=spins[myid].nSpins;for(uinti=0;i<2*nSpins;i+=2){numberDrawn=((uint(randomBytes[i])*256+uint(randomBytes[i+1]))*10000)/2**16;rangeUpperEnd=0;amountWonSpin=0;for(uintj=0;j<probabilities.length;j++){rangeUpperEnd+=probabilities[j];if(numberDrawn<rangeUpperEnd){amountWonSpin=(spins[myid].amountWagered*multipliers[j])/nSpins;amountWonTotal+=amountWonSpin;break;}}LOG_SpinExecuted(myid,spins[myid].playerAddress,i/2,numberDrawn,amountWonSpin);}returnamountWonTotal;}functionsendPayout(bytes32myid,uintpayout)private{uintinvestorsFee=payout*INVESTORS_EDGE/10000;uinthouseFee=payout*HOUSE_EDGE/10000;uintnetPlayerPayout=sub(sub(payout,investorsFee),houseFee);uintnetCostForInvestors=add(netPlayerPayout,houseFee);if(netCostForInvestors>=spins[myid].amountWagered){investorsLosses+=sub(netCostForInvestors,spins[myid].amountWagered);}else{investorsProfit+=sub(spins[myid].amountWagered,netCostForInvestors);}LOG_SpinsContainerInfo(myid,spins[myid].playerAddress,netPlayerPayout);safeSend(spins[myid].playerAddress,netPlayerPayout);safeSend(houseAddress,houseFee);}function__callback(bytes32myid,stringresult,bytes_proof)onlyOraclizeonlyIfSpinsExist(myid)onlyIfEnoughFunds(myid)oraclize_randomDS_proofVerify(myid,result,_proof){uintpayout=executeSpins(myid,bytes(result));sendPayout(myid,payout);deleteprofitDistributed;deletespins[myid];}functionsetConfiguration(uint[]_probabilities,uint[]_multipliers)onlyOwneronlyIfFair(_probabilities,_multipliers){oraclize_setProof(proofType_Ledger);deleteprobabilities;deletemultipliers;uintlastProbability=0;uintlastMultiplier=2**256-1;for(uinti=0;i<_probabilities.length;i++){probabilities.push(_probabilities[i]);if(lastProbability>=_probabilities[i])revert();lastProbability=_probabilities[i];}for(i=0;i<_multipliers.length;i++){multipliers.push(_multipliers[i]);if(lastMultiplier<=_multipliers[i])revert();lastMultiplier=_multipliers[i];}}functionsetMinBet(uint_minBet)onlyOwner{minBet=_minBet;}functiongetSpinsContainer(bytes32myid)constantreturns(address,uint){return(spins[myid].playerAddress,spins[myid].amountWagered);}functiongetMinAmountToWager(uint_nSpins)onlyValidNumberOfSpins(_nSpins)constantreturns(uint){uintgas=_nSpins*ORACLIZE_PER_SPIN_GAS_LIMIT+ORACLIZE_BASE_GAS_LIMIT+safeGas;uintoraclizeFee=OraclizeI(OAR.getAddress()).getPrice("random",gas);returnminBet+oraclizeFee/multipliers[0]+oraclizeFee;}functiongetMaxAmountToWager(uint_nSpins)onlyValidNumberOfSpins(_nSpins)constantreturns(uint){uintoraclizeFee=OraclizeI(OAR.getAddress()).getPrice("random",_nSpins*ORACLIZE_PER_SPIN_GAS_LIMIT+ORACLIZE_BASE_GAS_LIMIT+safeGas);uintmaxWage=(CAPITAL_RISK*getBankroll())*10000/((10000-INVESTORS_EDGE)*10000*multipliers[0]);returnmaxWage+oraclizeFee;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 32
+column: 4
+content: functionsetSafeGas(uint_gas)onlyOwner{assert(ORACLIZE_BASE_GAS_LIMIT+_gas>=ORACLIZE_BASE_GAS_LIMIT);assert(_gas<=25000);assert(_gas>=9000);safeGas=_gas;LOG_newGasLimit(_gas);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 664
+column: 4
+content: functionsetConfiguration(uint[]_probabilities,uint[]_multipliers)onlyOwneronlyIfFair(_probabilities,_multipliers){oraclize_setProof(proofType_Ledger);deleteprobabilities;deletemultipliers;uintlastProbability=0;uintlastMultiplier=2**256-1;for(uinti=0;i<_probabilities.length;i++){probabilities.push(_probabilities[i]);if(lastProbability>=_probabilities[i])revert();lastProbability=_probabilities[i];}for(i=0;i<_multipliers.length;i++){multipliers.push(_multipliers[i]);if(lastMultiplier<=_multipliers[i])revert();lastMultiplier=_multipliers[i];}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 689
+column: 4
+content: functionsetMinBet(uint_minBet)onlyOwner{minBet=_minBet;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 447
+column: 8
+content: if(numOfVotesInFavour>=EMERGENCY_WITHDRAWAL_RATIO*numInvestors/100){if(!proposedWithdrawal.toAddress.send(amountToWithdraw)){LOG_EmergencyWithdrawalFailed(proposedWithdrawal.toAddress);}else{LOG_EmergencyWithdrawalSucceeded(proposedWithdrawal.toAddress,amountToWithdraw);}}else{revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 559
+column: 8
+content: if(_prob.length!=_payouts.length)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 678
+column: 12
+content: if(lastProbability>=_probabilities[i])revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 684
+column: 12
+content: if(lastMultiplier<=_multipliers[i])revert();
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 448
+column: 46
+content: send(amountToWithdraw)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 654
+column: 8
+content: sendPayout(myid,payout)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 371
+column: 19
+content: call.gas(safeGas).value(value)()
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 375
+column: 35
+content: call.gas(safeGas).value(value)()
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 8
+column: 52
+content: bytesproof
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 8
+column: 82
+content: bytesresult
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 8
+column: 96
+content: stringcontext_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 597
+column: 40
+content: bytesrandomBytes
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 330
+column: 16
+content: InvestorlastInvestor=investors[numInvestors]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 19
+column: 4
+content: functionOwned(){owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 32
+column: 4
+content: functionsetSafeGas(uint_gas)onlyOwner{assert(ORACLIZE_BASE_GAS_LIMIT+_gas>=ORACLIZE_BASE_GAS_LIMIT);assert(_gas<=25000);assert(_gas>=9000);safeGas=_gas;LOG_newGasLimit(_gas);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 4
+content: functionHouseManaged(){houseAddress=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 69
+column: 4
+content: functionstop_or_resume_Contract(bool_isStopped)onlyOwner{isStopped=_isStopped;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 75
+column: 4
+content: functionchangeHouse(address_newHouse)onlyOwner{assert(_newHouse!=address(0x0));houseAddress=_newHouse;LOG_HouseAddressChanged(houseAddress,_newHouse);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 84
+column: 4
+content: functionchangeOwner(address_newOwner)onlyOwner{newOwner=_newOwner;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 88
+column: 4
+content: functionacceptOwnership(){if(msg.sender==newOwner){owner=newOwner;LOG_OwnerAddressChanged(owner,newOwner);deletenewOwner;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 157
+column: 4
+content: functiongetBankroll()constantreturns(uint){if((invested<investorsProfit)||(invested+investorsProfit<invested)||(invested+investorsProfit<investorsLosses)){return0;}else{returninvested+investorsProfit-investorsLosses;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 171
+column: 4
+content: functiongetMinInvestment()constantreturns(uint){if(numInvestors==MAX_INVESTORS){uintinvestorID=searchSmallestInvestor();returngetBalance(investors[investorID].investorAddress);}else{return0;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 184
+column: 4
+content: functiongetLossesShare(addresscurrentInvestor)constantreturns(uint){return(investors[investorIDs[currentInvestor]].amountInvested*investorsLosses)/invested;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 191
+column: 4
+content: functiongetProfitShare(addresscurrentInvestor)constantreturns(uint){return(investors[investorIDs[currentInvestor]].amountInvested*investorsProfit)/invested;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 198
+column: 4
+content: functiongetBalance(addresscurrentInvestor)constantreturns(uint){uintinvested=investors[investorIDs[currentInvestor]].amountInvested;uintprofit=getProfitShare(currentInvestor);uintlosses=getLossesShare(currentInvestor);if((invested+profit<profit)||(invested+profit<invested)||(invested+profit<losses))return0;elsereturninvested+profit-losses;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 214
+column: 4
+content: functionsearchSmallestInvestor()constantreturns(uint){uintinvestorID=1;for(uinti=1;i<=numInvestors;i++){if(getBalance(investors[i].investorAddress)<getBalance(investors[investorID].investorAddress)){investorID=i;}}returninvestorID;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 274
+column: 4
+content: functionincreaseInvestment()payableonlyIfNotStoppedonlyMoreThanZeroonlyInvestors{profitDistribution();investors[investorIDs[msg.sender]].amountInvested+=msg.value;invested+=msg.value;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 285
+column: 4
+content: functionnewInvestor()payableonlyIfNotStoppedonlyMoreThanZeroonlyNotInvestorsonlyMoreThanMinInvestmentinvestorsInvariant{profitDistribution();if(numInvestors==MAX_INVESTORS){uintsmallestInvestorID=searchSmallestInvestor();divest(investors[smallestInvestorID].investorAddress);}numInvestors++;addInvestorAtID(numInvestors);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 304
+column: 4
+content: functiondivest()onlyInvestors{divest(msg.sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 349
+column: 4
+content: functionforceDivestOfAllInvestors()onlyOwner{uintcopyNumInvestors=numInvestors;for(uinti=1;i<=copyNumInvestors;i++){divest(investors[1].investorAddress);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 409
+column: 4
+content: functionvoteEmergencyWithdrawal(boolvote)onlyInvestorsonlyAfterProposedonlyIfStopped{investors[investorIDs[msg.sender]].votedForEmergencyWithdrawal=vote;LOG_EmergencyWithdrawalVote(msg.sender,vote);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 418
+column: 4
+content: functionproposeEmergencyWithdrawal(addresswithdrawalAddress)onlyIfStoppedonlyOwner{for(uinti=1;i<=numInvestors;i++){deleteinvestors[i].votedForEmergencyWithdrawal;}proposedWithdrawal=WithdrawalProposal(withdrawalAddress,now);LOG_EmergencyWithdrawalProposed();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 431
+column: 4
+content: functionexecuteEmergencyWithdrawal()onlyOwneronlyAfterProposedonlyIfStoppedonlyIfEmergencyTimeOutHasPassed{uintnumOfVotesInFavour;uintamountToWithdraw=this.balance;for(uinti=1;i<=numInvestors;i++){if(investors[i].votedForEmergencyWithdrawal==true){numOfVotesInFavour++;deleteinvestors[i].votedForEmergencyWithdrawal;}}if(numOfVotesInFavour>=EMERGENCY_WITHDRAWAL_RATIO*numInvestors/100){if(!proposedWithdrawal.toAddress.send(amountToWithdraw)){LOG_EmergencyWithdrawalFailed(proposedWithdrawal.toAddress);}else{LOG_EmergencyWithdrawalSucceeded(proposedWithdrawal.toAddress,amountToWithdraw);}}else{revert();}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 461
+column: 4
+content: functionforceDivestOfOneInvestor(addresscurrentInvestor)onlyOwneronlyIfStopped{divest(currentInvestor);deleteproposedWithdrawal;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 500
+column: 4
+content: functionSlot(address_verifierAddr){externalContract=LedgerProofVerifyI(_verifierAddr);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 568
+column: 4
+content: function()payable{buySpins(1);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 573
+column: 4
+content: functionbuySpins(uint_nSpins)payableonlyValidNumberOfSpins(_nSpins)onlyIfNotStopped{uintgas=_nSpins*ORACLIZE_PER_SPIN_GAS_LIMIT+ORACLIZE_BASE_GAS_LIMIT+safeGas;uintoraclizeFee=OraclizeI(OAR.getAddress()).getPrice("random",gas);assert(oraclizeFee/multipliers[0]+oraclizeFee<msg.value);uintamountWagered=msg.value-oraclizeFee;assert(isValidSize(amountWagered));bytes32queryId=oraclize_newRandomDSQuery(0,2*_nSpins,gas);spins[queryId]=SpinsContainer(msg.sender,_nSpins,amountWagered);LOG_newSpinsContainer(queryId,msg.sender,amountWagered,_nSpins);totalAmountWagered+=amountWagered;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 645
+column: 5
+content: function__callback(bytes32myid,stringresult,bytes_proof)onlyOraclizeonlyIfSpinsExist(myid)onlyIfEnoughFunds(myid)oraclize_randomDS_proofVerify(myid,result,_proof){uintpayout=executeSpins(myid,bytes(result));sendPayout(myid,payout);deleteprofitDistributed;deletespins[myid];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 664
+column: 4
+content: functionsetConfiguration(uint[]_probabilities,uint[]_multipliers)onlyOwneronlyIfFair(_probabilities,_multipliers){oraclize_setProof(proofType_Ledger);deleteprobabilities;deletemultipliers;uintlastProbability=0;uintlastMultiplier=2**256-1;for(uinti=0;i<_probabilities.length;i++){probabilities.push(_probabilities[i]);if(lastProbability>=_probabilities[i])revert();lastProbability=_probabilities[i];}for(i=0;i<_multipliers.length;i++){multipliers.push(_multipliers[i]);if(lastMultiplier<=_multipliers[i])revert();lastMultiplier=_multipliers[i];}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 689
+column: 4
+content: functionsetMinBet(uint_minBet)onlyOwner{minBet=_minBet;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 695
+column: 4
+content: functiongetSpinsContainer(bytes32myid)constantreturns(address,uint){return(spins[myid].playerAddress,spins[myid].amountWagered);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 702
+column: 4
+content: functiongetMinAmountToWager(uint_nSpins)onlyValidNumberOfSpins(_nSpins)constantreturns(uint){uintgas=_nSpins*ORACLIZE_PER_SPIN_GAS_LIMIT+ORACLIZE_BASE_GAS_LIMIT+safeGas;uintoraclizeFee=OraclizeI(OAR.getAddress()).getPrice("random",gas);returnminBet+oraclizeFee/multipliers[0]+oraclizeFee;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 711
+column: 4
+content: functiongetMaxAmountToWager(uint_nSpins)onlyValidNumberOfSpins(_nSpins)constantreturns(uint){uintoraclizeFee=OraclizeI(OAR.getAddress()).getPrice("random",_nSpins*ORACLIZE_PER_SPIN_GAS_LIMIT+ORACLIZE_BASE_GAS_LIMIT+safeGas);uintmaxWage=(CAPITAL_RISK*getBankroll())*10000/((10000-INVESTORS_EDGE)*10000*multipliers[0]);returnmaxWage+oraclizeFee;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 4
+content: uintconstantORACLIZE_PER_SPIN_GAS_LIMIT=6100;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 27
+column: 4
+content: uintconstantORACLIZE_BASE_GAS_LIMIT=220000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 4
+content: uintsafeGas=9000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 47
+column: 4
+content: addressnewOwner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 99
+column: 4
+content: uintconstantMAX_INVESTORS=5;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 100
+column: 4
+content: uintconstantdivestFee=50;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 117
+column: 4
+content: boolprofitDistributed;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 384
+column: 4
+content: uintconstantEMERGENCY_WITHDRAWAL_RATIO=80;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 385
+column: 4
+content: uintconstantEMERGENCY_TIMEOUT=3days;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 473
+column: 4
+content: uintconstantINVESTORS_EDGE=200;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 474
+column: 4
+content: uintconstantHOUSE_EDGE=50;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 475
+column: 4
+content: uintconstantCAPITAL_RISK=250;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 476
+column: 4
+content: uintconstantMAX_SPINS=16;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 478
+column: 4
+content: uintminBet=1wei;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 486
+column: 4
+content: mapping(bytes32=>SpinsContainer)spins;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 498
+column: 4
+content: LedgerProofVerifyIexternalContract;
+
+SOLIDITY_VISIBILITY :46
+SOLIDITY_OVERPOWERED_ROLE :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :6
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :7
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :9
+SOLIDITY_REVERT_REQUIRE :4
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_SEND :1
+SOLIDITY_CALL_WITHOUT_DATA :2

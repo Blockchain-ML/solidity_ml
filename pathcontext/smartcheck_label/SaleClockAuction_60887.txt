@@ -1,0 +1,17 @@
+C:\Users\hp\DataSet\SaleClockAuction.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 13
+column: 0
+content: contractSaleClockAuctionisClockAuction{boolpublicisSaleClockAuction=true;uint256publicgen0SaleCount;uint256[5]publiclastGen0SalePrices;functionSaleClockAuction(address_nftAddr,uint256_cut)publicClockAuction(_nftAddr,_cut){}functioncreateAuction(uint256_tokenId,uint256_startingPrice,uint256_endingPrice,uint256_duration,address_seller)publiccanBeStoredWith128Bits(_startingPrice)canBeStoredWith128Bits(_endingPrice)canBeStoredWith64Bits(_duration){require(msg.sender==address(nonFungibleContract));_escrow(_seller,_tokenId);Auctionmemoryauction=Auction(_seller,uint128(_startingPrice),uint128(_endingPrice),uint64(_duration),uint64(now));_addAuction(_tokenId,auction);}functionbid(uint256_tokenId)publicpayable{addressseller=tokenIdToAuction[_tokenId].seller;uint256price=_bid(_tokenId,msg.value);_transfer(msg.sender,_tokenId);if(seller==address(nonFungibleContract)){lastGen0SalePrices[gen0SaleCount%5]=price;gen0SaleCount++;}}functionaverageGen0SalePrice()publicviewreturns(uint256){uint256sum=0;for(uint256i=0;i<5;i++){sum+=lastGen0SalePrices[i];}returnsum/5;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 8
+column: 16
+content: ^
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

@@ -1,0 +1,209 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\85343.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 82
+column: 8
+content: for(uinti=0;i<_tokenIds.length;i++){uint256compositionLayerId=_tokenIds[i];require(_tokenLayersExist(compositionLayerId));uint256[]memoryinheritedLayers=tokenIdToLayers[compositionLayerId];if(isCompositionOnlyWithBaseLayers){require(inheritedLayers.length==1);}require(inheritedLayers.length<MAX_LAYERS);for(uintj=0;j<inheritedLayers.length;j++){require(actualSize<MAX_LAYERS);for(uintk=0;k<layers.length;k++){require(layers[k]!=inheritedLayers[j]);if(layers[k]==0){break;}}layers[actualSize]=inheritedLayers[j];actualSize+=1;}require(ownerOf(compositionLayerId)!=address(0));asyncSend(ownerOf(compositionLayerId),tokenIdToCompositionPrice[compositionLayerId]);emitRoyaltiesPaid(compositionLayerId,tokenIdToCompositionPrice[compositionLayerId],ownerOf(compositionLayerId));tokenIdToCompositionPrice[compositionLayerId]=tokenIdToCompositionPrice[compositionLayerId].add(tokenIdToCompositionPriceChangeRate[compositionLayerId]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 90
+column: 12
+content: for(uintj=0;j<inheritedLayers.length;j++){require(actualSize<MAX_LAYERS);for(uintk=0;k<layers.length;k++){require(layers[k]!=inheritedLayers[j]);if(layers[k]==0){break;}}layers[actualSize]=inheritedLayers[j];actualSize+=1;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 92
+column: 16
+content: for(uintk=0;k<layers.length;k++){require(layers[k]!=inheritedLayers[j]);if(layers[k]==0){break;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 151
+column: 8
+content: for(uinti=0;i<_tokenIds.length;i++){require(_tokenLayersExist(_tokenIds[i]));totalCompositionPrice=SafeMath.add(totalCompositionPrice,tokenIdToCompositionPrice[_tokenIds[i]]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 174
+column: 8
+content: for(uinti=0;i<_tokenIds.length;i++){if(!_tokenLayersExist(_tokenIds[i])){returnfalse;}if(tokenIdToLayers[_tokenIds[i]].length!=1){returnfalse;}for(uintk=0;k<layers.length;k++){if(layers[k]==tokenIdToLayers[_tokenIds[i]][0]){returnfalse;}if(layers[k]==0){layers[k]=tokenIdToLayers[_tokenIds[i]][0];break;}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 183
+column: 12
+content: for(uintk=0;k<layers.length;k++){if(layers[k]==tokenIdToLayers[_tokenIds[i]][0]){returnfalse;}if(layers[k]==0){layers[k]=tokenIdToLayers[_tokenIds[i]][0];break;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 205
+column: 8
+content: for(uinti=0;i<_tokenIds.length;i++){uint256compositionLayerId=_tokenIds[i];if(!_tokenLayersExist(compositionLayerId)){returnfalse;}uint256[]memoryinheritedLayers=tokenIdToLayers[compositionLayerId];require(inheritedLayers.length<MAX_LAYERS);for(uintj=0;j<inheritedLayers.length;j++){require(actualSize<MAX_LAYERS);for(uintk=0;k<layers.length;k++){if(layers[k]==inheritedLayers[j]){returnfalse;}if(layers[k]==0){break;}}layers[actualSize]=inheritedLayers[j];actualSize+=1;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 212
+column: 12
+content: for(uintj=0;j<inheritedLayers.length;j++){require(actualSize<MAX_LAYERS);for(uintk=0;k<layers.length;k++){if(layers[k]==inheritedLayers[j]){returnfalse;}if(layers[k]==0){break;}}layers[actualSize]=inheritedLayers[j];actualSize+=1;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 214
+column: 16
+content: for(uintk=0;k<layers.length;k++){if(layers[k]==inheritedLayers[j]){returnfalse;}if(layers[k]==0){break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 82
+column: 8
+content: for(uinti=0;i<_tokenIds.length;i++){uint256compositionLayerId=_tokenIds[i];require(_tokenLayersExist(compositionLayerId));uint256[]memoryinheritedLayers=tokenIdToLayers[compositionLayerId];if(isCompositionOnlyWithBaseLayers){require(inheritedLayers.length==1);}require(inheritedLayers.length<MAX_LAYERS);for(uintj=0;j<inheritedLayers.length;j++){require(actualSize<MAX_LAYERS);for(uintk=0;k<layers.length;k++){require(layers[k]!=inheritedLayers[j]);if(layers[k]==0){break;}}layers[actualSize]=inheritedLayers[j];actualSize+=1;}require(ownerOf(compositionLayerId)!=address(0));asyncSend(ownerOf(compositionLayerId),tokenIdToCompositionPrice[compositionLayerId]);emitRoyaltiesPaid(compositionLayerId,tokenIdToCompositionPrice[compositionLayerId],ownerOf(compositionLayerId));tokenIdToCompositionPrice[compositionLayerId]=tokenIdToCompositionPrice[compositionLayerId].add(tokenIdToCompositionPriceChangeRate[compositionLayerId]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 90
+column: 12
+content: for(uintj=0;j<inheritedLayers.length;j++){require(actualSize<MAX_LAYERS);for(uintk=0;k<layers.length;k++){require(layers[k]!=inheritedLayers[j]);if(layers[k]==0){break;}}layers[actualSize]=inheritedLayers[j];actualSize+=1;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 92
+column: 16
+content: for(uintk=0;k<layers.length;k++){require(layers[k]!=inheritedLayers[j]);if(layers[k]==0){break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 151
+column: 8
+content: for(uinti=0;i<_tokenIds.length;i++){require(_tokenLayersExist(_tokenIds[i]));totalCompositionPrice=SafeMath.add(totalCompositionPrice,tokenIdToCompositionPrice[_tokenIds[i]]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 174
+column: 8
+content: for(uinti=0;i<_tokenIds.length;i++){if(!_tokenLayersExist(_tokenIds[i])){returnfalse;}if(tokenIdToLayers[_tokenIds[i]].length!=1){returnfalse;}for(uintk=0;k<layers.length;k++){if(layers[k]==tokenIdToLayers[_tokenIds[i]][0]){returnfalse;}if(layers[k]==0){layers[k]=tokenIdToLayers[_tokenIds[i]][0];break;}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 183
+column: 12
+content: for(uintk=0;k<layers.length;k++){if(layers[k]==tokenIdToLayers[_tokenIds[i]][0]){returnfalse;}if(layers[k]==0){layers[k]=tokenIdToLayers[_tokenIds[i]][0];break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 205
+column: 8
+content: for(uinti=0;i<_tokenIds.length;i++){uint256compositionLayerId=_tokenIds[i];if(!_tokenLayersExist(compositionLayerId)){returnfalse;}uint256[]memoryinheritedLayers=tokenIdToLayers[compositionLayerId];require(inheritedLayers.length<MAX_LAYERS);for(uintj=0;j<inheritedLayers.length;j++){require(actualSize<MAX_LAYERS);for(uintk=0;k<layers.length;k++){if(layers[k]==inheritedLayers[j]){returnfalse;}if(layers[k]==0){break;}}layers[actualSize]=inheritedLayers[j];actualSize+=1;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 212
+column: 12
+content: for(uintj=0;j<inheritedLayers.length;j++){require(actualSize<MAX_LAYERS);for(uintk=0;k<layers.length;k++){if(layers[k]==inheritedLayers[j]){returnfalse;}if(layers[k]==0){break;}}layers[actualSize]=inheritedLayers[j];actualSize+=1;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 214
+column: 16
+content: for(uintk=0;k<layers.length;k++){if(layers[k]==inheritedLayers[j]){returnfalse;}if(layers[k]==0){break;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 280
+column: 4
+content: functionsetMinCompositionFee(uint256_price)publiconlyOwner{minCompositionFee=_price;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 73
+column: 21
+content: uint256[]_tokenIds
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 130
+column: 66
+content: uint256[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 135
+column: 32
+content: uint256[]_tokenIds
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 149
+column: 38
+content: uint256[]_tokenIds
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 170
+column: 36
+content: uint256[]_tokenIds
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 198
+column: 38
+content: uint256[]_tokenIds
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 230
+column: 19
+content: uint256[]_layers
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 230
+column: 71
+content: uint256[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 267
+column: 23
+content: uint256[]_layers
+
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :9
+SOLIDITY_UPGRADE_TO_050 :9
+SOLIDITY_GAS_LIMIT_IN_LOOPS :9

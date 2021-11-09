@@ -1,0 +1,226 @@
+F:\Blockchain\dataset_new_byID\78791.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 161
+column: 25
+content: groups.length++
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 102
+column: 4
+content: functiongetStatus()publicconstantreturns(uint8){returnuint8(status);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 106
+column: 4
+content: functiongetGroupsCount()publicconstantreturns(uint){returngroups.length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 110
+column: 4
+content: functiongetGroup(uintgroupIndex)publicconstantreturns(stringname,uintgoal,uintbiddersCount,uintamountRaised,boolhasReceivedTokensBack){Groupg=groups[groupIndex];return(g.name,g.goal,g.bidders.length,g.amountRaised,g.hasReceivedTokensBack);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 119
+column: 4
+content: functiongetGroupBidder(uintgroupIndex,uintbidderIndex)publicconstantreturns(bytes32bidderId,stringname,uintbidAmount,boolhasReceivedTokensBack){Bidderb=groups[groupIndex].bidders[bidderIndex];return(b.bidderId,b.name,b.bidAmount,b.hasReceivedTokensBack);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 174
+column: 4
+content: functionfindBidder(bytes32bidderId)constantreturns(uint8err,uintgroupIndex,uintbidderIndex){for(groupIndex=0;groupIndex<groups.length;groupIndex++){for(bidderIndex=0;bidderIndex<groups[groupIndex].bidders.length;bidderIndex++){if(Utils.equal(groups[groupIndex].bidders[bidderIndex].bidderId,bidderId)==true){return(0,groupIndex,bidderIndex);}}}return(1,0,0);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 185
+column: 4
+content: functionfindBidder(uintgroupIndex,bytes32bidderId)constantreturns(uint8err,uintbidderIndex){for(bidderIndex=0;bidderIndex<groups[groupIndex].bidders.length;bidderIndex++){if(Utils.equal(groups[groupIndex].bidders[bidderIndex].bidderId,bidderId)==true){return(0,bidderIndex);}}return(1,0);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 263
+column: 4
+content: functiongetAmountForBeneficiary()publicconstantreturns(uint8err,uintamount){if(status==States.Closed&&sentToBeneficiary==false){return(0,groups[winnerGroupIndex].amountRaised);}else{return(1,0);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 175
+column: 8
+content: for(groupIndex=0;groupIndex<groups.length;groupIndex++){for(bidderIndex=0;bidderIndex<groups[groupIndex].bidders.length;bidderIndex++){if(Utils.equal(groups[groupIndex].bidders[bidderIndex].bidderId,bidderId)==true){return(0,groupIndex,bidderIndex);}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 176
+column: 12
+content: for(bidderIndex=0;bidderIndex<groups[groupIndex].bidders.length;bidderIndex++){if(Utils.equal(groups[groupIndex].bidders[bidderIndex].bidderId,bidderId)==true){return(0,groupIndex,bidderIndex);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 186
+column: 8
+content: for(bidderIndex=0;bidderIndex<groups[groupIndex].bidders.length;bidderIndex++){if(Utils.equal(groups[groupIndex].bidders[bidderIndex].bidderId,bidderId)==true){return(0,bidderIndex);}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 253
+column: 4
+content: function_waitingForPayment()privatereturns(bool){if(status==States.Closed&&sentToBeneficiary==true&&sentToLosingGroups==true){status=States.WaitingForInvoicePayment;EventAuctionWaiting();}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 175
+column: 8
+content: for(groupIndex=0;groupIndex<groups.length;groupIndex++){for(bidderIndex=0;bidderIndex<groups[groupIndex].bidders.length;bidderIndex++){if(Utils.equal(groups[groupIndex].bidders[bidderIndex].bidderId,bidderId)==true){return(0,groupIndex,bidderIndex);}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 176
+column: 12
+content: for(bidderIndex=0;bidderIndex<groups[groupIndex].bidders.length;bidderIndex++){if(Utils.equal(groups[groupIndex].bidders[bidderIndex].bidderId,bidderId)==true){return(0,groupIndex,bidderIndex);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 186
+column: 8
+content: for(bidderIndex=0;bidderIndex<groups[groupIndex].bidders.length;bidderIndex++){if(Utils.equal(groups[groupIndex].bidders[bidderIndex].bidderId,bidderId)==true){return(0,bidderIndex);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 112
+column: 17
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 121
+column: 35
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 114
+column: 8
+content: Groupg=groups[groupIndex]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 123
+column: 8
+content: Bidderb=groups[groupIndex].bidders[bidderIndex]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 4
+content: functionCrowdsale(address_accessManager,bytes32_currencySymbol,bytes32_borrowerId,bytes32_invoiceId,string_invoiceNumber,uint_invoiceAmount,uint_fundingGoal,uint_platformTaxPercent,string_signedDocumentIPFSHash)withAccessManager(_accessManager){currencySymbol=_currencySymbol;borrowerId=_borrowerId;invoiceId=_invoiceId;invoiceAmount=_invoiceAmount;fundingGoal=_fundingGoal;platformTaxPercent=_platformTaxPercent;signedDocumentIPFSHash=_signedDocumentIPFSHash;deadline=now+24hours;status=States.Open;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 91
+column: 4
+content: functioncheckDeadline()returns(bool){if(now>deadline){if(status==States.Open){status=States.Closed;EventAuctionClosed(uint8(AuctionCloseReasons.DeadlineReached));}returntrue;}returnfalse;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 128
+column: 4
+content: functionsetBidderHasReceivedTokensBack(uintgroupIndex,uintbidderIndex)onlyPopulous{groups[groupIndex].bidders[bidderIndex].hasReceivedTokensBack=true;groups[groupIndex].biddersReceivedTokensBack++;if(groups[groupIndex].biddersReceivedTokensBack==groups[groupIndex].bidders.length){groups[groupIndex].hasReceivedTokensBack=true;groupsReceivedTokensBack++;if(groups.length==1){setSentToLosingGroups();setSentToWinnerGroup();}elseif(groups.length-1==groupsReceivedTokensBack){setSentToLosingGroups();}elseif(groups.length==groupsReceivedTokensBack){setSentToWinnerGroup();}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 147
+column: 4
+content: functionsetPaidAmount(uint_paidAmount)onlyPopulous{if(status==States.WaitingForInvoicePayment){paidAmount=_paidAmount;status=States.PaymentReceived;EventPaymentReceived(paidAmount);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 156
+column: 4
+content: functioncreateGroup(string_name,uint_goal)onlyOpenAuctionreturns(uint8err,uintgroupIndex){if(checkDeadline()==false&&_goal>=fundingGoal&&_goal<=invoiceAmount){groupIndex=groups.length++;groups[groupIndex].groupIndex=groupIndex;groups[groupIndex].name=_name;groups[groupIndex].goal=_goal;EventGroupCreated(groupIndex,_name,_goal);return(0,groupIndex);}else{return(1,0);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 174
+column: 4
+content: functionfindBidder(bytes32bidderId)constantreturns(uint8err,uintgroupIndex,uintbidderIndex){for(groupIndex=0;groupIndex<groups.length;groupIndex++){for(bidderIndex=0;bidderIndex<groups[groupIndex].bidders.length;bidderIndex++){if(Utils.equal(groups[groupIndex].bidders[bidderIndex].bidderId,bidderId)==true){return(0,groupIndex,bidderIndex);}}}return(1,0,0);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 185
+column: 4
+content: functionfindBidder(uintgroupIndex,bytes32bidderId)constantreturns(uint8err,uintbidderIndex){for(bidderIndex=0;bidderIndex<groups[groupIndex].bidders.length;bidderIndex++){if(Utils.equal(groups[groupIndex].bidders[bidderIndex].bidderId,bidderId)==true){return(0,bidderIndex);}}return(1,0);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 194
+column: 4
+content: functionbid(uintgroupIndex,bytes32bidderId,stringname,uintvalue)onlyOpenAuctiononlyPopulousreturns(uint8err,uintfinalValue,uintgroupGoal,boolgoalReached){if(checkDeadline()==true||value==0||groups[groupIndex].goal==0){return(1,0,0,false);}if(groups[groupIndex].amountRaised+value>groups[groupIndex].goal){value=SafeMath.safeSub(groups[groupIndex].goal,groups[groupIndex].amountRaised);}uint8finderErr;uintbidderIndex;(finderErr,bidderIndex)=findBidder(groupIndex,bidderId);if(finderErr==0){groups[groupIndex].bidders[bidderIndex].bidAmount=SafeMath.safeAdd(groups[groupIndex].bidders[bidderIndex].bidAmount,value);}else{groups[groupIndex].bidders.push(Bidder(groups[groupIndex].bidders.length,bidderId,name,value,false));}groups[groupIndex].amountRaised=SafeMath.safeAdd(groups[groupIndex].amountRaised,value);EventNewBid(groupIndex,bidderId,name,value);goalReached=groups[groupIndex].amountRaised==groups[groupIndex].goal;if(goalReached==true){winnerGroupIndex=groupIndex;hasWinnerGroup=true;status=States.Closed;EventGroupGoalReached(groupIndex,groups[groupIndex].name,groups[groupIndex].goal);EventAuctionClosed(uint8(AuctionCloseReasons.GroupGoalReached));}return(0,value,groups[groupIndex].goal,goalReached);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 236
+column: 4
+content: functionborrowerChooseWinner(uintgroupIndex)onlyOpenAuctiononlyServer{if(groups[groupIndex].amountRaised>0){winnerGroupIndex=groupIndex;hasWinnerGroup=true;status=States.Closed;EventAuctionClosed(uint8(AuctionCloseReasons.BorrowerClosed));}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 249
+column: 4
+content: functionwaitingForPayment()onlyServerreturns(bool){return_waitingForPayment();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 271
+column: 4
+content: functionsetSentToBeneficiary()onlyPopulous{sentToBeneficiary=true;if(groups.length==1){setSentToLosingGroups();}}
+
+SOLIDITY_VISIBILITY :11
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :7
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3

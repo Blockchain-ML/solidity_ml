@@ -1,0 +1,123 @@
+C:\Users\hp\DataSet\contracts\ropsten\42\425231fd89852f2852125fb09d55dae8a1010f34_Crowdsale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 9
+column: 2
+content: functionbalanceOf(addresswho)publicconstantreturns(uint256);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 100
+column: 4
+content: functionmul(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a*b;assert(a==0||c/a==b);returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 106
+column: 4
+content: functiondiv(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a/b;returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 113
+column: 4
+content: functionsub(uint256a,uint256b)internalconstantreturns(uint256){assert(b<=a);returna-b;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 118
+column: 4
+content: functionadd(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a+b;assert(c>=a);returnc;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 130
+column: 0
+content: contractCrowdsaleisBase,Owned{usingSafeMathforuint256;enumState{INIT,ICO,CLOSED,STOPPED}enumSupplyType{SALE,ADVISORY,INCENTIVISATION,LIQUIDITY_FUND,REFERRAL,BOUNTY}uintpublicconstantDECIMALS=10**18;uintpublicconstantMILLION=10**6;uintpublicconstantMAX_TOKEN_SALE=40*MILLION*DECIMALS;uintpublicconstantTEAMS_TOKENS=14*MILLION*DECIMALS;uintpublicconstantMAX_ADVISORY_TOKENS=12*MILLION*DECIMALS;uintpublicconstantMAX_INCENTIVISATION_TOKENS=15*MILLION*DECIMALS;uintpublicconstantMAX_LIQUIDITY_FUND_TOKENS=15*MILLION*DECIMALS;uintpublicconstantMAX_REFERRAL_TOKENS=2*MILLION*DECIMALS;uintpublicconstantMAX_BOUNTY_TOKENS=2*MILLION*DECIMALS;StatepubliccurrentState=State.INIT;ITokenpublictoken;uintpublictotalTokenSale=0;uintpublictotalAdvisory=0;uintpublictotalIncentivisation=0;uintpublictotalLiquidityFund=0;uintpublictotalReferral=0;uintpublictotalBounty=0;eventTokenSale(addressindexed_to,uint256_value);eventBounty(addressindexed_to,uint256_value);eventAdvisory(addressindexed_to,uint256_value);eventIncentivisation(addressindexed_to,uint256_value);eventReferral(addressindexed_to,uint256_value);eventLiquidityFund(addressindexed_to,uint256_value);modifierinState(State_state){require(currentState==_state);_;}modifiersalesRunning(){require(currentState==State.ICO);_;}modifiernotStopped(){require(currentState!=State.STOPPED);_;}functionCrowdsale()public{}function()publicpayablesalesRunning{revert();}functioninitialize(address_token,address_teamsTokens)publiconlyOwnerinState(State.INIT){require(_token!=address(0));token=IToken(_token);sendTeamTokens(_teamsTokens);}functionsetState(State_newState)publiconlyOwner{require((currentState==State.INIT&&_newState==State.ICO)||(currentState==State.ICO&&_newState==State.CLOSED)||(currentState==State.ICO&&_newState==State.STOPPED)||(currentState==State.STOPPED&&_newState==State.ICO));if(_newState==State.CLOSED){_finish();}currentState=_newState;}functionsendTokensSale(address_to,uint_amount)publiconlyOwnersalesRunning{_mint(_to,_amount,SupplyType.SALE);}functionsendBounty(address_to,uint_amount)publiconlyOwnersalesRunning{_mint(_to,_amount,SupplyType.BOUNTY);}functionsendReferral(address_to,uint_amount)publiconlyOwnersalesRunning{_mint(_to,_amount,SupplyType.REFERRAL);}functionsendAdvisory(address_to,uint_amount)publiconlyOwnersalesRunning{_mint(_to,_amount,SupplyType.ADVISORY);}functionsendIncentivisation(address_to,uint_amount)publiconlyOwnersalesRunning{_mint(_to,_amount,SupplyType.INCENTIVISATION);}functionsendLiquidityFund(address_to,uint_amount)publiconlyOwnersalesRunning{_mint(_to,_amount,SupplyType.LIQUIDITY_FUND);}functionsendTeamTokens(address_teamAddress)noAnyReentrancyinternal{require(_teamAddress!=address(0));IToken(token).mint(_teamAddress,TEAMS_TOKENS);}function_mint(address_to,uint_amount,SupplyType_supplyType)noAnyReentrancyinternal{_amount=_amount.mul(DECIMALS);_checkMaxSaleSupply(_amount,_supplyType);_increaseSupply(_amount,_supplyType);IToken(token).mint(_to,_amount);if(_supplyType==SupplyType.SALE){TokenSale(_to,_amount);}elseif(_supplyType==SupplyType.BOUNTY){Bounty(_to,_amount);}elseif(_supplyType==SupplyType.REFERRAL){Referral(_to,_amount);}elseif(_supplyType==SupplyType.ADVISORY){Advisory(_to,_amount);}elseif(_supplyType==SupplyType.INCENTIVISATION){Incentivisation(_to,_amount);}elseif(_supplyType==SupplyType.LIQUIDITY_FUND){LiquidityFund(_to,_amount);}}function_finish()noAnyReentrancyinternal{IToken(token).start();}function_checkMaxSaleSupply(uinttransferTokens,SupplyType_supplyType)internal{if(_supplyType==SupplyType.SALE){require(totalTokenSale.add(transferTokens)<=MAX_TOKEN_SALE);}elseif(_supplyType==SupplyType.BOUNTY){require(totalBounty.add(transferTokens)<=MAX_BOUNTY_TOKENS);}elseif(_supplyType==SupplyType.REFERRAL){require(totalReferral.add(transferTokens)<=MAX_REFERRAL_TOKENS);}elseif(_supplyType==SupplyType.ADVISORY){require(totalAdvisory.add(transferTokens)<=MAX_ADVISORY_TOKENS);}elseif(_supplyType==SupplyType.INCENTIVISATION){require(totalIncentivisation.add(transferTokens)<=MAX_INCENTIVISATION_TOKENS);}elseif(_supplyType==SupplyType.LIQUIDITY_FUND){require(totalLiquidityFund.add(transferTokens)<=MAX_LIQUIDITY_FUND_TOKENS);}}function_increaseSupply(uint_amount,SupplyType_supplyType)internal{if(_supplyType==SupplyType.SALE){totalTokenSale=totalTokenSale.add(_amount);}elseif(_supplyType==SupplyType.BOUNTY){totalBounty=totalBounty.add(_amount);}elseif(_supplyType==SupplyType.REFERRAL){totalReferral=totalReferral.add(_amount);}elseif(_supplyType==SupplyType.ADVISORY){totalAdvisory=totalAdvisory.add(_amount);}elseif(_supplyType==SupplyType.INCENTIVISATION){totalIncentivisation=totalIncentivisation.add(_amount);}elseif(_supplyType==SupplyType.LIQUIDITY_FUND){totalLiquidityFund=totalLiquidityFund.add(_amount);}}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 190
+column: 4
+content: functioninitialize(address_token,address_teamsTokens)publiconlyOwnerinState(State.INIT){require(_token!=address(0));token=IToken(_token);sendTeamTokens(_teamsTokens);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 202
+column: 4
+content: functionsetState(State_newState)publiconlyOwner{require((currentState==State.INIT&&_newState==State.ICO)||(currentState==State.ICO&&_newState==State.CLOSED)||(currentState==State.ICO&&_newState==State.STOPPED)||(currentState==State.STOPPED&&_newState==State.ICO));if(_newState==State.CLOSED){_finish();}currentState=_newState;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 75
+column: 9
+content: private
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 186
+column: 4
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 131
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 199
+column: 8
+content: sendTeamTokens(_teamsTokens)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 183
+column: 8
+content: public
+
+ruleId: SOLIDITY_VAR
+patternId: f77619
+severity: 1
+line: 77
+column: 8
+content: var_locks=bitlocks
+
+ruleId: SOLIDITY_VAR
+patternId: f77619
+severity: 1
+line: 85
+column: 8
+content: var_locks=bitlocks
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_VAR :2
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

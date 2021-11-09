@@ -1,0 +1,179 @@
+C:\Users\hp\DataSet\PLCRVoting.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 156
+column: 16
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 180
+column: 29
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 389
+column: 15
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 139
+column: 4
+content: functionvalidPosition(uint_prevID,uint_nextID,address_voter,uint_numTokens)publicconstantreturns(boolvalid){boolprevValid=(_numTokens>=getNumTokens(_voter,_prevID));boolnextValid=(_numTokens<=getNumTokens(_voter,_nextID)||_nextID==0);returnprevValid&&nextValid;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 175
+column: 4
+content: functiongetNumPassingTokens(address_voter,uint_pollID,uint_salt)publicconstantreturns(uintcorrectVotes){require(pollEnded(_pollID));require(hasBeenRevealed(_voter,_pollID));uintwinningChoice=isPassed(_pollID)?1:0;bytes32winnerHash=sha3(winningChoice,_salt);bytes32commitHash=getCommitHash(_voter,_pollID);return(winnerHash==commitHash)?getNumTokens(_voter,_pollID):0;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 216
+column: 4
+content: functionisPassed(uint_pollID)constantpublicreturns(boolpassed){require(pollEnded(_pollID));Pollmemorypoll=pollMap[_pollID];return(100*poll.votesFor)>(poll.voteQuorum*(poll.votesFor+poll.votesAgainst));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 232
+column: 4
+content: functiongetTotalNumberOfTokensForWinningOption(uint_pollID)constantpublicreturns(uintnumTokens){require(pollEnded(_pollID));if(isPassed(_pollID))returnpollMap[_pollID].votesFor;elsereturnpollMap[_pollID].votesAgainst;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 246
+column: 4
+content: functionpollEnded(uint_pollID)constantpublicreturns(boolended){require(pollExists(_pollID));returnisExpired(pollMap[_pollID].revealEndDate);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 258
+column: 4
+content: functioncommitStageActive(uint_pollID)constantpublicreturns(boolactive){require(pollExists(_pollID));return!isExpired(pollMap[_pollID].commitEndDate);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 269
+column: 4
+content: functionrevealStageActive(uint_pollID)constantpublicreturns(boolactive){require(pollExists(_pollID));return!isExpired(pollMap[_pollID].revealEndDate)&&!commitStageActive(_pollID);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 281
+column: 4
+content: functionhasBeenRevealed(address_voter,uint_pollID)constantpublicreturns(boolrevealed){require(pollExists(_pollID));uintprevID=dllMap[_voter].getPrev(_pollID);uintnextID=dllMap[_voter].getNext(_pollID);return(prevID==_pollID)&&(nextID==_pollID);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 295
+column: 4
+content: functionpollExists(uint_pollID)constantpublicreturns(boolexists){uintcommitEndDate=pollMap[_pollID].commitEndDate;uintrevealEndDate=pollMap[_pollID].revealEndDate;assert(!(commitEndDate==0&&revealEndDate!=0));assert(!(commitEndDate!=0&&revealEndDate==0));if(commitEndDate==0||revealEndDate==0){returnfalse;}returntrue;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 316
+column: 4
+content: functiongetCommitHash(address_voter,uint_pollID)constantpublicreturns(bytes32commitHash){returnbytes32(store.getAttribute(attrUUID(_voter,_pollID),"commitHash"));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 326
+column: 4
+content: functiongetNumTokens(address_voter,uint_pollID)constantpublicreturns(uintnumTokens){returnstore.getAttribute(attrUUID(_voter,_pollID),"numTokens");}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 335
+column: 4
+content: functiongetLastNode(address_voter)constantpublicreturns(uintpollID){returndllMap[_voter].getPrev(0);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 344
+column: 4
+content: functiongetLockedTokens(address_voter)constantpublicreturns(uintnumTokens){returngetNumTokens(_voter,getLastNode(_voter));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 354
+column: 4
+content: functiongetInsertPointForNumTokens(address_voter,uint_numTokens)constantpublicreturns(uintprevNode){uintnodeID=getLastNode(_voter);uinttokensInNode=getNumTokens(_voter,nodeID);while(tokensInNode!=0){tokensInNode=getNumTokens(_voter,nodeID);if(tokensInNode<_numTokens){returnnodeID;}nodeID=dllMap[_voter].getPrev(nodeID);}returnnodeID;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 379
+column: 4
+content: functionisExpired(uint_terminationDate)constantpublicreturns(boolexpired){return(block.timestamp>_terminationDate);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 388
+column: 4
+content: functionattrUUID(address_user,uint_pollID)publicconstantreturns(bytes32UUID){returnsha3(_user,_pollID);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 51
+column: 4
+content: functionPLCRVoting(address_tokenAddr){token=HumanStandardToken(_tokenAddr);pollNonce=INITIAL_POLL_NONCE;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 32
+column: 4
+content: uintpollNonce;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 4
+content: mapping(address=>DLL.Data)dllMap;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 4
+content: AttributeStore.Datastore;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 4
+content: uintconstantINITIAL_POLL_NONCE=0;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :19
+SOLIDITY_PRAGMAS_VERSION :1

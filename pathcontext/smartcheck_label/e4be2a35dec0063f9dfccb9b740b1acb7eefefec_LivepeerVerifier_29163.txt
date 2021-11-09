@@ -1,0 +1,31 @@
+C:\Users\hp\DataSet\contracts\mainnet\e4\e4be2a35dec0063f9dfccb9b740b1acb7eefefec_LivepeerVerifier.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 150
+column: 0
+content: contractIVerifier{functionverify(uint256_jobId,uint256_claimId,uint256_segmentNumber,string_transcodingOptions,string_dataStorageHash,bytes32[2]_dataHashes)externalpayable;functiongetPrice()publicviewreturns(uint256);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 177
+column: 0
+content: contractLivepeerVerifierisManager,IVerifier{stringpublicverificationCodeHash;addresspublicsolver;structRequest{uint256jobId;uint256claimId;uint256segmentNumber;bytes32commitHash;}mapping(uint256=>Request)publicrequests;uint256publicrequestCount;eventVerifyRequest(uint256indexedrequestId,uint256indexedjobId,uint256indexedclaimId,uint256segmentNumber,stringtranscodingOptions,stringdataStorageHash,bytes32dataHash,bytes32transcodedDataHash);eventCallback(uint256indexedrequestId,uint256indexedjobId,uint256indexedclaimId,uint256segmentNumber,boolresult);eventSolverUpdate(addresssolver);modifieronlyJobsManager(){require(msg.sender==controller.getContract(keccak256("JobsManager")));_;}modifieronlySolver(){require(msg.sender==solver);_;}functionLivepeerVerifier(address_controller,address_solver,string_verificationCodeHash)publicManager(_controller){require(_solver!=address(0));solver=_solver;verificationCodeHash=_verificationCodeHash;}functionsetVerificationCodeHash(string_verificationCodeHash)externalonlyControllerOwner{verificationCodeHash=_verificationCodeHash;}functionsetSolver(address_solver)externalonlyControllerOwner{require(_solver!=address(0));solver=_solver;SolverUpdate(_solver);}functionverify(uint256_jobId,uint256_claimId,uint256_segmentNumber,string_transcodingOptions,string_dataStorageHash,bytes32[2]_dataHashes)externalpayableonlyJobsManagerwhenSystemNotPaused{requests[requestCount].jobId=_jobId;requests[requestCount].claimId=_claimId;requests[requestCount].segmentNumber=_segmentNumber;requests[requestCount].commitHash=keccak256(_dataHashes[0],_dataHashes[1]);VerifyRequest(requestCount,_jobId,_claimId,_segmentNumber,_transcodingOptions,_dataStorageHash,_dataHashes[0],_dataHashes[1]);requestCount++;}function__callback(uint256_requestId,bytes32_result)externalonlySolverwhenSystemNotPaused{Requestmemoryq=requests[_requestId];if(q.commitHash==_result){IVerifiable(controller.getContract(keccak256("JobsManager"))).receiveVerification(q.jobId,q.claimId,q.segmentNumber,true);Callback(_requestId,q.jobId,q.claimId,q.segmentNumber,true);}else{IVerifiable(controller.getContract(keccak256("JobsManager"))).receiveVerification(q.jobId,q.claimId,q.segmentNumber,false);Callback(_requestId,q.jobId,q.claimId,q.segmentNumber,false);}deleterequests[_requestId];}functiongetPrice()publicviewreturns(uint256){return0;}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 266
+column: 44
+content: keccak256(_dataHashes[0],_dataHashes[1])
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 215
+column: 68
+content: string_verificationCodeHash
+
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_UPGRADE_TO_050 :2

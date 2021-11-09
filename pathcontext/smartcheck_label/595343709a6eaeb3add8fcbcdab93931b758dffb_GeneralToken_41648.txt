@@ -1,0 +1,54 @@
+C:\Users\hp\DataSet\contracts\ropsten\59\595343709a6eaeb3add8fcbcdab93931b758dffb_GeneralToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 60
+column: 32
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 69
+column: 29
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 70
+column: 31
+content: 0x0
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 107
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(boolsuccess){allowance[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 33
+column: 0
+content: contractGeneralTokenisowned{stringpublicname;stringpublicsymbol;uint8publicdecimals=18;uint256publictotalSupply;mapping(address=>uint256)publicbalanceOf;mapping(address=>mapping(address=>uint256))publicallowance;mapping(address=>bool)publicfrozenAccount;eventTransfer(addressindexedfrom,addressindexedto,uint256value);eventApproval(addressindexed_owner,addressindexed_spender,uint256_value);eventBurn(addressindexedfrom,uint256value);eventFrozenFunds(addresstarget,boolfrozen);constructor(uint256initialSupply,stringmemorytokenName,stringmemorytokenSymbol)publicpayable{totalSupply=initialSupply*10**uint256(decimals);balanceOf[msg.sender]=totalSupply;name=tokenName;symbol=tokenSymbol;}functionfreezeAccount(addresstarget,boolfreeze)onlyOwnerpublic{require(target!=address(0x0));frozenAccount[target]=freeze;emitFrozenFunds(target,freeze);}function_transfer(address_from,address_to,uint_value)internal{require(_to!=address(0x0));require(_from!=address(0x0));require(balanceOf[_from]>=_value);require(balanceOf[_to]+_value>=balanceOf[_to]);require(!frozenAccount[_from]);require(!frozenAccount[_to]);uintpreviousBalances=balanceOf[_from]+balanceOf[_to];balanceOf[_from]-=_value;balanceOf[_to]+=_value;emitTransfer(_from,_to,_value);assert(balanceOf[_from]+balanceOf[_to]==previousBalances);}functiontransfer(address_to,uint256_value)publicreturns(boolsuccess){_transfer(msg.sender,_to,_value);returntrue;}functiontransferFrom(address_from,address_to,uint256_value)publicreturns(boolsuccess){require(_value<=allowance[_from][msg.sender]);allowance[_from][msg.sender]-=_value;_transfer(_from,_to,_value);returntrue;}functionapprove(address_spender,uint256_value)publicreturns(boolsuccess){allowance[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}functionapproveAndCall(address_spender,uint256_value,bytesmemory_extraData)publicreturns(boolsuccess){tokenRecipientspender=tokenRecipient(_spender);if(approve(_spender,_value)){spender.receiveApproval(msg.sender,_value,address(this),_extraData);returntrue;}}functionburn(uint256_value)onlyOwnerpublicreturns(boolsuccess){require(balanceOf[msg.sender]>=_value);balanceOf[msg.sender]-=_value;totalSupply-=_value;emitBurn(msg.sender,_value);returntrue;}functionburnFrom(address_from,uint256_value)onlyOwnerpublicreturns(boolsuccess){require(balanceOf[_from]>=_value);require(_value<=allowance[_from][msg.sender]);balanceOf[_from]-=_value;allowance[_from][msg.sender]-=_value;totalSupply-=_value;emitBurn(_from,_value);returntrue;}functionmintToken(addresstarget,uint256mintedAmount)onlyOwnerpublic{balanceOf[target]+=mintedAmount;totalSupply+=mintedAmount;emitTransfer(address(0x0),owner,mintedAmount);emitTransfer(owner,target,mintedAmount);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 16
+content: >=
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 25
+content: <
+
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_ERC20_APPROVE :1

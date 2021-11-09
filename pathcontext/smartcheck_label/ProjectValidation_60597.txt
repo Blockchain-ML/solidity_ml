@@ -1,0 +1,47 @@
+C:\Users\hp\DataSet\ProjectValidation.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 147
+column: 4
+content: functiongetWorkerBalance(addressworker)externalconstantreturns(uintbalance){uintfundWorkerBalance=workersBalances[worker];balance=fundWorkerBalance*2/3;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 186
+column: 4
+content: functionsendTokensToWorkers(uint8_start,uint8_end)externalatStage(Stages.SuccessfullyClosed)returns(uintamount){require(_start>=0&&_end<=workers.length);for(uint8i=_start;i<_end;i++){uintworkerBalance=workersBalances[workers[i]];projectBalance-=workerBalance;assert(fundTokens.transfer(workers[i],workerBalance));}assert(fundTokens.transfer(exchangerContract,amountForRoots));}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 197
+column: 4
+content: functionsendTokensBack()externalonlyValidatoratStage(Stages.UnsuccessfullyClosed)returns(uintamount){assert(fundTokens.transfer(starter,fundTokens.balanceOf(this)));}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 202
+column: 4
+content: functionchangeWorkerBalance(addressworker,uintamount)externalonlyValidatorreturns(boolsuccess){require(amount>=0);uintpureBalance=amount*workerRatio/3;amountForRoots+=(amount-pureBalance);workersBalances[worker]=pureBalance;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 81
+column: 4
+content: functionProjectValidation(address_manager,address_checker,address_exchangerContract,address[]_workers,addressfundTokenAddress){starter=msg.sender;manager=_manager;checker=Checker(_checker,false,false,false);exchangerContract=_exchangerContract;fundTokens=SimpleToken(fundTokenAddress);workers=_workers;signatures[starter]=false;signatures[manager]=false;}
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :3

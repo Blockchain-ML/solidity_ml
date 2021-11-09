@@ -1,0 +1,40 @@
+F:\Blockchain\dataset_new_byID\78260.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 28
+column: 2
+content: functionlogin()constantpubliconlyExistingUserreturns(bytes32){return(users[msg.sender].name);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 5
+column: 0
+content: contractAuthenticationisKillable{structUser{bytes32name;}mapping(address=>User)privateusers;uintprivateid;modifieronlyExistingUser{require(!(users[msg.sender].name==0x0));_;}modifieronlyValidName(bytes32name){require(!(name==0x0));_;}functionlogin()constantpubliconlyExistingUserreturns(bytes32){return(users[msg.sender].name);}functionsignup(bytes32name)publicpayableonlyValidName(name)returns(bytes32){if(users[msg.sender].name==0x0){users[msg.sender].name=name;return(users[msg.sender].name);}return(users[msg.sender].name);}functionupdate(bytes32name)publicpayableonlyValidName(name)onlyExistingUserreturns(bytes32){if(users[msg.sender].name!=0x0){users[msg.sender].name=name;return(users[msg.sender].name);}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 10
+column: 28
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 12
+column: 7
+content: private
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2

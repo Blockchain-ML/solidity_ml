@@ -1,0 +1,134 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\86966.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 5
+column: 2
+content: functionbalanceOf(address_owner)publicconstantreturns(uint256balance);
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 48
+column: 4
+content: for(uinti=0;i<addresses.length;++i){b[i]=addresses[i].balance;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 60
+column: 4
+content: for(uinti=0;i<addresses.length;++i){b[i]=token.balanceOf(addresses[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 48
+column: 4
+content: for(uinti=0;i<addresses.length;++i){b[i]=addresses[i].balance;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 60
+column: 4
+content: for(uinti=0;i<addresses.length;++i){b[i]=token.balanceOf(addresses[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 34
+column: 11
+content: out<outEnd
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 19
+column: 2
+content: functiongetManyBalancesPacked(bytesaddressesPacked,ERC20token)publicviewreturns(uint256[]){uint256len=addressesPacked.length;require(len%20==0);uint256numAddresses=len/20;address[]memoryaddresses=newaddress[](numAddresses);uint256out;uint256outEnd;assembly{out:=add(addresses,32)outEnd:=add(out,mul(32,numAddresses))}while(out<outEnd){assembly{addressesPacked:=add(addressesPacked,20)mstore(out,mload(addressesPacked))out:=add(out,32)}}return_getManyTokenBalances(addresses,token);}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 9
+column: 27
+content: address[]addresses
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 10
+column: 27
+content: uint256[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 14
+column: 32
+content: address[]addresses
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 15
+column: 27
+content: uint256[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 19
+column: 33
+content: bytesaddressesPacked
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 20
+column: 27
+content: uint256[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 46
+column: 29
+content: uint256[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 55
+column: 29
+content: uint256[]
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 29
+column: 4
+content: assembly{out:=add(addresses,32)outEnd:=add(out,mul(32,numAddresses))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 35
+column: 6
+content: assembly{addressesPacked:=add(addressesPacked,20)mstore(out,mload(addressesPacked))out:=add(out,32)}
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_UPGRADE_TO_050 :8
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_USING_INLINE_ASSEMBLY :2
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

@@ -1,0 +1,74 @@
+F:\Blockchain\dataset_new_byID\79859.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 90
+column: 21
+content: send(this.balance)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 17
+column: 1
+content: functiongasStation(address_tokenreceiver,address_franchisee)payable{tokenreceiver=_tokenreceiver;franchisee=_franchisee;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 25
+column: 1
+content: function()payable{}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 28
+column: 1
+content: functionpullFill(address_token_address,uint_valid_until,uint_random,uint_take,uint_give,uint8_v,bytes32_r,bytes32_s){bytes32hash=sha256(_token_address,this,msg.sender,_take,_give,_valid_until,_random);NewHash(hash,_token_address,this,_take,_give,_valid_until,_random);require(usedhashes[hash]!=true&&(ecrecover(hash,_v,_r,_s)==owner)&&block.number<=_valid_until);IMiniMeTokentoken=IMiniMeToken(_token_address);require(token.transferFrom(msg.sender,tokenreceiver,_give));msg.sender.transfer(_take);usedhashes[hash]=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 54
+column: 1
+content: functionpushFill(address_token_address,uint_valid_until,uint_random,uint_take,uint_give,addressgastankclient,uint8_v,bytes32_r,bytes32_s)onlyOwner{bytes32hash=sha256(_token_address,this,gastankclient,_take,_give,_valid_until,_random);NewHash(hash,_token_address,this,_take,_give,_valid_until,_random);require(usedhashes[hash]!=true&&(ecrecover(hash,_v,_r,_s)==gastankclient)&&block.number<=_valid_until);IMiniMeTokentoken=IMiniMeToken(_token_address);require(token.transferFrom(gastankclient,tokenreceiver,_give));gastankclient.transfer(_take);usedhashes[hash]=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 80
+column: 1
+content: functionchangeTokenReceiver(address_newTokenReceiver)onlyOwner{tokenreceiver=_newTokenReceiver;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 84
+column: 1
+content: functionchangeFranchisee(address_franchisee)onlyOwner{franchisee=_franchisee;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 88
+column: 1
+content: functionwithdrawETH(){require(msg.sender==franchisee);require(franchisee.send(this.balance));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 1
+content: mapping(bytes32=>bool)usedhashes;
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_SEND :1

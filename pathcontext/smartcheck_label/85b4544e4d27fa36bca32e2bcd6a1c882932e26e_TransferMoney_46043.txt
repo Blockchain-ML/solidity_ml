@@ -1,0 +1,40 @@
+C:\Users\hp\DataSet\contracts\ropsten\85\85b4544e4d27fa36bca32e2bcd6a1c882932e26e_TransferMoney.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 8
+column: 2
+content: functioncontractMoneyBalance()constantpublicreturns(uint){returnthis.balance;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 13
+column: 2
+content: functionaddressMoneyBalance()constantpublicreturns(uint){returnbankAccountMoney[msg.sender];}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractTransferMoney{mapping(address=>uint)bankAccountMoney;functioncontractMoneyBalance()constantpublicreturns(uint){returnthis.balance;}functionaddressMoneyBalance()constantpublicreturns(uint){returnbankAccountMoney[msg.sender];}functiondepositMoney()payablepublic{require(msg.value>=0);if(bankAccountMoney[msg.sender]==0){bankAccountMoney[msg.sender]=msg.value;}else{bankAccountMoney[msg.sender]=bankAccountMoney[msg.sender]+msg.value;}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 5
+column: 2
+content: mapping(address=>uint)bankAccountMoney;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

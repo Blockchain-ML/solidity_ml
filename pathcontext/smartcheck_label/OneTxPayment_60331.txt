@@ -1,0 +1,206 @@
+C:\Users\hp\DataSet\OneTxPayment.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 28
+column: 0
+content: contractOneTxPayment{bytes4constantADD_PAYMENT_SIG=bytes4(keccak256("addPayment(uint256,uint256,address,address,uint256,uint256,uint256)"));bytes4constantMOVE_FUNDS_SIG=bytes4(keccak256("moveFundsBetweenPots(uint256,uint256,uint256,uint256,uint256,uint256,address)"));IColonycolony;IColonyNetworkcolonyNetwork;constructor(address_colony)public{colony=IColony(_colony);colonyNetwork=IColonyNetwork(colony.getColonyNetwork());}functionmakePayment(uint256_permissionDomainId,uint256_childSkillIndex,uint256_callerPermissionDomainId,uint256_callerChildSkillIndex,address<missing ')'>payable_worker,address_token,uint256_amount,uint256_domainId,uint256_skillId)public{validateCallerPermissions(_callerPermissionDomainId,_callerChildSkillIndex,_domainId);require(ColonyAuthority(colony.authority()).canCall(msg.sender,1,address(colony),MOVE_FUNDS_SIG),"colony-one-tx-payment-root-funding-not-authorized");uint256paymentId=colony.addPayment(_permissionDomainId,_childSkillIndex,_worker,_token,_amount,_domainId,_skillId);ColonyDataTypes.Paymentmemorypayment=colony.getPayment(paymentId);colony.moveFundsBetweenPots(1,0,<missing ')'>_childSkillIndex,1,payment.fundingPotId,_amount,_token);colony.finalizePayment(_permissionDomainId,_childSkillIndex,paymentId);colony.claimPayment(paymentId,_token);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 53
+column: 2
+content: functionmakePayment(uint256_permissionDomainId,uint256_childSkillIndex,uint256_callerPermissionDomainId,uint256_callerChildSkillIndex,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 29
+column: 2
+content: bytes4constantADD_PAYMENT_SIG=bytes4(keccak256("addPayment(uint256,uint256,address,address,uint256,uint256,uint256)"));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 30
+column: 2
+content: bytes4constantMOVE_FUNDS_SIG=bytes4(keccak256("moveFundsBetweenPots(uint256,uint256,uint256,uint256,uint256,uint256,address)"));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 32
+column: 2
+content: IColonycolony;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 33
+column: 2
+content: IColonyNetworkcolonyNetwork;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 58
+column: 20
+content: _worker,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 59
+column: 4
+content: address_token,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 60
+column: 4
+content: uint256_amount,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 61
+column: 4
+content: uint256_domainId,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 62
+column: 4
+content: uint256_skillId)public{
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 65
+column: 4
+content: validateCallerPermissions(_callerPermissionDomainId,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 65
+column: 57
+content: _callerChildSkillIndex,_domainId);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 67
+column: 4
+content: require(ColonyAuthority
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 68
+column: 21
+content: (colony.authority()).
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 68
+column: 42
+content: canCall(msg.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 68
+column: 54
+content: sender,1,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 68
+column: 65
+content: address(colony),
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 68
+column: 82
+content: MOVE_FUNDS_SIG),"colony-one-tx-payment-root-funding-not-authorized");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 73
+column: 4
+content: uint256paymentId=colony.addPayment(_permissionDomainId,_childSkillIndex,_worker,_token,_amount,_domainId,_skillId);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 74
+column: 4
+content: ColonyDataTypes.Paymentmemorypayment=colony.getPayment(paymentId);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 77
+column: 4
+content: colony.moveFundsBetweenPots
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 77
+column: 31
+content: (1,0,<missing ')'>_childSkillIndex,1,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 82
+column: 6
+content: payment.fundingPotId,_amount,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 84
+column: 6
+content: _token);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 86
+column: 4
+content: colony.finalizePayment(_permissionDomainId,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 86
+column: 48
+content: _childSkillIndex,paymentId);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 4
+content: colony.claimPayment(paymentId,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 35
+content: _token);
+
+SOLIDITY_VISIBILITY :28
+SOLIDITY_LOCKED_MONEY :1

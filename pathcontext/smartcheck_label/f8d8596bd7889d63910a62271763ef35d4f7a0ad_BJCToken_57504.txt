@@ -1,0 +1,77 @@
+C:\Users\hp\DataSet\contracts\ropsten\f8\f8d8596bd7889d63910a62271763ef35d4f7a0ad_BJCToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 106
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){require(_value>0);allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 61
+column: 0
+content: contractBJCTokenisERC20,Ownable{usingSafeMathforuint256;stringpublicname;stringpublicsymbol;uint8publicdecimals;uint256publicexchangeRate;uint256initialSupply;uint256totalSupply_;mapping(address=>uint256)balances;mapping(address=>mapping(address=>uint256))internalallowed;functionBJCToken()public{name="BJCToken";symbol="BJC";decimals=18;initialSupply=10000000000;exchangeRate=1000;totalSupply_=initialSupply*10**uint(18);balances[owner]=totalSupply_;Transfer(address(0),owner,totalSupply_);}functiontransfer(address_to,uint256_value)publicreturns(bool){require(_to!=address(0));require(_value<=balances[msg.sender]);balances[msg.sender]=balances[msg.sender].sub(_value);balances[_to]=balances[_to].add(_value);Transfer(msg.sender,_to,_value);returntrue;}functiontransferFrom(address_from,address_to,uint256_value)publicreturns(bool){require(_to!=address(0));require(_value<=balances[_from]);require(_value<=allowed[_from][msg.sender]);balances[_from]=balances[_from].sub(_value);balances[_to]=balances[_to].add(_value);allowed[_from][msg.sender]=allowed[_from][msg.sender].sub(_value);Transfer(_from,_to,_value);returntrue;}functionapprove(address_spender,uint256_value)publicreturns(bool){require(_value>0);allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}functiontotalSupply()publicviewreturns(uint256){returntotalSupply_;}functionbalanceOf(address_owner)publicviewreturns(uint256){returnbalances[_owner];}functionallowance(address_owner,address_spender)publicviewreturns(uint256){returnallowed[_owner][_spender];}functiongetTokenAmount(uint256_weiAmount)internalreturns(uint256){return_weiAmount.mul(exchangeRate);}functionrandom()publicviewreturns(uint8){returnuint8(uint256(keccak256(uint256(keccak256(block.timestamp,block.difficulty))%251,now))%10);}function()payablepublic{require(msg.value>=0.0001ether);uint256tokens=getTokenAmount(msg.value);require(tokens<=balances[owner]);balances[owner]=balances[owner].sub(tokens);balances[msg.sender]=balances[msg.sender].add(tokens);Transfer(owner,msg.sender,tokens);}functiongame(uint256_value)public{require(msg.sender!=address(0));require(_value<=balances[msg.sender]);require(_value.mul(2)<=balances[owner]);balances[msg.sender]=balances[msg.sender].sub(_value);balances[owner]=balances[owner].add(_value);uint8randomValue=random();if(randomValue>=5){balances[owner]=balances[owner].sub(_value.mul(2));balances[msg.sender]=balances[msg.sender].add(_value.mul(2));Transfer(owner,msg.sender,_value);}else{Transfer(msg.sender,owner,_value);}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 63
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 127
+column: 29
+content: keccak256(uint256(keccak256(block.timestamp,block.difficulty))%251,now)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 127
+column: 47
+content: keccak256(block.timestamp,block.difficulty)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 129
+column: 24
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 69
+column: 4
+content: uint256initialSupply;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 70
+column: 4
+content: uint256totalSupply_;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 73
+column: 4
+content: mapping(address=>uint256)balances;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_ERC20_APPROVE :1

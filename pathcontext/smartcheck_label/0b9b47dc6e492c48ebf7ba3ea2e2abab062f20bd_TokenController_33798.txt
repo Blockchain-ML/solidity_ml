@@ -1,0 +1,92 @@
+C:\Users\hp\DataSet\contracts\ropsten\0b\0b9b47dc6e492c48ebf7ba3ea2e2abab062f20bd_TokenController.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 56
+column: 31
+content: 0x0
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 159
+column: 27
+content: poolInfoData[_poolNum].total.div(1000).mul(safeShareFee)
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 160
+column: 39
+content: poolInfoData[_poolNum].total.div(1000).mul(poolInfoData[_poolNum].feeRate)
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 193
+column: 29
+content: token.div(1000).mul(poolInfoData[_poolNum].feeRate+safeShareFee)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 190
+column: 8
+content: for(uinti=0;i<poolInfoData[_poolNum].poolMembers.length;i++){token=poolInvestData[_poolNum][poolInfoData[_poolNum].poolMembers[i]].mul(poolInfoData[_poolNum].tokenPerEth);token=token-(token.div(1000).mul(poolInfoData[_poolNum].feeRate+safeShareFee));Token(poolInfoData[_poolNum].poolContract).transfer(poolInfoData[_poolNum].poolMembers[i],token);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 190
+column: 8
+content: for(uinti=0;i<poolInfoData[_poolNum].poolMembers.length;i++){token=poolInvestData[_poolNum][poolInfoData[_poolNum].poolMembers[i]].mul(poolInfoData[_poolNum].tokenPerEth);token=token-(token.div(1000).mul(poolInfoData[_poolNum].feeRate+safeShareFee));Token(poolInfoData[_poolNum].poolContract).transfer(poolInfoData[_poolNum].poolMembers[i],token);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 79
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 114
+column: 24
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 72
+column: 62
+content: bytes_extraData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 119
+column: 24
+content: string_poolName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 199
+column: 65
+content: address[]
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_DIV_MUL :3

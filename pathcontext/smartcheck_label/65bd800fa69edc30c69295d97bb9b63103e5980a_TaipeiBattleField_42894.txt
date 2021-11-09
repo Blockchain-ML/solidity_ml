@@ -1,0 +1,109 @@
+C:\Users\hp\DataSet\contracts\ropsten\65\65bd800fa69edc30c69295d97bb9b63103e5980a_TaipeiBattleField.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 55
+column: 4
+content: _owner=address(0)
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 367
+column: 32
+content: address(this).balance.div(100).mul(uint(100).sub(profitPercentage))
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 355
+column: 8
+content: for(i=1;i<=leagueCount;i++){if(leagueContributionMap[i]>max){max=leagueContributionMap[i];}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 361
+column: 8
+content: for(i=1;i<=leagueCount;i++){if(leagueContributionMap[i]==max){winningLeagueMap[i]=true;winningContribution=winningContribution.add(max);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 579
+column: 8
+content: for(uint8i=0;i<fromLand.neighborsID.length;i++){if(fromLand.neighborsID[i]==toLandID){returntrue;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 579
+column: 8
+content: for(uint8i=0;i<fromLand.neighborsID.length;i++){if(fromLand.neighborsID[i]==toLandID){returntrue;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 525
+column: 0
+content: contractBattleFieldBuyisBattleFieldBasic{functionbuyMinions(uint8landID)externalpayableregisteredgameNotOver{require(msg.value>=minimumMinionFee);require(_isValidLandID(landID));require(_isMyLeague(landID));uint64minions=_getMinions(msg.value);uint32playerID=playerIDMap[msg.sender];_addMinions(playerID,landID,minions);_calculateContribution(playerID,landID,minions);emitPlayerBuy(playerID,landID,minions);}functionaddSlogan(uint8landID,stringnewSlogan)externalpayableregisteredgameNotOver{require(msg.value>=changeSloganFee);require(_isValidLandID(landID));require(_isMyLeague(landID));landMap[landID].slogan=newSlogan;}function_getMinions(uintvalue)privateviewreturns(uint64){returnuint64(value/minionFee);}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 550
+column: 0
+content: contractBattleFieldMoveisBattleFieldBasic{functionmoveMinions(uint8fromLandID,uint8toLandID,uint32minions)externalpayableregisteredgameNotOver{require(msg.value>=moveFee);require(_isValidLandID(fromLandID)&&_isValidLandID(toLandID)&&fromLandID!=toLandID);require(_isMyLeague(fromLandID));require(_isNeighbor(fromLandID,toLandID));uint32playerID=playerIDMap[msg.sender];Playerstorageplayer=playerMap[playerID];require(player.minionMap[fromLandID]>=minions);player.minionMap[fromLandID]=player.minionMap[fromLandID].sub(minions);_deleteMinion(playerID,fromLandID,minions);if(landMap[toLandID].leagueID==player.leagueID){_addMinions(playerID,toLandID,minions);}else{uint64remainMinions=_attack(playerID,toLandID,minions);if(remainMinions>0){_addMinions(playerID,fromLandID,remainMinions);}}emitPlayerMove(playerID,fromLandID,toLandID,minions);}function_isNeighbor(uint8fromLandID,uint8toLandID)internalviewreturns(bool){LandmemoryfromLand=landMap[fromLandID];for(uint8i=0;i<fromLand.neighborsID.length;i++){if(fromLand.neighborsID[i]==toLandID){returntrue;}}returnfalse;}function_attack(uint32playerID,uint8landID,uint64minions)internalreturns(uint64){uint8leagueID=playerMap[playerID].leagueID;Landstorageland=landMap[landID];if(land.leagueID==nobodyID){land.leagueID=leagueID;_addMinions(playerID,landID,minions);return0;}uint32thisDefenderID;boolcrash=false;while(minions>0){thisDefenderID=land.firstDefenderID;if(thisDefenderID==nobodyID){crash=true;break;}Defenderstoragedefender=land.defenderMap[thisDefenderID];if(defender.minions>minions){defender.minions=defender.minions.sub(minions);_calculateContribution(playerID,landID,minions);_calculateContribution(defender.playerID,landID,minions);return0;}minions=minions.sub(defender.minions);_calculateContribution(playerID,landID,defender.minions);_calculateContribution(defender.playerID,landID,defender.minions);_deleteDefender(thisDefenderID,landID);}if(crash&&!land.stronghold){require(minions>0);land.leagueID=leagueID;_addMinions(playerID,landID,minions);return0;}returnminions;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 654
+column: 4
+content: functionsetLand(uint8ID,uint8leagueID,uint8weight,boolstronghold,uint8[]neighborsID)externalonlyOwner{landMap[ID]=Land({ID:ID,leagueID:leagueID,weight:weight,stronghold:stronghold,neighborsID:neighborsID,slogan:"",firstDefenderID:0,lastDefenderID:0});}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 9
+column: 10
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 637
+column: 8
+content: if(!winningLeagueMap[player.leagueID]||player.transfered){revert("not win or transfered");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 647
+column: 8
+content: if(ownerTransfered){revert("ownerTransfered != false");}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 259
+column: 4
+content: usingSafeMathforuint;
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_DIV_MUL :1

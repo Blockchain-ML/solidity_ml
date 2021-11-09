@@ -1,0 +1,253 @@
+C:\Users\hp\DataSet\LockedAccount.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 348
+column: 60
+content: 0x0
+
+ruleId: SOLIDITY_BALANCE_EQUALITY
+patternId: 5094ad
+severity: 1
+line: 288
+column: 12
+content: investment.balance==0
+
+ruleId: SOLIDITY_BALANCE_EQUALITY
+patternId: 5094ad
+severity: 1
+line: 587
+column: 12
+content: accountInMem.balance==0
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 310
+column: 4
+content: functionpendingCommitments(addresscommitment,addressinvestor)publicconstantreturns(uint256balance,uint256neumarkDue){Accountstoragei=_commitments[commitment][investor];return(i.balance,i.neumarksDue);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 420
+column: 4
+content: functiongetInvestorMigrationWallets(addressinvestor)publicconstantreturns(address[]wallets,uint112[]amounts){Destination[]storagedestinations=_destinations[investor];wallets=newaddress[](destinations.length);amounts=newuint112[](destinations.length);uint256idx;while(idx<destinations.length){wallets[idx]=destinations[idx].investor;amounts[idx]=destinations[idx].amount;idx+=1;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 440
+column: 4
+content: functioncurrentMigrationSource()publicconstantreturns(address){returnaddress(MIGRATION_SOURCE);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 485
+column: 4
+content: functionpaymentToken()publicconstantreturns(IERC223Token){returnPAYMENT_TOKEN;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 493
+column: 4
+content: functionneumark()publicconstantreturns(Neumark){returnNEUMARK;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 501
+column: 4
+content: functionlockPeriod()publicconstantreturns(uint256){returnLOCK_PERIOD;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 509
+column: 4
+content: functionpenaltyFraction()publicconstantreturns(uint256){returnPENALTY_FRACTION;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 517
+column: 4
+content: functionbalanceOf(addressinvestor)publicconstantreturns(uint256balance,uint256neumarksDue,uint32unlockDate){Accountstorageaccount=_accounts[investor];return(account.balance,account.neumarksDue,account.unlockDate);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 526
+column: 4
+content: functiontotalLockedAmount()publicconstantreturns(uint256){return_totalLockedAmount;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 534
+column: 4
+content: functiontotalInvestors()publicconstantreturns(uint256){return_totalInvestors;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 357
+column: 12
+content: while(idx<destinations.length){Destinationstoragedestination=destinations[idx];uint112partialAmount=destination.amount==0?balance:destination.amount;require(partialAmount<=balance,"NF_LOCKED_ACCOUNT_SPLIT_OVERSPENT");uint112partialNmkUlps=uint112(proportion(neumarksDue,partialAmount,balance));balance-=partialAmount;neumarksDue-=partialNmkUlps;lock(destination.investor,partialAmount,partialNmkUlps,unlockDate);idx+=1;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 413
+column: 8
+content: while(idx<wallets.length){addDestination(destinations,wallets[idx],amounts[idx]);idx+=1;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 429
+column: 8
+content: while(idx<destinations.length){wallets[idx]=destinations[idx].investor;amounts[idx]=destinations[idx].amount;idx+=1;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 357
+column: 18
+content: idx<destinations.length
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 413
+column: 14
+content: idx<wallets.length
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 429
+column: 14
+content: idx<destinations.length
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 61
+column: 17
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 63
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 66
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 69
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 72
+column: 13
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 75
+column: 22
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 78
+column: 17
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 85
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 97
+column: 38
+content: private
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 460
+column: 8
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 225
+column: 58
+content: bytes
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 265
+column: 68
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 403
+column: 41
+content: address[]wallets
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 403
+column: 60
+content: uint112[]amounts
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 423
+column: 17
+content: address[]wallets
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 423
+column: 36
+content: uint112[]amounts
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :10
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :9
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :7
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_BALANCE_EQUALITY :2

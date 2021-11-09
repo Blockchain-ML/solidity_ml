@@ -1,0 +1,54 @@
+C:\Users\hp\DataSet\DummyNoReturnERC20Token.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_FUNCTIONS_ALWAYS_RETURN_FALSE
+patternId: b180ca
+severity: 2
+line: 46
+column: 4
+content: functiontransfer(address_to,uint256_value)externalreturns(bool){require(balances[msg.sender]>=_value,"ERC20_INSUFFICIENT_BALANCE");require(balances[_to]+_value>=balances[_to],"UINT256_OVERFLOW");balances[msg.sender]-=_value;balances[_to]+=_value;emitTransfer(msg.sender,_to,_value);assembly{return(0,0)}}
+
+ruleId: SOLIDITY_ERC20_FUNCTIONS_ALWAYS_RETURN_FALSE
+patternId: b180ca
+severity: 2
+line: 78
+column: 4
+content: functiontransferFrom(address_from,address_to,uint256_value)externalreturns(bool){require(balances[_from]>=_value,"ERC20_INSUFFICIENT_BALANCE");require(allowed[_from][msg.sender]>=_value,"ERC20_INSUFFICIENT_ALLOWANCE");require(balances[_to]+_value>=balances[_to],"UINT256_OVERFLOW");balances[_to]+=_value;balances[_from]-=_value;allowed[_from][msg.sender]-=_value;emitTransfer(_from,_to,_value);assembly{return(0,0)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 46
+column: 4
+content: functiontransfer(address_to,uint256_value)externalreturns(bool){require(balances[msg.sender]>=_value,"ERC20_INSUFFICIENT_BALANCE");require(balances[_to]+_value>=balances[_to],"UINT256_OVERFLOW");balances[msg.sender]-=_value;balances[_to]+=_value;emitTransfer(msg.sender,_to,_value);assembly{return(0,0)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 78
+column: 4
+content: functiontransferFrom(address_from,address_to,uint256_value)externalreturns(bool){require(balances[_from]>=_value,"ERC20_INSUFFICIENT_BALANCE");require(allowed[_from][msg.sender]>=_value,"ERC20_INSUFFICIENT_ALLOWANCE");require(balances[_to]+_value>=balances[_to],"UINT256_OVERFLOW");balances[_to]+=_value;balances[_from]-=_value;allowed[_from][msg.sender]-=_value;emitTransfer(_from,_to,_value);assembly{return(0,0)}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 19
+column: 16
+content: ^
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 69
+column: 8
+content: assembly{return(0,0)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 110
+column: 8
+content: assembly{return(0,0)}
+
+SOLIDITY_ERC20_FUNCTIONS_ALWAYS_RETURN_FALSE :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_USING_INLINE_ASSEMBLY :2

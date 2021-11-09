@@ -1,0 +1,76 @@
+C:\Users\hp\DataSet\contracts\mainnet\0b\0b67e34a0e0b5cb2858f97c5dcf02c677e0aad16_verifier.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 47
+column: 8
+content: for(i=0;i<transactionCount[neo];i++){emitactionLog(register[neo][i].timestamp,register[neo][i].value,register[neo][i].from);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 2
+column: 0
+content: contractowned{addresspublicowner;eventLog(strings);constructor()payablepublic{owner=msg.sender;}modifieronlyOwner{require(msg.sender==owner);_;}functiontransferOwnership(addressnewOwner)onlyOwnerpublic{owner=newOwner;}functionisOwner()public{if(msg.sender==owner)emitLog("Owner");else{emitLog("Not Owner");}}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 24
+column: 0
+content: contractverifierisowned{structaction{uinttimestamp;uint256value;addressfrom;}mapping(string=>mapping(uint=>action))register;mapping(string=>uint256)transactionCount;eventactionLog(uinttimestamp,uint256value,addressfrom);eventBlog(string);constructor()publicpayable{}functionregisterTransaction(stringneo,addressethA,uint256value)internal{register[neo][transactionCount[neo]]=action(now,value,ethA);transactionCount[neo]+=1;}functionverifyYourself(stringneo,uint256value)public{registerTransaction(neo,msg.sender,value);}functionviewAll(stringneo)publiconlyOwner{uinti;for(i=0;i<transactionCount[neo];i++){emitactionLog(register[neo][i].timestamp,register[neo][i].value,register[neo][i].from);}}functionviewSpecific(stringneo,uint256index)publiconlyOwner{emitactionLog(register[neo][index].timestamp,register[neo][index].value,register[neo][index].from);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 38
+column: 33
+content: stringneo
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 42
+column: 28
+content: stringneo
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 45
+column: 21
+content: stringneo
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 53
+column: 26
+content: stringneo
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 30
+column: 4
+content: mapping(string=>mapping(uint=>action))register;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 31
+column: 4
+content: mapping(string=>uint256)transactionCount;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :4

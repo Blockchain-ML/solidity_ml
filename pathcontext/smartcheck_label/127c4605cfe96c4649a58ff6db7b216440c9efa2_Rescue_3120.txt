@@ -1,0 +1,41 @@
+C:\Users\hp\DataSet\contracts\mainnet\12\127c4605cfe96c4649a58ff6db7b216440c9efa2_Rescue.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 29
+column: 4
+content: functioncanRescue(address_addr)publicconstantreturns(bool){returncanRescueMap[_addr];}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 11
+column: 0
+content: contractRescueisIRescue{addresspublicowner;mapping(address=>bool)canRescueMap;modifieronlyOwner{require(msg.sender==owner);_;}constructor()publicpayable{owner=msg.sender;}functionsetRescue(address_addr,bool_canRescue)onlyOwnerexternal{canRescueMap[_addr]=_canRescue;}functioncanRescue(address_addr)publicconstantreturns(bool){returncanRescueMap[_addr];}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 25
+column: 4
+content: functionsetRescue(address_addr,bool_canRescue)onlyOwnerexternal{canRescueMap[_addr]=_canRescue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 14
+column: 4
+content: mapping(address=>bool)canRescueMap;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

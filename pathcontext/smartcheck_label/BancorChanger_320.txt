@@ -1,0 +1,125 @@
+C:\Users\hp\DataSet\BancorChanger.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 92
+column: 4
+content: functionreserveTokenCount()publicconstantreturns(uint16count){returnuint16(reserveTokens.length);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 102
+column: 4
+content: functionchangeableTokenCount()publicconstantreturns(uint16count){returnreserveTokenCount()+1;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 113
+column: 4
+content: functionchangeableToken(uint16_tokenIndex)publicconstantreturns(addresstokenAddress){if(_tokenIndex==0)returntoken;returnreserveTokens[_tokenIndex-1];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 208
+column: 4
+content: functiongetReserveBalance(IERC20Token_reserveToken)publicconstantvalidReserve(_reserveToken)returns(uint256balance){Reservereserve=reserves[_reserveToken];returnreserve.isVirtualBalanceEnabled?reserve.virtualBalance:_reserveToken.balanceOf(this);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 227
+column: 4
+content: functiongetReturn(IERC20Token_fromToken,IERC20Token_toToken,uint256_amount)publicconstantvalidToken(_fromToken)validToken(_toToken)returns(uint256amount){require(_fromToken!=_toToken);if(_toToken==token)returngetPurchaseReturn(_fromToken,_amount);elseif(_fromToken==token)returngetSaleReturn(_toToken,_amount);uint256purchaseReturnAmount=getPurchaseReturn(_fromToken,_amount);returngetSaleReturn(_toToken,purchaseReturnAmount,safeAdd(token.totalSupply(),purchaseReturnAmount));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 255
+column: 4
+content: functiongetPurchaseReturn(IERC20Token_reserveToken,uint256_depositAmount)publicconstantactivevalidReserve(_reserveToken)returns(uint256amount){Reservereserve=reserves[_reserveToken];require(reserve.isPurchaseEnabled);uint256tokenSupply=token.totalSupply();uint256reserveBalance=getReserveBalance(_reserveToken);returnformula.calculatePurchaseReturn(tokenSupply,reserveBalance,reserve.ratio,_depositAmount);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 278
+column: 4
+content: functiongetSaleReturn(IERC20Token_reserveToken,uint256_sellAmount)publicconstantreturns(uint256amount){returngetSaleReturn(_reserveToken,_sellAmount,token.totalSupply());}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 384
+column: 4
+content: functiongetSaleReturn(IERC20Token_reserveToken,uint256_sellAmount,uint256_totalSupply)privateconstantactivevalidReserve(_reserveToken)validAmount(_totalSupply)returns(uint256amount){Reservereserve=reserves[_reserveToken];uint256reserveBalance=getReserveBalance(_reserveToken);returnformula.calculateSaleReturn(_totalSupply,reserveBalance,reserve.ratio,_sellAmount);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 42
+column: 10
+content: private
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 176
+column: 8
+content: Reservereserve=reserves[_reserveToken]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 214
+column: 8
+content: Reservereserve=reserves[_reserveToken]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 262
+column: 8
+content: Reservereserve=reserves[_reserveToken]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 328
+column: 8
+content: Reservereserve=reserves[_reserveToken]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 364
+column: 8
+content: Reservereserve=reserves[_reserveToken]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 392
+column: 8
+content: Reservereserve=reserves[_reserveToken]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 53
+column: 4
+content: functionBancorChanger(ISmartToken_token,IBancorFormula_formula,IERC20Token_reserveToken,uint8_reserveRatio)SmartTokenController(_token)validAddress(_formula){formula=_formula;if(address(_reserveToken)!=0x0)addReserve(_reserveToken,_reserveRatio,false);}
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :8
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_UPGRADE_TO_050 :6

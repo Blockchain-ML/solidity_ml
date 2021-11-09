@@ -1,0 +1,276 @@
+F:\Blockchain\solidity_dataset_work\4k_dataset\92451.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 264
+column: 4
+content: lastPayouts.length++
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 103
+column: 23
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 120
+column: 2
+content: functiongetPayout(uintindex)publicconstantreturns(addressreceiver,uintamount){PayoutItemmemorypayout;payout=lastPayouts[index];return(payout.receiver,payout.amount);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 126
+column: 2
+content: functiongetLastPayouts()publicconstantreturns(address[10]lastReceivers,uint[10]lastAmounts){uintj=0;PayoutItemmemorycurrentPayout;uintlength=lastPayouts.length;uintstartIndex=0;if(length>10){startIndex=length-10;}for(uinti=startIndex;i<length;i++){currentPayout=lastPayouts[i];lastReceivers[j]=currentPayout.receiver;lastAmounts[j]=currentPayout.amount;j++;}return(lastReceivers,lastAmounts);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 146
+column: 2
+content: functiongetMaster()constantreturns(addressmasterAddress){returnmaster;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 150
+column: 2
+content: functiongetnumDeposits()constantreturns(uint){returnnumDeposits;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 154
+column: 2
+content: functiongetContractMetrics()constantreturns(uint,uint,uint,uint,bool){return(this.balance,totalDeposited,totalGains,numDeposits,active);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 186
+column: 2
+content: functiongetAddressGains(addressaddr)constantreturns(uint){returnaddressGains[addr];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 190
+column: 2
+content: functiongetCurrentPayoutIndex()constantreturns(uint){returncurrentPayoutIndex;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 194
+column: 2
+content: functiongetEarliestPosition(addressaddr)constantreturns(uint[]){returnaddressPositions[addr];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 213
+column: 2
+content: functiongetAccountReferalsStats(addressaddr)constantreturns(uint,uint){return(getPendingReferals(addr),getReferedCount(addr));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 221
+column: 2
+content: functioncomputeGainsRate(addressdepositor)constantreturns(uintgainsPercentage){gainsPercentage=profitsRatePercent;if(isReferee(depositor)){gainsPercentage+=refferalsRateBonus;}gainsPercentage+=getReferedCount(depositor)*refereesRateBonus;ComputedGainsRate(depositor,gainsPercentage);returngainsPercentage;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 233
+column: 1
+content: functioncomputeGains(Depositdeposit)privateconstantreturns(uintgains,uintfees){gains=0;if(deposit.amount>0){gains=(deposit.amount*computeGainsRate(deposit.depositor))/100;fees=(gains*feesRate)/100;GainsCalculated(deposit.depositor,deposit.amount,gains,this.balance,currentPayoutIndex);FeesCalculated(gains,fees);}return(gains-fees,fees);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 250
+column: 2
+content: functionisReferee(addressreferee)privateconstantreturns(bool){returnrefereds[referee];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 254
+column: 2
+content: functiongetReferedCount(addressreferer)privateconstantreturns(uintreferedsCount){referedsCount=refereesCount[referer];returnreferedsCount;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 259
+column: 2
+content: functiongetPendingReferals(addressaddr)privateconstantreturns(uint){returnpendingReferals[addr];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 295
+column: 4
+content: for(uinti=currentPayoutIndex;i<numDeposits;i++){payout(depositsStack[i]);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 72
+column: 7
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 103
+column: 4
+content: if(msg.value<=0)throw;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 233
+column: 65
+content: (uintgains,uintfees)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 300
+column: 13
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 233
+column: 23
+content: Depositdeposit
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 263
+column: 24
+content: PayoutItempayout
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 268
+column: 18
+content: Depositdeposit
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 84
+column: 2
+content: functionBlockchainDeposit(){master=msg.sender;feesRate=0;feesRateTeam=20;feesRateCongres=30;feesProfitDeposit=1000;garanteSystemDepositInOneFund=100000000000;garanteSystemDepositInAllFunds=500000000000;numDeposits=0;currentPayoutIndex=0;profitsRatePercent=0;refferalsRateBonus=5;refereesRateBonus=0;totalDeposited=0;totalGains=0;active=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 102
+column: 2
+content: functiondeposit()payable{if(msg.value<=0)throw;lastDeposit=block.timestamp;depositsStack[numDeposits]=Deposit(msg.sender,msg.value);totalDeposited+=msg.value;checkIfReferee(msg.sender);FundsDeposited(msg.sender,3,10,0,msg.value);++numDeposits;addressPositions[msg.sender].push(numDeposits);if(active){dispatchGains();}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 146
+column: 2
+content: functiongetMaster()constantreturns(addressmasterAddress){returnmaster;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 150
+column: 2
+content: functiongetnumDeposits()constantreturns(uint){returnnumDeposits;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 154
+column: 2
+content: functiongetContractMetrics()constantreturns(uint,uint,uint,uint,bool){return(this.balance,totalDeposited,totalGains,numDeposits,active);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 164
+column: 2
+content: functioninviteReferee(addressreferer,addressreferee)returns(boolsuccess){success=true;refereeInvitations[referee]=referer;pendingReferals[referer]+=1;returnsuccess;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 186
+column: 2
+content: functiongetAddressGains(addressaddr)constantreturns(uint){returnaddressGains[addr];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 190
+column: 2
+content: functiongetCurrentPayoutIndex()constantreturns(uint){returncurrentPayoutIndex;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 194
+column: 2
+content: functiongetEarliestPosition(addressaddr)constantreturns(uint[]){returnaddressPositions[addr];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 213
+column: 2
+content: functiongetAccountReferalsStats(addressaddr)constantreturns(uint,uint){return(getPendingReferals(addr),getReferedCount(addr));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 221
+column: 2
+content: functioncomputeGainsRate(addressdepositor)constantreturns(uintgainsPercentage){gainsPercentage=profitsRatePercent;if(isReferee(depositor)){gainsPercentage+=refferalsRateBonus;}gainsPercentage+=getReferedCount(depositor)*refereesRateBonus;ComputedGainsRate(depositor,gainsPercentage);returngainsPercentage;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 55
+column: 2
+content: string[]Currencies=["DBC","ETH","BTC"];
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 56
+column: 2
+content: uint[]Term=[3,7,14,21,30,90,180,365];
+
+SOLIDITY_VISIBILITY :13
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :15
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_SHOULD_RETURN_STRUCT :1

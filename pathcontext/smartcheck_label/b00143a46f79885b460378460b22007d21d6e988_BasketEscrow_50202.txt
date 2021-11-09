@@ -1,0 +1,174 @@
+C:\Users\hp\DataSet\contracts\ropsten\b0\b00143a46f79885b460378460b22007d21d6e988_BasketEscrow.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 64
+column: 2
+content: functionregisterBasket(address,address,string,string,address[],uint[])publicreturns(uint){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 65
+column: 2
+content: functioncheckBasketExists(address)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 66
+column: 2
+content: functiongetBasketArranger(address)publicreturns(address){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 69
+column: 2
+content: functionincrementBasketsMinted(uint,address)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 70
+column: 2
+content: functionincrementBasketsBurned(uint,address)publicreturns(bool){}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 73
+column: 0
+content: contractBasketRegistry{usingSafeMathforuint;addresspublicadmin;mapping(address=>bool)publicbasketFactoryMap;uintpublicbasketIndex;address[]publicbasketList;mapping(address=>BasketStruct)publicbasketMap;mapping(address=>uint)publicbasketIndexFromAddress;uintpublicarrangerIndex;address[]publicarrangerList;mapping(address=>uint)publicarrangerBasketCount;mapping(address=>uint)publicarrangerIndexFromAddress;structBasketStruct{addressbasketAddress;addressarranger;stringname;stringsymbol;address[]tokens;uint[]weights;uinttotalMinted;uinttotalBurned;}modifieronlyBasket{require(basketIndexFromAddress[msg.sender]>0);_;}modifieronlyBasketFactory{require(basketFactoryMap[msg.sender]==true);_;}eventLogWhitelistBasketFactory(addressbasketFactory);eventLogBasketRegistration(addressbasketAddress,uintbasketIndex);eventLogIncrementBasketsMinted(addressbasketAddress,uintquantity,addresssender);eventLogIncrementBasketsBurned(addressbasketAddress,uintquantity,addresssender);functionBasketRegistry()public{basketIndex=1;arrangerIndex=1;admin=msg.sender;}functionwhitelistBasketFactory(address_basketFactory)publicreturns(boolsuccess){require(msg.sender==admin);basketFactoryMap[_basketFactory]=true;emitLogWhitelistBasketFactory(_basketFactory);returntrue;}functionregisterBasket(address_basketAddress,address_arranger,string_name,string_symbol,address[]_tokens,uint[]_weights)publiconlyBasketFactoryreturns(uintindex){basketMap[_basketAddress]=BasketStruct(_basketAddress,_arranger,_name,_symbol,_tokens,_weights,0,0);basketList.push(_basketAddress);basketIndexFromAddress[_basketAddress]=basketIndex;if(arrangerBasketCount[_arranger]==0){arrangerList.push(_arranger);arrangerIndexFromAddress[_arranger]=arrangerIndex;arrangerIndex=arrangerIndex.add(1);}arrangerBasketCount[_arranger]=arrangerBasketCount[_arranger].add(1);emitLogBasketRegistration(_basketAddress,basketIndex);basketIndex=basketIndex.add(1);returnbasketIndex.sub(1);}functioncheckBasketExists(address_basketAddress)publicviewreturns(boolbasketExists){returnbasketIndexFromAddress[_basketAddress]>0;}functiongetBasketDetails(address_basketAddress)publicviewreturns(addressbasketAddress,addressarranger,stringname,stringsymbol,address[]tokens,uint[]weights,uinttotalMinted,uinttotalBurned){BasketStructmemoryb=basketMap[_basketAddress];return(b.basketAddress,b.arranger,b.name,b.symbol,b.tokens,b.weights,b.totalMinted,b.totalBurned);}functiongetBasketArranger(address_basketAddress)publicviewreturns(address){returnbasketMap[_basketAddress].arranger;}functionincrementBasketsMinted(uint_quantity,address_sender)publiconlyBasketreturns(bool){basketMap[msg.sender].totalMinted=basketMap[msg.sender].totalMinted.add(_quantity);emitLogIncrementBasketsMinted(msg.sender,_quantity,_sender);returntrue;}functionincrementBasketsBurned(uint_quantity,address_sender)publiconlyBasketreturns(bool){basketMap[msg.sender].totalBurned=basketMap[msg.sender].totalBurned.add(_quantity);emitLogIncrementBasketsBurned(msg.sender,_quantity,_sender);returntrue;}function()publicpayable{revert();}}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 230
+column: 29
+content: {revert();}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 604
+column: 29
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 74
+column: 2
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 236
+column: 2
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 230
+column: 14
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 604
+column: 14
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 64
+column: 44
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 64
+column: 52
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 64
+column: 60
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 64
+column: 71
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 146
+column: 4
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 147
+column: 4
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 148
+column: 4
+content: address[]_tokens
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 149
+column: 4
+content: uint[]_weights
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 189
+column: 6
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 190
+column: 6
+content: stringsymbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 191
+column: 6
+content: address[]tokens
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 192
+column: 6
+content: uint[]weights
+
+SOLIDITY_SAFEMATH :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :5
+SOLIDITY_UPGRADE_TO_050 :14
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :2

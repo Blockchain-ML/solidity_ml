@@ -1,0 +1,274 @@
+C:\Users\hp\DataSet\MintedTokenAuction.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 149
+column: 4
+content: bidAmount.length=_len
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 150
+column: 4
+content: endIndex.length=_len
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 151
+column: 4
+content: allowWithdraw.length=_len
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 195
+column: 19
+content: bids[_tokenPrice].length++
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 272
+column: 22
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 367
+column: 21
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 373
+column: 21
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 400
+column: 19
+content: sha3
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 233
+column: 6
+content: for(uint256i=0;i<allowWithdraw.length;i++){allowWithdraw[i]=true;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 276
+column: 6
+content: for(uint256i=0;i<bpIndex;i++){allowWithdraw[i]=true;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 290
+column: 4
+content: for(uint256i=bpIndex;i<tokenPricePoints.length;i++){_bestPrice=tokenPricePoints[i];totalEligibleBids+=bids[_bestPrice].length;endIndex[i]=totalEligibleBids-1;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 318
+column: 4
+content: for(uinti=0;i<numberOfBytes;i++){uintb=uint(_hash[numberOfBytes-i]);x+=b*256**i;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 357
+column: 10
+content: for(i=bpIndex;i<endIndex.length;i++){if(_winnerIndex<=endIndex[i]){_bucket=tokenPricePoints[i];i=endIndex.length;}else{_startIndex=endIndex[i]+1;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 411
+column: 6
+content: for(i=0;i<tokenPricePoints.length;i++){_bucket=tokenPricePoints[i];_len=bids[_bucket].length;for(uint256z=0;z<_len;z++){if(msg.gas<30000){ErrorMsg(msg.sender,"Gas running low call again");returnfalse;}_winningBid=bids[_bucket][z];_quantity=_winningBid.totalBid/bestPrice;_filledQuantity=_quantity*(10**decimals);(err,_filledTotal)=bestPrice.times(_filledQuantity/(10**decimals));if(_winningBid.totalBid>_filledTotal){_winningBid.totalBid-=_filledTotal;}else{_winningBid.totalBid=0;}auctionSupply-=_filledQuantity;owner.transfer(_filledTotal);withdrawTokensMap[_winningBid.bidder]+=_filledQuantity;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 441
+column: 4
+content: for(i=0;i<allowWithdraw.length;i++){if(msg.gas<20000){returnfalse;}allowWithdraw[i]=true;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 296
+column: 4
+content: while(x<totalEligibleBids){x=0;++_numberOfBytes;x=16**(_numberOfBytes*2);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 304
+column: 4
+content: while(x>=totalEligibleBids){x=maxNumber;++_byteDivisor;x=x/_byteDivisor;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 347
+column: 6
+content: while(auctionSupply!=0){if(msg.gas<50000){ErrorMsg(msg.sender,"Gas running low call again");returnfalse;}_winnerIndex=buildNumber(hashCode);_startIndex=0;if(_winnerIndex<totalEligibleBids){for(i=bpIndex;i<endIndex.length;i++){if(_winnerIndex<=endIndex[i]){_bucket=tokenPricePoints[i];i=endIndex.length;}else{_startIndex=endIndex[i]+1;}}}else{hashCode=sha3(hashCode);continue;}Bidstorage_winningBid=bids[_bucket][_winnerIndex-_startIndex];if(_winningBid.totalBid<bestPrice){hashCode=sha3(hashCode);continue;}_quantity=(_winningBid.totalBid/bestPrice);_filledQuantity=_quantity*(10**decimals);if(auctionSupply<_filledQuantity){_filledQuantity=auctionSupply;}(err,_filledTotal)=bestPrice.times(_filledQuantity/(10**decimals));if(_winningBid.totalBid>_filledTotal){_winningBid.totalBid-=_filledTotal;}else{_winningBid.totalBid=0;}auctionSupply-=_filledQuantity;owner.transfer(_filledTotal);withdrawTokensMap[_winningBid.bidder]+=_filledQuantity;hashCode=sha3(hashCode);BidSelected(_winningBid.bidder,true);BidderPB(_bucket);BidderBI(_winnerIndex-_startIndex);BidderFQ(_filledQuantity);BidderFT(_filledTotal);AuctionSL(auctionSupply);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 233
+column: 6
+content: for(uint256i=0;i<allowWithdraw.length;i++){allowWithdraw[i]=true;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 411
+column: 6
+content: for(i=0;i<tokenPricePoints.length;i++){_bucket=tokenPricePoints[i];_len=bids[_bucket].length;for(uint256z=0;z<_len;z++){if(msg.gas<30000){ErrorMsg(msg.sender,"Gas running low call again");returnfalse;}_winningBid=bids[_bucket][z];_quantity=_winningBid.totalBid/bestPrice;_filledQuantity=_quantity*(10**decimals);(err,_filledTotal)=bestPrice.times(_filledQuantity/(10**decimals));if(_winningBid.totalBid>_filledTotal){_winningBid.totalBid-=_filledTotal;}else{_winningBid.totalBid=0;}auctionSupply-=_filledQuantity;owner.transfer(_filledTotal);withdrawTokensMap[_winningBid.bidder]+=_filledQuantity;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 415
+column: 8
+content: for(uint256z=0;z<_len;z++){if(msg.gas<30000){ErrorMsg(msg.sender,"Gas running low call again");returnfalse;}_winningBid=bids[_bucket][z];_quantity=_winningBid.totalBid/bestPrice;_filledQuantity=_quantity*(10**decimals);(err,_filledTotal)=bestPrice.times(_filledQuantity/(10**decimals));if(_winningBid.totalBid>_filledTotal){_winningBid.totalBid-=_filledTotal;}else{_winningBid.totalBid=0;}auctionSupply-=_filledQuantity;owner.transfer(_filledTotal);withdrawTokensMap[_winningBid.bidder]+=_filledQuantity;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 441
+column: 4
+content: for(i=0;i<allowWithdraw.length;i++){if(msg.gas<20000){returnfalse;}allowWithdraw[i]=true;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 223
+column: 10
+content: _totalTokens<_tokensAvail
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 296
+column: 10
+content: x<totalEligibleBids
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 304
+column: 10
+content: x>=totalEligibleBids
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 347
+column: 6
+content: while(auctionSupply!=0){if(msg.gas<50000){ErrorMsg(msg.sender,"Gas running low call again");returnfalse;}_winnerIndex=buildNumber(hashCode);_startIndex=0;if(_winnerIndex<totalEligibleBids){for(i=bpIndex;i<endIndex.length;i++){if(_winnerIndex<=endIndex[i]){_bucket=tokenPricePoints[i];i=endIndex.length;}else{_startIndex=endIndex[i]+1;}}}else{hashCode=sha3(hashCode);continue;}Bidstorage_winningBid=bids[_bucket][_winnerIndex-_startIndex];if(_winningBid.totalBid<bestPrice){hashCode=sha3(hashCode);continue;}_quantity=(_winningBid.totalBid/bestPrice);_filledQuantity=_quantity*(10**decimals);if(auctionSupply<_filledQuantity){_filledQuantity=auctionSupply;}(err,_filledTotal)=bestPrice.times(_filledQuantity/(10**decimals));if(_winningBid.totalBid>_filledTotal){_winningBid.totalBid-=_filledTotal;}else{_winningBid.totalBid=0;}auctionSupply-=_filledQuantity;owner.transfer(_filledTotal);withdrawTokensMap[_winningBid.bidder]+=_filledQuantity;hashCode=sha3(hashCode);BidSelected(_winningBid.bidder,true);BidderPB(_bucket);BidderBI(_winnerIndex-_startIndex);BidderFQ(_filledQuantity);BidderFT(_filledTotal);AuctionSL(auctionSupply);}
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 411
+column: 6
+content: for(i=0;i<tokenPricePoints.length;i++){_bucket=tokenPricePoints[i];_len=bids[_bucket].length;for(uint256z=0;z<_len;z++){if(msg.gas<30000){ErrorMsg(msg.sender,"Gas running low call again");returnfalse;}_winningBid=bids[_bucket][z];_quantity=_winningBid.totalBid/bestPrice;_filledQuantity=_quantity*(10**decimals);(err,_filledTotal)=bestPrice.times(_filledQuantity/(10**decimals));if(_winningBid.totalBid>_filledTotal){_winningBid.totalBid-=_filledTotal;}else{_winningBid.totalBid=0;}auctionSupply-=_filledQuantity;owner.transfer(_filledTotal);withdrawTokensMap[_winningBid.bidder]+=_filledQuantity;}}
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 415
+column: 8
+content: for(uint256z=0;z<_len;z++){if(msg.gas<30000){ErrorMsg(msg.sender,"Gas running low call again");returnfalse;}_winningBid=bids[_bucket][z];_quantity=_winningBid.totalBid/bestPrice;_filledQuantity=_quantity*(10**decimals);(err,_filledTotal)=bestPrice.times(_filledQuantity/(10**decimals));if(_winningBid.totalBid>_filledTotal){_winningBid.totalBid-=_filledTotal;}else{_winningBid.totalBid=0;}auctionSupply-=_filledQuantity;owner.transfer(_filledTotal);withdrawTokensMap[_winningBid.bidder]+=_filledQuantity;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 91
+column: 2
+content: function(){ErrorMsg(msg.sender,"Provided inputs invalid bid rejected");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 106
+column: 2
+content: functionMintedTokenAuction(address_token,uint256_numberOfTokens,uint256_minimumTokensToSell,uint256_minimumBid,uint256_highTokenPrice,uint256_lowTokenPrice,uint256_priceIncrement,uint256_startTime){uint256_tokensAvail;token=StandardToken(_token);decimals=token.decimals();_tokensAvail=token.balanceOf(msg.sender);_tokensAvail=_tokensAvail/(10**decimals);boolerr;uint256res;(err,res)=_tokensAvail.minus(_numberOfTokens);require(_numberOfTokens>0&&!err);require(_lowTokenPrice>0&&_startTime>now);require(_minimumBid>0&&_minimumTokensToSell>0);require(_highTokenPrice>_lowTokenPrice&&_priceIncrement>0);require((_tokensAvail*_highTokenPrice)<(11*10**(72-decimals)));err=!(token.approve(this,_numberOfTokens));require(!err);auctionSupply=_numberOfTokens*10**decimals;for(uint256i=_lowTokenPrice;i<=_highTokenPrice;i+=_priceIncrement){tokenPricePoints.push(i);}uint256_len=tokenPricePoints.length;owner=msg.sender;minimumTokensToSell=_minimumTokensToSell;minimumBid=_minimumBid;startTime=_startTime;endTime=_startTime+2592000;bidAmount.length=_len;endIndex.length=_len;allowWithdraw.length=_len;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 157
+column: 2
+content: functiondeposit(uint256_tokenPrice)payablereturns(boolok){uint256_bucketIndex;boolfound;if((now<startTime)||(endTime<now)){failedDeposit[msg.sender]=msg.value;ErrorMsg(msg.sender,"Not auction time, call getFailedDeposit()");returnfalse;}if(bidLocation[msg.sender][0]!=0){failedDeposit[msg.sender]=msg.value;ErrorMsg(msg.sender,"This account already bid, call getFailedDeposit()");returnfalse;}(found,_bucketIndex)=tokenPricePoints.indexOf(_tokenPrice,true);if(!found){failedDeposit[msg.sender]=msg.value;ErrorMsg(msg.sender,"Price point not listed, call getFailedDeposit() and try again");returnfalse;}if(msg.value<minimumBid){failedDeposit[msg.sender]=msg.value;ErrorMsg(msg.sender,"Bid too low, call getFailedDeposit() and try again");returnfalse;}if(msg.value<_tokenPrice){failedDeposit[msg.sender]=msg.value;ErrorMsg(msg.sender,"Bid below lowest price, call getFailedDeposit() and try again");returnfalse;}uint256_len=bids[_tokenPrice].length++;Bidstorage_lastIndex=bids[_tokenPrice][_len];if(_lastIndex.totalBid!=0){failedDeposit[msg.sender]=msg.value;ErrorMsg(msg.sender,"Submission error, call getFailedDeposit() and try again");returnfalse;}_lastIndex.bidder=msg.sender;_lastIndex.totalBid=msg.value;bidLocation[msg.sender][0]=_tokenPrice;bidLocation[msg.sender][1]=_len;Deposit(msg.sender,msg.value,_tokenPrice);bidAmount[_bucketIndex]+=msg.value;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 248
+column: 2
+content: functionprocessAuction(string_seed)andIsOwnerreturns(boolok){if(now<endTime){ErrorMsg(msg.sender,"Auction is not over");returnfalse;}findTokenPrice();if(cancelAuction){auctionSupply=0;NoticeMsg(msg.sender,"Minimum not met, auction cancelled");returntrue;}if(!fundAll){calcMaxBytes();bytes32_hash=sha3(_seed,block.coinbase);hashCode=_hash;for(uint256i=0;i<bpIndex;i++){allowWithdraw[i]=true;}}returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 330
+column: 2
+content: functionfundTokens()andIsOwnerreturns(boolok){if(auctionSupply==0||bestPrice==0){ErrorMsg(msg.sender,"Call processAuction() first");returnfalse;}uint256_winnerIndex;uint256_startIndex;uint256_quantity;uint256_filledQuantity;uint256_filledTotal;uint256_bucket;uint256_len;boolerr;uint256i;if(!fundAll){while(auctionSupply!=0){if(msg.gas<50000){ErrorMsg(msg.sender,"Gas running low call again");returnfalse;}_winnerIndex=buildNumber(hashCode);_startIndex=0;if(_winnerIndex<totalEligibleBids){for(i=bpIndex;i<endIndex.length;i++){if(_winnerIndex<=endIndex[i]){_bucket=tokenPricePoints[i];i=endIndex.length;}else{_startIndex=endIndex[i]+1;}}}else{hashCode=sha3(hashCode);continue;}Bidstorage_winningBid=bids[_bucket][_winnerIndex-_startIndex];if(_winningBid.totalBid<bestPrice){hashCode=sha3(hashCode);continue;}_quantity=(_winningBid.totalBid/bestPrice);_filledQuantity=_quantity*(10**decimals);if(auctionSupply<_filledQuantity){_filledQuantity=auctionSupply;}(err,_filledTotal)=bestPrice.times(_filledQuantity/(10**decimals));if(_winningBid.totalBid>_filledTotal){_winningBid.totalBid-=_filledTotal;}else{_winningBid.totalBid=0;}auctionSupply-=_filledQuantity;owner.transfer(_filledTotal);withdrawTokensMap[_winningBid.bidder]+=_filledQuantity;hashCode=sha3(hashCode);BidSelected(_winningBid.bidder,true);BidderPB(_bucket);BidderBI(_winnerIndex-_startIndex);BidderFQ(_filledQuantity);BidderFT(_filledTotal);AuctionSL(auctionSupply);}}else{for(i=0;i<tokenPricePoints.length;i++){_bucket=tokenPricePoints[i];_len=bids[_bucket].length;for(uint256z=0;z<_len;z++){if(msg.gas<30000){ErrorMsg(msg.sender,"Gas running low call again");returnfalse;}_winningBid=bids[_bucket][z];_quantity=_winningBid.totalBid/bestPrice;_filledQuantity=_quantity*(10**decimals);(err,_filledTotal)=bestPrice.times(_filledQuantity/(10**decimals));if(_winningBid.totalBid>_filledTotal){_winningBid.totalBid-=_filledTotal;}else{_winningBid.totalBid=0;}auctionSupply-=_filledQuantity;owner.transfer(_filledTotal);withdrawTokensMap[_winningBid.bidder]+=_filledQuantity;}}}for(i=0;i<allowWithdraw.length;i++){if(msg.gas<20000){returnfalse;}allowWithdraw[i]=true;}returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 450
+column: 2
+content: functionwithdrawTokens(){vartotal=withdrawTokensMap[msg.sender];withdrawTokensMap[msg.sender]=0;boolok=token.transferFrom(owner,msg.sender,total);if(ok)TokensWithdrawn(msg.sender,total);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 459
+column: 2
+content: functionwithdrawDeposit(){uint256_price=bidLocation[msg.sender][0];boolfound;uint256_bucket;(found,_bucket)=tokenPricePoints.indexOf(_price,true);if(allowWithdraw[_bucket]||(now>(endTime+2592000))){uint256_index=bidLocation[msg.sender][1];vartotal=bids[_price][_index].totalBid;bids[_price][_index].totalBid=0;msg.sender.transfer(total);DepositWithdrawn(msg.sender,total);}else{ErrorMsg(msg.sender,"Withdraw not allowed");}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 479
+column: 2
+content: functiongetFailedDeposit(){uint256amount=failedDeposit[msg.sender];failedDeposit[msg.sender]=0;msg.sender.transfer(amount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 67
+column: 2
+content: bytes32hashCode;
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :4
+SOLIDITY_EXTRA_GAS_IN_LOOPS :10
+SOLIDITY_GAS_LIMIT_IN_LOOPS :7
+SOLIDITY_TRANSFER_IN_LOOP :3

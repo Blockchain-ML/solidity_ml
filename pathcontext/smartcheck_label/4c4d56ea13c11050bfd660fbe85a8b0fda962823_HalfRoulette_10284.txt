@@ -1,0 +1,297 @@
+C:\Users\hp\DataSet\contracts\mainnet\4c\4c4d56ea13c11050bfd660fbe85a8b0fda962823_HalfRoulette.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 17
+column: 27
+content: 0xcb91F80fC3dcC6D51b10b1a6E6D77C28DAf7ffE2
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 142
+column: 4
+content: functiongetWinRate(uintbetMask)publicpurereturns(uintrate){uintODD_EVEN_RATE=50000;uintLEFT_RIGHT_RATE=45833;uintMIX_RATE=22916;uintEQUAL_RATE=8333;assembly{switchbetMaskcase1{rate:=ODD_EVEN_RATE}case2{rate:=ODD_EVEN_RATE}case4{rate:=LEFT_RIGHT_RATE}case8{rate:=LEFT_RIGHT_RATE}case5{rate:=MIX_RATE}case9{rate:=MIX_RATE}case6{rate:=MIX_RATE}case10{rate:=MIX_RATE}case16{rate:=EQUAL_RATE}}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 14
+column: 0
+content: contractHalfRouletteOwner{addresspayableowner;addresspayablenextOwner;addresssecretSigner=0xcb91F80fC3dcC6D51b10b1a6E6D77C28DAf7ffE2;mapping(address=>bool)publiccroupierMap;modifieronlyOwner{require(msg.sender==owner,"OnlyOwner methods called by non-owner.");_;}modifieronlyCroupier{boolisCroupier=croupierMap[msg.sender];require(isCroupier,"OnlyCroupier methods called by non-croupier.");_;}constructor()public{owner=msg.sender;croupierMap[msg.sender]=true;}functionapproveNextOwner(addresspayable_nextOwner)externalonlyOwner{require(_nextOwner!=owner,"Cannot approve current owner.");nextOwner=_nextOwner;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 322
+column: 4
+content: functionsetMaxProfit(uint_maxProfit)externalonlyOwner{require(_maxProfit<MAX_BET,"maxProfit should be a sane number.");maxProfit=_maxProfit;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 120
+column: 4
+content: functionverifyBetMask(uintbetMask)publicpure{boolverify;assembly{switchbetMaskcase1{verify:=1}case2{verify:=1}case4{verify:=1}case8{verify:=1}case5{verify:=1}case9{verify:=1}case6{verify:=1}case10{verify:=1}case16{verify:=1}}require(verify,"invalid betMask");}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 142
+column: 4
+content: functiongetWinRate(uintbetMask)publicpurereturns(uintrate){uintODD_EVEN_RATE=50000;uintLEFT_RIGHT_RATE=45833;uintMIX_RATE=22916;uintEQUAL_RATE=8333;assembly{switchbetMaskcase1{rate:=ODD_EVEN_RATE}case2{rate:=ODD_EVEN_RATE}case4{rate:=LEFT_RIGHT_RATE}case8{rate:=LEFT_RIGHT_RATE}case5{rate:=MIX_RATE}case9{rate:=MIX_RATE}case6{rate:=MIX_RATE}case10{rate:=MIX_RATE}case16{rate:=EQUAL_RATE}}}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 258
+column: 78
+content: (boolisWin,uintl,uintr)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 122
+column: 8
+content: assembly{switchbetMaskcase1{verify:=1}case2{verify:=1}case4{verify:=1}case8{verify:=1}case5{verify:=1}case9{verify:=1}case6{verify:=1}case10{verify:=1}case16{verify:=1}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 148
+column: 8
+content: assembly{switchbetMaskcase1{rate:=ODD_EVEN_RATE}case2{rate:=ODD_EVEN_RATE}case4{rate:=LEFT_RIGHT_RATE}case8{rate:=LEFT_RIGHT_RATE}case5{rate:=MIX_RATE}case9{rate:=MIX_RATE}case6{rate:=MIX_RATE}case10{rate:=MIX_RATE}case16{rate:=EQUAL_RATE}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 36
+column: 4
+content: functionapproveNextOwner(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 357
+column: 4
+content: functionplaceBetWithInviter(uint8betMask,uintcommitLastBlock,uintcommit,uint8v,bytes32r,bytes32s,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 4
+content: addresspayableowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 16
+column: 4
+content: addresspayablenextOwner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 17
+column: 4
+content: addresssecretSigner=0xcb91F80fC3dcC6D51b10b1a6E6D77C28DAf7ffE2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 8
+content: require(_nextOwner!=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 30
+content: owner,"Cannot approve current owner.");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 8
+content: nextOwner=_nextOwner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 96
+column: 4
+content: uintconstantBET_EXPIRATION_BLOCKS=250;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 98
+column: 4
+content: uintconstantJACKPOT_FEE_PERCENT=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 99
+column: 4
+content: uintconstantHOUSE_EDGE_PERCENT=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 100
+column: 4
+content: uintconstantHOUSE_EDGE_MINIMUM_AMOUNT=0.0004ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 102
+column: 4
+content: uintconstantRANK_FUNDS_PERCENT=12;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 103
+column: 4
+content: uintconstantINVITER_BENEFIT_PERCENT=9;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 105
+column: 4
+content: uintconstantMAX_LUCKY_COIN_BENEFIT=1.65ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 106
+column: 4
+content: uintconstantMIN_BET=0.01ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 107
+column: 4
+content: uintconstantMAX_BET=300000ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 108
+column: 4
+content: uintconstantMIN_JACKPOT_BET=0.1ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 109
+column: 4
+content: uintconstantRECEIVE_LUCKY_COIN_BET=0.05ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 111
+column: 4
+content: uintconstantBASE_WIN_RATE=100000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 113
+column: 4
+content: uintconstantTODAY_RANKING_PRIZE_MODULUS=10000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 115
+column: 4
+content: uint16[10]TODAY_RANKING_PRIZE_RATE=[5000,2500,1200,600,300,200,100,50,35,15];
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 304
+column: 4
+content: DailyRankingPrizedailyRankingPrize;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 358
+column: 15
+content: (inviter!=<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 358
+column: 27
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 358
+column: 34
+content: (0),"inviter != address (0)");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 359
+column: 8
+content: addresspreInviter=inviterMap[msg.sender];
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 360
+column: 11
+content: (preInviter==<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 360
+column: 26
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 360
+column: 33
+content: (0)){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 361
+column: 12
+content: inviterMap[msg.sender]=inviter;
+
+SOLIDITY_VISIBILITY :31
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_USING_INLINE_ASSEMBLY :2
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_SHOULD_NOT_BE_PURE :2

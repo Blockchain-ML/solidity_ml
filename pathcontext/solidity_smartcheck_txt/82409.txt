@@ -1,0 +1,171 @@
+F:\Blockchain\dataset_new_byID\82409.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 16
+column: 2
+content: functionSecondAccount(LocalCrypto_con,uint[2]_xG,uint[2]_yG,uint_x){con=_con;xG=_xG;yG=_yG;x=_x;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 25
+column: 2
+content: functionsingleZKP(uintv)returns(boolresult,uint[4]res){res=con.createZKP(x,v,xG);uint[3]memoryvG=[res[1],res[2],res[3]];result=con.verifyZKP(xG,res[0],vG);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 2
+content: functionyes(uintw,uintr,uintd)returns(bool){uint[10]memoryres;uint[4]memoryparams;(res,params)=con.create1outof2ZKPYesVote(xG,yG,w,r,d,x);uint[2]memoryy=[res[0],res[1]];uint[2]memorya1=[res[2],res[3]];uint[2]memoryb1=[res[4],res[5]];uint[2]memorya2=[res[6],res[7]];uint[2]memoryb2=[res[8],res[9]];returncon.verify1outof2ZKP(params,xG,yG,y,a1,b1,a2,b2);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 49
+column: 2
+content: functionno(uintw,uintr,uintd)returns(bool){uint[10]memoryres;uint[4]memoryparams;(res,params)=con.create1outof2ZKPNoVote(xG,yG,w,r,d,x);uint[2]memoryy=[res[0],res[1]];uint[2]memorya1=[res[2],res[3]];uint[2]memoryb1=[res[4],res[5]];uint[2]memorya2=[res[6],res[7]];uint[2]memoryb2=[res[8],res[9]];returncon.verify1outof2ZKP(params,xG,yG,y,a1,b1,a2,b2);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 2
+content: functioninequalityProof()returns(bool){uintr1=100792359988221257522464744073694181557998811287873941943642234039632667801743;uintr2=73684597056470802520640839675442817373247702535850643999083350831860051477001;uintb1=23;uintb2=24;uint[2]memoryc1=con.createCommitment(r1,b1);if(!con.openCommitment(c1,r1,b1)){returnfalse;}uint[2]memoryc2=con.createCommitment(r2,b2);if(!con.openCommitment(c2,r2,b2)){returnfalse;}uintr3=106554628258140934843991940734271727557510876833354296893443127816727132563340;uintr4=50011181273477635355105934748199911221235256089199741271573814847024879061829;uint[2]memoryt1;uint[2]memoryt2;uintn1;uintn2;(t1,t2,n1,n2)=con.createInequalityProof(b1,b2,r1,r2,r3,r4,c1,c2);if(!con.verifyInequalityProof(c1,c2,t1,t2,n1,n2)){returnfalse;}returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 103
+column: 2
+content: functionequalityProof()returns(bool){uintr1=100792359988221257522464744073694181557998811287873941943642234039631667801743;uintr2=73684597056470802520640839675442817373247702535850643999083350831860052477001;uintb=23;uint[2]memoryc1=con.createCommitment(r1,b);if(!con.openCommitment(c1,r1,b)){returnfalse;}uint[2]memoryc2=con.createCommitment(r2,b);if(!con.openCommitment(c2,r2,b)){returnfalse;}uintr3=106554628258140934843991940734271727557510876833354296893443127816727132563840;uint[2]memoryt;uintn;(t,n)=con.createEqualityProof(r1,r2,r3,c1,c2);if(!con.verifyEqualityProof(n,c1,c2,t)){returnfalse;}returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 150
+column: 2
+content: functiontestFirst(){con=LocalCrypto(DeployedAddresses.LocalCrypto());uintx=100792359988221257522464744073694181557998811287873941943642234039631667801743;uint[2]memoryxG=[50011181273477635355105934748199911221235256089199741271573814847024879061899,71802419974013591686591529237219896883303932349628173412957707346469215125624];uint[2]memoryyG=[98038005178408974007512590727651089955354106077095278304532603697039577112780,1801119347122147381158502909947365828020117721497557484744596940174906898953];A=newSecondAccount(con,xG,yG,x);x=73684597056470802520640839675442817373247702535850643999083350831860052477001;xG=[98038005178408974007512590727651089955354106077095278304532603697039577112780,1801119347122147381158502909947365828020117721497557484744596940174906898953];yG=[50011181273477635355105934748199911221235256089199741271573814847024879061899,71802419974013591686591529237219896883303932349628173412957707346469215125624];B=newSecondAccount(con,xG,yG,x);x=106554628258140934843991940734271727557510876833354296893443127816727132563840;xG=[33836939586123110014913515630722089627445238026599436014853176202391948851936,112012169245950924685217915153942207169026199800060889564176846526381877678915];yG=[50011181273477635355105934748199911221235256089199741271573814847024879061899,71802419974013591686591529237219896883303932349628173412957707346469215125624];C=newSecondAccount(con,xG,yG,x);uintt=123;Assert.equal(t,1,"Should Fail");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 172
+column: 2
+content: functiontestEqualityCommitmentProofs(){uintt=123;Assert.equal(A.equalityProof(),true,"Equality Proof did not pass!");Assert.equal(t,1,"Should Fail");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 179
+column: 2
+content: functiontestInequalityCommitmentProofs(){uintt=123;Assert.equal(A.inequalityProof(),true,"Inequality Proof did not pass!");Assert.equal(t,1,"Should Fail");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 186
+column: 2
+content: functionverifySingleZKP()returns(bool[3]){bool[3]memoryres;uint[4]memorynums;uintv=114941333558360567695678851060848045245826375581561159846926673173053566932687;(res[0],nums)=A.singleZKP(v);v=28201629513124344311667277080113205903076096953435080012961531044913135153251;(res[1],nums)=B.singleZKP(v);v=43299936944025232330163985825794231821139305521742829361426928502076888495802;(res[2],nums)=C.singleZKP(v);returnres;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 204
+column: 2
+content: functionverifyOrZKP()returns(bool[3]){bool[3]memoryres;uintw=25291153222690468941875333155056279849838848426097128907648274067789060660273;uintr=68245514418532339184005707392894217247971162351489303687284716936396921389966;uintd=69359315012171413053095778073649855770462866229159476171746022558873132690484;res[0]=A.no(w,r,d);returnres;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 219
+column: 2
+content: functiontestSingleZKP(){bool[3]memoryres=verifySingleZKP();uintt=123;Assert.equal(res[0],true,"single zkp were false, not true! 0");Assert.equal(res[1],true,"single zkp were false, not true! 1");Assert.equal(res[2],true,"single zkp were false, not true! 2");Assert.equal(t,1,"Should Fail");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 228
+column: 2
+content: functiontestOrZKP(){bool[3]memoryres=verifyOrZKP();uintt=1203;Assert.equal(res[0],true,"OR zkp were false, not true! 0");Assert.equal(t,1,"Should Fail");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 237
+column: 2
+content: functiontestCannotSubmitFakeZKP(){uintx=110792359988221257522464744073694181557998811287873941943642234039631667801743;uint[2]memoryxG=[50011181273477635355105934748199911221235256089199741271573814847024879061899,71802419974013591686591529237219896883303932349628173412957707346469215125624];uint[2]memoryyG=[98038005178408974007512590727651089955354106077095278304532603697039577112780,1801119347122147381158502909947365828020117721497557484744596940174906898953];SecondAccountD=newSecondAccount(con,xG,yG,x);uintv=114941333558360567695678851060848045245826375581561159846926673173053566932687;boolres;uint[4]memorynums;(res,nums)=D.singleZKP(v);Assert.equal(res,false,"Fake ZKP submitted");Assert.equal(v,1,"Should Fail");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 255
+column: 2
+content: functiontestCannotFakeVote(){uintx=110792359988221257522464744073694181557998811287873941943642234039631667801743;uint[2]memoryxG=[50011181273477635355105934748199911221235256089199741271573814847024879061899,71802419974013591686591529237219896883303932349628173412957707346469215125624];uint[2]memoryyG=[98038005178408974007512590727651089955354106077095278304532603697039577112780,1801119347122147381158502909947365828020117721497557484744596940174906898953];SecondAccountD=newSecondAccount(con,xG,yG,x);uintw=25291153222690468941875333155056279849838848426097128907648274067789060660273;uintr=68245514418532339184005707392894217247971162351489303687284716936396921389966;uintd=79359315012171413053095778073649855770462866229159476171746022558873132690484;boolres=D.no(w,r,d);Assert.equal(res,false,"Wrong private key should have been used");Assert.equal(w,1,"Should Fail");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 2
+content: LocalCryptocon;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 11
+column: 2
+content: uint[2]xG;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 2
+content: uint[2]yG;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 2
+content: uintx;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 141
+column: 2
+content: LocalCryptocon;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 142
+column: 2
+content: SecondAccountA;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 143
+column: 2
+content: SecondAccountB;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 144
+column: 2
+content: SecondAccountC;
+
+SOLIDITY_VISIBILITY :23
+SOLIDITY_PRAGMAS_VERSION :1

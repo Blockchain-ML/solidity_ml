@@ -1,0 +1,40 @@
+C:\Users\hp\DataSet\RewardableHomeBridgeErcToNative.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 6
+column: 50
+content: 0x916850e9
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 8
+column: 4
+content: functionsetHomeFee(uint256_fee)externalonlyOwner{_setFee(feeManagerContract(),_fee,HOME_FEE);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 12
+column: 4
+content: functionsetForeignFee(uint256_fee)externalonlyOwner{_setFee(feeManagerContract(),_fee,FOREIGN_FEE);}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 24
+column: 4
+content: functiongetAmountToBurn(uint256_value)publicviewreturns(uint256){uint256amount;bytesmemorycallData=abi.encodeWithSelector(GET_AMOUNT_TO_BURN,_value);addressfeeManager=feeManagerContract();assembly{letresult:=callcode(gas,feeManager,0x0,add(callData,0x20),mload(callData),0,32)amount:=mload(0)switchresultcase0{revert(0,0)}}returnamount;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 28
+column: 8
+content: assembly{letresult:=callcode(gas,feeManager,0x0,add(callData,0x20),mload(callData),0,32)amount:=mload(0)switchresultcase0{revert(0,0)}}
+
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

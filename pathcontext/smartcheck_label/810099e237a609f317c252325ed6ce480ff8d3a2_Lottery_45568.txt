@@ -1,0 +1,201 @@
+C:\Users\hp\DataSet\contracts\ropsten\81\810099e237a609f317c252325ed6ce480ff8d3a2_Lottery.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 22
+column: 36
+content: 0x7B9b8fe76F9041A9dddAb1AD800C31F70716E156
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 64
+column: 31
+content: 0x00
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 106
+column: 4
+content: functiongetBalance(address_addr)publicconstantreturns(uint256){returnaddress(_addr).balance;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 125
+column: 2
+content: functiongetStringZero(uintlengthNumberRandom,uintlength)privateconstantcheckLegthNumber(lengthNumberRandom)checkLegthNumber(length)returns(string){stringmemoryzeros="";uintindex=lengthNumberRandom;if(length<10){while(index<length){zeros=random.append(zeros,"0");index++;}}returnzeros;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 140
+column: 4
+content: functionformatNumber(uint24number,uintlengthWonStr)privateconstantreturns(string){stringmemorynumberDialStr=random.uint2str(number);uintlengthNumber=bytes(numberDialStr).length;returnrandom.append(getStringZero(lengthNumber,lengthWonStr),numberDialStr);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 253
+column: 4
+content: functiongetRandom(uintlengthNumberWon)publicconstantreturns(uint24){uint256seed=uint256(keccak256(abi.encodePacked((block.timestamp).add(block.difficulty).add((uint256(keccak256(abi.encodePacked(block.coinbase))))/(now)).add(block.gaslimit).add((uint256(keccak256(abi.encodePacked(msg.sender))))/(now)).add(block.number))));uintpwrNumber=(10).pwr(lengthNumberWon);uint24numberRandom=uint24(seed-((seed/pwrNumber)*pwrNumber));returnnumberRandom;}
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 268
+column: 46
+content: (seed/pwrNumber)*pwrNumber
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 304
+column: 8
+content: for(i=0;i<b.length;i++){uintc=uint(b[i]);if(c>=48&&c<=57){result=result*10+(c-48);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 304
+column: 8
+content: for(i=0;i<b.length;i++){uintc=uint(b[i]);if(c>=48&&c<=57){result=result*10+(c-48);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 132
+column: 19
+content: index<length
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 245
+column: 0
+content: contractRandom{usingSafeMathfor*;constructor()publicpayable{}stringpublictimestamp;eventLogRandomNumber(addresssender,uint24numberRandom);functiongetRandom(uintlengthNumberWon)publicconstantreturns(uint24){uint256seed=uint256(keccak256(abi.encodePacked((block.timestamp).add(block.difficulty).add((uint256(keccak256(abi.encodePacked(block.coinbase))))/(now)).add(block.gaslimit).add((uint256(keccak256(abi.encodePacked(msg.sender))))/(now)).add(block.number))));uintpwrNumber=(10).pwr(lengthNumberWon);uint24numberRandom=uint24(seed-((seed/pwrNumber)*pwrNumber));returnnumberRandom;}functionuint2str(uinti)publicpurereturns(string){if(i==0)return"0";uintj=i;uintlength;while(j!=0){length++;j/=10;}bytesmemorybstr=newbytes(length);uintk=length-1;while(i!=0){bstr[k--]=byte(48+i%10);i/=10;}returnstring(bstr);}functionappend(stringa,stringb)publicpurereturns(string){returnstring(abi.encodePacked(a,b));}functionstringToUint(strings)publicpurereturns(uint256result){bytesmemoryb=bytes(s);uint256i;result=0;for(i=0;i<b.length;i++){uintc=uint(b[i]);if(c>=48&&c<=57){result=result*10+(c-48);}}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 7
+column: 4
+content: usingSafeMathfor*;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 246
+column: 4
+content: usingSafeMathfor*;
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 153
+column: 8
+content: sendEther(addressReceive)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 128
+column: 10
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 141
+column: 12
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 181
+column: 33
+content: stringnumber
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 183
+column: 12
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 274
+column: 51
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 293
+column: 20
+content: stringa
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 293
+column: 30
+content: stringb
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 293
+column: 62
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 300
+column: 26
+content: strings
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 8
+column: 4
+content: Randomrandom;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 4
+content: mapping(address=>uint256)mapAddressDial;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 20
+column: 4
+content: addressaddressOwner;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_SAFEMATH :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :9
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_DIV_MUL :1

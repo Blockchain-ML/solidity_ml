@@ -1,0 +1,47 @@
+F:\Blockchain\dataset_new_byID\76187.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 347
+column: 8
+content: for(uint256i=0;i<fees.length;i++){Beneficiarybeneficiary;if(0==fees[i].originId)beneficiary=protocolBeneficiary;elseif(0<partnerBenefactor.registeredBeneficiariesCount()&&fees[i].originId<=partnerBenefactor.registeredBeneficiariesCount())beneficiary=partnerBenefactor.beneficiaries(fees[i].originId.sub(1));if(address(0)==address(beneficiary))continue;addressdestination=address(fees[i].originId);if(driipSettlementState.totalFee(wallet,beneficiary,destination,fees[i].figure.currency).nonce<nonce){int256deltaAmount=fees[i].figure.amount.sub(driipSettlementState.totalFee(wallet,beneficiary,destination,fees[i].figure.currency).amount);if(deltaAmount.isNonZeroPositiveInt256()){driipSettlementState.setTotalFee(wallet,beneficiary,destination,fees[i].figure.currency,MonetaryTypesLib.NoncedAmount(nonce,fees[i].figure.amount));clientFund.transferToBeneficiary(wallet,beneficiary,deltaAmount,fees[i].figure.currency.ct,fees[i].figure.currency.id,standard);emitStageFeesEvent(wallet,deltaAmount,fees[i].figure.amount,fees[i].figure.currency.ct,fees[i].figure.currency.id);}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 347
+column: 8
+content: for(uint256i=0;i<fees.length;i++){Beneficiarybeneficiary;if(0==fees[i].originId)beneficiary=protocolBeneficiary;elseif(0<partnerBenefactor.registeredBeneficiariesCount()&&fees[i].originId<=partnerBenefactor.registeredBeneficiariesCount())beneficiary=partnerBenefactor.beneficiaries(fees[i].originId.sub(1));if(address(0)==address(beneficiary))continue;addressdestination=address(fees[i].originId);if(driipSettlementState.totalFee(wallet,beneficiary,destination,fees[i].figure.currency).nonce<nonce){int256deltaAmount=fees[i].figure.amount.sub(driipSettlementState.totalFee(wallet,beneficiary,destination,fees[i].figure.currency).amount);if(deltaAmount.isNonZeroPositiveInt256()){driipSettlementState.setTotalFee(wallet,beneficiary,destination,fees[i].figure.currency,MonetaryTypesLib.NoncedAmount(nonce,fees[i].figure.amount));clientFund.transferToBeneficiary(wallet,beneficiary,deltaAmount,fees[i].figure.currency.ct,fees[i].figure.currency.id,standard);emitStageFeesEvent(wallet,deltaAmount,fees[i].figure.amount,fees[i].figure.currency.ct,fees[i].figure.currency.id);}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 3
+column: 16
+content: >=
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 3
+column: 25
+content: <
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 294
+column: 12
+content: (DriipSettlementTypesLib.SettlementRolesettlementRole,uint256nonce)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 309
+column: 12
+content: (int256correctedPaymentBalanceAmount,intsettleAmount,NahmiiTypesLib.OriginFigure[]memorytotalFees)
+
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_SHOULD_RETURN_STRUCT :2

@@ -1,0 +1,63 @@
+C:\Users\hp\DataSet\EmployeeTokenSalaryPayout.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 87
+column: 4
+content: employeeAddressList.length--
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 129
+column: 4
+content: for(uinti=0;i<employeeAddressList.length;i++){address_address=employeeAddressList[i];uint256_amount=employees[_address].quarterlyAmount;if(employees[_address].initialPayoutAmount!=0){_amount=_amount.add(employees[_address].initialPayoutAmount);}_totalAmount=_totalAmount.add(_amount);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 148
+column: 4
+content: for(uinti=0;i<employeeAddressList.length;i++){address_address=employeeAddressList[i];uint256_amount=employees[_address].quarterlyAmount;if(employees[_address].initialPayoutAmount!=0){_amount=_amount.add(employees[_address].initialPayoutAmount);employees[_address].initialPayoutAmount=0;}_totalAmount=_totalAmount.add(_amount);payout(_address,_amount);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 129
+column: 4
+content: for(uinti=0;i<employeeAddressList.length;i++){address_address=employeeAddressList[i];uint256_amount=employees[_address].quarterlyAmount;if(employees[_address].initialPayoutAmount!=0){_amount=_amount.add(employees[_address].initialPayoutAmount);}_totalAmount=_totalAmount.add(_amount);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 148
+column: 4
+content: for(uinti=0;i<employeeAddressList.length;i++){address_address=employeeAddressList[i];uint256_amount=employees[_address].quarterlyAmount;if(employees[_address].initialPayoutAmount!=0){_amount=_amount.add(employees[_address].initialPayoutAmount);employees[_address].initialPayoutAmount=0;}_totalAmount=_totalAmount.add(_amount);payout(_address,_amount);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 12
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 29
+column: 2
+content: IBrickblockTokenbbkToken;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2

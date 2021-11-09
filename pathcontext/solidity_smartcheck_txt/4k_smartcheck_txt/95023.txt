@@ -1,0 +1,188 @@
+F:\Blockchain\solidity_dataset_work\4k_dataset\95023.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 46
+column: 33
+content: 0xAE0151Ca8C9b6A1A7B50Ce80Bf7436400E22b535
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 373
+column: 4
+content: functionvalidPurchase()internalconstantreturns(bool){uint256current=getBlockNumber();boolwithinPeriod=current>=startBlock&&current<=deadline;boolnonZeroPurchase=msg.value!=0;returnwithinPeriod&&nonZeroPurchase;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 385
+column: 4
+content: functiongetBlockNumber()internalconstantreturns(uint256){returnblock.number;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 401
+column: 2
+content: functionmul(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a*b;assert(a==0||c/a==b);returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 407
+column: 2
+content: functiondiv(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a/b;returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 414
+column: 2
+content: functionsub(uint256a,uint256b)internalconstantreturns(uint256){assert(b<=a);returna-b;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 419
+column: 2
+content: functionadd(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a+b;assert(c>=a);returnc;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 44
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 4
+column: 27
+content: functionreceiveApproval(address_from,uint256_value,address_token,bytes_extraData);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 9
+column: 4
+content: functionowned(){owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 18
+column: 4
+content: functiontransferOwnership(addressnewOwner)onlyOwner{owner=newOwner;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 95
+column: 4
+content: functioncrowdsale()onlyOwner{paused=false;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 103
+column: 4
+content: functionPylonToken(uint256initialSupply,stringtokenName,uint8decimalUnits,stringtokenSymbol,addresscentralMinter,addressifSuccessfulSendTo,uint256fundingGoalInWeis,uint256durationInMinutes,uint256weisCostOfEachToken){if(centralMinter!=0)owner=centralMinter;balanceOf[msg.sender]=initialSupply;totalSupply=initialSupply;name=tokenName;symbol=tokenSymbol;decimals=decimalUnits;beneficiary=ifSuccessfulSendTo;fundingGoal=fundingGoalInWeis;startBlock=getBlockNumber();startBlockBonus=getBlockNumber();endBlockBonus1=getBlockNumber()+15246+12600+500;endBlockBonus2=getBlockNumber()+30492+12600+800;endBlockBonus3=getBlockNumber()+45738+12600+1100;deadline=getBlockNumber()+(durationInMinutes*60/17)+5000;price=weisCostOfEachToken;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 146
+column: 4
+content: functiontransfer(address_to,uint256_value){_transfer(msg.sender,_to,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 151
+column: 4
+content: functionburn(uint256_value)onlyOwnerreturns(boolsuccess){require(balanceOf[msg.sender]>=_value);balanceOf[msg.sender]-=_value;totalSupply-=_value;Burn(msg.sender,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 160
+column: 4
+content: functionburnFrom(address_from,uint256_value)onlyOwnerreturns(boolsuccess){require(balanceOf[_from]>=_value);balanceOf[_from]-=_value;totalSupply-=_value;Burn(_from,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 169
+column: 4
+content: functionmintToken(addresstarget,uint256mintedAmount)onlyOwner{balanceOf[target]+=mintedAmount;totalSupply+=mintedAmount;Transfer(0,owner,mintedAmount);Transfer(owner,target,mintedAmount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 177
+column: 4
+content: functionfreezeAccount(addresstarget,boolfreeze)onlyOwner{frozenAccount[target]=freeze;FrozenFunds(target,freeze);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 183
+column: 4
+content: function()payablenotPaused{buyTokens(msg.sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 188
+column: 4
+content: functionbuyTokens(addressinvestor)payablenotPaused{require(!crowdsaleClosed);require(investor!=0x0);require(validPurchase());require(maxEtherInvestment>=msg.value);require(balanceOf[investor]<=maxTokens);require(amountRaised<=fundingGoal);require(pylonSelled<=totalTokensToSend);if(startBlockBonus<=getBlockNumber()&&startBlock<=getBlockNumber()&&endBlockBonus3>=getBlockNumber()&&pylonSelled<=bonusCap){buyPreIco(investor);}elseif(deadline>=getBlockNumber()){buyIco(investor);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 363
+column: 4
+content: functioncheckGoalReached()afterDeadlineonlyOwner{if(amountRaised>=fundingGoal){fundingGoalReached=true;GoalReached(beneficiary,amountRaised);}crowdsaleClosed=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 390
+column: 4
+content: functionpauseContribution()onlyOwner{paused=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 395
+column: 4
+content: functionresumeContribution()onlyOwner{paused=false;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 70
+column: 4
+content: boolfundingGoalReached=false;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 71
+column: 4
+content: boolcrowdsaleClosed=false;
+
+SOLIDITY_VISIBILITY :17
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :1

@@ -1,0 +1,32 @@
+C:\Users\hp\DataSet\contracts\ropsten\60\60400b197f43c0c73e3d619a360a7b335b8cfd05_game.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractgame{structMoves{bytes32p1Move;bytes32p2Move;uintwager;}enumChallengeState{challenged,accepted,playing,evaluating}enumEvalState{win,lose,draw}mapping(bytes32=>Moves)publicmoves;mapping(bytes32=>ChallengeState)publicpendingGame;mapping(address=>uint)publicmoneys;mapping(bytes32=>mapping(bytes32=>EvalState))publicevulationMapping;addressowner;constructor(){owner=msg.sender;evulationMapping[keccak256("Paper")][keccak256("Rock")]=EvalState.win;evulationMapping[keccak256("Paper")][keccak256("Scissors")]=EvalState.lose;evulationMapping[keccak256("Paper")][keccak256("Paper")]=EvalState.draw;evulationMapping[keccak256("Rock")][keccak256("Rock")]=EvalState.draw;evulationMapping[keccak256("Rock")][keccak256("Scissors")]=EvalState.win;evulationMapping[keccak256("Rock")][keccak256("Paper")]=EvalState.lose;evulationMapping[keccak256("Scissors")][keccak256("Rock")]=EvalState.lose;evulationMapping[keccak256("Scissors")][keccak256("Scissors")]=EvalState.draw;evulationMapping[keccak256("Scissors")][keccak256("Paper")]=EvalState.win;}functionevaluate(addressopponent,stringmovePassword,stringmove)external{bytes32gameHash=getPairHash(msg.sender,opponent);require(pendingGame[gameHash]==ChallengeState.playing||pendingGame[gameHash]==ChallengeState.evaluating);bytes32verifiedMove=keccak256(move,movePassword);if(opponent>msg.sender){require(verifiedMove==moves[gameHash].p1Move);if(pendingGame[gameHash]==ChallengeState.playing){pendingGame[gameHash]=ChallengeState.evaluating;moves[gameHash].p1Move=keccak256(move);}else{moneys[GetWinner(keccak256(move),msg.sender,moves[gameHash].p2Move,opponent)]+=moves[gameHash].wager*2;}}else{require(verifiedMove==moves[gameHash].p2Move);if(pendingGame[gameHash]==ChallengeState.playing){pendingGame[gameHash]=ChallengeState.evaluating;moves[gameHash].p2Move=keccak256(move);}else{moneys[GetWinner(moves[gameHash].p1Move,opponent,keccak256(move),msg.sender)]+=moves[gameHash].wager*2;}}}functionGetWinner(bytes32p1Move,addressp1Address,bytes32p2Move,addressp2Address)internalviewreturns(address){if(evulationMapping[p1Move][p2Move]==EvalState.win)returnp1Address;elseif(evulationMapping[p1Move][p2Move]==EvalState.lose)returnp2Address;returnowner;}functionchallenge(addressbastard)externalpayable{require(msg.value>10finney);bytes32gameHash=getPairHash(msg.sender,bastard);pendingGame[gameHash]=ChallengeState.challenged;moves[gameHash].wager=msg.value;}functionacceptChallenge(addresschallenger)externalpayable{bytes32gameHash=getPairHash(msg.sender,challenger);require(msg.value==moves[gameHash].wager);pendingGame[gameHash]=ChallengeState.accepted;}functionplay(addressopponent,bytes32move)external{bytes32gameHash=getPairHash(msg.sender,opponent);require(pendingGame[gameHash]==ChallengeState.accepted||pendingGame[gameHash]==ChallengeState.playing);if(opponent>msg.sender)moves[gameHash].p1Move=move;elsemoves[gameHash].p2Move=move;pendingGame[gameHash]=ChallengeState.playing;}functiongetPairHash(address_a,address_b)publicpurereturns(bytes32){return(_a<_b)?keccak256(abi.encodePacked(_a,_b)):keccak256(abi.encodePacked(_b,_a));}function()externalpayable{emithello(msg.sender,msg.value);}eventhello(addresssender,uintamount);}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 42
+column: 31
+content: keccak256(move,movePassword)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 20
+column: 4
+content: constructor(){owner=msg.sender;evulationMapping[keccak256("Paper")][keccak256("Rock")]=EvalState.win;evulationMapping[keccak256("Paper")][keccak256("Scissors")]=EvalState.lose;evulationMapping[keccak256("Paper")][keccak256("Paper")]=EvalState.draw;evulationMapping[keccak256("Rock")][keccak256("Rock")]=EvalState.draw;evulationMapping[keccak256("Rock")][keccak256("Scissors")]=EvalState.win;evulationMapping[keccak256("Rock")][keccak256("Paper")]=EvalState.lose;evulationMapping[keccak256("Scissors")][keccak256("Rock")]=EvalState.lose;evulationMapping[keccak256("Scissors")][keccak256("Scissors")]=EvalState.draw;evulationMapping[keccak256("Scissors")][keccak256("Paper")]=EvalState.win;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 18
+column: 4
+content: addressowner;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1

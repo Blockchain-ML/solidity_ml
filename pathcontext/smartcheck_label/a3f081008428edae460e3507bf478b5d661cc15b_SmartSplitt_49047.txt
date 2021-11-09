@@ -1,0 +1,181 @@
+C:\Users\hp\DataSet\contracts\ropsten\a3\a3f081008428edae460e3507bf478b5d661cc15b_SmartSplitt.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 82
+column: 27
+content: 0xDB6827de6b9Fc722Dc4EFa7e35f3b78c54932494
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 83
+column: 31
+content: 0x31CdA77ab136c8b971511473c3D04BBF7EAe8C0f
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 84
+column: 28
+content: 0x36c92a9Da5256EaA5Ccc355415271b7d2682f32E
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 253
+column: 16
+content: user.deposits.length-=1
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 200
+column: 15
+content: amount.mul(percents).div(ONE_HUNDRED_PERCENTS).mul(duration)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 180
+column: 8
+content: for(uinti=0;i<user.deposits.length;i++){uint256deposit=user.deposits[i].amount;uint256tariff=tariffIndexForAmount(deposit);uint256maxDuration=tariffDuration[tariff];uint256howOld=now.sub(user.deposits[i].time);uint256duration=now.sub(user.lastPayment);if(howOld>maxDuration){uint256overtime=howOld.sub(maxDuration);duration=duration.sub(overtime);}dividends[i]=dividendsForAmountAndTime(deposit,duration);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 206
+column: 8
+content: for(uinti=0;i<tariffAmount.length;i++){if(amount<=tariffAmount[i]){returni;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 235
+column: 8
+content: for(uinti=0;i<dividends.length;i++){emitDepositDividendPayed(who,i,user.deposits[i].amount,dividendsForAmountAndTime(user.deposits[i].amount,now.sub(user.deposits[i].time)),dividends[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 246
+column: 8
+content: for(i=0;i<user.deposits.length;i++){uint256deposit=user.deposits[i].amount;uint256tariff=tariffIndexForAmount(deposit);uint256maxDuration=tariffDuration[tariff];if(now>=user.deposits[i].time.add(maxDuration)){user.deposits[i]=user.deposits[user.deposits.length-1];user.deposits.length-=1;i-=1;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 312
+column: 8
+content: for(uinti=0;i<dividends.length;i++){dividendsSum=dividendsSum.add(dividends[i]);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 304
+column: 4
+content: function_bytesToAddress(bytesdata)privatepurereturns(addressaddr){assembly{addr:=mload(add(data,20))}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 180
+column: 8
+content: for(uinti=0;i<user.deposits.length;i++){uint256deposit=user.deposits[i].amount;uint256tariff=tariffIndexForAmount(deposit);uint256maxDuration=tariffDuration[tariff];uint256howOld=now.sub(user.deposits[i].time);uint256duration=now.sub(user.lastPayment);if(howOld>maxDuration){uint256overtime=howOld.sub(maxDuration);duration=duration.sub(overtime);}dividends[i]=dividendsForAmountAndTime(deposit,duration);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 206
+column: 8
+content: for(uinti=0;i<tariffAmount.length;i++){if(amount<=tariffAmount[i]){returni;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 235
+column: 8
+content: for(uinti=0;i<dividends.length;i++){emitDepositDividendPayed(who,i,user.deposits[i].amount,dividendsForAmountAndTime(user.deposits[i].amount,now.sub(user.deposits[i].time)),dividends[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 246
+column: 8
+content: for(i=0;i<user.deposits.length;i++){uint256deposit=user.deposits[i].amount;uint256tariff=tariffIndexForAmount(deposit);uint256maxDuration=tariffDuration[tariff];if(now>=user.deposits[i].time.add(maxDuration)){user.deposits[i]=user.deposits[user.deposits.length-1];user.deposits.length-=1;i-=1;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 312
+column: 8
+content: for(uinti=0;i<dividends.length;i++){dividendsSum=dividendsSum.add(dividends[i]);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 58
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 304
+column: 4
+content: function_bytesToAddress(bytesdata)privatepurereturns(addressaddr){assembly{addr:=mload(add(data,20))}}
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 300
+column: 14
+content: send(adminFee)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 176
+column: 66
+content: uint256[]dividends
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 304
+column: 29
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 311
+column: 27
+content: uint256[]dividends
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 306
+column: 8
+content: assembly{addr:=mload(add(data,20))}
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :5
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :5
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_DIV_MUL :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

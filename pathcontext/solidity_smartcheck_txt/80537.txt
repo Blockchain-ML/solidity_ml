@@ -1,0 +1,70 @@
+F:\Blockchain\dataset_new_byID\80537.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 191
+column: 16
+content: providers.length--
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 186
+column: 8
+content: for(uint256i=0;i<providers.length;i++){if(providers[i]==provider){if(i+1!=providers.length){providers[i]=providers[providers.length-1];}providers.length--;emitProviderRemoved(provider);break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 130
+column: 8
+content: for(uint256i=0;i<reportsCount;i++){addressproviderAddress=providers[i];Report[2]memoryreports=providerReports[providerAddress];uint8index_recent=reports[0].timestamp>=reports[1].timestamp?0:1;uint8index_past=1-index_recent;uint256reportTimestampRecent=reports[index_recent].timestamp;if(reportTimestampRecent>maxValidTimestamp){uint256reportTimestampPast=providerReports[providerAddress][index_past].timestamp;if(reportTimestampPast<minValidTimestamp){emitReportTimestampOutOfRange(providerAddress);}elseif(reportTimestampPast>maxValidTimestamp){emitReportTimestampOutOfRange(providerAddress);}else{validReports[size++]=providerReports[providerAddress][index_past].payload;}}else{if(reportTimestampRecent<minValidTimestamp){emitReportTimestampOutOfRange(providerAddress);}else{validReports[size++]=providerReports[providerAddress][index_recent].payload;}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 186
+column: 8
+content: for(uint256i=0;i<providers.length;i++){if(providers[i]==provider){if(i+1!=providers.length){providers[i]=providers[providers.length-1];}providers.length--;emitProviderRemoved(provider);break;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 64
+column: 4
+content: functionsetReportExpirationTimeSec(uint256reportExpirationTimeSec_)externalonlyOwner{require(reportExpirationTimeSec_<=MAX_REPORT_EXPIRATION_TIME);reportExpirationTimeSec=reportExpirationTimeSec_;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 73
+column: 4
+content: functionsetReportDelaySec(uint256reportDelaySec_)externalonlyOwner{reportDelaySec=reportDelaySec_;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 81
+column: 4
+content: functionsetMinimumProviders(uint256minimumProviders_)externalonlyOwner{require(minimumProviders_>0);minimumProviders=minimumProviders_;}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 48
+column: 12
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 16
+column: 4
+content: usingSafeMathforuint256;
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :3
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2

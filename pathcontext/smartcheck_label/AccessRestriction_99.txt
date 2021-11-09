@@ -1,0 +1,17 @@
+C:\Users\hp\DataSet\AccessRestriction.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 6
+column: 0
+content: contractAccessRestriction{addresspublicowner=msg.sender;uintpubliclastOwnerChange=now;modifieronlyBy(address_account){require(msg.sender==_account);_;}modifieronlyAfter(uint_time){require(now>=_time);_;}modifiercosts(uint_amount){require(msg.value>=_amount);_;if(msg.value>_amount){msg.sender.transfer(msg.value-_amount);}}functionchangeOwner(address_newOwner)publiconlyBy(owner){owner=_newOwner;}functionbuyContract()publicpayableonlyAfter(lastOwnerChange+4weeks)costs(1ether){owner=msg.sender;lastOwnerChange=now;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 4
+column: 16
+content: ^
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

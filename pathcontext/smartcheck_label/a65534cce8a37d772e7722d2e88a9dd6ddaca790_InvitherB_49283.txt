@@ -1,0 +1,93 @@
+C:\Users\hp\DataSet\contracts\ropsten\a6\a65534cce8a37d772e7722d2e88a9dd6ddaca790_InvitherB.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 86
+column: 25
+content: 0xfe9313E171C441db91E3604F75cA58f13AA0Cb23
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 97
+column: 4
+content: for(int256i=0;i<userCount;i++){if(!usersMap[i].isFull){for(uint256j=0;j<5;j++){if(usersMap[i].childs[j]==-1){usersMap[i].childs[j]==userCount;int256child=-1;usersMap[userCount]=User({user_address:user_address,parent_id:i,childs:[child,child,child,child,child],isFull:false});userCount++;if(j==4)usersMap[i].isFull=true;returnuserCount-1;}}}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 63
+column: 0
+content: contractInvitherBisManageable{usingSafeMathforuint256;usingSafeMathforint256;eventAddUser(addressuser_address,int256user_id);eventReward(addressuser_address,int256user_id,uint256reward_amount);structUser{addressuser_address;int256parent_id;int256[5]childs;boolisFull;}mapping(int256=>User)privateusersMap;boolinitDone=false;int256userCount=0;addresscommissioner=0xfe9313E171C441db91E3604F75cA58f13AA0Cb23;functioninit()publiconlyOwner{int256child=-1;usersMap[0]=User({user_address:owner,parent_id:child,childs:[child,child,child,child,child],isFull:false});userCount=1;}function_addUser(addressuser_address)privatereturns(int256){for(int256i=0;i<userCount;i++){if(!usersMap[i].isFull){for(uint256j=0;j<5;j++){if(usersMap[i].childs[j]==-1){usersMap[i].childs[j]==userCount;int256child=-1;usersMap[userCount]=User({user_address:user_address,parent_id:i,childs:[child,child,child,child,child],isFull:false});userCount++;if(j==4)usersMap[i].isFull=true;returnuserCount-1;}}}}return-1;}functiongetRewarder(int256parent_id)privateviewreturns(int256){int256i=0;for(i=0;i<4;i++){parent_id=usersMap[parent_id].parent_id;if(parent_id==-1){return-1;}}returnparent_id;}functiongetUserCount()publicviewreturns(int256_usercount){_usercount=userCount;}functiongetUser(int256_user_id)publicviewreturns(address_user_address,int256_parent_id,int256[5]_childs,bool_isFull){Usermemory_user=usersMap[_user_id];_user_address=_user.user_address;_parent_id=_user.parent_id;_childs=_user.childs;_isFull=_user.isFull;}functionaddUser(int256parent_id)publicpayableisUnlocked{require(parent_id<userCount);require(msg.value>=price);uint256i=0;if(!usersMap[parent_id].isFull){for(i=0;i<5;i++){if(usersMap[parent_id].childs[i]==-1){usersMap[parent_id].childs[i]=userCount;int256child=-1;usersMap[userCount]=User({user_address:msg.sender,parent_id:parent_id,childs:[child,child,child,child,child],isFull:false});userCount++;if(i==4)usersMap[parent_id].isFull=true;emitAddUser(msg.sender,userCount-1);break;}}}}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 52
+column: 2
+content: functionsetContractLock(boolsetting)publiconlyOwner{contractLock=setting;emitContractLockChanged(msg.sender,setting);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 82
+column: 26
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 64
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 65
+column: 2
+content: usingSafeMathforint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 27
+column: 2
+content: uint256price=1000000000000000000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 83
+column: 2
+content: boolinitDone=false;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 84
+column: 2
+content: int256userCount=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 86
+column: 2
+content: addresscommissioner=0xfe9313E171C441db91E3604F75cA58f13AA0Cb23;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_SAFEMATH :2
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :1

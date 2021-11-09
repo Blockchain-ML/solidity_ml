@@ -1,0 +1,134 @@
+C:\Users\hp\DataSet\NavCalculator.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 66
+column: 2
+content: functioncalculate()onlyFundconstantreturns(uintlastCalcDate,uintnavPerShare,uintlossCarryforward,uintaccumulatedMgmtFees,uintaccumulatedAdminFees){lastCalcDate=now;uintnetAssetValue=sharesToUsd(fund.totalSupply());uintelapsedTime=lastCalcDate-fund.lastCalcDate();lossCarryforward=fund.lossCarryforward();accumulatedMgmtFees=fund.accumulatedMgmtFees();accumulatedAdminFees=fund.accumulatedAdminFees();uintgrossAssetValueLessFees=dataFeed.value().add(fund.ethToUsd(fund.getBalance())).sub(accumulatedMgmtFees).sub(accumulatedAdminFees);uintmgmtFee=getAnnualFee(elapsedTime,fund.mgmtFeeBps());uintadminFee=getAnnualFee(elapsedTime,fund.adminFeeBps());intgainLoss=int(grossAssetValueLessFees)-int(netAssetValue)-int(mgmtFee)-int(adminFee);uintperformFee=0;uintperformFeeOffset=0;if(gainLoss>=0){uintlossPayback=Math.min256(uint(gainLoss),lossCarryforward);lossCarryforward=lossCarryforward.sub(lossPayback);performFee=getPerformFee(uint(gainLoss).sub(lossPayback));netAssetValue=netAssetValue.add(uint(gainLoss)).sub(performFee);}else{performFeeOffset=Math.min256(getPerformFee(uint(-1*gainLoss)),accumulatedMgmtFees);lossCarryforward=lossCarryforward.add(uint(-1*gainLoss)).sub(getGainGivenPerformFee(performFeeOffset));netAssetValue=netAssetValue.sub(uint(-1*gainLoss)).add(performFeeOffset);}accumulatedAdminFees=accumulatedAdminFees.add(adminFee);accumulatedMgmtFees=accumulatedMgmtFees.add(performFee).sub(performFeeOffset);navPerShare=toNavPerShare(netAssetValue);LogNavCalculation(lastCalcDate,elapsedTime,grossAssetValueLessFees,netAssetValue,fund.totalSupply(),adminFee,mgmtFee,performFee,performFeeOffset,lossPayback);return(lastCalcDate,navPerShare,lossCarryforward,accumulatedMgmtFees,accumulatedAdminFees);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 153
+column: 2
+content: functiongetAnnualFee(uintelapsedTime,uintannualFeeBps)internalconstantreturns(uintfeePayment){returnannualFeeBps.mul(sharesToUsd(fund.totalSupply())).div(10000).mul(elapsedTime).div(31536000);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 162
+column: 2
+content: functiongetPerformFee(uint_usdGain)internalconstantreturns(uintperformFee){returnfund.performFeeBps().mul(_usdGain).div(10**fund.decimals());}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 171
+column: 2
+content: functiongetGainGivenPerformFee(uint_performFee)internalconstantreturns(uintusdGain){return_performFee.mul(10**fund.decimals()).div(fund.performFeeBps());}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 180
+column: 2
+content: functionsharesToUsd(uint_shares)internalconstantreturns(uintusd){return_shares.mul(fund.navPerShare()).div(10**fund.decimals());}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 189
+column: 2
+content: functiontoNavPerShare(uint_balance)internalconstantreturns(uint){return_balance.mul(10**fund.decimals()).div(fund.totalSupply());}
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 158
+column: 11
+content: annualFeeBps.mul(sharesToUsd(fund.totalSupply())).div(10000).mul(elapsedTime)
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 20
+column: 2
+content: functioncalculate()returns(uintlastCalcDate,uintnavPerShare,uintlossCarryforward,uintaccumulatedMgmtFees,uintaccumulatedAdminFees){}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 134
+column: 2
+content: functionsetFund(address_address)onlyOwner{fund=IFund(_address);fundAddress=_address;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 142
+column: 2
+content: functionsetDataFeed(address_address)onlyOwner{dataFeed=IDataFeed(_address);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 31
+column: 2
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 20
+column: 2
+content: functioncalculate()returns(uintlastCalcDate,uintnavPerShare,uintlossCarryforward,uintaccumulatedMgmtFees,uintaccumulatedAdminFees){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 47
+column: 2
+content: functionNavCalculator(address_dataFeed){dataFeed=IDataFeed(_dataFeed);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 66
+column: 2
+content: functioncalculate()onlyFundconstantreturns(uintlastCalcDate,uintnavPerShare,uintlossCarryforward,uintaccumulatedMgmtFees,uintaccumulatedAdminFees){lastCalcDate=now;uintnetAssetValue=sharesToUsd(fund.totalSupply());uintelapsedTime=lastCalcDate-fund.lastCalcDate();lossCarryforward=fund.lossCarryforward();accumulatedMgmtFees=fund.accumulatedMgmtFees();accumulatedAdminFees=fund.accumulatedAdminFees();uintgrossAssetValueLessFees=dataFeed.value().add(fund.ethToUsd(fund.getBalance())).sub(accumulatedMgmtFees).sub(accumulatedAdminFees);uintmgmtFee=getAnnualFee(elapsedTime,fund.mgmtFeeBps());uintadminFee=getAnnualFee(elapsedTime,fund.adminFeeBps());intgainLoss=int(grossAssetValueLessFees)-int(netAssetValue)-int(mgmtFee)-int(adminFee);uintperformFee=0;uintperformFeeOffset=0;if(gainLoss>=0){uintlossPayback=Math.min256(uint(gainLoss),lossCarryforward);lossCarryforward=lossCarryforward.sub(lossPayback);performFee=getPerformFee(uint(gainLoss).sub(lossPayback));netAssetValue=netAssetValue.add(uint(gainLoss)).sub(performFee);}else{performFeeOffset=Math.min256(getPerformFee(uint(-1*gainLoss)),accumulatedMgmtFees);lossCarryforward=lossCarryforward.add(uint(-1*gainLoss)).sub(getGainGivenPerformFee(performFeeOffset));netAssetValue=netAssetValue.sub(uint(-1*gainLoss)).add(performFeeOffset);}accumulatedAdminFees=accumulatedAdminFees.add(adminFee);accumulatedMgmtFees=accumulatedMgmtFees.add(performFee).sub(performFeeOffset);navPerShare=toNavPerShare(netAssetValue);LogNavCalculation(lastCalcDate,elapsedTime,grossAssetValueLessFees,netAssetValue,fund.totalSupply(),adminFee,mgmtFee,performFee,performFeeOffset,lossPayback);return(lastCalcDate,navPerShare,lossCarryforward,accumulatedMgmtFees,accumulatedAdminFees);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 134
+column: 2
+content: functionsetFund(address_address)onlyOwner{fund=IFund(_address);fundAddress=_address;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 142
+column: 2
+content: functionsetDataFeed(address_address)onlyOwner{dataFeed=IDataFeed(_address);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 2
+content: IFundfund;
+
+SOLIDITY_VISIBILITY :6
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_DIV_MUL :1

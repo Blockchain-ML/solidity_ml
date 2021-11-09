@@ -1,0 +1,125 @@
+F:\Blockchain\dataset_new_byID\80220.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 48
+column: 20
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 55
+column: 21
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 58
+column: 21
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 63
+column: 4
+content: functiongetDeployer()constantreturns(address){returndeployer;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 67
+column: 4
+content: functiongetDoers()constantreturns(IronDoersAbstract){returndoers;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 71
+column: 4
+content: functiongetPromiseCount()constantreturns(uint){returnpromiseCount;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 75
+column: 4
+content: functiongetFulfillmentCount()constantreturns(uint){returnfulfillmentCount;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 5
+column: 0
+content: contractIronPromise{addresspublicdeployer;IronDoersAbstractpublicdoers;structPromise{addressdoer;stringthing;uintexpire;uintvalue;bytes32hash;}structFulfillment{addressdoer;bytes32promise;stringproof;uinttimestamp;bytes32hash;}mapping(bytes32=>Promise)publicpromises;mapping(bytes32=>Fulfillment)publicfulfillments;uintpublicpromiseCount;uintpublicfulfillmentCount;modifieronlyDoers{if(!doers.isDoer(msg.sender))revert();_;}functionIronPromise(IronDoersAbstractabs){fulfillmentCount=0;deployer=msg.sender;doers=abs;}functionpromise(stringthing,uintexpire)payableonlyDoers{require(expire>block.timestamp);require(msg.value>0);bytes32h=sha3(msg.sender,thing);promises[h]=Promise({doer:msg.sender,thing:thing,expire:expire,value:msg.value,hash:h});promiseCount++;}functionfulfill(stringthing,stringproof)onlyDoers{bytes32ph=sha3(msg.sender,thing);require(block.timestamp<promises[ph].expire);bytes32fh=sha3(msg.sender,proof);fulfillments[fh]=Fulfillment({doer:msg.sender,promise:promises[ph].hash,proof:proof,timestamp:block.timestamp,hash:fh});fulfillmentCount++;}functiongetDeployer()constantreturns(address){returndeployer;}functiongetDoers()constantreturns(IronDoersAbstract){returndoers;}functiongetPromiseCount()constantreturns(uint){returnpromiseCount;}functiongetFulfillmentCount()constantreturns(uint){returnfulfillmentCount;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 34
+column: 8
+content: if(!doers.isDoer(msg.sender))revert();
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 38
+column: 4
+content: functionIronPromise(IronDoersAbstractabs){fulfillmentCount=0;deployer=msg.sender;doers=abs;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 44
+column: 4
+content: functionpromise(stringthing,uintexpire)payableonlyDoers{require(expire>block.timestamp);require(msg.value>0);bytes32h=sha3(msg.sender,thing);promises[h]=Promise({doer:msg.sender,thing:thing,expire:expire,value:msg.value,hash:h});promiseCount++;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 53
+column: 4
+content: functionfulfill(stringthing,stringproof)onlyDoers{bytes32ph=sha3(msg.sender,thing);require(block.timestamp<promises[ph].expire);bytes32fh=sha3(msg.sender,proof);fulfillments[fh]=Fulfillment({doer:msg.sender,promise:promises[ph].hash,proof:proof,timestamp:block.timestamp,hash:fh});fulfillmentCount++;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 63
+column: 4
+content: functiongetDeployer()constantreturns(address){returndeployer;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 67
+column: 4
+content: functiongetDoers()constantreturns(IronDoersAbstract){returndoers;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 71
+column: 4
+content: functiongetPromiseCount()constantreturns(uint){returnpromiseCount;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 75
+column: 4
+content: functiongetFulfillmentCount()constantreturns(uint){returnfulfillmentCount;}
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :7
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1

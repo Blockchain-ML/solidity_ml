@@ -1,0 +1,33 @@
+C:\Users\hp\DataSet\contracts\ropsten\65\6597d80b54c767a915fa0301edc8bb02683d6f66_ForwardFactory.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 15
+column: 4
+content: functioncreateForwarder(addresstarget)returns(addressfwdContract){bytes32b1=0x602e600c600039602e6000f33660006000376101006000366000730000000000;bytes32b2=0x5af41558576101006000f3000000000000000000000000000000000000000000;uint256shiftedAddress=uint256(target)*((2**8)**12);assembly{letcontractCode:=mload(0x40)mstore(contractCode,b1)mstore(add(contractCode,0x1b),shiftedAddress)mstore(add(contractCode,0x2f),b2)fwdContract:=create(0,contractCode,0x3A)switchextcodesize(fwdContract)case0{invalid()}}ForwarderDeployed(fwdContract,target);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 12
+column: 16
+content: ^
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 21
+column: 7
+content: assembly{letcontractCode:=mload(0x40)mstore(contractCode,b1)mstore(add(contractCode,0x1b),shiftedAddress)mstore(add(contractCode,0x2f),b2)fwdContract:=create(0,contractCode,0x3A)switchextcodesize(fwdContract)case0{invalid()}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 15
+column: 4
+content: functioncreateForwarder(addresstarget)returns(addressfwdContract){bytes32b1=0x602e600c600039602e6000f33660006000376101006000366000730000000000;bytes32b2=0x5af41558576101006000f3000000000000000000000000000000000000000000;uint256shiftedAddress=uint256(target)*((2**8)**12);assembly{letcontractCode:=mload(0x40)mstore(contractCode,b1)mstore(add(contractCode,0x1b),shiftedAddress)mstore(add(contractCode,0x2f),b2)fwdContract:=create(0,contractCode,0x3A)switchextcodesize(fwdContract)case0{invalid()}}ForwarderDeployed(fwdContract,target);}
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1

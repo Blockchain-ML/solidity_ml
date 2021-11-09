@@ -1,0 +1,47 @@
+C:\Users\hp\DataSet\contracts\ropsten\c4\c48e6e8e89dfbbcdcdbc8d5514a46ba5e9a509ec_ContractProbe.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 63
+column: 32
+content: 0x73
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 71
+column: 38
+content: 0x1
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 31
+column: 4
+content: functionprobe(address_addr)publicviewreturns(boolisContract,addressforwardedTo){bytesmemoryclone=hex"363d3d373d3d3d363d73bebebebebebebebebebebebebebebebebebebebe5af43d82803e903d91602b57fd5bf3";uintsize;bytesmemorycode;assembly{size:=extcodesize(_addr)}isContract=size>0;forwardedTo=_addr;if(size<=45&&size>=41){boolmatches=true;uinti;assembly{code:=mload(0x40)mstore(0x40,add(code,and(add(add(size,0x20),0x1f),not(0x1f))))mstore(code,size)extcodecopy(_addr,add(code,0x20),0,size)}for(i=0;matches&&i<9;i++){matches=code[i]==clone[i];}for(i=0;matches&&i<15;i++){if(i==4){matches=code[code.length-i-1]==byte(uint(clone[45-i-1])-(45-size));}else{matches=code[code.length-i-1]==clone[45-i-1];}}if(code[9]!=byte(0x73-(45-size))){matches=false;}uintforwardedToBuffer;if(matches){assembly{forwardedToBuffer:=mload(add(code,30))}forwardedToBuffer&=(0x1<<20*8)-1;forwardedTo=address(forwardedToBuffer>>((45-size)*8));}}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 47
+column: 12
+content: assembly{code:=mload(0x40)mstore(0x40,add(code,and(add(add(size,0x20),0x1f),not(0x1f))))mstore(code,size)extcodecopy(_addr,add(code,0x20),0,size)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 68
+column: 16
+content: assembly{forwardedToBuffer:=mload(add(code,30))}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_USING_INLINE_ASSEMBLY :2
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

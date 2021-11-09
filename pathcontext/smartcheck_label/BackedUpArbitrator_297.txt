@@ -1,0 +1,46 @@
+C:\Users\hp\DataSet\BackedUpArbitrator.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 10
+column: 0
+content: contractBackedUpArbitratorisCentralizedArbitrator,Arbitrable{structAppealDispute{uintcreationTime;uintappealDisputeID;boolappealed;}uintpublictimeOut;mapping(uint=>AppealDispute)publicappealDisputes;constructor(uint_arbitrationPrice,Arbitrator_arbitrator,bytes_arbitratorExtraData,uint_timeOut)publicCentralizedArbitrator(_arbitrationPrice)Arbitrable(_arbitrator,_arbitratorExtraData){timeOut=_timeOut;}functionchangeTimeOut(uint_timeOut)externalonlyOwner{timeOut=_timeOut;}functioncreateDispute(uint_choices,bytes_extraData)publicpayablereturns(uintdisputeID){disputeID=super.createDispute(_choices,_extraData);appealDisputes[disputeID].creationTime=now;}functionappeal(uint_disputeID,bytes_extraData)publicpayablerequireAppealFee(_disputeID,_extraData){super.appeal(_disputeID,_extraData);appealDisputes[_disputeID].appealDisputeID=arbitrator.createDispute(disputes[_disputeID].choices,_extraData);appealDisputes[_disputeID].appealed=true;}functiongiveRuling(uint_disputeID,uint_ruling)public{require((!appealDisputes[_disputeID].appealed&&msg.sender==owner)||(appealDisputes[_disputeID].appealed&&Arbitrator(msg.sender)==arbitrator),"Appealed disputes must be ruled by the back up arbitrator.");super.giveRuling(_disputeID,_ruling);}functionappealCost(uint_disputeID,bytes_extraData)publicviewreturns(uintcost){if(now-appealDisputes[_disputeID].creationTime>timeOut&&disputes[_disputeID].status<DisputeStatus.Solved&&!appealDisputes[_disputeID].appealed)cost=arbitrator.arbitrationCost(_extraData);elsecost=NOT_PAYABLE_VALUE;}functionexecuteRuling(uint_disputeID,uint_ruling)internal{giveRuling(appealDisputes[_disputeID].appealDisputeID,_ruling);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 35
+column: 8
+content: bytes_arbitratorExtraData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 57
+column: 42
+content: bytes_extraData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 66
+column: 37
+content: bytes_extraData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 92
+column: 41
+content: bytes_extraData
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :4

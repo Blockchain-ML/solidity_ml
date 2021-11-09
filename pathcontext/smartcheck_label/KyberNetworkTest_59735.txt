@@ -1,0 +1,246 @@
+C:\Users\hp\DataSet\KyberNetworkTest.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 11
+column: 50
+content: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 6
+column: 0
+content: contractKyberNetworkTestisKyberNetwork{usingSafeMathforuint256;addressconstantinternalETH_TOKEN_ADDRESS=0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;structToken{boolexists;uint256rate;uint256decimals;}mapping(address=>Token)publictokens;addressowner;constructor()public{owner=msg.sender;}function()externalpayable{}functionaddToken(ERC20_token,uint256_rate,uint256_decimals)public{require(msg.sender==owner,"unauthorized");tokens[address(_token)]=Token({exists:true,rate:_rate,decimals:_decimals});}functiongetExpectedRate(ERC20_src,ERC20_dest,uint)publicviewreturns(uintexpectedRate,uintslippageRate){if(address(_src)==ETH_TOKEN_ADDRESS){expectedRate=10**36/tokens[address(_dest)].rate;slippageRate=expectedRate;}elseif(address(_dest)==ETH_TOKEN_ADDRESS){expectedRate=tokens[address(_src)].rate;slippageRate=expectedRate;}else{revert("Unknown token pair");}}functiontrade(ERC20_src,uint_srcAmount,ERC20_dest,address<missing ')'>payable_destAddress,uint_maxDestAmount,uint,address)publicpayablereturns<missing ';'>(uintdestAmount){uintexpectedRate;uintsrcAmount;if(address<missing ';'>(_src)==ETH_TOKEN_ADDRESS){expectedRate=10**36/tokens[address(_dest)].rate;destAmount=expectedRate.mul(_srcAmount).div(10**<missing ';'>(36-<missing ')'>tokens[address(_dest)].decimals));if(destAmount>_maxDestAmount){destAmount=_maxDestAmount;srcAmount=_maxDestAmount.mul(10**<missing ';'>(36-<missing ')'>tokens[address(_dest)].decimals)).div(expectedRate);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 52
+column: 13
+content: if(address(_dest)==ETH_TOKEN_ADDRESS){expectedRate=tokens[address(_src)].rate;slippageRate=expectedRate;}else{revert("Unknown token pair");}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 8
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 46
+column: 16
+content: (uintexpectedRate,uintslippageRate)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 61
+column: 4
+content: functiontrade(ERC20_src,uint_srcAmount,ERC20_dest,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 20
+column: 4
+content: addressowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 65
+column: 24
+content: _destAddress,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 66
+column: 8
+content: uint_maxDestAmount,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 67
+column: 8
+content: uint,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 72
+column: 15
+content: (uintdestAmount){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 74
+column: 8
+content: uintexpectedRate;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 75
+column: 8
+content: uintsrcAmount;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 76
+column: 10
+content: (address<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 76
+column: 18
+content: (_src)==ETH_TOKEN_ADDRESS){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 77
+column: 12
+content: expectedRate=10**36/
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 77
+column: 36
+content: tokens[address(_dest)].rate;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 78
+column: 12
+content: destAmount=expectedRate.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 78
+column: 38
+content: mul(_srcAmount).
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 78
+column: 54
+content: div
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 78
+column: 57
+content: (10**<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 78
+column: 62
+content: (36-<missing ')'>tokens[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 78
+column: 75
+content: address(_dest)].
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 78
+column: 91
+content: decimals));if
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 79
+column: 14
+content: (destAmount>_maxDestAmount){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 80
+column: 16
+content: destAmount=_maxDestAmount;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 81
+column: 16
+content: srcAmount=_maxDestAmount.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 81
+column: 43
+content: mul
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 81
+column: 46
+content: (10**<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 81
+column: 51
+content: (36-<missing ')'>tokens[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 81
+column: 64
+content: address(_dest)].
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 81
+column: 80
+content: decimals)).
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 81
+column: 91
+content: div(expectedRate);
+
+SOLIDITY_VISIBILITY :28
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

@@ -1,0 +1,358 @@
+C:\Users\hp\DataSet\contracts\ropsten\4d\4d549e74e9b3a4af6535caf9d0bcd87fb205628e_epm_system.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 5
+column: 4
+content: functionbalanceOf(address_owner)publicconstantreturns(uint256balance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 63
+column: 4
+content: functionresetEpocum(address_newEpocum)publicconstantreturns(bool){if(msg.sender!=_epocum)revert();_epocum=_newEpocum;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 68
+column: 4
+content: functionisEpocum()publicconstantreturns(bool){returnmsg.sender==_epocum;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 133
+column: 4
+content: functioncountAllSmartSharingContract()publicconstantreturns(uintcount){count=smartCount;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 137
+column: 4
+content: functiongetSmartSharingByID(uintid)publicconstantreturns(addresssmartOwner,bytes32smartHash){smartOwner=SmartChainId[id].proprietary;smartHash=SmartChainId[id].smartHash;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 142
+column: 4
+content: functiongetSmartSharingByHash(bytes32hash)publicconstantreturns(addresssmartOwner,stringsmartWebsite,bytes32smartHash,uinttarget,stringipfs,uintnumAcc,stringothers,uinttAmount,stringtSymbol){smartOwner=SmartChainHash[hash].proprietary;smartWebsite=SmartChainHash[hash].website;smartHash=SmartChainHash[hash].smartHash;target=SmartChainHash[hash].target;ipfs=SmartChainHash[hash].ipfs;numAcc=SmartChainHash[hash].acceptances;others=SmartChainHash[hash].info;tAmount=SmartChainHash[hash].tokenAmount;tSymbol=SmartChainHash[hash].tokenSymbol;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 154
+column: 4
+content: functiongetMyAcceptance(addressaddr,uinty)publicconstantreturns(stringdLink,bytes32smartHash,stringothers){dLink=myAcceptance[addr][y].dLink;smartHash=myAcceptance[addr][y].smartHash;others=myAcceptance[addr][y].info;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 160
+column: 4
+content: functiongetDelegate(uintd)publicconstantreturns(stringwebservice,addresswallet,uintamount,boolcert){webservice=DelegatesById[d].webservice;wallet=DelegatesById[d].wallet;amount=DelegatesById[d].amount;cert=DelegatesById[d].cert;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 167
+column: 4
+content: functiongetNumAcceptance(addressaddr)publicconstantreturns(uintnum){num=Acceptances[addr].numAcceptancesBywallet;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 171
+column: 4
+content: functiongetSmartHash(string_dLink)publicconstantreturns(bytes32smartHash){smartHash=acceptByIpfs[_dLink].smartHash;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 175
+column: 1
+content: functionisAlreadyDelegate()publicconstantreturns(bool){returnmsg.sender==DelegatesByAddr[msg.sender].wallet;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 179
+column: 1
+content: functionisActiveDelegate()publicconstantreturns(bool){returntrue==DelegatesByAddr[msg.sender].cert;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 183
+column: 1
+content: functioncheckDelegation(addressaddr)publicconstantreturns(boolinProgress,boolcert){addressdelegate=DelegatesByAddr[addr].wallet;if(delegate==addr)inProgress=true;cert=DelegatesByAddr[addr].cert;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 63
+column: 4
+content: functionresetEpocum(address_newEpocum)publicconstantreturns(bool){if(msg.sender!=_epocum)revert();_epocum=_newEpocum;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 8
+column: 0
+content: contractepm_system{uintpublicnodes=0;uintpublicsmartCount=0;uintpublicdelegation_amount;addresspublic_epocum;epmPaypublicepm;functionepocum()public{_epocum=msg.sender;}structDelegate{uintid;stringwebservice;addresswallet;uintamount;boolcert;}structSmartSharingContract{addressproprietary;bytes32smartHash;stringwebsite;uinttarget;stringtag;stringipfs;uintduration;uintacceptances;stringinfo;uinttokenAmount;stringtokenSymbol;}structAcceptance{uintid;bytes32smartHash;stringwebsite;addressadvertiser;stringdLink;stringinfo;uintnumAcceptancesBywallet;}mapping(uint=>Delegate)DelegatesById;mapping(address=>Delegate)DelegatesByAddr;mapping(address=>SmartSharingContract)payments;mapping(uint=>SmartSharingContract)SmartChainId;mapping(bytes32=>SmartSharingContract)SmartChainHash;mapping(address=>mapping(bytes32=>Acceptance))acceptByAddress;mapping(address=>mapping(uint=>Acceptance))myAcceptance;mapping(bytes32=>mapping(uint=>Acceptance))advertisers;mapping(string=>Acceptance)acceptByIpfs;mapping(address=>Acceptance)Acceptances;functionresetEpocum(address_newEpocum)publicconstantreturns(bool){if(msg.sender!=_epocum)revert();_epocum=_newEpocum;}functionisEpocum()publicconstantreturns(bool){returnmsg.sender==_epocum;}functionaddDelegate(stringwebservice)public{uintd=nodes++;DelegatesByAddr[msg.sender]=Delegate(d,webservice,msg.sender,0,false);DelegatesById[d]=Delegate(d,webservice,msg.sender,0,false);}functionCertifyDelegate(addressinWebAddr,uintx)public{if(!isEpocum())revert();if(isActiveDelegate())revert();if(isAlreadyDelegate())DelegatesByAddr[msg.sender].cert=true;}functionNewSmartSharingContract(string_website,uint_target,uintduration,stringtags,stringdlink,stringothers,stringtSymbol)payablepublic{uinta;if(compare(&39;<missing ')'>ETH&39;,tSymbol)){a=msg.value;}if(compare(&39;<missing ')'>EPM&39;,tSymbol)){a=epm.balanceOf(msg.sender);}payments[msg.sender].tokenAmount=a;bytes32_hash=keccak256(msg.sender,_website,smartCount);SmartChainId[smartCount].proprietary=msg.sender;SmartChainId[smartCount].smartHash=_hash;SmartChainHash[_hash].proprietary=msg.sender;SmartChainHash[_hash].website=_website;SmartChainHash[_hash].smartHash=_hash;SmartChainHash[_hash].target=_target;SmartChainHash[_hash].ipfs=dlink;SmartChainHash[_hash].tag=tags;SmartChainHash[_hash].duration=duration;SmartChainHash[_hash].acceptances=0;SmartChainHash[_hash].info=others;SmartChainHash[_hash].tokenAmount=a;SmartChainHash[_hash].tokenSymbol=tSymbol;smartCount++;}functionAccept(bytes32_smartHash,string_dLink)public{uintnumAcc=SmartChainHash[_smartHash].acceptances;uintnumAcc4wallet=Acceptances[msg.sender].numAcceptancesBywallet;advertisers[_smartHash][numAcc].advertiser=msg.sender;string_website=SmartChainHash[_smartHash].website;stringothers=SmartChainHash[_smartHash].info;uintx=acceptByAddress[msg.sender][_smartHash].id;acceptByAddress[msg.sender][_smartHash].advertiser=msg.sender;acceptByAddress[msg.sender][_smartHash].dLink=_dLink;acceptByAddress[msg.sender][_smartHash].website=_website;acceptByIpfs[_dLink].smartHash=_smartHash;uinty=x+1;uintz=numAcc+1;uintwa=numAcc4wallet+1;acceptByAddress[msg.sender][_smartHash].id=y;SmartChainHash[_smartHash].acceptances=z;myAcceptance[msg.sender][wa].dLink=_dLink;myAcceptance[msg.sender][wa].smartHash=_smartHash;myAcceptance[msg.sender][wa].info=others;Acceptances[msg.sender].numAcceptancesBywallet=wa;}functioncountAllSmartSharingContract()publicconstantreturns(uintcount){count=smartCount;}functiongetSmartSharingByID(uintid)publicconstantreturns(addresssmartOwner,bytes32smartHash){smartOwner=SmartChainId[id].proprietary;smartHash=SmartChainId[id].smartHash;}functiongetSmartSharingByHash(bytes32hash)publicconstantreturns(addresssmartOwner,stringsmartWebsite,bytes32smartHash,uinttarget,stringipfs,uintnumAcc,stringothers,uinttAmount,stringtSymbol){smartOwner=SmartChainHash[hash].proprietary;smartWebsite=SmartChainHash[hash].website;smartHash=SmartChainHash[hash].smartHash;target=SmartChainHash[hash].target;ipfs=SmartChainHash[hash].ipfs;numAcc=SmartChainHash[hash].acceptances;others=SmartChainHash[hash].info;tAmount=SmartChainHash[hash].tokenAmount;tSymbol=SmartChainHash[hash].tokenSymbol;}functiongetMyAcceptance(addressaddr,uinty)publicconstantreturns(stringdLink,bytes32smartHash,stringothers){dLink=myAcceptance[addr][y].dLink;smartHash=myAcceptance[addr][y].smartHash;others=myAcceptance[addr][y].info;}functiongetDelegate(uintd)publicconstantreturns(stringwebservice,addresswallet,uintamount,boolcert){webservice=DelegatesById[d].webservice;wallet=DelegatesById[d].wallet;amount=DelegatesById[d].amount;cert=DelegatesById[d].cert;}functiongetNumAcceptance(addressaddr)publicconstantreturns(uintnum){num=Acceptances[addr].numAcceptancesBywallet;}functiongetSmartHash(string_dLink)publicconstantreturns(bytes32smartHash){smartHash=acceptByIpfs[_dLink].smartHash;}functionisAlreadyDelegate()publicconstantreturns(bool){returnmsg.sender==DelegatesByAddr[msg.sender].wallet;}functionisActiveDelegate()publicconstantreturns(bool){returntrue==DelegatesByAddr[msg.sender].cert;}functioncheckDelegation(addressaddr)publicconstantreturns(boolinProgress,boolcert){addressdelegate=DelegatesByAddr[addr].wallet;if(delegate==addr)inProgress=true;cert=DelegatesByAddr[addr].cert;}functioncompare(stringa,stringb)viewreturns(bool){returnkeccak256(a)==keccak256(b);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 64
+column: 8
+content: if(msg.sender!=_epocum)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 79
+column: 5
+content: if(!isEpocum())revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 80
+column: 5
+content: if(isActiveDelegate())revert();
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 94
+column: 24
+content: keccak256(msg.sender,_website,smartCount)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 72
+column: 25
+content: stringwebservice
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 85
+column: 34
+content: string_website
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 85
+column: 77
+content: stringtags
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 85
+column: 89
+content: stringdlink
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 85
+column: 102
+content: stringothers
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 85
+column: 116
+content: stringtSymbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 111
+column: 38
+content: string_dLink
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 142
+column: 93
+content: stringsmartWebsite
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 142
+column: 146
+content: stringipfs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 142
+column: 172
+content: stringothers
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 142
+column: 200
+content: stringtSymbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 154
+column: 74
+content: stringdLink
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 154
+column: 105
+content: stringothers
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 160
+column: 57
+content: stringwebservice
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 171
+column: 26
+content: string_dLink
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 115
+column: 5
+content: string_website=SmartChainHash[_smartHash].website
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 116
+column: 5
+content: stringothers=SmartChainHash[_smartHash].info
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 23rt6g
+severity: 1
+line: 5
+column: 39
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 4
+column: 4
+content: functiontransfer(address_to,uint256_amount);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 189
+column: 1
+content: functioncompare(stringa,stringb)viewreturns(bool){returnkeccak256(a)==keccak256(b);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 4
+content: mapping(uint=>Delegate)DelegatesById;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 53
+column: 4
+content: mapping(address=>Delegate)DelegatesByAddr;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 54
+column: 4
+content: mapping(address=>SmartSharingContract)payments;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 55
+column: 4
+content: mapping(uint=>SmartSharingContract)SmartChainId;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 56
+column: 4
+content: mapping(bytes32=>SmartSharingContract)SmartChainHash;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 57
+column: 4
+content: mapping(address=>mapping(bytes32=>Acceptance))acceptByAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 58
+column: 4
+content: mapping(address=>mapping(uint=>Acceptance))myAcceptance;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 59
+column: 4
+content: mapping(bytes32=>mapping(uint=>Acceptance))advertisers;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 60
+column: 4
+content: mapping(string=>Acceptance)acceptByIpfs;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 61
+column: 4
+content: mapping(address=>Acceptance)Acceptances;
+
+SOLIDITY_VISIBILITY :13
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :13
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :3
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_UPGRADE_TO_050 :18

@@ -1,0 +1,75 @@
+C:\Users\hp\DataSet\TestReceiver.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 62
+column: 4
+content: functionamount()publicconstantreturns(uint256){return_amount;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 66
+column: 4
+content: functionfrom()publicconstantreturns(address){return_from;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 70
+column: 4
+content: functiondataKeccak()publicconstantreturns(bytes32){return_dataKeccak;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 12
+column: 0
+content: contractTestReceiverisIERC223Callback,IERC223LegacyCallback{addressprivate_from;uint256private_amount;bytes32private_dataKeccak;boolprivate_acceptERC223;constructor()public{_dataKeccak=keccak256(abi.encodePacked(address(this)));_acceptERC223=true;}functionsetERC223Acceptance(boolacceptERC223)public{_acceptERC223=acceptERC223;}function()externalpayable{}functiontokenFallback(addressfrom,uint256amount,bytesdata)public{require(_acceptERC223,"Token fallback is not enabled");_from=from;_amount=amount;_dataKeccak=keccak256(data);}functiononTokenTransfer(addressfrom,uint256amount,bytesdata)public{require(_acceptERC223,"Legacy token fallback is not enabled.");_from=from;_amount=amount;_dataKeccak=keccak256(data);}functionamount()publicconstantreturns(uint256){return_amount;}functionfrom()publicconstantreturns(address){return_from;}functiondataKeccak()publicconstantreturns(bytes32){return_dataKeccak;}}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 17
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 18
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 19
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 20
+column: 9
+content: private
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 43
+column: 57
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 53
+column: 59
+content: bytesdata
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :4
+SOLIDITY_UPGRADE_TO_050 :2

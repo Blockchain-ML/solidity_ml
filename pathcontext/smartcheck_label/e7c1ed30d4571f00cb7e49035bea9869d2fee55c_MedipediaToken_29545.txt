@@ -1,0 +1,236 @@
+C:\Users\hp\DataSet\contracts\mainnet\e7\e7c1ed30d4571f00cb7e49035bea9869d2fee55c_MedipediaToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 299
+column: 4
+content: owner=address(0)
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 184
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 442
+column: 8
+content: for(uint256i=0;i<addrList.length;i++){greylist(addrList[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 455
+column: 8
+content: for(uint256i=0;i<addrList.length;i++){whitelist(addrList[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 701
+column: 8
+content: for(uint256i=0;i<addrList.length;i++){preICO(addrList[i],amountList[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 442
+column: 8
+content: for(uint256i=0;i<addrList.length;i++){greylist(addrList[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 455
+column: 8
+content: for(uint256i=0;i<addrList.length;i++){whitelist(addrList[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 701
+column: 8
+content: for(uint256i=0;i<addrList.length;i++){preICO(addrList[i],amountList[i]);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 469
+column: 0
+content: contractMedipediaTokenisMintableToken,BurnableToken,DetailedERC20,WhiteListManager{uint256constantE18=10**18;uint256publicconstantBUSINESS_DEVELOPMENT_SUPPLY_LIMIT=520000000*E18;uint256publicconstantMANAGEMENT_TEAM_SUPPLY_LIMIT=520000000*E18;uint256publicconstantADVISORS_SUPPLY_LIMIT=130000000*E18;uint256publicconstantEARLY_INVESTORS_SUPPLY_LIMIT=130000000*E18;uint256publicconstantINITIAL_SUPPLY=1300000000*E18;uint256publicconstantTOTAL_SUPPLY_LIMIT=2600000000*E18;uint256publicconstantTOKEN_SUPPLY_AIRDROP_LIMIT=15000000*E18;uint256publicconstantTOKEN_SUPPLY_BOUNTY_LIMIT=35000000*E18;uint256totalTokensIssuedToAdvisor;uint256totalTokensIssuedToEarlyInvestors;uint256totalTokensIssuedToMgmtTeam;uint256releaseTimeToUnlockAdvisorTokens;uint256releaseTimeToUnlockEarlyInvestorTokens;uint256releaseTimeToUnlockManagementTokens;boolpublicisICORunning;addresspublicicoContract;uint256publicairDropTokenIssuedTotal;uint256publicbountyTokenIssuedTotal;uint256publicpreICOTokenIssuedTotal;uint8privateconstantAIRDROP_EVENT=1;uint8privateconstantBOUNTY_EVENT=2;uint8privateconstantPREICO_EVENT=3;uint8privateconstantICO_EVENT=4;eventReleased(uint256amount);constructor(string_name,string_symbol,uint8_decimals)DetailedERC20(_name,_symbol,_decimals)public{balances[msg.sender]=BUSINESS_DEVELOPMENT_SUPPLY_LIMIT;totalSupply_=INITIAL_SUPPLY;totalTokensIssuedToAdvisor=0;totalTokensIssuedToEarlyInvestors=0;totalTokensIssuedToMgmtTeam=0;airDropTokenIssuedTotal=0;bountyTokenIssuedTotal=0;preICOTokenIssuedTotal=0;releaseTimeToUnlockAdvisorTokens=1566345600;releaseTimeToUnlockEarlyInvestorTokens=1566345600;releaseTimeToUnlockManagementTokens=1582243200;}function()publicpayable{revert();}functionreleaseToAdvisor(address_beneficiary,uint256_releaseAmount)publiconlyOwner{require(isWhitelisted(_beneficiary),"Beneficiary is not whitelisted");require(now>=releaseTimeToUnlockAdvisorTokens,"Release Advisor tokens on or after GMT: Wednesday, 21 August 2019 00:00:00");uint256releaseAmount=_releaseAmount.mul(E18);require(totalTokensIssuedToAdvisor.add(releaseAmount)<=ADVISORS_SUPPLY_LIMIT);balances[_beneficiary]=balances[_beneficiary].add(releaseAmount);totalTokensIssuedToAdvisor=totalTokensIssuedToAdvisor.add(releaseAmount);emitReleased(_releaseAmount);}functionreleaseToEarlyInvestors(address_beneficiary,uint256_releaseAmount)publiconlyOwner{require(isWhitelisted(_beneficiary),"Beneficiary is not whitelisted");require(now>=releaseTimeToUnlockEarlyInvestorTokens,"Release Early Investors tokens on or after GMT: Wednesday, 21 August 2019 00:00:00");uint256releaseAmount=_releaseAmount.mul(E18);require(totalTokensIssuedToEarlyInvestors.add(releaseAmount)<=EARLY_INVESTORS_SUPPLY_LIMIT);balances[_beneficiary]=balances[_beneficiary].add(releaseAmount);totalTokensIssuedToEarlyInvestors=totalTokensIssuedToEarlyInvestors.add(releaseAmount);emitReleased(_releaseAmount);}functionreleaseToMgmtTeam(address_beneficiary,uint256_releaseAmount)publiconlyOwner{require(isWhitelisted(_beneficiary),"Beneficiary is not whitelisted");require(now>=releaseTimeToUnlockManagementTokens,"Release Mgmt Team tokens on or after GMT: Friday, 21 February 2020 00:00:00");uint256releaseAmount=_releaseAmount.mul(E18);require(totalTokensIssuedToMgmtTeam.add(releaseAmount)<=MANAGEMENT_TEAM_SUPPLY_LIMIT);balances[_beneficiary]=balances[_beneficiary].add(releaseAmount);totalTokensIssuedToMgmtTeam=totalTokensIssuedToMgmtTeam.add(releaseAmount);emitReleased(_releaseAmount);}functionstartICO(boolstart)publiconlyOwner{isICORunning=start;}functionsetIcoContract(address_icoContract)publiconlyOwner{require(icoContract==address(0));require(_icoContract!=address(0));icoContract=_icoContract;}functionrewardAirdrop(address_beneficiary,uint256_amount)publiconlyOwner{require(isWhitelisted(_beneficiary),"Beneficiary is not whitelisted");uint256amount=_amount.mul(E18);require(totalSupply_.add(amount)<TOTAL_SUPPLY_LIMIT);require(amount<=TOKEN_SUPPLY_AIRDROP_LIMIT);require(airDropTokenIssuedTotal<TOKEN_SUPPLY_AIRDROP_LIMIT);uint256remainingTokens=TOKEN_SUPPLY_AIRDROP_LIMIT.sub(airDropTokenIssuedTotal);if(amount>remainingTokens){amount=remainingTokens;}balances[_beneficiary]=balances[_beneficiary].add(amount);airDropTokenIssuedTotal=airDropTokenIssuedTotal.add(amount);balances[msg.sender]=balances[msg.sender].sub(amount);emitTransfer(address(AIRDROP_EVENT),_beneficiary,amount);}functionrewardBounty(address_beneficiary,uint256_amount)publiconlyOwner{require(isWhitelisted(_beneficiary),"Beneficiary is not whitelisted");uint256amount=_amount.mul(E18);require(totalSupply_.add(amount)<TOTAL_SUPPLY_LIMIT);require(amount<=TOKEN_SUPPLY_BOUNTY_LIMIT);uint256remainingTokens=TOKEN_SUPPLY_BOUNTY_LIMIT.sub(bountyTokenIssuedTotal);if(amount>remainingTokens){amount=remainingTokens;}balances[_beneficiary]=balances[_beneficiary].add(amount);bountyTokenIssuedTotal=bountyTokenIssuedTotal.add(amount);balances[msg.sender]=balances[msg.sender].sub(amount);emitTransfer(address(BOUNTY_EVENT),_beneficiary,amount);}functionpreICO(address_beneficiary,uint256_amount)publiconlyOwner{require(isWhitelisted(_beneficiary),"Buyer is not whitelisted");uint256amount=_amount.mul(E18);require(totalSupply_.add(amount)<=TOTAL_SUPPLY_LIMIT);uint256remainingTokens=TOTAL_SUPPLY_LIMIT.sub(totalSupply_);require(amount<=remainingTokens);preICOTokenIssuedTotal=preICOTokenIssuedTotal.add(amount);super.mint(_beneficiary,amount);emitTransfer(address(PREICO_EVENT),_beneficiary,amount);}functionpreICOMany(address[]addrList,uint256[]amountList)publiconlyOwner{require(addrList.length==amountList.length);for(uint256i=0;i<addrList.length;i++){preICO(addrList[i],amountList[i]);}}functiononICO(addressbuyer,uint256tokens)publiconlyOwnerreturns(boolsuccess){require(isICORunning);require(isWhitelisted(buyer),"Buyer is not whitelisted");require(icoContract!=address(0));require(msg.sender==icoContract);require(tokens>0);require(buyer!=address(0));require(totalSupply_.add(tokens)<=TOTAL_SUPPLY_LIMIT);super.mint(buyer,tokens);emitTransfer(address(ICO_EVENT),buyer,tokens);returntrue;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 613
+column: 4
+content: functionsetIcoContract(address_icoContract)publiconlyOwner{require(icoContract==address(0));require(_icoContract!=address(0));icoContract=_icoContract;}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 507
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 508
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 509
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 510
+column: 10
+content: private
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 539
+column: 31
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 76
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 539
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 391
+column: 14
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 391
+column: 28
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 440
+column: 26
+content: address[]addrList
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 453
+column: 27
+content: address[]addrList
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 514
+column: 16
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 514
+column: 30
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 697
+column: 24
+content: address[]addrList
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 697
+column: 44
+content: uint256[]amountList
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 474
+column: 4
+content: uint256constantE18=10**18;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 491
+column: 4
+content: uint256totalTokensIssuedToAdvisor;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 492
+column: 4
+content: uint256totalTokensIssuedToEarlyInvestors;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 493
+column: 4
+content: uint256totalTokensIssuedToMgmtTeam;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 496
+column: 4
+content: uint256releaseTimeToUnlockAdvisorTokens;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 497
+column: 4
+content: uint256releaseTimeToUnlockEarlyInvestorTokens;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 498
+column: 4
+content: uint256releaseTimeToUnlockManagementTokens;
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :4
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :9
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_ERC20_APPROVE :1

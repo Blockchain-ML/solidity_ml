@@ -1,0 +1,150 @@
+C:\Users\hp\DataSet\SyscoinMessageLibrary.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 13
+column: 69
+content: 0x7407
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 22
+column: 19
+content: 0xfd
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 24
+column: 27
+content: 0xfd
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 26
+column: 27
+content: 0xfe
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 28
+column: 27
+content: 0xff
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 34
+column: 4
+content: functiongetBytesLE(bytesmemorydata,uintpos,uintbits)publicpurereturns(uint256result){for(uint256i=0;i<bits/8;i++){result+=uint256(uint8(data[pos+i]))*2**(i*8);}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 46
+column: 4
+content: functionbytesToUint32Flipped(bytesmemoryinput,uintpos)publicpurereturns(uint32result){assembly{letdata:=mload(add(add(input,0x20),pos))letflip:=mload(0x40)mstore8(add(flip,0),byte(3,data))mstore8(add(flip,1),byte(2,data))mstore8(add(flip,2),byte(1,data))mstore8(add(flip,3),byte(0,data))result:=shr(mul(8,28),mload(flip))}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 66
+column: 4
+content: functionflip32Bytes(uint_input)publicpurereturns(uintresult){assembly{letpos:=mload(0x40)mstore8(add(pos,0),byte(31,_input))mstore8(add(pos,1),byte(30,_input))mstore8(add(pos,2),byte(29,_input))mstore8(add(pos,3),byte(28,_input))mstore8(add(pos,4),byte(27,_input))mstore8(add(pos,5),byte(26,_input))mstore8(add(pos,6),byte(25,_input))mstore8(add(pos,7),byte(24,_input))mstore8(add(pos,8),byte(23,_input))mstore8(add(pos,9),byte(22,_input))mstore8(add(pos,10),byte(21,_input))mstore8(add(pos,11),byte(20,_input))mstore8(add(pos,12),byte(19,_input))mstore8(add(pos,13),byte(18,_input))mstore8(add(pos,14),byte(17,_input))mstore8(add(pos,15),byte(16,_input))mstore8(add(pos,16),byte(15,_input))mstore8(add(pos,17),byte(14,_input))mstore8(add(pos,18),byte(13,_input))mstore8(add(pos,19),byte(12,_input))mstore8(add(pos,20),byte(11,_input))mstore8(add(pos,21),byte(10,_input))mstore8(add(pos,22),byte(9,_input))mstore8(add(pos,23),byte(8,_input))mstore8(add(pos,24),byte(7,_input))mstore8(add(pos,25),byte(6,_input))mstore8(add(pos,26),byte(5,_input))mstore8(add(pos,27),byte(4,_input))mstore8(add(pos,28),byte(3,_input))mstore8(add(pos,29),byte(2,_input))mstore8(add(pos,30),byte(1,_input))mstore8(add(pos,31),byte(0,_input))result:=mload(pos)}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 119
+column: 8
+content: for(i=0;i<length;i++){_siblings[i]=flip32Bytes(_siblings[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 126
+column: 15
+content: i<length
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 46
+column: 4
+content: functionbytesToUint32Flipped(bytesmemoryinput,uintpos)publicpurereturns(uint32result){assembly{letdata:=mload(add(add(input,0x20),pos))letflip:=mload(0x40)mstore8(add(flip,0),byte(3,data))mstore8(add(flip,1),byte(2,data))mstore8(add(flip,2),byte(1,data))mstore8(add(flip,3),byte(0,data))result:=shr(mul(8,28),mload(flip))}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 66
+column: 4
+content: functionflip32Bytes(uint_input)publicpurereturns(uintresult){assembly{letpos:=mload(0x40)mstore8(add(pos,0),byte(31,_input))mstore8(add(pos,1),byte(30,_input))mstore8(add(pos,2),byte(29,_input))mstore8(add(pos,3),byte(28,_input))mstore8(add(pos,4),byte(27,_input))mstore8(add(pos,5),byte(26,_input))mstore8(add(pos,6),byte(25,_input))mstore8(add(pos,7),byte(24,_input))mstore8(add(pos,8),byte(23,_input))mstore8(add(pos,9),byte(22,_input))mstore8(add(pos,10),byte(21,_input))mstore8(add(pos,11),byte(20,_input))mstore8(add(pos,12),byte(19,_input))mstore8(add(pos,13),byte(18,_input))mstore8(add(pos,14),byte(17,_input))mstore8(add(pos,15),byte(16,_input))mstore8(add(pos,16),byte(15,_input))mstore8(add(pos,17),byte(14,_input))mstore8(add(pos,18),byte(13,_input))mstore8(add(pos,19),byte(12,_input))mstore8(add(pos,20),byte(11,_input))mstore8(add(pos,21),byte(10,_input))mstore8(add(pos,22),byte(9,_input))mstore8(add(pos,23),byte(8,_input))mstore8(add(pos,24),byte(7,_input))mstore8(add(pos,25),byte(6,_input))mstore8(add(pos,26),byte(5,_input))mstore8(add(pos,27),byte(4,_input))mstore8(add(pos,28),byte(3,_input))mstore8(add(pos,29),byte(2,_input))mstore8(add(pos,30),byte(1,_input))mstore8(add(pos,31),byte(0,_input))result:=mload(pos)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 154
+column: 4
+content: functionsliceArray(bytesmemory_rawBytes,uintoffset,uint_endIndex)publicviewreturns(bytesmemory){uintlen=_endIndex-offset;bytesmemoryresult=newbytes(len);assembly{ifiszero(staticcall(gas,0x04,add(add(_rawBytes,0x20),offset),len,add(result,0x20),len)){revert(0,0)}}returnresult;}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 17
+column: 77
+content: (uint,uint)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 51
+column: 8
+content: assembly{letdata:=mload(add(add(input,0x20),pos))letflip:=mload(0x40)mstore8(add(flip,0),byte(3,data))mstore8(add(flip,1),byte(2,data))mstore8(add(flip,2),byte(1,data))mstore8(add(flip,3),byte(0,data))result:=shr(mul(8,28),mload(flip))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 67
+column: 8
+content: assembly{letpos:=mload(0x40)mstore8(add(pos,0),byte(31,_input))mstore8(add(pos,1),byte(30,_input))mstore8(add(pos,2),byte(29,_input))mstore8(add(pos,3),byte(28,_input))mstore8(add(pos,4),byte(27,_input))mstore8(add(pos,5),byte(26,_input))mstore8(add(pos,6),byte(25,_input))mstore8(add(pos,7),byte(24,_input))mstore8(add(pos,8),byte(23,_input))mstore8(add(pos,9),byte(22,_input))mstore8(add(pos,10),byte(21,_input))mstore8(add(pos,11),byte(20,_input))mstore8(add(pos,12),byte(19,_input))mstore8(add(pos,13),byte(18,_input))mstore8(add(pos,14),byte(17,_input))mstore8(add(pos,15),byte(16,_input))mstore8(add(pos,16),byte(15,_input))mstore8(add(pos,17),byte(14,_input))mstore8(add(pos,18),byte(13,_input))mstore8(add(pos,19),byte(12,_input))mstore8(add(pos,20),byte(11,_input))mstore8(add(pos,21),byte(10,_input))mstore8(add(pos,22),byte(9,_input))mstore8(add(pos,23),byte(8,_input))mstore8(add(pos,24),byte(7,_input))mstore8(add(pos,25),byte(6,_input))mstore8(add(pos,26),byte(5,_input))mstore8(add(pos,27),byte(4,_input))mstore8(add(pos,28),byte(3,_input))mstore8(add(pos,29),byte(2,_input))mstore8(add(pos,30),byte(1,_input))mstore8(add(pos,31),byte(0,_input))result:=mload(pos)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 157
+column: 8
+content: assembly{ifiszero(staticcall(gas,0x04,add(add(_rawBytes,0x20),offset),len,add(result,0x20),len)){revert(0,0)}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 11
+column: 4
+content: uintconstantERR_PARSE_TX_SYS=10170;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 4
+content: uint32constantSYSCOIN_TX_VERSION_ALLOCATION_BURN_TO_ETHEREUM=0x7407;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :3
+SOLIDITY_ADDRESS_HARDCODED :5
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_USING_INLINE_ASSEMBLY :3
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1
+SOLIDITY_SHOULD_NOT_BE_PURE :2

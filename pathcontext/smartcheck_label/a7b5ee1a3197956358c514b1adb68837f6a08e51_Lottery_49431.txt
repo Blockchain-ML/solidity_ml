@@ -1,0 +1,47 @@
+C:\Users\hp\DataSet\contracts\ropsten\a7\a7b5ee1a3197956358c514b1adb68837f6a08e51_Lottery.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 4
+column: 0
+content: contractLottery{addressowner;uintconstantmax=~uint256(0);uintfee=0;constructor()public{owner=msg.sender;}function()publicpayable{require(msg.value!=0);addressplayer=msg.sender;uintbet=msg.value;uintbudget=address(this).balance+bet;uintroll=random();uintbetProportion=budget/bet;uintjackPotCondition=max/betProportion;uinthalfPotCondition=jackPotCondition+(max-jackPotCondition)/betProportion;uintwinningPayout=0;uintwinnings=0;if(roll<jackPotCondition/10){winnings=(budget-bet)*4/5;fee=winnings/10;winningPayout=bet+winnings-fee;}elseif(roll<halfPotCondition/5){winnings=(budget-bet)*4/10;fee=winnings/10;winningPayout=bet+winnings-fee;}elseif(roll<max/10){winnings=bet*4;if(winnings<budget){fee=winnings/100;winningPayout=winnings-fee;}}elseif(roll<max/3){winnings=bet*2;if(winnings<budget){fee=winnings/100;winningPayout=winnings-fee;}}if(winningPayout>0){player.transfer(winningPayout);owner.transfer(fee);}}functionrandom()publicviewreturns(uint){returnuint(keccak256(abi.encodePacked(block.coinbase,msg.sender,now,block.difficulty,tx.gasprice)));}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 13
+column: 16
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 5
+column: 4
+content: addressowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 4
+content: uintconstantmax=~uint256(0);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 7
+column: 4
+content: uintfee=0;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1

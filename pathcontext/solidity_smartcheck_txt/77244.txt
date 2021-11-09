@@ -1,0 +1,47 @@
+F:\Blockchain\dataset_new_byID\77244.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 27cb59
+severity: 1
+line: 43
+column: 12
+content: suicide
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 26
+column: 23
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 36
+column: 16
+content: throw
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 34
+column: 12
+content: if(!beneficiary.send(diff)){throw;}
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 34
+column: 29
+content: send(diff)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 20
+column: 4
+content: functioncash(addressbeneficiary,uint256amount,uint8sig_v,bytes32sig_r,bytes32sig_s){if(amount<=sent[beneficiary])return;bytes32hash=sha3(address(this),beneficiary,amount);if(owner!=ecrecover(hash,sig_v,sig_r,sig_s))return;uint256diff=amount-sent[beneficiary];if(diff<=this.balance){sent[beneficiary]=amount;if(!beneficiary.send(diff)){throw;}}else{Overdraft(owner);suicide(beneficiary);}}
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_SEND :1

@@ -1,0 +1,147 @@
+C:\Users\hp\DataSet\contracts\ropsten\37\37351aad564d52ef97303ac7333c814d71f8be3d_LotteryTest.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 90
+column: 4
+content: functiongetDrawP()constantexternalreturns(uint){returndrawP;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 94
+column: 4
+content: functiongetBetclose()constantexternalreturns(bool){returnbetclose;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 98
+column: 4
+content: functiongetPeriods()constantexternalreturns(uint8){returnPeriods;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 158
+column: 4
+content: functiongetPoolbyGtype(uint8_type)constantexternalreturns(uint){Poolstoragerec=pools[_type];returnrec.Amount;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 162
+column: 4
+content: functiongetAllbetByGtype(uint8_btype)constantexternalreturns(uint){tGnumstoragerec=tgums[Periods];tGtypestoragerec1=rec.tgtypes[_btype];returnrec1.bets;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 167
+column: 4
+content: functiongetAllbetByNum(uint8_btype,int8_bnum)constantexternalreturns(uint){tGnumstoragerec=tgums[Periods];tGtypestoragerec1=rec.tgtypes[_btype];tNumstoragerec2=rec1.tnums[_bnum];returnrec2.bets;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 173
+column: 4
+content: functiongetbetData(uint8_btype,int8_bnum,address_owner)constantexternalreturns(uint){tGnumstoragerec=tgums[Periods];tGtypestoragerec1=rec.tgtypes[_btype];tNumstoragerec2=rec1.tnums[_bnum];returnrec2.betusers[_owner];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 180
+column: 4
+content: functiongetBetUint(uint8_btype,int8_bnum)constantexternalreturns(uint){tGnumstoragerec=tgums[Periods];tGtypestoragerec1=rec.tgtypes[_btype];tNumstoragerec2=rec1.tnums[_bnum];uinttmp_uint=0;uintTotalPool=this.getPoolbyGtype(_btype);for(uinti=0;i<rec2.betAddress.length;i++){tmp_uint+=rec2.betusers[rec2.betAddress[i]];}uintrs=TotalPool/tmp_uint;returnrs;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 186
+column: 8
+content: for(uinti=0;i<rec2.betAddress.length;i++){tmp_uint+=rec2.betusers[rec2.betAddress[i]];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 210
+column: 8
+content: for(uint8j=1;j<=resArr.act.length+1;j++){assert(resArr.act[j]==true);int8_bhash=resArr.resultNum[j];if(this.getPoolbyGtype(j)>0||this.getAllbetByGtype(j)>0||this.getAllbetByNum(j,_bhash)>0){uintuint_amount=0;uintown_p=this.getPoolbyGtype(j)*drawP/100;owner.transfer(own_p);this.updPool(j,own_p);emitdrawBet(_period,j,_bhash,owner,own_p);tGnumstoragerec=tgums[_period];tGtypestoragerec1=rec.tgtypes[j];tNumstoragerec2=rec1.tnums[_bhash];uint_amount=this.getBetUint(j,_bhash);for(uinti=0;i<rec2.betAddress.length;i++){uintwin=rec2.betusers[rec2.betAddress[i]]*uint_amount;rec2.betAddress[i].transfer(uint(win));this.updPool(j,win);emitdrawBet(_period,j,_bhash,rec2.betAddress[i],win);}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 225
+column: 16
+content: for(uinti=0;i<rec2.betAddress.length;i++){uintwin=rec2.betusers[rec2.betAddress[i]]*uint_amount;rec2.betAddress[i].transfer(uint(win));this.updPool(j,win);emitdrawBet(_period,j,_bhash,rec2.betAddress[i],win);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 186
+column: 8
+content: for(uinti=0;i<rec2.betAddress.length;i++){tmp_uint+=rec2.betusers[rec2.betAddress[i]];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 225
+column: 16
+content: for(uinti=0;i<rec2.betAddress.length;i++){uintwin=rec2.betusers[rec2.betAddress[i]]*uint_amount;rec2.betAddress[i].transfer(uint(win));this.updPool(j,win);emitdrawBet(_period,j,_bhash,rec2.betAddress[i],win);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 210
+column: 8
+content: for(uint8j=1;j<=resArr.act.length+1;j++){assert(resArr.act[j]==true);int8_bhash=resArr.resultNum[j];if(this.getPoolbyGtype(j)>0||this.getAllbetByGtype(j)>0||this.getAllbetByNum(j,_bhash)>0){uintuint_amount=0;uintown_p=this.getPoolbyGtype(j)*drawP/100;owner.transfer(own_p);this.updPool(j,own_p);emitdrawBet(_period,j,_bhash,owner,own_p);tGnumstoragerec=tgums[_period];tGtypestoragerec1=rec.tgtypes[j];tNumstoragerec2=rec1.tnums[_bhash];uint_amount=this.getBetUint(j,_bhash);for(uinti=0;i<rec2.betAddress.length;i++){uintwin=rec2.betusers[rec2.betAddress[i]]*uint_amount;rec2.betAddress[i].transfer(uint(win));this.updPool(j,win);emitdrawBet(_period,j,_bhash,rec2.betAddress[i],win);}}}
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 225
+column: 16
+content: for(uinti=0;i<rec2.betAddress.length;i++){uintwin=rec2.betusers[rec2.betAddress[i]]*uint_amount;rec2.betAddress[i].transfer(uint(win));this.updPool(j,win);emitdrawBet(_period,j,_bhash,rec2.betAddress[i],win);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: mapping(address=>uint256)winners;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 16
+column: 5
+content: mapping(uint8=>res)results;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 4
+content: mapping(uint=>tGnum)tgums;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 45
+column: 4
+content: mapping(uint8=>Pool)pools;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :8
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_TRANSFER_IN_LOOP :2

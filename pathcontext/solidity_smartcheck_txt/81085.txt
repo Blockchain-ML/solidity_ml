@@ -1,0 +1,54 @@
+F:\Blockchain\dataset_new_byID\81085.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 81
+column: 2
+content: functiongetM5Reward(address_miner)publicviewreturns(uint256){require(M5Logic_!=address(0));if(miners[_miner].value==0){return0;}require(signedAverage(miners[_miner].onBlockReward,blockReward_)<0);uint32returnSize=32;addresstarget=M5Logic_;bytes32signature=keccak256("getM5Reward(address)");uint32inputSize=4+32;uint8callResult;uint256result;assembly{mstore(0x0,signature)mstore(0x4,_miner)callResult:=delegatecall(sub(gas,10000),target,0x0,inputSize,0x0,returnSize)switchcallResultcase0{revert(0,0)}default{result:=mload(0x0)}}returnresult;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 102
+column: 4
+content: assembly{mstore(0x0,signature)mstore(0x4,_miner)callResult:=delegatecall(sub(gas,10000),target,0x0,inputSize,0x0,returnSize)switchcallResultcase0{revert(0,0)}default{result:=mload(0x0)}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 14
+column: 2
+content: addressM5Token_;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 16
+column: 2
+content: addressM5Logic_;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 18
+column: 2
+content: addressupgradeManager_;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 20
+column: 2
+content: boolisUpgradeFinished_=false;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

@@ -1,0 +1,55 @@
+C:\Users\hp\DataSet\contracts\ropsten\aa\aa94658b7768e4f510d744a97e5c5a1cb8b9f52f_Auction.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 44
+column: 8
+content: for(uinti=0;i<bids.length;i++){if(bids[i].bidder==msg.sender){revert();}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 66
+column: 8
+content: for(uinti=0;i<bids.length;i++){if(bids[i].bidder==msg.sender){bids[i].verified=bids[i].hash==hash;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 44
+column: 8
+content: for(uinti=0;i<bids.length;i++){if(bids[i].bidder==msg.sender){revert();}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 66
+column: 8
+content: for(uinti=0;i<bids.length;i++){if(bids[i].bidder==msg.sender){bids[i].verified=bids[i].hash==hash;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractAuction{enumState{Open,Closed}structBid{addressbidder;bytes32hash;uint256timestamp;boolverified;}eventCalculatedHash(bytes32hash);eventDebug(byteshash);modifieronlyOwner(address_owner){require(owner==_owner);_;}addresspublicowner;stringpublicisin;uint256publicbiddingDeadline;uint256publicverificationDeadline;uint8publicnumberOfBids;uint8publicstake;Bid[]publicbids;constructor(stringmemory_isin,uint256_biddingDeadline,uint256_verificationDeadline,uint8_stake)public{owner=msg.sender;isin=_isin;biddingDeadline=_biddingDeadline;verificationDeadline=_verificationDeadline;stake=_stake;}functionbid(bytes32_hash)publicpayable{require(msg.value==stake);for(uinti=0;i<bids.length;i++){if(bids[i].bidder==msg.sender){revert();}}bids.push(Bid(msg.sender,_hash,now,false));}functionisInVerificationPhase()publicviewreturns(bool){returnnow>=biddingDeadline&&now<verificationDeadline;}functionverifyBid(stringmemory_bid,uint256_nonce)public{bytesmemoryabiEncodedPacked=abi.encodePacked(_bid,_nonce);emitDebug(abiEncodedPacked);bytes32hash=keccak256(abi.encodePacked(_bid,_nonce));emitCalculatedHash(hash);for(uinti=0;i<bids.length;i++){if(bids[i].bidder==msg.sender){bids[i].verified=bids[i].hash==hash;}}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 45
+column: 12
+content: if(bids[i].bidder==msg.sender){revert();}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2

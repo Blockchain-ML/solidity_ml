@@ -1,0 +1,146 @@
+F:\Blockchain\dataset_new_byID\78227.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 18
+column: 36
+content: 0x20
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 19
+column: 29
+content: 0x20
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 20
+column: 23
+content: 0x20
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 44
+column: 39
+content: 0xff
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 127
+column: 36
+content: 0x60
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 43
+column: 12
+content: for(i=index;i<array.length;i++){array[i]=((mask[i]^0xff)&array[i])|(mask[i]&desired[i]);}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 11
+column: 4
+content: functionguardedArrayReplace(bytesmemoryarray,bytesmemorydesired,bytesmemorymask)internalpure{require(array.length==desired.length);require(array.length==mask.length);uintwords=array.length/0x20;uintindex=words*0x20;assert(index/0x20==words);uinti;for(i=0;i<words;i++){assembly{letcommonIndex:=mul(0x20,add(1,i))letmaskValue:=mload(add(mask,commonIndex))mstore(add(array,commonIndex),or(and(not(maskValue),mload(add(array,commonIndex))),and(maskValue,mload(add(desired,commonIndex)))))}}if(words>0){i=words;assembly{letcommonIndex:=mul(0x20,add(1,i))letmaskValue:=mload(add(mask,commonIndex))mstore(add(array,commonIndex),or(and(not(maskValue),mload(add(array,commonIndex))),and(maskValue,mload(add(desired,commonIndex)))))}}else{for(i=index;i<array.length;i++){array[i]=((mask[i]^0xff)&array[i])|(mask[i]&desired[i]);}}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 50
+column: 4
+content: functionarrayEq(bytesmemorya,bytesmemoryb)internalpurereturns(bool){boolsuccess=true;assembly{letlength:=mload(a)switcheq(length,mload(b))case1{letcb:=1letmc:=add(a,0x20)letend:=add(mc,length)for{letcc:=add(b,0x20)}eq(add(lt(mc,end),cb),2){mc:=add(mc,0x20)cc:=add(cc,0x20)}{ifiszero(eq(mload(mc),mload(cc))){success:=0cb:=0}}}default{success:=0}}returnsuccess;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 98
+column: 4
+content: functionunsafeWriteBytes(uintindex,bytessource)internalpurereturns(uint){if(source.length>0){assembly{letlength:=mload(source)letend:=add(source,add(0x20,length))letarrIndex:=add(source,0x20)lettempIndex:=indexfor{}eq(lt(arrIndex,end),1){arrIndex:=add(arrIndex,0x20)tempIndex:=add(tempIndex,0x20)}{mstore(tempIndex,mload(arrIndex))}index:=add(index,length)}}returnindex;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 122
+column: 4
+content: functionunsafeWriteAddress(uintindex,addresssource)internalpurereturns(uint){uintconv=uint(source)<<0x60;assembly{mstore(index,conv)index:=add(index,0x14)}returnindex;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 136
+column: 4
+content: functionunsafeWriteUint(uintindex,uintsource)internalpurereturns(uint){assembly{mstore(index,source)index:=add(index,0x20)}returnindex;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 149
+column: 4
+content: functionunsafeWriteUint8(uintindex,uint8source)internalpurereturns(uint){assembly{mstore8(index,source)index:=add(index,0x1)}returnindex;}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 98
+column: 42
+content: bytessource
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 25
+column: 12
+content: assembly{letcommonIndex:=mul(0x20,add(1,i))letmaskValue:=mload(add(mask,commonIndex))mstore(add(array,commonIndex),or(and(not(maskValue),mload(add(array,commonIndex))),and(maskValue,mload(add(desired,commonIndex)))))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 36
+column: 12
+content: assembly{letcommonIndex:=mul(0x20,add(1,i))letmaskValue:=mload(add(mask,commonIndex))mstore(add(array,commonIndex),or(and(not(maskValue),mload(add(array,commonIndex))),and(maskValue,mload(add(desired,commonIndex)))))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 57
+column: 8
+content: assembly{letlength:=mload(a)switcheq(length,mload(b))case1{letcb:=1letmc:=add(a,0x20)letend:=add(mc,length)for{letcc:=add(b,0x20)}eq(add(lt(mc,end),cb),2){mc:=add(mc,0x20)cc:=add(cc,0x20)}{ifiszero(eq(mload(mc),mload(cc))){success:=0cb:=0}}}default{success:=0}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 104
+column: 12
+content: assembly{letlength:=mload(source)letend:=add(source,add(0x20,length))letarrIndex:=add(source,0x20)lettempIndex:=indexfor{}eq(lt(arrIndex,end),1){arrIndex:=add(arrIndex,0x20)tempIndex:=add(tempIndex,0x20)}{mstore(tempIndex,mload(arrIndex))}index:=add(index,length)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 128
+column: 8
+content: assembly{mstore(index,conv)index:=add(index,0x14)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 141
+column: 8
+content: assembly{mstore(index,source)index:=add(index,0x20)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 154
+column: 8
+content: assembly{mstore8(index,source)index:=add(index,0x1)}
+
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :5
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_USING_INLINE_ASSEMBLY :7
+SOLIDITY_SHOULD_NOT_BE_PURE :6

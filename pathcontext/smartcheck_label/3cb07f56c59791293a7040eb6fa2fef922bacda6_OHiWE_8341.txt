@@ -1,0 +1,153 @@
+C:\Users\hp\DataSet\contracts\mainnet\3c\3cb07f56c59791293a7040eb6fa2fef922bacda6_OHiWE.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 95
+column: 4
+content: functionapprove(address_spender,uint256_amount)publiconlyUnlockTokenreturns(bool){require(_spender!=address(0),"Address can not be 0x0");require(balances[msg.sender]>_amount,"Balance does not have enough tokens");require(!locked[msg.sender],"Sender address is locked");allowed[msg.sender][_spender]=_amount;emitApproval(msg.sender,_spender,_amount);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 10
+column: 0
+content: contractOHiWEisERC20{usingSafeMathforuint256;stringprivateconstant_name="OHiWE";stringprivateconstant_symbol="OHC";uint8privateconstant_decimals=18;uint256privateconstant_maxCap=3300000000ether;uint256private_totalsupply;addressprivate_owner;addresspayableprivate_ethFundMain;boolprivate_lockToken=false;mapping(address=>uint256)privatebalances;mapping(address=>mapping(address=>uint256))privateallowed;mapping(address=>bool)privatelocked;eventMint(addressindexedfrom,addressindexedto,uint256amount);eventBurn(addressindexedfrom,uint256amount);eventChangeReceiveWallet(addressindexednewAddress);eventChangeOwnerShip(addressindexednewOwner);eventChangeLockStatusFrom(addressindexedinvestor,boollocked);eventChangeTokenLockStatus(boollocked);eventChangeAllowICOStatus(boolallow);modifieronlyOwner(){require(msg.sender==_owner,"Only owner is allowed");_;}modifieronlyUnlockToken(){require(!_lockToken,"Token locked");_;}constructor()public{_owner=msg.sender;}functionname()publicpurereturns(stringmemory){return_name;}functionsymbol()publicpurereturns(stringmemory){return_symbol;}functiondecimals()publicpurereturns(uint8){return_decimals;}functionmaxCap()publicpurereturns(uint256){return_maxCap;}functionowner()publicviewreturns(address){return_owner;}functionethFundMain()publicviewreturns(address){return_ethFundMain;}functionlockToken()publicviewreturns(bool){return_lockToken;}functionlockStatusOf(addressinvestor)publicviewreturns(bool){returnlocked[investor];}functiontotalSupply()publicviewreturns(uint256){return_totalsupply;}functionbalanceOf(addressinvestor)publicviewreturns(uint256){returnbalances[investor];}functionapprove(address_spender,uint256_amount)publiconlyUnlockTokenreturns(bool){require(_spender!=address(0),"Address can not be 0x0");require(balances[msg.sender]>_amount,"Balance does not have enough tokens");require(!locked[msg.sender],"Sender address is locked");allowed[msg.sender][_spender]=_amount;emitApproval(msg.sender,_spender,_amount);returntrue;}functionallowance(address_from,address_spender)publicviewreturns(uint256){returnallowed[_from][_spender];}functiontransfer(address_to,uint256_amount)publiconlyUnlockTokenreturns(bool){require(_to!=address(0),"Receiver can not be 0x0");require(balances[msg.sender]>_amount,"Balance does not have enough tokens");require(!locked[msg.sender],"Sender address is locked");balances[msg.sender]=(balances[msg.sender]).sub(_amount);balances[_to]=(balances[_to]).add(_amount);emitTransfer(msg.sender,_to,_amount);returntrue;}functiontransferFrom(address_from,address_to,uint256_amount)publiconlyUnlockTokenreturns(bool){require(_to!=address(0),"Receiver can not be 0x0");require(balances[_from]>_amount,"Source&#39;s balance is not enough");require(allowed[_from][msg.sender]>_amount,"Allowance is not enough");require(!locked[_from],"From address is locked");balances[_from]=(balances[_from]).sub(_amount);allowed[_from][msg.sender]=(allowed[_from][msg.sender]).sub(_amount);balances[_to]=(balances[_to]).add(_amount);emitTransfer(_from,_to,_amount);returntrue;}functionburn(uint256_value)publiconlyOwnerreturns(bool){require(balances[msg.sender]>_value,"Balance does not have enough tokens");balances[msg.sender]=(balances[msg.sender]).sub(_value);_totalsupply=_totalsupply.sub(_value);emitBurn(msg.sender,_value);returntrue;}functionstopTransferToken()externalonlyOwner{_lockToken=true;emitChangeTokenLockStatus(true);}functionstartTransferToken()externalonlyOwner{_lockToken=false;emitChangeTokenLockStatus(false);}function()externalpayable{}functionmanualMint(addressreceiver,uint256_value)publiconlyOwner{mint(_owner,receiver,_value);}functionmint(addressfrom,addressreceiver,uint256value)internal{require(receiver!=address(0),"Address can not be 0x0");require(value>0,"Value should larger than 0");balances[receiver]=balances[receiver].add(value);_totalsupply=_totalsupply.add(value);require(_totalsupply<=_maxCap,"CrowdSale hit max cap");emitMint(from,receiver,value);emitTransfer(address(0),receiver,value);}functionassignOwnership(addressnewOwner)externalonlyOwner{require(newOwner!=address(0),"Address can not be 0x0");_owner=newOwner;emitChangeOwnerShip(newOwner);}functionchangeReceiveWallet(addresspayablenewAddress)externalonlyOwner{require(newAddress!=address(0),"Address can not be 0x0");_ethFundMain=newAddress;emitChangeReceiveWallet(newAddress);}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 13
+column: 11
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 14
+column: 11
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 15
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 16
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 19
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 22
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 23
+column: 20
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 26
+column: 9
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 28
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 29
+column: 52
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 30
+column: 29
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 11
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 172
+column: 4
+content: functionchangeReceiveWallet(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 173
+column: 8
+content: require(newAddress!=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 173
+column: 30
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 173
+column: 37
+content: (0),"Address can not be 0x0");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 174
+column: 8
+content: _ethFundMain=newAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 175
+column: 8
+content: emitChangeReceiveWallet
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 175
+column: 32
+content: (newAddress);
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_SAFEMATH :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :11
+SOLIDITY_ERC20_APPROVE :1

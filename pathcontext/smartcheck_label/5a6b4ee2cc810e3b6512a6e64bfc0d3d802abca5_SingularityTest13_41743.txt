@@ -1,0 +1,90 @@
+C:\Users\hp\DataSet\contracts\ropsten\5a\5a6b4ee2cc810e3b6512a6e64bfc0d3d802abca5_SingularityTest13.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 63
+column: 4
+content: Tx.length++
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 57
+column: 24
+content: (msg.value/100)*20
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 77
+column: 36
+content: (Tx[counter].txvalue/100)*4
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 85
+column: 8
+content: while(counter>0){Tx[counter].txuser.send(Tx[counter].txvalue);counter-=1;}
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 58
+column: 15
+content: send(feecounter)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 86
+column: 31
+content: send(Tx[counter].txvalue)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 22
+column: 4
+content: functionSingularityTest13(){owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 27
+column: 4
+content: function(){if(msg.value>=15000000000000000wei){Sort();}else{msg.sender.send(msg.value);}if(msg.sender==owner){if(msg.value>=2700000000000000wei){ReFund();}else{Count();}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 68
+column: 4
+content: functiontimer()onlyowner{if(now>=10seconds){Count();}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 75
+column: 4
+content: functionCount(){if(counter>0){Tx[counter].txuser.send((Tx[counter].txvalue/100)*4);counter-=1;timer();}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 84
+column: 4
+content: functionReFund()onlyowner{while(counter>0){Tx[counter].txuser.send(Tx[counter].txvalue);counter-=1;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 4
+content: addressowner;
+
+SOLIDITY_VISIBILITY :6
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UNCHECKED_CALL :2
+SOLIDITY_DIV_MUL :2

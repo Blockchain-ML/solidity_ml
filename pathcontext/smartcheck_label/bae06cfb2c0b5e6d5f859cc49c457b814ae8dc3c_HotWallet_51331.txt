@@ -1,0 +1,77 @@
+C:\Users\hp\DataSet\contracts\ropsten\ba\bae06cfb2c0b5e6d5f859cc49c457b814ae8dc3c_HotWallet.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 47
+column: 8
+content: while(i<dests.length){if(!transfer(tokens[i],dests[i],amounts[i]))o-=1;i++;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 11
+column: 4
+content: functionchangeOwner(addressnewOwner)publiconlyOwnerreturns(bool){require(newOwner!=address(0)&&address(this)!=newOwner);owner=newOwner;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 16
+column: 4
+content: functionreceive()publicpayablereturns(bool){require(msg.value>0);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 19
+column: 4
+content: functiontransfer(addresstoken,addressdest,uint256amount)publiconlyOwnerreturns(bool){require(dest!=address(0)&&address(this)!=dest);require(amount>0);if(address(0)==token){require(amount<=address(this).balance);address(uint160(dest)).transfer(amount);}else{require(amount<=ERC20(token).balanceOf(address(this)));if(!ERC20(token).transfer(dest,amount))revert();}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 30
+column: 4
+content: functioncall(addresscontractAddr,uint256amount,uintgaslimit,bytesmemorydata)publiconlyOwnerreturns(bool){require(contractAddr!=address(0)&&address(this)!=contractAddr);require(amount<=address(this).balance);if(gaslimit<50000)gaslimit=50000;boolsuccess;if(amount>0){(success,)=address(uint160(contractAddr)).call.gas(gaslimit).value(amount)(data);}else{(success,)=contractAddr.call.gas(gaslimit).value(amount)(data);}if(!success)revert();}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 47
+column: 15
+content: i<dests.length
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 27
+column: 12
+content: if(!ERC20(token).transfer(dest,amount))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 40
+column: 8
+content: if(!success)revert();
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 3
+column: 4
+content: addressowner;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :4
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

@@ -1,0 +1,48 @@
+C:\Users\hp\DataSet\contracts\ropsten\93\937bf1c07b3a87ffa5e3e5cafa2dfaf2a1d32df6_goldsave.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 69
+column: 34
+content: 0x0
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 108
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(boolsuccess){Allowance[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 37
+column: 4
+content: functionset_sellPriceEth(uint256_eth)publiconlyOwnerreturns(uint256){require(_eth>0);uint256oldValue=sellPriceEth;sellPriceEth=_eth;emitchg_setting(owner,oldValue,sellPriceEth,"set_sellPriceEth",block.number);returnsellPriceEth;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 44
+column: 4
+content: functionset_buyPriceEth(uint256_eth)publiconlyOwnerreturns(uint256){require(_eth>0);uint256oldValue=buyPriceEth;buyPriceEth=_eth;emitchg_setting(owner,oldValue,buyPriceEth,"set_buyPriceEth",block.number);returnbuyPriceEth;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 8
+column: 4
+content: usingSafeMathforuint256;
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_ERC20_APPROVE :1

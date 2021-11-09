@@ -1,0 +1,217 @@
+C:\Users\hp\DataSet\contracts\ropsten\01\0186daa66d5e88c799ea95f66ae057bd577c5c04_DummyToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 109
+column: 27
+content: 0x0
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 197
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(boolsuccess){success=operator.token_approve(msg.sender,_spender,_value);emitApproval(msg.sender,_spender,_value);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 55
+column: 4
+content: functionowner()publicpurereturns(address){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 120
+column: 4
+content: functionoperator()publicpurereturns(ITokenOperator){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 125
+column: 4
+content: functiondummy()publicpurereturns(IDummyToken){}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 123
+column: 0
+content: contractITokenOperatorisISmartToken,ICaller{functiondummy()publicpurereturns(IDummyToken){}functionupdateChanges(address)public;functionupdateChangesByBrother(address,uint256,uint256)public;functiontoken_name()publicviewreturns(string);functiontoken_symbol()publicviewreturns(string);functiontoken_decimals()publicviewreturns(uint8);functiontoken_totalSupply()publicviewreturns(uint256);functiontoken_balanceOf(address_owner)publicviewreturns(uint256);functiontoken_allowance(address_from,address_spender)publicviewreturns(uint256);functiontoken_transfer(address_from,address_to,uint256_value)publicreturns(boolsuccess);functiontoken_transfer(address_from,address_to,uint_value,bytes_data)publicreturns(boolsuccess);functiontoken_transfer(address_from,address_to,uint_value,bytes_data,string_custom_fallback)publicreturns(boolsuccess);functiontoken_transferFrom(address_spender,address_from,address_to,uint256_value)publicreturns(boolsuccess);functiontoken_approve(address_from,address_spender,uint256_value)publicreturns(boolsuccess);functioneth_fallback(address_from,bytes_data)publicpayable;functiontoken_fallback(address_token,address_from,uint_value,bytes_data)public;eventToken_Transfer(addressindexed_from,addressindexed_to,uint256_value);eventToken_Transfer(addressindexed_from,addressindexed_to,uint_value,bytesindexed_data);eventToken_Approval(addressindexed_from,addressindexed_spender,uint256_value);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 151
+column: 0
+content: contractDummyTokenisIERC20Token,IERC223Token,IERC223Receiver,ICaller,Owned{ITokenOperatorpublicoperator=ITokenOperator(msg.sender);functioncalledUpdate(ICalled_oldCalled,ICalled_newCalled)publicownerOnly{if(address(operator)==address(_oldCalled))operator=ITokenOperator(address(_newCalled));emitCalledUpdate(_oldCalled,_newCalled);}functionname()publicviewreturns(string){returnoperator.token_name();}functionsymbol()publicviewreturns(string){returnoperator.token_symbol();}functiondecimals()publicviewreturns(uint8){returnoperator.token_decimals();}functiontotalSupply()publicviewreturns(uint256){returnoperator.token_totalSupply();}functionbalanceOf(addressaddr)publicviewreturns(uint256){returnoperator.token_balanceOf(addr);}functionallowance(address_from,address_spender)publicviewreturns(uint256){returnoperator.token_allowance(_from,_spender);}functiontransfer(address_to,uint256_value)publicreturns(boolsuccess){success=operator.token_transfer(msg.sender,_to,_value);emitTransfer(msg.sender,_to,_value);}functiontransfer(address_to,uint_value,bytes_data)publicreturns(boolsuccess){success=operator.token_transfer(msg.sender,_to,_value,_data);emitTransfer(msg.sender,_to,_value,_data);}functiontransfer(address_to,uint_value,bytes_data,string_custom_fallback)publicreturns(boolsuccess){success=operator.token_transfer(msg.sender,_to,_value,_data,_custom_fallback);emitTransfer(msg.sender,_to,_value,_data);}functiontransferFrom(address_from,address_to,uint256_value)publicreturns(boolsuccess){success=operator.token_transferFrom(msg.sender,_from,_to,_value);emitTransfer(_from,_to,_value);}functionapprove(address_spender,uint256_value)publicreturns(boolsuccess){success=operator.token_approve(msg.sender,_spender,_value);emitApproval(msg.sender,_spender,_value);}function()publicpayable{operator.eth_fallback.value(msg.value)(msg.sender,msg.data);}functiontokenFallback(address_from,uint_value,bytes_data)public{operator.token_fallback(msg.sender,_from,_value,_data);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 202
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 7
+column: 41
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 8
+column: 43
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 23
+column: 41
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 24
+column: 43
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 30
+column: 48
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 31
+column: 48
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 31
+column: 61
+content: string_custom_fallback
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 44
+column: 55
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 130
+column: 47
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 131
+column: 49
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 139
+column: 69
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 140
+column: 69
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 140
+column: 82
+content: string_custom_fallback
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 144
+column: 41
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 145
+column: 72
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 160
+column: 41
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 163
+column: 43
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 184
+column: 48
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 188
+column: 48
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 188
+column: 61
+content: string_custom_fallback
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 206
+column: 55
+content: bytes_data
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :3
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :22
+SOLIDITY_ERC20_APPROVE :1

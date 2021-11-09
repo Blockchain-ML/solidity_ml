@@ -1,0 +1,92 @@
+C:\Users\hp\DataSet\contracts\ropsten\f1\f1306f36500B7B1B93715985aBfe5D63530BEBb9_TokenSale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 174
+column: 16
+content: 0x7989EC4402d1CD2EfC4AE8527988C9D001998502
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 129
+column: 13
+content: (address(0),balances[address(0)])
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 129
+column: 26
+content: balances[address(0)]
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 115
+column: 4
+content: functionapprove(addressspender,uint256value)publicreturns(bool){require((value==0)||(allowed[msg.sender][spender]==0));allowed[msg.sender][spender]=value;emitApproval(msg.sender,spender,value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 157
+column: 0
+content: contractTokenSale{usingSafeMathforuint256;uint256publicprice=1000wei;addresspublictoken;addresspublicowner;modifieronlyOwner(){require(msg.sender==owner);_;}constructor()public{owner=msg.sender;token=0x7989EC4402d1CD2EfC4AE8527988C9D001998502;}functionchangePrice(uint256_new_price)publiconlyOwner{require(_new_price>0);price=_new_price;}functionchangeOwner(address_new_owner)publiconlyOwner{require(_new_owner!=address(0));owner=_new_owner;}function()publicpayable{require(msg.value>0);require(price>0);uint256num_tokens=msg.value.div(price);require(GoldBackedToken(token).balanceOf(this)>num_tokens);GoldBackedToken(token).transfer(msg.sender,num_tokens);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 41
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 158
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 187
+column: 16
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 50
+column: 4
+content: uint256totalSupply_=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 4
+content: mapping(address=>uint256)balances;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :2
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_ERC20_APPROVE :1

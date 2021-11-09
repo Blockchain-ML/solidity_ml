@@ -1,0 +1,190 @@
+F:\Blockchain\dataset_new_byID\81732.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 74
+column: 4
+content: for(uinti;i<_refereeBonusRateMap.length;i+=2){if(_refereeBonusRateMap[i+1]>decimals){revert("One of referee bonus rate exceeds 100%");}refereeBonusRateMap.push(RefereeBonusRate(_refereeBonusRateMap[i],_refereeBonusRateMap[i+1]));}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 85
+column: 4
+content: for(uinti;i<data.length;i++){S+=data[i];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 105
+column: 4
+content: for(uinti=1;i<refereeBonusRateMap.length;i++){if(amount<refereeBonusRateMap[i].lowerBound){break;}rate=refereeBonusRateMap[i].rate;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 117
+column: 4
+content: for(uinti;i<levelRate.length;i++){if(parent==address(0)){break;}if(parent==referee){returntrue;}parent=accounts[parent].referrer;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 74
+column: 4
+content: for(uinti;i<_refereeBonusRateMap.length;i+=2){if(_refereeBonusRateMap[i+1]>decimals){revert("One of referee bonus rate exceeds 100%");}refereeBonusRateMap.push(RefereeBonusRate(_refereeBonusRateMap[i],_refereeBonusRateMap[i+1]));}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 85
+column: 4
+content: for(uinti;i<data.length;i++){S+=data[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 117
+column: 4
+content: for(uinti;i<levelRate.length;i++){if(parent==address(0)){break;}if(parent==referee){returntrue;}parent=accounts[parent].referrer;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 6
+column: 0
+content: contractReferralisOwnable{usingSafeMathforuint;uint8constantMAX_REFER_DEPTH=3;uint8constantMAX_REFEREE_BONUS_LEVEL=3;structAccount{addresspayablereferrer;uintreward;uintreferredCount;uintlastActiveTimestamp;}structRefereeBonusRate{uintlowerBound;uintrate;}eventRegisteredReferer(addressreferee,addressreferrer);eventRegisteredRefererFailed(addressreferee,addressreferrer,stringreason);eventPaidReferral(addressfrom,addressto,uintamount,uintlevel);eventUpdatedUserLastActiveTime(addressuser,uinttimestamp);mapping(address=>Account)publicaccounts;uint256[]levelRate;uint256referralBonus;uint256decimals;uint256secondsUntilInactive;boolonlyRewardActiveReferrers;RefereeBonusRate[]refereeBonusRateMap;constructor(uint_decimals,uint_referralBonus,uint_secondsUntilInactive,bool_onlyRewardActiveReferrers,uint256[]memory_levelRate,uint256[]memory_refereeBonusRateMap)public{require(_levelRate.length>0,"Referral level should be at least one");require(_levelRate.length<=MAX_REFER_DEPTH,"Exceeded max referral level depth");require(_refereeBonusRateMap.length%2==0,"Referee Bonus Rate Map should be pass as [<lower amount>, <rate>, ....]");require(_refereeBonusRateMap.length/2<=MAX_REFEREE_BONUS_LEVEL,"Exceeded max referree bonus level depth");require(_referralBonus<=_decimals,"Referral bonus exceeds 100%");require(sum(_levelRate)<=_decimals,"Total level rate exceeds 100%");decimals=_decimals;referralBonus=_referralBonus;secondsUntilInactive=_secondsUntilInactive;onlyRewardActiveReferrers=_onlyRewardActiveReferrers;levelRate=_levelRate;if(_refereeBonusRateMap.length==0){refereeBonusRateMap.push(RefereeBonusRate(1,decimals));return;}for(uinti;i<_refereeBonusRateMap.length;i+=2){if(_refereeBonusRateMap[i+1]>decimals){revert("One of referee bonus rate exceeds 100%");}refereeBonusRateMap.push(RefereeBonusRate(_refereeBonusRateMap[i],_refereeBonusRateMap[i+1]));}}functionsum(uint[]memorydata)publicpurereturns(uint){uintS;for(uinti;i<data.length;i++){S+=data[i];}returnS;}functionhasReferrer(addressaddr)publicviewreturns(bool){returnaccounts[addr].referrer!=address(0);}functiongetTime()publicviewreturns(uint256){returnnow;}functiongetRefereeBonusRate(uint256amount)publicviewreturns(uint256){uintrate=refereeBonusRateMap[0].rate;for(uinti=1;i<refereeBonusRateMap.length;i++){if(amount<refereeBonusRateMap[i].lowerBound){break;}rate=refereeBonusRateMap[i].rate;}returnrate;}functionisCircularReference(addressreferrer,addressreferee)internalviewreturns(bool){addressparent=referrer;for(uinti;i<levelRate.length;i++){if(parent==address(0)){break;}if(parent==referee){returntrue;}parent=accounts[parent].referrer;}returnfalse;}functionaddReferrer(addresspayablereferrer)internalreturns<missing ';'>(bool){if(referrer==<missing ';'>address(0)){emitRegisteredRefererFailed(msg.sender,referrer,"Referrer cannot be 0x0 address");returnfalse;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 75
+column: 6
+content: if(_refereeBonusRateMap[i+1]>decimals){revert("One of referee bonus rate exceeds 100%");}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 7
+column: 2
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 133
+column: 2
+content: functionaddReferrer(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 2
+content: uint8constantMAX_REFER_DEPTH=3;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 2
+content: uint8constantMAX_REFEREE_BONUS_LEVEL=3;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 2
+content: uint256[]levelRate;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 2
+content: uint256referralBonus;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 39
+column: 2
+content: uint256decimals;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 40
+column: 2
+content: uint256secondsUntilInactive;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 41
+column: 2
+content: boolonlyRewardActiveReferrers;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 42
+column: 2
+content: RefereeBonusRate[]refereeBonusRateMap;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 133
+column: 65
+content: (bool){if
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 134
+column: 7
+content: (referrer==<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 134
+column: 20
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 134
+column: 27
+content: (0)){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 135
+column: 6
+content: emitRegisteredRefererFailed
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 135
+column: 34
+content: (msg.sender,referrer,"Referrer cannot be 0x0 address");returnfalse;
+
+SOLIDITY_VISIBILITY :15
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3

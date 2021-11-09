@@ -1,0 +1,98 @@
+F:\Blockchain\dataset_new_byID\78427.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 108
+column: 8
+content: for(uinti=0;i<placedBets.length;i++){if(keccak256(_outcome)==keccak256(placedBets[i].outcome)){winningBets.push(placedBets[i]);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 108
+column: 8
+content: for(uinti=0;i<placedBets.length;i++){if(keccak256(_outcome)==keccak256(placedBets[i].outcome)){winningBets.push(placedBets[i]);}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 10
+column: 0
+content: contractBet{addressowner;addressproposer;stringterms;stringoutcome;structPlacedBet{addressowner;uintamount;stringoutcome;boolisAWinner;boolprizeWithdrawn;}PlacedBet[]publicplacedBets;uintnumberOfBets=0;PlacedBet[]publicwinningBets;uintaccumulated;enumState{Open,Closed,Ended}Statepublicstate;eventBetPlaced(address_from,uint_amount,string_outcome);modifieronlyOwner(){require(msg.sender==owner);_;}modifierisOpen(){require(state==State.Open);_;}modifierisClosed(){require(state==State.Closed);_;}modifierisEnded(){require(state==State.Ended);_;}functionBet(address_proposer)publicpayable{owner=msg.sender;proposer=_proposer;state=State.Open;}functionopenLottery()externalisClosedonlyOwner{state=State.Open;}functioncloseLottery()externalisOpenonlyOwner{state=State.Closed;}functionendLottery()externalisClosedonlyOwner{state=State.Ended;}functionsetTerms(string_terms)externalisOpenonlyOwner{terms=_terms;}functionsetOutcome(string_outcome)externalisOpenonlyOwner{outcome=_outcome;}functionbet(string_outcome)externalisOpenpayable{bytesmemorytempEmptyStringTest=bytes(_outcome);if(tempEmptyStringTest.length!=0&&msg.value>0){numberOfBets+=1;accumulated+=msg.value;placedBets.push(PlacedBet({owner:msg.sender,amount:msg.value,outcome:_outcome,isAWinner:false,prizeWithdrawn:false}));BetPlaced(msg.sender,msg.value,_outcome);}}functionsetWinners(string_outcome)externalonlyOwnerisClosed{for(uinti=0;i<placedBets.length;i++){if(keccak256(_outcome)==keccak256(placedBets[i].outcome)){winningBets.push(placedBets[i]);}}}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 79
+column: 4
+content: functionsetTerms(string_terms)externalisOpenonlyOwner{terms=_terms;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 83
+column: 4
+content: functionsetOutcome(string_outcome)externalisOpenonlyOwner{outcome=_outcome;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 107
+column: 4
+content: functionsetWinners(string_outcome)externalonlyOwnerisClosed{for(uinti=0;i<placedBets.length;i++){if(keccak256(_outcome)==keccak256(placedBets[i].outcome)){winningBets.push(placedBets[i]);}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 4
+content: addressowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 4
+content: addressproposer;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 4
+content: stringterms;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 16
+column: 4
+content: stringoutcome;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 27
+column: 4
+content: uintnumberOfBets=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 30
+column: 4
+content: uintaccumulated;
+
+SOLIDITY_VISIBILITY :6
+SOLIDITY_OVERPOWERED_ROLE :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

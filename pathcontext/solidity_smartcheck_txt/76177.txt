@@ -1,0 +1,60 @@
+F:\Blockchain\dataset_new_byID\76177.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 65
+column: 8
+content: for(uint256i=0;i<walletCancelledOrderOperatorHashes[wallet].length;i++){bytes32operatorHash=walletCancelledOrderOperatorHashes[wallet][i];if(walletOrderOperatorHashCancelledMap[wallet][operatorHash])count++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 111
+column: 8
+content: for(uint256i=0;i<orders.length;i++){require(msg.sender==orders[i].wallet,"Message sender is not order wallet [CancelOrdersChallenge.sol:121]");require(validator.isGenuineOrderSeals(orders[i]),"Not genuine order seals found [CancelOrdersChallenge.sol:122]");if(0==walletCancelledOrderOperatorHashes[msg.sender].length)cancellingWallets.push(msg.sender);walletOrderOperatorHashCancelledMap[msg.sender][orders[i].seals.operator.hash]=true;walletCancelledOrderOperatorHashes[msg.sender].push(orders[i].seals.operator.hash);walletCancelledOrderOperatorHashIndexMap[msg.sender][orders[i].seals.operator.hash]=walletCancelledOrderOperatorHashes[msg.sender].length-1;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 174
+column: 8
+content: for(uint256i=0;i<orders.length;i++)operatorHashes[i]=orders[i].seals.operator.hash;
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 65
+column: 8
+content: for(uint256i=0;i<walletCancelledOrderOperatorHashes[wallet].length;i++){bytes32operatorHash=walletCancelledOrderOperatorHashes[wallet][i];if(walletOrderOperatorHashCancelledMap[wallet][operatorHash])count++;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 111
+column: 8
+content: for(uint256i=0;i<orders.length;i++){require(msg.sender==orders[i].wallet,"Message sender is not order wallet [CancelOrdersChallenge.sol:121]");require(validator.isGenuineOrderSeals(orders[i]),"Not genuine order seals found [CancelOrdersChallenge.sol:122]");if(0==walletCancelledOrderOperatorHashes[msg.sender].length)cancellingWallets.push(msg.sender);walletOrderOperatorHashCancelledMap[msg.sender][orders[i].seals.operator.hash]=true;walletCancelledOrderOperatorHashes[msg.sender].push(orders[i].seals.operator.hash);walletCancelledOrderOperatorHashIndexMap[msg.sender][orders[i].seals.operator.hash]=walletCancelledOrderOperatorHashes[msg.sender].length-1;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 174
+column: 8
+content: for(uint256i=0;i<orders.length;i++)operatorHashes[i]=orders[i].seals.operator.hash;
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 3
+column: 16
+content: >=
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 3
+column: 25
+content: <
+
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3

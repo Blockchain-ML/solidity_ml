@@ -1,0 +1,105 @@
+C:\Users\hp\DataSet\BountyDistributor.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 37
+column: 8
+content: for(uintindex=0;index<_bountyHunters.length;index++){addBountyHunter(_bountyHunters[index],_bounties[index]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 50
+column: 8
+content: for(uinti=0;i<bountyHunters.length;i++){if(sent>=_numTokens)break;if(bounties[i]>0){assignTokens(bountyHunters[i],bounties[i]);bounties[i]=0;sent+=1;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 37
+column: 8
+content: for(uintindex=0;index<_bountyHunters.length;index++){addBountyHunter(_bountyHunters[index],_bounties[index]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 50
+column: 8
+content: for(uinti=0;i<bountyHunters.length;i++){if(sent>=_numTokens)break;if(bounties[i]>0){assignTokens(bountyHunters[i],bounties[i]);bounties[i]=0;sent+=1;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 24
+column: 23
+content: {revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 15
+column: 8
+content: if(_bountyHunters.length!=_bounties.length){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 34
+column: 8
+content: if(_bountyHunters.length!=_bounties.length){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 43
+column: 8
+content: if(!token.transferFrom(beneficiary,receiver,tokenAmount)){revert();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 14
+column: 4
+content: functionBountyDistributor(address_token,address_beneficiary,address[]_bountyHunters,uint[]_bounties){if(_bountyHunters.length!=_bounties.length){revert();}token=FractionalERC20(_token);beneficiary=_beneficiary;bountyHunters=_bountyHunters;bounties=_bounties;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 24
+column: 4
+content: function()payable{revert();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 28
+column: 4
+content: functionaddBountyHunter(address_bountyHunter,uint_bounty)onlyOwner{bountyHunters.push(_bountyHunter);bounties.push(_bounty);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 33
+column: 4
+content: functionaddBountyHunters(address[]_bountyHunters,uint[]_bounties)onlyOwner{if(_bountyHunters.length!=_bounties.length){revert();}for(uintindex=0;index<_bountyHunters.length;index++){addBountyHunter(_bountyHunters[index],_bounties[index]);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 48
+column: 4
+content: functionsendTokens(uint_numTokens)onlyOwner{uintsent=0;for(uinti=0;i<bountyHunters.length;i++){if(sent>=_numTokens)break;if(bounties[i]>0){assignTokens(bountyHunters[i],bounties[i]);bounties[i]=0;sent+=1;}}}
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :3
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

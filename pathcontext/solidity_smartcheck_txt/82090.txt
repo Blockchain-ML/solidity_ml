@@ -1,0 +1,130 @@
+F:\Blockchain\dataset_new_byID\82090.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 90
+column: 63
+content: years
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 102
+column: 86
+content: years
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 123
+column: 63
+content: years
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 852kwn
+severity: 1
+line: 135
+column: 86
+content: years
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 17
+column: 2
+content: functionsetUp(){emp1=newEmpTester();emp2=newEmpTester();esop=makeNFESOP();globct=esop.currentTime();setupReporter('./solc/simulations.csv');}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 25
+column: 2
+content: functionsimulateLifecycleSingleEmp(uint32ct){uint8rc=uint8(emp1.employeeSignsToESOP());uintvdays=esop.optionsCalculator().vestingPeriod()/7days;uintro;uintteo;for(uintd=0;d<vdays+4;d++){uintdn=d*7;uintoptions=esop.calcEffectiveOptionsForEmployee(address(emp1),uint32(ct+d*(7days)));ro=esop.remainingPoolOptions();teo=esop.totalExtraOptions();}uintfdays=vdays+4;esop.terminateEmployee(address(emp1),uint32(ct+fdays*(7days)),0);for(d=1;d<fdays+5;d++){dn=d*7+vdays*7;options=esop.calcEffectiveOptionsForEmployee(address(emp1),uint32(ct+(vdays+4)*7days+d*(7days)));ro=esop.remainingPoolOptions();teo=esop.totalExtraOptions();}dn=(vdays+fdays+5)*7;ct=uint32(ct+dn*1days);DummyOptionsConverterconverter=newDummyOptionsConverter(address(esop),ct+2weeks);esop.mockTime(ct);esop.offerOptionsConversion(converter);options=esop.calcEffectiveOptionsForEmployee(address(emp1),ct);ro=esop.remainingPoolOptions();teo=esop.totalExtraOptions();options=esop.calcEffectiveOptionsForEmployee(address(emp1),ct+4weeks);dn+=4*7;ro=esop.remainingPoolOptions();teo=esop.totalExtraOptions();esop.mockTime(ct);rc=uint8(emp1.employeeExerciseOptions(true));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 68
+column: 2
+content: functiontestSimulateEmployeeOnlyExtra()logs_gas(){uint32ct=esop.currentTime();uint8rc=uint8(esop.offerOptionsToEmployee(emp1,ct,ct+2weeks,10000,false));emp1._target(esop);simulateLifecycleSingleEmp(ct);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 76
+column: 2
+content: functiontestSimulateAmounts()logs_gas(){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 80
+column: 2
+content: functiontestSimulateManyEmployees()logs_gas(){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 84
+column: 2
+content: functiontestSimulateEmployeeWithEarlyExitBonus()logs_gas(){uint32ct=esop.currentTime();uint8rc=uint8(esop.offerOptionsToEmployee(emp1,ct,ct+2weeks,0,false));emp1._target(esop);emp1.employeeSignsToESOP();uintvdays=(esop.optionsCalculator().vestingPeriod()-2years)/7days;for(uintd=0;d<vdays+4;d++){uintdn=d*7;uintoptions=esop.calcEffectiveOptionsForEmployee(address(emp1),uint32(ct+d*(7days)));}uintfdays=vdays+4;dn=(fdays)*7;ct=uint32(ct+dn*1days);DummyOptionsConverterconverter=newDummyOptionsConverter(address(esop),ct+1years);esop.mockTime(ct);esop.offerOptionsConversion(converter);for(d=0;d<14;d++){dn=d*7;options=esop.calcEffectiveOptionsForEmployee(address(emp1),uint32(ct+d*(7days)));}esop.mockTime(ct);emp1.employeeExerciseOptions(true);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 117
+column: 2
+content: functiontestSimulateEmployeeWithExitBonus()logs_gas(){uint32ct=esop.currentTime();uint8rc=uint8(esop.offerOptionsToEmployee(emp1,ct,ct+2weeks,0,false));emp1._target(esop);rc=emp1.employeeSignsToESOP();uintvdays=(esop.optionsCalculator().vestingPeriod()+1years)/7days;for(uintd=0;d<vdays+4;d++){uintdn=d*7;uintoptions=esop.calcEffectiveOptionsForEmployee(address(emp1),uint32(ct+d*(7days)));}uintfdays=vdays+4;dn=(fdays)*7;ct=uint32(ct+dn*1days);DummyOptionsConverterconverter=newDummyOptionsConverter(address(esop),ct+1years);esop.mockTime(ct);esop.offerOptionsConversion(converter);for(d=0;d<14;d++){dn=d*7;options=esop.calcEffectiveOptionsForEmployee(address(emp1),uint32(ct+d*(7days)));}esop.mockTime(ct);rc=uint8(emp1.employeeExerciseOptions(true));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 150
+column: 2
+content: functiontestSimulateEmployeeOptionsWithRegTermFull()logs_gas(){uint32ct=esop.currentTime();uint8rc=uint8(esop.offerOptionsToEmployee(emp1,ct,ct+2weeks,0,false));emp1._target(esop);simulateLifecycleSingleEmp(ct);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 158
+column: 2
+content: functiontestSimulateESOPWithSimulateFunction(){uintvdays=esop.optionsCalculator().vestingPeriod()/7days;uint32terminatedAt=uint32(globct+(vdays+4)*(7days));uint32empopts=uint32(divRound(esop.totalPoolOptions()*esop.optionsCalculator().newEmployeePoolPromille(),esop.optionsCalculator().FP_SCALE()));for(uintd=0;d<vdays+4;d++){uintdn=d*7;uintoptions=esop.optionsCalculator().simulateOptions(globct,0,empopts,0,0,uint8(EmployeeState.Employed),uint32(globct+d*(7days)));}for(d=1;d<(vdays+4)+5;d++){dn=d*7+vdays*7;options=esop.optionsCalculator().simulateOptions(globct,terminatedAt,empopts,0,0,uint8(EmployeeState.Terminated),uint32(globct+(vdays+4)*7days+d*(7days)));}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 4
+content: EmpTesteremp1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 4
+content: EmpTesteremp2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 14
+column: 4
+content: ESOPesop;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 4
+content: uint32globct;
+
+SOLIDITY_VISIBILITY :13
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1

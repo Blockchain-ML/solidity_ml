@@ -1,0 +1,155 @@
+C:\Users\hp\DataSet\contracts\ropsten\19\195666138319c64e93ac6c7fd47696a7390f03c8_CryptocurrencyRaz.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 139
+column: 4
+content: functionhasRazCompleted(uintrazNumber)publicconstantreturns(bool){require(razNumber>=1&&razNumber<=numberOfRazzes);returnrazCompletion[razNumber];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 233
+column: 4
+content: functiongetMyPastWins(addressaddr)publicconstantreturns(uint[]){returnpastWinnings[addr];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 237
+column: 4
+content: functiongetMyPastLosses(addressaddr)publicconstantreturns(uint[]){returnpastLosings[addr];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 128
+column: 8
+content: for(uinti=1;i<=maxBetsForEachRaz[razNumber];i++){if(numbersTaken[razNumber][i]==0)returnfalse;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 148
+column: 8
+content: for(uinti=1;i<=maxBetsForEachRaz[razNumber];i++){if(numbersTaken[razNumber][i]==0)razList.push(i);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 158
+column: 8
+content: for(uinti=1;i<=maxBetsForEachRaz[razNumber];i++){if(numbersTaken[razNumber][i]==winningAddress&&i==winningNumber){winOrLoseArray=pastWinnings[numbersTaken[razNumber][i]];winOrLoseArray.push(razNumber);pastWinnings[numbersTaken[razNumber][i]]=winOrLoseArray;}else{if(numbersTaken[razNumber][i]!=winningAddress){winOrLoseArray=pastLosings[numbersTaken[razNumber][i]];winOrLoseArray.push(razNumber);pastLosings[numbersTaken[razNumber][i]]=winOrLoseArray;}}numbersTaken[razNumber][i]=0;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 194
+column: 8
+content: for(uinti=1;i<=maxBetsForEachRaz[razNumber];i++){if(numbersTaken[razNumber][i]==userAddress)razList.push(i);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 224
+column: 4
+content: functionupdateExistingRaz(uintrazNumber,uintmaxBets,uintwinningAmount,uintownerAmount,uintparticFee,stringname)publiconlyOwnerreturns(uint){require(razNumber<=numberOfRazzes);maxBetsForEachRaz[razNumber]=maxBets;participationFeeForEachRaz[razNumber]=particFee;winnerPrizeMoneyForEachRaz[razNumber]=winningAmount;ownerPrizeMoneyForEachRaz[razNumber]=ownerAmount;razName[razNumber]=name;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 116
+column: 8
+content: for(uinti=0;i<numBets;i++){require(numbersTaken[razNumber][bets[i]]==0);require(bets[i]>=1&&bets[i]<=maxBetsForEachRaz[razNumber]);numbersTaken[razNumber][bets[i]]=msg.sender;}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 61
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 110
+column: 45
+content: uint[]bets
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 144
+column: 72
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 190
+column: 83
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 213
+column: 91
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 224
+column: 115
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 233
+column: 66
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 237
+column: 68
+content: uint[]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 76
+column: 4
+content: uint[]razList;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 77
+column: 4
+content: uint[]empty;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 79
+column: 4
+content: uint[]winOrLoseArray;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 80
+column: 4
+content: uintWinOrLoseNumber;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :4
+SOLIDITY_UPGRADE_TO_050 :7
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

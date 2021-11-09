@@ -1,0 +1,138 @@
+C:\Users\hp\DataSet\contracts\ropsten\cb\cb470fadb8b0692a1d01b9137a6f561b63b79378_AssetContract.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 51
+column: 22
+content: 0x394Ab23984D9dDF7C4b9E6d02E0d9E65F38027C5
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 108
+column: 48
+content: 0x4C4F7914fA951e6DfE3a8D688dbc6197831495f4
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 145
+column: 22
+content: 0x394Ab23984D9dDF7C4b9E6d02E0d9E65F38027C5
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 265
+column: 24
+content: 0x394Ab23984D9dDF7C4b9E6d02E0d9E65F38027C5
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 224
+column: 79
+content: string_dochash
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 5
+column: 4
+content: functiontransfer(address_to,uint256_value)returns(boolok);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 6
+column: 4
+content: functionbalanceOf(address_address)returns(uint256);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 7
+column: 4
+content: functiontreasurer()returns(address);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 49
+column: 4
+content: functionBuyOffer(address_AssetContractAddress,address_OfferAddress,uint_numberofdays,uint_offeramount,uint_sharenumber,uint_offernumber){KTC_Address=0x394Ab23984D9dDF7C4b9E6d02E0d9E65F38027C5;ktccontract=KTC_Contract(KTC_Address);AssetContractAddress=_AssetContractAddress;assetcontract=AssetContract(AssetContractAddress);OfferAddress=_OfferAddress;numberofdays=_numberofdays;offeramount=_offeramount;OfferActive=true;sharenumber=_sharenumber;offerNumber=_offernumber;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 68
+column: 4
+content: functiontokenFallback(address_address,uint_value){require(offeramount==_value);OfferFunded=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 77
+column: 4
+content: functionacceptOffer(uint_share,string_dochash){require(OfferActive==true);if(sharenumber!=0)require(_share==sharenumber);require(assetcontract.isMember(msg.sender));require(assetcontract.memberShare(_share)==msg.sender);OfferActive=false;ktccontract.transfer(msg.sender,ktccontract.balanceOf(this));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 143
+column: 4
+content: functionSellOffer(address_AssetContractAddress,address_OffererAddress,uint_numberofdays,uint_offeramount,uint_sharenumber,uint_offernumber){KTC_Address=0x394Ab23984D9dDF7C4b9E6d02E0d9E65F38027C5;ktccontract=KTC_Contract(KTC_Address);AssetContractAddress=_AssetContractAddress;assetcontract=AssetContract(AssetContractAddress);OffererAddress=_OffererAddress;numberofdays=_numberofdays;offeramount=_offeramount;OfferActive=true;sharenumber=_sharenumber;offerNumber=_offernumber;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 162
+column: 4
+content: functionacceptOffer(string_dochash){require(ktccontract.balanceOf(msg.sender)>=offeramount);ktccontract.transfer(OffererAddress,offeramount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 263
+column: 4
+content: functionAssetContract(){KTC_Address=0x394Ab23984D9dDF7C4b9E6d02E0d9E65F38027C5;ktccontract=KTC_Contract(KTC_Address);init();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 291
+column: 4
+content: functiontokenFallback(address_address,uint_value,bytes_data,string_stringdata,uint256_numdata){require(_numdata!=0x0);require(msg.sender==KTC_Address);if(keccak256(_data)==keccak256("1")){book(_address,_value,_numdata);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 339
+column: 4
+content: functionBuy_Offer(uint_offeramount,uint_numberofdays,uint_sharenumber){require(whitelistcontract.checkAddress(msg.sender));offers++;BuyOfferbuyoffer=newBuyOffer(address(this),msg.sender,_numberofdays,_offeramount,_sharenumber,offers);allOffers[buyoffer]=true;offerAddress.push(buyoffer);ktccontract.transfer(buyoffer,_offeramount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 352
+column: 4
+content: functionSell_Offer(uint_offeramount,uint_numberofdays,uint_sharenumber){require(memberShare(_sharenumber)==msg.sender);offers++;SellOfferselloffer=newSellOffer(address(this),msg.sender,_numberofdays,_offeramount,_sharenumber,offers);allOffers[selloffer]=true;offerAddress.push(selloffer);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 363
+column: 4
+content: functionupdateMember(address_oldmember,address_newmember,uint_numbershare,uint_price,string_dochash,uint_offernumber)onlyOffers{require(whitelistcontract.checkAddress(_newmember));require(members[_numbershare]==_oldmember);createTransaction(_newmember,_oldmember,_price,_dochash,now,_offernumber);members[_numbershare]=_newmember;}
+
+SOLIDITY_VISIBILITY :13
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :4
+SOLIDITY_UPGRADE_TO_050 :1

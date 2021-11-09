@@ -1,0 +1,40 @@
+C:\Users\hp\DataSet\contracts\mainnet\57\5717a655b8708e85575d4e083178b4d79189096e_ConstantinopleCheck2.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 11
+column: 4
+content: functionIsItConstantinople()publicviewreturns(bool){(boolsuccess)=address(this).call(abi.encodeWithSignature("ConstantinopleCheckFunction()"));emitConstantinople(success);returnsuccess;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 20
+column: 4
+content: functionConstantinopleCheckFunction()publicviewreturns(bytes32){bytes32test=bytes32(now);assembly{test:=shl(test,1)}returntest;}
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 12
+column: 39
+content: call(abi.encodeWithSignature("ConstantinopleCheckFunction()"))
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 22
+column: 8
+content: assembly{test:=shl(test,1)}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :2

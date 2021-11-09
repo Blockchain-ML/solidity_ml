@@ -1,0 +1,107 @@
+F:\Blockchain\dataset_new_byID\79634.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 63
+column: 4
+content: functiongetMetadata()constantreturns(uint_targetUSDPrice,uint_betDeadlineBlock,uint_voteDeadlineBlock,uint_yesVotes,uint_noVotes,uint_yesFunds,uint_noFunds){return(targetUSDPrice,betDeadlineBlock,voteDeadlineBlock,yesVotes,noVotes,yesFunds,noFunds);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 74
+column: 4
+content: functionstringToUint(strings)constantreturns(uintresult){bytesmemoryb=bytes(s);result=0;for(uinti=0;i<b.length;i++){uintc=uint(b[i]);if(c>=48&&c<=57){result=result.safeMul(10).safeAdd(c.safeSub(48));}else{if(c==46){break;}}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 80
+column: 8
+content: for(uinti=0;i<b.length;i++){uintc=uint(b[i]);if(c>=48&&c<=57){result=result.safeMul(10).safeAdd(c.safeSub(48));}else{if(c==46){break;}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 80
+column: 8
+content: for(uinti=0;i<b.length;i++){uintc=uint(b[i]);if(c>=48&&c<=57){result=result.safeMul(10).safeAdd(c.safeSub(48));}else{if(c==46){break;}}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 8
+column: 0
+content: contractETHFuturesQuestionisBinaryQuestion,usingOraclize{usingSafeMathforuint;uintpublictargetUSDPrice;uintpublicfinalUSDPrice;boolpublicfinalized;functionETHFuturesQuestion(uint_targetUSDPrice,uint_betDeadlineBlock,uint_voteDeadlineBlock)BinaryQuestion(_betDeadlineBlock,_voteDeadlineBlock){targetUSDPrice=_targetUSDPrice;}functionfinalize()payableonlyAdmin{require(!finalized);require(oraclize_getPrice("URL")<msg.value);finalized=true;oraclize_query("URL","json(https://api.kraken.com/0/public/Ticker?pair=ETHUSD).result.XETHZUSD.c.0");}function__callback(bytes32requestId,stringresult){require(msg.sender==oraclize_cbAddress());oraclizeCallback(requestId,result);}function__callback(bytes32requestId,stringresult,bytesproof){require(msg.sender==oraclize_cbAddress());oraclizeCallback(requestId,result);}functionoraclizeCallback(bytes32requestId,stringresult)private{finalUSDPrice=stringToUint(result);if(finalUSDPrice>targetUSDPrice){BinaryQuestion.vote(oraclize_cbAddress(),true);}elseif(finalUSDPrice<targetUSDPrice){BinaryQuestion.vote(oraclize_cbAddress(),false);}else{}}functiongetMetadata()constantreturns(uint_targetUSDPrice,uint_betDeadlineBlock,uint_voteDeadlineBlock,uint_yesVotes,uint_noVotes,uint_yesFunds,uint_noFunds){return(targetUSDPrice,betDeadlineBlock,voteDeadlineBlock,yesVotes,noVotes,yesFunds,noFunds);}functionstringToUint(strings)constantreturns(uintresult){bytesmemoryb=bytes(s);result=0;for(uinti=0;i<b.length;i++){uintc=uint(b[i]);if(c>=48&&c<=57){result=result.safeMul(10).safeAdd(c.safeSub(48));}else{if(c==46){break;}}}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 10
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 44
+column: 49
+content: stringresult
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 16
+column: 4
+content: functionETHFuturesQuestion(uint_targetUSDPrice,uint_betDeadlineBlock,uint_voteDeadlineBlock)BinaryQuestion(_betDeadlineBlock,_voteDeadlineBlock){targetUSDPrice=_targetUSDPrice;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 22
+column: 4
+content: functionfinalize()payableonlyAdmin{require(!finalized);require(oraclize_getPrice("URL")<msg.value);finalized=true;oraclize_query("URL","json(https://api.kraken.com/0/public/Ticker?pair=ETHUSD).result.XETHZUSD.c.0");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 4
+content: function__callback(bytes32requestId,stringresult){require(msg.sender==oraclize_cbAddress());oraclizeCallback(requestId,result);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 39
+column: 4
+content: function__callback(bytes32requestId,stringresult,bytesproof){require(msg.sender==oraclize_cbAddress());oraclizeCallback(requestId,result);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 63
+column: 4
+content: functiongetMetadata()constantreturns(uint_targetUSDPrice,uint_betDeadlineBlock,uint_voteDeadlineBlock,uint_yesVotes,uint_noVotes,uint_yesFunds,uint_noFunds){return(targetUSDPrice,betDeadlineBlock,voteDeadlineBlock,yesVotes,noVotes,yesFunds,noFunds);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 74
+column: 4
+content: functionstringToUint(strings)constantreturns(uintresult){bytesmemoryb=bytes(s);result=0;for(uinti=0;i<b.length;i++){uintc=uint(b[i]);if(c>=48&&c<=57){result=result.safeMul(10).safeAdd(c.safeSub(48));}else{if(c==46){break;}}}}
+
+SOLIDITY_VISIBILITY :6
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

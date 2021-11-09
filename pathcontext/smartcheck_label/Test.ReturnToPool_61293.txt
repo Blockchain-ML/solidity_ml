@@ -1,0 +1,131 @@
+C:\Users\hp\DataSet\Test.ReturnToPool.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 312
+column: 4
+content: for(uinti=0;i<options.length;i++)sumOptions+=options[i];
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 312
+column: 4
+content: for(uinti=0;i<options.length;i++)sumOptions+=options[i];
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 15
+column: 2
+content: functionsetUp(){emp1=newEmpTester();esop=makeNFESOP();emp1._target(esop);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 23
+column: 2
+content: functionprepExpectedOptionsAmount(uintcount,ESOPE)returns(uint[]){uint[]memoryoptions=newuint[](count);uintremPool=E.totalPoolOptions();for(uinti=0;i<count;i++){uinto=(remPool*E.optionsCalculator().newEmployeePoolPromille())/E.optionsCalculator().FP_SCALE();options[i]=o;remPool-=o;}returnoptions;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 37
+column: 2
+content: functionmassAddEmployees(uintcount,ESOPE)returns(address[]){uint32ct=E.currentTime();address[]memoryemployees=newaddress[](count);for(uinti=0;i<count;i++){emp1=newEmpTester();employees[i]=emp1;E.offerOptionsToEmployee(emp1,ct,ct+2weeks,0,false);emp1._target(E);}returnemployees;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 50
+column: 2
+content: functionmassAddEmployeesExtra(uintcount,ESOPE)returns(address[],uint[]){uint32ct=E.currentTime();address[]memoryemployees=newaddress[](count);uint[]memoryemp_options=newuint[](count);uintinitExtra=8000;for(uinti=0;i<count;i++){emp1=newEmpTester();employees[i]=emp1;emp_options[i]=initExtra;E.offerOptionsToEmployeeOnlyExtra(emp1,ct,ct+2weeks,uint32(initExtra));emp1._target(E);initExtra+=8000;}return(employees,emp_options);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 67
+column: 2
+content: functioncheckOptionsInEmployeeList(EmployeesListemployees,uint[]options){Employeememoryemp;uintj=0;uintsize=employees.size();assertEq(size,options.length,"optcheck sizes must be equal");for(uinti=0;i<size;i++){addressea=employees.addresses(i);if(ea!=0){emp=deserializeEmployee(employees.getSerializedEmployee(address(ea)));if(absDiff(emp.poolOptions,options[j])>2)assertEq(uint(emp.poolOptions),options[j],"optcheck options");j++;}else{}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 89
+column: 2
+content: functiontestFadeoutExtraToPool(){uint32ct=esop.currentTime();uintextraOptions=10000;esop.offerOptionsToEmployeeOnlyExtra(emp1,ct,ct+2weeks,uint32(extraOptions));uintrc=uint(emp1.employeeSignsToESOP());assertEq(rc,0);uint32vestp=uint32(esop.optionsCalculator().vestingPeriod());uint32term_t=ct+vestp;esop.mockTime(term_t);rc=uint(esop.terminateEmployee(emp1,term_t,0));assertEq(rc,0);uint32delta_t=vestp;uinttot_fade=divRound(esop.optionsCalculator().maxFadeoutPromille()*extraOptions,esop.optionsCalculator().FP_SCALE());uintcum_fade;for(uinti=0;i<10;i++){delta_t=uint32(divRound(delta_t,2));term_t+=delta_t;uintfade=divRound(tot_fade*delta_t,vestp);cum_fade+=fade;uintcopts=esop.calcEffectiveOptionsForEmployee(emp1,term_t);uintabd=absDiff(copts,extraOptions-cum_fade);if(abd>1)assertEq(copts,extraOptions-cum_fade,"tot opts - fade");esop.mockTime(term_t);rc=esop.totalExtraOptions();esop.removeEmployeesWithExpiredSignaturesAndReturnFadeout();if(absDiff(rc-esop.totalExtraOptions(),fade)>1)assertEq(rc-esop.totalExtraOptions(),fade,"pool eqs fade");}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 125
+column: 2
+content: functiontestFadeoutToPool(){uint32ct=esop.currentTime();esop.offerOptionsToEmployee(emp1,ct,ct+2weeks,0,false);uintpoolOptions=esop.totalPoolOptions()-esop.remainingPoolOptions();uintrc=uint(emp1.employeeSignsToESOP());assertEq(rc,0);uint32vestp=uint32(esop.optionsCalculator().vestingPeriod());uint32term_t=ct+vestp;esop.mockTime(term_t);rc=uint(esop.terminateEmployee(emp1,term_t,0));assertEq(rc,0);uint32delta_t=vestp;uinttot_fade=divRound(esop.optionsCalculator().maxFadeoutPromille()*poolOptions,esop.optionsCalculator().FP_SCALE());uintcum_fade;for(uinti=0;i<10;i++){delta_t=uint32(divRound(delta_t,2));term_t+=delta_t;uintfade=divRound(tot_fade*delta_t,vestp);cum_fade+=fade;uintcopts=esop.calcEffectiveOptionsForEmployee(emp1,term_t);uintabd=absDiff(copts,poolOptions-cum_fade);if(abd>1)assertEq(copts,poolOptions-cum_fade,"tot opts - fade");esop.mockTime(term_t);rc=esop.remainingPoolOptions();esop.removeEmployeesWithExpiredSignaturesAndReturnFadeout();if(absDiff(esop.remainingPoolOptions()-rc,fade)>1)assertEq(esop.remainingPoolOptions()-rc,fade,"pool eqs fade");}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 161
+column: 2
+content: functiontestFadeoutToPoolFPEAccumulation(){uint32ct=esop.currentTime();esop.offerOptionsToEmployee(emp1,ct,ct+2weeks,0,false);uintpoolOptions=esop.totalPoolOptions()-esop.remainingPoolOptions();uintrc=uint(emp1.employeeSignsToESOP());assertEq(rc,0);uint32term_t=ct+uint32(esop.optionsCalculator().vestingPeriod());esop.mockTime(term_t);rc=uint(esop.terminateEmployee(emp1,term_t,0));assertEq(rc,0);uint32delta_t=uint32(esop.optionsCalculator().vestingPeriod())/109;uintfade=divRound(esop.optionsCalculator().maxFadeoutPromille()*poolOptions,esop.optionsCalculator().FP_SCALE());uinttot_fade;for(uinti=0;i<109;i++){term_t+=delta_t;esop.mockTime(term_t);esop.removeEmployeesWithExpiredSignaturesAndReturnFadeout();}assertEq(esop.remainingPoolOptions()+(poolOptions-fade),esop.totalPoolOptions(),"all fadeouted");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 187
+column: 2
+content: functiontestTerminateEmployeeToPool(){ESOPE=makeNFESOP();address[]memoryemployees=massAddEmployees(7,E);uint[]memoryoptions=prepExpectedOptionsAmount(7,E);uint32ct=E.currentTime();uintrc=uint(EmpTester(employees[3]).employeeSignsToESOP());assertEq(rc,0);rc=uint(EmpTester(employees[1]).employeeSignsToESOP());assertEq(rc,0);uintppool=E.remainingPoolOptions();uint32term_t=ct+uint32(E.optionsCalculator().vestingPeriod()/2);E.mockTime(term_t);rc=uint(E.terminateEmployee(employees[3],term_t,0));assertEq(rc,0);uintvested=divRound(options[3],2);for(uinti=4;i<7;i++){uintmodopt=divRound(vested*E.optionsCalculator().newEmployeePoolPromille(),E.optionsCalculator().FP_SCALE());vested-=modopt;options[i]+=modopt;}checkOptionsInEmployeeList(E.employees(),options);if(absDiff(E.remainingPoolOptions(),ppool+vested)>1)assertEq(E.remainingPoolOptions(),ppool+vested,"all back in pool");rc=uint(E.terminateEmployee(employees[1],term_t,0));assertEq(rc,0);uintvested2=divRound(options[1],2);for(i=2;i<7;i++){if(i!=3){modopt=divRound(vested2*E.optionsCalculator().newEmployeePoolPromille(),E.optionsCalculator().FP_SCALE());vested2-=modopt;options[i]+=modopt;}}checkOptionsInEmployeeList(E.employees(),options);if(absDiff(E.remainingPoolOptions(),ppool+vested+vested2)>1)assertEq(E.remainingPoolOptions(),ppool+vested+vested2,"all back in pool 2");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 232
+column: 2
+content: functiontestSignaturesExpiredToPool()logs_gas{ESOPE=makeNFESOP();address[]memoryemployees=massAddEmployees(15,E);uint[]memoryoptions=prepExpectedOptionsAmount(15,E);checkOptionsInEmployeeList(E.employees(),options);uintrc=uint(EmpTester(employees[5]).employeeSignsToESOP());assertEq(rc,0);uint32ct=E.currentTime();E.mockTime(ct+4weeks);rc=uint(EmpTester(employees[7]).employeeSignsToESOP());assertEq(rc,2);checkOptionsInEmployeeList(E.employees(),options);rc=uint(EmpTester(employees[3]).employeeSignsToESOP());assertEq(rc,2);checkOptionsInEmployeeList(E.employees(),options);rc=uint(EmpTester(employees[14]).employeeSignsToESOP());assertEq(rc,2);checkOptionsInEmployeeList(E.employees(),options);for(uinti=0;i<15;i++){if(E.employees().hasEmployee(employees[i])){EmpTester(employees[i]).employeeSignsToESOP();checkOptionsInEmployeeList(E.employees(),options);}}Employeememoryemp=deserializeEmployee(E.employees().getSerializedEmployee(employees[5]));assertEq(E.totalPoolOptions(),E.remainingPoolOptions()+emp.poolOptions,"all back in pool");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 270
+column: 2
+content: functiontestRemoveSignaturesExpiredToPool()logs_gas{ESOPE=makeNFESOP();address[]memoryemployees=massAddEmployees(15,E);uint[]memoryoptions=prepExpectedOptionsAmount(15,E);checkOptionsInEmployeeList(E.employees(),options);uint32ct=E.currentTime();E.mockTime(ct+4weeks);E.removeEmployeesWithExpiredSignaturesAndReturnFadeout();assertEq(E.totalPoolOptions(),E.remainingPoolOptions(),"all back in pool");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 286
+column: 2
+content: functiontestRemoveSignaturesExpiredToPoolOneEmployed()logs_gas{ESOPE=makeNFESOP();address[]memoryemployees=massAddEmployees(15,E);uint[]memoryoptions=prepExpectedOptionsAmount(15,E);EmpTester(employees[0]).employeeSignsToESOP();checkOptionsInEmployeeList(E.employees(),options);uint32ct=E.currentTime();E.mockTime(ct+4weeks);E.removeEmployeesWithExpiredSignaturesAndReturnFadeout();assertEq(E.totalPoolOptions(),E.remainingPoolOptions()+options[0],"all back in pool");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 304
+column: 2
+content: functiontestRemoveSignaturesExpiredToPoolOneEmployedTerminatedExtra()logs_gas{ESOPE=makeNFESOP();var(employees,options)=massAddEmployeesExtra(15,E);EmpTester(employees[7]).employeeSignsToESOP();EmpTester(employees[3]).employeeSignsToESOP();uintsumOptions=0;for(uinti=0;i<options.length;i++)sumOptions+=options[i];assertEq(E.totalExtraOptions(),sumOptions,"fill extra pool");uint32ct=E.currentTime()+uint32(E.optionsCalculator().vestingPeriod()/2);E.mockTime(ct);E.terminateEmployee(employees[3],ct,0);E.removeEmployeesWithExpiredSignaturesAndReturnFadeout();assertEq(E.totalExtraOptions(),options[7]+divRound(options[3],2),"all back in pool");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: EmpTesteremp1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 4
+content: ESOPesop;
+
+SOLIDITY_VISIBILITY :15
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

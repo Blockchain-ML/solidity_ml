@@ -1,0 +1,372 @@
+C:\Users\hp\DataSet\contracts\ropsten\bc\bcb9b9c2a0e28544f38e09766b70855872ae8291_ETREE.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 140
+column: 4
+content: functionapprove(addressspender,uint256value)publicreturns(bool){_approve(msg.sender,spender,value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 64
+column: 0
+content: contractOwnable{addresspayableprivate_owner;eventOwnershipTransferred(addressindexedpreviousOwner,addressindexednewOwner);constructor()internal{_owner=msg.sender;emitOwnershipTransferred(address(0),_owner);}functionowner()publicviewreturns(addresspayable){return_owner;}modifieronlyOwner(){require(isOwner(),"Ownable: caller is not the owner");_;}functionisOwner()publicviewreturns(bool){returnmsg.sender==_owner;}functiontransferOwnership(addresspayablenewOwner)publiconlyOwner{_transferOwnership(newOwner);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 404
+column: 0
+content: contractCrowdsaleisReentrancyGuard,Pausable{usingSafeMathforuint256;usingSafeERC20forIERC20;IERC20private_token;addresspayableprivate_wallet;uint256private_rate;uint256private_weiRaised;eventTokensPurchased(addressindexedpurchaser,addressindexedbeneficiary,uint256value,uint256amount);constructor(uint256rate,address<missing ')'>payablewallet,IERC20token)public{require(rate>0,"Crowdsale: rate is 0");require(wallet!=<missing ';'>address(0),"Crowdsale: wallet is the zero address");require(address<missing ';'>(token)!=address(0),"Crowdsale: token is the zero address");_rate=rate;_wallet=wallet;_token=token;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 520
+column: 0
+content: contractGaiaHelpisMintedCrowdsale{uint256internalconstantRATE=19069000000000000;constructor(addresspayableWallet,addresspayableToken)publicCrowdsale(RATE,Wallet,ERC20Mintable(Token)){}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 65
+column: 20
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 118
+column: 33
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 119
+column: 54
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 120
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 121
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 189
+column: 11
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 190
+column: 11
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 191
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 237
+column: 15
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 269
+column: 9
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 305
+column: 15
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 391
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 407
+column: 11
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 408
+column: 20
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 409
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 410
+column: 12
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 117
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 349
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 405
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 341
+column: 4
+content: functionisContract(addressaccount)internalviewreturns(bool){uint256size;assembly{size:=extcodesize(account)}returnsize>0;}
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 353
+column: 8
+content: callOptionalReturn(token,abi.encodeWithSelector(token.transfer.selector,to,value))
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 357
+column: 8
+content: callOptionalReturn(token,abi.encodeWithSelector(token.transferFrom.selector,from,to,value))
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 364
+column: 8
+content: callOptionalReturn(token,abi.encodeWithSelector(token.approve.selector,spender,value))
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 369
+column: 8
+content: callOptionalReturn(token,abi.encodeWithSelector(token.approve.selector,spender,newAllowance))
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 374
+column: 8
+content: callOptionalReturn(token,abi.encodeWithSelector(token.approve.selector,spender,newAllowance))
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 381
+column: 65
+content: call(data)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 96
+column: 4
+content: functiontransferOwnership(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 413
+column: 4
+content: constructor(uint256rate,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 523
+column: 4
+content: constructor(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 97
+column: 8
+content: _transferOwnership(newOwner);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 413
+column: 47
+content: wallet,IERC20
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 414
+column: 15
+content: (rate>0,"Crowdsale: rate is 0");require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 415
+column: 15
+content: (wallet!=<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 415
+column: 26
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 415
+column: 33
+content: (0),"Crowdsale: wallet is the zero address");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 416
+column: 8
+content: require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 416
+column: 15
+content: (address<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 416
+column: 23
+content: (token)!=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 416
+column: 34
+content: address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 416
+column: 41
+content: (0),"Crowdsale: token is the zero address");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 418
+column: 8
+content: _rate=rate;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 419
+column: 8
+content: _wallet=wallet;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 420
+column: 8
+content: _token=token;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 523
+column: 32
+content: Wallet,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 523
+column: 40
+content: addresspayableToken)public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 523
+column: 70
+content: Crowdsale(RATE,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 523
+column: 86
+content: Wallet,ERC20Mintable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 523
+column: 107
+content: (Token)){
+
+SOLIDITY_VISIBILITY :22
+SOLIDITY_SAFEMATH :3
+SOLIDITY_LOCKED_MONEY :3
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :16
+SOLIDITY_UNCHECKED_CALL :6
+SOLIDITY_SHOULD_NOT_BE_VIEW :1
+SOLIDITY_ERC20_APPROVE :1

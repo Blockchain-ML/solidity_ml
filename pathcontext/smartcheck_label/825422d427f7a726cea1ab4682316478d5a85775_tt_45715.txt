@@ -1,0 +1,33 @@
+C:\Users\hp\DataSet\contracts\ropsten\82\825422d427f7a726cea1ab4682316478d5a85775_tt.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 36
+column: 4
+content: functioncheckbalance(addressaccount)publicconstantreturns(uintbalance){returnbalances[account];}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contracttt{mapping(address=>uint256)balances;uint256publictotalsupply;stringpublicname;stringpublicsymbol;uint256publicdecimals;functioncreateToken()publicreturns(uint256){totalsupply=1000;balances[msg.sender]=totalsupply;name=&39;newtoken&39;;symbol=&39;<missing ';'>new&39;;decimals=0;returntotalsupply;}functioncheckbalance(addressaccount)publicconstantreturns(uintbalance){returnbalances[account];}functiontransfer(addressaccount,uintamount)publicpayablereturns(boolsuccess){if(balances[msg.sender]>amount){balances[msg.sender]-=amount;balances[account]+=amount;emittransfer1(msg.sender,account,amount);returntrue;}}eventtransfer1(addresssender,addressrecevier,uintamount);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 4
+column: 4
+content: mapping(address=>uint256)balances;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

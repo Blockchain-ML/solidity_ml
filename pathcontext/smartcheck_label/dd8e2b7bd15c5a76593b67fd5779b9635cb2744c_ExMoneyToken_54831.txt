@@ -1,0 +1,90 @@
+C:\Users\hp\DataSet\contracts\ropsten\dd\dd8e2b7bd15c5a76593b67fd5779b9635cb2744c_ExMoneyToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 113
+column: 4
+content: functionapprove(address_spender,uint256_value)publicreturns(boolsuccess){allowance[msg.sender][_spender]=_value;returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 232
+column: 4
+content: functionsetPrices(uint256newSellPrice,uint256newBuyPrice)onlyOwnerpublic{sellPrice=newSellPrice;buyPrice=newBuyPrice;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 262
+column: 4
+content: functionsetMinBalance(uintminBalanceInFinney)onlyOwnerpublic{minBalanceForAccounts=minBalanceInFinney*1finney;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 46
+column: 8
+content: stringtokenName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 47
+column: 8
+content: stringtokenSymbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 128
+column: 62
+content: bytes_extraData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 188
+column: 8
+content: stringtokenName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 189
+column: 8
+content: stringtokenSymbol
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 239
+column: 4
+content: functionbuy()payablereturns(uintamount){amount=msg.value/buyPrice;require(balanceOf[this]>=amount);balanceOf[msg.sender]+=amount;balanceOf[this]-=amount;_transfer(this,msg.sender,amount);returnamount;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 249
+column: 4
+content: functionsell(uintamount)returns(uintrevenue){require(balanceOf[msg.sender]>=amount);balanceOf[this]+=amount;balanceOf[msg.sender]-=amount;revenue=amount*sellPrice;msg.sender.transfer(revenue);_transfer(msg.sender,this,amount);returnrevenue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 180
+column: 4
+content: uintminBalanceForAccounts;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :5
+SOLIDITY_ERC20_APPROVE :1

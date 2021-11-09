@@ -1,0 +1,351 @@
+F:\Blockchain\dataset_new_byID\74035.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 203
+column: 12
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 203
+column: 23
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 117
+column: 4
+content: functiongetEthBalanceInWei()publicconstantreturns(uint){returnbalanceEthForAddress[msg.sender];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 144
+column: 4
+content: functionhasToken(stringsymbolName)publicconstantreturns(bool){uint8index=getSymbolIndex(symbolName);if(index==0){returnfalse;}returntrue;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 244
+column: 4
+content: functiongetBalance(stringsymbolName)publicconstantreturns(uint){uint8symbolNameIndex=getSymbolIndexOrThrow(symbolName);returntokenBalanceForAddress[msg.sender][symbolNameIndex];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 254
+column: 4
+content: functiongetBuyOrderBook(stringsymbolName)publicconstantreturns(uint[],uint[]){uint8tokenNameIndex=getSymbolIndexOrThrow(symbolName);uint[]memoryarrPricesBuy=newuint[](tokens[tokenNameIndex].amountBuyPrices);uint[]memoryarrVolumesBuy=newuint[](tokens[tokenNameIndex].amountBuyPrices);uintwhilePrice=tokens[tokenNameIndex].lowestBuyPrice;uintcounter=0;if(tokens[tokenNameIndex].curBuyPrice>0){while(whilePrice<=tokens[tokenNameIndex].curBuyPrice){arrPricesBuy[counter]=whilePrice;uintbuyVolumeAtPrice=0;uintbuyOffersKey=0;buyOffersKey=tokens[tokenNameIndex].buyBook[whilePrice].offers_key;while(buyOffersKey<=tokens[tokenNameIndex].buyBook[whilePrice].offers_length){buyVolumeAtPrice+=tokens[tokenNameIndex].buyBook[whilePrice].offers[buyOffersKey].amountTokens;buyOffersKey++;}arrVolumesBuy[counter]=buyVolumeAtPrice;if(whilePrice==tokens[tokenNameIndex].buyBook[whilePrice].higherPrice){break;}else{whilePrice=tokens[tokenNameIndex].buyBook[whilePrice].higherPrice;}counter++;}}return(arrPricesBuy,arrVolumesBuy);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 314
+column: 4
+content: functiongetSellOrderBook(stringsymbolName)publicconstantreturns(uint[],uint[]){uint8tokenNameIndex=getSymbolIndexOrThrow(symbolName);uint[]memoryarrPricesSell=newuint[](tokens[tokenNameIndex].amountSellPrices);uint[]memoryarrVolumesSell=newuint[](tokens[tokenNameIndex].amountSellPrices);uintsellWhilePrice=tokens[tokenNameIndex].curSellPrice;uintsellCounter=0;if(tokens[tokenNameIndex].curSellPrice>0){while(sellWhilePrice<=tokens[tokenNameIndex].highestSellPrice){arrPricesSell[sellCounter]=sellWhilePrice;uintsellVolumeAtPrice=0;uintsellOffersKey=0;sellOffersKey=tokens[tokenNameIndex].sellBook[sellWhilePrice].offers_key;while(sellOffersKey<=tokens[tokenNameIndex].sellBook[sellWhilePrice].offers_length){sellVolumeAtPrice+=tokens[tokenNameIndex].sellBook[sellWhilePrice].offers[sellOffersKey].amountTokens;sellOffersKey++;}arrVolumesSell[sellCounter]=sellVolumeAtPrice;if(tokens[tokenNameIndex].sellBook[sellWhilePrice].higherPrice==0){break;}else{sellWhilePrice=tokens[tokenNameIndex].sellBook[sellWhilePrice].higherPrice;}sellCounter++;}}return(arrPricesSell,arrVolumesSell);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 153
+column: 8
+content: for(uint8i=1;i<=symbolNameIndex;i++){if(stringsEqual(tokens[i].symbolName,symbolName)){returni;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 285
+column: 12
+content: while(whilePrice<=tokens[tokenNameIndex].curBuyPrice){arrPricesBuy[counter]=whilePrice;uintbuyVolumeAtPrice=0;uintbuyOffersKey=0;buyOffersKey=tokens[tokenNameIndex].buyBook[whilePrice].offers_key;while(buyOffersKey<=tokens[tokenNameIndex].buyBook[whilePrice].offers_length){buyVolumeAtPrice+=tokens[tokenNameIndex].buyBook[whilePrice].offers[buyOffersKey].amountTokens;buyOffersKey++;}arrVolumesBuy[counter]=buyVolumeAtPrice;if(whilePrice==tokens[tokenNameIndex].buyBook[whilePrice].higherPrice){break;}else{whilePrice=tokens[tokenNameIndex].buyBook[whilePrice].higherPrice;}counter++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 292
+column: 16
+content: while(buyOffersKey<=tokens[tokenNameIndex].buyBook[whilePrice].offers_length){buyVolumeAtPrice+=tokens[tokenNameIndex].buyBook[whilePrice].offers[buyOffersKey].amountTokens;buyOffersKey++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 321
+column: 12
+content: while(sellWhilePrice<=tokens[tokenNameIndex].highestSellPrice){arrPricesSell[sellCounter]=sellWhilePrice;uintsellVolumeAtPrice=0;uintsellOffersKey=0;sellOffersKey=tokens[tokenNameIndex].sellBook[sellWhilePrice].offers_key;while(sellOffersKey<=tokens[tokenNameIndex].sellBook[sellWhilePrice].offers_length){sellVolumeAtPrice+=tokens[tokenNameIndex].sellBook[sellWhilePrice].offers[sellOffersKey].amountTokens;sellOffersKey++;}arrVolumesSell[sellCounter]=sellVolumeAtPrice;if(tokens[tokenNameIndex].sellBook[sellWhilePrice].higherPrice==0){break;}else{sellWhilePrice=tokens[tokenNameIndex].sellBook[sellWhilePrice].higherPrice;}sellCounter++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 326
+column: 16
+content: while(sellOffersKey<=tokens[tokenNameIndex].sellBook[sellWhilePrice].offers_length){sellVolumeAtPrice+=tokens[tokenNameIndex].sellBook[sellWhilePrice].offers[sellOffersKey].amountTokens;sellOffersKey++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 374
+column: 16
+content: while(offers_key<=tokens[tokenNameIndex].sellBook[whilePrice].offers_length&&amountOfTokensNecessary>0){uintvolumeAtPriceFromAddress=tokens[tokenNameIndex].sellBook[whilePrice].offers[offers_key].amountTokens;if(volumeAtPriceFromAddress<=amountOfTokensNecessary){totalAmountOfEtherAvailable=volumeAtPriceFromAddress*whilePrice;require(balanceEthForAddress[msg.sender]>=totalAmountOfEtherAvailable);require(balanceEthForAddress[msg.sender]-totalAmountOfEtherAvailable<=balanceEthForAddress[msg.sender]);balanceEthForAddress[msg.sender]-=totalAmountOfEtherAvailable;require(balanceEthForAddress[msg.sender]>=totalAmountOfEtherAvailable);require(uint(1)>uint(0));require(tokenBalanceForAddress[msg.sender][tokenNameIndex]+volumeAtPriceFromAddress>=tokenBalanceForAddress[msg.sender][tokenNameIndex]);require(balanceEthForAddress[tokens[tokenNameIndex].sellBook[whilePrice].offers[offers_key].who]+totalAmountOfEtherAvailable>=balanceEthForAddress[tokens[tokenNameIndex].sellBook[whilePrice].offers[offers_key].who]);tokenBalanceForAddress[msg.sender][tokenNameIndex]+=volumeAtPriceFromAddress;tokens[tokenNameIndex].sellBook[whilePrice].offers[offers_key].amountTokens=0;balanceEthForAddress[tokens[tokenNameIndex].sellBook[whilePrice].offers[offers_key].who]+=totalAmountOfEtherAvailable;tokens[tokenNameIndex].sellBook[whilePrice].offers_key++;BuyOrderFulfilled(tokenNameIndex,volumeAtPriceFromAddress,whilePrice,offers_key);amountOfTokensNecessary-=volumeAtPriceFromAddress;}else{require(tokens[tokenNameIndex].sellBook[whilePrice].offers[offers_key].amountTokens>amountOfTokensNecessary);totalAmountOfEtherNecessary=amountOfTokensNecessary*whilePrice;require(balanceEthForAddress[msg.sender]-totalAmountOfEtherNecessary<=balanceEthForAddress[msg.sender]);balanceEthForAddress[msg.sender]-=totalAmountOfEtherNecessary;require(balanceEthForAddress[tokens[tokenNameIndex].sellBook[whilePrice].offers[offers_key].who]+totalAmountOfEtherNecessary>=balanceEthForAddress[tokens[tokenNameIndex].sellBook[whilePrice].offers[offers_key].who]);tokens[tokenNameIndex].sellBook[whilePrice].offers[offers_key].amountTokens-=amountOfTokensNecessary;balanceEthForAddress[tokens[tokenNameIndex].sellBook[whilePrice].offers[offers_key].who]+=totalAmountOfEtherNecessary;tokenBalanceForAddress[msg.sender][tokenNameIndex]+=amountOfTokensNecessary;amountOfTokensNecessary=0;BuyOrderFulfilled(tokenNameIndex,amountOfTokensNecessary,whilePrice,offers_key);}if(offers_key==tokens[tokenNameIndex].sellBook[whilePrice].offers_length&&tokens[tokenNameIndex].sellBook[whilePrice].offers[offers_key].amountTokens==0){tokens[tokenNameIndex].amountSellPrices--;if(whilePrice==tokens[tokenNameIndex].sellBook[whilePrice].higherPrice||tokens[tokenNameIndex].sellBook[whilePrice].higherPrice==0){tokens[tokenNameIndex].curSellPrice=0;}else{tokens[tokenNameIndex].curSellPrice=tokens[tokenNameIndex].sellBook[whilePrice].higherPrice;tokens[tokenNameIndex].sellBook[tokens[tokenNameIndex].sellBook[whilePrice].higherPrice].lowerPrice=0;}}offers_key++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 592
+column: 16
+content: while(offers_key<=tokens[tokenNameIndex].buyBook[whilePrice].offers_length&&amountOfTokensNecessary>0){uintvolumeAtPriceFromAddress=tokens[tokenNameIndex].buyBook[whilePrice].offers[offers_key].amountTokens;if(volumeAtPriceFromAddress<=amountOfTokensNecessary){totalAmountOfEtherAvailable=volumeAtPriceFromAddress*whilePrice;require(tokenBalanceForAddress[msg.sender][tokenNameIndex]>=volumeAtPriceFromAddress);tokenBalanceForAddress[msg.sender][tokenNameIndex]-=volumeAtPriceFromAddress;require(tokenBalanceForAddress[msg.sender][tokenNameIndex]-volumeAtPriceFromAddress>=0);require(tokenBalanceForAddress[tokens[tokenNameIndex].buyBook[whilePrice].offers[offers_key].who][tokenNameIndex]+volumeAtPriceFromAddress>=tokenBalanceForAddress[tokens[tokenNameIndex].buyBook[whilePrice].offers[offers_key].who][tokenNameIndex]);require(balanceEthForAddress[msg.sender]+totalAmountOfEtherAvailable>=balanceEthForAddress[msg.sender]);tokenBalanceForAddress[tokens[tokenNameIndex].buyBook[whilePrice].offers[offers_key].who][tokenNameIndex]+=volumeAtPriceFromAddress;tokens[tokenNameIndex].buyBook[whilePrice].offers[offers_key].amountTokens=0;balanceEthForAddress[msg.sender]+=totalAmountOfEtherAvailable;tokens[tokenNameIndex].buyBook[whilePrice].offers_key++;SellOrderFulfilled(tokenNameIndex,volumeAtPriceFromAddress,whilePrice,offers_key);amountOfTokensNecessary-=volumeAtPriceFromAddress;}else{require(volumeAtPriceFromAddress-amountOfTokensNecessary>0);totalAmountOfEtherNecessary=amountOfTokensNecessary*whilePrice;require(tokenBalanceForAddress[msg.sender][tokenNameIndex]>=amountOfTokensNecessary);tokenBalanceForAddress[msg.sender][tokenNameIndex]-=amountOfTokensNecessary;require(tokenBalanceForAddress[msg.sender][tokenNameIndex]>=amountOfTokensNecessary);require(balanceEthForAddress[msg.sender]+totalAmountOfEtherNecessary>=balanceEthForAddress[msg.sender]);require(tokenBalanceForAddress[tokens[tokenNameIndex].buyBook[whilePrice].offers[offers_key].who][tokenNameIndex]+amountOfTokensNecessary>=tokenBalanceForAddress[tokens[tokenNameIndex].buyBook[whilePrice].offers[offers_key].who][tokenNameIndex]);tokens[tokenNameIndex].buyBook[whilePrice].offers[offers_key].amountTokens-=amountOfTokensNecessary;balanceEthForAddress[msg.sender]+=totalAmountOfEtherNecessary;tokenBalanceForAddress[tokens[tokenNameIndex].buyBook[whilePrice].offers[offers_key].who][tokenNameIndex]+=amountOfTokensNecessary;SellOrderFulfilled(tokenNameIndex,amountOfTokensNecessary,whilePrice,offers_key);amountOfTokensNecessary=0;}if(offers_key==tokens[tokenNameIndex].buyBook[whilePrice].offers_length&&tokens[tokenNameIndex].buyBook[whilePrice].offers[offers_key].amountTokens==0){tokens[tokenNameIndex].amountBuyPrices--;if(whilePrice==tokens[tokenNameIndex].buyBook[whilePrice].lowerPrice||tokens[tokenNameIndex].buyBook[whilePrice].lowerPrice==0){tokens[tokenNameIndex].curBuyPrice=0;}else{tokens[tokenNameIndex].curBuyPrice=tokens[tokenNameIndex].buyBook[whilePrice].lowerPrice;tokens[tokenNameIndex].buyBook[tokens[tokenNameIndex].buyBook[whilePrice].lowerPrice].higherPrice=tokens[tokenNameIndex].curBuyPrice;}}offers_key++;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 285
+column: 19
+content: whilePrice<=tokens[tokenNameIndex].curBuyPrice
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 292
+column: 23
+content: buyOffersKey<=tokens[tokenNameIndex].buyBook[whilePrice].offers_length
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 321
+column: 19
+content: sellWhilePrice<=tokens[tokenNameIndex].highestSellPrice
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 326
+column: 23
+content: sellOffersKey<=tokens[tokenNameIndex].sellBook[sellWhilePrice].offers_length
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 368
+column: 19
+content: whilePrice<=priceInWei&&amountOfTokensNecessary>0
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 374
+column: 23
+content: offers_key<=tokens[tokenNameIndex].sellBook[whilePrice].offers_length&&amountOfTokensNecessary>0
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 538
+column: 23
+content: buyPrice>0&&!weFoundLocation
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 589
+column: 19
+content: whilePrice>=priceInWei&&amountOfTokensNecessary>0
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 592
+column: 23
+content: offers_key<=tokens[tokenNameIndex].buyBook[whilePrice].offers_length&&amountOfTokensNecessary>0
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 784
+column: 23
+content: sellPrice>0&&!weFoundLocation
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 733fdd
+severity: 2
+line: 108
+column: 16
+content: balanceEthForAddress[msg.sender]-amountInWei>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 733fdd
+severity: 2
+line: 462
+column: 16
+content: balanceEthForAddress[msg.sender]-totalAmountOfEtherNecessary>=0
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 126
+column: 22
+content: stringsymbolName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 144
+column: 22
+content: stringsymbolName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 152
+column: 28
+content: stringsymbolName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 211
+column: 26
+content: stringsymbolName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 227
+column: 27
+content: stringsymbolName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 244
+column: 24
+content: stringsymbolName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 254
+column: 29
+content: stringsymbolName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 254
+column: 73
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 254
+column: 81
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 314
+column: 30
+content: stringsymbolName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 314
+column: 74
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 314
+column: 82
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 349
+column: 22
+content: stringsymbolName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 453
+column: 8
+content: stringsymbolName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 568
+column: 23
+content: stringsymbolName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 712
+column: 8
+content: stringsymbolName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 812
+column: 25
+content: stringsymbolName
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 161
+column: 4
+content: functiongetSymbolIndexOrThrow(stringsymbolName)returns(uint8){uint8index=getSymbolIndex(symbolName);require(index>0);returnindex;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 51
+column: 4
+content: mapping(uint8=>Token)tokens;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 4
+content: uint8symbolNameIndex;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 58
+column: 4
+content: mapping(address=>mapping(uint8=>uint))tokenBalanceForAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 60
+column: 4
+content: mapping(address=>uint)balanceEthForAddress;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :7
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :7
+SOLIDITY_UPGRADE_TO_050 :17
+SOLIDITY_UINT_CANT_BE_NEGATIVE :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :10

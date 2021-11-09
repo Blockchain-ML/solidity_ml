@@ -1,0 +1,270 @@
+C:\Users\hp\DataSet\contracts\mainnet\35\352f1DD3Ac41baE74E307b1F188B5CED72D6ebc8_SlognToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 313
+column: 12
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 425
+column: 8
+content: throw
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 103
+column: 19
+content: soldSlogns/100*PRE_ICO_BONUS_RATE
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 121
+column: 25
+content: tokensForBonus1/100*ICO_BONUS1_RATE
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 132
+column: 25
+content: tokensForBonus2/100*ICO_BONUS2_RATE
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 241
+column: 47
+content: TOTAL_SUPPLY/100*15
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 242
+column: 52
+content: TOTAL_SUPPLY/1000*15
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 243
+column: 48
+content: TOTAL_SUPPLY/1000*75
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 244
+column: 45
+content: TOTAL_SUPPLY/100*5
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 55
+column: 4
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess){allowance[msg.sender][_spender]=_value;returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 287
+column: 8
+content: for(uint8i=0;i<coreTeam.length;i++){transferInternal(this,coreTeam[i],tokensPerMember);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 287
+column: 8
+content: for(uint8i=0;i<coreTeam.length;i++){transferInternal(this,coreTeam[i],tokensPerMember);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 410
+column: 4
+content: functionsetPreIcoDates(uint256since,uint256till)onlyOwner{PRE_ICO_SINCE=since;PRE_ICO_TILL=till;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 415
+column: 4
+content: functionsetIcoDates(uint256since,uint256till)onlyOwner{ICO_SINCE=since;ICO_TILL=till;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 420
+column: 4
+content: functionsetTransactionsAllowed(boolenabled)onlyOwner{isTransactionsAllowed=enabled;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 424
+column: 24
+content: {throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 312
+column: 8
+content: if(icoStep==1&&(totalSoldSlogns+ethers)>5000ether){throw;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 20
+column: 4
+content: functionToken(uint256initialSupply,string_standard,string_name,string_symbol,uint8_decimals){totalSupply=initialSupply;balanceOf[this]=initialSupply;standard=_standard;name=_name;symbol=_symbol;decimals=_decimals;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 55
+column: 4
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess){allowance[msg.sender][_spender]=_value;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 100
+column: 4
+content: functioncalculateBonus(uint8icoStep,uint256totalSoldSlogns,uint256soldSlogns)returns(uint256){if(icoStep==1){returnsoldSlogns/100*PRE_ICO_BONUS_RATE;}elseif(icoStep==2){if(totalSoldSlogns>ICO_BONUS1_SLGN_LESS+ICO_BONUS2_SLGN_LESS){return0;}uint256availableForBonus1=ICO_BONUS1_SLGN_LESS-totalSoldSlogns;uint256tmp=soldSlogns;uint256bonus=0;uint256tokensForBonus1=0;if(availableForBonus1>0&&availableForBonus1<=ICO_BONUS1_SLGN_LESS){tokensForBonus1=tmp>availableForBonus1?availableForBonus1:tmp;bonus+=tokensForBonus1/100*ICO_BONUS1_RATE;tmp-=tokensForBonus1;}uint256availableForBonus2=(ICO_BONUS2_SLGN_LESS+ICO_BONUS1_SLGN_LESS)-totalSoldSlogns-tokensForBonus1;uint256tokensForBonus2=0;if(availableForBonus2>0&&availableForBonus2<=ICO_BONUS2_SLGN_LESS){tokensForBonus2=tmp>availableForBonus2?availableForBonus2:tmp;bonus+=tokensForBonus2/100*ICO_BONUS2_RATE;tmp-=tokensForBonus2;}returnbonus;}return0;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 157
+column: 4
+content: functionEscrowICO(){isTransactionsAllowed=false;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 161
+column: 4
+content: functiongetIcoStep(uint256time)returns(uint8step){if(time>=PRE_ICO_SINCE&&time<=PRE_ICO_TILL){return1;}elseif(time>=ICO_SINCE&&time<=ICO_TILL){if(totalSoldSlogns>=MIN_PRE_ICO_SLOGN_COLLECTED){return2;}}return0;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 265
+column: 4
+content: functionSlognToken(address[]coreTeam,address_advisoryBoardFundManager,address_opensourceFundManager,address_reserveFundManager,address_bountyFundManager,address_ethFundManager)Token(TOTAL_SUPPLY,STANDARD,NAME,SYMBOL,PRECISION)EscrowICO(){owner=msg.sender;advisoryBoardFundManager=_advisoryBoardFundManager;opensourceFundManager=_opensourceFundManager;reserveFundManager=_reserveFundManager;bountyFundManager=_bountyFundManager;ethFundManager=_ethFundManager;uint256tokensPerMember=CORE_TEAM_TOKENS/coreTeam.length;for(uint8i=0;i<coreTeam.length;i++){transferInternal(this,coreTeam[i],tokensPerMember);}transferInternal(this,advisoryBoardFundManager,ADVISORY_BOARD_TOKENS);transferInternal(this,opensourceFundManager,OPENSOURCE_TOKENS);transferInternal(this,reserveFundManager,RESERVE_TOKENS);transferInternal(this,bountyFundManager,BOUNTY_TOKENS);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 344
+column: 4
+content: functionbuy()payable{buyFor(msg.sender,msg.value,block.timestamp);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 353
+column: 4
+content: functiontransferEther(addressto,uint256value)returns(boolsuccess){if(msg.sender!=ethFundManager){returnfalse;}if(totalSoldSlogns<MIN_PRE_ICO_SLOGN_COLLECTED){returnfalse;}if(this.balance<value){returnfalse;}to.transfer(value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 376
+column: 4
+content: functiontransfer(address_to,uint256_value)returns(boolsuccess){if(isTransactionsAllowed==false){if(msg.sender!=bountyFundManager){returnfalse;}}returntransferInternal(msg.sender,_to,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 392
+column: 4
+content: functiontransferFrom(address_from,address_to,uint256_value)returns(boolsuccess){if(isTransactionsAllowed==false){if(_from!=bountyFundManager){returnfalse;}}returntransferFromInternal(_from,_to,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 402
+column: 4
+content: functionrefund()returns(bool){returnrefundInternal(block.timestamp);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 406
+column: 4
+content: functionicoFinish()returns(bool){returnicoFinishInternal(block.timestamp);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 410
+column: 4
+content: functionsetPreIcoDates(uint256since,uint256till)onlyOwner{PRE_ICO_SINCE=since;PRE_ICO_TILL=till;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 415
+column: 4
+content: functionsetIcoDates(uint256since,uint256till)onlyOwner{ICO_SINCE=since;ICO_TILL=till;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 420
+column: 4
+content: functionsetTransactionsAllowed(boolenabled)onlyOwner{isTransactionsAllowed=enabled;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 424
+column: 4
+content: function()payable{throw;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 234
+column: 43
+content: Slognv0.1&39;;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 235
+column: 39
+content: SLOGN&39;;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 236
+column: 41
+content: SLGN&39;;
+
+SOLIDITY_VISIBILITY :19
+SOLIDITY_OVERPOWERED_ROLE :3
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_DIV_MUL :7
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_ERC20_APPROVE :1

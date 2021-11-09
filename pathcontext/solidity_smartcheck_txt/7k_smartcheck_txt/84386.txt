@@ -1,0 +1,46 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\84386.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 49
+column: 6
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 53
+column: 17
+content: tx.origin
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 36
+column: 2
+content: functionchangeConfirmation(bool_waitConfirmation)onlyOwner(){waitConfirmation=_waitConfirmation;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 41
+column: 2
+content: functionbeginCall(bytespublicCallData,bytesprivateData){bytes32msgDataHash=keccak256(msg.data);require(pendingCalls[msgDataHash].sender==address(0));pendingCalls[msgDataHash]=PendingCall(publicCallData,tx.origin,!waitConfirmation,false);CallStarted(tx.origin,msgDataHash);if(!waitConfirmation){require(this.call(pendingCalls[msgDataHash].callData));pendingCalls[msgDataHash].success=true;CallFinish(pendingCalls[msgDataHash].sender,msgDataHash);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 62
+column: 2
+content: functioncontinueCall(bytes32msgDataHash)onlyOwner(){require(pendingCalls[msgDataHash].sender!=address(0));pendingCalls[msgDataHash].approved=true;require(this.call(pendingCalls[msgDataHash].callData));pendingCalls[msgDataHash].success=true;CallFinish(pendingCalls[msgDataHash].sender,msgDataHash);}
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_TX_ORIGIN :2

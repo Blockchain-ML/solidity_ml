@@ -1,0 +1,133 @@
+C:\Users\hp\DataSet\contracts\ropsten\35\3581647cef61fc65c562962de6821479295b458b_Sale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 124
+column: 24
+content: 0x941F6db3Cf222E3a3c1522aA3207AEf16f2acf60
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 125
+column: 24
+content: 0x941F6db3Cf222E3a3c1522aA3207AEf16f2acf60
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 16
+column: 2
+content: functionbalanceOf(addresswho)constantreturns(uint);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 17
+column: 2
+content: functionallowance(addressowner,addressspender)constantreturns(uint);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 129
+column: 4
+content: functiongetHeldCoin(address_address)publicconstantreturns(uint256){returnheldTokens[_address];}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 38
+column: 9
+content: private
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: d48ac4
+severity: 2
+line: 146
+column: 16
+content: held>=0
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 16
+column: 2
+content: functionbalanceOf(addresswho)constantreturns(uint);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 17
+column: 2
+content: functionallowance(addressowner,addressspender)constantreturns(uint);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 18
+column: 2
+content: functiontransfer(addressto,uintvalue)returns(boolok);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 19
+column: 2
+content: functiontransferFrom(addressfrom,addressto,uintvalue)returns(boolok);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 20
+column: 2
+content: functionapprove(addressspender,uintvalue)returns(boolok);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 21
+column: 2
+content: functionmintToken(addressto,uint256value)returns(uint256);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 22
+column: 2
+content: functionchangeTransfer(boolallowed);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 47
+column: 4
+content: functionSale(address_wallet){startBlock=block.number;maxMintable=6000000000000000000000000;ETHWallet=_wallet;isFunding=true;creator=msg.sender;createHeldCoins();exchangeRate=600;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 60
+column: 4
+content: functionsetup(addresstoken_address,uintend_block){require(!configSet);Token=ERC20(token_address);endBlock=end_block;configSet=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 72
+column: 4
+content: function()payable{require(msg.value>0);require(isFunding);require(block.number<=endBlock);uint256amount=msg.value*exchangeRate;uint256total=totalMinted+amount;require(total<=maxMintable);totalMinted+=total;ETHWallet.transfer(msg.value);Token.mintToken(msg.sender,amount);Contribution(msg.sender,amount);}
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UINT_CANT_BE_NEGATIVE :1

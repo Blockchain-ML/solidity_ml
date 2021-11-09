@@ -1,0 +1,83 @@
+F:\Blockchain\dataset_new_byID\78593.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 16
+column: 0
+content: contractGameLogic{usingSafeMathforuint256;uint256publicgasCosts;uint256publicmintCosts;uint256publicmintFee;addresspayablepublicbackend;ChainmonstersCoreV2publiccoreContract;addresspubliccore;boolpublicisGameLogicContract=true;addresspublicadmin;addresspublicowner;mapping(uint256=>uint16)publictokenToMinted;eventRequestMint(address_from,uint256_id,uint256mintFee,uint256gasFee);eventMintToken(uint256_tokenId,address_owner);constructor(address_core)public{owner=msg.sender;admin=msg.sender;backend=msg.sender;core=_core;coreContract=ChainmonstersCoreV2(_core);}functionsetGasFee(uint256_gasFee)public{require(msg.sender==admin);require(_gasFee>0);gasCosts=_gasFee;mintFee=mintCosts+gasCosts;}functionsetMintFee(uint256_mintFee)external{require(msg.sender==admin);require(_mintFee>0);mintCosts=_mintFee;mintFee=mintCosts+gasCosts;}functionsetAdmin(address_admin)external{require(msg.sender==admin);require(_admin==address(_admin));admin=_admin;}functionsetBackend(addresspayable_backend)external{require(msg.sender==admin);require(_backend==address(_backend));backend=_backend;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 56
+column: 4
+content: functionsetGasFee(uint256_gasFee)public{require(msg.sender==admin);require(_gasFee>0);gasCosts=_gasFee;mintFee=mintCosts+gasCosts;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 66
+column: 4
+content: functionsetMintFee(uint256_mintFee)external{require(msg.sender==admin);require(_mintFee>0);mintCosts=_mintFee;mintFee=mintCosts+gasCosts;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 75
+column: 4
+content: functionsetAdmin(address_admin)external{require(msg.sender==admin);require(_admin==address(_admin));admin=_admin;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 6
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 18
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 81
+column: 4
+content: functionsetBackend(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 82
+column: 15
+content: (msg.sender==admin);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 83
+column: 8
+content: require(_backend==
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 83
+column: 28
+content: address(_backend));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 84
+column: 8
+content: backend=_backend;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

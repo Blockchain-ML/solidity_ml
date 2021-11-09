@@ -1,0 +1,88 @@
+F:\Blockchain\dataset_new_byID\82406.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 9
+column: 30
+content: 0x00
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 10
+column: 33
+content: 0x01
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 11
+column: 31
+content: 0x10
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 17
+column: 2
+content: functiontest0_create(){intervals=ListLib.createNew();Assert.equal(intervals.length,0,"Initial list should be empty");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 22
+column: 2
+content: functiontest1_addingFirst(){intervals.add(3,7,1);Assert.equal(intervals.length,1,"Added intervals should be counted");Assert.equal(intervals.center,5,"Center should update on first add");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 29
+column: 2
+content: functiontest2_addingSecond(){varoldCenter=intervals.center;varoldLowest=intervals.lowestBegin;varoldHighest=intervals.highestEnd;intervals.add(1,6,2);Assert.equal(intervals.length,2,"Added intervals should be counted");Assert.equal(intervals.center,oldCenter,"List center should not change");Assert.notEqual(intervals.lowestBegin,oldLowest,"Lowest beginning interval should update");Assert.equal(intervals.highestEnd,oldHighest,"Highest ending interval should not update");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 42
+column: 2
+content: functiontest3_searchNext(){uint[]memorymatchingIDs;uint8searchNext;(matchingIDs,searchNext)=intervals.matching(5);Assert.equal(uint(searchNext),SEARCH_DONE,"Searching overlaps at center finishes search");(matchingIDs,searchNext)=intervals.matching(4);assert(matchingIDs.length>0);Assert.equal(uint(searchNext),SEARCH_EARLIER,"less than center w/ matches yields SEARCH_EARLIER");(matchingIDs,searchNext)=intervals.matching(0);assert(matchingIDs.length==0);Assert.equal(uint(searchNext),SEARCH_EARLIER,"less than center w/o matches yields SEARCH_EARLIER");(matchingIDs,searchNext)=intervals.matching(6);assert(matchingIDs.length>0);Assert.equal(uint(searchNext),SEARCH_LATER,"greater than center w/ matches yields SEARCH_LATER");(matchingIDs,searchNext)=intervals.matching(7);assert(matchingIDs.length==0);Assert.equal(uint(searchNext),SEARCH_LATER,"greater than center w/o matches yields SEARCH_LATER");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 2
+content: uintconstantSEARCH_DONE=0x00;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 2
+content: uintconstantSEARCH_EARLIER=0x01;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 11
+column: 2
+content: uintconstantSEARCH_LATER=0x10;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 2
+content: ListLib.Listintervals;
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :3

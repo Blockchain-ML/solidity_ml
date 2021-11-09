@@ -1,0 +1,49 @@
+C:\Users\hp\DataSet\contracts\ropsten\d9\d9bd9b7ccf7dfb10b07ad42005b460edaa3732d1_Exam.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 117
+column: 32
+content: 0x0
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 66
+column: 0
+content: contractExamisOwnable,SafeMath{stringpublicname;stringpublicsymbol;uint8publicdecimals;uint256publictotalSupply;uintpublicbasisPointsRate=0;uintpublicminimumFee=0;uintpublicmaximumFee=0;mapping(address=>uint256)publicbalanceOf;mapping(address=>mapping(address=>uint256))internalallowed;constructor()public{name=&39;EXAM&39;;symbol=&39;EXM&39;;decimals=18;totalSupply=410000000*10**uint(decimals);balanceOf[msg.sender]=totalSupply;}function()publicpayable{revert();}functiontransfer(address_to,uint256_value)publiconlyPayloadSize(2*32){uintmult=SafeMath.safeMul(_value,basisPointsRate);uintfee=SafeMath.safeDiv(mult,1000);if(fee>maximumFee){fee=maximumFee;}if(fee<minimumFee){fee=minimumFee;}require(_to!=address(0x0));require(_to!=address(0));require(_value>0);require(balanceOf[msg.sender]>_value);require(balanceOf[_to]+_value>balanceOf[_to]);uintsendAmount=SafeMath.safeSub(_value,fee);balanceOf[msg.sender]=SafeMath.safeSub(balanceOf[msg.sender],_value);balanceOf[_to]=SafeMath.safeAdd(balanceOf[_to],sendAmount);if(fee>0){balanceOf[owner]=SafeMath.safeAdd(balanceOf[owner],fee);emitTransfer(msg.sender,owner,fee);}emitTransfer(msg.sender,_to,_value);}functionapprove(address_spender,uint256_value)publiconlyPayloadSize(2*32)returns(boolsuccess){require(_value>0);require(balanceOf[owner]>_value);require(_spender!=msg.sender);allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}functiontransferFrom(address_from,address_to,uint256_value)publiconlyPayloadSize(2*32)returns(boolsuccess){uintmult=SafeMath.safeMul(_value,basisPointsRate);uintfee=SafeMath.safeDiv(mult,1000);if(fee>maximumFee){fee=maximumFee;}if(fee<minimumFee){fee=minimumFee;}require(_to!=0x0);require(_to!=address(0));require(_value>0);require(_value<balanceOf[_from]);require(balanceOf[_to]+_value>balanceOf[_to]);require(_value<=allowed[_from][msg.sender]);uintsendAmount=SafeMath.safeSub(_value,fee);balanceOf[_from]=SafeMath.safeSub(balanceOf[_from],_value);balanceOf[_to]=SafeMath.safeAdd(balanceOf[_to],sendAmount);allowed[_from][msg.sender]=SafeMath.safeSub(allowed[_from][msg.sender],_value);if(fee>0){balanceOf[owner]=SafeMath.safeAdd(balanceOf[owner],fee);emitTransfer(_from,owner,fee);}emitTransfer(_from,_to,sendAmount);returntrue;}functionallowance(address_from,address_spender)publicviewreturns(uintremaining){returnallowed[_from][_spender];}functionsetParams(uintnewBasisPoints,uintnewMaxFee,uintnewMinFee)publiconlyOwner{require(newBasisPoints<=9);require(newMaxFee<=100);require(newMinFee<=5);basisPointsRate=newBasisPoints;maximumFee=newMaxFee*10**uint(decimals);minimumFee=newMinFee*10**uint(decimals);emitParams(basisPointsRate,maximumFee,minimumFee);}functionincreaseSupply(uintamount)publiconlyOwner{amount=amount*10**uint(decimals);require(totalSupply+amount>totalSupply);require(balanceOf[owner]+amount>balanceOf[owner]);balanceOf[owner]=SafeMath.safeAdd(balanceOf[owner],amount);totalSupply=SafeMath.safeAdd(totalSupply,amount);emitIssue(amount);}functiondecreaseSupply(uintamount)publiconlyOwner{amount=amount*10**uint(decimals);require(totalSupply>=amount);require(balanceOf[owner]>=amount);totalSupply=SafeMath.safeSub(totalSupply,amount);balanceOf[owner]=SafeMath.safeSub(balanceOf[owner],amount);emitRedeem(amount);}eventTransfer(addressindexedfrom,addressindexedto,uint256value);eventApproval(addressindexed_owner,addressindexed_spender,uint256_value);eventParams(uintfeeBasisPoints,uintmaximumFee,uintminimumFee);eventIssue(uintamount);eventRedeem(uintamount);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 215
+column: 4
+content: functionsetParams(uintnewBasisPoints,uintnewMaxFee,uintnewMinFee)publiconlyOwner{require(newBasisPoints<=9);require(newMaxFee<=100);require(newMinFee<=5);basisPointsRate=newBasisPoints;maximumFee=newMaxFee*10**uint(decimals);minimumFee=newMinFee*10**uint(decimals);emitParams(basisPointsRate,maximumFee,minimumFee);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 97
+column: 29
+content: {revert();}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 97
+column: 15
+content: public
+
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

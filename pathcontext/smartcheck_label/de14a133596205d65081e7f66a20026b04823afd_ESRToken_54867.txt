@@ -1,0 +1,85 @@
+C:\Users\hp\DataSet\contracts\ropsten\de\de14a133596205d65081e7f66a20026b04823afd_ESRToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 335
+column: 50
+content: 0x1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 337
+column: 46
+content: 0x2
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 339
+column: 48
+content: 0x4
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 423
+column: 45
+content: 0x7
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 203
+column: 4
+content: functionapprove(addressspender_,uintvalue_)publicwhenNotLockedreturns(bool){if(value_!=0&&allowed[msg.sender][spender_]!=0){revert();}allowed[msg.sender][spender_]=value_;emitApproval(msg.sender,spender_,value_);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 324
+column: 0
+content: contractESRTokenisBaseICOMintableToken{usingSafeMathforuint;stringpublicconstantname="EsperantoToken";stringpublicconstantsymbol="ESRT";uint8publicconstantdecimals=18;uint8publicconstantRESERVED_PARTNERS_GROUP=0x1;uint8publicconstantRESERVED_TEAM_GROUP=0x2;uint8publicconstantRESERVED_BOUNTY_GROUP=0x4;uintinternalONE_TOKEN=1e18;eventReservedTokensDistributed(addressindexedto,uint8group,uintamount);eventEthTokenExchangeRatioUpdated(uintethTokenExchangeRatio);eventSellToken(addressindexedto,uintamount,uintbonusAmount);mapping(uint8=>uint)publicreserved;constructor(uintethTokenExchangeRatio_,uinttotalSupplyTokens_,uintteamTokens_,uintbountyTokens_,uintpartnersTokens_)publicBaseICOMintableToken(totalSupplyTokens_*ONE_TOKEN){require(availableSupply==totalSupply);ethTokenExchangeRatio=ethTokenExchangeRatio_;availableSupply=availableSupply.sub(teamTokens_*ONE_TOKEN).sub(bountyTokens_*ONE_TOKEN).sub(partnersTokens_*ONE_TOKEN);reserved[RESERVED_TEAM_GROUP]=teamTokens_*ONE_TOKEN;reserved[RESERVED_BOUNTY_GROUP]=bountyTokens_*ONE_TOKEN;reserved[RESERVED_PARTNERS_GROUP]=partnersTokens_*ONE_TOKEN;}functionmintCheck(uint)internal{require(block.timestamp>=1590969600);}modifierpreLockUnlock(){require(block.timestamp>=1569888000);_;}function()externalpayable{revert();}functiongetReservedTokens(uint8group_)publicviewreturns(uint){returnreserved[group_];}functionicoAssignReservedBounty(addressto_,uintamount_)publiconlyICO{assignReservedTokens(to_,RESERVED_BOUNTY_GROUP,amount_);}functionassignReserved(addressto_,uint8group_,uintamount_)publiconlyOwner{assignReservedTokens(to_,group_,amount_);}functionassignReservedTokens(addressto_,uint8group_,uintamount_)internal{require(to_!=address(0)&&(group_&0x7)!=0);reserved[group_]=reserved[group_].sub(amount_);balances[to_]=balances[to_].add(amount_);emitReservedTokensDistributed(to_,group_,amount_);}functionupdateTokenExchangeRatio(uintethTokenExchangeRatio_)publiconlyOwner{ethTokenExchangeRatio=ethTokenExchangeRatio_;emitEthTokenExchangeRatioUpdated(ethTokenExchangeRatio);}functionsellToken(addressto_,uintamount,uintbonusAmount)publiconlyOwnerreturns(uint){require(to_!=address(0)&&amount<=availableSupply);availableSupply=availableSupply.sub(amount);balances[to_]=balances[to_].add(amount);assignReservedTokens(to_,RESERVED_BOUNTY_GROUP,bonusAmount);emitSellToken(to_,amount,bonusAmount);returnamount;}functionicoInvestmentWei(addressto_,uintamountWei_)publiconlyICOreturns(uint){uintamount=amountWei_.mul(ethTokenExchangeRatio).div(ETH_TOKEN_EXCHANGE_RATIO_MULTIPLIER);require(isValidICOInvestment(to_,amount));availableSupply=availableSupply.sub(amount);balances[to_]=balances[to_].add(amount);emitICOTokensInvested(to_,amount);returnamount;}}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 143
+column: 49
+content: private
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 383
+column: 30
+content: {revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 204
+column: 8
+content: if(value_!=0&&allowed[msg.sender][spender_]!=0){revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 136
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 325
+column: 2
+content: usingSafeMathforuint;
+
+SOLIDITY_SAFEMATH :2
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_ADDRESS_HARDCODED :4
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_ERC20_APPROVE :1

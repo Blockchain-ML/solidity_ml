@@ -1,0 +1,54 @@
+C:\Users\hp\DataSet\contracts\ropsten\da\da256c73c5d84e611589a88dea06a0735f0e4b95_Test.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 14
+column: 57
+content: 0xff
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 3
+column: 29
+content: 0x0
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 13
+column: 4
+content: functiongetCreate2Address(bytes32salt,bytesmemoryinit_code,addressaddr)publicviewreturns(addressc2addr){bytes32temp=keccak256(abi.encodePacked(bytes1(0xff),addr,salt,keccak256((init_code))));uintmask=(2**160)-1;assembly{c2addr:=and(temp,mask)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 13
+column: 4
+content: functiongetCreate2Address(bytes32salt,bytesmemoryinit_code,addressaddr)publicviewreturns(addressc2addr){bytes32temp=keccak256(abi.encodePacked(bytes1(0xff),addr,salt,keccak256((init_code))));uintmask=(2**160)-1;assembly{c2addr:=and(temp,mask)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 16
+column: 8
+content: assembly{c2addr:=and(temp,mask)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 28
+column: 8
+content: assembly{targ:=extcodehash(target)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 37
+column: 8
+content: assembly{depl:=create2(value,add(init_code,0x20),length,salt)}
+
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_USING_INLINE_ASSEMBLY :3
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

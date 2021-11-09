@@ -1,0 +1,768 @@
+C:\Users\hp\DataSet\contracts\ropsten\8a\8aEe9638061344ac584a63d82c3a409E4024946e_SpaceCraftCore.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 377
+column: 25
+content: (address(0),_owner,newDroneId)
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 1179
+column: 4
+content: functiongetSpaceInfo(uint_index)externalviewreturns(string_key,bool_isService,uint_price,uint_distance){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 1180
+column: 4
+content: functiongetExploreResult(uint_spaceId,uint_droneId)externalviewreturns(uintresult,uintresultValue,uintresultNumber){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 1181
+column: 4
+content: functiondiscoverNewPlanet(uint_spaceId,uint_droneId,bool_isBonus)externalviewreturns(uintsizeIndex,uintcolorIndex,uinttypeIndex,uintfreserves){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 1185
+column: 4
+content: functionexchangeHelenium(uintamount,address_owner)externalreturns(uintcash){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 1186
+column: 4
+content: functioncreatePlanet(uint_droneId,address_owner,uint_size,uint_color,uint_pType,uint_reserves,uint_spaceId)externalreturns(uintplanetId){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 1191
+column: 4
+content: functiondeposit()payablereturns(bool_success){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 1192
+column: 4
+content: functiongetJackPotInfo()externalreturns(uint_fundRate,uint_alienJackpotProbability,uint_exchangeJackpotProbability){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 1197
+column: 4
+content: functionwinJackPot(address_winnerAddr,string_code,uint_rate)externalreturns(uint_winPrize){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 1198
+column: 4
+content: functiondepositJackPot()payablereturns(bool_success){}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 1009
+column: 0
+content: contractSaleClockAuctionisClockAuction{functionSaleClockAuction()public{paused=false;ceoAddress=msg.sender;gmAddress=msg.sender;CfoAddress=msg.sender;}functioncreateAuction(uint256_tokenId,uint256_startingPrice,uint256_endingPrice,uint256_duration,address_seller)external{require(_startingPrice==uint256(uint128(_startingPrice)));require(_endingPrice==uint256(uint128(_endingPrice)));require(_duration==uint256(uint64(_duration)));require(msg.sender==address(nonFungibleContract));_escrow(_seller,_tokenId);Auctionmemoryauction=Auction(_seller,uint128(_startingPrice),uint128(_endingPrice),uint64(_duration),uint64(now));_addAuction(_tokenId,auction);}functionbid(uint256_tokenId)externalpayable{addressseller=tokenIdToAuction[_tokenId].seller;uint256price=_bid(_tokenId,msg.value);_transfer(msg.sender,_tokenId);}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 1184
+column: 0
+content: contractGameCenterInterface{functionexchangeHelenium(uintamount,address_owner)externalreturns(uintcash){}functioncreatePlanet(uint_droneId,address_owner,uint_size,uint_color,uint_pType,uint_reserves,uint_spaceId)externalreturns(uintplanetId){}functionAddDroneItem(address_owner,uint_itemIndex,uint_amount)external{}functionAddMaterial(address_owner,uint_itemIndex,uint_amount)external{}functionAddHelenium(address_owner,uint_amount)external{}functionsubDroneItem(address_owner,uint_itemIndex,uint_amount)external{}functiondeposit()payablereturns(bool_success){}functiongetJackPotInfo()externalreturns(uint_fundRate,uint_alienJackpotProbability,uint_exchangeJackpotProbability){}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 1195
+column: 0
+content: contractJackPotInterface{functionwinJackPot(address_winnerAddr,string_code,uint_rate)externalreturns(uint_winPrize){}functiondepositJackPot()payablereturns(bool_success){}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 30
+column: 6
+content: functionsetNewCFO(address_newCFO)external{require(CfoAddress==msg.sender);require(_newCFO!=address(0));CfoAddress=_newCFO;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 1204
+column: 4
+content: usingSafeMathfor*;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 68
+column: 4
+content: function_getRandomNumber(uint_max,uint_seed)internalviewreturns(uintr0,uintr1,uintr2,uintr3,uintr4,uintr5,uintr6){bytes32s=keccak256(now,block.difficulty,block.number,_seed);bytes4[8]memoryy=[bytes4(0),0,0,0,0,0,0,0];assembly{mstore(y,s)mstore(add(y,28),s)mstore(add(y,56),s)mstore(add(y,84),s)mstore(add(y,112),s)mstore(add(y,140),s)mstore(add(y,168),s)mstore(add(y,196),s)}r0=uint256(y[0])%_max;r1=uint256(y[1])%_max;r2=uint256(y[2])%_max;r3=uint256(y[3])%_max;r4=uint256(y[4])%_max;r5=uint256(y[5])%_max;r6=uint256(y[6])%_max;}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 69
+column: 4
+content: (uintr0,uintr1,uintr2,uintr3,uintr4,uintr5,uintr6)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 240
+column: 4
+content: (uintprice,uintsense,uintcuriosity,uintloyalty,uintkindness,uintchallenge,uintwariness)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 265
+column: 71
+content: (uintexplore,uintspeed,uintattack)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 65
+column: 23
+content: keccak256(now,block.number,_seed)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 71
+column: 20
+content: keccak256(now,block.difficulty,block.number,_seed)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 696
+column: 43
+content: Auction_auction
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 1426
+column: 40
+content: string_code
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 74
+column: 8
+content: assembly{mstore(y,s)mstore(add(y,28),s)mstore(add(y,56),s)mstore(add(y,84),s)mstore(add(y,112),s)mstore(add(y,140),s)mstore(add(y,168),s)mstore(add(y,196),s)}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 1191
+column: 4
+content: functiondeposit()payablereturns(bool_success){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 1198
+column: 4
+content: functiondepositJackPot()payablereturns(bool_success){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 6
+content: addressceoAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 11
+column: 6
+content: addressgmAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 6
+content: addressCfoAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 6
+content: boolpaused=false;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 345
+column: 4
+content: uinttotalDrone=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 351
+column: 4
+content: mapping(address=>uint256)ownerDroneCount;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 513
+column: 4
+content: bytes4constantInterfaceSignature_ERC165=bytes4(keccak256(&39<missing ')'>;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 513
+column: 70
+content: supportsInterface
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 513
+column: 87
+content: (bytes4)&39;));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 515
+column: 4
+content: bytes4constantInterfaceSignature_ERC721=bytes4(keccak256(&39<missing ')'>;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 516
+column: 32
+content: name
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 516
+column: 36
+content: ()&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 517
+column: 10
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 517
+column: 26
+content: (&39;<missing ')'>symbol
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 517
+column: 38
+content: ()&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 518
+column: 10
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 518
+column: 26
+content: (&39;<missing ')'>totalSupply
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 518
+column: 43
+content: ()&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 519
+column: 10
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 519
+column: 26
+content: (&39;<missing ')'>balanceOf
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 519
+column: 41
+content: (address)&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 520
+column: 10
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 520
+column: 26
+content: (&39;<missing ')'>ownerOf
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 520
+column: 39
+content: (uint256)&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 521
+column: 10
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 521
+column: 26
+content: (&39;<missing ')'>approve
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 521
+column: 39
+content: (address,<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 521
+column: 48
+content: uint256)&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 522
+column: 10
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 522
+column: 26
+content: (&39;<missing ')'>transfer
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 522
+column: 40
+content: (address,<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 522
+column: 49
+content: uint256)&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 523
+column: 10
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 523
+column: 26
+content: (&39;<missing ')'>transferFrom
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 523
+column: 44
+content: (address,<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 523
+column: 53
+content: address,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 523
+column: 61
+content: uint256)&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 524
+column: 10
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 524
+column: 26
+content: (&39;<missing ')'>tokensOfOwner
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 524
+column: 45
+content: (address)&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 525
+column: 10
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 525
+column: 26
+content: (&39;<missing ')'>tokenMetadata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 525
+column: 45
+content: (uint256,<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 525
+column: 54
+content: string)&39;));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 674
+column: 4
+content: mapping(uint256=>Auction)tokenIdToAuction;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 874
+column: 4
+content: bytes4constantInterfaceSignature_ERC721=bytes4(keccak256(&39<missing ')'>;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 875
+column: 30
+content: name
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 875
+column: 34
+content: ()&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 876
+column: 8
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 876
+column: 24
+content: (&39;<missing ')'>symbol
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 876
+column: 36
+content: ()&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 877
+column: 8
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 877
+column: 24
+content: (&39;<missing ')'>totalSupply
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 877
+column: 41
+content: ()&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 878
+column: 8
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 878
+column: 24
+content: (&39;<missing ')'>balanceOf
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 878
+column: 39
+content: (address)&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 879
+column: 8
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 879
+column: 24
+content: (&39;<missing ')'>ownerOf
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 879
+column: 37
+content: (uint256)&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 880
+column: 8
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 880
+column: 24
+content: (&39;<missing ')'>approve
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 880
+column: 37
+content: (address,<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 880
+column: 46
+content: uint256)&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 881
+column: 8
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 881
+column: 24
+content: (&39;<missing ')'>transfer
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 881
+column: 38
+content: (address,<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 881
+column: 47
+content: uint256)&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 882
+column: 8
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 882
+column: 24
+content: (&39;<missing ')'>transferFrom
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 882
+column: 42
+content: (address,<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 882
+column: 51
+content: address,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 882
+column: 59
+content: uint256)&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 883
+column: 8
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 883
+column: 24
+content: (&39;<missing ')'>tokensOfOwner
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 883
+column: 43
+content: (address)&39;))^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 884
+column: 8
+content: bytes4(keccak256
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 884
+column: 24
+content: (&39;<missing ')'>tokenMetadata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 884
+column: 43
+content: (uint256,<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 884
+column: 52
+content: string)&39;));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1210
+column: 4
+content: addressjackpotAddr;
+
+SOLIDITY_VISIBILITY :83
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :3
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :9
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_RETURN_STRUCT :3
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

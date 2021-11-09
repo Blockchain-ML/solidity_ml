@@ -1,0 +1,89 @@
+C:\Users\hp\DataSet\PTIDistributor.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 41
+column: 4
+content: functioncheckOwner(bytes32_hash,uint8_v,bytes32_r,bytes32_s)constantreturns(address){bytesmemoryprefix="\x19Ethereum Signed Message:\n32";bytes32prefixedHash=keccak256(prefix,_hash);returnecrecover(prefixedHash,_v,_r,_s);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 25
+column: 24
+content: keccak256(_toAddress,_amount,_salt,_reason)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 27
+column: 29
+content: keccak256(prefix,message)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 36
+column: 24
+content: keccak256(_toAddress,_amount,_salt,_reason)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 38
+column: 29
+content: keccak256(prefix,message)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 43
+column: 29
+content: keccak256(prefix,_hash)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 48
+column: 24
+content: keccak256(_toAddress,_amount,_salt,_reason)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 24
+column: 4
+content: functiondistribute(address_toAddress,uint256_amount,bytes32_salt,string_reason,uint8_v,bytes32_r,bytes32_s){bytes32message=keccak256(_toAddress,_amount,_salt,_reason);bytesmemoryprefix="\x19Ethereum Signed Message:\n32";bytes32prefixedHash=keccak256(prefix,message);require(!isUsed[_salt]&&ecrecover(prefixedHash,_v,_r,_s)==owner);isUsed[_salt]=true;ParatiiTokentoken=ParatiiToken(registry.getContract('ParatiiToken'));require(token.transfer(_toAddress,_amount));LogDistribute(_toAddress,_amount,_reason);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 35
+column: 4
+content: functioncheckOwnerPacked(address_toAddress,uint256_amount,bytes32_salt,string_reason,uint8_v,bytes32_r,bytes32_s){bytes32message=keccak256(_toAddress,_amount,_salt,_reason);bytesmemoryprefix="\x19Ethereum Signed Message:\n32";bytes32prefixedHash=keccak256(prefix,message);LogDebugOwner(ecrecover(prefixedHash,_v,_r,_s));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 41
+column: 4
+content: functioncheckOwner(bytes32_hash,uint8_v,bytes32_r,bytes32_s)constantreturns(address){bytesmemoryprefix="\x19Ethereum Signed Message:\n32";bytes32prefixedHash=keccak256(prefix,_hash);returnecrecover(prefixedHash,_v,_r,_s);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 47
+column: 4
+content: functioncheckHashing(address_toAddress,uint256_amount,bytes32_salt,string_reason){bytes32hashing=keccak256(_toAddress,_amount,_salt,_reason);LogDebug(hashing);}
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :6

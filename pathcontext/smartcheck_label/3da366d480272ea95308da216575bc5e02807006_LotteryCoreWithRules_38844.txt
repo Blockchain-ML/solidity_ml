@@ -1,0 +1,249 @@
+C:\Users\hp\DataSet\contracts\ropsten\3d\3da366d480272ea95308da216575bc5e02807006_LotteryCoreWithRules.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 140
+column: 4
+content: owner=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 531
+column: 34
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 532
+column: 47
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 555
+column: 47
+content: 0x0
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 329
+column: 8
+content: lotteries.length++
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 374
+column: 8
+content: for(uinti=0;i<lottery.prizes.length;i++){Prizestorageprize=lottery.prizes[i];for(uintj=0;j<lottery.LCM.div(prize.probability);j++){prize.winProbArray.push(winProbBegin);winProbBegin++;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 405
+column: 8
+content: for(uinti=0;i<lottery.prizes.length;i++){Prizestorageprize=lottery.prizes[i];if(prize.remainAmount>0){for(uintj=0;j<prize.winProbArray.length;j++){if(drawRes==prize.winProbArray[j]){prize.winners.push(sender);prize.winRecords[sender]=blockhash(block.number-1);prize.remainAmount--;lottery.totalPrizeAmount--;emitUserDrawPrize(sender,lotteryId,i);if(lottery.totalPrizeAmount==0){closeLottery(lotteryId,"run out of prizes");}returntrue;}}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 408
+column: 16
+content: for(uintj=0;j<prize.winProbArray.length;j++){if(drawRes==prize.winProbArray[j]){prize.winners.push(sender);prize.winRecords[sender]=blockhash(block.number-1);prize.remainAmount--;lottery.totalPrizeAmount--;emitUserDrawPrize(sender,lotteryId,i);if(lottery.totalPrizeAmount==0){closeLottery(lotteryId,"run out of prizes");}returntrue;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 437
+column: 8
+content: for(uinti=0;i<blockhashBytes.length;i++){hashJoin[k++]=blockhashBytes[i];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 444
+column: 8
+content: for(i=0;i<lotteryBytes.length;i++){hashJoin[k++]=lotteryBytes[i];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 500
+column: 8
+content: for(uintj=0;j<probArray.length-1;j++){tempLCM=getLestCommonMul(tempLCM,probArray[j+1]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 374
+column: 8
+content: for(uinti=0;i<lottery.prizes.length;i++){Prizestorageprize=lottery.prizes[i];for(uintj=0;j<lottery.LCM.div(prize.probability);j++){prize.winProbArray.push(winProbBegin);winProbBegin++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 405
+column: 8
+content: for(uinti=0;i<lottery.prizes.length;i++){Prizestorageprize=lottery.prizes[i];if(prize.remainAmount>0){for(uintj=0;j<prize.winProbArray.length;j++){if(drawRes==prize.winProbArray[j]){prize.winners.push(sender);prize.winRecords[sender]=blockhash(block.number-1);prize.remainAmount--;lottery.totalPrizeAmount--;emitUserDrawPrize(sender,lotteryId,i);if(lottery.totalPrizeAmount==0){closeLottery(lotteryId,"run out of prizes");}returntrue;}}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 408
+column: 16
+content: for(uintj=0;j<prize.winProbArray.length;j++){if(drawRes==prize.winProbArray[j]){prize.winners.push(sender);prize.winRecords[sender]=blockhash(block.number-1);prize.remainAmount--;lottery.totalPrizeAmount--;emitUserDrawPrize(sender,lotteryId,i);if(lottery.totalPrizeAmount==0){closeLottery(lotteryId,"run out of prizes");}returntrue;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 437
+column: 8
+content: for(uinti=0;i<blockhashBytes.length;i++){hashJoin[k++]=blockhashBytes[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 444
+column: 8
+content: for(i=0;i<lotteryBytes.length;i++){hashJoin[k++]=lotteryBytes[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 496
+column: 8
+content: for(uinti=0;i<prizesLength;i++){probArray[i]=lottery.prizes[i].probability;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 320
+column: 4
+content: functionsetLotteryCore(address_lotteryCore)publiconlyOwner{lotteryCore=_lotteryCore;emitNewLotteryCore(_lotteryCore);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 179
+column: 32
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 638
+column: 8
+content: if(status==2){revert("lottery is finshed");}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 275
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 190
+column: 40
+content: string_role
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 202
+column: 38
+content: string_role
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 214
+column: 38
+content: string_role
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 225
+column: 41
+content: string_role
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 388
+column: 42
+content: stringreason
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 453
+column: 65
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 467
+column: 87
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 467
+column: 113
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 467
+column: 124
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 562
+column: 27
+content: string_lotteryName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 569
+column: 46
+content: string_prizeName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 618
+column: 8
+content: string_lotteryName
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :6
+SOLIDITY_ADDRESS_HARDCODED :4
+SOLIDITY_UPGRADE_TO_050 :12
+SOLIDITY_GAS_LIMIT_IN_LOOPS :6

@@ -1,0 +1,99 @@
+F:\Blockchain\dataset_new_byID\76381.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_BALANCE_EQUALITY
+patternId: 5094ad
+severity: 1
+line: 135
+column: 16
+content: IERC20(_vault.asset).balanceOf(address(this)).sub(preBalance)==_vault.balance
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 219
+column: 12
+content: for(uinti=0;i<_vault.tokenIDs.length;i++){IERC721(_vault.asset).transferFrom(_from,_to,_vault.tokenIDs[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 236
+column: 8
+content: for(uinti=0;i<_vault.tokenIDs.length;i++){if(_existsAndEscrowed(address(_vault.asset),_vault.tokenIDs[i])){returntrue;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 245
+column: 8
+content: for(uinti=0;i<_vault.tokenIDs.length;i++){if(IERC721(_vault.asset).ownerOf(_vault.tokenIDs[i])!=address(this)){returnfalse;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 219
+column: 12
+content: for(uinti=0;i<_vault.tokenIDs.length;i++){IERC721(_vault.asset).transferFrom(_from,_to,_vault.tokenIDs[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 236
+column: 8
+content: for(uinti=0;i<_vault.tokenIDs.length;i++){if(_existsAndEscrowed(address(_vault.asset),_vault.tokenIDs[i])){returntrue;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 245
+column: 8
+content: for(uinti=0;i<_vault.tokenIDs.length;i++){if(IERC721(_vault.asset).ownerOf(_vault.tokenIDs[i])!=address(this)){returnfalse;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 58
+column: 4
+content: functionsetNFTCapacity(uint256_capacity)publiconlyOwner{nftCapacity=_capacity;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 200
+column: 4
+content: functionsetBatchTransferEnabled(address_asset,bool_enabled)externalonlyOwner{batchTransferEnabled[_asset]=_enabled;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 205
+column: 4
+content: functionsetListTransferEnabled(address_asset,bool_enabled)externalonlyOwner{listTransferEnabled[_asset]=_enabled;}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 33
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 274
+column: 55
+content: call(data)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 278
+column: 12
+content: assembly{owner:=mload(add(response,20))}
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :3
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_BALANCE_EQUALITY :1

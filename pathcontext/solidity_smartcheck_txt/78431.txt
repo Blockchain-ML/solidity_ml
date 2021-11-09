@@ -1,0 +1,248 @@
+F:\Blockchain\dataset_new_byID\78431.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 145
+column: 24
+content: 0xafE0e12d44486365e75708818dcA5558d29beA7D
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 110
+column: 12
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 110
+column: 48
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 116
+column: 12
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 116
+column: 48
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 41
+column: 48
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 106
+column: 8
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 124
+column: 4
+content: functionstringToUintNormalize(strings)constantreturns(uintresult){bytesmemoryb=bytes(s);uinti;result=0;for(i=0;i<b.length;i++){uintc=uint(b[i]);if(c>=48&&c<=57){result=result*10+(c-48);}}result/=100;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 136
+column: 4
+content: functiongetVoterAmount(uintindex)constantreturns(uint){returnvoter[voterIndex[index]].amount;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 140
+column: 4
+content: functiongetVoterHorse(uintindex)constantreturns(string){returnvoter[voterIndex[index]].horse;}
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 117
+column: 26
+content: (voter[voterIndex[i]].amount/winner_factor)*this.balance
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 109
+column: 6
+content: for(uinti=0;i<voter_count+1;i++){if(sha3(voter[voterIndex[i]].horse)==sha3(winner_horse)){pointer_check=true;winner_factor=winner_factor+voter[voterIndex[i]].amount;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 115
+column: 6
+content: for(i=0;i<voter_count+1;i++){if(sha3(voter[voterIndex[i]].horse)==sha3(winner_horse)){winner_reward=(voter[voterIndex[i]].amount/winner_factor)*this.balance;voterIndex[i].transfer(winner_reward);Withdraw(voterIndex[i],winner_reward);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 128
+column: 6
+content: for(i=0;i<b.length;i++){uintc=uint(b[i]);if(c>=48&&c<=57){result=result*10+(c-48);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 128
+column: 6
+content: for(i=0;i<b.length;i++){uintc=uint(b[i]);if(c>=48&&c<=57){result=result*10+(c-48);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 41
+column: 8
+content: if(msg.sender!=oraclize_cbAddress())throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 103
+column: 11
+content: if((int(stringToUintNormalize(ETH_post))-int(stringToUintNormalize(ETH_pre)))>(int(stringToUintNormalize(BTC_post))-int(stringToUintNormalize(BTC_pre)))){winner_horse="ETH";}else{throw;}
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 115
+column: 6
+content: for(i=0;i<voter_count+1;i++){if(sha3(voter[voterIndex[i]].horse)==sha3(winner_horse)){winner_reward=(voter[voterIndex[i]].amount/winner_factor)*this.balance;voterIndex[i].transfer(winner_reward);Withdraw(voterIndex[i],winner_reward);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 35
+column: 4
+content: functionBetting(){oraclize_setProof(proofType_TLSNotary|proofStorage_IPFS);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 40
+column: 4
+content: function__callback(bytes32myid,stringresult,bytesproof){if(msg.sender!=oraclize_cbAddress())throw;if(myid==BTC_ID){if(price_check_btc==false){BTC_pre=result;price_check_btc=true;newPriceTicker(BTC_pre);update(300);}elseif(price_check_btc==true){BTC_post=result;newPriceTicker(BTC_post);if(other_price_check==true){reward();}else{other_price_check=true;}}}elseif(myid==ETH_ID){if(price_check_eth==false){ETH_pre=result;price_check_eth=true;newPriceTicker(ETH_pre);update(300);}elseif(price_check_eth==true){ETH_post=result;newPriceTicker(ETH_post);if(other_price_check==true){reward();}else{other_price_check=true;}}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 75
+column: 4
+content: functionplaceBet(stringhorse)payable{voter[msg.sender].horse=horse;voter[msg.sender].amount=msg.value;voterIndex[voter_count]=msg.sender;voter_count=voter_count+1;Deposit(msg.sender,msg.value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 83
+column: 4
+content: function()payable{Deposit(msg.sender,msg.value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 87
+column: 4
+content: functionupdate(uintbetting_duration)payable{if(oraclize_getPrice("URL")>this.balance){newOraclizeQuery("Oraclize query was NOT sent, please add some ETH to cover for the query fee");}else{newOraclizeQuery("Oraclize query was sent, standing by for the answer..");BTC_ID=oraclize_query(betting_duration,"URL","json(http://api.coinmarketcap.com/v1/ticker/bitcoin/).0.price_usd");ETH_ID=oraclize_query(betting_duration,"URL","json(http://api.coinmarketcap.com/v1/ticker/ethereum/).0.price_usd");}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 97
+column: 4
+content: functionreward(){if((int(stringToUintNormalize(BTC_post))-int(stringToUintNormalize(BTC_pre)))>(int(stringToUintNormalize(ETH_post))-int(stringToUintNormalize(ETH_pre)))){winner_horse="BTC";}elseif((int(stringToUintNormalize(ETH_post))-int(stringToUintNormalize(ETH_pre)))>(int(stringToUintNormalize(BTC_post))-int(stringToUintNormalize(BTC_pre)))){winner_horse="ETH";}else{throw;}for(uinti=0;i<voter_count+1;i++){if(sha3(voter[voterIndex[i]].horse)==sha3(winner_horse)){pointer_check=true;winner_factor=winner_factor+voter[voterIndex[i]].amount;}}for(i=0;i<voter_count+1;i++){if(sha3(voter[voterIndex[i]].horse)==sha3(winner_horse)){winner_reward=(voter[voterIndex[i]].amount/winner_factor)*this.balance;voterIndex[i].transfer(winner_reward);Withdraw(voterIndex[i],winner_reward);}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 124
+column: 4
+content: functionstringToUintNormalize(strings)constantreturns(uintresult){bytesmemoryb=bytes(s);uinti;result=0;for(i=0;i<b.length;i++){uintc=uint(b[i]);if(c>=48&&c<=57){result=result*10+(c-48);}}result/=100;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 136
+column: 4
+content: functiongetVoterAmount(uintindex)constantreturns(uint){returnvoter[voterIndex[index]].amount;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 140
+column: 4
+content: functiongetVoterHorse(uintindex)constantreturns(string){returnvoter[voterIndex[index]].horse;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 144
+column: 4
+content: functionsuicide(){addressowner=0xafE0e12d44486365e75708818dcA5558d29beA7D;owner.transfer(this.balance);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: uintreward_amount;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 4
+content: bytes32BTC_ID;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 4
+content: bytes32ETH_ID;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 4
+content: mapping(address=>info)voter;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 20
+column: 4
+content: mapping(uint=>address)voterIndex;
+
+SOLIDITY_VISIBILITY :15
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :9
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_DIV_MUL :1
+SOLIDITY_TRANSFER_IN_LOOP :1

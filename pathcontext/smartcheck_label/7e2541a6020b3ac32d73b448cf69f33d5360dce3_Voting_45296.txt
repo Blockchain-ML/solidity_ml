@@ -1,0 +1,192 @@
+C:\Users\hp\DataSet\contracts\ropsten\7e\7e2541a6020b3ac32d73b448cf69f33d5360dce3_Voting.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 142
+column: 8
+content: entities.length++
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 329
+column: 23
+content: (Co.sub(Io).div(Vmax)).mul(1)
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 329
+column: 63
+content: (Si.div(St)).mul(3)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 159
+column: 8
+content: for(uinti=0;i<walletList.length;i++){wallets[walletList[i]].voteCount=wallets[walletList[i]].voteCount.sub(1);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 226
+column: 8
+content: for(uinti=0;i<entity.votes.length;i++){if(entity.votes[i].voted==1){count=count.add(1);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 243
+column: 8
+content: for(uinti=0;i<entity.votes.length;i++){if(entity.votes[i].voted==2){count=count.add(1);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 307
+column: 12
+content: for(i=0;i<w.lastOutcomes.length;i++){if(w.lastOutcomes[i]==1){Co=Co.add(1);}elseif(w.lastOutcomes[i]==2){Io=Io.add(1);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 345
+column: 8
+content: for(i=0;i<entity.votes.length;i++){uintvotingPower=0;if(entity.votes[i].votingPeriod==1&&entity.votes[i].voted==1){votingPower=getVotingPower(entity.noOfStakedTokens,entity.votes[i].tokensStaked,entity.votes[i].voter);yesVotesPower=yesVotesPower.add(votingPower);}elseif(entity.votes[i].votingPeriod==1&&entity.votes[i].voted==2){votingPower=getVotingPower(entity.noOfStakedTokens,entity.votes[i].tokensStaked,entity.votes[i].voter);noVotesPower=noVotesPower.add(votingPower);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 393
+column: 8
+content: for(i=0;i<entity.votes.length;i++){uintvotingPower=0;if(entity.votes[i].votingPeriod==2&&entity.votes[i].voted==1){votingPower=getVotingPower(entity.noOfStakedTokens,entity.votes[i].tokensStaked,entity.votes[i].voter);yesVotesPower=yesVotesPower.add(votingPower);voteExists=true;}elseif(entity.votes[i].votingPeriod==2&&entity.votes[i].voted==2){votingPower=getVotingPower(entity.noOfStakedTokens,entity.votes[i].tokensStaked,entity.votes[i].voter);noVotesPower=noVotesPower.add(votingPower);voteExists=true;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 441
+column: 12
+content: for(i=0;i<entity.votes.length;i++){if(entity.votes[i].votingPeriod==1&&entity.votes[i].voted==1){votingPowerYes=votingPowerYes.add(getVotingPower(entity.noOfStakedTokens,entity.votes[i].tokensStaked,entity.votes[i].voter));}elseif(entity.votes[i].votingPeriod==1&&entity.votes[i].voted==2){votingPowerNo=votingPowerNo.add(getVotingPower(entity.noOfStakedTokens,entity.votes[i].tokensStaked,entity.votes[i].voter));}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 465
+column: 12
+content: for(i=0;i<entity.votes.length;i++){if(entity.votes[i].votingPeriod==1&&entity.votes[i].voted==entity.firstPeriodOutcome){votingPower1=votingPower1.add(getVotingPower(entity.noOfStakedTokens,entity.votes[i].tokensStaked,entity.votes[i].voter));}elseif(entity.votes[i].votingPeriod==2){votingPower2=votingPower2.add(getVotingPower(entity.noOfStakedTokens,entity.votes[i].tokensStaked,entity.votes[i].voter));}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 501
+column: 8
+content: for(i=0;i<votes.length;i++){if(votes[i].voted==_outcome){uintstakedTokensByVoter=votes[i].tokensStaked;uintpercent_coin=stakedTokensByVoter.mul(100).div(totalStakedTokens);uintpercent_reward=reward.mul(percent_coin).div(100);uintclaimableAmount=stakedTokensByVoter+percent_reward;payouts[entity.id][votes[i].voter]=claimableAmount;wallets[votes[i].voter].lastOutcomes.push(1);}else{wallets[votes[i].voter].lastOutcomes.push(2);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 159
+column: 8
+content: for(uinti=0;i<walletList.length;i++){wallets[walletList[i]].voteCount=wallets[walletList[i]].voteCount.sub(1);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 226
+column: 8
+content: for(uinti=0;i<entity.votes.length;i++){if(entity.votes[i].voted==1){count=count.add(1);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 243
+column: 8
+content: for(uinti=0;i<entity.votes.length;i++){if(entity.votes[i].voted==2){count=count.add(1);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 307
+column: 12
+content: for(i=0;i<w.lastOutcomes.length;i++){if(w.lastOutcomes[i]==1){Co=Co.add(1);}elseif(w.lastOutcomes[i]==2){Io=Io.add(1);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 345
+column: 8
+content: for(i=0;i<entity.votes.length;i++){uintvotingPower=0;if(entity.votes[i].votingPeriod==1&&entity.votes[i].voted==1){votingPower=getVotingPower(entity.noOfStakedTokens,entity.votes[i].tokensStaked,entity.votes[i].voter);yesVotesPower=yesVotesPower.add(votingPower);}elseif(entity.votes[i].votingPeriod==1&&entity.votes[i].voted==2){votingPower=getVotingPower(entity.noOfStakedTokens,entity.votes[i].tokensStaked,entity.votes[i].voter);noVotesPower=noVotesPower.add(votingPower);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 393
+column: 8
+content: for(i=0;i<entity.votes.length;i++){uintvotingPower=0;if(entity.votes[i].votingPeriod==2&&entity.votes[i].voted==1){votingPower=getVotingPower(entity.noOfStakedTokens,entity.votes[i].tokensStaked,entity.votes[i].voter);yesVotesPower=yesVotesPower.add(votingPower);voteExists=true;}elseif(entity.votes[i].votingPeriod==2&&entity.votes[i].voted==2){votingPower=getVotingPower(entity.noOfStakedTokens,entity.votes[i].tokensStaked,entity.votes[i].voter);noVotesPower=noVotesPower.add(votingPower);voteExists=true;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 441
+column: 12
+content: for(i=0;i<entity.votes.length;i++){if(entity.votes[i].votingPeriod==1&&entity.votes[i].voted==1){votingPowerYes=votingPowerYes.add(getVotingPower(entity.noOfStakedTokens,entity.votes[i].tokensStaked,entity.votes[i].voter));}elseif(entity.votes[i].votingPeriod==1&&entity.votes[i].voted==2){votingPowerNo=votingPowerNo.add(getVotingPower(entity.noOfStakedTokens,entity.votes[i].tokensStaked,entity.votes[i].voter));}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 465
+column: 12
+content: for(i=0;i<entity.votes.length;i++){if(entity.votes[i].votingPeriod==1&&entity.votes[i].voted==entity.firstPeriodOutcome){votingPower1=votingPower1.add(getVotingPower(entity.noOfStakedTokens,entity.votes[i].tokensStaked,entity.votes[i].voter));}elseif(entity.votes[i].votingPeriod==2){votingPower2=votingPower2.add(getVotingPower(entity.noOfStakedTokens,entity.votes[i].tokensStaked,entity.votes[i].voter));}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 501
+column: 8
+content: for(i=0;i<votes.length;i++){if(votes[i].voted==_outcome){uintstakedTokensByVoter=votes[i].tokensStaked;uintpercent_coin=stakedTokensByVoter.mul(100).div(totalStakedTokens);uintpercent_reward=reward.mul(percent_coin).div(100);uintclaimableAmount=stakedTokensByVoter+percent_reward;payouts[entity.id][votes[i].voter]=claimableAmount;wallets[votes[i].voter].lastOutcomes.push(1);}else{wallets[votes[i].voter].lastOutcomes.push(2);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 195
+column: 15
+content: if(now>entity.startTime+5seconds&&now<=entity.startTime+10seconds){if(entity.firstPeriodOutcome==0){this.determineFirstPeriodOutcome(entity.id);}require(entity.firstPeriodOutcome!=_voted);votingPeriod=2;}else{revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 75
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 137
+column: 23
+content: string_name
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 108
+column: 4
+content: address[]walletList;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :9
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :9
+SOLIDITY_DIV_MUL :2

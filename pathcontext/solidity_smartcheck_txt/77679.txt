@@ -1,0 +1,46 @@
+F:\Blockchain\dataset_new_byID\77679.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 13
+column: 2
+content: functionhasWon(uint_proposalID)publicconstantreturns(bool){BoardRoomboard=BoardRoom(msg.sender);uintnay=board.positionWeightOf(_proposalID,0);uintyea=board.positionWeightOf(_proposalID,1);uintquorum=StandardToken(token.token()).totalSupply();uintdivisor=20;if(block.number>startBlock+5000){divisor=40;}if(block.number>startBlock+10000){divisor=60;}if((yea+nay)>quorum/divisor&&yea>nay){returntrue;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 34
+column: 2
+content: functioncanVote(address_sender,uint_proposalID)publicconstantreturns(bool){BoardRoomboard=BoardRoom(msg.sender);uintcreated=board.createdOn(_proposalID);uintdebatePeriod=board.debatePeriodOf(_proposalID);if(votingWeightOf(_sender,_proposalID)>0&&now<(created+debatePeriod)&&token.frozenUntil(_sender)>(created+debatePeriod)&&board.hasVoted(_proposalID,_sender)==false){returntrue;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 48
+column: 2
+content: functioncanPropose(address_sender)publicconstantreturns(bool){if(token.balanceOf(_sender)>0){returntrue;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 54
+column: 2
+content: functionvotingWeightOf(address_sender,uint_proposalID)publicconstantreturns(uint){returntoken.balanceOf(_sender);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 58
+column: 2
+content: uintstartBlock;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1

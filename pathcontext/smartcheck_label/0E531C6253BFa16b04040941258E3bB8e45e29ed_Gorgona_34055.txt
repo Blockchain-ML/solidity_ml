@@ -1,0 +1,101 @@
+C:\Users\hp\DataSet\contracts\ropsten\0e\0E531C6253BFa16b04040941258E3bB8e45e29ed_Gorgona.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 31
+column: 8
+content: addresses.length++
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 38
+column: 12
+content: addresses.length++
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 66
+column: 26
+content: (investors[addr].deposit/100)*3
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 12cf32
+severity: 2
+line: 60
+column: 8
+content: for(uintidx=addresses.length;idx-->0;){addressaddr=addresses[idx];if(investors[addr].date>now+PAYOUT_INTERVAL)continue;uintamount=(investors[addr].deposit/100)*3;investors[addr].date+=PAYOUT_INTERVAL;investors[addr].addr.transfer(amount);investorsPayout+=amount;if(++count>=PAYOUT_LIMIT_COUNT){break;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 48
+column: 4
+content: functionsetDatePayout(addressaddr,uintdate)onlyOwnerpublic{investors[addr].date=date;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 18
+column: 14
+content: private
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 60
+column: 8
+content: for(uintidx=addresses.length;idx-->0;){addressaddr=addresses[idx];if(investors[addr].date>now+PAYOUT_INTERVAL)continue;uintamount=(investors[addr].deposit/100)*3;investors[addr].date+=PAYOUT_INTERVAL;investors[addr].addr.transfer(amount);investorsPayout+=amount;if(++count>=PAYOUT_LIMIT_COUNT){break;}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 34
+column: 23
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 4
+content: uintconstantPAYOUT_INTERVAL=1days;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 7
+column: 4
+content: uintconstantPAYOUT_MIN_INTERVAL=15seconds;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 8
+column: 4
+content: uintconstantPAYOUT_LIMIT_COUNT=50;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 25
+column: 4
+content: uintpayoutDate;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_DIV_MUL :1
+SOLIDITY_TRANSFER_IN_LOOP :1

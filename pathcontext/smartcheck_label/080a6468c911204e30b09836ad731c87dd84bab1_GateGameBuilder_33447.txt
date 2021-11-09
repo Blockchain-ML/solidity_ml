@@ -1,0 +1,161 @@
+C:\Users\hp\DataSet\contracts\ropsten\08\080a6468c911204e30b09836ad731c87dd84bab1_GateGameBuilder.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 106
+column: 42
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 107
+column: 42
+content: 0x0
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 23
+column: 0
+content: contractGameContract{GameBuilderprivatemainContract;constructor()publicpayable{mainContract=GameBuilder(msg.sender);}functionsubmit()publicreturns(bool){require(isPass());returnmainContract.submit();}functionisPass()viewreturns(bool);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 37
+column: 0
+content: contractGameBuilder{mapping(address=>address)publicplayContract;mapping(address=>bool)publicisWinned;address[]publicwinnerList;uintpublicwinnerNums=0;constructor()publicpayable{}function()payable{}functionsubmit()publicreturns(bool){require(playContract[tx.origin]!=address(0));returnisPass(tx.origin);}functionisPass(address_submiter)privatereturns(bool){if(isWinned[_submiter]){returntrue;}require(GameContract(playContract[_submiter]).isPass());winnerList.push(tx.origin);isWinned[tx.origin]=true;winnerNums++;returntrue;}functionplay()publicreturns(address){if(playContract[tx.origin]==address(0)){addressa=gameCreate();playContract[tx.origin]=a;}returnplayContract[tx.origin];}functiongameCreate()publicreturns(address);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 21
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 24
+column: 13
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 82
+column: 6
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 83
+column: 6
+content: private
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 55
+column: 23
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 56
+column: 16
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 64
+column: 18
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 65
+column: 11
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 71
+column: 19
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 73
+column: 16
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 75
+column: 22
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 106
+column: 18
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 107
+column: 18
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 126
+column: 12
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 131
+column: 9
+content: tx.origin
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 1
+content: functionisPass()viewreturns(bool);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 50
+column: 1
+content: function()payable{}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 130
+column: 1
+content: functionisPass()viewreturns(bool){return(tx.origin==entrant);}
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :3
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_TX_ORIGIN :11

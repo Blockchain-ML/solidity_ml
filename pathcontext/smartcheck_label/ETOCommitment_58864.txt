@@ -1,0 +1,421 @@
+C:\Users\hp\DataSet\ETOCommitment.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 287
+column: 27
+content: 0xFFFFFFFF
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 427
+column: 4
+content: functionsignedInvestmentAgreementUrl()publicconstantreturns(string){return_signedInvestmentAgreementUrl;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 435
+column: 4
+content: functioncontributionSummary()publicconstantreturns(uint256newShares,uint256capitalIncreaseUlps,uint256additionalContributionEth,uint256additionalContributionEurUlps,uint256tokenParticipationFee,uint256platformFeeEth,uint256platformFeeEurUlps,uint256sharePriceEurUlps){return(_newShares,_newShares*ETO_TERMS.TOKEN_TERMS().SHARE_NOMINAL_VALUE_ULPS(),_additionalContributionEth,_additionalContributionEurUlps,_tokenParticipationFeeAmount,_platformFeeEth,_platformFeeEurUlps,_newShares==0?0:divRound(_totalEquivEurUlps,_newShares));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 453
+column: 4
+content: functionetoTerms()publicconstantreturns(ETOTerms){returnETO_TERMS;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 457
+column: 4
+content: functionequityToken()publicconstantreturns(IEquityToken){returnEQUITY_TOKEN;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 461
+column: 4
+content: functionnominee()publicconstantreturns(address){returnNOMINEE;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 465
+column: 4
+content: functioncompanyLegalRep()publicconstantreturns(address){returnCOMPANY_LEGAL_REPRESENTATIVE;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 469
+column: 4
+content: functionsingletons()publicconstantreturns(addresstokenOfferingOperator,addressuniverse,addressplatformTerms){tokenOfferingOperator=TOKEN_OFFERING_OPERATOR;universe=UNIVERSE;platformTerms=PLATFORM_TERMS;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 483
+column: 4
+content: functiontotalInvestment()publicconstantreturns(uint256totalEquivEurUlps,uint256totalTokenAmount,uint256totalInvestors){return(_totalEquivEurUlps,_totalTokenAmount,_totalInvestors);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 495
+column: 4
+content: functioncalculateContribution(addressinvestor,boolfromIcbmWallet,uint256newInvestorContributionEurUlps)externalconstantwithStateTransition()returns(boolisWhitelisted,boolisEligible,uint256minTicketEurUlps,uint256maxTicketEurUlps,uint256equityTokenAmount,uint256neuRewardUlps,boolmaxCapExceeded){InvestmentTicketstorageticket=_tickets[investor];uint256fixedSlotsEquityTokenAmount;(isWhitelisted,isEligible,minTicketEurUlps,maxTicketEurUlps,equityTokenAmount,fixedSlotsEquityTokenAmount)=ETO_TERMS.calculateContribution(investor,_totalEquivEurUlps,ticket.equivEurUlps,newInvestorContributionEurUlps,state()==ETOState.Whitelist);isWhitelisted=isWhitelisted||fromIcbmWallet;if(!fromIcbmWallet){(,neuRewardUlps)=calculateNeumarkDistribution(NEUMARK.incremental(newInvestorContributionEurUlps));}maxCapExceeded=isCapExceeded(state()==ETOState.Whitelist,equityTokenAmount,fixedSlotsEquityTokenAmount,newInvestorContributionEurUlps);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 540
+column: 4
+content: functioninvestorTicket(addressinvestor)publicconstantreturns(uint256equivEurUlps,uint256rewardNmkUlps,uint256equityTokenAmount,uint256sharesFrac,uint256tokenPrice,uint256neuRate,uint256amountEth,uint256amountEurUlps,boolclaimedOrRefunded,boolusedLockedAccount){InvestmentTicketstorageticket=_tickets[investor];equivEurUlps=ticket.equivEurUlps;rewardNmkUlps=ticket.rewardNmkUlps;equityTokenAmount=ticket.equityTokenAmount;sharesFrac=ETO_TERMS.equityTokensToSharesFrac(ticket.equityTokenAmount);tokenPrice=equityTokenAmount>0?ETO_TERMS.calculateTokenEurPrice(equivEurUlps,equityTokenAmount):0;neuRate=rewardNmkUlps>0?proportion(equivEurUlps,10**18,rewardNmkUlps):0;amountEth=ticket.amountEth;amountEurUlps=ticket.amountEurUlps;claimedOrRefunded=ticket.claimOrRefundSettled;usedLockedAccount=ticket.usedLockedAccount;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 601
+column: 4
+content: functionmAdavanceLogicState(ETOStateoldState)internalconstantreturns(ETOState){boolcapExceeded=isCapExceeded(false,MIN_TICKET_TOKENS+1,0,MIN_TICKET_EUR_ULPS);if(capExceeded){if(oldState==ETOState.Whitelist){returnETOState.Public;}if(oldState==ETOState.Public){returnETOState.Signing;}}if(oldState==ETOState.Signing&&_nomineeSignedInvestmentAgreementUrlHash!=bytes32(0)){returnETOState.Claim;}returnoldState;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 624
+column: 4
+content: functionmBeforeStateTransition(ETOState,ETOStatenewState)internalconstantreturns(ETOState){if(newState==ETOState.Signing&&_totalTokenAmount<MIN_NUMBER_OF_TOKENS){returnETOState.Refund;}returnnewState;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 675
+column: 4
+content: functioncalculateNeumarkDistribution(uint256rewardNmk)privateconstantreturns(uint256platformNmk,uint256investorNmk){platformNmk=rewardNmk/PLATFORM_NEUMARK_SHARE;return(platformNmk,rewardNmk-platformNmk);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 880
+column: 4
+content: functionconvertToEurEquiv(uint256amountEth)privateconstantreturns(uint256){(uint256rate,uint256rateTimestamp)=CURRENCY_RATES.getExchangeRate(ETHER_TOKEN,EURO_TOKEN);require(block.timestamp-rateTimestamp<TOKEN_RATE_EXPIRES_AFTER,"NF_ETO_INVALID_ETH_RATE");returndecimalFraction(amountEth,rate);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 976
+column: 4
+content: functionisCapExceeded(boolapplyDiscounts,uint256equityTokenAmount,uint256fixedSlotsEquityTokenAmount,uint256equivEurUlps)privateconstantreturns(boolmaxCapExceeded){maxCapExceeded=_totalTokenAmount+equityTokenAmount>MAX_AVAILABLE_TOKENS;if(applyDiscounts&&!maxCapExceeded){maxCapExceeded=_totalTokenAmount+equityTokenAmount-_totalFixedSlotsTokenAmount-fixedSlotsEquityTokenAmount>MAX_AVAILABLE_TOKENS_IN_WHITELIST;}if(!maxCapExceeded&&(equivEurUlps+_totalEquivEurUlps>MAX_INVESTMENT_AMOUNT_EUR_ULPS)){maxCapExceeded=true;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 579
+column: 8
+content: for(uint256i=0;i<tokens.length;i+=1){addresstoken=tokens[i];disbursal.reject(token,NEUMARK,256**2-1);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 579
+column: 8
+content: for(uint256i=0;i<tokens.length;i+=1){addresstoken=tokens[i];disbursal.reject(token,NEUMARK,256**2-1);}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 72
+column: 13
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 74
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 76
+column: 17
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 78
+column: 17
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 80
+column: 18
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 81
+column: 18
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 83
+column: 17
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 85
+column: 29
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 88
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 90
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 92
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 94
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 96
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 98
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 100
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 102
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 104
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 107
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 109
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 112
+column: 13
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 116
+column: 18
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 125
+column: 42
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 130
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 132
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 134
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 136
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 139
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 142
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 145
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 149
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 151
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 153
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 155
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 158
+column: 11
+content: private
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 678
+column: 16
+content: (uint256platformNmk,uint256investorNmk)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 825
+column: 16
+content: (boolisWhitelisted,boolisEligible,uint256minTicketEurUlps,uint256maxTicketEurUlps,uint256equityTokenAmount,uint256fixedSlotEquityTokenAmount,uint256investorNmk)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 305
+column: 45
+content: stringsignedInvestmentAgreementUrl
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 315
+column: 48
+content: stringsignedInvestmentAgreementUrl
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 334
+column: 59
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 430
+column: 17
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 574
+column: 21
+content: address[]tokens
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :15
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :34
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :5
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_SHOULD_RETURN_STRUCT :2

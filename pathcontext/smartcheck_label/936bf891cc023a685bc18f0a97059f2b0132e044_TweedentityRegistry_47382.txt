@@ -1,0 +1,61 @@
+C:\Users\hp\DataSet\contracts\ropsten\93\936bf891cc023a685bc18f0a97059f2b0132e044_TweedentityRegistry.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 171
+column: 2
+content: functiongetStore(string_appNickname)publicconstantreturns(address){returnstores[keccak256(_appNickname)];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 184
+column: 2
+content: functionisReady()externalconstantreturns(bool){returntotalStores>0&&manager!=address(0)&&claimer!=address(0)&&!paused;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 116
+column: 2
+content: functionsetManager(address_address)externalonlyOwner{require(_address!=0x0);manager=_address;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 127
+column: 2
+content: functionsetClaimer(address_address)externalonlyOwner{require(_address!=0x0);claimer=_address;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 138
+column: 2
+content: functionsetManagerAndClaimer(address_manager,address_claimer)externalonlyOwner{require(_manager!=0x0);require(_claimer!=0x0);manager=_manager;claimer=_claimer;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 152
+column: 2
+content: functionsetStore(string_appNickname,address_address)externalonlyOwner{require(_address!=0x0);if(getStore(_appNickname)==address(0)){totalStores++;}stores[keccak256(_appNickname)]=_address;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 172
+column: 4
+content: string_appNickname
+
+SOLIDITY_OVERPOWERED_ROLE :4
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :1

@@ -1,0 +1,416 @@
+C:\Users\hp\DataSet\contracts\ropsten\ea\ea264bbde4a79636ae1889527733ee4fbd2d8a19_HpbBallot.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 405
+column: 12
+content: voterArray[voterIndex].candidateMapAddrs.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 414
+column: 8
+content: candidateArray.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 526
+column: 12
+content: voterArray.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 570
+column: 12
+content: candidateArray[candidateIndex].voterMapAddrs.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 585
+column: 12
+content: voterArray[index].candidateMapAddrs.length--
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 512
+column: 32
+content: balance.mul(1finney).div(voteNumber).mul(_num)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 389
+column: 8
+content: for(uintn=1;n<candidateArray[index].voterMapAddrs.length;n++){uintvoterIndex=voterIndexMap[candidateArray[index].voterMapAddrs[n]];uintcIndex=voterArray[voterIndex].candidateMapAddrsIndex[_candidateAddr];for(uintk=cIndex;k<voterArray[voterIndex].candidateMapAddrs.length-1;k++){voterArray[voterIndex].candidateMapAddrs[k]=voterArray[voterIndex].candidateMapAddrs[k+1];voterArray[voterIndex].candidateMapAddrsIndex[voterArray[voterIndex].candidateMapAddrs[k]]=k;}voterArray[voterIndex].voteNumber=voterArray[voterIndex].voteNumber.sub(voterArray[voterIndex].candidateMap[_candidateAddr]);voterArray[voterIndex].candidateMap[_candidateAddr]=0;voterArray[voterIndex].candidateMapAddrsIndex[_candidateAddr]=0;deletevoterArray[voterIndex].candidateMapAddrs[voterArray[voterIndex].candidateMapAddrs.length-1];voterArray[voterIndex].candidateMapAddrs.length--;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 394
+column: 12
+content: for(uintk=cIndex;k<voterArray[voterIndex].candidateMapAddrs.length-1;k++){voterArray[voterIndex].candidateMapAddrs[k]=voterArray[voterIndex].candidateMapAddrs[k+1];voterArray[voterIndex].candidateMapAddrsIndex[voterArray[voterIndex].candidateMapAddrs[k]]=k;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 408
+column: 8
+content: for(uinti=index;i<candidateArray.length-1;i++){candidateArray[i]=candidateArray[i+1];candidateIndexMap[candidateArray[i].candidateAddr]=i;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 426
+column: 8
+content: for(uintn=1;n<candidateArray[index].voterMapAddrs.length;n++){uintvoterIndex=voterIndexMap[candidateArray[index].voterMapAddrs[n]];uintvoterNum=voterArray[voterIndex].candidateMap[_oldCandidateAddr];voterArray[voterIndex].candidateMap[_newCandidateAddr]=voterNum;voterArray[voterIndex].candidateMap[_oldCandidateAddr]=0;uintcIndex=voterArray[voterIndex].candidateMapAddrsIndex[_oldCandidateAddr];voterArray[voterIndex].candidateMapAddrs[cIndex]=_newCandidateAddr;voterArray[voterIndex].candidateMapAddrsIndex[_newCandidateAddr]=cIndex;voterArray[voterIndex].candidateMapAddrsIndex[_oldCandidateAddr]=0;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 488
+column: 8
+content: for(uinti=0;i<candidateAddrs.length;i++){_internalVote(voterAddr,candidateAddrs[i],nums[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 496
+column: 8
+content: for(uinti=1;i<voterArray.length;i++){_refreshVoteForVoter(i);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 522
+column: 12
+content: for(uintk=index;k<voterArray.length-1;k++){voterArray[k]=voterArray[k+1];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 563
+column: 12
+content: for(uintk=vIndex;k<candidateArray[candidateIndex].voterMapAddrs.length-1;k++){candidateArray[candidateIndex].voterMapAddrs[k]=candidateArray[candidateIndex].voterMapAddrs[k+1];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 581
+column: 12
+content: for(uintj=cIndex;j<voterArray[index].candidateMapAddrs.length-1;j++){voterArray[index].candidateMapAddrs[j]=voterArray[index].candidateMapAddrs[j+1];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 674
+column: 12
+content: for(uintp=1;p<candidateArray.length;p++){uintoutIndex=0;if(p<=capacity){_inAddrs[p]=candidateArray[p].candidateAddr;_nums[p]=candidateArray[p].voteNumber;if(_nums[p]<min){min=_nums[p];minIndex=p;}}else{if(candidateArray[p].voteNumber==min){if(candidateArray[p].candidateAddr.balance>_inAddrs[minIndex].balance){_outAddrs[outIndex]=_inAddrs[minIndex];_inAddrs[minIndex]=candidateArray[p].candidateAddr;_nums[minIndex]=candidateArray[p].voteNumber;}else{_outAddrs[outIndex]=candidateArray[p].candidateAddr;}}elseif(candidateArray[p].voteNumber>min){_outAddrs[outIndex]=_inAddrs[minIndex];_inAddrs[minIndex]=candidateArray[p].candidateAddr;_nums[minIndex]=candidateArray[p].voteNumber;min=_nums[0];minIndex=0;for(uintj=0;j<_inAddrs.length;j++){if(_nums[j]<min){min=_nums[j];minIndex=j;}}min=_nums[minIndex];}else{_outAddrs[outIndex]=candidateArray[p].candidateAddr;}outIndex=outIndex.add(1);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 704
+column: 24
+content: for(uintj=0;j<_inAddrs.length;j++){if(_nums[j]<min){min=_nums[j];minIndex=j;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 718
+column: 12
+content: for(uintn=0;n<_outAddrs.length;n++){deleteCandidate(_outAddrs[n]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 488
+column: 8
+content: for(uinti=0;i<candidateAddrs.length;i++){_internalVote(voterAddr,candidateAddrs[i],nums[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 704
+column: 24
+content: for(uintj=0;j<_inAddrs.length;j++){if(_nums[j]<min){min=_nums[j];minIndex=j;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 718
+column: 12
+content: for(uintn=0;n<_outAddrs.length;n++){deleteCandidate(_outAddrs[n]);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 247
+column: 51
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 249
+column: 30
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 251
+column: 12
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 167
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 29
+column: 43
+content: address[]candidateAddrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 29
+column: 69
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 43
+column: 55
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 43
+column: 72
+content: bytes32[]names
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 48
+column: 51
+content: address[]voterAddrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 48
+column: 73
+content: uint[]voteNumbers
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 53
+column: 75
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 53
+column: 92
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 68
+column: 83
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 68
+column: 100
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 73
+column: 51
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 73
+column: 68
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 79
+column: 7
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 80
+column: 7
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 485
+column: 8
+content: address[]candidateAddrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 486
+column: 8
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 631
+column: 55
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 631
+column: 72
+content: bytes32[]names
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 646
+column: 51
+content: address[]voterAddrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 646
+column: 73
+content: uint[]voteNumbers
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 729
+column: 75
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 729
+column: 92
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 770
+column: 83
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 770
+column: 100
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 788
+column: 51
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 788
+column: 68
+content: uint[]nums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 804
+column: 35
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 804
+column: 51
+content: uint[]nums
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 216
+column: 4
+content: Candidate[]candidateArray;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 228
+column: 4
+content: mapping(address=>uint)candidateIndexMap;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 232
+column: 4
+content: Voter[]voterArray;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 237
+column: 4
+content: mapping(address=>uint)voterIndexMap;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :5
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :3
+SOLIDITY_EXTRA_GAS_IN_LOOPS :12
+SOLIDITY_UPGRADE_TO_050 :28
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_DIV_MUL :1

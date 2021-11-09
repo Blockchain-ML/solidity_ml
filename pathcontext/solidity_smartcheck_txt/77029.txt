@@ -1,0 +1,287 @@
+F:\Blockchain\dataset_new_byID\77029.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 100
+column: 4
+content: functiongetSmartAssetPrice(uint24id)constantreturns(uint){var(price,hash)=carAssetLogicStorage.getSmartAssetPriceData(id);returnprice;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 106
+column: 4
+content: functionisAssetTheSameState(uint24assetId)onlySmartAssetRouterconstantreturns(bool){var(timestamp,year,docUrl,smoker,email,model,vin,color,millage,state,owner,assetType)=getById(assetId);returncheckState(assetId,timestamp,docUrl,smoker,email,model,vin,color,millage);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 127
+column: 4
+content: functiongetAvailableCities()constantreturns(bytes32[]){returncities;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 131
+column: 4
+content: functioncalculateDeliveryPrice(uint24id,bytes11latitudeTo,bytes11longitudeTo)onlySmartAssetRouterconstantreturns(uint){return10*coefficient*1wei;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 136
+column: 4
+content: functioncalculateDeliveryPrice(uint24id,bytes32cityName)onlySmartAssetRouterconstantreturns(uint){LatLonglatLong=cityMapping[cityName];returncalculateDeliveryPrice(id,latLong.lat,latLong.long);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 141
+column: 4
+content: functiongetSmartAssetAvailability(uint24id)constantreturns(boolavailability){returncarAssetLogicStorage.getSmartAssetAvailability(id);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 185
+column: 4
+content: function_calculateAssetPrice(uintmillage,uint8smoker)constantprivatereturns(uintprice){returnmin(max(millage%10-smoker,MIN_CAR_PRICE),MAX_CAR_PRICE)*priceCoefficient*1wei;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 166
+column: 4
+content: functionsetIotSimulationAddr(addresscontractAddress)onlyOwnerreturns(boolresult){require(contractAddress!=address(0));iotSimulationAddr=contractAddress;returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 173
+column: 4
+content: functionsetMinCarPrice(uintprice)onlyOwnerreturns(boolresult){MIN_CAR_PRICE=price;returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 179
+column: 4
+content: functionsetMaxCarPrice(uintprice)onlyOwnerreturns(boolresult){MAX_CAR_PRICE=price;returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 204
+column: 4
+content: functionsetCarAssetLogicStorage(address_carAssetLogicStorage)onlyOwner{carAssetLogicStorage=CarAssetLogicStorage(_carAssetLogicStorage);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 15
+column: 9
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 16
+column: 9
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 18
+column: 12
+content: private
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 137
+column: 8
+content: LatLonglatLong=cityMapping[cityName]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 147
+column: 8
+content: LatLonglatLong=cityMapping[cityName]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 8
+column: 4
+content: functiongenerateIotOutput(uint24id,uintsalt)returns(boolresult);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 9
+column: 4
+content: functiongenerateIotAvailability(uint24id,boolavailability)returns(boolresult);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 48
+column: 4
+content: functionCarAssetLogic(){cityMapping["Moscow"]=LatLong("55","37",true);cities.push("Moscow");cityMapping["Saint-Petersburg"]=LatLong("59","30",true);cities.push("Saint-Petersburg");cityMapping["Kiev"]=LatLong("50","30",true);cities.push("Kiev");cityMapping["Lviv"]=LatLong("49","24",true);cities.push("Lviv");cityMapping["Lublin"]=LatLong("51","22",true);cities.push("Lublin");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 71
+column: 4
+content: functiononAssetSold(uint24assetId)onlySmartAssetRouter{carAssetLogicStorage.deleteAssetPriceById(assetId);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 75
+column: 4
+content: functioncalculateAssetPrice(uint24assetId)onlySmartAssetRouterreturns(uint){var(timestamp,year,docUrl,smoker,email,model,vin,color,millage,state,owner,assetType)=getById(assetId);returncalculateAssetPrice0(assetId,timestamp,docUrl,smoker,email,model,vin,color,millage);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 100
+column: 4
+content: functiongetSmartAssetPrice(uint24id)constantreturns(uint){var(price,hash)=carAssetLogicStorage.getSmartAssetPriceData(id);returnprice;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 106
+column: 4
+content: functionisAssetTheSameState(uint24assetId)onlySmartAssetRouterconstantreturns(bool){var(timestamp,year,docUrl,smoker,email,model,vin,color,millage,state,owner,assetType)=getById(assetId);returncheckState(assetId,timestamp,docUrl,smoker,email,model,vin,color,millage);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 127
+column: 4
+content: functiongetAvailableCities()constantreturns(bytes32[]){returncities;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 131
+column: 4
+content: functioncalculateDeliveryPrice(uint24id,bytes11latitudeTo,bytes11longitudeTo)onlySmartAssetRouterconstantreturns(uint){return10*coefficient*1wei;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 136
+column: 4
+content: functioncalculateDeliveryPrice(uint24id,bytes32cityName)onlySmartAssetRouterconstantreturns(uint){LatLonglatLong=cityMapping[cityName];returncalculateDeliveryPrice(id,latLong.lat,latLong.long);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 141
+column: 4
+content: functiongetSmartAssetAvailability(uint24id)constantreturns(boolavailability){returncarAssetLogicStorage.getSmartAssetAvailability(id);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 146
+column: 4
+content: functionaddCity(bytes32cityName,bytes11lat,bytes11long)onlyOwner(){LatLonglatLong=cityMapping[cityName];if(latLong.initialized==false){cities.push(cityName);}cityMapping[cityName]=LatLong(lat,long,true);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 156
+column: 4
+content: functionsetCoefficientInWei(uint_wei)onlyOwner(){coefficient=_wei;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 161
+column: 4
+content: functionsetPriceCoefficientInWei(uint_wei)onlyOwner(){priceCoefficient=_wei;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 166
+column: 4
+content: functionsetIotSimulationAddr(addresscontractAddress)onlyOwnerreturns(boolresult){require(contractAddress!=address(0));iotSimulationAddr=contractAddress;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 173
+column: 4
+content: functionsetMinCarPrice(uintprice)onlyOwnerreturns(boolresult){MIN_CAR_PRICE=price;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 179
+column: 4
+content: functionsetMaxCarPrice(uintprice)onlyOwnerreturns(boolresult){MAX_CAR_PRICE=price;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 204
+column: 4
+content: functionsetCarAssetLogicStorage(address_carAssetLogicStorage)onlyOwner{carAssetLogicStorage=CarAssetLogicStorage(_carAssetLogicStorage);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 20
+column: 4
+content: CarAssetLogicStoragecarAssetLogicStorage;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 23
+column: 4
+content: uintcoefficient=2226389000000000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 4
+content: uintpriceCoefficient=4452778000000000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 29
+column: 4
+content: bytes32[]cities;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 39
+column: 4
+content: mapping(bytes32=>LatLong)cityMapping;
+
+SOLIDITY_VISIBILITY :23
+SOLIDITY_OVERPOWERED_ROLE :4
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :7
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :3
+SOLIDITY_UPGRADE_TO_050 :2

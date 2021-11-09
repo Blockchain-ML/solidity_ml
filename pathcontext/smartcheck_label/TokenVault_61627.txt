@@ -1,0 +1,265 @@
+C:\Users\hp\DataSet\TokenVault.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 98
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 105
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 110
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 115
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 136
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 139
+column: 20
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 143
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 164
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 169
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 174
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 185
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 252
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 256
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 261
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 194
+column: 2
+content: functiongetBalance()publicconstantreturns(uinthowManyTokensCurrentlyInVault){returntoken.balanceOf(address(this));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 201
+column: 2
+content: functiongetMaxClaimByNow(addressinvestor)publicconstantreturns(uintclaimableAmount){if(now<freezeEndsAt){return0;}uintpreviousClaimAt=lastClaimedAt[investor];if(previousClaimAt==0){previousClaimAt=freezeEndsAt;}uintpassed=now.minus(previousClaimAt);uintmaxClaim=passed.times(tokensPerSecond[investor]);returnmaxClaim;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 222
+column: 2
+content: functiongetCurrentlyClaimableAmount(addressinvestor)publicconstantreturns(uintclaimableAmount){uintmaxTokensLeft=balances[investor].minus(claimed[investor]);if(now<freezeEndsAt){return0;}uintmaxClaim=getMaxClaimByNow(investor);if(tokensPerSecond[investor]>0){if(maxClaim>maxTokensLeft){returnmaxTokensLeft;}else{returnmaxClaim;}}else{returnmaxTokensLeft;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 290
+column: 2
+content: functiongetState()publicconstantreturns(State){if(lockedAt==0){returnState.Loading;}elseif(now>freezeEndsAt){returnState.Distributing;}else{returnState.Holding;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 132
+column: 2
+content: functionsetInvestor(addressinvestor,uintamount,uint_tokensPerSecond)publiconlyOwner{if(lockedAt>0){throw;}if(amount==0)throw;if(balances[investor]>0){throw;}balances[investor]=amount;investorCount++;tokensAllocatedTotal+=amount;tokensPerSecond[investor]=_tokensPerSecond;Allocated(investor,amount);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 7
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 97
+column: 4
+content: if(owner==0){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 104
+column: 4
+content: if(!token.isToken()){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 109
+column: 4
+content: if(_freezeEndsAt==0){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 114
+column: 4
+content: if(_tokensToBeAllocated==0){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 134
+column: 4
+content: if(lockedAt>0){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 139
+column: 4
+content: if(amount==0)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 142
+column: 4
+content: if(balances[investor]>0){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 163
+column: 4
+content: if(lockedAt>0){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 168
+column: 4
+content: if(tokensAllocatedTotal!=tokensToBeAllocated){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 173
+column: 4
+content: if(token.balanceOf(address(this))!=tokensAllocatedTotal){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 184
+column: 4
+content: if(lockedAt>0){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 251
+column: 4
+content: if(lockedAt==0){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 255
+column: 4
+content: if(now<freezeEndsAt){throw;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 259
+column: 4
+content: if(balances[investor]==0){throw;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 92
+column: 2
+content: functionTokenVault(address_owner,uint_freezeEndsAt,StandardTokenExt_token,uint_tokensToBeAllocated){owner=_owner;if(owner==0){throw;}token=_token;if(!token.isToken()){throw;}if(_freezeEndsAt==0){throw;}if(_tokensToBeAllocated==0){throw;}if(_freezeEndsAt<now){freezeEndsAt=now;}else{freezeEndsAt=_freezeEndsAt;}tokensToBeAllocated=_tokensToBeAllocated;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 161
+column: 2
+content: functionlock()onlyOwner{if(lockedAt>0){throw;}if(tokensAllocatedTotal!=tokensToBeAllocated){throw;}if(token.balanceOf(address(this))!=tokensAllocatedTotal){throw;}lockedAt=now;Locked();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 183
+column: 2
+content: functionrecoverFailedLock()onlyOwner{if(lockedAt>0){throw;}token.transfer(owner,token.balanceOf(address(this)));}
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :18
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :14

@@ -1,0 +1,62 @@
+F:\Blockchain\dataset_new_byID\74048.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 268
+column: 12
+content: (role,address(0))
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 173
+column: 2
+content: functioninitiateModifyTimelockInterval(bytes4functionSelector,uint256newTimelockInterval,uint256extraTime)externalonlyOwner{require(functionSelector!=bytes4(0),"Function selector cannot be empty.");if(functionSelector==this.modifyTimelockInterval.selector){require(newTimelockInterval<=8weeks,"Timelock interval of modifyTimelockInterval cannot exceed eight weeks.");}_setTimelock(this.modifyTimelockInterval.selector,abi.encode(functionSelector,newTimelockInterval),extraTime);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 213
+column: 2
+content: functioninitiateModifyTimelockExpiration(bytes4functionSelector,uint256newTimelockExpiration,uint256extraTime)externalonlyOwner{require(functionSelector!=bytes4(0),"Function selector cannot be empty.");require(newTimelockExpiration<=30days,"New timelock expiration cannot exceed one month.");if(functionSelector==this.modifyTimelockExpiration.selector){require(newTimelockExpiration>=60minutes,"Expiration of modifyTimelockExpiration must be at least an hour long.");}_setTimelock(this.modifyTimelockExpiration.selector,abi.encode(functionSelector,newTimelockExpiration),extraTime);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 261
+column: 2
+content: functionsetRole(Rolerole,addressaccount)externalonlyOwner{require(account!=address(0),"Must supply an account.");_setRole(role,account);}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 22
+column: 33
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 25
+column: 27
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 19
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 83
+column: 47
+content: call.gas(gasleft()/2)(abi.encodeWithSelector(walletInterface.getUserSigningKey.selector))
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :3
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UNCHECKED_CALL :1

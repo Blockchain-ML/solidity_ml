@@ -1,0 +1,99 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\88161.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 197
+column: 16
+content: p.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 213
+column: 16
+content: k.length--
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 147
+column: 8
+content: for(uinti=0;i<k.purposes.length;i++){if(k.purposes[i]==purpose){found=true;return;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 193
+column: 8
+content: for(uinti=0;i<p.length;i++){if(p[i]==purpose){p[i]=p[p.length-1];deletep[p.length-1];p.length--;self.numKeys--;break;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 209
+column: 8
+content: for(i=0;i<k.length;i++){if(k[i]==key){k[i]=k[k.length-1];deletek[k.length-1];k.length--;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 147
+column: 8
+content: for(uinti=0;i<k.purposes.length;i++){if(k.purposes[i]==purpose){found=true;return;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 193
+column: 8
+content: for(uinti=0;i<p.length;i++){if(p[i]==purpose){p[i]=p[p.length-1];deletep[p.length-1];p.length--;self.numKeys--;break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 209
+column: 8
+content: for(i=0;i<k.length;i++){if(k[i]==key){k[i]=k[k.length-1];deletek[k.length-1];k.length--;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 5
+column: 0
+content: contractMetaIdentityUsingLib{mapping(bytes4=>bool)internalsupportedInterfaces;uint256publicmanagementThreshold=1;uint256publicactionThreshold=1;usingKeyStoreforKeyStore.Keys;KeyStore.KeysinternalallKeys;boolpublicpaused=false;uint256publicnonce=1;structExecution{addressto;uint256value;bytesdata;uint256needsApprove;}mapping(uint256=>Execution)publicexecution;mapping(uint256=>address[])publicapproved;bytesconstantinternalETH_PREFIX="\x19Ethereum Signed Message:\n32";structClaim{uint256topic;uint256scheme;addressissuer;bytessignature;bytesdata;stringuri;}mapping(bytes32=>Claim)internalclaims;mapping(uint256=>bytes32[])internalclaimsByTopic;uint256publicnumClaims;addressinternallibImplementation;IReginternalREG;constructor(address_registry,address_managementKey)public{bytes4sig=bytes4(keccak256("init(address)"));REG=IReg(_registry);addresstarget=implementation();uint256argsize=32;boolsuc;assembly{mstore(0x0,sig)codecopy(0x4,sub(codesize,argsize),argsize)suc:=delegatecall(sub(gas,10000),target,0x0,add(argsize,0x4),0x0,0x0)}}function()publicpayable{address_impl=implementation();require(_impl!=address(0));assembly{letptr:=mload(0x40)calldatacopy(ptr,0,calldatasize)letresult:=delegatecall(gas,_impl,ptr,calldatasize,0,0)letsize:=returndatasizereturndatacopy(ptr,0,size)switchresultcase0{revert(ptr,size)}default{return(ptr,size)}}}functionimplementation()publicviewreturns(address){returnREG.getContractAddress("MetaIdLibraryV1");}functionsetRegistry(address_addr)publicreturns(bool){require(allKeys.find(bytes32(msg.sender),1),"not a management key");REG=IReg(_addr);returntrue;}functionproxyType()publicpurereturns(uint256proxyTypeId){return2;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 81
+column: 16
+content: public
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 69
+column: 8
+content: assembly{mstore(0x0,sig)codecopy(0x4,sub(codesize,argsize),argsize)suc:=delegatecall(sub(gas,10000),target,0x0,add(argsize,0x4),0x0,0x0)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 85
+column: 8
+content: assembly{letptr:=mload(0x40)calldatacopy(ptr,0,calldatasize)letresult:=delegatecall(gas,_impl,ptr,calldatasize,0,0)letsize:=returndatasizereturndatacopy(ptr,0,size)switchresultcase0{revert(ptr,size)}default{return(ptr,size)}}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3
+SOLIDITY_USING_INLINE_ASSEMBLY :2

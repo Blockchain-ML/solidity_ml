@@ -1,0 +1,118 @@
+C:\Users\hp\DataSet\contracts\ropsten\44\44471Ee794863D685a491d1749280fbC6e3a78be_SGCMasterCard.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 64
+column: 0
+content: contractSGCMasterCardisOwnable{usingSafeMathforuint256;uint256masterCardCount;enummasterCardStatus{Inprocess,Issued,Returned}mapping(address=>MasterCard)card;structMasterCard{uint256masterCardNumber;uint256valueLocked;uint256amountReturned;uint256amountAdminWithdraw;uint256utilizedFunds;uint256amountLockTime;uint256amountWithdrawTime;addressmasterCardHolderAddress;boolamountLockedStatus;masterCardStatusstatus;}constructor()public{masterCardCount=1;}functiongetOrderCount()publicviewreturns(uint256_count){_count=masterCardCount-1;}functionmasterCardEscrow()publicpayable{uint256sgcAmount=msg.value;address_address=msg.sender;require(sgcAmount!=0);if(card[_address].amountLockedStatus!=true){card[_address].valueLocked=sgcAmount;card[_address].amountLockTime=block.timestamp;card[_address].masterCardHolderAddress=msg.sender;card[_address].amountLockedStatus=true;card[_address].status=masterCardStatus.Inprocess;masterCardCount=masterCardCount.add(1);}elseif(card[_address].amountLockedStatus==true){card[_address].valueLocked=card[_address].valueLocked.add(sgcAmount);card[_address].amountLockTime=block.timestamp;}}functiongetDetails(address_address)publicviewreturns(uint256_masterCardNumber,uint256_valueLocked,uint256_amountReturned,uint256_amountAdminWithdraw,uint256_amountLockTime,uint256_amountWithdrawTime,address_masterCardHolderAddress,bool_amountLockedStatus,masterCardStatus_status){_masterCardNumber=card[_address].masterCardNumber;_valueLocked=card[_address].valueLocked;_amountReturned=card[_address].amountReturned;_amountAdminWithdraw=card[_address].amountAdminWithdraw;_amountLockTime=card[_address].amountLockTime;_amountWithdrawTime=card[_address].amountWithdrawTime;_masterCardHolderAddress=card[_address].masterCardHolderAddress;_amountLockedStatus=card[_address].amountLockedStatus;_status=card[_address].status;}functionupdateUtilizedFundsByUser(address_address,uint256_amount)publiconlyOwner{require(card[_address].valueLocked>=_amount,"Invalid amount!");card[_address].valueLocked=card[_address].valueLocked.sub(_amount);card[_address].utilizedFunds=card[_address].utilizedFunds.add(_amount);}functionadminEscrowedFundsWithdraw(uint256_amount,address<missing ')'>payable_address,address_withdrawFrom)publiconlyOwner{require(_amount<=card[_withdrawFrom].utilizedFunds,"Invalid amount!");card[_withdrawFrom].utilizedFunds=card[_withdrawFrom].utilizedFunds.sub(_amount);card[_withdrawFrom].amountAdminWithdraw=card[_withdrawFrom].amountAdminWithdraw.add(_amount);_address.transfer(_amount);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 66
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 128
+column: 60
+content: (uint256_masterCardNumber,uint256_valueLocked,uint256_amountReturned,uint256_amountAdminWithdraw,uint256_amountLockTime,uint256_amountWithdrawTime,address_masterCardHolderAddress,bool_amountLockedStatus,masterCardStatus_status)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 150
+column: 4
+content: functionadminEscrowedFundsWithdraw(uint256_amount,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 68
+column: 4
+content: uint256masterCardCount;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 72
+column: 4
+content: mapping(address=>MasterCard)card;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 150
+column: 73
+content: _address,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 150
+column: 83
+content: address_withdrawFrom)public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 150
+column: 113
+content: onlyOwner{require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 152
+column: 15
+content: (_amount<=card[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 152
+column: 32
+content: _withdrawFrom].
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 152
+column: 47
+content: utilizedFunds,"Invalid amount!");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 154
+column: 8
+content: card[_withdrawFrom].utilizedFunds=card[_withdrawFrom].utilizedFunds.sub(_amount);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 155
+column: 8
+content: card[_withdrawFrom].amountAdminWithdraw=card[_withdrawFrom].amountAdminWithdraw.add(_amount);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 156
+column: 8
+content: _address.transfer(_amount);
+
+SOLIDITY_VISIBILITY :12
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

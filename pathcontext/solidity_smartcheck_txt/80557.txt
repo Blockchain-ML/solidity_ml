@@ -1,0 +1,81 @@
+F:\Blockchain\dataset_new_byID\80557.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 60
+column: 8
+content: for(uintlevel=0;level<treeHeight;level++){if(level==slot)frontier[slot]=nodeValue;if(nodeIndex%2==0){leftInput=frontier[level];rightInput=nodeValue;assembly{letinput:=mload(0x40)mstore(input,leftInput)mstore(add(input,0x1b),rightInput)success:=staticcall(not(0),2,input,0x36,output,0x20)switchsuccesscase0{invalid()}}nodeValue=bytes27(output[0]<<40);nodeIndex=(nodeIndex-1)/2;}else{leftInput=nodeValue;rightInput=zero;assembly{letinput:=mload(0x40)mstore(input,leftInput)mstore(add(input,0x1b),rightInput)success:=staticcall(not(0),2,input,0x36,output,0x20)switchsuccesscase0{invalid()}}nodeValue=bytes27(output[0]<<40);nodeIndex=nodeIndex/2;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 146
+column: 8
+content: for(uintleafIndex=leafCount;leafIndex<leafCount+numberOfLeaves;leafIndex++){nodeValue=bytes27(leafValues[leafIndex-leafCount]<<40);nodeIndex=leafIndex+treeWidth-1;slot=getFrontierSlot(leafIndex);if(slot==0){frontier[slot]=nodeValue;continue;}for(uintlevel=1;level<=slot;level++){if(nodeIndex%2==0){leftInput=frontier[level-1];rightInput=nodeValue;assembly{letinput:=mload(0x40)mstore(input,leftInput)mstore(add(input,0x1b),rightInput)success:=staticcall(not(0),2,input,0x36,output,0x20)switchsuccesscase0{invalid()}}nodeValue=bytes27(output[0]<<40);nodeIndex=(nodeIndex-1)/2;}else{leftInput=nodeValue;rightInput=zero;assembly{letinput:=mload(0x40)mstore(input,leftInput)mstore(add(input,0x1b),rightInput)success:=staticcall(not(0),2,input,0x36,output,0x20)switchsuccesscase0{invalid()}}nodeValue=bytes27(output[0]<<40);nodeIndex=nodeIndex/2;}}frontier[slot]=nodeValue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 204
+column: 8
+content: for(uintlevel=slot+1;level<=treeHeight;level++){if(nodeIndex%2==0){leftInput=frontier[level-1];rightInput=nodeValue;assembly{letinput:=mload(0x40)mstore(input,leftInput)mstore(add(input,0x1b),rightInput)success:=staticcall(not(0),2,input,0x36,output,0x20)switchsuccesscase0{invalid()}}nodeValue=bytes27(output[0]<<40);nodeIndex=(nodeIndex-1)/2;}else{leftInput=nodeValue;rightInput=zero;assembly{letinput:=mload(0x40)mstore(input,leftInput)mstore(add(input,0x1b),rightInput)success:=staticcall(not(0),2,input,0x36,output,0x20)switchsuccesscase0{invalid()}}nodeValue=bytes27(output[0]<<40);nodeIndex=nodeIndex/2;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 4
+column: 16
+content: ^
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 72
+column: 16
+content: assembly{letinput:=mload(0x40)mstore(input,leftInput)mstore(add(input,0x1b),rightInput)success:=staticcall(not(0),2,input,0x36,output,0x20)switchsuccesscase0{invalid()}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 92
+column: 16
+content: assembly{letinput:=mload(0x40)mstore(input,leftInput)mstore(add(input,0x1b),rightInput)success:=staticcall(not(0),2,input,0x36,output,0x20)switchsuccesscase0{invalid()}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 129
+column: 16
+content: assembly{mstore(leafValues,sub(mload(leafValues),1))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 165
+column: 20
+content: assembly{letinput:=mload(0x40)mstore(input,leftInput)mstore(add(input,0x1b),rightInput)success:=staticcall(not(0),2,input,0x36,output,0x20)switchsuccesscase0{invalid()}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 184
+column: 20
+content: assembly{letinput:=mload(0x40)mstore(input,leftInput)mstore(add(input,0x1b),rightInput)success:=staticcall(not(0),2,input,0x36,output,0x20)switchsuccesscase0{invalid()}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 211
+column: 16
+content: assembly{letinput:=mload(0x40)mstore(input,leftInput)mstore(add(input,0x1b),rightInput)success:=staticcall(not(0),2,input,0x36,output,0x20)switchsuccesscase0{invalid()}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 230
+column: 16
+content: assembly{letinput:=mload(0x40)mstore(input,leftInput)mstore(add(input,0x1b),rightInput)success:=staticcall(not(0),2,input,0x36,output,0x20)switchsuccesscase0{invalid()}}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_USING_INLINE_ASSEMBLY :7

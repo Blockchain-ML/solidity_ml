@@ -1,0 +1,214 @@
+C:\Users\hp\DataSet\contracts\ropsten\5f\5fb7a2afb4b4bb3497246c93a2a5a839e95c426b_CommunityBank.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 156
+column: 8
+content: Users.length--
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 46
+column: 4
+content: functiongetLimit()publicconstantreturns(uint,uint,uint,uint){return(MinBalance,DepositLimit,WithdrawLimit,TransferLimit);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 143
+column: 8
+content: for(uinti=0;i<Users.length;i++){if(Users[i][0]==_address1&&Users[i][1]==_address2){index=i;break;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 150
+column: 8
+content: for(uintj=index;j<Users.length-1;j++){Users[j][0]=Users[j+1][0];Users[j][1]=Users[j+1][1];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 143
+column: 8
+content: for(uinti=0;i<Users.length;i++){if(Users[i][0]==_address1&&Users[i][1]==_address2){index=i;break;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 34
+column: 0
+content: contractuser_accountsisCommunityBank{constructor(uintMinBalance1,uintDepositLimit1,uintWithdrawLimit1,uintTransferLimit1)public{MinBalance=MinBalance1;DepositLimit=DepositLimit1;WithdrawLimit=WithdrawLimit1;TransferLimit=TransferLimit1;}eventprint(address_add1,address_add2,bytes32_add,uintbala,boolans);eventprints(address_add1,address_add2,uintbala,uintval);functiongetLimit()publicconstantreturns(uint,uint,uint,uint){return(MinBalance,DepositLimit,WithdrawLimit,TransferLimit);}functionsetAddUsers(address_address1,address_address2,stringname1,stringname2,uintbal)publicIfmanager{if(bal>=MinBalance){emitprint(_address1,_address2,keccak256(abi.encodePacked(_address1,_address2)),bal,accounts[keccak256(abi.encodePacked(_address1,_address2))].used);if(accounts[keccak256(abi.encodePacked(_address1,_address2))].used!=true){varaccount=accounts[keccak256(abi.encodePacked(_address1,_address2))];account.UserName.push(name1);account.UserName.push(name2);account.Balance=bal;account.used=true;Users.push([_address1,_address2])-1;}else{revert();}}else{revert();}}functiongetAddusers()viewpublicreturns(address[2][]){return(Users);}functiongetuserbalance(address_address1,address_address2)viewpublicreturns(uint){return(accounts[keccak256(abi.encodePacked(_address1,_address2))].Balance);}functionFundDeposit(address_address)publicpayable{if(msg.value>DepositLimit){revert();}if(accounts[keccak256(abi.encodePacked(msg.sender,_address))].Balance+msg.value<accounts[keccak256(abi.encodePacked(msg.sender,_address))].Balance){revert();}accounts[keccak256(abi.encodePacked(msg.sender,_address))].Balance+=msg.value;}functionFundWithdrawl(address_to1,address_to2,uintvalue)public{emitprints(_to1,_to2,accounts[keccak256(abi.encodePacked(_to1,_to2))].Balance,value);if((msg.sender!=_to1)&&(msg.sender!=_to2)){revert();}if(value>WithdrawLimit||value<0){revert();}if(accounts[keccak256(abi.encodePacked(_to1,_to2))].Balance-value<MinBalance){revert();}accounts[keccak256(abi.encodePacked(_to1,_to2))].Balance-=value;}functionFundTransfer(address_from,address_to1,address_to2,uintvalue)public{if(value>=TransferLimit)revert();if(accounts[keccak256(abi.encodePacked(msg.sender,_from))].Balance<value)revert();if(accounts[keccak256(abi.encodePacked(msg.sender,_from))].Balance-value<MinBalance)revert();if(accounts[keccak256(abi.encodePacked(_to1,_to2))].Balance+value<accounts[keccak256(abi.encodePacked(_to1,_to2))].Balance)revert();accounts[keccak256(abi.encodePacked(msg.sender,_from))].Balance-=value;accounts[keccak256(abi.encodePacked(_to1,_to2))].Balance+=value;}functionDeleteUser(address_address1,address_address2)public{if(msg.sender==_address1||msg.sender==_address2){deleteaccounts[keccak256(abi.encodePacked(_address1,_address2))];Users=RemoveUser(_address1,_address2);}else{revert();}}functionRemoveUser(address_address1,address_address2)publicreturns(address[2][]){varindex=uint256(-1);for(uinti=0;i<Users.length;i++){if(Users[i][0]==_address1&&Users[i][1]==_address2){index=i;break;}}for(uintj=index;j<Users.length-1;j++){Users[j][0]=Users[j+1][0];Users[j][1]=Users[j+1][1];}deleteUsers[Users.length-1];Users.length--;returnUsers;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 52
+column: 8
+content: if(bal>=MinBalance){emitprint(_address1,_address2,keccak256(abi.encodePacked(_address1,_address2)),bal,accounts[keccak256(abi.encodePacked(_address1,_address2))].used);if(accounts[keccak256(abi.encodePacked(_address1,_address2))].used!=true){varaccount=accounts[keccak256(abi.encodePacked(_address1,_address2))];account.UserName.push(name1);account.UserName.push(name2);account.Balance=bal;account.used=true;Users.push([_address1,_address2])-1;}else{revert();}}else{revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 55
+column: 12
+content: if(accounts[keccak256(abi.encodePacked(_address1,_address2))].used!=true){varaccount=accounts[keccak256(abi.encodePacked(_address1,_address2))];account.UserName.push(name1);account.UserName.push(name2);account.Balance=bal;account.used=true;Users.push([_address1,_address2])-1;}else{revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 87
+column: 8
+content: if(msg.value>DepositLimit){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 91
+column: 8
+content: if(accounts[keccak256(abi.encodePacked(msg.sender,_address))].Balance+msg.value<accounts[keccak256(abi.encodePacked(msg.sender,_address))].Balance){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 101
+column: 8
+content: if((msg.sender!=_to1)&&(msg.sender!=_to2)){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 104
+column: 8
+content: if(value>WithdrawLimit||value<0){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 107
+column: 8
+content: if(accounts[keccak256(abi.encodePacked(_to1,_to2))].Balance-value<MinBalance){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 116
+column: 8
+content: if(value>=TransferLimit)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 117
+column: 8
+content: if(accounts[keccak256(abi.encodePacked(msg.sender,_from))].Balance<value)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 118
+column: 8
+content: if(accounts[keccak256(abi.encodePacked(msg.sender,_from))].Balance-value<MinBalance)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 119
+column: 8
+content: if(accounts[keccak256(abi.encodePacked(_to1,_to2))].Balance+value<accounts[keccak256(abi.encodePacked(_to1,_to2))].Balance)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 126
+column: 8
+content: if(msg.sender==_address1||msg.sender==_address2){deleteaccounts[keccak256(abi.encodePacked(_address1,_address2))];Users=RemoveUser(_address1,_address2);}else{revert();}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 50
+column: 65
+content: stringname1
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 50
+column: 79
+content: stringname2
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 74
+column: 47
+content: address[2][]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 138
+column: 80
+content: address[2][]
+
+ruleId: SOLIDITY_VAR
+patternId: d28aa7
+severity: 2
+line: 141
+column: 8
+content: varindex=uint256(-1)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 7
+column: 4
+content: uintMinBalance;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 8
+column: 4
+content: uintDepositLimit;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 4
+content: uintWithdrawLimit;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: uintTransferLimit;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 4
+content: mapping(bytes32=>AccountInformation)accounts;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_REVERT_REQUIRE :12
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_VAR :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

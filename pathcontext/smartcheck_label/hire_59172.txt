@@ -1,0 +1,104 @@
+C:\Users\hp\DataSet\hire.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 126
+column: 8
+content: payroll.length--
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 25
+column: 4
+content: functiondiv(uint256a,uint256b)internalconstantreturns(uint256){uint256c=a/b;returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 39
+column: 2
+content: functionbalanceOf(addressuser)constantreturns(uint256balance){returnbalances[user];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 122
+column: 4
+content: for(uinti=0;i<payroll.length-1;i++){payroll[i]=payroll[i+1];}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 39
+column: 2
+content: functionbalanceOf(addressuser)constantreturns(uint256balance){returnbalances[user];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 46
+column: 0
+content: functiondeposit(uint256amount)only_admin{balances[address(this)]=amount;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 56
+column: 0
+content: functionhire(){admin_address=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 0
+content: functiontransferTo(addressreceiver,uint_amount)only_adminreturns(boolsuccess){if(balances[address(this)]>=_amount&&_amount>0&&balances[receiver]+_amount>balances[receiver]){balances[address(this)]-=_amount;balances[receiver]+=_amount;returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 77
+column: 0
+content: functionenroll(addresscompany_acc,addressintereview_acc,addressapplicant_acc,addressrecommanded_acc){payroll.push(company_acc);payroll.push(intereview_acc);payroll.push(applicant_acc);payroll.push(recommanded_acc);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 103
+column: 0
+content: functionpayout()only_admin{uint256b1;uint256b1_r;uint256b2;uint256b2_r;uint256b3;uint256b3_r;(b1,b1_r)=calc(balances[address(this)],15);(b2,b2_r)=calc(balances[address(this)],25);(b3,b3_r)=calc(balances[address(this)],35);transferTo(payroll[0],b1);paied(b1);transferTo(payroll[1],b2);paied(b2);transferTo(payroll[2],b3);paied(b3);transferTo(payroll[3],b1);paied(b1);balances[address(this)]=0;for(uinti=0;i<payroll.length-1;i++){payroll[i]=payroll[i+1];}deletepayroll[payroll.length-1];payroll.length--;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 0
+content: addressadmin_address;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 43
+column: 0
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 0
+content: address[]payroll;
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1

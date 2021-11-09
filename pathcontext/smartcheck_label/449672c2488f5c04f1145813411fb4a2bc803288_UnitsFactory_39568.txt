@@ -1,0 +1,103 @@
+C:\Users\hp\DataSet\contracts\ropsten\44\449672c2488f5c04f1145813411fb4a2bc803288_UnitsFactory.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractUnitsFactory{addresspubliccreatorAddress;addresspublicfactoryAddress;address[]privateproposedUnits;structproposedUnitSummary{stringtitle;addressunitAddress;uintsqiPrice;uinttotalSqi;uintcurrentAvailableSqi;}mapping(address=>proposedUnitSummary)publicproposedUnitSummaries;constructor()public{creatorAddress=msg.sender;factoryAddress=address(this);}functioncreateUnit(stringtitle,uintsqiPrice,uinttotalSqi)public{require(msg.sender==creatorAddress);addressnewUnit=newUnit(creatorAddress,factoryAddress,title,sqiPrice,totalSqi);proposedUnits.push(newUnit);proposedUnitSummarymemorytemp;temp.unitAddress=newUnit;temp.title=title;temp.sqiPrice=sqiPrice;temp.totalSqi=totalSqi;temp.currentAvailableSqi=totalSqi;proposedUnitSummaries[newUnit]=temp;}functionupdateCurrentAvailableSqi(addressunitAddress,uintnewCurrentSqi)public{require(msg.sender==unitAddress);proposedUnitSummaries[unitAddress].currentAvailableSqi=newCurrentSqi;}functiongetProposedUnits()publicviewreturns(address[]){returnproposedUnits;}functiongetFactoryBalance()publicviewreturns(uint){returnaddress(this).balance;}function()publicpayable{}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 7
+column: 14
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 69
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 70
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 73
+column: 11
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 74
+column: 9
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 75
+column: 9
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 76
+column: 9
+content: private
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 61
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 29
+column: 25
+content: stringtitle
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 53
+column: 53
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 80
+column: 52
+content: string_title
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 98
+column: 17
+content: string
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :7
+SOLIDITY_UPGRADE_TO_050 :5

@@ -1,0 +1,41 @@
+C:\Users\hp\DataSet\contracts\ropsten\ed\ed608ed37a7635a175be1a183bfc87f3b4a69be3_LikeLike.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 15
+column: 4
+content: functionisContract(addressaddr)internalviewreturns(bool){uint256size;assembly{size:=extcodesize(addr)}returnsize>0;}
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 101
+column: 8
+content: while(msgValue>0){if(item.head+1==item.sponsors.length){to.transfer(msgValue);break;}address_sponsor=item.sponsors[item.head];if(msgValue<=item.remain[_sponsor]){item.remain[_sponsor]-=msgValue;_sponsor.transfer(msgValue);break;}else{msgValue-=item.remain[_sponsor];_sponsor.transfer(item.remain[_sponsor]);item.remain[_sponsor]=0;item.head++;}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 78
+column: 61
+content: stringmessage
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 63
+column: 4
+content: mapping(address=>User)userMap;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_TRANSFER_IN_LOOP :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

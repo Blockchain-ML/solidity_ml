@@ -1,0 +1,55 @@
+F:\Blockchain\solidity_dataset_work\4k_dataset\94206.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 146
+column: 2
+content: functiongetRate()publicconstantreturns(uint256){if(block.timestamp<startTimestamp)return0;elseif(block.timestamp<=end1Timestamp)returnrate1;elseif(block.timestamp<=end2Timestamp)returnrate2;elsereturn0;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 289
+column: 2
+content: functionfunded()publicconstantreturns(bool){assert(weiPerUSDinTGE>0);returnweiRaised>=minCapUSD.mul(weiPerUSDinTGE);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 138
+column: 2
+content: functionsetWeiPerUSDinTGE(uint256_weiPerUSD)publiconlyOwner{require(_weiPerUSD>0);assert(block.timestamp<startTimestamp.sub(setWeiLockSeconds));weiPerUSDinTGE=_weiPerUSD;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 12
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 104
+column: 2
+content: functionLifCrowdsale(uint256_startTimestamp,uint256_end1Timestamp,uint256_end2Timestamp,uint256_rate1,uint256_rate2,uint256_setWeiLockSeconds,address_foundationWallet,address_foundersWallet){require(_startTimestamp>block.timestamp);require(_end1Timestamp>_startTimestamp);require(_end2Timestamp>_end1Timestamp);require(_rate1>0);require(_rate2>0);require(_setWeiLockSeconds>0);require(_foundationWallet!=address(0));require(_foundersWallet!=address(0));token=newLifToken();token.pause();startTimestamp=_startTimestamp;end1Timestamp=_end1Timestamp;end2Timestamp=_end2Timestamp;rate1=_rate1;rate2=_rate2;setWeiLockSeconds=_setWeiLockSeconds;foundationWallet=_foundationWallet;foundersWallet=_foundersWallet;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 158
+column: 2
+content: function()payable{buyTokens(msg.sender);}
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1

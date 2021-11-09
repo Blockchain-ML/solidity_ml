@@ -1,0 +1,156 @@
+C:\Users\hp\DataSet\contracts\ropsten\5c\5cf9fb2961f6723e5610f1798ab9bd0a892550b5_TokedoExchange.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 37
+column: 2
+content: newOwner=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 54
+column: 2
+content: newOwner=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 169
+column: 8
+content: tokens[address(0)]
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 169
+column: 41
+content: tokens[address(0)]
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 392
+column: 32
+content: amount[4].mul(amount[5]).div(1e18).mul(1e18)
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 411
+column: 32
+content: amount[3].mul(amount[5]).div(1e18).mul(1e18)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 310
+column: 8
+content: for(uint256i=0;i<(_values.length-6)/5;i++){require(_values[i*5+9]>=invalidOrder[_addresses[i+3]],"nonceMaker >= invalidOrder[makerAddress]");orderHash[1]=keccak256(abi.encodePacked(abi.encodePacked(this,_addresses[0],_values[i*5+6],_addresses[1],_values[i*5+7],_values[i*5+8],_values[i*5+9],_addresses[i+3]),_values[i*5+10]));orderHash[0]=keccak256(abi.encodePacked(orderHash[0],orderHash[1]));require(_addresses[i+3]==ecrecover(keccak256(abi.encodePacked("\x19Ethereum Signed Message:\n32",orderHash[1])),_v[i+1],_rs[i*2+2],_rs[i*2+3]),&39<missing ')'>;makerAddress==ecrecover(keccak256(abi.encodePacked("\x19Ethereum Signed Message:\n32",makerHash)),vMaker,rMaker,sMaker)&39;);amount[1]=_values[i*5+6].sub(orderFills[orderHash[1]]);if(amount[1]<=_values[0]){amount[1]=amount[2];}amount[2]=amount[2].sub(amount[1]);amount[0]=amount[0].add(amount[1]);require(tokens[_addresses[1]][_addresses[i+3]]>=(_values[i*5+7].mul(amount[1]).div(_values[i*5+6])),"tokens[tokenSellAddress][makerAddress] >= ( amountSellMaker.mul( appliedAmountSellTaker ).div( amountBuyMaker ) )");amount[3]=amount[1].mul(_values[5]).div(1e18);amount[4]=_values[2].mul(_values[i*5+7]).mul(amount[1]).div(_values[i*5+6])/1e18;if(_addresses[0]==address(0)){if(_values[i*5+10]==1)amount[6]=amount[3].mul(1e18).div(_values[3]);if(_values[4]==1){amount[5]=_values[i*5+6].mul(uint256(Token(_addresses[1]).decimals())).div(_values[i*5+7]);amount[7]=amount[4].mul(amount[5]).div(1e18).mul(1e18).div(_values[3]);}}else{if(_values[4]==1)amount[7]=amount[4].mul(1e18).div(_values[3]);if(_values[i*5+10]==1){amount[5]=_values[i*5+7].mul(uint256(Token(_addresses[0]).decimals())).div(_values[i*5+6]);amount[6]=amount[3].mul(amount[5]).div(1e18).mul(1e18).div(_values[3]);}}if(amount[7]>0&&tokens[tokedoToken][_addresses[2]]>=amount[7]){tokens[tokedoToken][_addresses[2]]=tokens[tokedoToken][_addresses[2]].sub(amount[7]);tokens[tokedoToken][feeAccount]=tokens[_addresses[0]][feeAccount].add(amount[7]);amount[4]=0;}else{tokens[_addresses[1]][feeAccount]=tokens[_addresses[1]][feeAccount].add(amount[4]);}if(amount[6]>0&&tokens[tokedoToken][_addresses[i+3]]>=amount[6]){tokens[tokedoToken][_addresses[i+3]]=tokens[tokedoToken][_addresses[i+3]].sub(amount[6]);tokens[tokedoToken][feeAccount]=tokens[tokedoToken][feeAccount].add(amount[6]);amount[3]=0;}else{tokens[_addresses[0]][feeAccount]=tokens[_addresses[0]][feeAccount].add(amount[3]);}tokens[_addresses[0]][_addresses[2]]=tokens[_addresses[0]][_addresses[2]].sub(amount[1]);tokens[_addresses[0]][_addresses[i+3]]=tokens[_addresses[0]][_addresses[i+3]].add(amount[1].sub(amount[3]));tokens[_addresses[1]][_addresses[i+3]]=tokens[_addresses[1]][_addresses[i+3]].sub(_values[i*5+7].mul(amount[1]).div(_values[i*5+6]));tokens[_addresses[1]][_addresses[2]]=tokens[_addresses[1]][_addresses[2]].add(_values[i*5+7].mul(amount[1]).div(_values[i*5+6]).sub(amount[4]));orderFills[orderHash[1]]=orderFills[orderHash[1]].add(amount[1]);lastActiveTransaction[_addresses[i+3]]=now;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 66
+column: 4
+content: functionsetAdmin(address_admin,bool_authorization)onlyOwnerpublic{admins[_admin]=_authorization;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 123
+column: 4
+content: functionsetFeeAccount(address_newFeeAccount)onlyOwnerpublicreturns(boolsuccess){feeAccount=_newFeeAccount;success=true;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 128
+column: 4
+content: functionsetTokedoToken(address_tokedoToken)onlyOwnerpublicreturns(boolsuccess){tokedoToken=_tokedoToken;success=true;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 82
+column: 1
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 189
+column: 31
+content: send(_amount)
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 217
+column: 27
+content: send(_amount)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 75
+column: 62
+content: bytes_extraData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 138
+column: 59
+content: bytes
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 142
+column: 58
+content: bytes
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 237
+column: 24
+content: uint256[]_values
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 237
+column: 43
+content: address[]_addresses
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 237
+column: 65
+content: uint8[]_v
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 237
+column: 77
+content: bytes32[]_rs
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_SEND :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :4
+SOLIDITY_UPGRADE_TO_050 :7
+SOLIDITY_DIV_MUL :2

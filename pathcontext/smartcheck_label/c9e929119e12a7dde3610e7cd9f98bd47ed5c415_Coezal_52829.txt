@@ -1,0 +1,54 @@
+C:\Users\hp\DataSet\contracts\ropsten\c9\c9e929119e12a7dde3610e7cd9f98bd47ed5c415_Coezal.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 66
+column: 29
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 67
+column: 31
+content: 0x0
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 34
+column: 0
+content: contractCoezalisowned{stringpublicname=&39;coezal&39;;stringpublicsymbol=&39;czt&39;;uint8publicdecimals=18;uint256publictotalSupply=200000000000000000000000000;mapping(address=>uint256)publicbalanceOf;mapping(address=>mapping(address=>uint256))publicallowance;mapping(address=>bool)publicfrozenAccount;eventTransfer(addressindexedfrom,addressindexedto,uint256value);eventApproval(addressindexed_owner,addressindexed_spender,uint256_value);eventBurn(addressindexedfrom,uint256value);eventFrozenFunds(addresstarget,boolfrozen);constructor()publicpayable{balanceOf[msg.sender]=totalSupply;}functionfreezeAccount(addresstarget,boolfreeze)onlyOwnerpublic{frozenAccount[target]=freeze;emitFrozenFunds(target,freeze);}function_transfer(address_from,address_to,uint_value)internal{require(_to!=address(0x0));require(_from!=address(0x0));require(balanceOf[_from]>=_value);require(balanceOf[_to]+_value>=balanceOf[_to]);require(!frozenAccount[_from]);require(!frozenAccount[_to]);uintpreviousBalances=balanceOf[_from]+balanceOf[_to];balanceOf[_from]-=_value;balanceOf[_to]+=_value;emitTransfer(_from,_to,_value);assert(balanceOf[_from]+balanceOf[_to]==previousBalances);}functiontransfer(address_to,uint256_value)publicreturns(boolsuccess){_transfer(msg.sender,_to,_value);returntrue;}functiontransferFrom(address_from,address_to,uint256_value)publicreturns(boolsuccess){require(_value<=allowance[_from][msg.sender]);allowance[_from][msg.sender]-=_value;_transfer(_from,_to,_value);returntrue;}functionapprove(address_spender,uint256_value)publicreturns(boolsuccess){allowance[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}functionapproveAndCall(address_spender,uint256_value,bytesmemory_extraData)publicreturns(boolsuccess){tokenRecipientspender=tokenRecipient(_spender);if(approve(_spender,_value)){spender.receiveApproval(msg.sender,_value,address(this),_extraData);returntrue;}}functionburn(uint256_value)onlyOwnerpublicreturns(boolsuccess){require(balanceOf[msg.sender]>=_value);balanceOf[msg.sender]-=_value;totalSupply-=_value;emitBurn(msg.sender,_value);returntrue;}functionburnFrom(address_from,uint256_value)onlyOwnerpublicreturns(boolsuccess){require(balanceOf[_from]>=_value);require(_value<=allowance[_from][msg.sender]);balanceOf[_from]-=_value;allowance[_from][msg.sender]-=_value;totalSupply-=_value;emitBurn(_from,_value);returntrue;}functionmintToken(addresstarget,uint256mintedAmount)onlyOwnerpublic{balanceOf[target]+=mintedAmount;totalSupply+=mintedAmount;emitTransfer(address(0x0),owner,mintedAmount);emitTransfer(owner,target,mintedAmount);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 16
+content: >=
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 25
+content: <
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 30
+content: coezal&39;;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 36
+column: 32
+content: czt&39;;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :2

@@ -1,0 +1,110 @@
+F:\Blockchain\dataset_new_byID\76363.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 9
+column: 0
+content: contractPackisIPack,S1Vendor,RarityProvider{eventCommitmentRecorded(uint256indexedcommitmentID,Commitmentcommitment);structCommitment{uint256escrowFor;uint256paymentID;addressrecipient;uint64commitBlock;uint16quantity;boolgrantsTickets;}mapping(uint256=>Commitment)publiccommitments;Beaconpublicbeacon;addresspublicchest;uint256publiccommitmentCount;function_getCardDetails(uint_index,uint_random)internalviewreturns(uint16proto,uint8quality);function_getTicketsInPack(uint_index,uint_random)internalpurereturns(uint16);constructor(Beacon_beacon,S1Cap_cap,IReferral_referral,bytes32_sku,uint256_price,CreditCardEscrow_escrow,PurchaseProcessor_pay)publicS1Vendor(_cap,_referral,_sku,_price,_escrow,_pay){beacon=_beacon;}functionsetChest(address_chest)externalonlyOwner{require(chest==address(0),"S1Pack: must not have already set chest");chest=_chest;}functionpurchaseFor(addresspayable_recipient,uint256_quantity,PurchaseProcessor.PaymentParamsmemory_payment,addresspayable_referrer)publicpayablereturns(PurchaseProcessor.Receiptmemory){PurchaseProcessor.Receiptmemoryreceipt=super.purchaseFor(_recipient,_quantity,_payment,_referrer);if(_payment.currency==PurchaseProcessor.Currency.ETH){_createCommitment(receipt.id,_recipient,_quantity,0,true);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 57
+column: 4
+content: functionsetChest(address_chest)externalonlyOwner{require(chest==address(0),"S1Pack: must not have already set chest");chest=_chest;}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 37
+column: 16
+content: (uint16proto,uint8quality)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 66
+column: 4
+content: functionpurchaseFor(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 67
+column: 24
+content: _recipient,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 68
+column: 8
+content: uint256_quantity,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 69
+column: 8
+content: PurchaseProcessor.PaymentParamsmemory_payment,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 70
+column: 8
+content: addresspayable_referrer)publicpayablereturns
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 74
+column: 16
+content: (PurchaseProcessor.Receiptmemory){PurchaseProcessor.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 76
+column: 26
+content: Receiptmemoryreceipt=super.purchaseFor(_recipient,_quantity,_payment,_referrer);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 82
+column: 11
+content: (_payment.currency==PurchaseProcessor.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 82
+column: 51
+content: Currency.ETH){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 83
+column: 12
+content: _createCommitment(receipt.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 83
+column: 38
+content: id,_recipient,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 83
+column: 54
+content: _quantity,0,true);
+
+SOLIDITY_VISIBILITY :12
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

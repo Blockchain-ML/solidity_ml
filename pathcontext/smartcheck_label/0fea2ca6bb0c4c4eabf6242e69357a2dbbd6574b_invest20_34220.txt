@@ -1,0 +1,47 @@
+C:\Users\hp\DataSet\contracts\ropsten\0f\0fea2ca6bb0c4c4eabf6242e69357a2dbbd6574b_invest20.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 26
+column: 29
+content: invested[msg.sender]*3/100*(block.number-atBlock[msg.sender])
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 59
+column: 16
+content: invested[addr]*3/100*(block.number-atBlock[addr])
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractinvest20{mapping(address=>uint256)invested;mapping(address=>uint256)atBlock;addresspublicowner;addresspublicadminAddr;modifieronlyOwner{if(msg.sender==owner)_;}constructor()public{owner=msg.sender;adminAddr=msg.sender;}function()externalpayable{if(invested[msg.sender]!=0){uint256amount=invested[msg.sender]*3/100*(block.number-atBlock[msg.sender])/1;if(amount>=address(this).balance){amount=address(this).balance;}addresssender=msg.sender;sender.send(amount);}atBlock[msg.sender]=block.number;invested[msg.sender]+=msg.value;if(msg.value>0){adminAddr.send(msg.value*3/100);}}functioninvestorBaseInfo(addressaddr)publicviewreturns(uint){return(invested[addr]);}functionbalance()publicviewreturns(uint){returnaddress(this).balance;}functionmybalance(addressaddr)publicviewreturns(uint){return(invested[addr]*3/100*(block.number-atBlock[addr])/1);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 5
+column: 4
+content: mapping(address=>uint256)invested;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 7
+column: 4
+content: mapping(address=>uint256)atBlock;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_DIV_MUL :2

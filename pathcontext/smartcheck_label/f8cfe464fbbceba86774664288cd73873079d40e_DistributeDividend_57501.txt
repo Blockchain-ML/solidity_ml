@@ -1,0 +1,102 @@
+C:\Users\hp\DataSet\contracts\ropsten\f8\f8cfe464fbbceba86774664288cd73873079d40e_DistributeDividend.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 78
+column: 8
+content: 0x9656e8520C1cc10721963F2E974761cf76Af81d8
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 79
+column: 22
+content: 0x9656e8520C1cc10721963F2E974761cf76Af81d8
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 116
+column: 1
+content: functionavailable_percentage()constantpublicreturns(uint256){uint256total_percentage=0;for(uinti=0;i<addressIndices.length;i++){Userstorageuser=users[addressIndices[i]];if(user.is_active){total_percentage=total_percentage.add(users[addressIndices[i]].percentage);}}returnuint256(100).sub(total_percentage);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 85
+column: 8
+content: for(uinti=0;i<addressIndices.length;i++){addressuser_wallet=addressIndices[i];Userstorageuser=users[user_wallet];if(user.is_active){user_wallet.transfer(calculate_dividend(user.percentage,value));}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 118
+column: 2
+content: for(uinti=0;i<addressIndices.length;i++){Userstorageuser=users[addressIndices[i]];if(user.is_active){total_percentage=total_percentage.add(users[addressIndices[i]].percentage);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 85
+column: 8
+content: for(uinti=0;i<addressIndices.length;i++){addressuser_wallet=addressIndices[i];Userstorageuser=users[user_wallet];if(user.is_active){user_wallet.transfer(calculate_dividend(user.percentage,value));}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 118
+column: 2
+content: for(uinti=0;i<addressIndices.length;i++){Userstorageuser=users[addressIndices[i]];if(user.is_active){total_percentage=total_percentage.add(users[addressIndices[i]].percentage);}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 60
+column: 0
+content: contractDistributeDividendisOwnable{usingSafeMathforuint256;structUser{uint256percentage;boolis_active;boolis_creator;}mapping(address=>User)users;address[]publicaddressIndices;constructor()public{Usermemorycreator=User({percentage:5,is_active:true,is_creator:true});users[0x9656e8520C1cc10721963F2E974761cf76Af81d8]=creator;addressIndices.push(0x9656e8520C1cc10721963F2E974761cf76Af81d8);}function()payablepublic{uint256value=msg.value;for(uinti=0;i<addressIndices.length;i++){addressuser_wallet=addressIndices[i];Userstorageuser=users[user_wallet];if(user.is_active){user_wallet.transfer(calculate_dividend(user.percentage,value));}}}functioncalculate_dividend(uint256percentage,uint256total_dividend)pureprivatereturns(uint256){returntotal_dividend.mul(percentage).div(100);}functionaddUser(addressuser_wallet,uint256percentage)onlyOwnerpublic{require(available_percentage()>=percentage);require(percentage>0);Usermemoryuser=User({percentage:percentage,is_active:true,is_creator:false});users[user_wallet]=user;addressIndices.push(user_wallet);}functionchangeUserStatus(addressuser_wallet,boolstatus)onlyOwnerpublic{require(users[user_wallet].percentage>0);require(!users[user_wallet].is_creator);users[user_wallet].is_active=status;}functionavailable_percentage()constantpublicreturns(uint256){uint256total_percentage=0;for(uinti=0;i<addressIndices.length;i++){Userstorageuser=users[addressIndices[i]];if(user.is_active){total_percentage=total_percentage.add(users[addressIndices[i]].percentage);}}returnuint256(100).sub(total_percentage);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 61
+column: 1
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 85
+column: 8
+content: for(uinti=0;i<addressIndices.length;i++){addressuser_wallet=addressIndices[i];Userstorageuser=users[user_wallet];if(user.is_active){user_wallet.transfer(calculate_dividend(user.percentage,value));}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 83
+column: 24
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 69
+column: 1
+content: mapping(address=>User)users;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_TRANSFER_IN_LOOP :1

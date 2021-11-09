@@ -1,0 +1,62 @@
+F:\Blockchain\dataset_new_byID\78635.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 40
+column: 4
+content: functionpoolBalance()publicconstantreturns(uint256){returnclubToken.balance;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 45
+column: 4
+content: functiongetBuy(uint256buyValue)publicconstantreturns(uint256){returncalculatePurchaseReturn(safeAdd(ClubToken(clubToken).totalSupply(),virtualSupply),safeAdd(poolBalance(),virtualBalance),reserveRatio,buyValue);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 56
+column: 4
+content: functiongetSell(uint256sellAmount)publicconstantreturns(uint256){returncalculateSaleReturn(safeAdd(ClubToken(clubToken).totalSupply(),virtualSupply),safeAdd(poolBalance(),virtualBalance),reserveRatio,sellAmount);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 124
+column: 4
+content: functionbuy(addressbuyer)publicpayablenotPausedreturns(bool){require(msg.value>0);uint256tokens=getBuy(msg.value);require(tokens>0);require(ClubToken(clubToken).mint(buyer,tokens));clubToken.transfer(msg.value);emitBuy(buyer,tokens,msg.value,poolBalance(),ClubToken(clubToken).totalSupply());}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 136
+column: 4
+content: functionsell(uint256sellAmount)publicnotPausedreturns(bool){require(sellAmount>0);require(ClubToken(clubToken).balanceOf(msg.sender)>=sellAmount);uint256saleReturn=getSell(sellAmount);require(saleReturn>0);require(saleReturn<=poolBalance());require(saleReturn<=clubToken.balance);ClubToken(clubToken).burn(msg.sender,sellAmount);ClubToken(clubToken).moveEth(msg.sender,saleReturn);emitSell(msg.sender,sellAmount,saleReturn,poolBalance(),ClubToken(clubToken).totalSupply());}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 36
+column: 57
+content: tx.origin
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 31
+column: 16
+content: public
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_TX_ORIGIN :1

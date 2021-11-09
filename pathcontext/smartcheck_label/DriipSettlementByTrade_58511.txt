@@ -1,0 +1,48 @@
+C:\Users\hp\DataSet\DriipSettlementByTrade.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 365
+column: 38
+content: (protocolBeneficiary,address(0))
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 362
+column: 8
+content: for(uint256i=0;i<fees.length;i++){(Beneficiarybeneficiary,addressdestination)=(0==fees[i].originId)?(protocolBeneficiary,address(0)):(partnerFund,address(fees[i].originId));if(driipSettlementState.totalFee(wallet,beneficiary,destination,fees[i].figure.currency).nonce<nonce){int256deltaAmount=fees[i].figure.amount.sub(driipSettlementState.totalFee(wallet,beneficiary,destination,fees[i].figure.currency).amount);driipSettlementState.setTotalFee(wallet,beneficiary,destination,fees[i].figure.currency,MonetaryTypesLib.NoncedAmount(nonce,fees[i].figure.amount));clientFund.transferToBeneficiary(destination,beneficiary,deltaAmount,fees[i].figure.currency.ct,fees[i].figure.currency.id,standard);emitStageFeesEvent(wallet,deltaAmount,fees[i].figure.amount,fees[i].figure.currency.ct,fees[i].figure.currency.id);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 362
+column: 8
+content: for(uint256i=0;i<fees.length;i++){(Beneficiarybeneficiary,addressdestination)=(0==fees[i].originId)?(protocolBeneficiary,address(0)):(partnerFund,address(fees[i].originId));if(driipSettlementState.totalFee(wallet,beneficiary,destination,fees[i].figure.currency).nonce<nonce){int256deltaAmount=fees[i].figure.amount.sub(driipSettlementState.totalFee(wallet,beneficiary,destination,fees[i].figure.currency).amount);driipSettlementState.setTotalFee(wallet,beneficiary,destination,fees[i].figure.currency,MonetaryTypesLib.NoncedAmount(nonce,fees[i].figure.amount));clientFund.transferToBeneficiary(destination,beneficiary,deltaAmount,fees[i].figure.currency.ct,fees[i].figure.currency.id,standard);emitStageFeesEvent(wallet,deltaAmount,fees[i].figure.amount,fees[i].figure.currency.ct,fees[i].figure.currency.id);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 9
+column: 16
+content: >=
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 9
+column: 25
+content: <
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 342
+column: 12
+content: (DriipSettlementTypesLib.SettlementRolesettlementRole,TradeTypesLib.TradePartymemoryparty)
+
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

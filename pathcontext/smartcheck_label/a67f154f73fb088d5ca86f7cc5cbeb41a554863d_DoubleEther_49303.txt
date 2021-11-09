@@ -1,0 +1,150 @@
+C:\Users\hp\DataSet\contracts\ropsten\a6\a67f154f73fb088d5ca86f7cc5cbeb41a554863d_DoubleEther.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 104
+column: 35
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 247
+column: 36
+content: 0x0
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 333
+column: 20
+content: winnerQueueAmount.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 334
+column: 20
+content: winnerQueueAddresses.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 380
+column: 12
+content: winnerQueueAmount.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 381
+column: 12
+content: winnerQueueAddresses.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 416
+column: 16
+content: winnerQueueAmount.length-=35
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 417
+column: 16
+content: winnerQueueAddresses.length-=35
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 158
+column: 8
+content: functionapprove(address_spender,uint256_value)publicreturns(boolsuccess){require(!safeguard);allowance[msg.sender][_spender]=_value;returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 329
+column: 20
+content: for(uint256i=0;i<winnerQueueAmount.length-1;i++){winnerQueueAmount[i]=winnerQueueAmount[i+1];winnerQueueAddresses[i]=winnerQueueAddresses[i+1];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 376
+column: 12
+content: for(uint256i=index;i<winnerQueueAmount.length-1;i++){winnerQueueAmount[i]=winnerQueueAmount[i+1];winnerQueueAddresses[i]=winnerQueueAddresses[i+1];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 399
+column: 16
+content: for(uint256i=0;i<arrayLength;i++){_transfer(address(this),winnerQueueAddresses[i],winnerQueueAmount[i]*200*100/returnPercentage);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 35
+column: 4
+content: contractowned{addresspayablepublicowner;constructor()public{owner=msg.sender;}modifieronlyOwner{require(msg.sender==owner);_;}functiontransferOwnership(addresspayablenewOwner)onlyOwnerpublic{owner=newOwner;}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 58
+column: 8
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 320
+column: 12
+content: for(uint256index=0;index<TotalPeopleInQueue;index++){if(winnerQueueAmount[0]<=(address(this).balance-additionalFund)){winnerQueueAddresses[0].transfer(winnerQueueAmount[0]);_transfer(address(this),winnerQueueAddresses[0],winnerQueueAmount[0]*100/returnPercentage);for(uint256i=0;i<winnerQueueAmount.length-1;i++){winnerQueueAmount[i]=winnerQueueAmount[i+1];winnerQueueAddresses[i]=winnerQueueAddresses[i+1];}winnerQueueAmount.length--;winnerQueueAddresses.length--;}else{break;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 47
+column: 8
+content: functiontransferOwnership(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 47
+column: 51
+content: newOwner)onlyOwnerpublic{
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 48
+column: 12
+content: owner=newOwner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 289
+column: 8
+content: addresspayable[]public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 289
+column: 33
+content: winnerQueueAddresses;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_SAFEMATH :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :6
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_TRANSFER_IN_LOOP :1
+SOLIDITY_ERC20_APPROVE :1

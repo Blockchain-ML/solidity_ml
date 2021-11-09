@@ -1,0 +1,45 @@
+C:\Users\hp\DataSet\BasicTokenBridge.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 75
+column: 4
+content: functionsetDailyLimit(uint256_dailyLimit)externalonlyOwner{require(_dailyLimit>maxPerTx()||_dailyLimit==0);uintStorage[DAILY_LIMIT]=_dailyLimit;emitDailyLimitChanged(_dailyLimit);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 81
+column: 4
+content: functionsetExecutionDailyLimit(uint256_dailyLimit)externalonlyOwner{require(_dailyLimit>executionMaxPerTx()||_dailyLimit==0);uintStorage[EXECUTION_DAILY_LIMIT]=_dailyLimit;emitExecutionDailyLimitChanged(_dailyLimit);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 87
+column: 4
+content: functionsetExecutionMaxPerTx(uint256_maxPerTx)externalonlyOwner{require(_maxPerTx<executionDailyLimit());uintStorage[EXECUTION_MAX_PER_TX]=_maxPerTx;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 92
+column: 4
+content: functionsetMaxPerTx(uint256_maxPerTx)externalonlyOwner{require(_maxPerTx==0||(_maxPerTx>minPerTx()&&_maxPerTx<dailyLimit()));uintStorage[MAX_PER_TX]=_maxPerTx;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 97
+column: 4
+content: functionsetMinPerTx(uint256_minPerTx)externalonlyOwner{require(_minPerTx>0&&_minPerTx<dailyLimit()&&_minPerTx<maxPerTx());uintStorage[MIN_PER_TX]=_minPerTx;}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 8
+column: 4
+content: usingSafeMathforuint256;
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :5

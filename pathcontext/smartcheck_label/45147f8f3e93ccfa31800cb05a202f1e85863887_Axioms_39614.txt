@@ -1,0 +1,33 @@
+C:\Users\hp\DataSet\contracts\ropsten\45\45147f8f3e93ccfa31800cb05a202f1e85863887_Axioms.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 57
+column: 25
+content: airdrops.length++
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 11
+column: 0
+content: contractAxioms{Airdrop[]publicairdrops;addresspublicowner;constructor()public{owner=msg.sender;}modifierminEth{require(msg.value>=200000000000000000);_;}modifieronlyOwner(){require(msg.sender==owner);_;}structAirdrop{stringname;uintid;uinttokenAmount;uintcountDown;uinttimeStamp;uintgasFeePaid;addressdistributor;TokentokenSC;}functionaddNewAirdrop(string_name,uint_tokenAmount,uint_countDown,address_smartContract)publicminEthpayable{Tokent=Token(_smartContract);if(t.balanceOf(this)>=_tokenAmount){uintlastIndex=airdrops.length++;Airdropstorageairdrop=airdrops[lastIndex];airdrop.name=_name;airdrop.id=lastIndex;airdrop.tokenAmount=_tokenAmount;airdrop.countDown=_countDown;airdrop.gasFeePaid=msg.value;airdrop.timeStamp=now;airdrop.distributor=msg.sender;airdrop.tokenSC=Token(_smartContract);}elserevert<missing ';'>(&39;AirDrop<missing ';'>notadded,Pleasemake<missing ';'>sureyou<missing ';'>sendyour<missing ';'>ERC20tokens<missing ';'>tothe<missing ';'>smart<missing '}'>
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 45
+column: 3
+content: string_name
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1

@@ -1,0 +1,194 @@
+C:\Users\hp\DataSet\StandardBounties.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 11
+column: 0
+content: contractStandardBounties{usingSafeMathforuint256;structBounty{addresspayable[]issuers;address[]approvers;uintdeadline;addresstoken;uinttokenVersion;uintbalance;boolhasPaidOut;Fulfillment[]fulfillments;Contribution[]contributions;}structFulfillment{addresspayable[]fulfillers;addresssubmitter;}structContribution{addresspayablecontributor;uintamount;boolrefunded;}uintpublicnumBounties;mapping(uint=>Bounty)publicbounties;mapping(uint=>mapping(uint=>bool))publictokenBalances;addresspublicowner;addresspublicmetaTxRelayer;boolpubliccallStarted;modifiercallNotStarted(){require(!callStarted);callStarted=true;_;callStarted=false;}modifiervalidateBountyArrayIndex(uint_index){require(_index<numBounties);_;}modifiervalidateContributionArrayIndex(uint_bountyId,uint_index){require(_index<bounties[_bountyId].contributions.length);_;}modifiervalidateFulfillmentArrayIndex(uint_bountyId,uint_index){require(_index<bounties[_bountyId].fulfillments.length);_;}modifiervalidateIssuerArrayIndex(uint_bountyId,uint_index){require(_index<bounties[_bountyId].issuers.length);_;}modifiervalidateApproverArrayIndex(uint_bountyId,uint_index){require(_index<bounties[_bountyId].approvers.length);_;}modifieronlyIssuer(address_sender,uint_bountyId,uint_issuerId){require(_sender==bounties[_bountyId].issuers[_issuerId]);_;}modifieronlySubmitter(address_sender,uint_bountyId,uint_fulfillmentId){require(_sender==bounties[_bountyId].fulfillments[_fulfillmentId].submitter);_;}modifieronlyContributor(address_sender,uint_bountyId,uint_contributionId){require(_sender==bounties[_bountyId].contributions[_contributionId].contributor);_;}modifierisApprover(address_sender,uint_bountyId,uint_approverId){require(_sender==bounties[_bountyId].approvers[_approverId]);_;}modifierhasNotPaid(uint_bountyId){require(!bounties[_bountyId].hasPaidOut);_;}modifierhasNotRefunded(uint_bountyId,uint_contributionId){require(!bounties[_bountyId].contributions[_contributionId].refunded);_;}modifiersenderIsValid(address_sender){require(msg.sender==_sender||msg.sender==metaTxRelayer);_;}constructor()public{owner=msg.sender;}functionsetMetaTxRelayer(address_relayer)external{require(msg.sender==owner);require(metaTxRelayer==address(0));metaTxRelayer=_relayer;}functionissueBounty(addresspayable_sender,addresspayable[]memory_issuers,address[]memory_approvers,stringmemory_data,uint_deadline,address_token,uint_tokenVersion)publicsenderIsValid(_sender)returns(uint){require(_tokenVersion==0||_tokenVersion==20||_tokenVersion==721);require(_issuers.length>0||_approvers.length>0);uintbountyId=numBounties;BountystoragenewBounty=bounties[bountyId];newBounty.issuers=_issuers;newBounty.approvers=_approvers;newBounty.deadline=_deadline;newBounty.tokenVersion=_tokenVersion;if(_tokenVersion!=0){newBounty.token=_token;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 177
+column: 2
+content: functionsetMetaTxRelayer(address_relayer)external{require(msg.sender==owner);require(metaTxRelayer==address(0));metaTxRelayer=_relayer;}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 13
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 193
+column: 2
+content: functionissueBounty(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 194
+column: 20
+content: _sender,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 195
+column: 4
+content: addresspayable[]memory
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 195
+column: 30
+content: _issuers,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 196
+column: 4
+content: address[]memory_approvers,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 197
+column: 4
+content: stringmemory_data,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 198
+column: 4
+content: uint_deadline,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 199
+column: 4
+content: address_token,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 200
+column: 4
+content: uint_tokenVersion)public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 202
+column: 4
+content: senderIsValid(_sender)returns
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 203
+column: 12
+content: (uint){require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 205
+column: 11
+content: (_tokenVersion==0||_tokenVersion==20||
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 205
+column: 57
+content: _tokenVersion==721);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 206
+column: 4
+content: require(_issuers.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 206
+column: 21
+content: length>0||
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 206
+column: 35
+content: _approvers.length>0);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 208
+column: 4
+content: uintbountyId=numBounties;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 210
+column: 4
+content: BountystoragenewBounty=bounties[bountyId];
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 211
+column: 4
+content: newBounty.issuers=_issuers;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 212
+column: 4
+content: newBounty.approvers=_approvers;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 213
+column: 4
+content: newBounty.deadline=_deadline;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 214
+column: 4
+content: newBounty.tokenVersion=_tokenVersion;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 216
+column: 7
+content: (_tokenVersion!=0){newBounty.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 217
+column: 16
+content: token=_token;
+
+SOLIDITY_VISIBILITY :24
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_LOCKED_MONEY :1

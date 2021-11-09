@@ -1,0 +1,132 @@
+F:\Blockchain\dataset_new_byID\82692.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 153
+column: 8
+content: for(uinti=0;i<_vaultId;i++){vaults[i]=_vaults[i+1].vault;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 24
+column: 0
+content: contractTreasuryisTreasury_Interface,ERC20{usingSafeMathforuint256;uint256public_nonce;structVault{addresspayablevault;uint256tokenSupply;uint256committedTokens;uint256collateral;addresspayablereplaceCandidate;boolreplace;uint256blocknumber;}mapping(uint256=>Vault)_vaults;mapping(address=>uint256)_vaultIds;uint256_vaultId;uint256public_vaultTokenSupply;uint256public_vaultCommittedTokens;uint256public_vaultCollateral;addresspublic_relay;uint256public_confirmations;uint256public_minimumCollateralVault;uint256public_minimumCollateralUser;uint256public_conversionRate;structIssueRequest{uint256vaultId;uint256blocknumber;uint256collateral;uint256amount;addressreceiver;addresspayablesender;bytesbtcAddress;}mapping(address=>IssueRequest)public_issueRequests;uint256_issuePeriod;structTrade{addresspayabletokenParty;addresspayableethParty;uint256tokenAmount;uint256ethAmount;boolcompleted;}mapping(uint256=>Trade)public_trades;uint256public_tradeId;structRedeemRequest{addresspayablevault;addresspayableredeemer;uint256amount;uint256blocknumber;bytesbtcOutput;}mapping(uint=>RedeemRequest)public_redeemRequests;uint256public_redeemRequestId;uint256_redeemPeriod;uint256_replacePeriod;constructor()public{_nonce=0;_totalSupply=0;_vaultId=0;_vaultTokenSupply=0;_vaultCommittedTokens=0;_vaultCollateral=0;_confirmations=12;_minimumCollateralUser=1wei;_minimumCollateralVault=1wei;_conversionRate=2*10^5;_issuePeriod=20;_tradeId=0;_redeemPeriod=20;_redeemRequestId=0;_replacePeriod=20;}functiongetVaults()publicviewreturns(address[]memory){require(_vaultId>0,"No vault registered");address[]memoryvaults=newaddress[](_vaultId);for(uinti=0;i<_vaultId;i++){vaults[i]=_vaults[i+1].vault;}returnvaults;}functiongetRelay()publicviewreturns(address){return_relay;}functiongetVaultCollateral(addressvault)publicviewreturns(uint256){uint256id=_vaultIds[vault];return_vaults[id].collateral;}functiongetReplacePeriod()publicviewreturns(uint256){return_replacePeriod;}functiongetConversionRate()publicreturns(uint256){return_conversionRate;}functionsetConversionRate(uint256rate)publicreturns(bool){require(rate>0,"Set rate greater than 0");_conversionRate=rate;assert(_conversionRate==rate);returntrue;}functionregisterVault(addresspayabletoRegister)publicpayablereturns<missing ';'>(bool){require(msg.value>=_minimumCollateralVault,"Collateral too low");_registerNewVault(toRegister,msg.value);_vaultTokenSupply+=_convertEthToBtc(msg.value);_vaultCollateral+=msg.value;returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 18
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 25
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 195
+column: 4
+content: functionregisterVault(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 4
+content: mapping(uint256=>Vault)_vaults;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 45
+column: 4
+content: mapping(address=>uint256)_vaultIds;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 4
+content: uint256_vaultId;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 77
+column: 4
+content: uint256_issuePeriod;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 101
+column: 4
+content: uint256_redeemPeriod;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 104
+column: 4
+content: uint256_replacePeriod;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 195
+column: 78
+content: (bool){require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 196
+column: 15
+content: (msg.value>=_minimumCollateralVault,"Collateral too low");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 198
+column: 8
+content: _registerNewVault(toRegister,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 198
+column: 38
+content: msg.value);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 201
+column: 8
+content: _vaultTokenSupply+=_convertEthToBtc
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 201
+column: 45
+content: (msg.value);_vaultCollateral+=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 202
+column: 28
+content: msg.value;returntrue;
+
+SOLIDITY_VISIBILITY :14
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1

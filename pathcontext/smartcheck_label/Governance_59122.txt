@@ -1,0 +1,176 @@
+C:\Users\hp\DataSet\Governance.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 128
+column: 8
+content: for(uinti=0;i<mrAllowed.length;i++){if(mrAllowed[i]==0||memberRole.checkRoleIdByAddress(msg.sender,mrAllowed[i]))returntrue;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 258
+column: 4
+content: functioncalculateMemberReward(address_memberAddress,uint[]_proposals)publiconlyInternalreturns(uinttotalGBTReward,uinttotalDAppReward,uintreputation){uinti=_proposals.length;uintfinalVerdictThenRewardPerc;uintproposalStatusThenRewardPercent;uintsolutionIdThenRep;uintsubCategory;uinttotalReward;boolrewardClaimedThenIsExternal;for(i--;i>0;i--){(rewardClaimedThenIsExternal,subCategory,proposalStatusThenRewardPercent,finalVerdictThenRewardPerc,solutionIdThenRep,totalReward)=governanceDat.getProposalDetailsForReward(_proposals[i],_memberAddress);totalReward=totalReward/100;require(!rewardClaimedThenIsExternal&&proposalStatusThenRewardPercent>2);if(finalVerdictThenRewardPerc>0){rewardClaimedThenIsExternal=proposalCategory.isSubCategoryExternal(subCategory);(finalVerdictThenRewardPerc,solutionIdThenRep)=_getReward(_memberAddress,_proposals[i],finalVerdictThenRewardPerc,solutionIdThenRep,subCategory);if(finalVerdictThenRewardPerc>0){if(rewardClaimedThenIsExternal)totalGBTReward+=finalVerdictThenRewardPerc.mul(totalReward);elsetotalDAppReward+=finalVerdictThenRewardPerc.mul(totalReward);}reputation+=solutionIdThenRep;}}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 439
+column: 4
+content: function_getReward(address_memberAddress,uint_proposal,uint_finalVerdict,uint_solutionId,uint_subCategory)internalreturns(uintrewardPercent,uintreputation){governanceDat.setRewardClaimed(_proposal,_memberAddress);if(_memberAddress==governanceDat.getProposalOwner(_proposal)){rewardPercent+=proposalCategory.getRewardPercProposal(_subCategory);reputation+=governanceDat.addProposalOwnerPoints();}if(_finalVerdict==_solutionId){rewardPercent+=proposalCategory.getRewardPercSolution(_subCategory);reputation+=governanceDat.addSolutionOwnerPoints();}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 128
+column: 8
+content: for(uinti=0;i<mrAllowed.length;i++){if(mrAllowed[i]==0||memberRole.checkRoleIdByAddress(msg.sender,mrAllowed[i]))returntrue;}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 31
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 445
+column: 23
+content: (uintrewardPercent,uintreputation)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 153
+column: 22
+content: callProposalEvent(msg.sender,_proposalId,now,_proposalTitle,_proposalSD,_proposalDescHash)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 252
+column: 20
+content: callCloseProposalOnTimeAtAddress(_proposalId,votingType,closingTime)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 403
+column: 22
+content: callProposalWithSolutionEvent(msg.sender,_proposalId,"",_solutionHash,now)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 139
+column: 8
+content: string_proposalTitle
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 140
+column: 8
+content: string_proposalSD
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 141
+column: 8
+content: string_proposalDescHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 184
+column: 8
+content: string_solutionHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 185
+column: 8
+content: bytes_action
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 258
+column: 59
+content: uint[]_proposals
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 371
+column: 8
+content: string_solutionHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 372
+column: 8
+content: bytes_action
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 390
+column: 8
+content: string_solutionHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 391
+column: 8
+content: bytes_action
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 419
+column: 8
+content: string_proposalTitle
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 420
+column: 8
+content: string_proposalSD
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 421
+column: 8
+content: string_proposalDescHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 424
+column: 8
+content: string_solutionHash
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 425
+column: 8
+content: bytes_action
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :15
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_UNCHECKED_CALL :3
+SOLIDITY_SHOULD_RETURN_STRUCT :1

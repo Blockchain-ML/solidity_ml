@@ -1,0 +1,124 @@
+F:\Blockchain\dataset_new_byID\77707.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 9
+column: 0
+content: contractSixtyMemberProxy{function()payablepublic{}functionnewProposal(address_board,string_name,address_proxy,uint_debatePeriod,address_destination,uint_value,bytes_calldata)returns(uintproposalID){returnBoardRoom(_board).newProposal(_name,_proxy,_debatePeriod,_destination,_value,_calldata);}functionvote(address_board,uint_proposalID,uint_position)returns(uintvoteWeight){returnBoardRoom(_board).vote(_proposalID,_position);}functionexecute(address_board,uint_proposalID,bytes_calldata){returnBoardRoom(_board).execute(_proposalID,_calldata);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 11
+column: 22
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 13
+column: 2
+content: functionnewProposal(address_board,string_name,address_proxy,uint_debatePeriod,address_destination,uint_value,bytes_calldata)returns(uintproposalID){returnBoardRoom(_board).newProposal(_name,_proxy,_debatePeriod,_destination,_value,_calldata);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 16
+column: 2
+content: functionvote(address_board,uint_proposalID,uint_position)returns(uintvoteWeight){returnBoardRoom(_board).vote(_proposalID,_position);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 19
+column: 2
+content: functionexecute(address_board,uint_proposalID,bytes_calldata){returnBoardRoom(_board).execute(_proposalID,_calldata);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 31
+column: 2
+content: functionsetup(){member1=newSixtyMemberProxy();registry=newOpenRegistry();registry.register(address(member1));rules=newSixtyPercentRules(address(registry));board=newBoardRoom(address(rules));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 39
+column: 2
+content: functiontest_openRegistry(){assertTrue(registry.isMember(address(member1)));assertEq(registry.members(0),address(member1));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 44
+column: 2
+content: functiontest_SixtyPercentRules(){assertTrue(rules.canPropose(address(member1)));assertEq(rules.votingWeightOf(address(member1),0),1);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 49
+column: 2
+content: functiontest_newProposalAndNotEnoughVotes(){board=newBoardRoom(address(rules));proxy=newOwnedProxy(address(board));if(proxy.send(600)){}addressdestinationAccount=address(newSixtyMemberProxy());SixtyMemberProxymember1=newSixtyMemberProxy();registry.register(address(member1));SixtyMemberProxymember2=newSixtyMemberProxy();registry.register(address(member2));SixtyMemberProxymember3=newSixtyMemberProxy();registry.register(address(member3));SixtyMemberProxymember4=newSixtyMemberProxy();registry.register(address(member4));assertEq(member1.newProposal(address(board),"Does Jet Fuel Melt Steel Beams?",address(proxy),30,destinationAccount,400,""),0);member1.vote(address(board),0,0);member2.vote(address(board),0,0);assertEq(board.numVoters(0),2);assertEq(proxy.balance,600);assertEq(destinationAccount.balance,0);member1.execute(address(board),0,"");assertEq(proxy.balance,600);assertEq(destinationAccount.balance,0);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 77
+column: 2
+content: functiontest_YayIsOverSixtyPercent(){board=newBoardRoom(address(rules));proxy=newOwnedProxy(address(board));if(proxy.send(600)){}addressdestinationAccount=address(newSixtyMemberProxy());SixtyMemberProxymember1=newSixtyMemberProxy();registry.register(address(member1));SixtyMemberProxymember2=newSixtyMemberProxy();registry.register(address(member2));SixtyMemberProxymember3=newSixtyMemberProxy();registry.register(address(member3));SixtyMemberProxymember4=newSixtyMemberProxy();registry.register(address(member4));assertEq(member2.newProposal(address(board),"Some Awesome Sauce Proposal",address(proxy),30,destinationAccount,400,""),0);member1.vote(address(board),0,0);member2.vote(address(board),0,1);member3.vote(address(board),0,1);member4.vote(address(board),0,1);assertEq(board.numVoters(0),4);assertEq(proxy.balance,600);assertEq(destinationAccount.balance,0);member1.execute(address(board),0,"");assertEq(proxy.balance,200);assertEq(destinationAccount.balance,400);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 105
+column: 2
+content: functiontest_YayIsNotOverSixtyPercent(){board=newBoardRoom(address(rules));proxy=newOwnedProxy(address(board));if(proxy.send(600)){}addressdestinationAccount=address(newSixtyMemberProxy());SixtyMemberProxymember1=newSixtyMemberProxy();registry.register(address(member1));SixtyMemberProxymember2=newSixtyMemberProxy();registry.register(address(member2));SixtyMemberProxymember3=newSixtyMemberProxy();registry.register(address(member3));SixtyMemberProxymember4=newSixtyMemberProxy();registry.register(address(member4));assertEq(member2.newProposal(address(board),"Some Awesome Sauce Proposal",address(proxy),30,destinationAccount,400,""),0);member1.vote(address(board),0,0);member2.vote(address(board),0,0);member3.vote(address(board),0,1);member4.vote(address(board),0,1);assertEq(board.numVoters(0),4);assertEq(proxy.balance,600);assertEq(destinationAccount.balance,0);member1.execute(address(board),0,"");assertEq(proxy.balance,600);assertEq(destinationAccount.balance,0);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 25
+column: 2
+content: OpenRegistryregistry;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 2
+content: OwnedProxyproxy;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 27
+column: 2
+content: SixtyPercentRulesrules;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 2
+content: BoardRoomboard;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 29
+column: 2
+content: SixtyMemberProxymember1;
+
+SOLIDITY_VISIBILITY :14
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1

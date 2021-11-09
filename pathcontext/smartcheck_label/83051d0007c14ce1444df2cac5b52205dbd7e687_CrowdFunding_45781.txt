@@ -1,0 +1,17 @@
+C:\Users\hp\DataSet\contracts\ropsten\83\83051d0007c14ce1444df2cac5b52205dbd7e687_CrowdFunding.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractCrowdFunding{structFunder{addressaddr;uintamount;}structCampaign{addressbeneficiary;uintfundingGoal;uintnumFunders;uintamount;mapping(uint=>Funder)funders;}uintpublicnumCampaigns;mapping(uint=>Campaign)publiccampaigns;functionnewCampaign(addressbeneficiary,uintgoal)publicreturns(uintcampaignID){campaignID=numCampaigns++;campaigns[campaignID]=Campaign(beneficiary,goal,0,0);}functioncontribute(uintcampaignID)publicpayable{Campaignstoragec=campaigns[campaignID];c.funders[c.numFunders++]=Funder({addr:msg.sender,amount:msg.value});c.amount+=msg.value;}functioncheckGoalReached(uintcampaignID)publicreturns(boolreached){Campaignstoragec=campaigns[campaignID];if(c.amount<c.fundingGoal)returnfalse;uintamount=c.amount;c.amount=0;returntrue;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

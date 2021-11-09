@@ -1,0 +1,212 @@
+C:\Users\hp\DataSet\EtherCollateral.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 28
+column: 35
+content: 0xfeEFEEfeefEeFeefEEFEEfEeFeefEEFeeFEEFEeF
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 232
+column: 8
+content: for(uint256i=0;i<synthLoans.length;i++){if(synthLoans[i].timeClosed==0){_openLoanIDs[_counter]=synthLoans[i].loanID;_counter++;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 383
+column: 8
+content: for(uint256i=0;i<synthLoans.length;i++){if(synthLoans[i].loanID==loanID){returnsynthLoans[i];}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 393
+column: 8
+content: for(uint256i=0;i<synthLoans.length;i++){if(synthLoans[i].loanID==synthLoan.loanID){synthLoans[i].timeClosed=now;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 232
+column: 8
+content: for(uint256i=0;i<synthLoans.length;i++){if(synthLoans[i].timeClosed==0){_openLoanIDs[_counter]=synthLoans[i].loanID;_counter++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 383
+column: 8
+content: for(uint256i=0;i<synthLoans.length;i++){if(synthLoans[i].loanID==loanID){returnsynthLoans[i];}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 393
+column: 8
+content: for(uint256i=0;i<synthLoans.length;i++){if(synthLoans[i].loanID==synthLoan.loanID){synthLoans[i].timeClosed=now;}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 111
+column: 4
+content: functionsetCollateralizationRatio(uint256ratio)externalonlyOwner{require(ratio<=ONE_THOUSAND,"Too high");require(ratio>=ONE_HUNDRED,"Too low");collateralizationRatio=ratio;emitCollateralizationRatioUpdated(ratio);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 118
+column: 4
+content: functionsetInterestRate(uint256_interestRate)externalonlyOwner{require(_interestRate>SECONDS_IN_A_YEAR,"Interest rate cannot be less that the SECONDS_IN_A_YEAR");require(_interestRate<=SafeDecimalMath.unit(),"Interest cannot be more than 100% APR");interestRate=_interestRate;interestPerSecond=_interestRate.div(SECONDS_IN_A_YEAR);emitInterestRateUpdated(interestRate);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 126
+column: 4
+content: functionsetIssueFeeRate(uint256_issueFeeRate)externalonlyOwner{issueFeeRate=_issueFeeRate;emitIssueFeeRateUpdated(issueFeeRate);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 131
+column: 4
+content: functionsetIssueLimit(uint256_issueLimit)externalonlyOwner{issueLimit=_issueLimit;emitIssueLimitUpdated(issueLimit);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 136
+column: 4
+content: functionsetMinLoanSize(uint256_minLoanSize)externalonlyOwner{minLoanSize=_minLoanSize;emitMinLoanSizeUpdated(minLoanSize);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 141
+column: 4
+content: functionsetAccountLoanLimit(uint256_loanLimit)externalonlyOwner{uint256HARD_CAP=1000;require(_loanLimit<HARD_CAP,"Owner cannot set higher than HARD_CAP");accountLoanLimit=_loanLimit;emitAccountLoanLimitUpdated(accountLoanLimit);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 148
+column: 4
+content: functionsetLoanLiquidationOpen(bool_loanLiquidationOpen)externalonlyOwner{require(now>liquidationDeadline,"Before liquidation deadline");loanLiquidationOpen=_loanLiquidationOpen;emitLoanLiquidationOpenUpdated(loanLiquidationOpen);}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 92
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 93
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 94
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 95
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 97
+column: 16
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 17
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 381
+column: 88
+content: synthLoanStruct
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 390
+column: 32
+content: synthLoanStructsynthLoan
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 413
+column: 34
+content: synthLoanStructsynthLoan
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 417
+column: 27
+content: synthLoanStructsynthLoan
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 227
+column: 8
+content: uint256[]_openLoanIDs
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 22
+column: 4
+content: uint256constantONE_THOUSAND=SafeDecimalMath.unit()*1000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 23
+column: 4
+content: uint256constantONE_HUNDRED=SafeDecimalMath.unit()*100;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 25
+column: 4
+content: uint256constantSECONDS_IN_A_YEAR=31536000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 4
+content: addressconstantFEE_ADDRESS=0xfeEFEEfeefEeFeefEEFEEfEeFeefEEFeeFEEFEeF;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :7
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :5
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :5
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3

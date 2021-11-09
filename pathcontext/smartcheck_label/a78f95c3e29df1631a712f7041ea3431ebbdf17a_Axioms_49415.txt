@@ -1,0 +1,41 @@
+C:\Users\hp\DataSet\contracts\ropsten\a7\a78f95c3e29df1631a712f7041ea3431ebbdf17a_Axioms.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 71
+column: 25
+content: airdrops.length++
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 11
+column: 0
+content: contractAxioms{Airdrop[]publicairdrops;addresspublicowner;functionSafePower(uint256a,uint256pow)returns(uint256result){assert(a<=18&&a>=0);result=1;for(uint256i=0;i<pow;i++){result*=a;assert(result>=a);}}constructor()public{owner=msg.sender;}modifierminEth{require(msg.value>=200000000000000000);_;}modifieronlyOwner(){require(msg.sender==owner);_;}structAirdrop{stringname;uintid;uinttokenAmount;uintcountDown;uinttimeStamp;uintgasFeePaid;uintdecimals;addressdistributor;TokentokenSC;}functionaddNewAirdrop(string_name,uint_tokenAmount,uint_countDown,address_smartContract,uint_decimals)publicminEthpayable{Tokent=Token(_smartContract);if(t.balanceOf(this)>=_tokenAmount){uintlastIndex=airdrops.length++;Airdropstorageairdrop=airdrops[lastIndex];airdrop.name=_name;airdrop.id=lastIndex;airdrop.decimals=_decimals;airdrop.tokenAmount=SafePower(_tokenAmount,_decimals);airdrop.countDown=_countDown;airdrop.gasFeePaid=msg.value;airdrop.timeStamp=now;airdrop.distributor=msg.sender;airdrop.tokenSC=Token(_smartContract);}elserevert<missing ';'>(&39;AirDrop<missing ';'>notadded,Pleasemake<missing ';'>sureyou<missing ';'>sendyour<missing ';'>ERC20tokens<missing ';'>tothe<missing ';'>smart<missing '}'>
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 59
+column: 3
+content: string_name
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 18
+column: 4
+content: functionSafePower(uint256a,uint256pow)returns(uint256result){assert(a<=18&&a>=0);result=1;for(uint256i=0;i<pow;i++){result*=a;assert(result>=a);}}
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1

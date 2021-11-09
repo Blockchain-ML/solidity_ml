@@ -1,0 +1,112 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\86612.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 30
+column: 35
+content: 0x9feA38edD1875cefD3D071C549a3f7Cc7983B455
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 31
+column: 35
+content: 0x0000000000000000000000000000000000000000
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 85
+column: 4
+content: functiongetAccountBalance(addressaddr)publicconstantreturns(uintamount){Investmentstorageacc=investmentTable[roundcount][addr];uintret=acc.initamount;if(acc.initamount>0){uintrewardcount=(block.timestamp-acc.inittime)/rewardinterval;if(rewardcount>maxdays)rewardcount=maxdays;while(rewardcount>0){ret+=ret/200;rewardcount--;}}returnret;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 98
+column: 4
+content: functiongetPayout(uintidrel)publicconstantreturns(addressbidder,uintinamount,uintoutamount){Paymentstoragecur=payoutList[idrel];return(cur.receiver,cur.inamount,cur.outamount);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 102
+column: 4
+content: functiongetBlocksUntilStart()publicconstantreturns(uintcount){if(startblock<=block.number)return0;elsereturnstartblock-block.number;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 106
+column: 4
+content: functiongetAccountInfo(addressaddr)publicconstantreturns(addressretaddr,uintinitamount,uintinvestmenttime,uintcurrentbalance,uint_timeuntilnextreward,uint_refbonus,address_refaddress,uint_refcount){Investmentstorageacc=investmentTable[roundcount][addr];uintnextreward=rewardinterval-((block.timestamp-acc.inittime)%rewardinterval);if(acc.initamount<=0)nextreward=0;return(addr,acc.initamount,block.timestamp-acc.inittime,getAccountBalance(addr),nextreward,acc.refbonus,acc.refaddress,acc.refcount);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 112
+column: 4
+content: functiongetAccountInfo()publicconstantreturns(addressretaddr,uintinitamount,uintinvestmenttime,uintcurrentbalance,uint_timeuntilnextreward,uint_refbonus,address_refaddress,uint_refcount){returngetAccountInfo(msg.sender);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 115
+column: 4
+content: functiongetStatus()publicconstantreturns(uint_payoutcount,uint_blocksUntilStart,uint_payincount){return(payoutcount,getBlocksUntilStart(),payincount);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 40
+column: 8
+content: if(block.number<startblock)revert();
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 36
+column: 16
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 27
+column: 4
+content: uintroundcount=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 4
+content: uintconstantmaxdays=365*3;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 30
+column: 4
+content: addressconstantrestaddress=0x9feA38edD1875cefD3D071C549a3f7Cc7983B455;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 31
+column: 4
+content: addressconstantnulladdress=0x0000000000000000000000000000000000000000;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :1

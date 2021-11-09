@@ -1,0 +1,143 @@
+C:\Users\hp\DataSet\KyberBancorReserve.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 9
+column: 0
+content: contractKyberBancorReserveisIKyberReserve,Withdrawable,Utils{uintconstantETH_BNT_DECIMALS=18;addresspublickyberNetwork;boolpublictradeEnabled;IBancorNetworkpublicbancorNetwork;IERC20publicbancorToken;IERC20[]publicethToBntPath;IERC20[]publicbntToEthPath;constructor(address_bancorNetwork,address_kyberNetwork,address_bancorToken,address_admin)publicWithdrawable(_admin){require(_bancorNetwork!=address(0),"constructor: bancorNetwork address is missing");require(_kyberNetwork!=address(0),"constructor: kyberNetwork address is missing");require(_bancorToken!=address(0),"constructor: bancorToken address is missing");bancorNetwork=IBancorNetwork(_bancorNetwork);bancorToken=IERC20(_bancorToken);kyberNetwork=_kyberNetwork;admin=_admin;tradeEnabled=true;require(bancorToken.approve(address(bancorNetwork),2**255));}function()externalpayable{}functiongetConversionRate(IERC20src,IERC20dest,uintsrcQty,uint)publicviewreturns(uint){if(!tradeEnabled){return0;}if(srcQty==0){return0;}if(src!=ETH_TOKEN_ADDRESS&&dest!=ETH_TOKEN_ADDRESS){return0;}IERC20token=src==ETH_TOKEN_ADDRESS?dest:src;if(token!=bancorToken){return0;}IERC20[]memorypath=getConversionPath(src,dest);uintdestQty;(destQty,)=bancorNetwork.getReturnByPath(path,srcQty);uintrate=calcRateFromQty(srcQty,destQty,ETH_BNT_DECIMALS,ETH_BNT_DECIMALS);returnrate;}eventTradeExecute(addressindexedsender,addresssrc,uintsrcAmount,addressdestToken,uintdestAmount,addresspayabledestAddress);functiontrade(IERC20srcToken,uintsrcAmount,IERC20destToken,address<missing ')'>payabledestAddress,uintconversionRate,boolvalidate)publicpayablereturns(bool){require(tradeEnabled,"trade: trade is not enabled");require(msg.sender==kyberNetwork,"trade: sender is not network");require(srcAmount>0,"trade: src amount must be greater than 0");require(srcToken==ETH_TOKEN_ADDRESS||destToken==ETH_TOKEN_ADDRESS,"trade: src or dest must be ETH");require(srcToken==bancorToken||destToken==bancorToken,"trade: src or dest must be BNT");require(doTrade(srcToken,srcAmount,destToken,destAddress,conversionRate,validate),"trade: doTrade function returns false");returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 76
+column: 4
+content: functiontrade(IERC20srcToken,uintsrcAmount,IERC20destToken,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 11
+column: 4
+content: uintconstantETH_BNT_DECIMALS=18;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 80
+column: 24
+content: destAddress,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 81
+column: 8
+content: uintconversionRate,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 82
+column: 8
+content: boolvalidate)publicpayablereturns
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 86
+column: 15
+content: (bool){require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 15
+content: (tradeEnabled,"trade: trade is not enabled");require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 90
+column: 15
+content: (msg.sender==kyberNetwork,"trade: sender is not network");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 91
+column: 8
+content: require(srcAmount>0,"trade: src amount must be greater than 0");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 92
+column: 8
+content: require(srcToken==
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 92
+column: 28
+content: ETH_TOKEN_ADDRESS||destToken==
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 92
+column: 62
+content: ETH_TOKEN_ADDRESS,"trade: src or dest must be ETH");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 93
+column: 8
+content: require(srcToken==
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 93
+column: 28
+content: bancorToken||destToken==
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 93
+column: 56
+content: bancorToken,"trade: src or dest must be BNT");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 95
+column: 8
+content: require(doTrade
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 95
+column: 23
+content: (srcToken,srcAmount,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 95
+column: 45
+content: destToken,destAddress,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 95
+column: 69
+content: conversionRate,validate),"trade: doTrade function returns false");returntrue;
+
+SOLIDITY_VISIBILITY :19
+SOLIDITY_LOCKED_MONEY :1

@@ -1,0 +1,187 @@
+C:\Users\hp\DataSet\contracts\mainnet\6a\6a07b6c65f32c5951dd065396e8fc84ca1eae6fa_DateTime.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 33
+column: 8
+content: functionisLeapYear(uint16year)publicconstantreturns(bool){if(year%4!=0){returnfalse;}if(year%100!=0){returntrue;}if(year%400!=0){returnfalse;}returntrue;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 46
+column: 8
+content: functionleapYearsBefore(uintyear)publicconstantreturns(uint){year-=1;returnyear/4-year/100+year/400;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 51
+column: 8
+content: functiongetDaysInMonth(uint8month,uint16year)publicconstantreturns(uint8){if(month==1||month==3||month==5||month==7||month==8||month==10||month==12){return31;}elseif(month==4||month==6||month==9||month==11){return30;}elseif(isLeapYear(year)){return29;}else{return28;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 66
+column: 8
+content: functionparseTimestamp(uinttimestamp)internalconstantreturns(_DateTimedt){uintsecondsAccountedFor=0;uintbuf;uint8i;dt.year=getYear(timestamp);buf=leapYearsBefore(dt.year)-leapYearsBefore(ORIGIN_YEAR);secondsAccountedFor+=LEAP_YEAR_IN_SECONDS*buf;secondsAccountedFor+=YEAR_IN_SECONDS*(dt.year-ORIGIN_YEAR-buf);uintsecondsInMonth;for(i=1;i<=12;i++){secondsInMonth=DAY_IN_SECONDS*getDaysInMonth(i,dt.year);if(secondsInMonth+secondsAccountedFor>timestamp){dt.month=i;break;}secondsAccountedFor+=secondsInMonth;}for(i=1;i<=getDaysInMonth(dt.month,dt.year);i++){if(DAY_IN_SECONDS+secondsAccountedFor>timestamp){dt.day=i;break;}secondsAccountedFor+=DAY_IN_SECONDS;}dt.hour=getHour(timestamp);dt.minute=getMinute(timestamp);dt.second=getSecond(timestamp);dt.weekday=getWeekday(timestamp);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 111
+column: 8
+content: functiongetYear(uinttimestamp)publicconstantreturns(uint16){uintsecondsAccountedFor=0;uint16year;uintnumLeapYears;year=uint16(ORIGIN_YEAR+timestamp/YEAR_IN_SECONDS);numLeapYears=leapYearsBefore(year)-leapYearsBefore(ORIGIN_YEAR);secondsAccountedFor+=LEAP_YEAR_IN_SECONDS*numLeapYears;secondsAccountedFor+=YEAR_IN_SECONDS*(year-ORIGIN_YEAR-numLeapYears);while(secondsAccountedFor>timestamp){if(isLeapYear(uint16(year-1))){secondsAccountedFor-=LEAP_YEAR_IN_SECONDS;}else{secondsAccountedFor-=YEAR_IN_SECONDS;}year-=1;}returnyear;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 135
+column: 8
+content: functiongetMonth(uinttimestamp)publicconstantreturns(uint8){returnparseTimestamp(timestamp).month;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 139
+column: 8
+content: functiongetDay(uinttimestamp)publicconstantreturns(uint8){returnparseTimestamp(timestamp).day;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 143
+column: 8
+content: functiongetHour(uinttimestamp)publicconstantreturns(uint8){returnuint8((timestamp/60/60)%24);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 147
+column: 8
+content: functiongetMinute(uinttimestamp)publicconstantreturns(uint8){returnuint8((timestamp/60)%60);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 151
+column: 8
+content: functiongetSecond(uinttimestamp)publicconstantreturns(uint8){returnuint8(timestamp%60);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 155
+column: 8
+content: functiongetWeekday(uinttimestamp)publicconstantreturns(uint8){returnuint8((timestamp/DAY_IN_SECONDS+4)%7);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 159
+column: 8
+content: functiontoTimestamp(uint16year,uint8month,uint8day)publicconstantreturns(uinttimestamp){returntoTimestamp(year,month,day,0,0,0);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 163
+column: 8
+content: functiontoTimestamp(uint16year,uint8month,uint8day,uint8hour)publicconstantreturns(uinttimestamp){returntoTimestamp(year,month,day,hour,0,0);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 167
+column: 8
+content: functiontoTimestamp(uint16year,uint8month,uint8day,uint8hour,uint8minute)publicconstantreturns(uinttimestamp){returntoTimestamp(year,month,day,hour,minute,0);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 171
+column: 8
+content: functiontoTimestamp(uint16year,uint8month,uint8day,uint8hour,uint8minute,uint8second)publicconstantreturns(uinttimestamp){uint16i;for(i=ORIGIN_YEAR;i<year;i++){if(isLeapYear(i)){timestamp+=LEAP_YEAR_IN_SECONDS;}else{timestamp+=YEAR_IN_SECONDS;}}uint8[12]memorymonthDayCounts;monthDayCounts[0]=31;if(isLeapYear(year)){monthDayCounts[1]=29;}else{monthDayCounts[1]=28;}monthDayCounts[2]=31;monthDayCounts[3]=30;monthDayCounts[4]=31;monthDayCounts[5]=30;monthDayCounts[6]=31;monthDayCounts[7]=31;monthDayCounts[8]=30;monthDayCounts[9]=31;monthDayCounts[10]=30;monthDayCounts[11]=31;for(i=1;i<month;i++){timestamp+=DAY_IN_SECONDS*monthDayCounts[i-1];}timestamp+=DAY_IN_SECONDS*(day-1);timestamp+=HOUR_IN_SECONDS*(hour);timestamp+=MINUTE_IN_SECONDS*(minute);timestamp+=second;returntimestamp;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 226
+column: 2
+content: functioncompareDatesWithoutTime(uintt1,uintt2)publicconstantreturns(intres){_DateTimememorydt1=parseTimestamp(t1);_DateTimememorydt2=parseTimestamp(t2);res=compareInts(dt1.year,dt2.year);if(res==0){res=compareInts(dt1.month,dt2.month);if(res==0){res=compareInts(dt1.day,dt2.day);}}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 249
+column: 2
+content: functioncompareDateTimesForContract(uintt1,uintt2)publicconstantreturns(intres){uintendOfDay=t2+(60*60*24);res=0;if(t2<=t1&&t1<=endOfDay){res=0;}elseif(t2>t1){res=-1;}elseif(t1>endOfDay){res=1;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 272
+column: 2
+content: functioncompareInts(intn1,intn2)internalconstantreturns(intres){if(n1==n2){res=0;}elseif(n1<n2){res=-1;}elseif(n1>n2){res=1;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 123
+column: 23
+content: secondsAccountedFor>timestamp
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 24
+column: 13
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 25
+column: 13
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 26
+column: 13
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 28
+column: 13
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 29
+column: 13
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 31
+column: 15
+content: private
+
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :18
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :6
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

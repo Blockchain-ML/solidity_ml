@@ -1,0 +1,48 @@
+C:\Users\hp\DataSet\contracts\ropsten\78\78f68cd63d3e90082a37480985845cb53de25c5d_etc4.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 32
+column: 15
+content: invested[addr]*FEE/100*(now-dateInvest[addr])
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractetc4{mapping(address=>uint256)invested;mapping(address=>uint256)dateInvest;uintconstantpublicFEE=4;boolprivatestopInvest;constructor()public{stopInvest=false;}function()externalpayable{addresssender=msg.sender;require(!stopInvest,"invest stop");if(invested[sender]!=0){uint256amount=getInvestorDividend(sender);if(amount>=address(this).balance){amount=address(this).balance;stopInvest=true;}sender.send(amount);}dateInvest[sender]=now;invested[sender]+=msg.value;}functiongetInvestorDividend(addressaddr)publicviewreturns(uint256){returninvested[addr]*FEE/100*(now-dateInvest[addr])/1days;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 7
+column: 9
+content: private
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 4
+column: 4
+content: mapping(address=>uint256)invested;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 5
+column: 4
+content: mapping(address=>uint256)dateInvest;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_DIV_MUL :1

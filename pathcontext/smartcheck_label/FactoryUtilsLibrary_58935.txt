@@ -1,0 +1,25 @@
+C:\Users\hp\DataSet\FactoryUtilsLibrary.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 33
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 112
+column: 4
+content: functionparseRebalanceSetCallData(bytesmemory_callData)publicpurereturns(InitRebalancingParametersmemory){InitRebalancingParametersmemoryparameters;assembly{mstore(parameters,mload(add(_callData,32)))mstore(add(parameters,32),mload(add(_callData,64)))mstore(add(parameters,64),mload(add(_callData,96)))mstore(add(parameters,96),mload(add(_callData,128)))mstore(add(parameters,128),mload(add(_callData,160)))mstore(add(parameters,160),mload(add(_callData,192)))mstore(add(parameters,192),mload(add(_callData,224)))mstore(add(parameters,224),mload(add(_callData,256)))}parameters.rebalanceFeeCalculatorData=_callData.slice(256,_callData.length);returnparameters;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 121
+column: 8
+content: assembly{mstore(parameters,mload(add(_callData,32)))mstore(add(parameters,32),mload(add(_callData,64)))mstore(add(parameters,64),mload(add(_callData,96)))mstore(add(parameters,96),mload(add(_callData,128)))mstore(add(parameters,128),mload(add(_callData,160)))mstore(add(parameters,160),mload(add(_callData,192)))mstore(add(parameters,192),mload(add(_callData,224)))mstore(add(parameters,224),mload(add(_callData,256)))}
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

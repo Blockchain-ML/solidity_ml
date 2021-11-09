@@ -1,0 +1,69 @@
+C:\Users\hp\DataSet\contracts\ropsten\a9\a93c65aef4d6e5abd2c900ef2df5dea024458ac4_GreatestShow.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 53
+column: 0
+content: contractGreatestShow{addresspublicowner;stringpublicringMaster;constructor(string_ringMaster)public{owner=msg.sender;ringMaster=_ringMaster;}uintavailableSeats;functionsetAvailableSeats(uint_availableSeats)public{availableSeats=_availableSeats;}functiongetAvailableSeats()viewpublicreturns(uint){returnavailableSeats;}structPerformance{stringname;uint32actors;uint8tigers;uint8bears;uint8elephants;uint16timeInSeconds;boolclearTheStageFirst;}Performance[]performances;functionaddPerformance(string_name,uint32_actors,uint8_tigers,uint8_bears,uint8_elephants,uint16_timeInSeconds,bool_clearTheStageFirst)publicreturns(uint){performances.push(Performance({name:_name,actors:_actors,tigers:_tigers,bears:_bears,elephants:_elephants,timeInSeconds:_timeInSeconds,clearTheStageFirst:_clearTheStageFirst}));returnperformances.length;}functiongetPerformance(uint_index)viewpublicreturns(string,uint32,uint8,uint8,uint8,uint16,bool){Performancestorageperf=performances[_index];return(perf.name,perf.actors,perf.tigers,perf.bears,perf.elephants,perf.timeInSeconds,perf.clearTheStageFirst);}mapping(address=>uint256)internaltickets;uint256internalethusd=700;uint256internalrateInCents=2000;usingSafeMathforuint256;function()payablepublic{uint256_wei=msg.value;uint256tickets4ETH=_wei.mul(ethusd).mul(100).div(rateInCents);tickets[msg.sender]=tickets[msg.sender].add(tickets4ETH);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 123
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 125
+column: 22
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 58
+column: 14
+content: string_ringMaster
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 90
+column: 14
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 111
+column: 15
+content: string
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 63
+column: 2
+content: uintavailableSeats;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 87
+column: 2
+content: Performance[]performances;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :4

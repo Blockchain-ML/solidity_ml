@@ -1,0 +1,54 @@
+C:\Users\hp\DataSet\test-nft.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractTestNFT{mapping(uint=>address)owner;mapping(uint=>uint)characterPrice;uintmaxNumber=100;uintcurrentNumber=1;structCharacter{stringname;uintfeatures;uintvalue;uint16level;boolrare;boolforSale;}Character[]publiccharacters;constructor()public{characters.push(Character("Boss",300000,0,65535,true,false));}functioncreateCharacter(string_name,uint_features)publicpayable{require(msg.value>=1ether);require(currentNumber<maxNumber);boolrare;if(random()==255){rare=true;}else{rare=false;}owner[currentNumber]=msg.sender;characters.push(Character(_name,_features,msg.value,0,rare,false));currentNumber++;}functionrandom()internalviewreturns(uint8){returnuint8(uint256(keccak256(abi.encodePacked(block.timestamp,block.difficulty)))%256);}functiontransferOwnership(uint_id,address_to)public{owner[_id]=_to;}functionCharacterForSale(uint_id,uint_value)public{if(characters[_id].forSale){characters[_id].forSale=false;}else{characters[_id].forSale=true;characterPrice[_id]=_value;}}functionbuyCharacter(uint_id)publicpayable{require(characters[_id].forSale);require(characterPrice[_id]==msg.value);owner[_id]=msg.sender;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 15
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 27
+column: 12
+content: string_name
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 5
+column: 4
+content: mapping(uint=>address)owner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 4
+content: mapping(uint=>uint)characterPrice;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 8
+column: 4
+content: uintmaxNumber=100;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 4
+content: uintcurrentNumber=1;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1

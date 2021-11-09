@@ -1,0 +1,17 @@
+C:\Users\hp\DataSet\LimitedPurchaseToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 12
+column: 0
+content: contractLimitedPurchaseTokenisMintableToken{uint256publicavailableSupply=0;uint256publicrate;uint256publicmaxSupply;eventTokenPurchase(addressindexedpurchaser,addressindexedbeneficiary,uint256value,uint256amount);eventTokenUnfreeze(uint256amount,uint256totalAvailableSupply);functionbuyTokens(address_beneficiary)publicpayable{require(_beneficiary!=0x0);require(msg.value!=0);uint256weiAmount=msg.value;uint256tokens=weiAmount.mul(rate);require(tokens<=availableSupply);availableSupply=availableSupply.sub(tokens);totalSupply=totalSupply.add(tokens);balances[_beneficiary]=balances[_beneficiary].add(tokens);Mint(_beneficiary,tokens);Transfer(0x0,_beneficiary,tokens);TokenPurchase(msg.sender,_beneficiary,weiAmount,tokens);}functionunfreeze(uint256_percent)onlyOwnerpublic{require(totalSupply<maxSupply);uint256unfreezeAmount=maxSupply.sub(totalSupply).div(_percent);availableSupply=availableSupply.add(unfreezeAmount);TokenUnfreeze(unfreezeAmount,availableSupply);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

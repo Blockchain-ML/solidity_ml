@@ -1,0 +1,17 @@
+C:\Users\hp\DataSet\contracts\ropsten\cb\cbc2a97074fc0553ce84675db1bcf65ad0386209_braveCrowdsale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractbraveCrowdsale{addresspublicmaster;mapping(address=>bool)publicwhitelistedAddress;eventReceive(addressindexedfrom,addressindexedto,uintvalue);eventChangeMaster(addressoldMaster,addressnewMaster);eventWhitelist(addressindexedmaster,addressindexedaddr,boolstatus);constructor(address_master)public{master=_master;whitelistedAddress[_master]=true;}modifieronlyMaster(){require(msg.sender==master);_;}modifieronlyWhitelisted(){require(whitelistedAddress[msg.sender]==true);_;}function()onlyWhitelistedpublicpayable{require(msg.value>0);master.transfer(msg.value);emitReceive(msg.sender,master,msg.value);}functionchangeMaster(address_newMaster)onlyMasterpublic{require(_newMaster!=address(0));master=_newMaster;emitChangeMaster(msg.sender,_newMaster);}functionaddWhitelist(address_address)onlyMasterpublic{require(whitelistedAddress[_address]==false);whitelistedAddress[_address]=true;emitWhitelist(master,_address,true);}functionremoveFromWhitelist(address_address)onlyMasterpublic{require(whitelistedAddress[_address]==true);whitelistedAddress[_address]=false;emitWhitelist(master,_address,false);}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 25
+column: 32
+content: public
+
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1

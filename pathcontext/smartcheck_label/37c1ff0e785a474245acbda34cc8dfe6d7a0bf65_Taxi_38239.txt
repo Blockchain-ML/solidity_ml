@@ -1,0 +1,120 @@
+C:\Users\hp\DataSet\contracts\ropsten\37\37c1ff0e785a474245acbda34cc8dfe6d7a0bf65_Taxi.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 118
+column: 4
+content: functionbalanceOf(addresstokenOwner)publicconstantreturns(uintbalance){returnaccountBalances[tokenOwner];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 160
+column: 4
+content: functionget_car_propse(uint256_index)publicconstantreturns(uint256CarID,uint256price,uint256offer_valid_time){return(proposedcar[_index].CarID,proposedcar[_index].price,proposedcar[_index].offer_valid_time);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 266
+column: 12
+content: for(uinti=0;i<count_participant;i++){accountIndex[i].transfer(profit);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 275
+column: 8
+content: for(uintj=0;j<count_participant;j++){accountIndex[j].transfer(profit);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 29
+column: 0
+content: contractOwnable{addresspublicmanager;eventOwnershipTransferred(addressindexedpreviousManager,addressindexednewManager);constructor()publicpayable{manager=msg.sender;}modifieronlyManager(){require(msg.sender==manager);_;}functiontransferOwnership(addressnewManager)onlyManagerpublic{require(newManager!=address(0));emitOwnershipTransferred(manager,newManager);manager=newManager;}}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 130
+column: 8
+content: if(participants[msg.sender]==1){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 190
+column: 9
+content: if(approve_sell_proposal_participants[msg.sender]==1){revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 66
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 266
+column: 12
+content: for(uinti=0;i<count_participant;i++){accountIndex[i].transfer(profit);}
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 275
+column: 8
+content: for(uintj=0;j<count_participant;j++){accountIndex[j].transfer(profit);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 103
+column: 4
+content: mapping(address=>uint256)participants;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 104
+column: 4
+content: mapping(uint256=>ProposedCar)proposedcar;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 105
+column: 4
+content: mapping(address=>uint256)approve_sell_proposal_participants;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 106
+column: 4
+content: mapping(uint256=>ProposedPurchase)proposedpurchases;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 107
+column: 4
+content: mapping(address=>uint256)accountBalances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 108
+column: 4
+content: mapping(uint=>address)accountIndex;
+
+SOLIDITY_VISIBILITY :6
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_TRANSFER_IN_LOOP :2

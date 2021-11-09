@@ -1,0 +1,121 @@
+C:\Users\hp\DataSet\contracts\mainnet\6e\6e6a8c2a7fab0865dd0f7472dc3bdf5f909744f6_ethercrowdfund.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 207
+column: 3
+content: for(uint256i=0;i<addresses.length;i++){addressaddr=addresses[i];if(!ideas[index].reclaimed[addr]){uint256reclaimAmount=ideas[index].amountPledged[addr];if(reclaimAmount>0){ideas[index].reclaimed[addr]=true;emitUserRegainedAmountAtIndex(addr,reclaimAmount,index);addr.transfer(reclaimAmount);}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 207
+column: 3
+content: for(uint256i=0;i<addresses.length;i++){addressaddr=addresses[i];if(!ideas[index].reclaimed[addr]){uint256reclaimAmount=ideas[index].amountPledged[addr];if(reclaimAmount>0){ideas[index].reclaimed[addr]=true;emitUserRegainedAmountAtIndex(addr,reclaimAmount,index);addr.transfer(reclaimAmount);}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 106
+column: 1
+content: if(maxGoal==0||minGoal==0||maxGoal>MAX_FUNDING_AMOUNT)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 107
+column: 1
+content: if(minGoal>maxGoal)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 108
+column: 1
+content: if(hostCut>MAX_HOST_PERCENT)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 109
+column: 1
+content: if(duration<5||duration>225257142)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 224
+column: 4
+content: if(msg.sender==ideas[index].creator||msg.sender==ideas[index].host)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 225
+column: 4
+content: if(amount==0||amount>MAX_FUNDING_AMOUNT)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 229
+column: 3
+content: if(amount>amountAvailable)revert();
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 178
+column: 63
+content: (uint256,uint256)
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 207
+column: 3
+content: for(uint256i=0;i<addresses.length;i++){addressaddr=addresses[i];if(!ideas[index].reclaimed[addr]){uint256reclaimAmount=ideas[index].amountPledged[addr];if(reclaimAmount>0){ideas[index].reclaimed[addr]=true;emitUserRegainedAmountAtIndex(addr,reclaimAmount,index);addr.transfer(reclaimAmount);}}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 104
+column: 22
+content: stringtitle
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 204
+column: 51
+content: address[]addresses
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 91
+column: 0
+content: functionethercrowdfund(){PROPOSED_STATUS=1;UNDERWAY_STATUS=2;SUFFICIENT_STATUS=3;FAILED_STATUS=4;REQUEST_CANCELED_BY_CREATOR=5;REQUEST_REJECTED_BY_HOST=6;DISTRIBUTED_STATUS=7;MAX_FUNDING_AMOUNT=100000000000000000000000000000;MAX_HOST_PERCENT=100000000000000000000;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 222
+column: 0
+content: functionpledgeEth(uint256index)payablereturns(bool){uint256amount=msg.value;if(msg.sender==ideas[index].creator||msg.sender==ideas[index].host)revert();if(amount==0||amount>MAX_FUNDING_AMOUNT)revert();if((ideas[index].status==UNDERWAY_STATUS)||(ideas[index].status==SUFFICIENT_STATUS)){if(block.number<=SafeMath.add(ideas[index].startTime,ideas[index].duration)){uint256amountAvailable=SafeMath.sub(ideas[index].maxGoal,ideas[index].amountRaisedSoFar);if(amount>amountAvailable)revert();ideas[index].amountRaisedSoFar=SafeMath.add(ideas[index].amountRaisedSoFar,amount);ideas[index].amountPledged[msg.sender]=SafeMath.add(ideas[index].amountPledged[msg.sender],amount);if(ideas[index].amountRaisedSoFar==ideas[index].maxGoal){maxGoalReached(index);}elseif((ideas[index].amountRaisedSoFar>=ideas[index].minGoal)&&(ideas[index].status==UNDERWAY_STATUS)){ideas[index].status=SUFFICIENT_STATUS;emitSufficientFundingReached(index);}emitUserPledgedAmountAtIndex(msg.sender,amount,index);returntrue;}}returnfalse;}
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :7
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_TRANSFER_IN_LOOP :1

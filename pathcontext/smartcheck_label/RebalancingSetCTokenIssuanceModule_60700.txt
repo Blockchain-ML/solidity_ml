@@ -1,0 +1,47 @@
+C:\Users\hp\DataSet\RebalancingSetCTokenIssuanceModule.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 374
+column: 8
+content: for(uint256i=0;i<baseSetComponents.length;i++){addresscurrentComponentAddress=baseSetComponents[i];uint256currentUnit=baseSetUnits[i];uint256currentComponentQuantity=quantityOfNaturalUnits.mul(currentUnit);addressunderlyingAddress=cTokenWhiteList.whitelist(currentComponentAddress);if(underlyingAddress!=address(0)){depositAndMintCToken(ICToken(currentComponentAddress),currentComponentQuantity,underlyingAddress);}elseif(_wrapEth&&currentComponentAddress==address(weth)){require(msg.value>=currentComponentQuantity,"RebalancingSetCTokenIssuanceModule.depositComponentsHandleCTokensAndEth: Not enough ether included for base SetToken");weth.deposit.value(currentComponentQuantity)();ERC20Wrapper.ensureAllowance(address(weth),address(this),transferProxy,currentComponentQuantity);}else{coreInstance.depositModule(msg.sender,address(this),currentComponentAddress,currentComponentQuantity);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 501
+column: 8
+content: for(uint256i=0;i<baseSetComponents.length;i++){addresscurrentComponentAddress=baseSetComponents[i];uint256currentComponentQuantity=vaultInstance.getOwnerBalance(currentComponentAddress,address(this));addressunderlyingAddress=cTokenWhiteList.whitelist(currentComponentAddress);if(underlyingAddress!=address(0)){redeemCTokenAndWithdraw(ICToken(currentComponentAddress),currentComponentQuantity,underlyingAddress);}elseif(_unwrapEth&&currentComponentAddress==address(weth)){coreInstance.withdrawModule(address(this),address(this),address(weth),currentComponentQuantity);weth.withdraw(currentComponentQuantity);msg.sender.transfer(currentComponentQuantity);}else{coreInstance.withdrawModule(address(this),msg.sender,currentComponentAddress,currentComponentQuantity);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 374
+column: 8
+content: for(uint256i=0;i<baseSetComponents.length;i++){addresscurrentComponentAddress=baseSetComponents[i];uint256currentUnit=baseSetUnits[i];uint256currentComponentQuantity=quantityOfNaturalUnits.mul(currentUnit);addressunderlyingAddress=cTokenWhiteList.whitelist(currentComponentAddress);if(underlyingAddress!=address(0)){depositAndMintCToken(ICToken(currentComponentAddress),currentComponentQuantity,underlyingAddress);}elseif(_wrapEth&&currentComponentAddress==address(weth)){require(msg.value>=currentComponentQuantity,"RebalancingSetCTokenIssuanceModule.depositComponentsHandleCTokensAndEth: Not enough ether included for base SetToken");weth.deposit.value(currentComponentQuantity)();ERC20Wrapper.ensureAllowance(address(weth),address(this),transferProxy,currentComponentQuantity);}else{coreInstance.depositModule(msg.sender,address(this),currentComponentAddress,currentComponentQuantity);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 501
+column: 8
+content: for(uint256i=0;i<baseSetComponents.length;i++){addresscurrentComponentAddress=baseSetComponents[i];uint256currentComponentQuantity=vaultInstance.getOwnerBalance(currentComponentAddress,address(this));addressunderlyingAddress=cTokenWhiteList.whitelist(currentComponentAddress);if(underlyingAddress!=address(0)){redeemCTokenAndWithdraw(ICToken(currentComponentAddress),currentComponentQuantity,underlyingAddress);}elseif(_unwrapEth&&currentComponentAddress==address(weth)){coreInstance.withdrawModule(address(this),address(this),address(weth),currentComponentQuantity);weth.withdraw(currentComponentQuantity);msg.sender.transfer(currentComponentQuantity);}else{coreInstance.withdrawModule(address(this),msg.sender,currentComponentAddress,currentComponentQuantity);}}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 45
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 501
+column: 8
+content: for(uint256i=0;i<baseSetComponents.length;i++){addresscurrentComponentAddress=baseSetComponents[i];uint256currentComponentQuantity=vaultInstance.getOwnerBalance(currentComponentAddress,address(this));addressunderlyingAddress=cTokenWhiteList.whitelist(currentComponentAddress);if(underlyingAddress!=address(0)){redeemCTokenAndWithdraw(ICToken(currentComponentAddress),currentComponentQuantity,underlyingAddress);}elseif(_unwrapEth&&currentComponentAddress==address(weth)){coreInstance.withdrawModule(address(this),address(this),address(weth),currentComponentQuantity);weth.withdraw(currentComponentQuantity);msg.sender.transfer(currentComponentQuantity);}else{coreInstance.withdrawModule(address(this),msg.sender,currentComponentAddress,currentComponentQuantity);}}
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_TRANSFER_IN_LOOP :1

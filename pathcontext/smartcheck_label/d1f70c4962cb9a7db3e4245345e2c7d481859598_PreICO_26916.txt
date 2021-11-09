@@ -1,0 +1,75 @@
+C:\Users\hp\DataSet\contracts\mainnet\d1\d1f70c4962cb9a7db3e4245345e2c7d481859598_PreICO.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 31
+column: 29
+content: 0x412790a9E6A6Dd5b201Bfa29af8d589CB85Ff20c
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 2
+column: 2
+content: functionsafeMul(uinta,uintb)internalconstantreturns(uint){uintc=a*b;assert(a==0||c/a==b);returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 8
+column: 2
+content: functionsafeDiv(uinta,uintb)internalconstantreturns(uint){require(b>0);uintc=a/b;assert(a==b*c+a%b);returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 15
+column: 2
+content: functionsafeSub(uinta,uintb)internalconstantreturns(uint){require(b<=a);returna-b;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 20
+column: 2
+content: functionsafeAdd(uinta,uintb)internalconstantreturns(uint){uintc=a+b;assert(c>=a&&c>=b);returnc;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 63
+column: 2
+content: functiongetPrice(uintvalue)constantreturns(uintprice){if(value<150ether)revert();elseif(value<300ether)price=5800;elseif(value<1500ether)price=6000;elseif(value<3000ether)price=6200;elseif(value>=3000ether)price=6400;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 64
+column: 4
+content: if(value<150ether)revert();elseif(value<300ether)price=5800;elseif(value<1500ether)price=6000;elseif(value<3000ether)price=6200;elseif(value>=3000ether)price=6400;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 48
+column: 2
+content: function()payable{buy();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 52
+column: 2
+content: functionbuy()onTimepayable{uintnumTokens=safeDiv(safeMul(msg.value,getPrice(msg.value)),1ether);assert(tokensIssued+numTokens<=limit);ethWallet.transfer(msg.value);balance[msg.sender]+=numTokens;tokensIssued+=numTokens;e_Purchase(msg.sender,numTokens);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 63
+column: 2
+content: functiongetPrice(uintvalue)constantreturns(uintprice){if(value<150ether)revert();elseif(value<300ether)price=5800;elseif(value<1500ether)price=6000;elseif(value<3000ether)price=6200;elseif(value>=3000ether)price=6400;}
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_ADDRESS_HARDCODED :1

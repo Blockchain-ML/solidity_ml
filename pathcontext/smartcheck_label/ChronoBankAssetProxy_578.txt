@@ -1,0 +1,292 @@
+C:\Users\hp\DataSet\ChronoBankAssetProxy.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 40
+column: 4
+content: functiontotalSupply()constantreturns(uint){returnchronoBankPlatform.totalSupply(symbol);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 44
+column: 4
+content: functionbalanceOf(address_owner)constantreturns(uint){returnchronoBankPlatform.balanceOf(_owner,symbol);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 48
+column: 4
+content: functionallowance(address_from,address_spender)constantreturns(uint){returnchronoBankPlatform.allowance(_from,_spender,symbol);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 52
+column: 4
+content: functiondecimals()constantreturns(uint8){returnchronoBankPlatform.baseUnit(symbol);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 126
+column: 4
+content: functiongetVersionFor(address_sender)constantreturns(address){returnuserOptOutVersion[_sender]==0?latestVersion:userOptOutVersion[_sender];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 130
+column: 4
+content: functiongetLatestVersion()constantreturns(address){returnlatestVersion;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 134
+column: 4
+content: functiongetPendingVersion()constantreturns(address){returnpendingVersion;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 138
+column: 4
+content: functiongetPendingVersionTimestamp()constantreturns(uint){returnpendingVersionTimestamp;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 6
+column: 0
+content: contractChronoBankAssetProxy{eventTransfer(addressindexedfrom,addressindexedto,uintvalue);eventApprove(addressindexedfrom,addressindexedspender,uintvalue);ChronoBankPlatformpublicchronoBankPlatform;bytes32publicsymbol;stringpublicname;functioninit(address_chronoBankPlatform,bytes32_symbol,string_name)returns(bool){if(address(chronoBankPlatform)!=0x0){returnfalse;}chronoBankPlatform=ChronoBankPlatform(_chronoBankPlatform);symbol=_symbol;name=_name;returntrue;}modifieronlyChronoBankPlatform(){if(msg.sender==address(chronoBankPlatform)){_;}}modifieronlyAssetOwner(){if(chronoBankPlatform.isOwner(msg.sender,symbol)){_;}}function_getAsset()internalreturns(ChronoBankAsset){returnChronoBankAsset(getVersionFor(msg.sender));}functiontotalSupply()constantreturns(uint){returnchronoBankPlatform.totalSupply(symbol);}functionbalanceOf(address_owner)constantreturns(uint){returnchronoBankPlatform.balanceOf(_owner,symbol);}functionallowance(address_from,address_spender)constantreturns(uint){returnchronoBankPlatform.allowance(_from,_spender,symbol);}functiondecimals()constantreturns(uint8){returnchronoBankPlatform.baseUnit(symbol);}functiontransfer(address_to,uint_value)returns(bool){return_transferWithReference(_to,_value,"");}functiontransferWithReference(address_to,uint_value,string_reference)returns(bool){return_transferWithReference(_to,_value,_reference);}function_transferWithReference(address_to,uint_value,string_reference)internalreturns(bool){return_getAsset().__transferWithReference(_to,_value,_reference,msg.sender);}function__transferWithReference(address_to,uint_value,string_reference,address_sender)onlyAccess(_sender)returns(bool){returnchronoBankPlatform.proxyTransferWithReference(_to,_value,symbol,_reference,_sender);}functiontransferFrom(address_from,address_to,uint_value)returns(bool){return_transferFromWithReference(_from,_to,_value,"");}functiontransferFromWithReference(address_from,address_to,uint_value,string_reference)returns(bool){return_transferFromWithReference(_from,_to,_value,_reference);}function_transferFromWithReference(address_from,address_to,uint_value,string_reference)internalreturns(bool){return_getAsset().__transferFromWithReference(_from,_to,_value,_reference,msg.sender);}function__transferFromWithReference(address_from,address_to,uint_value,string_reference,address_sender)onlyAccess(_sender)returns(bool){returnchronoBankPlatform.proxyTransferFromWithReference(_from,_to,_value,symbol,_reference,_sender);}functionapprove(address_spender,uint_value)returns(bool){return_approve(_spender,_value);}function_approve(address_spender,uint_value)internalreturns(bool){return_getAsset().__approve(_spender,_value,msg.sender);}function__approve(address_spender,uint_value,address_sender)onlyAccess(_sender)returns(bool){returnchronoBankPlatform.proxyApprove(_spender,_value,symbol,_sender);}functionemitTransfer(address_from,address_to,uint_value)onlyChronoBankPlatform(){Transfer(_from,_to,_value);}functionemitApprove(address_from,address_spender,uint_value)onlyChronoBankPlatform(){Approve(_from,_spender,_value);}function()payable{_getAsset().__process.value(msg.value)(msg.data,msg.sender);}eventUpgradeProposal(addressnewVersion);addresslatestVersion;addresspendingVersion;uintpendingVersionTimestamp;uintconstantUPGRADE_FREEZE_TIME=3days;mapping(address=>address)userOptOutVersion;modifieronlyAccess(address_sender){if(getVersionFor(_sender)==msg.sender){_;}}functiongetVersionFor(address_sender)constantreturns(address){returnuserOptOutVersion[_sender]==0?latestVersion:userOptOutVersion[_sender];}functiongetLatestVersion()constantreturns(address){returnlatestVersion;}functiongetPendingVersion()constantreturns(address){returnpendingVersion;}functiongetPendingVersionTimestamp()constantreturns(uint){returnpendingVersionTimestamp;}functionproposeUpgrade(address_newVersion)onlyAssetOwner()returns(bool){if(pendingVersion!=0x0){returnfalse;}if(_newVersion==0x0){returnfalse;}if(latestVersion==0x0){latestVersion=_newVersion;returntrue;}pendingVersion=_newVersion;pendingVersionTimestamp=now;UpgradeProposal(_newVersion);returntrue;}functionpurgeUpgrade()onlyAssetOwner()returns(bool){if(pendingVersion==0x0){returnfalse;}deletependingVersion;deletependingVersionTimestamp;returntrue;}functioncommitUpgrade()returns(bool){if(pendingVersion==0x0){returnfalse;}if(pendingVersionTimestamp+UPGRADE_FREEZE_TIME<now){returnfalse;}latestVersion=pendingVersion;deletependingVersion;deletependingVersionTimestamp;returntrue;}functionoptOut()returns(bool){if(userOptOutVersion[msg.sender]!=0x0){returnfalse;}userOptOutVersion[msg.sender]=latestVersion;returntrue;}functionoptIn()returns(bool){deleteuserOptOutVersion[msg.sender];returntrue;}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 64
+column: 62
+content: string_reference
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 80
+column: 81
+content: string_reference
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 14
+column: 4
+content: functioninit(address_chronoBankPlatform,bytes32_symbol,string_name)returns(bool){if(address(chronoBankPlatform)!=0x0){returnfalse;}chronoBankPlatform=ChronoBankPlatform(_chronoBankPlatform);symbol=_symbol;name=_name;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 40
+column: 4
+content: functiontotalSupply()constantreturns(uint){returnchronoBankPlatform.totalSupply(symbol);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 44
+column: 4
+content: functionbalanceOf(address_owner)constantreturns(uint){returnchronoBankPlatform.balanceOf(_owner,symbol);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 48
+column: 4
+content: functionallowance(address_from,address_spender)constantreturns(uint){returnchronoBankPlatform.allowance(_from,_spender,symbol);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 52
+column: 4
+content: functiondecimals()constantreturns(uint8){returnchronoBankPlatform.baseUnit(symbol);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 56
+column: 4
+content: functiontransfer(address_to,uint_value)returns(bool){return_transferWithReference(_to,_value,"");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 60
+column: 4
+content: functiontransferWithReference(address_to,uint_value,string_reference)returns(bool){return_transferWithReference(_to,_value,_reference);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 68
+column: 4
+content: function__transferWithReference(address_to,uint_value,string_reference,address_sender)onlyAccess(_sender)returns(bool){returnchronoBankPlatform.proxyTransferWithReference(_to,_value,symbol,_reference,_sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 72
+column: 4
+content: functiontransferFrom(address_from,address_to,uint_value)returns(bool){return_transferFromWithReference(_from,_to,_value,"");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 76
+column: 4
+content: functiontransferFromWithReference(address_from,address_to,uint_value,string_reference)returns(bool){return_transferFromWithReference(_from,_to,_value,_reference);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 84
+column: 4
+content: function__transferFromWithReference(address_from,address_to,uint_value,string_reference,address_sender)onlyAccess(_sender)returns(bool){returnchronoBankPlatform.proxyTransferFromWithReference(_from,_to,_value,symbol,_reference,_sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 88
+column: 4
+content: functionapprove(address_spender,uint_value)returns(bool){return_approve(_spender,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 96
+column: 4
+content: function__approve(address_spender,uint_value,address_sender)onlyAccess(_sender)returns(bool){returnchronoBankPlatform.proxyApprove(_spender,_value,symbol,_sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 100
+column: 4
+content: functionemitTransfer(address_from,address_to,uint_value)onlyChronoBankPlatform(){Transfer(_from,_to,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 104
+column: 4
+content: functionemitApprove(address_from,address_spender,uint_value)onlyChronoBankPlatform(){Approve(_from,_spender,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 108
+column: 4
+content: function()payable{_getAsset().__process.value(msg.value)(msg.data,msg.sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 126
+column: 4
+content: functiongetVersionFor(address_sender)constantreturns(address){returnuserOptOutVersion[_sender]==0?latestVersion:userOptOutVersion[_sender];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 130
+column: 4
+content: functiongetLatestVersion()constantreturns(address){returnlatestVersion;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 134
+column: 4
+content: functiongetPendingVersion()constantreturns(address){returnpendingVersion;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 138
+column: 4
+content: functiongetPendingVersionTimestamp()constantreturns(uint){returnpendingVersionTimestamp;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 142
+column: 4
+content: functionproposeUpgrade(address_newVersion)onlyAssetOwner()returns(bool){if(pendingVersion!=0x0){returnfalse;}if(_newVersion==0x0){returnfalse;}if(latestVersion==0x0){latestVersion=_newVersion;returntrue;}pendingVersion=_newVersion;pendingVersionTimestamp=now;UpgradeProposal(_newVersion);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 159
+column: 4
+content: functionpurgeUpgrade()onlyAssetOwner()returns(bool){if(pendingVersion==0x0){returnfalse;}deletependingVersion;deletependingVersionTimestamp;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 168
+column: 4
+content: functioncommitUpgrade()returns(bool){if(pendingVersion==0x0){returnfalse;}if(pendingVersionTimestamp+UPGRADE_FREEZE_TIME<now){returnfalse;}latestVersion=pendingVersion;deletependingVersion;deletependingVersionTimestamp;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 181
+column: 4
+content: functionoptOut()returns(bool){if(userOptOutVersion[msg.sender]!=0x0){returnfalse;}userOptOutVersion[msg.sender]=latestVersion;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 189
+column: 4
+content: functionoptIn()returns(bool){deleteuserOptOutVersion[msg.sender];returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 114
+column: 4
+content: addresslatestVersion;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 115
+column: 4
+content: addresspendingVersion;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 116
+column: 4
+content: uintpendingVersionTimestamp;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 117
+column: 4
+content: uintconstantUPGRADE_FREEZE_TIME=3days;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 118
+column: 4
+content: mapping(address=>address)userOptOutVersion;
+
+SOLIDITY_VISIBILITY :30
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :8
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :2

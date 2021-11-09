@@ -1,0 +1,90 @@
+C:\Users\hp\DataSet\SrcCrowdsale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 237
+column: 8
+content: for(uint256i;i<_beneficiaries.length;i=i.add(1)){mintPresaleTokens(_beneficiaries[i],_amounts[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 268
+column: 8
+content: for(uint256i;i<_beneficiaries.length;i=i.add(1)){nonEthPurchase(_investmentTypes[i],_beneficiaries[i],_amounts[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 289
+column: 8
+content: for(uint256c;c<_investmentIds.length;c=c.add(1)){investmentId=_investmentIds[c];confirmPayment(investmentId);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 375
+column: 8
+content: for(uint256c;c<_investmentIds.length;c=c.add(1)){settleInvestment(_investmentIds[c]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 237
+column: 8
+content: for(uint256i;i<_beneficiaries.length;i=i.add(1)){mintPresaleTokens(_beneficiaries[i],_amounts[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 268
+column: 8
+content: for(uint256i;i<_beneficiaries.length;i=i.add(1)){nonEthPurchase(_investmentTypes[i],_beneficiaries[i],_amounts[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 289
+column: 8
+content: for(uint256c;c<_investmentIds.length;c=c.add(1)){investmentId=_investmentIds[c];confirmPayment(investmentId);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 375
+column: 8
+content: for(uint256c;c<_investmentIds.length;c=c.add(1)){settleInvestment(_investmentIds[c]);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 15
+column: 0
+content: contractSrcCrowdsaleisSrcCrowdsaleInterface,AutoRefundableCrowdsale,CappedCrowdsale{uint256publicconstantINITIAL_HARD_CAP=150e6*1e18;uint256publicconstantCHF_CENT_PER_TOKEN=100;mapping(address=>bool)publicisManager;uint256publictokensToMint;uint256publictokensMinted;uint256publiccrowdsaleRound;uint256publicconfirmationPeriod=30days;boolpublicconfirmationPeriodOver;uint256publicinvestmentIdLastAttemptedToSettle;addresspublicvotingContract;boolpublicdisabled;uint256publiclastWeiInvestorAmount;structPayment{addressinvestor;addressbeneficiary;uint256weiAmount;uint256tokenAmount;boolconfirmed;boolattemptedSettlement;boolcompletedSettlement;}Payment[]publicinvestments;eventChangedManager(addressmanager,boolactive);eventPresalePurchase(addressindexedbeneficiary,uint256tokenAmount);eventNonEthTokenPurchase(uint256investmentType,addressindexedbeneficiary,uint256tokenAmount);eventNewCrowdsaleRound(uint256start,uint256duration,uint256rate,uint256detaTokenCap);eventChangedInvestmentConfirmation(uint256investmentId,addressinvestor,boolconfirmed);modifieronlyManager(){require(isManager[msg.sender]);_;}modifieronlyVotingContract(){require(msg.sender==votingContract);_;}modifieronlyNotDisabled(){require(!disabled);_;}modifieronlyPresalePhase(){require(now<openingTime&&crowdsaleRound==0);_;}modifieronlyCrowdsalePhase(){require(now>=openingTime&&now<closingTime&&!isFinalized);_;}modifieronlyUnderCap(uint256_amount){require(tokensToMint.add(_amount)<=cap);_;}modifieronlyValidAddress(address_address){require(_address!=address(0));_;}modifieronlyNoneZero(address_to,uint256_amount){require(_to!=address(0));require(_amount>0);_;}modifieronlyConfirmPayment(){require(now>closingTime&&now<=closingTime.add(confirmationPeriod));require(!confirmationPeriodOver);_;}modifieronlyConfirmationOver(){require(now>closingTime.add(confirmationPeriod)||confirmationPeriodOver);_;}functionSrcCrowdsale(uint256_startTime,uint256_endTime,uint256_rateChfPerEth,address_wallet,address_token)Crowdsale((_rateChfPerEth.mul(1e2)).div(CHF_CENT_PER_TOKEN),_wallet,ERC20(_token))TimedCrowdsale(_startTime,_endTime)CappedCrowdsale(INITIAL_HARD_CAP)publiconlyValidAddress(_wallet){setManager(msg.sender,true);}functionbuyTokens(address_beneficiary)publicpayable{uint256weiAmount=msg.value;lastWeiInvestorAmount=weiAmount;_preValidatePurchase(_beneficiary,weiAmount);uint256tokens=_getTokenAmount(weiAmount);weiRaised=weiRaised.add(weiAmount);_processPurchase(_beneficiary,tokens);emitTokenPurchase(msg.sender,_beneficiary,weiAmount,tokens);_forwardFunds();}functionnewCrowdsale(uint256_start,uint256_duration,uint256_rateChfPerEth,uint256_deltaTokenCap)publiconlyOwneronlyConfirmationOveronlyNotDisabled{require(isFinalized);require(_start>now);require(_duration>0);require(_rateChfPerEth>0);require(_deltaTokenCap>0);openingTime=_start;closingTime=_start.add(_duration);rate=(_rateChfPerEth.mul(1e2)).div(CHF_CENT_PER_TOKEN);cap=cap.add(_deltaTokenCap);isFinalized=false;confirmationPeriodOver=false;crowdsaleRound++;vault.openVault();emitNewCrowdsaleRound(_start,_duration,_rateChfPerEth,_deltaTokenCap);}functioncapReached()publicviewreturns(bool){returntokensMinted>=cap;}functionsetManager(address_manager,bool_active)publiconlyOwneronlyValidAddress(_manager){isManager[_manager]=_active;emitChangedManager(_manager,_active);}functionsetVotingContract(addressvotingContractAddress)publiconlyOwneronlyValidAddress(votingContractAddress){votingContract=votingContractAddress;}functionmintPresaleTokens(address_beneficiary,uint256_tokenAmount)publiconlyOwneronlyPresalePhaseonlyNoneZero(_beneficiary,_tokenAmount)onlyUnderCap(_tokenAmount){_deliverTokens(_beneficiary,_tokenAmount);emitPresalePurchase(_beneficiary,_tokenAmount);}functionbatchMintTokenPresale(address[]_beneficiaries,uint256[]_amounts)external{require(_beneficiaries.length==_amounts.length);for(uint256i;i<_beneficiaries.length;i=i.add(1)){mintPresaleTokens(_beneficiaries[i],_amounts[i]);}}functionnonEthPurchase(uint256_investmentType,address_beneficiary,uint256_tokenAmount)publiconlyOwneronlyCrowdsalePhaseonlyNoneZero(_beneficiary,_tokenAmount)onlyUnderCap(_tokenAmount){lastWeiInvestorAmount=0;_processPurchase(_beneficiary,_tokenAmount);emitNonEthTokenPurchase(_investmentType,_beneficiary,_tokenAmount);}functionbatchNonEthPurchase(uint256[]_investmentTypes,address[]_beneficiaries,uint256[]_amounts)external{require(_beneficiaries.length==_amounts.length&&_investmentTypes.length==_amounts.length);for(uint256i;i<_beneficiaries.length;i=i.add(1)){nonEthPurchase(_investmentTypes[i],_beneficiaries[i],_amounts[i]);}}functionconfirmPayment(uint256_investmentId)publiconlyManageronlyConfirmPayment{investments[_investmentId].confirmed=true;emitChangedInvestmentConfirmation(_investmentId,investments[_investmentId].investor,true);}functionbatchConfirmPayments(uint256[]_investmentIds)externalonlyManageronlyConfirmPayment{uint256investmentId;for(uint256c;c<_investmentIds.length;c=c.add(1)){investmentId=_investmentIds[c];confirmPayment(investmentId);}}functionunConfirmPayment(uint256_investmentId)publiconlyManageronlyConfirmPayment{investments[_investmentId].confirmed=false;emitChangedInvestmentConfirmation(_investmentId,investments[_investmentId].investor,false);}functionfinalizeConfirmationPeriod()publiconlyOwneronlyConfirmPayment{confirmationPeriodOver=true;}functionsettleInvestment(uint256_investmentId)publiconlyConfirmationOver{Paymentstoragep=investments[_investmentId];require(!p.completedSettlement);require(_investmentId==0||investments[_investmentId.sub(1)].attemptedSettlement);p.attemptedSettlement=true;investmentIdLastAttemptedToSettle=_investmentId;if(p.confirmed&&!capReached()){uint256tokens=p.tokenAmount;if(tokensMinted.add(tokens)<=cap){tokensToMint=tokensToMint.sub(tokens);tokensMinted=tokensMinted.add(tokens);_deliverTokens(p.beneficiary,tokens);p.completedSettlement=true;}else{if(vault.pushRefund(p.investor)){p.completedSettlement=true;}}}else{if(p.investor!=address(0)&&p.weiAmount>0){if(vault.pushRefund(p.investor)){p.completedSettlement=true;}}}}functiondisableCrowdsale()externalonlyVotingContract{disabled=true;}functionbatchSettleInvestments(uint256[]_investmentIds)external{for(uint256c;c<_investmentIds.length;c=c.add(1)){settleInvestment(_investmentIds[c]);}}functionfinalize()publiconlyOwneronlyConfirmationOver{MiniMeTokenInterface(token).enableTransfers(true);super.finalize();}function_preValidatePurchase(address_beneficiary,uint256_weiAmount)internalonlyCrowdsalePhase{require(!capReached());super._preValidatePurchase(_beneficiary,_weiAmount);}function_deliverTokens(address_beneficiary,uint256_tokenAmount)internal{MiniMeTokenInterface(token).generateTokens(_beneficiary,_tokenAmount);}function_processPurchase(address_beneficiary,uint256_tokenAmount)internal{tokensToMint=tokensToMint.add(_tokenAmount);PaymentmemorynewPayment=Payment(msg.sender,_beneficiary,lastWeiInvestorAmount,_tokenAmount,false,false,false);investments.push(newPayment);}function_getTokenAmount(uint256_weiAmount)internalviewreturns(uint256){return_weiAmount.mul(rate);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 201
+column: 4
+content: functionsetManager(address_manager,bool_active)publiconlyOwneronlyValidAddress(_manager){isManager[_manager]=_active;emitChangedManager(_manager,_active);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 210
+column: 4
+content: functionsetVotingContract(addressvotingContractAddress)publiconlyOwneronlyValidAddress(votingContractAddress){votingContract=votingContractAddress;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 6
+column: 16
+content: ^
+
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4

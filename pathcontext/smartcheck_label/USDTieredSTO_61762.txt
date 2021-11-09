@@ -1,0 +1,193 @@
+C:\Users\hp\DataSet\USDTieredSTO.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 13
+column: 0
+content: contractUSDTieredSTOisUSDTieredSTOStorage,STO{usingSafeMathforuint256;stringinternalconstantPOLY_ORACLE="PolyUsdOracle";stringinternalconstantETH_ORACLE="EthUsdOracle";eventSetAllowBeneficialInvestments(bool_allowed);eventSetNonAccreditedLimit(address_investor,uint256_limit);eventTokenPurchase(addressindexed_purchaser,addressindexed_beneficiary,uint256_tokens,uint256_usdAmount,uint256_tierPrice,uint256_tier);eventFundsReceived(addressindexed_purchaser,addressindexed_beneficiary,uint256_usdAmount,FundRaiseType_fundRaiseType,uint256_receivedValue,uint256_spentValue,uint256_rate);eventReserveTokenMint(addressindexed_owner,addressindexed_wallet,uint256_tokens,uint256_latestTier);eventSetAddresses(addressindexed_wallet,IERC20[]_usdTokens);eventSetLimits(uint256_nonAccreditedLimitUSD,uint256_minimumInvestmentUSD);eventSetTimes(uint256_startTime,uint256_endTime);eventSetTiers(uint256[]_ratePerTier,uint256[]_ratePerTierDiscountPoly,uint256[]_tokensPerTierTotal,uint256[]_tokensPerTierDiscountPoly);eventSetTreasuryWallet(address_oldWallet,address_newWallet);modifiervalidETH(){require(_getOracle(bytes32("ETH"),bytes32("USD"))!=address(0),"Invalid Oracle");require(fundRaiseTypes[uint8(FundRaiseType.ETH)],"ETH not allowed");_;}modifiervalidPOLY(){require(_getOracle(bytes32("POLY"),bytes32("USD"))!=address(0),"Invalid Oracle");require(fundRaiseTypes[uint8(FundRaiseType.POLY)],"POLY not allowed");_;}modifiervalidSC(address_usdToken){require(fundRaiseTypes[uint8(FundRaiseType.SC)]&&usdTokenEnabled[_usdToken],"USD not allowed");_;}constructor(address_securityToken,address_polyAddress)publicModule(_securityToken,_polyAddress){}functionconfigure(uint256_startTime,uint256_endTime,uint256[]memory_ratePerTier,uint256[]memory_ratePerTierDiscountPoly,uint256[]memory_tokensPerTierTotal,uint256[]memory_tokensPerTierDiscountPoly,uint256_nonAccreditedLimitUSD,uint256_minimumInvestmentUSD,FundRaiseType[]memory_fundRaiseTypes,address<missing ')'>payable_wallet,address_treasuryWallet,IERC20[]memory_usdTokens)publiconlyFactory{oracleKeys[bytes32("ETH")][bytes32("USD")]=ETH_ORACLE;oracleKeys[bytes32("POLY")][bytes32("USD")]=POLY_ORACLE;require(endTime==0,"Already configured");_modifyTimes(_startTime,_endTime);_modifyTiers(_ratePerTier,_ratePerTierDiscountPoly,_tokensPerTierTotal,_tokensPerTierDiscountPoly);_setFundRaiseType(_fundRaiseTypes);_modifyAddresses(_wallet,_treasuryWallet,_usdTokens);_modifyLimits(_nonAccreditedLimitUSD,_minimumInvestmentUSD);}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 14
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 96
+column: 4
+content: functionconfigure(uint256_startTime,uint256_endTime,uint256[]memory_ratePerTier,uint256[]memory_ratePerTierDiscountPoly,uint256[]memory_tokensPerTierTotal,uint256[]memory_tokensPerTierDiscountPoly,uint256_nonAccreditedLimitUSD,uint256_minimumInvestmentUSD,FundRaiseType[]memory_fundRaiseTypes,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 106
+column: 24
+content: _wallet,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 107
+column: 8
+content: address_treasuryWallet,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 108
+column: 8
+content: IERC20[]memory_usdTokens)public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 111
+column: 8
+content: onlyFactory{oracleKeys[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 113
+column: 19
+content: bytes32
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 113
+column: 26
+content: ("ETH")][
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 113
+column: 35
+content: bytes32
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 113
+column: 42
+content: ("USD")]=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 113
+column: 53
+content: ETH_ORACLE;oracleKeys[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 114
+column: 19
+content: bytes32
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 114
+column: 26
+content: ("POLY")][
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 114
+column: 36
+content: bytes32
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 114
+column: 43
+content: ("USD")]=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 114
+column: 54
+content: POLY_ORACLE;require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 115
+column: 15
+content: (endTime==0,"Already configured");_modifyTimes
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 116
+column: 20
+content: (_startTime,_endTime);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 117
+column: 8
+content: _modifyTiers(_ratePerTier,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 117
+column: 35
+content: _ratePerTierDiscountPoly,_tokensPerTierTotal,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 117
+column: 82
+content: _tokensPerTierDiscountPoly);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 119
+column: 8
+content: _setFundRaiseType(_fundRaiseTypes);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 120
+column: 8
+content: _modifyAddresses(_wallet,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 120
+column: 34
+content: _treasuryWallet,_usdTokens);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 121
+column: 8
+content: _modifyLimits(_nonAccreditedLimitUSD,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 121
+column: 46
+content: _minimumInvestmentUSD);
+
+SOLIDITY_VISIBILITY :25
+SOLIDITY_SAFEMATH :1
+SOLIDITY_LOCKED_MONEY :1

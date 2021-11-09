@@ -1,0 +1,395 @@
+F:\Blockchain\solidity_dataset_work\4k_dataset\92191.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 10
+column: 0
+content: contractAssetSignedAuctionisTheSandbox712{bytes32constantAUCTION_TYPEHASH=keccak256("Auction(address token,uint256 offerId,uint256 startingPrice,uint256 endingPrice,uint256 startedAt,uint256 duration,uint256 packs,bytes ids,bytes amounts)");eventOfferClaimed(addressindexed_seller,addressindexed_buyer,address_token,uint256_buyAmount,uint256[]_auctionData,uint256[]ids,uint256[]amounts,bytes_signature);eventOfferCancelled(addressindexed_seller,uint256_offerId);uint256constantMAX_UINT256=0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff;uint256constantAuctionData_OfferId=0;uint256constantAuctionData_StartingPrice=1;uint256constantAuctionData_EndingPrice=2;uint256constantAuctionData_StartedAt=3;uint256constantAuctionData_Duration=4;uint256constantAuctionData_Packs=5;mapping(address=>mapping(uint256=>uint256))claimed;Assetasset;Sandsand;constructor(Sand_sand,Asset_asset)public{asset=_asset;sand=_sand;init712();}functionclaimSellerOffer(addressbuyer,address<missing ')'>payableseller,addresstoken,uint256buyAmount,uint256[]calldataauctionData,uint256[]calldataids,uint256[]calldataamounts,bytescalldatasignature)externalpayable{require(msg.sender==buyer||msg.sender==address(sand),"invalid buyer");require(seller==recover(token,auctionData,ids,amounts,signature),"Signature mismatches");require(claimed[seller][auctionData[AuctionData_OfferId]]!=MAX_UINT256,"Auction cancelled");require(SafeMath.add(claimed[seller][auctionData[AuctionData_OfferId]],buyAmount)<=auctionData[AuctionData_Packs],"Buy amount exceeds sell amount");require(auctionData[AuctionData_StartedAt]<=block.timestamp,"Auction didn't start yet");require(auctionData[AuctionData_StartedAt]+auctionData[AuctionData_Duration]>block.timestamp,"Auction finished");_executeDeal(token,buyer,seller,auctionData,ids,amounts,buyAmount);emitOfferClaimed(seller,buyer,token,buyAmount,auctionData,ids,amounts,signature);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 50
+column: 4
+content: functionclaimSellerOffer(addressbuyer,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 11
+column: 4
+content: bytes32constantAUCTION_TYPEHASH=keccak256("Auction(address token,uint256 offerId,uint256 startingPrice,uint256 endingPrice,uint256 startedAt,uint256 duration,uint256 packs,bytes ids,bytes amounts)");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 29
+column: 4
+content: uint256constantMAX_UINT256=0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 33
+column: 4
+content: uint256constantAuctionData_OfferId=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 34
+column: 4
+content: uint256constantAuctionData_StartingPrice=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 4
+content: uint256constantAuctionData_EndingPrice=2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 36
+column: 4
+content: uint256constantAuctionData_StartedAt=3;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 4
+content: uint256constantAuctionData_Duration=4;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 4
+content: uint256constantAuctionData_Packs=5;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 40
+column: 4
+content: mapping(address=>mapping(uint256=>uint256))claimed;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 42
+column: 4
+content: Assetasset;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 43
+column: 4
+content: Sandsand;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 24
+content: seller,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 53
+column: 8
+content: addresstoken,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 54
+column: 8
+content: uint256buyAmount,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 55
+column: 8
+content: uint256[]calldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 55
+column: 27
+content: auctionData,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 56
+column: 8
+content: uint256[]calldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 56
+column: 27
+content: ids,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 57
+column: 8
+content: uint256[]calldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 57
+column: 27
+content: amounts,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 58
+column: 8
+content: bytescalldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 60
+column: 15
+content: (msg.sender==buyer||
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 61
+column: 35
+content: msg.sender==
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 61
+column: 49
+content: address(sand),"invalid buyer");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 66
+column: 8
+content: require(seller==
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 67
+column: 22
+content: recover(token,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 67
+column: 37
+content: auctionData,ids,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 67
+column: 55
+content: amounts,signature),"Signature mismatches");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 71
+column: 8
+content: require(claimed[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 72
+column: 20
+content: seller][
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 72
+column: 28
+content: auctionData[AuctionData_OfferId]]!=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 72
+column: 65
+content: MAX_UINT256,"Auction cancelled");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 75
+column: 8
+content: require(SafeMath.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 76
+column: 21
+content: add(claimed[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 77
+column: 28
+content: seller][
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 77
+column: 36
+content: auctionData[AuctionData_OfferId]],
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 78
+column: 20
+content: buyAmount)<=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 80
+column: 16
+content: auctionData[AuctionData_Packs],"Buy amount exceeds sell amount");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 84
+column: 8
+content: require(auctionData[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 85
+column: 24
+content: AuctionData_StartedAt]<=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 85
+column: 50
+content: block.timestamp,"Auction didn't start yet");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 88
+column: 8
+content: require(auctionData[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 24
+content: AuctionData_StartedAt]+
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 90
+column: 20
+content: auctionData[AuctionData_Duration]>block.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 91
+column: 22
+content: timestamp,"Auction finished");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 95
+column: 8
+content: _executeDeal(token,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 97
+column: 12
+content: buyer,seller,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 99
+column: 12
+content: auctionData,ids,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 101
+column: 12
+content: amounts,buyAmount);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 104
+column: 8
+content: emitOfferClaimed
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 104
+column: 25
+content: (seller,buyer,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 107
+column: 12
+content: token,buyAmount,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 109
+column: 12
+content: auctionData,ids,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 111
+column: 12
+content: amounts,signature);
+
+SOLIDITY_VISIBILITY :55
+SOLIDITY_LOCKED_MONEY :1

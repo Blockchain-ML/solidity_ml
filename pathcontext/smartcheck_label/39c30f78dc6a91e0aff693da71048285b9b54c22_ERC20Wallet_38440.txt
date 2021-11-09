@@ -1,0 +1,91 @@
+C:\Users\hp\DataSet\contracts\ropsten\39\39c30f78dc6a91e0aff693da71048285b9b54c22_ERC20Wallet.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: lr991l
+severity: 1
+line: 49
+column: 16
+content: call.gas(100000).value(amount)()
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 12
+column: 0
+content: contractStore{eventSent(addressindexed_from,addressindexed_to,addressindexed_token,uint_value);eventPurchase(addressindexed_token,addressindexed_seller,addressindexed_buyer,uint_amountEther,uint_amountToken);eventRequestAdded(addressindexed_token,addressindexed_seller,uint_rates);eventPaid(addressindexed_buyer,addressindexed_seller,uint_amount,uint_fee);functionbuy(address_token,address_seller)publicpayablereturns(boolSuccess);functionsell(address_token,uint_rate)publicreturns(boolSuccess);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 40
+column: 4
+content: functionsetIntermediary(addressnewIntermediary)publiconlyOwnerreturns(boolSuccess){require(newIntermediary!=address(0)&&address(this)!=newIntermediary);intermediary=newIntermediary;returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 55
+column: 8
+content: if(!ERC20(token).transfer(to,amount))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 61
+column: 8
+content: if(!ERC20(token).approve(spender,amount))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 66
+column: 8
+content: if(!to.call.gas(gasLimit).value(amount)(data))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 72
+column: 8
+content: if(!approveERC20(token,intermediary,amount))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 73
+column: 8
+content: if(!Store(intermediary).sell(token,rate))revert();
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 49
+column: 16
+content: call.gas(100000).value(amount)()
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 45
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 64
+column: 62
+content: bytesdata
+
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :5
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_CALL_WITHOUT_DATA :1

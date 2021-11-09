@@ -1,0 +1,134 @@
+F:\Blockchain\dataset_new_byID\79043.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 85
+column: 39
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 134
+column: 100
+content: 0x0
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 35
+column: 4
+content: functiongetDelegatedFromAddressesForVoter(addressvoterAddress)publicconstantreturns(address[]){returndelegatedVoters[voterAddress].fromAddresses;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 39
+column: 4
+content: functiongetDelegatedVoterToAddress(addressdelegatedVoterAddress)publicconstantreturns(address){returndelegatedVoters[delegatedVoterAddress].toAddress;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 44
+column: 4
+content: functionshouldIgnoreParent(addressdelegatedVoterAddress)publicconstantreturns(bool){returndelegatedVoters[delegatedVoterAddress].ignoreParentRegistry;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 73
+column: 4
+content: functioncreatesCircularDelegation(addressdelegateToAddress)publicconstantreturns(bool){DelegatedVoterstoragedelegateToVoter=delegatedVoters[delegateToAddress];while(delegateToVoter.toAddress!=0x0){if(delegateToVoter.toAddress==msg.sender)returntrue;delegateToVoter=delegatedVoters[delegateToVoter.toAddress];}returnfalse;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 104
+column: 4
+content: functionvoteWeightOfAddress(addressvoterAddress,addressvoteTokenAddress)publicconstantreturns(uint){returnvoteWeightOfAddressWithChildRegistry(voterAddress,voteTokenAddress,0);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 109
+column: 4
+content: functionvoteWeightOfAddressWithChildRegistry(addressvoterAddress,addressvoteTokenAddress,addresschildRegistryAddress)publicconstantreturns(uint){uintvoteWeight;MiniMeTokenvoteToken=MiniMeToken(voteTokenAddress);voteWeight+=voteWeightOfDelegatedFrom(voterAddress,voteToken,childRegistryAddress);if(isRootRegistry()){voteWeight+=voteToken.balanceOf(voterAddress);}else{voteWeight+=parentRegistry.voteWeightOfAddressWithChildRegistry(voterAddress,voteTokenAddress,this);}returnvoteWeight;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 124
+column: 4
+content: functionvoteWeightOfDelegatedFrom(addressvoterAddress,MiniMeTokenvoteToken,addresschildRegistryAddress)privateconstantreturns(uint){DelegatedVoterstoragedelegatedVoter=delegatedVoters[voterAddress];DelegationRegistrychildDelegationRegistry=DelegationRegistry(childRegistryAddress);uintvoteWeight;addressdelegatedFromAddress;if(childRegistryAddress==0x0){for(uinti=0;i<delegatedVoter.fromAddresses.length;i++){delegatedFromAddress=delegatedVoter.fromAddresses[i];voteWeight+=voteWeightOfAddressWithChildRegistry(delegatedFromAddress,voteToken,0x0);}}elseif(!childDelegationRegistry.shouldIgnoreParent(voterAddress)){for(uintj=0;j<delegatedVoter.fromAddresses.length;j++){delegatedFromAddress=delegatedVoter.fromAddresses[j];if(!childDelegationRegistry.shouldIgnoreParent(delegatedFromAddress)){voteWeight+=voteWeightOfAddressWithChildRegistry(delegatedFromAddress,voteToken,childRegistryAddress);}}}returnvoteWeight;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 132
+column: 12
+content: for(uinti=0;i<delegatedVoter.fromAddresses.length;i++){delegatedFromAddress=delegatedVoter.fromAddresses[i];voteWeight+=voteWeightOfAddressWithChildRegistry(delegatedFromAddress,voteToken,0x0);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 138
+column: 12
+content: for(uintj=0;j<delegatedVoter.fromAddresses.length;j++){delegatedFromAddress=delegatedVoter.fromAddresses[j];if(!childDelegationRegistry.shouldIgnoreParent(delegatedFromAddress)){voteWeight+=voteWeightOfAddressWithChildRegistry(delegatedFromAddress,voteToken,childRegistryAddress);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 132
+column: 12
+content: for(uinti=0;i<delegatedVoter.fromAddresses.length;i++){delegatedFromAddress=delegatedVoter.fromAddresses[i];voteWeight+=voteWeightOfAddressWithChildRegistry(delegatedFromAddress,voteToken,0x0);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 138
+column: 12
+content: for(uintj=0;j<delegatedVoter.fromAddresses.length;j++){delegatedFromAddress=delegatedVoter.fromAddresses[j];if(!childDelegationRegistry.shouldIgnoreParent(delegatedFromAddress)){voteWeight+=voteWeightOfAddressWithChildRegistry(delegatedFromAddress,voteToken,childRegistryAddress);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 75
+column: 15
+content: delegateToVoter.toAddress!=0x0
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 35
+column: 94
+content: address[]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 31
+column: 4
+content: functionDelegationRegistry(addressparentDelegationRegistryAddress){parentRegistry=DelegationRegistry(parentDelegationRegistryAddress);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 4
+content: DelegationRegistryparentRegistry;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :7
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3

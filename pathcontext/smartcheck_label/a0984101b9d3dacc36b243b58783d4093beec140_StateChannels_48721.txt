@@ -1,0 +1,95 @@
+C:\Users\hp\DataSet\contracts\ropsten\a0\a0984101b9d3dacc36b243b58783d4093beec140_StateChannels.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 21
+column: 8
+content: assembly{r:=mload(add(sig,32))s:=mload(add(sig,64))v:=mload(add(sig,65))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 8
+column: 4
+content: functionecrecovery(bytes32hash,bytessig)returns(address){bytes32r;bytes32s;uint8v;if(sig.length!=65){return0;}assembly{r:=mload(add(sig,32))s:=mload(add(sig,64))v:=mload(add(sig,65))}if(v<27)v+=27;returnecrecover(hash,v,r,s);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 4
+content: functionecverify(bytes32hash,bytessig,addresssigner)returns(boolb){b=ecrecovery(hash,sig)==signer;LogBool(b);returnb;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 59
+column: 4
+content: functiongetChannel(bytes32channelId)returns(addressaddress0,addressaddress1,uint8phase,uintchallengePeriod,uintclosingBlock,bytesstate,uintsequenceNumber){address0=channels[channelId].address0;address1=channels[channelId].address1;phase=channels[channelId].phase;challengePeriod=channels[channelId].challengePeriod;closingBlock=channels[channelId].closingBlock;state=channels[channelId].state;sequenceNumber=channels[channelId].sequenceNumber;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 83
+column: 4
+content: functionnewChannel(bytes32channelId,addressaddress0,addressaddress1,bytesstate,uint256challengePeriod,bytessignature0,bytessignature1){if(channels[channelId].channelId==channelId){Error("channel with that channelId already exists");return;}<missing ';'>bytes32<missing ';'>fingerprint=sha3(&39;newChannel&39;,channelId,address0,address1,state,challengePeriod);if(!ecverify(fingerprint,signature0,address0)){Error("signature0 invalid");return;}if(!ecverify(fingerprint,signature1,address1)){Error("signature1 invalid");return;}Channelmemorychannel=Channel(channelId,address0,address1,PHASE_OPEN,challengePeriod,0,state,0);channels[channelId]=channel;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 130
+column: 4
+content: functionupdateState(bytes32channelId,uint256sequenceNumber,bytesstate,bytessignature0,bytessignature1){tryClose(channelId);if(channels[channelId].phase==PHASE_CLOSED){Error("channel closed");return;}<missing ';'>bytes32<missing ';'>fingerprint=sha3(&39;updateState&39;,channelId,sequenceNumber,state);if(!ecverify(fingerprint,signature0,channels[channelId].address0)){Error("signature0 invalid");return;}if(!ecverify(fingerprint,signature1,channels[channelId].address1)){Error("signature1 invalid");return;}if(sequenceNumber<=channels[channelId].sequenceNumber){Error("sequence number too low");return;}channels[channelId].state=state;channels[channelId].sequenceNumber=sequenceNumber;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 170
+column: 4
+content: functionstartChallengePeriod(bytes32channelId,bytessignature,addresssigner){if(channels[channelId].phase!=PHASE_OPEN){Error("channel not open");return;}<missing ';'>bytes32<missing ';'>fingerprint=sha3(&39;startChallengePeriod&39;,channelId);if(signer==channels[channelId].address0){if(!ecverify(fingerprint,signature,channels[channelId].address0)){Error("signature invalid");return;}}elseif(signer==channels[channelId].address1){if(!ecverify(fingerprint,signature,channels[channelId].address1)){Error("signature invalid");return;}}else{Error("signer invalid");return;}channels[channelId].closingBlock=block.number+channels[channelId].challengePeriod;channels[channelId].phase=PHASE_CHALLENGE;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 204
+column: 4
+content: functiontryClose(bytes32channelId){if(channels[channelId].phase==PHASE_CHALLENGE&&block.number>channels[channelId].closingBlock){channels[channelId].phase=PHASE_CLOSED;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 42
+column: 4
+content: uint8constantPHASE_OPEN=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 43
+column: 4
+content: uint8constantPHASE_CHALLENGE=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 4
+content: uint8constantPHASE_CLOSED=2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 4
+content: mapping(bytes32=>Channel)channels;
+
+SOLIDITY_VISIBILITY :11
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1

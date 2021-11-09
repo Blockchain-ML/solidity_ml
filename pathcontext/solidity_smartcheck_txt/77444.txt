@@ -1,0 +1,41 @@
+F:\Blockchain\dataset_new_byID\77444.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 17
+column: 4
+content: functionsetPool(address_pool)publiconlyOwner{require(_pool!=ZERO_ADDRESS,"Module: pool address can't be zero");pool=_pool;emitPoolAddressChanged(_pool);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 23
+column: 4
+content: functiongetModuleAddress(stringmemorymodule)publicviewreturns(address){require(pool!=ZERO_ADDRESS,"Module: no pool");(boolsuccess,bytesmemoryresult)=pool.staticcall(abi.encodeWithSignature("get(string)",module));if(!success)assembly{revert(add(result,32),result)}<missing ';'>address<missing ';'>moduleAddress=abi.decode(result,<missing ')'>(address));require(moduleAddress!=ZERO_ADDRESS,"Module: requested module not found");returnmoduleAddress;}
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 25
+column: 51
+content: staticcall(abi.encodeWithSignature("get(string)",module))
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 28
+column: 22
+content: assembly{revert(add(result,32),result)}
+
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

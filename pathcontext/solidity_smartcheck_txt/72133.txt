@@ -1,0 +1,75 @@
+F:\Blockchain\dataset_new_byID\72133.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 146
+column: 8
+content: for(uint256i=0;i!=orders.length;i++){if(orders[i].makerAssetAmount==0||orders[i].takerAssetAmount==0){continue;}uint256remainingTakerAssetFillAmount=wethSellAmount.safeSub(totalWethSpentAmount).safeSub(_isV2Order(orders[i])?0:protocolFee);bytes4makerAssetProxyId=orders[i].makerAssetData.readBytes4(0);addresstokenAddress;uint256balanceBefore;if(makerAssetProxyId==erc20BridgeProxyId){tokenAddress=orders[i].makerAssetData.readAddress(16);balanceBefore=IERC20Token(tokenAddress).balanceOf(address(this));}(uint256wethSpentAmount,uint256makerAssetAcquiredAmount)=_marketSellSingleOrder(orders[i],signatures[i],remainingTakerAssetFillAmount);if(makerAssetProxyId==erc20BridgeProxyId){uint256balanceAfter=IERC20Token(tokenAddress).balanceOf(address(this));makerAssetAcquiredAmount=LibSafeMath.max256(balanceAfter.safeSub(balanceBefore),makerAssetAcquiredAmount);}orders[i].makerAssetData.transferOut(makerAssetAcquiredAmount);totalWethSpentAmount=totalWethSpentAmount.safeAdd(wethSpentAmount);totalMakerAssetAcquiredAmount=totalMakerAssetAcquiredAmount.safeAdd(makerAssetAcquiredAmount);if(totalWethSpentAmount>=wethSellAmount){break;}}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 95
+column: 15
+content: if(_areUnderlyingAssetsEqual(order.takerFeeAssetData,order.takerAssetData)){uint256takerAssetFillAmount=LibMath.getPartialAmountCeil(order.takerAssetAmount,order.takerAssetAmount.safeAdd(order.takerFee),remainingTakerAssetFillAmount);LibFillResults.FillResultsmemorysingleFillResults=_fillOrderNoThrow(order,takerAssetFillAmount,signature);wethSpentAmount=singleFillResults.takerAssetFilledAmount.safeAdd(singleFillResults.takerFeePaid).safeAdd(singleFillResults.protocolFeePaid);makerAssetAcquiredAmount=singleFillResults.makerAssetFilledAmount;}else{revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 243
+column: 15
+content: if(_areUnderlyingAssetsEqual(order.takerFeeAssetData,order.makerAssetData)){uint256remainingTakerAssetFillAmount=LibMath.getPartialAmountCeil(order.takerAssetAmount,order.makerAssetAmount.safeSub(order.takerFee),remainingMakerAssetFillAmount);LibFillResults.FillResultsmemorysingleFillResults=_fillOrderNoThrow(order,remainingTakerAssetFillAmount,signature);wethSpentAmount=singleFillResults.takerAssetFilledAmount.safeAdd(singleFillResults.protocolFeePaid);makerAssetAcquiredAmount=singleFillResults.makerAssetFilledAmount.safeSub(singleFillResults.takerFeePaid);}else{revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 345
+column: 8
+content: if(totalMakerAssetAcquiredAmount<makerAssetBuyAmount){revert();}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 70
+column: 16
+content: (uint256wethSpentAmount,uint256makerAssetAcquiredAmount)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 138
+column: 16
+content: (uint256totalWethSpentAmount,uint256totalMakerAssetAcquiredAmount)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 211
+column: 16
+content: (uint256wethSpentAmount,uint256makerAssetAcquiredAmount)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 288
+column: 16
+content: (uint256totalWethSpentAmount,uint256totalMakerAssetAcquiredAmount)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 391
+column: 62
+content: call(fillOrderCalldata)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 425
+column: 62
+content: call(fillOrderCalldata)
+
+SOLIDITY_REVERT_REQUIRE :3
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UNCHECKED_CALL :2
+SOLIDITY_SHOULD_RETURN_STRUCT :4

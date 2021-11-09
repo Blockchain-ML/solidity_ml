@@ -1,0 +1,17 @@
+C:\Users\hp\DataSet\contracts\ropsten\32\328c7f2c3c4c966ffafd06d503260e175ad3eb84_CertifiedDocuments.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractCertifiedDocuments{addresspublicowner;mapping(bytes32=>subtitles)publicproject;mapping(bytes32=>bytes32[])publicISANSubArray;mapping(bytes32=>uint256)publicArrayLength;bytes32[]publicISANFilmArray;constructor()public{owner=msg.sender;}modifierrestricted(){require(msg.sender==owner);_;}functionsetOwner(address_owner)restrictedpublic{owner=_owner;}structsubtitles{bytes32ISAN;stringfilmName;stringcontractType;stringcontractHash;stringsigningDate;uint256stripeTxNumber;}functioncreateSubtitle(bytes32ISANfilm_,bytes32ISANsubtitles_,stringmemoryfilmName_,stringmemorycontractType_,stringmemorycontractHash_,stringmemorysigningDate_,uint256stripeTxNumber_)payablepublic{require(project[ISANsubtitles_].ISAN==0);ISANFilmArray.push(ISANfilm_);ISANSubArray[ISANfilm_].push(ISANsubtitles_);ArrayLength[ISANfilm_]=ISANSubArray[ISANfilm_].length;project[ISANsubtitles_].ISAN=ISANsubtitles_;project[ISANsubtitles_].filmName=filmName_;project[ISANsubtitles_].contractType=contractType_;project[ISANsubtitles_].contractHash=contractHash_;project[ISANsubtitles_].signingDate=signingDate_;project[ISANsubtitles_].stripeTxNumber=stripeTxNumber_;emitSubtitleCreated(ISANsubtitles_);}functiongetSubtitleArray(bytes32ISANsubtitles_)viewpublicreturns(bytes32,stringmemory,stringmemory,stringmemory,stringmemory,uint256){return(project[ISANsubtitles_].ISAN,project[ISANsubtitles_].filmName,project[ISANsubtitles_].contractType,project[ISANsubtitles_].contractHash,project[ISANsubtitles_].signingDate,project[ISANsubtitles_].stripeTxNumber);}functiongetArrayLength(bytes32ISANfilm_)viewpublicreturns(uint){returnISANSubArray[ISANfilm_].length;}functiongetISANsubtitles(bytes32ISANfilm_)viewpublicreturns(bytes32[]memory){returnISANSubArray[ISANfilm_];}functiongetFilmName(bytes32ISANsubtitles)viewpublicreturns(stringmemory){returnproject[ISANsubtitles].filmName;}functiongetContractType(bytes32ISANsubtitles_)viewpublicreturns(stringmemory){returnproject[ISANsubtitles_].contractType;}functiongetContractHash(bytes32ISANsubtitles_)viewpublicreturns(stringmemory){returnproject[ISANsubtitles_].contractHash;}functiongetSigningDate(bytes32ISANsubtitles_)viewpublicreturns(stringmemory){returnproject[ISANsubtitles_].signingDate;}functiongetStripeTxNumber(bytes32ISANsubtitles_)viewpublicreturns(uint256){returnproject[ISANsubtitles_].stripeTxNumber;}eventSubtitleCreated(bytes32ISAN);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

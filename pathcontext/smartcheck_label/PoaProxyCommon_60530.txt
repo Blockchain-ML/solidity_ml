@@ -1,0 +1,33 @@
+C:\Users\hp\DataSet\PoaProxyCommon.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 35
+column: 2
+content: functiongetContractAddress(string_name)publicviewreturns(address_contractAddress){bytes4_signature=bytes4(keccak256("getContractAddress32(bytes32)"));bytes32_name32=keccak256(abi.encodePacked(_name));assembly{let_registry:=sload(registry_slot)let_pointer:=mload(0x40)mstore(_pointer,_signature)mstore(add(_pointer,0x04),_name32)letresult:=staticcall(gas,_registry,_pointer,0x24,_pointer,0x20)ifiszero(result){revert(0,0)}_contractAddress:=mload(_pointer)mstore(0x40,add(_pointer,0x24))}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 35
+column: 2
+content: functiongetContractAddress(string_name)publicviewreturns(address_contractAddress){bytes4_signature=bytes4(keccak256("getContractAddress32(bytes32)"));bytes32_name32=keccak256(abi.encodePacked(_name));assembly{let_registry:=sload(registry_slot)let_pointer:=mload(0x40)mstore(_pointer,_signature)mstore(add(_pointer,0x04),_name32)letresult:=staticcall(gas,_registry,_pointer,0x24,_pointer,0x20)ifiszero(result){revert(0,0)}_contractAddress:=mload(_pointer)mstore(0x40,add(_pointer,0x24))}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 35
+column: 30
+content: string_name
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 43
+column: 4
+content: assembly{let_registry:=sload(registry_slot)let_pointer:=mload(0x40)mstore(_pointer,_signature)mstore(add(_pointer,0x04),_name32)letresult:=staticcall(gas,_registry,_pointer,0x24,_pointer,0x20)ifiszero(result){revert(0,0)}_contractAddress:=mload(_pointer)mstore(0x40,add(_pointer,0x24))}
+
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

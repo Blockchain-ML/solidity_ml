@@ -1,0 +1,86 @@
+C:\Users\hp\DataSet\contracts\ropsten\b2\b215428f8bc3782220ef947e5324b194fb603112_Trade.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 78
+column: 27
+content: 0xA0871cEaC72f042d69b996DcefAf1b7b23535fA1
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 159
+column: 4
+content: functiongetBalancesPayer(uint256_dealId)publicconstantreturns(uint256){uint256balance;balance=balances[deals[_dealId].payer];returnbalance;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 165
+column: 4
+content: functiongetBalancesSeller(uint256_dealId)publicconstantreturns(uint256){uint256balance;balance=balances[deals[_dealId].seller];returnbalance;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 171
+column: 4
+content: functiongetBalancesAgent(uint256_dealId)publicconstantreturns(uint256){uint256balance;balance=balances[deals[_dealId].agent];returnbalance;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 188
+column: 5
+content: functiongetState(uint256_dealId)publicconstantreturns(DealState){returndeals[_dealId].state;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 76
+column: 0
+content: contractTradeisOwnable{uint256publicpersent=100;addresspublicagent=0xA0871cEaC72f042d69b996DcefAf1b7b23535fA1;uint256publicdealId=0;uint256privatecommission=1;uint256publicendtime;usingSafeMathforuint256;enumDealState{Empty,Created,InProgress,InTrial,Finished}enumAnswer{NotDefined,Yes,No}mapping(address=>uint)balances;eventCreateNew(uint256indexedid,addressindexed_payer,addressindexed_seller,address_agent,uint256_value,uint256_commision,uint256_persent,uint256_endtime);eventConfirmPayer(uint256indexed_dealId,uint256_persent);eventConfirmSeller(uint256indexed_dealId,uint256_persent);eventPay(uint256indexed_dealId);eventFinishDeal(uint256indexed_dealId);eventSetRating(uint256indexed_dealId);eventIsPay(addressindexed_from,uint_value);eventErrorAccess(uint256indexed_dealId);eventError(uint256indexed_errorNumber);structDeal{uint256dealId;addresspayer;addressseller;addressagent;uint256value;uint256commission;uint256persent;uint256endtime;boolpayerAns;boolsellerAns;DealStatestate;}modifieronlyAgent(uint256_dealId){require(msg.sender==deals[_dealId].agent);_;}mapping(uint256=>Deal)publicdeals;functioncreateNew(address_payer)publicpayablereturns(bool){address_seller;uint256_value;require(msg.value>0);endtime=now+1days;dealId==dealId++;require(deals[dealId].state==DealState.Empty);_seller=msg.sender;_value=msg.value;deals[dealId]=Deal(dealId,_payer,_seller,agent,_value,commission,persent,endtime,false,false,DealState.Created);emitCreateNew(dealId,_payer,_seller,agent,_value,commission,persent,endtime);balances[deals[dealId].payer]=balances[msg.sender].add(msg.value);emitPay(dealId);deals[dealId].state=DealState.InProgress;emitError(0);returntrue;}functiongetBalancesPayer(uint256_dealId)publicconstantreturns(uint256){uint256balance;balance=balances[deals[_dealId].payer];returnbalance;}functiongetBalancesSeller(uint256_dealId)publicconstantreturns(uint256){uint256balance;balance=balances[deals[_dealId].seller];returnbalance;}functiongetBalancesAgent(uint256_dealId)publicconstantreturns(uint256){uint256balance;balance=balances[deals[_dealId].agent];returnbalance;}functiongetState(uint256_dealId)publicconstantreturns(DealState){returndeals[_dealId].state;}functionconfirm(uint256_dealId,uint256_persent)public{if(msg.sender==deals[_dealId].payer){if(deals[_dealId].sellerAns==true&&deals[_dealId].persent==_persent){deals[_dealId].payerAns=true;emitConfirmPayer(_dealId,_persent);finishDeal(_dealId,_persent);emitError(1);}else{deals[_dealId].persent=_persent;deals[_dealId].payerAns=true;emitConfirmPayer(_dealId,_persent);emitError(2);}}elseif(msg.sender==deals[_dealId].seller){if(deals[_dealId].payerAns==true&&deals[_dealId].persent==_persent){deals[_dealId].sellerAns=true;emitConfirmSeller(_dealId,_persent);finishDeal(_dealId,_persent);emitError(3);}else{deals[_dealId].persent=_persent;deals[_dealId].sellerAns=true;emitConfirmSeller(_dealId,_persent);emitError(4);}}else{ErrorAccess;emitError(5);}}functionfinishDeal(uint256_dealId,uint256_persent)public{if(deals[_dealId].payerAns&&deals[_dealId].sellerAns){uint256ostatok=0;uintpersent2=0;persent2=100-_persent;deals[_dealId].commission=balances[deals[_dealId].payer].mul(1).div(100);balances[deals[_dealId].agent]=balances[deals[_dealId].agent].add(deals[_dealId].commission);balances[deals[_dealId].payer]=balances[deals[_dealId].payer].sub(deals[_dealId].commission);ostatok=deals[_dealId].value-deals[_dealId].commission;balances[deals[_dealId].seller]=ostatok.mul(_persent).div(100);balances[deals[_dealId].payer]=ostatok.mul(persent2).div(100);deals[_dealId].state=DealState.Finished;emitFinishDeal(_dealId);emitError(6);}else{require(now>=deals[_dealId].endtime);deals[_dealId].state=DealState.InTrial;emitError(7);}}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 68
+column: 4
+content: functionsetAgent(addressnewAgent)publiconlyOwner{if(newAgent!=address(0)){agent=newAgent;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 80
+column: 12
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 83
+column: 1
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 88
+column: 1
+content: mapping(address=>uint)balances;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_ADDRESS_HARDCODED :1

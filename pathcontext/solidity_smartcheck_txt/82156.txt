@@ -1,0 +1,83 @@
+F:\Blockchain\dataset_new_byID\82156.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 174
+column: 8
+content: approvedStakingContracts.length--
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 148
+column: 8
+content: for(uinti=0;i<approvedStakingContracts.length;++i){require(approvedStakingContracts[i]!=_newStakingContract,"StakingContract::addMigrationDestination - can't add a duplicate staking contract");}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 168
+column: 8
+content: while(i<approvedStakingContracts.length-1){approvedStakingContracts[i]=approvedStakingContracts[i+1];i++;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 148
+column: 8
+content: for(uinti=0;i<approvedStakingContracts.length;++i){require(approvedStakingContracts[i]!=_newStakingContract,"StakingContract::addMigrationDestination - can't add a duplicate staking contract");}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 313
+column: 8
+content: for(uinti=0;i<stakeOwnersLength;++i){addressstakeOwner=_stakeOwners[i];uint256amount=_amounts[i];require(stakeOwner!=address(0),"StakingContract::distributeRewards - stake owner can't be 0");require(amount>0,"StakingContract::distributeRewards - amount must be greater than 0");StakestoragestakeData=stakes[stakeOwner];stakeData.amount=stakeData.amount.add(amount);expectedTotalAmount=expectedTotalAmount.add(amount);emitStaked(stakeOwner,amount,stakeData.amount);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 381
+column: 8
+content: for(uinti=0;i<stakeOwnersLength;++i){addressstakeOwner=_stakeOwners[i];(uint256withdrawnAmount,uint256totalStakedAmount)=withdraw(stakeOwner);emitWithdrew(stakeOwner,withdrawnAmount,totalStakedAmount);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 460
+column: 8
+content: for(index=0;index<length;++index){if(approvedStakingContracts[index]==_stakingContract){exists=true;return;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 168
+column: 15
+content: i<approvedStakingContracts.length-1
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 9
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 423
+column: 59
+content: (uint256withdrawnAmount,uint256stakedAmount)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 458
+column: 4
+content: (uintindex,boolexists)
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :5
+SOLIDITY_SHOULD_RETURN_STRUCT :2

@@ -1,0 +1,41 @@
+F:\Blockchain\dataset_new_byID\81340.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 14
+column: 0
+content: contractOptionPairisReentrancyGuard{usingSafeMathforuint256;usingSafeERC20forTokenOption;usingSafeERC20forERC20;usingSafeERC20forTokenAntiOption;addresspublicunderlying;addresspublicbasisToken;uintpublicstrike;uintpublicunderlyingQty;uintpublicexpireTime;addresspublicfeeCalculator;addresspublictokenOption;addresspublictokenAntiOption;addresspublicfeeTaker;modifieronlyBeforeExpiration(){require(getCurrentTime()<expireTime);_;}modifieronlyAfterExpiration(){require(getCurrentTime()>=expireTime);_;}functionOptionPair(address_underlying,address_basisToken,uint_strike,uint_underlyingQty,uint_expireTime,address_feeCalculator,address_feeTaker)ReentrancyGuard()public{underlying=_underlying;basisToken=_basisToken;strike=_strike;underlyingQty=_underlyingQty;expireTime=_expireTime;feeCalculator=_feeCalculator;tokenOption=address(newTokenOption());tokenAntiOption=address(newTokenAntiOption());feeTaker=_feeTaker;}function()publicpayable{revert();}functionwriteOptions(uint256_qty)externalnonReentrantreturns(bool){return_writeOptionFor(_qty,msg.sender,msg.sender);}functionwriteOptionsFor(uint256_qty,address_writer,bool_feeFromWriter)externalnonReentrantreturns(bool){return_writeOptionFor(_qty,_writer,msg.sender,_feeFromWriter);}function_writeOptionFor(uint256_qty,address_writer,address_sponsor)privatereturns(bool){return_writeOptionFor(_qty,_writer,_sponsor,true);}function_writeOptionFor(uint256_qty,address_writer,address_sponsor,bool_feeFromWriter)onlyBeforeExpirationprivatereturns(bool){require(_qty>0);uintcalcUnderlyngQty=_qty.mul(underlyingQty);ERC20underlyingErc20=ERC20(underlying);require(underlyingErc20.allowance(_sponsor,this)>=calcUnderlyngQty);require(underlyingErc20.balanceOf(_sponsor)>=calcUnderlyngQty);underlyingErc20.safeTransferFrom(_sponsor,this,calcUnderlyngQty);TokenOption(tokenOption).mint(_writer,_qty);TokenAntiOption(tokenAntiOption).mint(_writer,_qty);if(_feeFromWriter){_takeFee(_qty,_writer);}else{_takeFee(_qty,_sponsor);}returntrue;}functionannihilate(uint_qty)externalnonReentrantreturns(bool){return_annihilateFor(msg.sender,_qty);}functionannihilateAllAvailable()externalnonReentrantreturns(bool){uintbalanceOptions=ERC20(tokenOption).balanceOf(msg.sender);uintbalanceAntiOptions=ERC20(tokenAntiOption).balanceOf(msg.sender);if(balanceOptions<balanceAntiOptions){return_annihilateFor(msg.sender,balanceOptions);}return_annihilateFor(msg.sender,balanceAntiOptions);}function_annihilateFor(address_holder,uint_qty)privatereturns(bool){TokenOptiontokenOptionErc20=TokenOption(tokenOption);TokenAntiOptiontokenAntiOptionErc20=TokenAntiOption(tokenAntiOption);require(tokenOptionErc20.balanceOf(_holder)>=_qty);require(tokenAntiOptionErc20.balanceOf(_holder)>=_qty);_withdrawFor(_holder,_qty);tokenOptionErc20.safeTransferFrom(_holder,this,_qty);tokenOptionErc20.burn(_qty);returntrue;}functiongetTotalOpenInterest()publicviewreturns(uintres){returnERC20(tokenOption).totalSupply();}functionexecute(uint_qty)externalnonReentrantreturns(bool){return_executeFor(msg.sender,msg.sender,_qty);}functionexecuteFor(address_buyer,uint_qty)externalnonReentrantreturns(bool){return_executeFor(_buyer,msg.sender,_qty);}function_executeFor(address_buyer,address_sponsorBasisTokens,uint_qty)privateonlyBeforeExpiration()returns(bool){require(_prepareExerciseSellerFor(_buyer,_qty));ERC20(underlying).safeTransfer(_buyer,_qty.mul(underlyingQty));uintbaseAmount=_qty.mul(strike);ERC20(basisToken).safeTransferFrom(_sponsorBasisTokens,this,baseAmount);returntrue;}function_prepareExerciseSellerFor(address_buyer,uint_qty)privateonlyBeforeExpiration()returns(bool){TokenOptiontokenOptionObj=TokenOption(tokenOption);require(tokenOptionObj.balanceOf(_buyer)>=_qty);if(_buyer!=address(this)){tokenOptionObj.safeTransferFrom(_buyer,this,_qty);}tokenOptionObj.burn(_qty);returntrue;}functionwithdrawAll()externalnonReentrantonlyAfterExpirationreturns(bool){return_withdrawFor(msg.sender,TokenAntiOption(tokenAntiOption).balanceOf(msg.sender));}functionwithdraw(uint_qty)externalnonReentrantonlyAfterExpirationreturns(bool){return_withdrawFor(msg.sender,_qty);}function_withdrawFor(address_writer,uint_qty)privatereturns(bool){TokenAntiOptiontokenAntiOptionObj=TokenAntiOption(tokenAntiOption);require(tokenAntiOptionObj.balanceOf(_writer)>=_qty);require(ERC20(underlying).balanceOf(this).mul(_qty)>=0);require(ERC20(basisToken).balanceOf(this).mul(_qty)>=0);tokenAntiOptionObj.safeTransferFrom(_writer,this,_qty);uintunderlyingAvailableForAntiOption=ERC20(underlying).balanceOf(this).mul(_qty).div(tokenAntiOptionObj.totalSupply());if(underlyingAvailableForAntiOption>0){ERC20(underlying).safeTransfer(_writer,underlyingAvailableForAntiOption);}uintbasisTokensAvailableForAntiOption=ERC20(basisToken).balanceOf(this).mul(_qty).div(tokenAntiOptionObj.totalSupply());if(basisTokensAvailableForAntiOption>0){ERC20(basisToken).safeTransfer(_writer,basisTokensAvailableForAntiOption);}tokenAntiOptionObj.burn(_qty);returntrue;}functiongetAvailableUnderlying(addressholder)publicviewreturns(uint){TokenAntiOptiontokenAntiOptionObj=TokenAntiOption(tokenAntiOption);returnERC20(underlying).balanceOf(this).mul(tokenAntiOptionObj.balanceOf(holder)).div(tokenAntiOptionObj.totalSupply());}functiongetCurrentTime()publicviewreturns(uint){returnnow;}function_takeFee(uint_optionQty,address_feePayer)private{if(_feePayer!=feeTaker){IFeeCalculatorfeeCalculatorObj=IFeeCalculator(feeCalculator);uintfee;addressfeeToken;(feeToken,fee)=feeCalculatorObj.calcFee(address(this),_optionQty);ERC20feeTokenObj=ERC20(feeToken);if(fee>0){feeTokenObj.safeTransferFrom(_feePayer,feeTaker,fee);}}}functionexerciseWithTrade(uint_qty,uint_limitAmount,address_exchangeAdapter)externalnonReentrant{uintbasisAmount=strike.mul(_qty);require(_limitAmount>=basisAmount);_prepareExerciseSellerFor(msg.sender,_qty);IExchangeAdapterexchangeAdapter=IExchangeAdapter(_exchangeAdapter);uintunderlyingQtyToSell=_qty.mul(underlyingQty);ERC20(underlying).approve(_exchangeAdapter,underlyingQtyToSell);uintbasisBalanceBefore=ERC20(basisToken).balanceOf(this);uintunderlyingBalanceBefore=ERC20(underlying).balanceOf(this);require(underlyingBalanceBefore>=underlyingQtyToSell);exchangeAdapter.sell(underlying,underlyingQtyToSell,basisToken,_limitAmount,msg.sender);uintunderlyingBalanceAfter=ERC20(underlying).balanceOf(this);require(underlyingBalanceBefore.sub(underlyingBalanceAfter)<=underlyingQtyToSell);uintbasisBalanceAfter=ERC20(basisToken).balanceOf(this);uintreceivedBasisTokenAmount=basisBalanceAfter.sub(basisBalanceBefore);ERC20(underlying).approve(_exchangeAdapter,0);require(receivedBasisTokenAmount>=_limitAmount);require(receivedBasisTokenAmount>=basisAmount);uintbasisAmountToTransfer=receivedBasisTokenAmount.sub(basisAmount);ERC20(basisToken).safeTransfer(msg.sender,basisAmountToTransfer);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 60
+column: 29
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 15
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 60
+column: 14
+content: public
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

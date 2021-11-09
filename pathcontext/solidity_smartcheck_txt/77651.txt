@@ -1,0 +1,332 @@
+F:\Blockchain\dataset_new_byID\77651.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 130
+column: 4
+content: addressbeneficiary=address(0)
+
+ruleId: SOLIDITY_BALANCE_EQUALITY
+patternId: 5094ad
+severity: 1
+line: 216
+column: 11
+content: target.balance==0
+
+ruleId: SOLIDITY_BALANCE_EQUALITY
+patternId: 5094ad
+severity: 1
+line: 217
+column: 11
+content: originalBeneficiaryBalance+target.amountRaised()==target.beneficiary().balance
+
+ruleId: SOLIDITY_BALANCE_EQUALITY
+patternId: 5094ad
+severity: 1
+line: 250
+column: 11
+content: target.balance==0
+
+ruleId: SOLIDITY_BALANCE_EQUALITY
+patternId: 5094ad
+severity: 1
+line: 282
+column: 11
+content: target.balance==0
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 57
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 77
+column: 2
+content: functiongetNow()publicconstantreturns(uintnowvalue){nowvalue=now;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 239
+column: 4
+content: for(uintcontributionId=0;contributionId<target.totalContributions();contributionId++){BalanceClaimclaim=BalanceClaim(target.claimRefundOwed(contributionId));RefundPayoutClaimed(user,claim.balance);assert(claim.balance>0,"Campaign refunded a balance claim with zero value");claimSum+=claim.balance;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 33
+column: 0
+content: contractTestableStandardCampaignisStandardCampaign{functionTestableStandardCampaign(string_name,uint256_expiry,uint256_fundingGoal,address_beneficiary,address_owner)StandardCampaign(_name,_expiry,_fundingGoal,_beneficiary,_owner){}function()payable{}modifiervalidRefundClaim(uint256_contributionID){ContributionrefundContribution=contributions[_contributionID];if(refundsClaimed[_contributionID]==true){throw;}_;}functionsetExpiry(uint_expiry){expiry=_expiry;}functionaddTimeToExpiry(uint_timeToAdd){expiry=expiry+_timeToAdd;}functionsetFundingGoal(uint256_fundingGoal){fundingGoal=_fundingGoal;}functiongetNow()publicconstantreturns(uintnowvalue){nowvalue=now;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 53
+column: 4
+content: if(refundsClaimed[_contributionID]==true){throw;}
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 119
+column: 16
+content: send(1000)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 8
+column: 2
+content: functionnewCampaign(string_name,uint256_expiry,uint256_fundingGoal,address_beneficiary)returns(address){returnaddress(newStandardCampaign(_name,_expiry,_fundingGoal,_beneficiary,address(this)));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 15
+column: 2
+content: functionnewTestableCampaign(string_name,uint256_expiry,uint256_fundingGoal,address_beneficiary)returns(address){returnaddress(newTestableStandardCampaign(_name,_expiry,_fundingGoal,_beneficiary,address(this)));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 22
+column: 2
+content: functionnewContribution(address_campaign,uint256_value)returns(uint){StandardCampaigntarget=StandardCampaign(_campaign);returntarget.contributeMsgValue.value(_value)();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 27
+column: 2
+content: functionUser(){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 30
+column: 2
+content: function()payable{}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 2
+content: functionTestableStandardCampaign(string_name,uint256_expiry,uint256_fundingGoal,address_beneficiary,address_owner)StandardCampaign(_name,_expiry,_fundingGoal,_beneficiary,_owner){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 46
+column: 2
+content: function()payable{}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 2
+content: functionsetExpiry(uint_expiry){expiry=_expiry;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 69
+column: 2
+content: functionaddTimeToExpiry(uint_timeToAdd){expiry=expiry+_timeToAdd;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 73
+column: 2
+content: functionsetFundingGoal(uint256_fundingGoal){fundingGoal=_fundingGoal;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 87
+column: 2
+content: functionsetSrc(address_src){src=_src;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 91
+column: 2
+content: function()payable{}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 95
+column: 2
+content: functionsetTrg(address_trg){trg=_trg;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 98
+column: 2
+content: functionpayForward()returns(uintforwardedValue){forwardedValue=this.balance;if(!trg.send(this.balance)){log("Edge payForward failed, as desired");}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 114
+column: 2
+content: functiontest_userSetup(){user=newUser();assert(user.send(1000),"user send did not work");assert(user.balance>0,"user balance is not greater than zero");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 126
+column: 2
+content: functiontest_standardCampaignConstructionValuesFailsDueToNoParameterValidation(){test_userSetup();uint256expiry=0;uint256fundingGoal=99999999999999999999999999999;addressbeneficiary=address(0);targetStandardCampaign=StandardCampaign(user.newCampaign(campaignName,expiry,fundingGoal,beneficiary));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 147
+column: 2
+content: functiontest_testableStandardCampaignAbsolvementAfterPayout(){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 155
+column: 2
+content: functiontest_testablestandardcampaignDeploymentAndUse(){test_userSetup();uint256expiry=now+1weeks;uint256fundingGoal=1000;addressbeneficiary=address(user);target=TestableStandardCampaign(user.newTestableCampaign(campaignName,expiry,fundingGoal,beneficiary));assert(target.expiry()==expiry,"Testable Campaign expiry did not match what it was set to");target.setExpiry(0);assert(target.expiry()==0,"Testable Campaign expiry could not be set to zero");target.setExpiry(expiry);assert(target.expiry()==expiry,"Testable Campaign expiry was not able to be set to non-zero expiry after previous zero value expiry");assert(target.fundingGoal()==fundingGoal,"Testable campaign funding goal not equal to funding goal value");target.setFundingGoal(0);assert(target.fundingGoal()==0,"Testable campaign funding goal could not be set to zero");target.setFundingGoal(fundingGoal);assert(target.fundingGoal()==fundingGoal,"Testable campaign funding goal could not be reset back to original funding goal");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 184
+column: 2
+content: functiontest_testableStandardCampaignContribution(){test_testablestandardcampaignDeploymentAndUse();assert(user.newContribution(address(target),250)==0,"Contribution id of first contribution not equal to zero");assert(uint256(target.balance)==uint256(250),"Campaign balance not equal to only contribution value");assert(uint256(user.balance)==uint256(750),"User balance not correct after first contribution to campaign");assert(target.amountRaised()==uint256(250),"Campaign amountRaised not equal to only contribution amount");assert(target.totalContributions()==uint256(1),"Campaign does not have exactly one contribution");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 200
+column: 2
+content: functiontest_testableStandardCampaignPayoutToBeneficiary(){test_testableStandardCampaignContribution();target.setExpiry(1);target.setFundingGoal(1);uint256originalBeneficiaryBalance=target.beneficiary().balance;uint256payout=target.payoutToBeneficiary();BeneficiaryPayoutClaimed(user,target.amountRaised());assert(payout>0,"Campaign payout was not greater than zero");assert(payout==target.amountRaised(),"Campaign payout was not equal to the amount raised");assert(target.balance==0,"Ensure that campaign has no remaining balance");assert(originalBeneficiaryBalance+target.amountRaised()==target.beneficiary().balance,"Beneficiary did not receive campaign funds after payout to beneficiary");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 222
+column: 2
+content: functiontest_testableStandardCampaignRefund(){test_testableStandardCampaignContribution();assert(target.totalContributions()>0,"Campaign does not have any contributions to refund");target.setExpiry(1);target.setFundingGoal(1000000000);assert(target.expiry()==1,"Testable campaign expiry could not be set to 1");assert(target.fundingGoal()==1000000000,"Testable campaign funding goal could not be set very high");uintclaimSum=0;for(uintcontributionId=0;contributionId<target.totalContributions();contributionId++){BalanceClaimclaim=BalanceClaim(target.claimRefundOwed(contributionId));RefundPayoutClaimed(user,claim.balance);assert(claim.balance>0,"Campaign refunded a balance claim with zero value");claimSum+=claim.balance;}assert(claimSum==target.amountRaised(),"campaign refund did not empty amountRaised");assert(target.balance==0,"Campaign did not refund all of its funds");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 255
+column: 2
+content: functiontest_testableContributionCaseExpectFailure(){test_testablestandardcampaignDeploymentAndUse();target.setExpiry(0);target.setFundingGoal(1);user.newContribution(address(target),250);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 276
+column: 2
+content: functiontestThrow_testablePayoutCaseShouldBeFailure(){test_testablestandardcampaignDeploymentAndUse();assert(target.amountRaised()==0,"Campaign should have a zero amountRaised");assert(target.balance==0,"Campaign should have zero balance");target.setExpiry(1);target.setFundingGoal(0);uint256payout=target.payoutToBeneficiary();BeneficiaryPayoutClaimed(user,target.amountRaised());assert(payout==0,"Campaign should have zero balance after payout");logs("This test should fail");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 309
+column: 2
+content: functiontest_standardCampaignDeploymentAndUse(){Useruser=newUser();boolf1=user.send(1000);uint256expiry=now+1weeks;uint256fundingGoal=1000;addressbeneficiary=address(user);target=StandardCampaign(user.newCampaign(campaignName,expiry,fundingGoal,beneficiary));assert(target.stage()==uint256(0),"Campaign should be in operational mode");assert(target.amountRaised()==uint256(0),"Campaign should not have raised any funds yet");assert(target.fundingGoal()==fundingGoal,"Campaign funding goal is not what is expected");assert(target.expiry()==expiry,"Campaign expirty not what is expected");assert(target.beneficiary()==beneficiary,"Campaign beneficiary not what is expected");assert(target.totalContributions()==uint256(0),"Campaign should not have any contributions");assert(target.owner()==address(user),"Campaign owner should be initial user");assert(user.newContribution(address(target),250)==uint256(0),"First contribution to campaign was expected to have contribution id zero");assert(uint256(target.balance)==uint256(250),"Campaign should have a balance after contribution");assert(uint256(user.balance)==uint256(750),"Contribution to campaign should have reduced user balance");assert(target.stage()==uint256(0),"post-contribution campaign stage is not operational");assert(target.fundingGoal()==fundingGoal,"post-contribution campaign funding goal did not remain the same");assert(target.expiry()==expiry,"post-contribution campaign expiry did not remain the same");assert(target.beneficiary()==beneficiary,"post-contribution campaign beneficiary did not remain the same");assert(target.amountRaised()==uint256(250),"post-contribution campaign amountraised should reflect single contribution");assert(target.totalContributions()==uint256(1),"post-contribution campaign number of contributions should equal one");assert(user.newContribution(address(target),250)==uint256(1),"second contribution to campaign should have contribution id one");assert(uint256(target.balance)==uint256(500),"second contribution should add to campaign's balance");assert(uint256(user.balance)==uint256(500),"second contribution should decrease user's balance");assert(target.stage()==uint256(0),"second contribution should leave campaign in operational stage");assert(target.fundingGoal()==fundingGoal,"second contribution should not change campaign funding goal");assert(target.expiry()==expiry,"second contribution should not change campaign expiry");assert(target.beneficiary()==beneficiary,"second contribution should not chage campaign beneficiary");assert(target.amountRaised()==uint256(500),"second contribution did not update campaign amount raised");assert(target.totalContributions()==uint256(2),"second contribution did not set number of contributions to two");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 107
+column: 2
+content: TestableStandardCampaigntarget;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 108
+column: 2
+content: StandardCampaigntargetStandardCampaign;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 109
+column: 2
+content: Useruser;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 110
+column: 2
+content: stringcampaignName="TestableStandardCampaign test - modifiable Standard Campaign";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 111
+column: 2
+content: stringstandardCampaignContributeMethodABI="contributeMsgValue():(uint256 contributionID)";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 112
+column: 2
+content: stringstandardCampaignPayoutMethodABI="payoutToBeneficiary():(uint256 amountClaimed)";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 304
+column: 2
+content: StandardCampaigntarget;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 305
+column: 2
+content: stringcampaignName="Nicks Campaign";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 306
+column: 2
+content: stringstandardCampaignContributeMethodABI="contributeMsgValue():(uint256 contributionID)";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 307
+column: 2
+content: stringstandardCampaignPayoutMethodABI="payoutToBeneficiary():(uint256 amountClaimed)";
+
+SOLIDITY_VISIBILITY :34
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_SEND :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_BALANCE_EQUALITY :4

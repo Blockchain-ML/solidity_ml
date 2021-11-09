@@ -1,0 +1,227 @@
+F:\Blockchain\dataset_new_byID\79600.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 16
+column: 4
+content: functionbalanceOf(addresswho)constantpublicreturns(uint){}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 105
+column: 4
+content: functiongetWeek()publicconstantreturns(uint){uintcurWeek=(now-birthday)/weekDur;if(now-((curWeek*weekDur)+birthday)>rafEnd){curWeek++;}returncurWeek;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 298
+column: 4
+content: functiongetMatches(uint_week,address_entrant,uint_entryNum)constantinternalreturns(uint){uintmatches;for(uinti=0;i<6;i++){for(uintj=0;j<6;j++){if(raffle[_week].entries[_entrant][_entryNum-1][i]==raffle[_week].winNums[j]){matches++;break;}}}returnmatches;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 408
+column: 4
+content: functiongetUserNumEntries(address_entrant,uint_week)constantexternalreturns(uint){returnraffle[_week].entries[_entrant].length;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 412
+column: 4
+content: functiongetChosenNumbers(address_entrant,uint_week,uint_entryNum)constantexternalreturns(uint[]){returnraffle[_week].entries[_entrant][_entryNum-1];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 416
+column: 4
+content: functiongetWinningDetails(uint_week)constantexternalreturns(uint[],uint[]){return(raffle[_week].winNums,raffle[_week].winAmts);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 251
+column: 8
+content: for(uinti=0;i<parts.length;i++){parts[i]=str.split(delim).toString();}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 259
+column: 8
+content: for(uinti=0;i<arr.length;i++){raffle[_week].winNums.push(parseInt(arr[i]));}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 291
+column: 8
+content: for(i=0;i<payOuts.length;i++){raffle[_week].winAmts.push(payOuts[i]);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 16
+column: 4
+content: functionbalanceOf(addresswho)constantpublicreturns(uint){}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 251
+column: 8
+content: for(uinti=0;i<parts.length;i++){parts[i]=str.split(delim).toString();}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 259
+column: 8
+content: for(uinti=0;i<arr.length;i++){raffle[_week].winNums.push(parseInt(arr[i]));}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 291
+column: 8
+content: for(i=0;i<payOuts.length;i++){raffle[_week].winAmts.push(payOuts[i]);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractReceiverInterface{functionreceiveEther()externalpayable{}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 11
+column: 0
+content: contractEtheraffleUpgrade{functionaddToPrizePool()payableexternal{}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 15
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 142
+column: 8
+content: uint[]_cNums
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 247
+column: 27
+content: string_string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 247
+column: 61
+content: string[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 257
+column: 43
+content: string_result
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 267
+column: 36
+content: string_result
+
+ruleId: SOLIDITY_VAR
+patternId: d28aa7
+severity: 2
+line: 250
+column: 8
+content: varparts=newstring[](str.count(delim)+1)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 91
+column: 4
+content: functionEtheraffle(address_freeLOT,address_dsbrs,address_msig,address_ethRelief)payable{week=getWeek();etheraffle=_msig;disburseAddr=_dsbrs;ethRelief=_ethRelief;freeLOT=FreeLOTInterface(_freeLOT);uintdelay=(week*weekDur)+birthday+rafEnd+resultsDelay;raffle[week].timeStamp=(week*weekDur)+birthday;bytes32query=oraclize_query(delay,"nested",strConcat(randomStr1,uint2str(getWeek()),randomStr2),gasAmt);qID[query].weekNo=week;qID[query].isRandom=true;LogQuerySent(query,delay,now);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 224
+column: 4
+content: function__callback(bytes32_myID,string_result)onlyIfNotPaused{require(msg.sender==oraclize_cbAddress());LogOraclizeCallback(_myID,_result,qID[_myID].weekNo,now);if(qID[_myID].isRandom==true){reclaimUnclaimed();disburseFunds(qID[_myID].weekNo);setWinningNumbers(qID[_myID].weekNo,_result);if(qID[_myID].isManual==true){return;}bytes32query=oraclize_query(matchesDelay,"nested",strConcat(apiStr1,uint2str(qID[_myID].weekNo),apiStr2),gasAmt);qID[query].weekNo=qID[_myID].weekNo;LogQuerySent(query,matchesDelay+now,now);}else{newRaffle();setPayOuts(qID[_myID].weekNo,_result);if(qID[_myID].isManual==true){return;}uintdelay=(getWeek()*weekDur)+birthday+rafEnd+resultsDelay;query=oraclize_query(delay,"nested",strConcat(randomStr1,uint2str(getWeek()),randomStr2),gasAmt);qID[query].weekNo=getWeek();qID[query].isRandom=true;LogQuerySent(query,delay,now);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 41
+column: 4
+content: uintconstantweekDur=604800;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 42
+column: 4
+content: uintconstantbirthday=1500249600;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 4
+content: FreeLOTInterfacefreeLOT;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 4
+content: stringrandomStr1="[URL] ['json(https://api.random.org/json-rpc/1/invoke).result.random[\"data\", \"serialNumber\"]','\\n{\"jsonrpc\": \"2.0\",\"method\":\"generateSignedIntegers\",\"id\":\"";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 47
+column: 4
+content: stringrandomStr2="\",\"params\":{\"n\":\"6\",\"min\":1,\"max\":49,\"replacement\":false,\"base\":10,\"apiKey\":${[decrypt] BOxU9jP2laZmGPe29WvCh5HY57objD14TTuYv1Y1p7M43mHS8rDupPiIjIq8DNPGm4A8OtbBmBxUZant/WqG0eGgfzb5STSsb44VzOIRrSk2A8r10SxTE5Ysl2HahYHZO18LZmWYCnqjVJ7UTmCBxwRpb5OVIVcp9A==}}']";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 48
+column: 4
+content: stringapiStr1="[URL] ['json(https://etheraffle.com/api/a).m','{\"r\":\"";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 49
+column: 4
+content: stringapiStr2="\",\"k\":${[decrypt] BLQNU9ZQxS6ardpB9gmUfVKwKhxSF2MmyB7sh2gmQFH49VewFs52EgaYId5KVEkYuNCP0S2ppzDmiN/5JUzHGTPpkPuTAZdx/ydBCcRMcuuqxg4lSpvtG3oB6zvXfTcCVjGMPbep}}']";
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_VAR :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_UPGRADE_TO_050 :5
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3

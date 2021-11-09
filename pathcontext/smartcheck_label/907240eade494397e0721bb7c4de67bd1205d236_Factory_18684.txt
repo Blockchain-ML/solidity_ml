@@ -1,0 +1,200 @@
+C:\Users\hp\DataSet\contracts\mainnet\90\907240eade494397e0721bb7c4de67bd1205d236_Factory.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 22
+column: 33
+content: 0x314159265dD8dbb310642f98f50C066173C1259b
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 23
+column: 36
+content: 0x6090A6e47849629b7245Dfa1Ca21D94cd15878Ef
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 24
+column: 51
+content: 0x5FfC014343cd971B7eb70732021E26C35B744cc4
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 2
+column: 4
+content: functionowner(bytes32node)publicviewreturns(address){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 7
+column: 4
+content: functiontransfer(bytes32_hash,addressnewOwner)onlyOwner(_hash){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 12
+column: 4
+content: functionsetAddr(bytes32node,addressaddr)only_owner(node){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 13
+column: 4
+content: functionsetContent(bytes32node,bytes32hash)only_owner(node){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 14
+column: 4
+content: functionsetName(bytes32node,stringname)only_owner(node){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 15
+column: 4
+content: functionsetABI(bytes32node,uint256contentType,bytesdata)only_owner(node){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 16
+column: 4
+content: functionsetPubkey(bytes32node,bytes32x,bytes32y)only_owner(node){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 17
+column: 4
+content: functionsetText(bytes32node,stringkey,stringvalue)only_owner(node){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 30
+column: 4
+content: constructor(address_owner){owner=_owner;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 47
+column: 4
+content: functionsetOwner(address_newOwner)only_owner{owner=_newOwner;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 51
+column: 4
+content: functionactivatePermissionsBot(bytes32_namehash,bytes32_labelhash)only_owner{require(registry.owner(_namehash)==address(this));require(labelhash==0&&namehash==0);labelhash=_labelhash;namehash=_namehash;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 58
+column: 4
+content: functionlockOwnership(uint_date)only_owner{require(permissions.ownerMutability<block.timestamp);require(_date>block.timestamp);permissions.ownerMutability==_date;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 63
+column: 4
+content: functionlockAddress(uint_date)only_owner{require(permissions.ownerMutability>_date);require(permissions.addressMutability<block.timestamp);require(_date>block.timestamp);permissions.addressMutability==_date;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 69
+column: 4
+content: functionlockTextKey(string_key,uint_date)only_owner{require(permissions.ownerMutability>_date);require(permissions.textKeyMutability[_key]<block.timestamp);require(_date>block.timestamp);permissions.textKeyMutability[_key]==_date;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 77
+column: 4
+content: functiontransfer(address_newOwner)only_owner{require(permissions.ownerMutability<block.timestamp);registrar.transfer(labelhash,_newOwner);selfdestruct(msg.sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 82
+column: 4
+content: functionsetAddr(address_addr)only_owner{require(permissions.addressMutability<block.timestamp);publicResolver.setAddr(namehash,_addr);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 86
+column: 4
+content: functionsetText(string_key,string_value)only_owner{require(permissions.textKeyMutability[_key]<block.timestamp);publicResolver.setText(namehash,_key,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 93
+column: 4
+content: functioncreatePermissionsBot(address_owner)returns(address){ENS_PermissionspermissionsBot=newENS_Permissions(_owner);returnpermissionsBot;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 22
+column: 4
+content: Registryregistry=Registry(0x314159265dD8dbb310642f98f50C066173C1259b);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 23
+column: 4
+content: Registrarregistrar=Registrar(0x6090A6e47849629b7245Dfa1Ca21D94cd15878Ef);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 24
+column: 4
+content: PublicResolverpublicResolver=PublicResolver(0x5FfC014343cd971B7eb70732021E26C35B744cc4);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 4
+content: addressowner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 27
+column: 4
+content: bytes32labelhash;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 4
+content: bytes32namehash;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 45
+column: 4
+content: Permissionspermissions;
+
+SOLIDITY_VISIBILITY :24
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_ADDRESS_HARDCODED :3

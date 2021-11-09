@@ -1,0 +1,78 @@
+C:\Users\hp\DataSet\Regular.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 22
+column: 4
+content: functiongetOptions()externalconstantreturns(uint[10]){return[options[1].votes,options[2].votes,options[3].votes,options[4].votes,options[5].votes,options[6].votes,options[7].votes,options[8].votes,options[9].votes,options[10].votes];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 47
+column: 8
+content: for(uinti=0;i<_options.length;i++){options[i+1]=VotingLib.Option(0,_options[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 47
+column: 8
+content: for(uinti=0;i<_options.length;i++){options[i+1]=VotingLib.Option(0,_options[i]);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 14
+column: 18
+content: delegatecallCreate(baseVoting,_dao,_name,_description,_duration,0)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 32
+column: 18
+content: delegatecallAddVote(baseVoting,_optionID)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 39
+column: 18
+content: delegatecallFinish(baseVoting)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 46
+column: 27
+content: bytes32[]_options
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 10
+column: 4
+content: functionRegular(address_baseVoting,address_dao,string_name,string_description,uint_duration,bytes32[]_options){require(_options.length>=2&&_options.length<=10);baseVoting=_baseVoting;votingType="Regular";VotingLib.delegatecallCreate(baseVoting,_dao,_name,_description,_duration,0);createOptions(_options);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 8
+column: 4
+content: addressbaseVoting;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_UNCHECKED_CALL :3

@@ -1,0 +1,149 @@
+C:\Users\hp\DataSet\Message.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 26
+column: 8
+content: for(uint256i=0;i<array.length;i++){if(array[i]==value){returntrue;}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 49
+column: 4
+content: functionparseMessage(bytesmessage)internalpurereturns(addressrecipient,uint256amount,bytes32txHash,addresscontractAddress){require(isMessageValid(message));assembly{recipient:=mload(add(message,20))amount:=mload(add(message,52))txHash:=mload(add(message,84))contractAddress:=mload(add(message,104))}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 26
+column: 8
+content: for(uint256i=0;i<array.length;i++){if(array[i]==value){returntrue;}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 49
+column: 4
+content: functionparseMessage(bytesmessage)internalpurereturns(addressrecipient,uint256amount,bytes32txHash,addresscontractAddress){require(isMessageValid(message));assembly{recipient:=mload(add(message,20))amount:=mload(add(message,52))txHash:=mload(add(message,84))contractAddress:=mload(add(message,104))}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 71
+column: 4
+content: functionrecoverAddressFromSignedMessage(bytessignature,bytesmessage,boolisAMBMessage)internalpurereturns(address){require(signature.length==65);bytes32r;bytes32s;bytes1v;assembly{r:=mload(add(signature,0x20))s:=mload(add(signature,0x40))v:=mload(add(signature,0x60))}returnecrecover(hashMessage(message,isAMBMessage),uint8(v),r,s);}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 112
+column: 4
+content: functionhasEnoughValidSignatures(bytes_message,bytes_signatures,IBridgeValidators_validatorContract,boolisAMBMessage)internalview{require(isAMBMessage||isMessageValid(_message));uint256requiredSignatures=_validatorContract.requiredSignatures();uint256amount;assembly{amount:=and(mload(add(_signatures,1)),0xff)}require(amount>=requiredSignatures);bytes32hash=hashMessage(_message,isAMBMessage);address[]memoryencounteredAddresses=newaddress[](requiredSignatures);for(uint256i=0;i<requiredSignatures;i++){uint8v;bytes32r;bytes32s;uint256posr=33+amount+32*i;uint256poss=posr+32*amount;assembly{v:=mload(add(_signatures,add(2,i)))r:=mload(add(_signatures,posr))s:=mload(add(_signatures,poss))}addressrecoveredAddress=ecrecover(hash,v,r,s);require(_validatorContract.isValidator(recoveredAddress));require(!addressArrayContains(encounteredAddresses,recoveredAddress));encounteredAddresses[i]=recoveredAddress;}}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 52
+column: 16
+content: (addressrecipient,uint256amount,bytes32txHash,addresscontractAddress)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 25
+column: 34
+content: address[]array
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 49
+column: 26
+content: bytesmessage
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 63
+column: 28
+content: bytes_msg
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 71
+column: 45
+content: bytessignature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 71
+column: 62
+content: bytesmessage
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 89
+column: 25
+content: bytesmessage
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 113
+column: 8
+content: bytes_message
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 114
+column: 8
+content: bytes_signatures
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 147
+column: 60
+content: string
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 55
+column: 8
+content: assembly{recipient:=mload(add(message,20))amount:=mload(add(message,52))txHash:=mload(add(message,84))contractAddress:=mload(add(message,104))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 81
+column: 8
+content: assembly{r:=mload(add(signature,0x20))s:=mload(add(signature,0x40))v:=mload(add(signature,0x60))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 121
+column: 8
+content: assembly{amount:=and(mload(add(_signatures,1)),0xff)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 134
+column: 12
+content: assembly{v:=mload(add(_signatures,add(2,i)))r:=mload(add(_signatures,posr))s:=mload(add(_signatures,poss))}
+
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :9
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :4
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1
+SOLIDITY_SHOULD_NOT_BE_PURE :2

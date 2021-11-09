@@ -1,0 +1,48 @@
+C:\Users\hp\DataSet\ArbitraryMessage.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 28
+column: 4
+content: functionunpackData(bytes_data,boolapplyDataOffset)internalpurereturns(addresssender,addressexecutor,bytes32txHash,uint256gasLimit,bytes1dataType,uint256gasPrice,bytesmemorydata){uint256dataOffset=0;uint256datasize;uint256srcdataptr=32+20+20+32+1;assembly{txHash:=mload(add(_data,32))sender:=mload(add(_data,52))executor:=mload(add(_data,72))gasLimit:=mload(add(_data,104))dataType:=and(mload(add(_data,136)),0xFF00000000000000000000000000000000000000000000000000000000000000)switchdataTypecase0x0000000000000000000000000000000000000000000000000000000000000000{gasPrice:=0}case0x0100000000000000000000000000000000000000000000000000000000000000{gasPrice:=mload(add(_data,137))srcdataptr:=add(srcdataptr,0x20)}case0x0200000000000000000000000000000000000000000000000000000000000000{gasPrice:=0srcdataptr:=add(srcdataptr,0x01)}datasize:=sub(mload(_data),srcdataptr)}data=newbytes(datasize);assembly{letdataptr:=add(data,32)ifeq(applyDataOffset,1){dataOffset:=32}calldatacopy(dataptr,add(add(68,srcdataptr),dataOffset),datasize)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 28
+column: 4
+content: functionunpackData(bytes_data,boolapplyDataOffset)internalpurereturns(addresssender,addressexecutor,bytes32txHash,uint256gasLimit,bytes1dataType,uint256gasPrice,bytesmemorydata){uint256dataOffset=0;uint256datasize;uint256srcdataptr=32+20+20+32+1;assembly{txHash:=mload(add(_data,32))sender:=mload(add(_data,52))executor:=mload(add(_data,72))gasLimit:=mload(add(_data,104))dataType:=and(mload(add(_data,136)),0xFF00000000000000000000000000000000000000000000000000000000000000)switchdataTypecase0x0000000000000000000000000000000000000000000000000000000000000000{gasPrice:=0}case0x0100000000000000000000000000000000000000000000000000000000000000{gasPrice:=mload(add(_data,137))srcdataptr:=add(srcdataptr,0x20)}case0x0200000000000000000000000000000000000000000000000000000000000000{gasPrice:=0srcdataptr:=add(srcdataptr,0x01)}datasize:=sub(mload(_data),srcdataptr)}data=newbytes(datasize);assembly{letdataptr:=add(data,32)ifeq(applyDataOffset,1){dataOffset:=32}calldatacopy(dataptr,add(add(68,srcdataptr),dataOffset),datasize)}}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 31
+column: 16
+content: (addresssender,addressexecutor,bytes32txHash,uint256gasLimit,bytes1dataType,uint256gasPrice,bytesmemorydata)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 28
+column: 24
+content: bytes_data
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 45
+column: 8
+content: assembly{txHash:=mload(add(_data,32))sender:=mload(add(_data,52))executor:=mload(add(_data,72))gasLimit:=mload(add(_data,104))dataType:=and(mload(add(_data,136)),0xFF00000000000000000000000000000000000000000000000000000000000000)switchdataTypecase0x0000000000000000000000000000000000000000000000000000000000000000{gasPrice:=0}case0x0100000000000000000000000000000000000000000000000000000000000000{gasPrice:=mload(add(_data,137))srcdataptr:=add(srcdataptr,0x20)}case0x0200000000000000000000000000000000000000000000000000000000000000{gasPrice:=0srcdataptr:=add(srcdataptr,0x01)}datasize:=sub(mload(_data),srcdataptr)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 66
+column: 8
+content: assembly{letdataptr:=add(data,32)ifeq(applyDataOffset,1){dataOffset:=32}calldatacopy(dataptr,add(add(68,srcdataptr),dataOffset),datasize)}
+
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_USING_INLINE_ASSEMBLY :2
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

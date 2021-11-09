@@ -1,0 +1,163 @@
+F:\Blockchain\dataset_new_byID\73860.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 150
+column: 8
+content: preconditions.length--
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 107
+column: 8
+content: for(uintidx=0;idx<preconditions.length;idx++){if(address(preconditions[idx])!=address(0)){require(preconditions[idx].isValid(_platform,_platformId,_token,_value,_funder));}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 145
+column: 8
+content: for(uinti=_index;i<preconditions.length-1;i++){preconditions[i]=preconditions[i+1];}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 84
+column: 4
+content: functionrefund(bytes32_platform,string_platformId,address_funder)externalonlyCallerreturns(bool){uint256tokenCount=fundRepository.getFundedTokenCount(_platform,_platformId);for(uinti=0;i<tokenCount;i++){addresstoken=fundRepository.getFundedTokensByIndex(_platform,_platformId,i);uint256tokenAmount=fundRepository.refundToken(_platform,_platformId,_funder,token);if(tokenAmount>0){if(token==ETHER_ADDRESS){_funder.transfer(tokenAmount);}else{require(ERC20(token).transfer(_funder,tokenAmount),"transfer of tokens from contract failed");}}emitRefund(_funder,_platform,_platformId,token,tokenAmount);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 107
+column: 8
+content: for(uintidx=0;idx<preconditions.length;idx++){if(address(preconditions[idx])!=address(0)){require(preconditions[idx].isValid(_platform,_platformId,_token,_value,_funder));}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 153
+column: 4
+content: functionsetFundRepository(address_repositoryAddress)publiconlyOwner{fundRepository=FundRepository(_repositoryAddress);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 157
+column: 4
+content: functionsetClaimRepository(address_claimRepository)publiconlyOwner{claimRepository=ClaimRepository(_claimRepository);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 161
+column: 4
+content: functionsetClaimSignerAddress(address_claimSignerAddress)addressNotNull(_claimSignerAddress)publiconlyOwner{claimSignerAddress=_claimSignerAddress;}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 17
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 68
+column: 8
+content: for(uinti=0;i<tokenCount;i++){addresstoken=fundRepository.getFundedTokensByIndex(platform,platformId,i);uint256tokenAmount=fundRepository.claimToken(platform,platformId,token);if(token==ETHER_ADDRESS){solverAddress.transfer(tokenAmount);}else{require(ERC20(token).transfer(solverAddress,tokenAmount),"transfer of tokens from contract failed");}require(claimRepository.addClaim(solverAddress,platform,platformId,solver,token,tokenAmount),"adding claim to repository failed");emitClaimed(solverAddress,platform,platformId,solver,token,tokenAmount);}
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 86
+column: 8
+content: for(uinti=0;i<tokenCount;i++){addresstoken=fundRepository.getFundedTokensByIndex(_platform,_platformId,i);uint256tokenAmount=fundRepository.refundToken(_platform,_platformId,_funder,token);if(tokenAmount>0){if(token==ETHER_ADDRESS){_funder.transfer(tokenAmount);}else{require(ERC20(token).transfer(_funder,tokenAmount),"transfer of tokens from contract failed");}}emitRefund(_funder,_platform,_platformId,token,tokenAmount);}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 57
+column: 74
+content: bytes_data
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 65
+column: 37
+content: stringplatformId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 65
+column: 56
+content: stringsolver
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 101
+column: 42
+content: string_platformId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 125
+column: 42
+content: stringplatformId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 125
+column: 61
+content: stringsolver
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 131
+column: 46
+content: stringplatformId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 131
+column: 65
+content: stringsolver
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 131
+column: 126
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 165
+column: 31
+content: stringstr
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 165
+column: 66
+content: string
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :3
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_UPGRADE_TO_050 :11
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_TRANSFER_IN_LOOP :2

@@ -1,0 +1,48 @@
+F:\Blockchain\dataset_new_byID\82830.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 114
+column: 4
+content: functionvestedTokens(address_holder,uint256_time)externalconstantreturns(uint256){Grantmemorygrant=grants[_holder];if(grant.value==0){return0;}returncalculateVestedTokens(grant,_time);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 127
+column: 4
+content: functioncalculateVestedTokens(Grant_grant,uint256_time)privateconstantreturns(uint256){if(_time<_grant.cliff){return0;}if(_time>=_grant.end){return_grant.value;}uint256installmentsPast=_time.sub(_grant.start).div(_grant.installmentLength);uint256vestingDays=_grant.end.sub(_grant.start);return_grant.value.mul(installmentsPast.mul(_grant.installmentLength)).div(vestingDays);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 9
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 127
+column: 35
+content: Grant_grant
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 37
+column: 4
+content: functionVestingTrustee(KinToken_kin){require(_kin!=address(0));kin=_kin;}
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :1

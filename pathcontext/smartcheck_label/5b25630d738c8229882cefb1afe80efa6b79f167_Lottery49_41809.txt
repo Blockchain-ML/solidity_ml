@@ -1,0 +1,125 @@
+C:\Users\hp\DataSet\contracts\ropsten\5b\5b25630d738c8229882cefb1afe80efa6b79f167_Lottery49.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 87
+column: 4
+content: functiongetDrawP()constantexternalreturns(uint){returndrawP;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 90
+column: 4
+content: functiongetBetclose()constantexternalreturns(bool){returnbetclose;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 93
+column: 4
+content: functiongetPeriods()constantexternalreturns(uint){returnPeriods;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 139
+column: 4
+content: functiongetPoolbyGtype(uint8_type)constantexternalreturns(uint8,uint){Poolstoragerec=pools[_type];return(_type,rec.Amount);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 143
+column: 4
+content: functiongetAllbetByGtype(uint8_btype)constantexternalreturns(uint8,uint){tGnumstoragerec=tgums[Periods];tGtypestoragerec1=rec.tgtypes[_btype];return(_btype,rec1.bets);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 148
+column: 4
+content: functiongetAllbetByNum(uint8_btype,int8_bnum)constantexternalreturns(uint8,int8,uint){tGnumstoragerec=tgums[Periods];tGtypestoragerec1=rec.tgtypes[_btype];tNumstoragerec2=rec1.tnums[_bnum];return(_btype,_bnum,rec2.bets);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 154
+column: 4
+content: functiongetbetData(uint8_btype,int8_bnum,address_owner)constantexternalreturns(uint8,int8,address,uint){tGnumstoragerec=tgums[Periods];tGtypestoragerec1=rec.tgtypes[_btype];tNumstoragerec2=rec1.tnums[_bnum];return(_btype,_bnum,_owner,rec2.betusers[_owner]);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 160
+column: 4
+content: functiongetBetUint(uint8_btype,int8_bnum)constantinternalreturns(uint){tGnumstoragerec=tgums[Periods];tGtypestoragerec1=rec.tgtypes[_btype];tNumstoragerec2=rec1.tnums[_bnum];PoolstoragerecP=pools[_btype];returnrecP.Amount/rec2.bets;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 167
+column: 4
+content: functiongetResult(uint_periods,uint8_btype)constantexternalreturns(uint8,int8,bool){return(_btype,results[_periods][_btype],results_status[_periods][_btype]);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 181
+column: 4
+content: functiongetDrawStatus(uint_periods)constantexternalreturns(bool){Pstatusstoragerec=draws[_periods];returnrec.draw_status;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 203
+column: 12
+content: for(uinti=0;i<rec2.betAddress.length;i++){uintwin=rec2.betusers[rec2.betAddress[i]]*uint_amount;if(withdraw(rec2.betAddress[i],win)){updPool(_btype,win);emitdrawBet(_periods,_btype,_bhash,rec2.betAddress[i],win);}else{returnfalse;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 203
+column: 12
+content: for(uinti=0;i<rec2.betAddress.length;i++){uintwin=rec2.betusers[rec2.betAddress[i]]*uint_amount;if(withdraw(rec2.betAddress[i],win)){updPool(_btype,win);emitdrawBet(_periods,_btype,_bhash,rec2.betAddress[i],win);}else{returnfalse;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 4
+content: mapping(address=>uint256)winners;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 24
+column: 4
+content: mapping(uint=>Pstatus)draws;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 4
+content: mapping(uint=>tGnum)tgums;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 48
+column: 4
+content: mapping(uint8=>Pool)pools;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :10
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

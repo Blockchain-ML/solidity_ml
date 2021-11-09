@@ -1,0 +1,127 @@
+C:\Users\hp\DataSet\contracts\ropsten\53\53cdace21d6ee9537662b8c5ff1699428ed8cd97_smartSponsor.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 27
+column: 37
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 38
+column: 42
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 48
+column: 42
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 32
+column: 2
+content: functiongetPot()constantreturns(uint){returnthis.balance;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 39
+column: 4
+content: for(uinti=0;i<numPledges;++i){pledges[i].eth_address.send(pledges[i].amount);}
+
+ruleId: SOLIDITY_MSGVALUE_EQUALS_ZERO
+patternId: 1df89a
+severity: 1
+line: 27
+column: 8
+content: msg.value==0
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 27
+column: 4
+content: if(msg.value==0||refunded)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 38
+column: 4
+content: if(msg.sender!=owner||refunded)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 48
+column: 4
+content: if(msg.sender!=owner||refunded)throw;
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 40
+column: 29
+content: send(pledges[i].amount)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 49
+column: 15
+content: send(this.balance)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 17
+column: 2
+content: functionsmartSponsor(address_benefactor){owner=msg.sender;numPledges=0;refunded=false;benefactor=_benefactor;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 26
+column: 2
+content: functionpledge(bytes32_message)payable{if(msg.value==0||refunded)throw;pledges[numPledges]=Pledge(msg.value,msg.sender,_message);numPledges++;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 32
+column: 2
+content: functiongetPot()constantreturns(uint){returnthis.balance;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 37
+column: 2
+content: functionrefund(){if(msg.sender!=owner||refunded)throw;for(uinti=0;i<numPledges;++i){pledges[i].eth_address.send(pledges[i].amount);}refunded=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 47
+column: 2
+content: functiondrawdown(){if(msg.sender!=owner||refunded)throw;benefactor.send(this.balance);}
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_MSGVALUE_EQUALS_ZERO :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :3
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UNCHECKED_CALL :2

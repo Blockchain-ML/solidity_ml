@@ -1,0 +1,82 @@
+C:\Users\hp\DataSet\contracts\ropsten\09\09aa2875ff36aecb16be6203f9bfe504827cc4e8_Mallory2.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: om991k
+severity: 2
+line: 10
+column: 17
+content: call.value(amount)()
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 37
+column: 10
+content: send(this.balance)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 10
+column: 17
+content: call.value(amount)()
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 4
+column: 2
+content: functiondonate(addressto){credit[to]+=msg.value;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 8
+column: 2
+content: functionwithdraw(uintamount){if(credit[msg.sender]>=amount){msg.sender.call.value(amount)();credit[msg.sender]-=amount;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 15
+column: 2
+content: functionqueryCredit(addressto)returns(uint){returncredit[to];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 25
+column: 2
+content: functionMallory2(SimpleDAOaddr){owner=msg.sender;dao=addr;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 30
+column: 2
+content: functionattack(){dao.donate.value(1)(this);dao.withdraw(1);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 35
+column: 2
+content: functiongetJackpot(){dao.withdraw(dao.balance);owner.send(this.balance);performAttack=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 41
+column: 2
+content: function(){if(performAttack){performAttack=false;dao.withdraw(1);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 22
+column: 2
+content: addressowner;
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_CALL_WITHOUT_DATA :1

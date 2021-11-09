@@ -1,0 +1,54 @@
+F:\Blockchain\dataset_new_byID\81489.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 48
+column: 4
+content: functionaddition(G1Pointmemoryp1,G1Pointmemoryp2)internalreturns(G1Pointmemoryr){uint[4]memoryinput;input[0]=p1.X;input[1]=p1.Y;input[2]=p2.X;input[3]=p2.Y;boolsuccess;assembly{success:=call(sub(gas(),2000),6,0,input,0xc0,r,0x60)switchsuccesscase0{invalid()}}require(success,"EC addition failed");}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 67
+column: 4
+content: functionscalar_mul(G1Pointmemoryp,uints)internalreturns(G1Pointmemoryr){uint[3]memoryinput;input[0]=p.X;input[1]=p.Y;input[2]=s;boolsuccess;assembly{success:=call(sub(gas(),2000),7,0,input,0x80,r,0x60)switchsuccesscase0{invalid()}}require(success,"EC scalar multiplication failed");}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 89
+column: 8
+content: for(uinti=0;i<elements;i++){input[i*6+0]=p1[i].X;input[i*6+1]=p1[i].Y;input[i*6+2]=p2[i].X[0];input[i*6+3]=p2[i].X[1];input[i*6+4]=p2[i].Y[0];input[i*6+5]=p2[i].Y[1];}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 55
+column: 8
+content: assembly{success:=call(sub(gas(),2000),6,0,input,0xc0,r,0x60)switchsuccesscase0{invalid()}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 73
+column: 8
+content: assembly{success:=call(sub(gas(),2000),7,0,input,0x80,r,0x60)switchsuccesscase0{invalid()}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 100
+column: 8
+content: assembly{success:=call(sub(gas(),2000),8,0,add(input,0x20),mul(inputSize,0x20),out,0x20)}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :3

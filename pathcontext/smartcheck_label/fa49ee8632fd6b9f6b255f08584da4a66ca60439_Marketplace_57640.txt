@@ -1,0 +1,136 @@
+C:\Users\hp\DataSet\contracts\ropsten\fa\fa49ee8632fd6b9f6b255f08584da4a66ca60439_Marketplace.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 325
+column: 8
+content: for(uint256i=0;i<pc.clients.length;i++){if(pc.clients[i]==clientAddress){isClientAddedBeforeFlag=true;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 348
+column: 8
+content: for(uint256i=0;i<_productContracts.length;i++){totalClientsCount+=productContracts[_productContracts[i]].clients.length;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 325
+column: 8
+content: for(uint256i=0;i<pc.clients.length;i++){if(pc.clients[i]==clientAddress){isClientAddedBeforeFlag=true;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 348
+column: 8
+content: for(uint256i=0;i<_productContracts.length;i++){totalClientsCount+=productContracts[_productContracts[i]].clients.length;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 67
+column: 0
+content: contractUpgradeableisUpgradeabilityStorage{functioninitialize(addresssender)publicpayable{require(msg.sender==address(registry));}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 147
+column: 0
+content: contractMarketplaceisUpgradeable{usingSafeMathforuint256;addresspublicowner;uint256publicplatformCommissionRate;uint256publicuserCommissionRate;addresspublictokensContractAddress;uint256publictokensDecimals;uint256publictokensMultiplier;structUser{int256balance;boolexists;boolblocked;address[]productContracts;}mapping(address=>User)publicusers;structProductContract{addressuser;uint256commissionWei;boolexists;address[]clients;}mapping(address=>ProductContract)productContracts;eventUserRegistered(addressuserAddress);eventUserBlocked(addressuserAddress);eventUserUnblocked(addressuserAddress);eventProductContractRegistered(addressuserAddress,addresscontractAddress);eventClientAdded(addressclientAddress,addresscontractAddress);eventNintyPercentClientsReached(addressuserAddress);eventPlatformIncomingTransactionCommission(addresscontractAddress,uint256amount);eventPlatformOutgoingTransactionCommission(addresscontractAddress,uint256amount);eventUserIncomingTransactionCommission(addresscontractAddress,uint256amount);eventUserOutgoingTransactionCommission(addresscontractAddress,uint256amount);eventSaasUserPaid(addressuserAddress,uint256amount);eventSaasPayment(addressuserAddress,uint256amount);eventUserBalanceBelowZero(addressuserAddress);modifieronlyOwner(){require(msg.sender==owner);_;}functioninitialize(addresssender)publicpayable{super.initialize(sender);owner=sender;}functionsetPlatformCommissionRate(uint256newPlatformCommissionRate)publiconlyOwner{platformCommissionRate=newPlatformCommissionRate;}functioncalculatePlatformCommission(uint256weiAmount)publicviewreturns(uint256){returnweiAmount.mul(platformCommissionRate).div(10000);}functionsetUserCommissionRate(uint256newUserCommissionRate)publiconlyOwner{userCommissionRate=newUserCommissionRate;}functioncalculateUserCommission(uint256weiAmount)publicviewreturns(uint256){returnweiAmount.mul(userCommissionRate).div(10000);}functionregisterUser(addressuserAddress)publicreturns(bool){require(!users[userAddress].exists);users[userAddress]=User(0,true,false,newaddress[](0));emitUserRegistered(userAddress);returntrue;}functionisUserBlocked(addressuserAddress)publicviewreturns(bool){require(users[userAddress].exists);returnusers[userAddress].blocked;}functionblockUser(addressuserAddress)publiconlyOwner{require(users[userAddress].exists);users[userAddress].blocked=true;emitUserBlocked(userAddress);}functionunblockUser(addressuserAddress)publiconlyOwner{require(users[userAddress].exists);users[userAddress].blocked=false;emitUserUnblocked(userAddress);}functiongetUserProductContracts(addressuserAddress)publicviewreturns(address[]){require(users[userAddress].exists);returnusers[userAddress].productContracts;}functiongetUserBalance(addressuserAddress)publicviewreturns(int256){require(users[userAddress].exists);returnusers[userAddress].balance;}functionregisterProductContract(addressuserAddress,addresscontractAddress)publicreturns(bool){require(users[userAddress].exists);require(!productContracts[contractAddress].exists);users[userAddress].productContracts.push(contractAddress);productContracts[contractAddress]=ProductContract(userAddress,0,true,newaddress[](0));emitProductContractRegistered(userAddress,contractAddress);returntrue;}functiongetProductContractUser(addresscontractAddress)publicviewreturns(address){require(productContracts[contractAddress].exists);returnproductContracts[contractAddress].user;}functiongetProductContractCommissionWei(addresscontractAddress)publicviewreturns(uint256){require(productContracts[contractAddress].exists);returnproductContracts[contractAddress].commissionWei;}functiongetProductContractClients(addresscontractAddress)publicviewreturns(address[]){require(productContracts[contractAddress].exists);returnproductContracts[contractAddress].clients;}functionaddClient(addressclientAddress,addresscontractAddress)privatereturns(bool){require(productContracts[contractAddress].exists);ProductContractstoragepc=productContracts[contractAddress];pc.clients.push(clientAddress);emitClientAdded(clientAddress,contractAddress);returntrue;}functionisClientAddedBefore(addressclientAddress,addresscontractAddress)privateviewreturns(bool){ProductContractstoragepc=productContracts[contractAddress];boolisClientAddedBeforeFlag=false;for(uint256i=0;i<pc.clients.length;i++){if(pc.clients[i]==clientAddress){isClientAddedBeforeFlag=true;}}returnisClientAddedBeforeFlag;}functionaddCommissionAmount(uint256_commissionWei,addresscontractAddress)private{require(productContracts[contractAddress].exists);ProductContractstoragepc=productContracts[contractAddress];pc.commissionWei=pc.commissionWei.add(_commissionWei);}functiongetUserClientsCount(addressuserAddress)publicviewreturns(uint256){require(users[userAddress].exists);uint256totalClientsCount=0;address[]memory_productContracts=users[userAddress].productContracts;for(uint256i=0;i<_productContracts.length;i++){totalClientsCount+=productContracts[_productContracts[i]].clients.length;}returntotalClientsCount;}functionsetTokensContractAddress(address_address)publiconlyOwner{tokensContractAddress=_address;}functionsetTokensDecimals(uint256_decimals)publiconlyOwner{tokensDecimals=_decimals;}functionsetTokensMultiplier(uint256_tokensMultiplier)publiconlyOwner{tokensMultiplier=_tokensMultiplier;}functionpayPlatformIncomingTransactionCommission(addressclientAddress)publicpayable{require(productContracts[msg.sender].exists);if(!isClientAddedBefore(clientAddress,msg.sender)){if(canAddNewClient(productContracts[msg.sender].user)){addClient(clientAddress,msg.sender);}else{revert();}}addCommissionAmount(msg.value,msg.sender);emitPlatformIncomingTransactionCommission(msg.sender,msg.value);}functionpayPlatformOutgoingTransactionCommission()publicpayable{require(productContracts[msg.sender].exists);addCommissionAmount(msg.value,msg.sender);emitPlatformOutgoingTransactionCommission(msg.sender,msg.value);}functionpayUserIncomingTransactionCommission(addressclientAddress)publicpayable{require(productContracts[msg.sender].exists);if(!isClientAddedBefore(clientAddress,msg.sender)){if(canAddNewClient(productContracts[msg.sender].user)){addClient(clientAddress,msg.sender);}else{revert();}}addCommissionAmount(msg.value,msg.sender);emitUserIncomingTransactionCommission(msg.sender,msg.value);}functionpayUserOutgoingTransactionCommission()publicpayable{require(productContracts[msg.sender].exists);addCommissionAmount(msg.value,msg.sender);emitUserOutgoingTransactionCommission(msg.sender,msg.value);}functiongetUserTokensCount(addressuserAddress)privateviewreturns(uint256){TokensContracttokensContract=TokensContract(tokensContractAddress);uint256tcBalance=tokensContract.balanceOf(userAddress);returntcBalance.div(tokensDecimals);}functioncanAddNewClient(addressuserAddress)publicreturns(bool){require(users[userAddress].exists);uint256userClientsCount=getUserClientsCount(userAddress);uint256userTokensCountAvailable=getUserTokensCount(userAddress).mul(tokensMultiplier);if(userClientsCount>=userTokensCountAvailable)returnfalse;if(userClientsCount.mul(10000).div(userTokensCountAvailable)>=9000)emitNintyPercentClientsReached(userAddress);returntrue;}functionsaasPayUser()publicpayable{require(users[msg.sender].exists);users[msg.sender].balance+=int(msg.value);emitSaasUserPaid(msg.sender,msg.value);}functionsaasPayment(addressuserAddress,uint256amount)publiconlyOwner{require(users[userAddress].exists);if(users[userAddress].balance<int(amount))emitUserBalanceBelowZero(userAddress);users[userAddress].balance-=int(amount);emitSaasPayment(userAddress,amount);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 204
+column: 4
+content: functionsetPlatformCommissionRate(uint256newPlatformCommissionRate)publiconlyOwner{platformCommissionRate=newPlatformCommissionRate;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 212
+column: 4
+content: functionsetUserCommissionRate(uint256newUserCommissionRate)publiconlyOwner{userCommissionRate=newUserCommissionRate;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 355
+column: 4
+content: functionsetTokensContractAddress(address_address)publiconlyOwner{tokensContractAddress=_address;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 359
+column: 4
+content: functionsetTokensDecimals(uint256_decimals)publiconlyOwner{tokensDecimals=_decimals;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 363
+column: 4
+content: functionsetTokensMultiplier(uint256_tokensMultiplier)publiconlyOwner{tokensMultiplier=_tokensMultiplier;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 373
+column: 12
+content: if(canAddNewClient(productContracts[msg.sender].user)){addClient(clientAddress,msg.sender);}else{revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 400
+column: 12
+content: if(canAddNewClient(productContracts[msg.sender].user)){addClient(clientAddress,msg.sender);}else{revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 149
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 256
+column: 79
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 301
+column: 85
+content: address[]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 175
+column: 4
+content: mapping(address=>ProductContract)productContracts;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2

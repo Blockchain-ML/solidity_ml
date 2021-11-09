@@ -1,0 +1,467 @@
+C:\Users\hp\DataSet\contracts\ropsten\c8\c88786d67f9e2ab04c10a462709e515c6cb37cdb_DutchCrowdsaleIdx.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 99
+column: 25
+content: 0x80
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 135
+column: 19
+content: 0x180
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 150
+column: 20
+content: 0x180
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 153
+column: 38
+content: 0x180
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 160
+column: 2
+content: functionbuffPtr()privatepurereturns(bytes32ptr){assembly{ptr:=mload(0xc0)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 165
+column: 2
+content: functionfreeMem()privatepurereturns(bytes32ptr){assembly{ptr:=mload(0x40)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 253
+column: 2
+content: functionexecID()internalpurereturns(bytes32exec_id){assembly{exec_id:=mload(0x80)}require(exec_id!=bytes32(0),"Execution id overwritten, or not read");}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 259
+column: 2
+content: functionsender()internalpurereturns(addressaddr){assembly{addr:=mload(0xa0)}require(addr!=address(0),"Sender address overwritten, or not read");}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 835
+column: 2
+content: functiontoBytes4Arr(bytes32[]memory_arr)internalpurereturns(bytes4[]memory_conv){assembly{_conv:=_arr}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 839
+column: 2
+content: functiontoAddressArr(bytes32[]memory_arr)internalpurereturns(address[]memory_conv){assembly{_conv:=_arr}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 843
+column: 2
+content: functiontoUintArr(bytes32[]memory_arr)internalpurereturns(uint[]memory_conv){assembly{_conv:=_arr}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 83
+column: 4
+content: if(!authorized)revert("Sender is not authorized as a script exec address");
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 1005
+column: 4
+content: if(_wallet==0||_max_amount_to_sell==0||_max_amount_to_sell>_total_supply||_starting_rate<=_ending_rate||_ending_rate==0||_start_time<=now||_duration+_start_time<=_start_time||_admin==0)revert("Improper Initialization");
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 44
+column: 2
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 851
+column: 2
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 132
+column: 2
+content: functioncommit()conditions(validState,none)internalpure{bytes32ptr=buffPtr();require(ptr>=0x180,"Invalid buffer pointer");assembly{letsize:=mload(add(0x20,ptr))mstore(ptr,0x20)revert(ptr,add(0x40,size))}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 149
+column: 2
+content: functionvalidState()privatepure{if(freeMem()<0x180)revert<missing ';'>(&39;ExpectedContract.execute()&39;);if(buffPtr()!=0&&buffPtr()<0x180)revert<missing ';'>(&39;Invalidbuffer<missing ';'>pointer&39;);assert(execID()!=bytes32(0)&&sender()!=address(0));}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 160
+column: 2
+content: functionbuffPtr()privatepurereturns(bytes32ptr){assembly{ptr:=mload(0xc0)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 165
+column: 2
+content: functionfreeMem()privatepurereturns(bytes32ptr){assembly{ptr:=mload(0x40)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 170
+column: 2
+content: functioncurrentAction()privatepurereturns(bytes4action){if(buffPtr()==bytes32(0))returnbytes4(0);assembly{action:=mload(0xe0)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 196
+column: 2
+content: functionstartBuffer()privatepure{assembly{letptr:=msize()mstore(0xc0,ptr)mstore(ptr,0)mstore(add(0x20,ptr),0)mstore(0x40,add(0x40,ptr))mstore(0x100,1)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 253
+column: 2
+content: functionexecID()internalpurereturns(bytes32exec_id){assembly{exec_id:=mload(0x80)}require(exec_id!=bytes32(0),"Execution id overwritten, or not read");}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 259
+column: 2
+content: functionsender()internalpurereturns(addressaddr){assembly{addr:=mload(0xa0)}require(addr!=address(0),"Sender address overwritten, or not read");}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 835
+column: 2
+content: functiontoBytes4Arr(bytes32[]memory_arr)internalpurereturns(bytes4[]memory_conv){assembly{_conv:=_arr}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 839
+column: 2
+content: functiontoAddressArr(bytes32[]memory_arr)internalpurereturns(address[]memory_conv){assembly{_conv:=_arr}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 843
+column: 2
+content: functiontoUintArr(bytes32[]memory_arr)internalpurereturns(uint[]memory_conv){assembly{_conv:=_arr}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 65
+column: 2
+content: functionauthorize(address_script_exec)internalview{initialize();bytes32perms=EXEC_PERMISSIONS;boolauthorized;assembly{mstore(0,_script_exec)mstore(0x20,perms)mstore(0,keccak256(0x0c,0x34))mstore(0x20,mload(0x80))authorized:=sload(keccak256(0,0x40))}if(!authorized)revert("Sender is not authorized as a script exec address");}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 96
+column: 2
+content: functioninitialize()internalview{require(freeMem()==0x80,"Memory allocated prior to execution");assembly{mstore(0x80,sload(0))mstore(0xa0,sload(1))mstore(0xc0,0)mstore(0xe0,0)mstore(0x100,0)mstore(0x120,0)mstore(0x140,0)mstore(0x160,0)mstore(0x40,0x180)}assert(execID()!=bytes32(0)&&sender()!=address(0));}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 268
+column: 2
+content: functionread(bytes32_location)internalviewreturns(bytes32data){data=keccak256(_location,execID());assembly{data:=sload(data)}}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 1204
+column: 10
+content: (uintcurrent_rate,uinttime_remaining)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 269
+column: 11
+content: keccak256(_location,execID())
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 858
+column: 13
+content: keccak256(_exec,EXEC_PERMISSIONS)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 916
+column: 13
+content: keccak256(_purchaser,contributors())
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 940
+column: 13
+content: keccak256(_spender,"max_tok",saleWhitelist())
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 944
+column: 13
+content: keccak256(_spender,"min_tok",saleWhitelist())
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 968
+column: 13
+content: keccak256(_owner,TOKEN_BALANCES)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 974
+column: 13
+content: keccak256(_spender,keccak256(_owner,TOKEN_ALLOWANCES))
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 974
+column: 33
+content: keccak256(_owner,TOKEN_ALLOWANCES)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 981
+column: 13
+content: keccak256(_agent,TOKEN_TRANSFER_AGENTS)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 72
+column: 4
+content: assembly{mstore(0,_script_exec)mstore(0x20,perms)mstore(0,keccak256(0x0c,0x34))mstore(0x20,mload(0x80))authorized:=sload(keccak256(0,0x40))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 101
+column: 4
+content: assembly{mstore(0x80,sload(0))mstore(0xa0,sload(1))mstore(0xc0,0)mstore(0xe0,0)mstore(0x100,0)mstore(0x120,0)mstore(0x140,0)mstore(0x160,0)mstore(0x40,0x180)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 137
+column: 4
+content: assembly{letsize:=mload(add(0x20,ptr))mstore(ptr,0x20)revert(ptr,add(0x40,size))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 161
+column: 4
+content: assembly{ptr:=mload(0xc0)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 166
+column: 4
+content: assembly{ptr:=mload(0x40)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 174
+column: 4
+content: assembly{action:=mload(0xe0)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 197
+column: 4
+content: assembly{letptr:=msize()mstore(0xc0,ptr)mstore(ptr,0)mstore(add(0x20,ptr),0)mstore(0x40,add(0x40,ptr))mstore(0x100,1)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 254
+column: 4
+content: assembly{exec_id:=mload(0x80)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 260
+column: 4
+content: assembly{addr:=mload(0xa0)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 270
+column: 4
+content: assembly{data:=sload(data)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 836
+column: 4
+content: assembly{_conv:=_arr}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 840
+column: 4
+content: assembly{_conv:=_arr}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 844
+column: 4
+content: assembly{_conv:=_arr}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 55
+column: 62
+content: script_exec_permissions&39;);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 275
+column: 57
+content: Emit
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 275
+column: 61
+content: ((bytes32[],bytes)[])&39;));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 276
+column: 58
+content: Store
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 276
+column: 63
+content: (bytes32<missing ')'>[])&39;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 277
+column: 56
+content: Pay
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 277
+column: 59
+content: (bytes32<missing ')'>[])&39;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 278
+column: 58
+content: Error
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 278
+column: 63
+content: (string)&39;));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 335
+column: 4
+content: isEmitting
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 335
+column: 14
+content: ();
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 854
+column: 62
+content: script_exec_permissions&39;);
+
+SOLIDITY_VISIBILITY :12
+SOLIDITY_SAFEMATH :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :7
+SOLIDITY_ADDRESS_HARDCODED :4
+SOLIDITY_UPGRADE_TO_050 :9
+SOLIDITY_USING_INLINE_ASSEMBLY :13
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :3
+SOLIDITY_SHOULD_NOT_BE_PURE :11

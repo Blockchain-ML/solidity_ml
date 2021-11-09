@@ -1,0 +1,227 @@
+C:\Users\hp\DataSet\contracts\ropsten\94\94bbae5e440b8879ca3088ba25022fa0e911fca3_Storage.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 59
+column: 4
+content: _owner=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 122
+column: 4
+content: addressconstantprivateZERO_ADDRESS=address(0);
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 187
+column: 4
+content: functionaddContract(address_contractAddress)publicreturns(bool){require(!contractList[_contractAddress].isAdded);contractList[_contractAddress]=Contract(true,0,false);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 120
+column: 0
+content: contractStorageisOwnable{addressconstantprivateZERO_ADDRESS=address(0);structContract{boolisAdded;uint256numberOfDeal;boolisBlocked;}mapping(address=>Contract)publiccontractList;structTokenDeal{uinttokenAmount;boolisPaid;boolisFailed;boolisRefundtoBuyer;boolisCompleted;}structTokenDealPayment{uint_amount;bool_type;address_tokenAddress;}structTokenDealMembers{addresspayableseller;bytes32sellerSignature;boolsellerConfirmation;addresspayablebuyer;bytes32buyerSignature;boolbuyerConfirmation;}structTokenDealBD{addressbrokerDealer;bytes32brokerDealerSignature;boolbrokerDealerConfirmation;}mapping(address=>mapping(uint=>TokenDeal))privatetokenDealList;mapping(address=>mapping(uint=>TokenDealMembers))privatetokenDealMembersList;mapping(address=>mapping(uint=>TokenDealBD))privatetokenDealBDList;mapping(address=>mapping(uint=>TokenDealPayment))privatetokenDealPaymentList;modifierisValidAddress(addressaddr){require(addr!=ZERO_ADDRESS);_;}modifierisContract(addressaddr){require(addr!=ZERO_ADDRESS);require(AddressUtils.isContract(addr));_;}modifierisContractExist(addressaddr){require(addr!=ZERO_ADDRESS);require(AddressUtils.isContract(addr));require(contractList[addr].isAdded);_;}constructor()public{}functionaddContract(address_contractAddress)publicreturns(bool){require(!contractList[_contractAddress].isAdded);contractList[_contractAddress]=Contract(true,0,false);}functionsetContractStatus(address_contractAddress,bool_status)publiconlyOwnerisContractExist(_contractAddress)returns(bool){ContractstorageC=contractList[_contractAddress];C.isBlocked=_status;returntrue;}functiongetContract(address_contractAddress)publicviewisContractExist(_contractAddress)returns(address,uint256,bool){ContractmemoryC=contractList[_contractAddress];return(_contractAddress,C.numberOfDeal,C.isBlocked);}functionsetDeal(uint_tokenAmount,address<missing ')'>payable[]memoryaddresses)publicisContractExist(msg.sender)returns(uint){ContractstorageC=contractList[msg.sender];require(!C.isBlocked);C.numberOfDeal++;tokenDealList[msg.sender][C.numberOfDeal]=TokenDeal(_tokenAmount,false,false,false,false);tokenDealMembersList[msg.sender][C.numberOfDeal]=TokenDealMembers(addresses[0],"",false,addresses[1],"",false);tokenDealBDList[msg.sender][C.numberOfDeal]=TokenDealBD(addresses[2],"",false);returnC.numberOfDeal;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 192
+column: 4
+content: functionsetContractStatus(address_contractAddress,bool_status)publiconlyOwnerisContractExist(_contractAddress)returns(bool){ContractstorageC=contractList[_contractAddress];C.isBlocked=_status;returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 13
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 122
+column: 21
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 161
+column: 51
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 162
+column: 58
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 163
+column: 53
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 164
+column: 58
+content: private
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 93
+column: 2
+content: functionisContract(addressaddr)internalviewreturns(bool){uint256size;assembly{size:=extcodesize(addr)}returnsize>0;}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 198
+column: 104
+content: (address,uint256,bool)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 205
+column: 4
+content: functionsetDeal(uint_tokenAmount,address<missing ')'>payable[]memory
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 206
+column: 23
+content: (msg.sender)returns
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 206
+column: 43
+content: (uint){Contractstorage
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 207
+column: 29
+content: C=contractList[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 207
+column: 46
+content: msg.sender];
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 208
+column: 12
+content: require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 208
+column: 19
+content: (!C.isBlocked);C.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 209
+column: 14
+content: numberOfDeal++;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 210
+column: 12
+content: tokenDealList[msg.sender][C.numberOfDeal]=TokenDeal
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 210
+column: 65
+content: (_tokenAmount,false,false,false,false);tokenDealMembersList[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 211
+column: 33
+content: msg.sender][
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 211
+column: 45
+content: C.numberOfDeal]=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 211
+column: 63
+content: TokenDealMembers(addresses[0],"",false,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 211
+column: 105
+content: addresses[1],"",false);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 212
+column: 12
+content: tokenDealBDList[msg.sender][C.numberOfDeal]=TokenDealBD
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 212
+column: 69
+content: (addresses[2],"",false);returnC.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 213
+column: 21
+content: numberOfDeal;
+
+SOLIDITY_VISIBILITY :17
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :6
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

@@ -1,0 +1,407 @@
+C:\Users\hp\DataSet\contracts\ropsten\e9\e941bdd59dd0e7525f4e3c3cc5d7613ec530c55a_epocum.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 78
+column: 4
+content: functionresetEpocum(address_newEpocum)publicconstantreturns(bool){if(msg.sender!=_epocum)revert();_epocum=_newEpocum;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 83
+column: 4
+content: functionisEpocum()publicconstantreturns(bool){returnmsg.sender==_epocum;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 87
+column: 1
+content: functionisAlreadyIn()publicconstantreturns(bool){returnmsg.sender==UsersByAddr[msg.sender].wallet;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 162
+column: 1
+content: functiongetUserFromAddr(addressuser)publicconstantreturns(stringipfsRoot){ipfsRoot=UsersByAddr[user].ipfs;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 166
+column: 1
+content: functiongetUserIpfsFromId(uintid)publicconstantreturns(stringipfsRoot){ipfsRoot=UsersById[id].ipfs;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 170
+column: 1
+content: functiongetUserFromId(uintid)publicconstantreturns(stringipfsRoot,addressuserAddress,uintnumWebsOfThisUser){ipfsRoot=UsersById[id].ipfs;userAddress=UsersById[id].wallet;numWebsOfThisUser=UsersById[id].numWebsites;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 176
+column: 1
+content: functioncountWebsite(addresscustomer)publicconstantreturns(uintcount){count=UsersByAddr[customer].numWebsites;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 180
+column: 4
+content: functioncountAllSmartSharingContract()publicconstantreturns(uintcount){count=smartCount;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 184
+column: 4
+content: functioncountAllUsers()publicconstantreturns(uintcount){count=usrs;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 188
+column: 4
+content: functioncountSmartSharingContract()publicconstantreturns(uintcount){count=UsersByAddr[msg.sender].numSmartSharingContracts;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 192
+column: 4
+content: functiongetSmartSharingByID(uintid)publicconstantreturns(addresssmartOwner,bytes32smartHash){smartOwner=SmartChainId[id].proprietary;smartHash=SmartChainId[id].smartHash;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 197
+column: 4
+content: functiongetSmartSharingByHash(bytes32hash)publicconstantreturns(addresssmartOwner,stringsmartWebsite,bytes32smartHash,uinttarget,stringipfs,uintnumAcc,stringothers){smartOwner=SmartChainHash[hash].proprietary;smartWebsite=SmartChainHash[hash].website;smartHash=SmartChainHash[hash].smartHash;target=SmartChainHash[hash].target;ipfs=UsersByAddr[smartOwner].ipfs;numAcc=SmartChainHash[hash].acceptances;others=SmartChainHash[hash].info;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 207
+column: 4
+content: functiongetWebsite(addresscustomer,uintindex)publicconstantreturns(stringwebsite,boolcert){website=WebChain[customer][index].url;cert=WebChain[customer][index].cert;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 212
+column: 4
+content: functiongetAcceptance(bytes32_smartHash,addressaddr)publicconstantreturns(stringdLink,stringweb,stringothers){dLink=acceptByAddress[addr][_smartHash].dLink;web=acceptByAddress[addr][_smartHash].website;others=acceptByAddress[addr][_smartHash].info;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 218
+column: 4
+content: functiongetMyAcceptance(addressaddr,uinty)publicconstantreturns(stringdLink,bytes32smartHash,stringothers){dLink=myAcceptance[addr][y].dLink;smartHash=myAcceptance[addr][y].smartHash;others=myAcceptance[addr][y].info;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 224
+column: 4
+content: functiongetSmartHash(string_dLink)publicconstantreturns(bytes32smartHash){smartHash=acceptByIpfs[_dLink].smartHash;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 78
+column: 4
+content: functionresetEpocum(address_newEpocum)publicconstantreturns(bool){if(msg.sender!=_epocum)revert();_epocum=_newEpocum;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 14
+column: 0
+content: contractepocumisdecentralizedNetwork{uintpublicusrs=0;uintpublicwebs=0;uintpublicsmartCount=0;uintpublic$web;addresspublic_epocum;functionepocum()public{$web=0;_epocum=msg.sender;}structWebsites{stringurl;boolcert;}structUsers{stringipfs;addresswallet;uintid;uintnumWebsites;uintnumSmartSharingContracts;}structSmartSharingContract{addressproprietary;bytes32smartHash;stringwebsite;uinttarget;stringtag;stringipfs;uintduration;uintacceptances;stringinfo;}structAcceptance{uintid;bytes32smartHash;stringwebsite;addressadvertiser;stringdLink;stringinfo;}mapping(uint=>Users)UsersById;mapping(address=>Users)UsersByAddr;mapping(address=>mapping(uint=>Websites))WebChain;mapping(uint=>SmartSharingContract)SmartChainId;mapping(bytes32=>SmartSharingContract)SmartChainHash;mapping(address=>mapping(bytes32=>Acceptance))acceptByAddress;mapping(address=>mapping(uint=>Acceptance))myAcceptance;mapping(string=>Acceptance)acceptByIpfs;function()payablepublic{uintamount=msg.value;}functionresetEpocum(address_newEpocum)publicconstantreturns(bool){if(msg.sender!=_epocum)revert();_epocum=_newEpocum;}functionisEpocum()publicconstantreturns(bool){returnmsg.sender==_epocum;}functionisAlreadyIn()publicconstantreturns(bool){returnmsg.sender==UsersByAddr[msg.sender].wallet;}functionaddUser(stringipfs)public{usrs++;UsersByAddr[msg.sender]=Users(ipfs,msg.sender,0,usrs,0);}functionupdateUser(stringipfs)public{UsersByAddr[msg.sender].ipfs=ipfs;}functionaddWeb(stringmyWebsite)public{uintidx=UsersByAddr[msg.sender].numWebsites;uintx=idx+1;WebChain[msg.sender][x].url=myWebsite;WebChain[msg.sender][x].cert=false;UsersByAddr[msg.sender].numWebsites=x;webs++;}functionNewSmartSharingContract(string_website,uint_target,uintduration,stringtags,stringdlink,stringothers)public{uints=UsersByAddr[msg.sender].numSmartSharingContracts;bytes32_hash=keccak256(msg.sender,_website,smartCount);SmartChainId[smartCount].proprietary=msg.sender;SmartChainId[smartCount].smartHash=_hash;SmartChainHash[_hash].proprietary=msg.sender;SmartChainHash[_hash].website=_website;SmartChainHash[_hash].smartHash=_hash;SmartChainHash[_hash].target=_target;SmartChainHash[_hash].ipfs=dlink;SmartChainHash[_hash].tag=tags;SmartChainHash[_hash].duration=duration;SmartChainHash[_hash].acceptances=0;SmartChainHash[_hash].info=others;uintx=s+1;UsersByAddr[msg.sender].numSmartSharingContracts=x;smartCount++;}functionAccept(bytes32_smartHash,string_dLink)public{uintnumAcc=SmartChainHash[_smartHash].acceptances;string_website=SmartChainHash[_smartHash].website;stringothers=SmartChainHash[_smartHash].info;uintx=acceptByAddress[msg.sender][_smartHash].id;acceptByAddress[msg.sender][_smartHash].advertiser=msg.sender;acceptByAddress[msg.sender][_smartHash].dLink=_dLink;acceptByAddress[msg.sender][_smartHash].website=_website;acceptByIpfs[_dLink].smartHash=_smartHash;uinty=x+1;uintz=numAcc+1;acceptByAddress[msg.sender][_smartHash].id=y;SmartChainHash[_smartHash].acceptances=z;myAcceptance[msg.sender][y].dLink=_dLink;myAcceptance[msg.sender][y].smartHash=_smartHash;myAcceptance[msg.sender][y].info=others;}functiondestroyUser()public{uintid=UsersByAddr[msg.sender].id;delete(UsersByAddr[msg.sender]);delete(UsersById[id]);}functionset$Web(uint_$web)public{if(!isEpocum())revert();$web=_$web;}functionCertify(addressinWebAddr,uintx)public{if(!isEpocum())revert();WebChain[inWebAddr][x].cert=true;}functiongetUserFromAddr(addressuser)publicconstantreturns(stringipfsRoot){ipfsRoot=UsersByAddr[user].ipfs;}functiongetUserIpfsFromId(uintid)publicconstantreturns(stringipfsRoot){ipfsRoot=UsersById[id].ipfs;}functiongetUserFromId(uintid)publicconstantreturns(stringipfsRoot,addressuserAddress,uintnumWebsOfThisUser){ipfsRoot=UsersById[id].ipfs;userAddress=UsersById[id].wallet;numWebsOfThisUser=UsersById[id].numWebsites;}functioncountWebsite(addresscustomer)publicconstantreturns(uintcount){count=UsersByAddr[customer].numWebsites;}functioncountAllSmartSharingContract()publicconstantreturns(uintcount){count=smartCount;}functioncountAllUsers()publicconstantreturns(uintcount){count=usrs;}functioncountSmartSharingContract()publicconstantreturns(uintcount){count=UsersByAddr[msg.sender].numSmartSharingContracts;}functiongetSmartSharingByID(uintid)publicconstantreturns(addresssmartOwner,bytes32smartHash){smartOwner=SmartChainId[id].proprietary;smartHash=SmartChainId[id].smartHash;}functiongetSmartSharingByHash(bytes32hash)publicconstantreturns(addresssmartOwner,stringsmartWebsite,bytes32smartHash,uinttarget,stringipfs,uintnumAcc,stringothers){smartOwner=SmartChainHash[hash].proprietary;smartWebsite=SmartChainHash[hash].website;smartHash=SmartChainHash[hash].smartHash;target=SmartChainHash[hash].target;ipfs=UsersByAddr[smartOwner].ipfs;numAcc=SmartChainHash[hash].acceptances;others=SmartChainHash[hash].info;}functiongetWebsite(addresscustomer,uintindex)publicconstantreturns(stringwebsite,boolcert){website=WebChain[customer][index].url;cert=WebChain[customer][index].cert;}functiongetAcceptance(bytes32_smartHash,addressaddr)publicconstantreturns(stringdLink,stringweb,stringothers){dLink=acceptByAddress[addr][_smartHash].dLink;web=acceptByAddress[addr][_smartHash].website;others=acceptByAddress[addr][_smartHash].info;}functiongetMyAcceptance(addressaddr,uinty)publicconstantreturns(stringdLink,bytes32smartHash,stringothers){dLink=myAcceptance[addr][y].dLink;smartHash=myAcceptance[addr][y].smartHash;others=myAcceptance[addr][y].info;}functiongetSmartHash(string_dLink)publicconstantreturns(bytes32smartHash){smartHash=acceptByIpfs[_dLink].smartHash;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 79
+column: 8
+content: if(msg.sender!=_epocum)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 153
+column: 5
+content: if(!isEpocum())revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 158
+column: 5
+content: if(!isEpocum())revert();
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 111
+column: 24
+content: keccak256(msg.sender,_website,smartCount)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 74
+column: 24
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 8
+column: 37
+content: stringip
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 8
+column: 48
+content: stringwebsite
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 91
+column: 21
+content: stringipfs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 96
+column: 21
+content: stringipfs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 100
+column: 17
+content: stringmyWebsite
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 109
+column: 34
+content: string_website
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 109
+column: 77
+content: stringtags
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 109
+column: 89
+content: stringdlink
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 109
+column: 102
+content: stringothers
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 128
+column: 38
+content: string_dLink
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 162
+column: 64
+content: stringipfsRoot
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 166
+column: 61
+content: stringipfsRoot
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 170
+column: 57
+content: stringipfsRoot
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 197
+column: 93
+content: stringsmartWebsite
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 197
+column: 146
+content: stringipfs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 197
+column: 172
+content: stringothers
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 207
+column: 78
+content: stringwebsite
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 212
+column: 84
+content: stringdLink
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 212
+column: 97
+content: stringweb
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 212
+column: 108
+content: stringothers
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 218
+column: 74
+content: stringdLink
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 218
+column: 105
+content: stringothers
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 224
+column: 26
+content: string_dLink
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 130
+column: 5
+content: string_website=SmartChainHash[_smartHash].website
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 131
+column: 5
+content: stringothers=SmartChainHash[_smartHash].info
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 62
+column: 4
+content: mapping(uint=>Users)UsersById;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 63
+column: 4
+content: mapping(address=>Users)UsersByAddr;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 65
+column: 4
+content: mapping(address=>mapping(uint=>Websites))WebChain;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 67
+column: 4
+content: mapping(uint=>SmartSharingContract)SmartChainId;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 68
+column: 4
+content: mapping(bytes32=>SmartSharingContract)SmartChainHash;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 70
+column: 4
+content: mapping(address=>mapping(bytes32=>Acceptance))acceptByAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 71
+column: 4
+content: mapping(address=>mapping(uint=>Acceptance))myAcceptance;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 72
+column: 4
+content: mapping(string=>Acceptance)acceptByIpfs;
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :16
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :3
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_UPGRADE_TO_050 :27

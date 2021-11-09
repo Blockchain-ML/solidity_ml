@@ -1,0 +1,41 @@
+C:\Users\hp\DataSet\contracts\ropsten\16\1650de74d48ea2cc07f17d036dd02ad1d7153c2e_YumeriumManager.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 142
+column: 12
+content: for(uint256i=0;i<arrProducts.length;i++){if(arrProducts[i]==_old_contract_address){arrProducts[i]=_new_contract_address;YumeriumProducts[_new_contract_address]=true;break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 142
+column: 12
+content: for(uint256i=0;i<arrProducts.length;i++){if(arrProducts[i]==_old_contract_address){arrProducts[i]=_new_contract_address;YumeriumProducts[_new_contract_address]=true;break;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractYumeriumManager{usingSafeMathforuint256;addresspubliccreator;YUMpublicYumerium;addresspublicYumeriumTeamWallet;mapping(address=>bool)publicYumeriumProducts;address[]publicarrProducts;uintpubliceventSaleEnd=1537920000;uintpublicmainSaleEnd=1539129600;uint256publicsaleExchangeRate4=3333;uint256publicsaleExchangeRate5=3158;uint256publicsaleExchangeRate=3000;uint256publicvolumeType1=1429*10**16;uint256publicvolumeType2=7143*10**16;uint256publicvolumeType3=14286*10**16;uint256publicvolumeType4=42857*10**16;uint256publicvolumeType5=71429*10**16;uint256publicvolumeType6=142857*10**16;uint256publicvolumeType7=428571*10**16;eventGetYumerium(addressproduct,addresssender,uint256amount);constructor(address_token_address)public{creator=msg.sender;Yumerium=YUM(_token_address);YumeriumTeamWallet=msg.sender;YumeriumProducts[this]=true;}function()externalpayable{getYumerium(msg.value,msg.sender);YumeriumTeamWallet.transfer(msg.value);}functiongetYumerium(uint256value,addresssender)publicreturns(uint256){require(YumeriumProducts[msg.sender],"This isn&#39;t our product!");uint256amount;uint256exchangeRate;if(now<eventSaleEnd){exchangeRate=saleExchangeRate4;}elseif(now<mainSaleEnd){exchangeRate=saleExchangeRate5;}else{exchangeRate=saleExchangeRate;}amount=value.mul(exchangeRate).div(10**10);if(value>=volumeType7){amount=amount.mul(180).div(100);}elseif(value>=volumeType6){amount=amount.mul(160).div(100);}elseif(value>=volumeType5){amount=amount.mul(140).div(100);}elseif(value>=volumeType4){amount=amount.mul(130).div(100);}elseif(value>=volumeType3){amount=amount.mul(120).div(100);}elseif(value>=volumeType2){amount=amount.mul(110).div(100);}elseif(value>=volumeType1){amount=amount.mul(105).div(100);}Yumerium.sale(sender,amount);emitGetYumerium(msg.sender,sender,amount);returnamount;}functioncalculateToken(uint256ethValue)publicviewreturns(uint256){uint256amount;uint256exchangeRate;if(now<eventSaleEnd){exchangeRate=saleExchangeRate4;}elseif(now<mainSaleEnd){exchangeRate=saleExchangeRate5;}else{exchangeRate=saleExchangeRate;}amount=ethValue.mul(exchangeRate).div(10**10);if(ethValue>=volumeType7){amount=amount.mul(180).div(100);}elseif(ethValue>=volumeType6){amount=amount.mul(160).div(100);}elseif(ethValue>=volumeType5){amount=amount.mul(140).div(100);}elseif(ethValue>=volumeType4){amount=amount.mul(130).div(100);}elseif(ethValue>=volumeType3){amount=amount.mul(120).div(100);}elseif(ethValue>=volumeType2){amount=amount.mul(110).div(100);}elseif(ethValue>=volumeType1){amount=amount.mul(105).div(100);}returnamount;}functionchangeCreator(address_creator)external{require(msg.sender==creator,"You&#39;re not a creator!");creator=_creator;}functionchangeTeamWallet(address_teamWallet)external{require(msg.sender==creator,"You&#39;re not a creator!");YumeriumTeamWallet=_teamWallet;}functionaddProduct(address_contractAddress)external{require(msg.sender==creator,"You&#39;re not a creator!");require(!YumeriumProducts[_contractAddress],"This product is already in the manager");if(!YumeriumProducts[_contractAddress]){YumeriumProducts[_contractAddress]=true;arrProducts.push(_contractAddress);}}functionreplaceProduct(address_old_contract_address,address_new_contract_address)external{require(msg.sender==creator,"You&#39;re not a creator!");require(YumeriumProducts[_old_contract_address],"This product isn&#39;t already in the manager");if(YumeriumProducts[_old_contract_address]){YumeriumProducts[_old_contract_address]=false;for(uint256i=0;i<arrProducts.length;i++){if(arrProducts[i]==_old_contract_address){arrProducts[i]=_new_contract_address;YumeriumProducts[_new_contract_address]=true;break;}}}}functiongetNumProducts()publicviewreturns(uint256){returnarrProducts.length;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 8
+column: 4
+content: usingSafeMathforuint256;
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

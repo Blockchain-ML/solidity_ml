@@ -1,0 +1,330 @@
+F:\Blockchain\dataset_new_byID\78498.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 333
+column: 16
+content: _activityInstance.performer=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 377
+column: 28
+content: _activityInstance.performer=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 658
+column: 8
+content: _activityInstance.performer=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 660
+column: 29
+content: (_activityInstance.id,_activityInstance.completedBy,_activityInstance.completed,address(0),BpmRuntime.ActivityInstanceState.COMPLETED)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 924
+column: 12
+content: returnaddress(0)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 669
+column: 12
+content: for(uinti=0;i<_activityInstance.boundaryEvents.keys.length;i++){BpmRuntime.BoundaryEventInstancestorageeventInstance=_activityInstance.boundaryEvents.rows[_activityInstance.boundaryEvents.keys[i]].value;emitLogBoundaryEventTimerDeactivation(EVENT_ID_TIMER_EVENTS,eventInstance.id,eventInstance.activityInstanceId);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 772
+column: 8
+content: for(uinti=0;i<_processInstance.graph.activityKeys.length;i++){activityId=_processInstance.graph.activityKeys[i];if(_processInstance.graph.activities[activityId].ready){_processInstance.graph.activities[activityId].ready=false;if(_processInstance.graph.activities[activityId].instancesCompleted>0)_processInstance.graph.activities[activityId].instancesCompleted=0;if(!_processInstance.processDefinition.modelElementExists(activityId)){_processInstance.graph.activities[activityId].done=true;continue;}BpmModel.ModelElementTypeelementType=_processInstance.processDefinition.getElementType(activityId);if(elementType==BpmModel.ModelElementType.ACTIVITY){(,taskType,,assignee,multiInstance,,,)=_processInstance.processDefinition.getActivityData(activityId);if(multiInstance){addresstargetAddress;bytes32dataPath;if(taskType==uint8(BpmModel.TaskType.USER)){(targetAddress,dataPath)=resolveParticipant(_processInstance.processDefinition.getModel(),DataStorage(_processInstance.addr),assignee);}else{}_processInstance.graph.activities[activityId].instancesTotal=DataStorage(targetAddress).getArrayLength(dataPath);}else{_processInstance.graph.activities[activityId].instancesTotal=1;}(,,bytes32[]memoryboundaryEvents)=_processInstance.processDefinition.getActivityGraphDetails(activityId);bytes32aiId;for(uintj=0;j<_processInstance.graph.activities[activityId].instancesTotal;j++){aiId=createActivityInstance(_processInstance,activityId,j);_service.getBpmServiceDb().addActivityInstance(aiId);executeActivity(_processInstance.activities.rows[aiId].value,DataStorage(_processInstance.addr),_processInstance.processDefinition,_service);if(_processInstance.activities.rows[aiId].value.state==BpmRuntime.ActivityInstanceState.COMPLETED){_processInstance.activities.rows[aiId].value.completed=block.timestamp;_processInstance.graph.activities[activityId].instancesCompleted++;}for(uintk=0;k<boundaryEvents.length;k++){bytes32boundaryId=boundaryEvents[k];createBoundaryEventInstance(_processInstance,aiId,boundaryId,k);}}}elseif(elementType==BpmModel.ModelElementType.INTERMEDIATE_EVENT){bytes32eiId;_processInstance.graph.activities[activityId].instancesTotal=1;eiId=createIntermediateEventInstance(_processInstance,activityId);_service.getBpmServiceDb().addActivityInstance(eiId);executeIntermediateEvent(_processInstance.intermediateEvents.rows[eiId].value,DataStorage(_processInstance.addr),_processInstance.processDefinition);if(_processInstance.intermediateEvents.rows[eiId].value.state==BpmRuntime.ActivityInstanceState.COMPLETED){_processInstance.intermediateEvents.rows[eiId].value.completed=block.timestamp;_processInstance.graph.activities[activityId].instancesCompleted=1;}}if(_processInstance.graph.activities[activityId].instancesCompleted==_processInstance.graph.activities[activityId].instancesTotal){_processInstance.graph.activities[activityId].done=true;}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 824
+column: 24
+content: for(uintk=0;k<boundaryEvents.length;k++){bytes32boundaryId=boundaryEvents[k];createBoundaryEventInstance(_processInstance,aiId,boundaryId,k);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1115
+column: 12
+content: for(uinti=0;i<_processInstance.activities.keys.length;i++){activityInstanceId=_processInstance.activities.keys[i];if(_processInstance.activities.rows[activityInstanceId].value.state!=BpmRuntime.ActivityInstanceState.COMPLETED){_processInstance.activities.rows[activityInstanceId].value.state=BpmRuntime.ActivityInstanceState.ABORTED;emitLogActivityInstanceStateUpdate(EVENT_ID_ACTIVITY_INSTANCES,activityInstanceId,uint8(BpmRuntime.ActivityInstanceState.ABORTED));}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1176
+column: 12
+content: for(i=0;i<elementIds.length;i++){(,,targetId)=_processDefinition.getBoundaryEventGraphDetails(elementIds[i]);if(targetId!=""){targetType=_processDefinition.getElementType(targetId);traverseRuntimeGraph(_processDefinition,targetId,_graph);connect(_graph,_currentId,currentType,targetId,targetType,elementIds[i]);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1217
+column: 12
+content: for(i=0;i<outputs.length;i++){targetId=outputs[i];targetType=_processDefinition.getElementType(targetId);traverseRuntimeGraph(_processDefinition,targetId,_graph);bytes32newElementId=connect(_graph,_currentId,currentType,targetId,targetType,"");if(defaultOutput==targetId){_graph.transitions[_currentId].defaultOutput=(newElementId!="")?newElementId:targetId;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1277
+column: 8
+content: for(i=0;i<_graph.activityKeys.length;i++){delete_graph.activities[_graph.activityKeys[i]];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1280
+column: 8
+content: for(i=0;i<_graph.transitionKeys.length;i++){delete_graph.transitions[_graph.transitionKeys[i]];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1327
+column: 16
+content: for(i=0;i<_graph.transitions[_transitionId].node.inputs.length;i++){if(coloredTransition)_graph.activities[_graph.transitions[_transitionId].node.inputs[i]].markers[marker]=false;else_graph.activities[_graph.transitions[_transitionId].node.inputs[i]].done=false;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1334
+column: 16
+content: for(i=0;i<_graph.transitions[_transitionId].node.outputs.length;i++){_graph.activities[_graph.transitions[_transitionId].node.outputs[i]].ready=true;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1341
+column: 16
+content: for(i=0;i<_graph.transitions[_transitionId].node.inputs.length;i++){if(coloredTransition&&_graph.activities[_graph.transitions[_transitionId].node.inputs[i]].markers[marker]){_graph.activities[_graph.transitions[_transitionId].node.inputs[i]].markers[marker]=false;break;}elseif(!coloredTransition&&_graph.activities[_graph.transitions[_transitionId].node.inputs[i]].done){_graph.activities[_graph.transitions[_transitionId].node.inputs[i]].done=false;break;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1352
+column: 16
+content: for(i=0;i<_graph.transitions[_transitionId].node.outputs.length;i++){if(_graph.transitions[_transitionId].defaultOutput==_graph.transitions[_transitionId].node.outputs[i]){continue;}if(ProcessInstance(_graph.processInstance).resolveTransitionCondition(_transitionId,_graph.transitions[_transitionId].node.outputs[i])){_graph.activities[_graph.transitions[_transitionId].node.outputs[i]].ready=true;transitionFired=true;break;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1382
+column: 8
+content: for(uinti=0;i<_graph.transitionKeys.length;i++){if(fireTransition(_graph,_graph.transitionKeys[i])){count++;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1395
+column: 8
+content: for(uinti=0;i<_graph.activityKeys.length;i++){node=_graph.activities[_graph.activityKeys[i]];if(!node.done&&node.instancesTotal!=node.instancesCompleted&&node.instancesTotal>0){completed=false;return(completed,readyActivities);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1409
+column: 8
+content: for(uinti=0;i<_graph.activityKeys.length;i++){if(_graph.activities[_graph.activityKeys[i]].ready){returntrue;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1428
+column: 12
+content: for(i=0;i<_graph.transitions[_transitionId].node.inputs.length;i++){enabled=coloredTransition?_graph.activities[_graph.transitions[_transitionId].node.inputs[i]].markers[marker]:_graph.activities[_graph.transitions[_transitionId].node.inputs[i]].done;if(!enabled){returnenabled;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 1439
+column: 12
+content: for(i=0;i<_graph.transitions[_transitionId].node.inputs.length;i++){enabled=coloredTransition?_graph.activities[_graph.transitions[_transitionId].node.inputs[i]].markers[marker]:_graph.activities[_graph.transitions[_transitionId].node.inputs[i]].done;if(enabled){returnenabled;}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 1381
+column: 4
+content: functionexecute(BpmRuntime.ProcessGraphstorage_graph)publicreturns(uintcount){for(uinti=0;i<_graph.transitionKeys.length;i++){if(fireTransition(_graph,_graph.transitionKeys[i])){count++;}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 669
+column: 12
+content: for(uinti=0;i<_activityInstance.boundaryEvents.keys.length;i++){BpmRuntime.BoundaryEventInstancestorageeventInstance=_activityInstance.boundaryEvents.rows[_activityInstance.boundaryEvents.keys[i]].value;emitLogBoundaryEventTimerDeactivation(EVENT_ID_TIMER_EVENTS,eventInstance.id,eventInstance.activityInstanceId);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 772
+column: 8
+content: for(uinti=0;i<_processInstance.graph.activityKeys.length;i++){activityId=_processInstance.graph.activityKeys[i];if(_processInstance.graph.activities[activityId].ready){_processInstance.graph.activities[activityId].ready=false;if(_processInstance.graph.activities[activityId].instancesCompleted>0)_processInstance.graph.activities[activityId].instancesCompleted=0;if(!_processInstance.processDefinition.modelElementExists(activityId)){_processInstance.graph.activities[activityId].done=true;continue;}BpmModel.ModelElementTypeelementType=_processInstance.processDefinition.getElementType(activityId);if(elementType==BpmModel.ModelElementType.ACTIVITY){(,taskType,,assignee,multiInstance,,,)=_processInstance.processDefinition.getActivityData(activityId);if(multiInstance){addresstargetAddress;bytes32dataPath;if(taskType==uint8(BpmModel.TaskType.USER)){(targetAddress,dataPath)=resolveParticipant(_processInstance.processDefinition.getModel(),DataStorage(_processInstance.addr),assignee);}else{}_processInstance.graph.activities[activityId].instancesTotal=DataStorage(targetAddress).getArrayLength(dataPath);}else{_processInstance.graph.activities[activityId].instancesTotal=1;}(,,bytes32[]memoryboundaryEvents)=_processInstance.processDefinition.getActivityGraphDetails(activityId);bytes32aiId;for(uintj=0;j<_processInstance.graph.activities[activityId].instancesTotal;j++){aiId=createActivityInstance(_processInstance,activityId,j);_service.getBpmServiceDb().addActivityInstance(aiId);executeActivity(_processInstance.activities.rows[aiId].value,DataStorage(_processInstance.addr),_processInstance.processDefinition,_service);if(_processInstance.activities.rows[aiId].value.state==BpmRuntime.ActivityInstanceState.COMPLETED){_processInstance.activities.rows[aiId].value.completed=block.timestamp;_processInstance.graph.activities[activityId].instancesCompleted++;}for(uintk=0;k<boundaryEvents.length;k++){bytes32boundaryId=boundaryEvents[k];createBoundaryEventInstance(_processInstance,aiId,boundaryId,k);}}}elseif(elementType==BpmModel.ModelElementType.INTERMEDIATE_EVENT){bytes32eiId;_processInstance.graph.activities[activityId].instancesTotal=1;eiId=createIntermediateEventInstance(_processInstance,activityId);_service.getBpmServiceDb().addActivityInstance(eiId);executeIntermediateEvent(_processInstance.intermediateEvents.rows[eiId].value,DataStorage(_processInstance.addr),_processInstance.processDefinition);if(_processInstance.intermediateEvents.rows[eiId].value.state==BpmRuntime.ActivityInstanceState.COMPLETED){_processInstance.intermediateEvents.rows[eiId].value.completed=block.timestamp;_processInstance.graph.activities[activityId].instancesCompleted=1;}}if(_processInstance.graph.activities[activityId].instancesCompleted==_processInstance.graph.activities[activityId].instancesTotal){_processInstance.graph.activities[activityId].done=true;}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 824
+column: 24
+content: for(uintk=0;k<boundaryEvents.length;k++){bytes32boundaryId=boundaryEvents[k];createBoundaryEventInstance(_processInstance,aiId,boundaryId,k);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1115
+column: 12
+content: for(uinti=0;i<_processInstance.activities.keys.length;i++){activityInstanceId=_processInstance.activities.keys[i];if(_processInstance.activities.rows[activityInstanceId].value.state!=BpmRuntime.ActivityInstanceState.COMPLETED){_processInstance.activities.rows[activityInstanceId].value.state=BpmRuntime.ActivityInstanceState.ABORTED;emitLogActivityInstanceStateUpdate(EVENT_ID_ACTIVITY_INSTANCES,activityInstanceId,uint8(BpmRuntime.ActivityInstanceState.ABORTED));}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1176
+column: 12
+content: for(i=0;i<elementIds.length;i++){(,,targetId)=_processDefinition.getBoundaryEventGraphDetails(elementIds[i]);if(targetId!=""){targetType=_processDefinition.getElementType(targetId);traverseRuntimeGraph(_processDefinition,targetId,_graph);connect(_graph,_currentId,currentType,targetId,targetType,elementIds[i]);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1217
+column: 12
+content: for(i=0;i<outputs.length;i++){targetId=outputs[i];targetType=_processDefinition.getElementType(targetId);traverseRuntimeGraph(_processDefinition,targetId,_graph);bytes32newElementId=connect(_graph,_currentId,currentType,targetId,targetType,"");if(defaultOutput==targetId){_graph.transitions[_currentId].defaultOutput=(newElementId!="")?newElementId:targetId;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1277
+column: 8
+content: for(i=0;i<_graph.activityKeys.length;i++){delete_graph.activities[_graph.activityKeys[i]];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1280
+column: 8
+content: for(i=0;i<_graph.transitionKeys.length;i++){delete_graph.transitions[_graph.transitionKeys[i]];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1327
+column: 16
+content: for(i=0;i<_graph.transitions[_transitionId].node.inputs.length;i++){if(coloredTransition)_graph.activities[_graph.transitions[_transitionId].node.inputs[i]].markers[marker]=false;else_graph.activities[_graph.transitions[_transitionId].node.inputs[i]].done=false;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1334
+column: 16
+content: for(i=0;i<_graph.transitions[_transitionId].node.outputs.length;i++){_graph.activities[_graph.transitions[_transitionId].node.outputs[i]].ready=true;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1341
+column: 16
+content: for(i=0;i<_graph.transitions[_transitionId].node.inputs.length;i++){if(coloredTransition&&_graph.activities[_graph.transitions[_transitionId].node.inputs[i]].markers[marker]){_graph.activities[_graph.transitions[_transitionId].node.inputs[i]].markers[marker]=false;break;}elseif(!coloredTransition&&_graph.activities[_graph.transitions[_transitionId].node.inputs[i]].done){_graph.activities[_graph.transitions[_transitionId].node.inputs[i]].done=false;break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1352
+column: 16
+content: for(i=0;i<_graph.transitions[_transitionId].node.outputs.length;i++){if(_graph.transitions[_transitionId].defaultOutput==_graph.transitions[_transitionId].node.outputs[i]){continue;}if(ProcessInstance(_graph.processInstance).resolveTransitionCondition(_transitionId,_graph.transitions[_transitionId].node.outputs[i])){_graph.activities[_graph.transitions[_transitionId].node.outputs[i]].ready=true;transitionFired=true;break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1382
+column: 8
+content: for(uinti=0;i<_graph.transitionKeys.length;i++){if(fireTransition(_graph,_graph.transitionKeys[i])){count++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1395
+column: 8
+content: for(uinti=0;i<_graph.activityKeys.length;i++){node=_graph.activities[_graph.activityKeys[i]];if(!node.done&&node.instancesTotal!=node.instancesCompleted&&node.instancesTotal>0){completed=false;return(completed,readyActivities);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1409
+column: 8
+content: for(uinti=0;i<_graph.activityKeys.length;i++){if(_graph.activities[_graph.activityKeys[i]].ready){returntrue;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1428
+column: 12
+content: for(i=0;i<_graph.transitions[_transitionId].node.inputs.length;i++){enabled=coloredTransition?_graph.activities[_graph.transitions[_transitionId].node.inputs[i]].markers[marker]:_graph.activities[_graph.transitions[_transitionId].node.inputs[i]].done;if(!enabled){returnenabled;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 1439
+column: 12
+content: for(i=0;i<_graph.transitions[_transitionId].node.inputs.length;i++){enabled=coloredTransition?_graph.activities[_graph.transitions[_transitionId].node.inputs[i]].markers[marker]:_graph.activities[_graph.transitions[_transitionId].node.inputs[i]].done;if(enabled){returnenabled;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 929
+column: 30
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 930
+column: 34
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 939
+column: 59
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 940
+column: 38
+content: tx.origin
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 964
+column: 33
+content: call(abi.encodeWithSelector(completionFunction,_activityInstance.processInstance,_activityInstance.id,_activityInstance.activityId,(_txPerformer==address(0)?msg.sender:_txPerformer)))
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :17
+SOLIDITY_ADDRESS_HARDCODED :5
+SOLIDITY_GAS_LIMIT_IN_LOOPS :17
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_TX_ORIGIN :4

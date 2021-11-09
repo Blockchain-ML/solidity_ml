@@ -1,0 +1,183 @@
+F:\Blockchain\solidity_dataset_work\4k_dataset\92981.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 11
+column: 2
+content: self.length+=1
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 46
+column: 31
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 87
+column: 24
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 58
+column: 1
+content: functioncardDescription(uint8self)constantreturns(Suit,uint8){return(Suit(self/cardsPerSuit),cardFacevalue(self));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 62
+column: 1
+content: functioncardEmojified(uint8self)constantreturns(uint8,string){stringmemoryemojiSuit;var(suit,number)=cardDescription(self);if(suit==Suit.Clubs)emojiSuit="??";elseif(suit==Suit.Diamonds)emojiSuit="??";elseif(suit==Suit.Hearts)emojiSuit="??";elseif(suit==Suit.Spades)emojiSuit="??";return(number,emojiSuit);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 74
+column: 1
+content: functioncardFacevalue(uint8self)constantreturns(uint8){return1+self%cardsPerSuit;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 78
+column: 1
+content: functionblackjackValue(uint8self)constantreturns(uint8){uint8cardValue=cardFacevalue(self);returncardValue<10?cardValue:10;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 83
+column: 1
+content: functiongetRandomNumber(uintb,addressplayer,uint256gameID,uintn,uintm)constantreturns(uint){bytes32blockHash=block.blockhash(b);if(blockHash==0x0)throw;returnuint(uint256(keccak256(blockHash,player,gameID,n))%m);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 7
+column: 2
+content: while(self.length>0&&insertingIndex<self.length&&self[insertingIndex]<n){insertingIndex+=1;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 49
+column: 2
+content: for(uint8i=0;i<cardIndex;i++){if(self.usedCards[i]<=r)r+=1;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 7
+column: 9
+content: self.length>0&&insertingIndex<self.length&&self[insertingIndex]<n
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 46
+column: 2
+content: if(cardIndex>=totalCards)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 87
+column: 2
+content: if(blockHash==0x0)throw;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 88
+column: 22
+content: keccak256(blockHash,player,gameID,n)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 4
+column: 1
+content: functioninsertInPlace(uint8[]storageself,uint8n){uint8insertingIndex=0;while(self.length>0&&insertingIndex<self.length&&self[insertingIndex]<n){insertingIndex+=1;}self.length+=1;for(uint8i=uint8(self.length)-1;i>insertingIndex;i--){self[i]=self[i-1];}self[insertingIndex]=n;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 38
+column: 1
+content: functioninit(Deckstorageself,uint256gameID){self.usedCards=newuint8[](0);self.player=msg.sender;self.gameID=gameID;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 44
+column: 1
+content: functiongetCard(Deckstorageself,uint256blockNumber)returns(uint8){uintcardIndex=self.usedCards.length;if(cardIndex>=totalCards)throw;uint8r=uint8(getRandomNumber(blockNumber,self.player,self.gameID,cardIndex,totalCards-cardIndex));for(uint8i=0;i<cardIndex;i++){if(self.usedCards[i]<=r)r+=1;}self.usedCards.insertInPlace(r);returnr;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 58
+column: 1
+content: functioncardDescription(uint8self)constantreturns(Suit,uint8){return(Suit(self/cardsPerSuit),cardFacevalue(self));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 62
+column: 1
+content: functioncardEmojified(uint8self)constantreturns(uint8,string){stringmemoryemojiSuit;var(suit,number)=cardDescription(self);if(suit==Suit.Clubs)emojiSuit="??";elseif(suit==Suit.Diamonds)emojiSuit="??";elseif(suit==Suit.Hearts)emojiSuit="??";elseif(suit==Suit.Spades)emojiSuit="??";return(number,emojiSuit);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 74
+column: 1
+content: functioncardFacevalue(uint8self)constantreturns(uint8){return1+self%cardsPerSuit;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 78
+column: 1
+content: functionblackjackValue(uint8self)constantreturns(uint8){uint8cardValue=cardFacevalue(self);returncardValue<10?cardValue:10;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 83
+column: 1
+content: functiongetRandomNumber(uintb,addressplayer,uint256gameID,uintn,uintm)constantreturns(uint){bytes32blockHash=block.blockhash(b);if(blockHash==0x0)throw;returnuint(uint256(keccak256(blockHash,player,gameID,n))%m);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 1
+content: uint8constantcardsPerSuit=13;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 29
+column: 1
+content: uint8constantsuits=4;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 30
+column: 1
+content: uint8constanttotalCards=cardsPerSuit*suits;
+
+SOLIDITY_VISIBILITY :11
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :7
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2

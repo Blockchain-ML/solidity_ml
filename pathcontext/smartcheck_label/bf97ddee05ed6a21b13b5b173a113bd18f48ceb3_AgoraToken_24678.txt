@@ -1,0 +1,236 @@
+C:\Users\hp\DataSet\contracts\mainnet\bf\bf97ddee05ed6a21b13b5b173a113bd18f48ceb3_AgoraToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 4
+column: 2
+content: functiontotalSupply()constantreturns(uint256totalSupply);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 5
+column: 2
+content: functionbalanceOf(address_owner)constantreturns(uint256balance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 9
+column: 2
+content: functionallowance(address_owner,address_spender)constantreturns(uint256remaining);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 49
+column: 2
+content: functionbalanceOf(address_owner)constantreturns(uint256balance){returnbalances[_owner];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 96
+column: 2
+content: functionallowance(address_owner,address_spender)constantreturns(uint256remaining){returnallowed[_owner][_spender];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 101
+column: 2
+content: functiontotalSupply()constantreturns(uint256totalSupply){returncreatorSupply+seriesASupply+seriesBSupply+seriesCSupply;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 137
+column: 2
+content: functioncurrentRoundInformation()constantreturns(uint256pricePerThousands,uint256supplyRemaining){if(currentlyReleased>=30000000&&currentlyReleased<40000000){return(0.75ether,40000000-currentlyReleased);}elseif(currentlyReleased>=40000000&&currentlyReleased<70000000){return(1.25ether,70000000-currentlyReleased);}elseif(currentlyReleased>=70000000&&currentlyReleased<130000000){return(1.5ether,130000000-currentlyReleased);}else{return(0,0);}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 174
+column: 2
+content: functionlatestReferenceBlockNumber()constantreturns(uint256blockNumber){return(block.number-block.number%157553);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 184
+column: 2
+content: functionbalanceAtBlock(address_owner,uint256blockNumber)constantreturns(uint256balance){if(balancesAtBlock[blockNumber][_owner].initialized){returnbalancesAtBlock[blockNumber][_owner].value;}returnbalances[_owner];}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 89
+column: 2
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess){allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 4
+column: 2
+content: functiontotalSupply()constantreturns(uint256totalSupply);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 5
+column: 2
+content: functionbalanceOf(address_owner)constantreturns(uint256balance);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 6
+column: 2
+content: functiontransfer(address_to,uint256_value)returns(boolsuccess);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 7
+column: 2
+content: functiontransferFrom(address_from,address_to,uint256_value)returns(boolsuccess);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 8
+column: 2
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 9
+column: 2
+content: functionallowance(address_owner,address_spender)constantreturns(uint256remaining);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 40
+column: 2
+content: functionAgoraToken(){contractOwner=msg.sender;balances[contractOwner]=creatorSupply;currentlyReleased+=creatorSupply;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 49
+column: 2
+content: functionbalanceOf(address_owner)constantreturns(uint256balance){returnbalances[_owner];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 54
+column: 2
+content: functiontransfer(address_to,uint256_value)returns(boolsuccess){if(balances[msg.sender]>=_value&&_value>0){registerBalanceForReference(msg.sender);registerBalanceForReference(_to);balances[msg.sender]-=_value;balances[_to]+=_value;Transfer(msg.sender,_to,_value);returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 70
+column: 2
+content: functiontransferFrom(address_from,address_to,uint256_value)returns(boolsuccess){if(balances[_from]>=_value&&_value>0&&allowed[_from][msg.sender]>=_value){registerBalanceForReference(_from);registerBalanceForReference(_to);balances[_from]-=_value;balances[_to]+=_value;allowed[_from][msg.sender]-=_value;Transfer(msg.sender,_to,_value);returntrue;}else{returnfalse;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 89
+column: 2
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess){allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 96
+column: 2
+content: functionallowance(address_owner,address_spender)constantreturns(uint256remaining){returnallowed[_owner][_spender];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 101
+column: 2
+content: functiontotalSupply()constantreturns(uint256totalSupply){returncreatorSupply+seriesASupply+seriesBSupply+seriesCSupply;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 108
+column: 2
+content: function()payable{require(block.number>4116800);require(msg.value>=0);var(pricePerThousands,supplyRemaining)=currentRoundInformation();require(pricePerThousands>0);uint256tokenToReceive=(msg.value*1000/pricePerThousands);require(tokenToReceive<=supplyRemaining);balances[msg.sender]+=tokenToReceive;currentlyReleased+=tokenToReceive;valueRaised+=msg.value;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 137
+column: 2
+content: functioncurrentRoundInformation()constantreturns(uint256pricePerThousands,uint256supplyRemaining){if(currentlyReleased>=30000000&&currentlyReleased<40000000){return(0.75ether,40000000-currentlyReleased);}elseif(currentlyReleased>=40000000&&currentlyReleased<70000000){return(1.25ether,70000000-currentlyReleased);}elseif(currentlyReleased>=70000000&&currentlyReleased<130000000){return(1.5ether,130000000-currentlyReleased);}else{return(0,0);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 151
+column: 2
+content: functionwithdrawICO(uint256amount){require(msg.sender==contractOwner);contractOwner.transfer(amount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 174
+column: 2
+content: functionlatestReferenceBlockNumber()constantreturns(uint256blockNumber){return(block.number-block.number%157553);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 184
+column: 2
+content: functionbalanceAtBlock(address_owner,uint256blockNumber)constantreturns(uint256balance){if(balancesAtBlock[blockNumber][_owner].initialized){returnbalancesAtBlock[blockNumber][_owner].value;}returnbalances[_owner];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 16
+column: 2
+content: addresscontractOwner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 27
+column: 2
+content: mapping(address=>mapping(address=>uint256))allowed;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 2
+content: mapping(uint256=>mapping(address=>BalanceSnapshot))balancesAtBlock;
+
+SOLIDITY_VISIBILITY :22
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :9
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ERC20_APPROVE :1

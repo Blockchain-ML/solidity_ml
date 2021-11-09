@@ -1,0 +1,109 @@
+C:\Users\hp\DataSet\contracts\ropsten\b7\b7c9cbdef8849a24e1144af998b493219c095ae3_Blackhole.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 500
+column: 12
+content: for(uint256i=0;i<roundOf[_roundId].aheadGroupId.length;i++){uint256_groupId=roundOf[_roundId].aheadGroupId[i];_totalOfAhead=_totalOfAhead.add(roundToGroupidToGroup[_roundId][_groupId].totalGroupBalances);uint256_pRoundToGroupToInput=playersOf[_player].roundToGroupToInput[_roundId][_groupId];_totalInputToAhead=_totalInputToAhead.add(_pRoundToGroupToInput);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 500
+column: 12
+content: for(uint256i=0;i<roundOf[_roundId].aheadGroupId.length;i++){uint256_groupId=roundOf[_roundId].aheadGroupId[i];_totalOfAhead=_totalOfAhead.add(roundToGroupidToGroup[_roundId][_groupId].totalGroupBalances);uint256_pRoundToGroupToInput=playersOf[_player].roundToGroupToInput[_roundId][_groupId];_totalInputToAhead=_totalInputToAhead.add(_pRoundToGroupToInput);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 148
+column: 15
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 191
+column: 9
+content: private
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 283
+column: 30
+content: {revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 342
+column: 16
+content: if(_remain>=getMaxGroupBalance(_roundId)){_groupId=_newGroup(msg.sender,_remain);playersOf[msg.sender].roundToGroupToInput[_roundId][_groupId]=playersOf[msg.sender].roundToGroupToInput[_roundId][_groupId].add(_remain);roundOf[_roundId].endTime=now.add(SPANTIME);if(_remain==getMaxGroupBalance(_roundId)){roundOf[_roundId].aheadGroupId.push(_groupId);}elseif(_remain>getMaxGroupBalance(_roundId)){if(roundOf[_roundId].aheadGroupId.length!=0){deleteroundOf[_roundId].aheadGroupId;}roundOf[_roundId].aheadGroupId.push(_groupId);}roundOf[_roundId].totalPrize=roundOf[_roundId].totalPrize.add(_remain);emitDeposit(msg.sender,_groupId,_remain,_roundId);}else{revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 362
+column: 15
+content: if(stateOfRound[indexOfRound]==State.peace||stateOfRound[indexOfRound]==State.ruin){indexOfRound=indexOfRound.add(1);_roundNextId=indexOfRound.add(1);_groupId=1;updateRoundState();roundOf[indexOfRound].startTime=now;roundOf[indexOfRound].endTime=now.add(SPANTIME);roundOf[indexOfRound].groupAmount=_groupId;roundOf[indexOfRound].aheadGroupId.push(_groupId);roundOf[_roundNextId].startPrize=roundOf[_roundNextId].startPrize.add(_fee);emitBeginRound(indexOfRound,roundOf[indexOfRound].startPrize,roundOf[indexOfRound].startTime);playersOf[msg.sender].roundToInput[indexOfRound]=playersOf[msg.sender].roundToInput[indexOfRound].add(msg.value);playersOf[msg.sender].roundToGroupToInput[indexOfRound][_groupId]=playersOf[msg.sender].roundToGroupToInput[indexOfRound][_groupId].add(_remain);_deposit(_groupId,_remain,msg.sender,indexOfRound);emitDeposit(msg.sender,_groupId,_remain,indexOfRound);}else{revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 239
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 87
+column: 4
+content: functionisContract(addressaccount)internalviewreturns(bool){uint256size;assembly{size:=extcodesize(account)}returnsize>0;}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 283
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 307
+column: 19
+content: string_str
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 251
+column: 4
+content: mapping(address=>Player)playersOf;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 268
+column: 4
+content: mapping(uint256=>mapping(uint256=>Group))roundToGroupidToGroup;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

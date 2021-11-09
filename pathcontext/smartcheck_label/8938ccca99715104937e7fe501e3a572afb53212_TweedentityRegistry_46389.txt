@@ -1,0 +1,61 @@
+C:\Users\hp\DataSet\contracts\ropsten\89\8938ccca99715104937e7fe501e3a572afb53212_TweedentityRegistry.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 135
+column: 2
+content: functiongetStore(string_appNickname)publicconstantreturns(address){returnstores[keccak256(_appNickname)];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 148
+column: 2
+content: functionisReady()externalconstantreturns(bool){returntotalStores>0&&manager!=address(0)&&claimer!=address(0);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 75
+column: 2
+content: functionsetManager(address_manager)externalonlyOwner{require(_manager!=address(0));manager=_manager;ContractRegistered(managerKey,"",_manager);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 87
+column: 2
+content: functionsetClaimer(address_claimer)externalonlyOwner{require(_claimer!=address(0));claimer=_claimer;ContractRegistered(claimerKey,"",_claimer);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 99
+column: 2
+content: functionsetManagerAndClaimer(address_manager,address_claimer)externalonlyOwner{require(_manager!=address(0));require(_claimer!=address(0));manager=_manager;claimer=_claimer;ContractRegistered(managerKey,"",_manager);ContractRegistered(claimerKey,"",_claimer);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 115
+column: 2
+content: functionsetAStore(string_appNickname,address_store)externalonlyOwner{require(_store!=address(0));if(getStore(_appNickname)==address(0)){totalStores++;}stores[keccak256(_appNickname)]=_store;ContractRegistered(storeKey,_appNickname,_store);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 136
+column: 4
+content: string_appNickname
+
+SOLIDITY_OVERPOWERED_ROLE :4
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :1

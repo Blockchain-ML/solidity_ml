@@ -1,0 +1,198 @@
+C:\Users\hp\DataSet\contracts\ropsten\2b\2b383ad0d5a53592e6c4f5a7fd569ce54d0120d0_AddressList.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 124
+column: 24
+content: _listed[_getIndex(_address[_e])]=address(0)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 20
+column: 8
+content: while(_a<_listed.length){if(_listed[_a]==_address){break;_rtn=true;}_a++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 42
+column: 8
+content: while(_c<_listed.length){if(_listed[_c]==_address){break;}_c++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 65
+column: 8
+content: while(_b<_address.length){if(!_isAccepted(_address[_b])){emitLogAdd(_address[_b],_b+1,"Not allowed address!");}else{if(_isListed(_address[_b])){emitLogAdd(_address[_b],_b+1,"Address already exists!");}else{_listed.push(_address[_b]);emitLogAdd(_address[_b],_b+1,"Address added!");}}_b++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 85
+column: 8
+content: while(_d<_address.length){if(_isListed(_address[_d])){if(_isAccepted(_newAddress[_d])){if(_isListed(_newAddress[_d])){emitLogUpdate(_address[_d],_newAddress[_d],_d+1,"Failed! New address already exists!");}else{if(_address[_d]==_admin){emitLogUpdate(_address[_d],_newAddress[_d],_d+1,"Failed! Cannot replace this address");}else{_listed[_getIndex(_address[_d])]=_newAddress[_d];emitLogUpdate(_address[_d],_newAddress[_d],_d+1,"Address updated!");}}}else{emitLogUpdate(_address[_d],_newAddress[_d],_d+1,"Failed! New address not allowed!");}}else{emitLogUpdate(_address[_d],_newAddress[_d],_d+1,"Failed! Address not exists");}_d++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 114
+column: 8
+content: while(_e<_address.length){if(!_isListed(_address[_e])){emitLogRemove(_address[_e],_e+1,"Failed! Address not exists");}else{if(!_isAccepted(_address[_e])){emitLogRemove(_address[_e],_e+1,"Failed! Address not exists");}else{if(_address[_e]==_admin){emitLogRemove(_address[_e],_e+1,"Cannot remove this address!");}else{_listed[_getIndex(_address[_e])]=address(0);emitLogRemove(_address[_e],_e+1,"Address Removed");}}}_e++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 131
+column: 8
+content: while(_fise<_listed.length){if(_listed[_fise]!=address(0))_existsAddress.push(_listed[_fise]);_fise++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 143
+column: 8
+content: while(_g<_listed.length){if(_listed[_g]!=_admin)emitLogRemove(_listed[_g],_g+1,"Address Removed!");_g++;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 20
+column: 15
+content: _a<_listed.length
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 42
+column: 15
+content: _c<_listed.length
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 65
+column: 15
+content: _b<_address.length
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 85
+column: 15
+content: _d<_address.length
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 114
+column: 15
+content: _e<_address.length
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 131
+column: 15
+content: _fise<_listed.length
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 143
+column: 15
+content: _g<_listed.length
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 2
+column: 0
+content: contractAddressList{address_admin;address[]_listed;address[]_existsAddress;eventLogAdd(addressindexed_address,uint_operationIndex,string_details);eventLogUpdate(addressindexed_address,addressindexed_newAddress,uint_operationIndex,string_details);eventLogRemove(addressindexed_address,uint_operationIndex,string_details);constructor()public{_admin=msg.sender;_listed.push(msg.sender);emitLogAdd(msg.sender,1,"Successfully Added!");}function_isAdmin()internalviewreturns(bool){return(msg.sender==_admin);}function_isListed(address_address)internalviewreturns(bool){uint_a=0;bool_rtn=false;while(_a<_listed.length){if(_listed[_a]==_address){break;_rtn=true;}_a++;}return_rtn;}function_isAccepted(address_address)internalviewreturns(bool){if(_address==address(0)){returnfalse;}else{if(_address==address(this)){returnfalse;}else{returntrue;}}}function_getIndex(address_address)internalviewreturns(uint){uint_c=0;while(_c<_listed.length){if(_listed[_c]==_address){break;}_c++;}return_c;}function_getList()publicviewreturns(address[]){return_listed;}function_changeAdmin(address_address)publicreturns(bool){require(_isAdmin(),"Restricted Access!");require(_isAccepted(_address),"Not allowed address!");require(!_isListed(_address),"Address already exists!");_admin=_address;_listed[_getIndex(msg.sender)]=_address;emitLogUpdate(msg.sender,_address,1,"Address updated!");returntrue;}function_addToList(address[]_address)publicreturns(bool){require(_isAdmin(),"Restricted Access!");uint_b=0;while(_b<_address.length){if(!_isAccepted(_address[_b])){emitLogAdd(_address[_b],_b+1,"Not allowed address!");}else{if(_isListed(_address[_b])){emitLogAdd(_address[_b],_b+1,"Address already exists!");}else{_listed.push(_address[_b]);emitLogAdd(_address[_b],_b+1,"Address added!");}}_b++;}returntrue;}function_updateList(address[]_address,address[]_newAddress)publicreturns(bool){require(_isAdmin(),"Restricted Access!");require(_address.length==_newAddress.length,"Failed! address length NOT EQUAL new address length");require(_newAddress.length<=_listed.length,"Failed! address length MORE THAN exist length");uint_d=0;while(_d<_address.length){if(_isListed(_address[_d])){if(_isAccepted(_newAddress[_d])){if(_isListed(_newAddress[_d])){emitLogUpdate(_address[_d],_newAddress[_d],_d+1,"Failed! New address already exists!");}else{if(_address[_d]==_admin){emitLogUpdate(_address[_d],_newAddress[_d],_d+1,"Failed! Cannot replace this address");}else{_listed[_getIndex(_address[_d])]=_newAddress[_d];emitLogUpdate(_address[_d],_newAddress[_d],_d+1,"Address updated!");}}}else{emitLogUpdate(_address[_d],_newAddress[_d],_d+1,"Failed! New address not allowed!");}}else{emitLogUpdate(_address[_d],_newAddress[_d],_d+1,"Failed! Address not exists");}_d++;}returntrue;}function_removeFromList(address[]_address)publicreturns(bool){require(_isAdmin(),"Restricted Access!");require(_address.length<=_listed.length,"Failed! address length MORE THAN exists length");uint_e=0;uint_fise=0;delete(_existsAddress);while(_e<_address.length){if(!_isListed(_address[_e])){emitLogRemove(_address[_e],_e+1,"Failed! Address not exists");}else{if(!_isAccepted(_address[_e])){emitLogRemove(_address[_e],_e+1,"Failed! Address not exists");}else{if(_address[_e]==_admin){emitLogRemove(_address[_e],_e+1,"Cannot remove this address!");}else{_listed[_getIndex(_address[_e])]=address(0);emitLogRemove(_address[_e],_e+1,"Address Removed");}}}_e++;}while(_fise<_listed.length){if(_listed[_fise]!=address(0))_existsAddress.push(_listed[_fise]);_fise++;}delete(_listed);_listed=_existsAddress;returntrue;}function_resetList()publicreturns(bool){require(_isAdmin(),"Restricted Access!");delete(_existsAddress);uint_g=0;while(_g<_listed.length){if(_listed[_g]!=_admin)emitLogRemove(_listed[_g],_g+1,"Address Removed!");_g++;}delete(_listed);_listed.push(_admin);emitLogAdd(_admin,_g+1,"Address Added!");returntrue;}function()publicpayable{revert("Rejected! Without call any function will always ignored");}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 152
+column: 31
+content: {revert("Rejected! Without call any function will always ignored");}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 152
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 50
+column: 44
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 62
+column: 24
+content: address[]_address
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 80
+column: 25
+content: address[]_address
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 80
+column: 45
+content: address[]_newAddress
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 108
+column: 29
+content: address[]_address
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 3
+column: 4
+content: address_admin;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 4
+column: 4
+content: address[]_listed;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 5
+column: 4
+content: address[]_existsAddress;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :7
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :6
+SOLIDITY_GAS_LIMIT_IN_LOOPS :7
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

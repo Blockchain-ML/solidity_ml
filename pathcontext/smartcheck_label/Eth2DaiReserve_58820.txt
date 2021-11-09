@@ -1,0 +1,136 @@
+C:\Users\hp\DataSet\Eth2DaiReserve.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 9
+column: 0
+content: contractIWethisIERC20{functiondeposit()publicpayable;functionwithdraw(uint)public;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 14
+column: 0
+content: contractEth2DaiReserveisIKyberReserve,Withdrawable,Utils{uintconstantinternalINVALID_ID=uint(-1);uintconstantinternalPOW_2_32=2**32;uintconstantinternalPOW_2_96=2**96;uintconstantinternalBPS=10000;addresspublickyberNetwork;boolpublictradeEnabled;uintpublicfeeBps;IOtcpublicotc;IWethpublicwethToken;mapping(address=>bool)publicisTokenListed;mapping(address=>uint)internalinternalInventoryData;mapping(address=>uint)internaltokenBasicData;mapping(address=>uint)internaltokenFactorData;structBasicDataConfig{uintminETHSupport;uintmaxTraverse;uintmaxTakes;}structFactorDataConfig{uintmaxTraverseX;uintmaxTraverseY;uintmaxTakeX;uintmaxTakeY;uintminOrderSizeX;uintminOrderSizeY;}structInternalInventoryData{boolisEnabled;uintminTokenBal;uintmaxTokenBal;uintpremiumBps;uintminSpreadBps;}structOfferData{uintpayAmount;uintbuyAmount;uintid;}constructor(address_kyberNetwork,uint_feeBps,address_otc,address_weth,address_admin)publicWithdrawable(_admin){require(_kyberNetwork!=address(0),"constructor: kyberNetwork's address is missing");require(_otc!=address(0),"constructor: otc's address is missing");require(_weth!=address(0),"constructor: weth's address is missing");require(_feeBps<BPS,"constructor: fee >= bps");wethToken=IWeth(_weth);require(getDecimals(wethToken)==MAX_DECIMALS,"constructor: wethToken's decimals is not MAX_DECIMALS");require(wethToken.approve(_otc,2**255),"constructor: failed to approve otc (wethToken)");kyberNetwork=_kyberNetwork;otc=IOtc(_otc);feeBps=_feeBps;admin=_admin;tradeEnabled=true;}function()externalpayable{}functiongetConversionRate(IERC20src,IERC20dest,uintsrcQty,uint)publicviewreturns(uint){if(!tradeEnabled){return0;}if(srcQty==0){return0;}IERC20token=src==ETH_TOKEN_ADDRESS?dest:src;if(!isTokenListed[address(token)]){return0;}OfferDatamemorybid;OfferDatamemoryask;(bid,ask)=getFirstBidAndAskOrders(token);if(token==src&&!checkValidSpread(bid,ask,false,0)){return0;}uintdestQty;OfferData[]memoryoffers;if(src==ETH_TOKEN_ADDRESS){(destQty,offers)=findBestOffers(dest,wethToken,srcQty,bid,ask);}else{(destQty,offers)=findBestOffers(wethToken,src,srcQty,bid,ask);}if(offers.length==0||destQty==0){return0;}uintrate=calcRateFromQty(srcQty,destQty,MAX_DECIMALS,MAX_DECIMALS);booluseInternalInventory;uintpremiumBps;if(src==ETH_TOKEN_ADDRESS){(useInternalInventory,premiumBps)=shouldUseInternalInventory(dest,destQty,srcQty,true,bid,ask);}else{(useInternalInventory,premiumBps)=shouldUseInternalInventory(src,srcQty,destQty,false,bid,ask);}if(useInternalInventory){rate=valueAfterAddingPremium(rate,premiumBps);}else{rate=valueAfterReducingFee(rate);}returnapplyInternalInventoryHintToRate(rate,useInternalInventory);}eventTradeExecute(addressindexedorigin,addresssrc,uintsrcAmount,addressdestToken,uintdestAmount,addresspayabledestAddress);functiontrade(IERC20srcToken,uintsrcAmount,IERC20destToken,address<missing ')'>payabledestAddress,uintconversionRate,boolvalidate)publicpayablereturns(bool){require(tradeEnabled,"trade: tradeEnabled is false");require(msg.sender==kyberNetwork,"trade: not call from kyberNetwork's contract");require(srcToken==ETH_TOKEN_ADDRESS||destToken==ETH_TOKEN_ADDRESS,"trade: srcToken or destToken must be ETH");IERC20token=srcToken==ETH_TOKEN_ADDRESS?destToken:srcToken;require(isTokenListed[address(token)],"trade: token is not listed");require(doTrade(srcToken,srcAmount,destToken,destAddress,conversionRate,validate),"trade: doTrade returns false");returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 164
+column: 4
+content: functiontrade(IERC20srcToken,uintsrcAmount,IERC20destToken,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 168
+column: 24
+content: destAddress,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 169
+column: 8
+content: uintconversionRate,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 170
+column: 8
+content: boolvalidate)publicpayablereturns
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 174
+column: 15
+content: (bool){require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 176
+column: 15
+content: (tradeEnabled,"trade: tradeEnabled is false");require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 177
+column: 15
+content: (msg.sender==kyberNetwork,"trade: not call from kyberNetwork's contract");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 178
+column: 8
+content: require(srcToken==
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 178
+column: 28
+content: ETH_TOKEN_ADDRESS||destToken==
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 178
+column: 62
+content: ETH_TOKEN_ADDRESS,"trade: srcToken or destToken must be ETH");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 180
+column: 8
+content: IERC20token=srcToken==ETH_TOKEN_ADDRESS?destToken:srcToken;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 181
+column: 8
+content: require(isTokenListed[
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 181
+column: 30
+content: address(token)],"trade: token is not listed");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 183
+column: 8
+content: require(doTrade
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 183
+column: 23
+content: (srcToken,srcAmount,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 183
+column: 45
+content: destToken,destAddress,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 183
+column: 69
+content: conversionRate,validate),"trade: doTrade returns false");returntrue;
+
+SOLIDITY_VISIBILITY :17
+SOLIDITY_LOCKED_MONEY :2

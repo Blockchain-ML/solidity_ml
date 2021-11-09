@@ -1,0 +1,322 @@
+C:\Users\hp\DataSet\SyscoinBattleManager.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 133
+column: 21
+content: 0x04
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 147
+column: 50
+content: 0x44
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 156
+column: 50
+content: 0x48
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 305
+column: 23
+content: 0x00
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 307
+column: 32
+content: 0x00
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 421
+column: 27
+content: 0x1000000
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 422
+column: 28
+content: 0xffffff
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 491
+column: 48
+content: 0xFFFFFF
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 494
+column: 40
+content: 0xFFFFFF
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 499
+column: 23
+content: 0x00800000
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 113
+column: 8
+content: session.merkleRoots.length=0
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 549
+column: 12
+content: for(i=0;i<session.merkleRoots.length;i++){merkleRoots[i]=session.merkleRoots[i];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 601
+column: 8
+content: for(uinti=0;i<parsedBlockHeaders.length;i++){parsedBlockHeaders[i]=parseHeaderBytes(blockHeaders,pos);uinttarget=targetFromBits(parsedBlockHeaders[i].bits);if(isMergeMined(blockHeaders,pos)){AuxPoWmemoryap=parseAuxPoW(blockHeaders,pos);if(ap.blockHash>target){err=ERR_PROOF_OF_WORK_AUXPOW;break;}uintauxPoWCode=checkAuxPoW(uint(parsedBlockHeaders[i].blockHash),ap);if(auxPoWCode!=1){err=auxPoWCode;break;}pos=ap.pos;}else{if(uint(parsedBlockHeaders[i].blockHash)>target){err=ERR_PROOF_OF_WORK;break;}pos=pos+80;}blockHashes[i]=parsedBlockHeaders[i].blockHash;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 202
+column: 4
+content: functionsha256mem(bytesmemory_rawBytes,uintoffset,uintlen)publicviewreturns(bytes32result){assembly{letptr:=mload(0x40)ifiszero(staticcall(gas,0x02,add(add(_rawBytes,0x20),offset),len,ptr,0x20)){revert(0,0)}result:=mload(ptr)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 290
+column: 4
+content: functionsliceBytes32Int(bytesmemorydata,uintstart)privatepurereturns(uintslice){assembly{slice:=mload(add(data,add(0x20,start)))}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 473
+column: 4
+content: functionbitLen(uint_val)privatepurereturns(uintlength){uintint_type=_val;while(int_type>0){int_type=shiftRight(int_type,1);length+=1;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 520
+column: 8
+content: for(i=0;i<length;i++){hashes[i]=bytes32(flip32Bytes(uint(hashes[i])));}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 529
+column: 12
+content: for(i=0;i<length;i+=2){j=(i+1<length)?i+1:length-1;hashes[k]=sha256(abi.encodePacked(sha256(abi.encodePacked(hashes[i],hashes[j]))));k+=1;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 549
+column: 12
+content: for(i=0;i<session.merkleRoots.length;i++){merkleRoots[i]=session.merkleRoots[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 601
+column: 8
+content: for(uinti=0;i<parsedBlockHeaders.length;i++){parsedBlockHeaders[i]=parseHeaderBytes(blockHeaders,pos);uinttarget=targetFromBits(parsedBlockHeaders[i].bits);if(isMergeMined(blockHeaders,pos)){AuxPoWmemoryap=parseAuxPoW(blockHeaders,pos);if(ap.blockHash>target){err=ERR_PROOF_OF_WORK_AUXPOW;break;}uintauxPoWCode=checkAuxPoW(uint(parsedBlockHeaders[i].blockHash),ap);if(auxPoWCode!=1){err=auxPoWCode;break;}pos=ap.pos;}else{if(uint(parsedBlockHeaders[i].blockHash)>target){err=ERR_PROOF_OF_WORK;break;}pos=pos+80;}blockHashes[i]=parsedBlockHeaders[i].blockHash;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 59
+column: 12
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 586
+column: 12
+content: if((merkleRootsLen<=2&&numHeaders!=16)||(merkleRootsLen==3&&numHeaders!=12)){revert();}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 131
+column: 4
+content: functiongetHashPrevBlock(bytesmemory_blockHeader,uintpos)privatepurereturns(uint){uinthashPrevBlock;uintindex=0x04+pos;assembly{hashPrevBlock:=mload(add(add(_blockHeader,32),index))}returnflip32Bytes(hashPrevBlock);}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 290
+column: 4
+content: functionsliceBytes32Int(bytesmemorydata,uintstart)privatepurereturns(uintslice){assembly{slice:=mload(add(data,add(0x20,start)))}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 326
+column: 4
+content: functionfindCoinbaseMerkleRoot(bytesmemoryrawBytes)privatepurereturns(uint,uint,uint){uintposition;uintfound=0;uinttarget=0xfabe6d6d00000000000000000000000000000000000000000000000000000000;uintmask=0xffffffff00000000000000000000000000000000000000000000000000000000;assembly{letlen:=mload(rawBytes)letdata:=add(rawBytes,0x20)letend:=add(data,len)for{}lt(data,end){}{ifeq(and(mload(data),mask),target){ifeq(found,0x0){position:=add(sub(len,sub(end,data)),4)}found:=add(found,1)}data:=add(data,0x1)}}if(found>=2){return(0,position-4,ERR_FOUND_TWICE);}elseif(found==1){return(sliceBytes32Int(rawBytes,position),position-4,1);}else{return(0,position-4,ERR_NO_MERGE_HEADER);}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 202
+column: 4
+content: functionsha256mem(bytesmemory_rawBytes,uintoffset,uintlen)publicviewreturns(bytes32result){assembly{letptr:=mload(0x40)ifiszero(staticcall(gas,0x02,add(add(_rawBytes,0x20),offset),len,ptr,0x20)){revert(0,0)}result:=mload(ptr)}}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 251
+column: 16
+content: (uintslicePos,bytesmemorycoinbaseScript)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 266
+column: 16
+content: (uint[]memory,uint)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 299
+column: 16
+content: (uint,bytesmemory)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 329
+column: 16
+content: (uint,uint,uint)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 134
+column: 8
+content: assembly{hashPrevBlock:=mload(add(add(_blockHeader,32),index))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 207
+column: 8
+content: assembly{letptr:=mload(0x40)ifiszero(staticcall(gas,0x02,add(add(_rawBytes,0x20),offset),len,ptr,0x20)){revert(0,0)}result:=mload(ptr)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 291
+column: 8
+content: assembly{slice:=mload(add(data,add(0x20,start)))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 335
+column: 8
+content: assembly{letlen:=mload(rawBytes)letdata:=add(rawBytes,0x20)letend:=add(data,len)for{}lt(data,end){}{ifeq(and(mload(data),mask),target){ifeq(found,0x0){position:=add(sub(len,sub(end,data)),4)}found:=add(found,1)}data:=add(data,0x1)}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 4
+content: uintconstantTARGET_TIMESPAN=21600;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 14
+column: 4
+content: uintconstantTARGET_TIMESPAN_MIN=17280;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 4
+content: uintconstantTARGET_TIMESPAN_MAX=27000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 16
+column: 4
+content: uintconstantTARGET_TIMESPAN_ADJUSTMENT=360;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 17
+column: 4
+content: uintconstantPOW_LIMIT=0x00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 53
+column: 4
+content: mapping(bytes32=>BattleSession)sessions;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 63
+column: 4
+content: SyscoinClaimManagerItrustedSyscoinClaimManager;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 66
+column: 4
+content: SyscoinSuperblocksItrustedSuperblocks;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 660
+column: 4
+content: uint32constantVERSION_AUXPOW=(1<<8);
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :3
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_ADDRESS_HARDCODED :10
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4
+SOLIDITY_SHOULD_RETURN_STRUCT :4
+SOLIDITY_SHOULD_NOT_BE_PURE :3
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_USING_INLINE_ASSEMBLY :4
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

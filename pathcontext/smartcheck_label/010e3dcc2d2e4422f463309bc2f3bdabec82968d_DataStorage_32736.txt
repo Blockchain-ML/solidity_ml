@@ -1,0 +1,70 @@
+C:\Users\hp\DataSet\contracts\ropsten\01\010e3dcc2d2e4422f463309bc2f3bdabec82968d_DataStorage.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 176
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 544
+column: 0
+content: contractDataStorageisCrowdsale{string[]publicdatas;mapping(uint=>bool)publicdataExist;intpublicnomberOfProperties;address[]publicmembers;mapping(address=>bool)publicmemberExist;intpublicnomberOfMembers;constructor(uint256_rate,address_wallet,ERC20_token)Crowdsale(_rate,_wallet,_token)public{}functionregister()publicpayable{super.buyTokens(msg.sender);members.push(msg.sender);memberExist[msg.sender]=true;nomberOfMembers++;}functioncreate(string_property)public{require(memberExist[msg.sender],"only members can run this function");uintid=datas.length;datas.push(_property);dataExist[id]=true;nomberOfProperties++;}functionremove(uint_id)public{require(memberExist[msg.sender],"only members can run this function");require(dataExist[_id],"the member doesn&#39;t exist");dataExist[_id]=false;nomberOfProperties--;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 113
+column: 31
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 115
+column: 52
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 117
+column: 10
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 111
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 355
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 564
+column: 20
+content: string_property
+
+SOLIDITY_SAFEMATH :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :3
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_ERC20_APPROVE :1

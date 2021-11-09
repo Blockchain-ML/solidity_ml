@@ -1,0 +1,146 @@
+C:\Users\hp\DataSet\contracts\ropsten\89\897ff2d8a12d411ff4f8fe3596474a7a05418f19_ExchangePortal.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 79
+column: 4
+content: owner=address(0)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 422
+column: 4
+content: for(uint256i=0;i<_fromAddresses.length;i++){sum=sum.add(getValue(_fromAddresses[i],_to,_amounts[i]));}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 422
+column: 4
+content: for(uint256i=0;i<_fromAddresses.length;i++){sum=sum.add(getValue(_fromAddresses[i],_to,_amounts[i]));}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 103
+column: 0
+content: contractKyberNetworkInterface{functiontrade(ERC20src,uintsrcAmount,ERC20dest,addressdestAddress,uintmaxDestAmount,uintminConversionRate,addresswalletId)publicpayablereturns(uint);functiongetExpectedRate(ERC20src,ERC20dest,uintsrcQty)publicviewreturns(uintexpectedRate,uintslippageRate);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 123
+column: 0
+content: contractExchangePortalInterface{eventTrade(addresssrc,uint256srcAmount,addressdest,uint256destReceived);functiontrade(ERC20_source,uint256_sourceAmount,ERC20_destination,uint256_type,bytes32[]_additionalArgs)externalpayablereturns(uint256);functiongetValue(address_from,address_to,uint256_amount)publicviewreturns(uint256);functiongetTotalValue(address[]_fromAddresses,uint256[]_amounts,address_to)publicviewreturns(uint256);}
+
+ruleId: SOLIDITY_MSGVALUE_EQUALS_ZERO
+patternId: 1df89a
+severity: 1
+line: 284
+column: 14
+content: msg.value==0
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 435
+column: 2
+content: functionsetToken(address_token,bool_enabled)externalonlyOwner{disabledTokens[_token]=_enabled;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 232
+column: 17
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 287
+column: 4
+content: if(_type==uint(ExchangeType.Kyber)){uint256maxDestinationAmount=uint256(_additionalArgs[0]);uint256minConversionRate=uint256(_additionalArgs[1]);addresswalletId=address(_additionalArgs[2]);receivedAmount=_tradeKyber(_source,_sourceAmount,_destination,maxDestinationAmount,minConversionRate,walletId);}else{revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 225
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 440
+column: 13
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 139
+column: 25
+content: address[]_fromAddresses
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 139
+column: 51
+content: uint256[]_amounts
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 213
+column: 14
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 213
+column: 28
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 419
+column: 25
+content: address[]_fromAddresses
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 419
+column: 51
+content: uint256[]_amounts
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 234
+column: 2
+content: mapping(address=>bool)disabledTokens;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_MSGVALUE_EQUALS_ZERO :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :7
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

@@ -1,0 +1,90 @@
+F:\Blockchain\dataset_new_byID\82694.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 90
+column: 16
+content: e.label.length=bitSet
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 328
+column: 16
+content: e.label.length=bitSet
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 195
+column: 4
+content: functiongetProofWithHashedKey(Treestoragetree,bytes32hashedKey)internalviewreturns(uintbranchMask,bytes32[]memory_siblings){D.Labelmemoryk=D.Label(hashedKey,256);D.Edgememorye=tree.rootEdge;bytes32[256]memorysiblings;uintlength;uintnumSiblings;while(true){D.Labelmemoryprefix;D.Labelmemorysuffix;(prefix,suffix)=Utils.splitCommonPrefix(k,e.label);require(prefix.length==e.label.length);if(suffix.length==0){break;}length+=prefix.length;branchMask|=uint(1)<<(255-length);length+=1;uinthead;D.Labelmemorytail;(head,tail)=Utils.chopFirstBit(suffix);siblings[numSiblings++]=edgeHash(tree.nodes[e.node].children[1-head]);e=tree.nodes[e.node].children[head];k=tail;}if(numSiblings>0){_siblings=newbytes32[](numSiblings);for(uinti=0;i<numSiblings;i++)_siblings[i]=siblings[i];}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 237
+column: 4
+content: functiongetNonInclusionProofWithHashedKey(Treestoragetree,bytes32hashedKey)internalviewreturns(bytes32potentialSiblingLabel,bytes32potentialSiblingValue,uintbranchMask,bytes32[]memory_siblings){uintlength;uintnumSiblings;D.Labelmemorylabel=D.Label(hashedKey,256);D.Edgememorye=tree.rootEdge;bytes32[256]memorysiblings;while(true){require(label.length>=e.label.length);D.Labelmemoryprefix;D.Labelmemorysuffix;(prefix,suffix)=Utils.splitCommonPrefix(label,e.label);require(suffix.length!=0);if(prefix.length>=e.label.length){length+=prefix.length;branchMask|=uint(1)<<(255-length);length+=1;uinthead;(head,label)=Utils.chopFirstBit(suffix);siblings[numSiblings++]=edgeHash(tree.nodes[e.node].children[1-head]);e=tree.nodes[e.node].children[head];}else{potentialSiblingLabel=e.label.data;potentialSiblingValue=e.node;break;}}if(numSiblings>0){_siblings=newbytes32[](numSiblings);for(uinti=0;i<numSiblings;i++)_siblings[i]=siblings[i];}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 201
+column: 15
+content: true
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 251
+column: 15
+content: true
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: >=
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 24
+content: <
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 191
+column: 81
+content: (uintbranchMask,bytes32[]memory_siblings)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 195
+column: 95
+content: (uintbranchMask,bytes32[]memory_siblings)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 228
+column: 93
+content: (bytes32potentialSiblingLabel,bytes32potentialSiblingValue,uintbranchMask,bytes32[]memory_siblings)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 237
+column: 107
+content: (bytes32potentialSiblingLabel,bytes32potentialSiblingValue,uintbranchMask,bytes32[]memory_siblings)
+
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :2
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_SHOULD_RETURN_STRUCT :4

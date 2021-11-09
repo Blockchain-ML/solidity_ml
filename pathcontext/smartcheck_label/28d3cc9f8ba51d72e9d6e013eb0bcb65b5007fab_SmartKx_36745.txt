@@ -1,0 +1,156 @@
+C:\Users\hp\DataSet\contracts\ropsten\28\28d3cc9f8ba51d72e9d6e013eb0bcb65b5007fab_SmartKx.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 196
+column: 11
+content: ((a+m-1)/m)*m
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 112
+column: 4
+content: for(uint8i=0;i<numAccounts;i++){values[i]=accounts[_year][_quarter][i];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 166
+column: 4
+content: for(i=0;i<numAccounts;i++){aum+=target[i];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 183
+column: 4
+content: for(i=0;i<splits.length;i++){feeTotal+=(splits[i]*10)*rates[i];}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 120
+column: 2
+content: functiongetFeeSchedule()publicviewreturns(uint48[],uint48[]){}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 183
+column: 4
+content: for(i=0;i<splits.length;i++){feeTotal+=(splits[i]*10)*rates[i];}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractSmartKx{addresspublickeyOwner;addresspublickeyManager;stringpubliceMap;uint8publicnumAccounts;uint48[]publicbreaks;uint48[]publicrates;mapping(uint16=>mapping(uint8=>mapping(uint8=>uint48)))publicaccounts;constructor(address_keyManager,uint8_numAccounts,string_eMap,uint48[]_breaks,uint48[]_rates)public{require(_breaks.length==_rates.length,"Number of breaks must equal number of rates");keyOwner=msg.sender;keyManager=_keyManager;numAccounts=_numAccounts;eMap=_eMap;breaks=_breaks;rates=_rates;}modifierisValidYear(uint16_Year){require(_Year>2017,&39<missing ')'>;Invalidyear&39;);require(_Year<2048,&39<missing ')'>;Invalidyear&39;);_;}modifierisValidQuarter(uint8_Quarter){require(_Quarter>0,&39<missing ')'>;Invalidquarter&39;);require(_Quarter<5,&39<missing ')'>;Invalidquarter&39;);_;}modifierisValidAccount(uint8_Account){require(_Account<numAccounts,&39<missing ')'>;Invalidaccount<missing ';'>number&39;);_;}eventReportAum(uint);eventReportSplits(uint48[]);eventReportFeeTotal(uint);functionsetAccountValue(uint16_year,uint8_quarter,uint8_account,uint48_value)isValidYear(_year)isValidQuarter(_quarter)isValidAccount(_account)publicpayablereturns(uint48){accounts[_year][_quarter][_account]=_value;return_value;}functiongetAccountValue(uint16_year,uint8_quarter,uint8_account)isValidYear(_year)isValidQuarter(_quarter)isValidAccount(_account)publicviewreturns(uint48){returnaccounts[_year][_quarter][_account];}functiongetAccountValues(uint16_year,uint8_quarter)isValidYear(_year)isValidQuarter(_quarter)publicviewreturns(uint48[]){uint48[]values;for(uint8i=0;i<numAccounts;i++){values[i]=accounts[_year][_quarter][i];}returnvalues;}functiongetFeeSchedule()publicviewreturns(uint48[],uint48[]){}functioncalculate(uint16_year,uint8_quarter)publicviewisValidYear(_year)isValidQuarter(_quarter){mapping(uint8=>uint48)target=accounts[_year][_quarter];uint8i;uint48aum=0;uint48feeTotal=0;uint48[]splits;uint48[]feesBySplit;uint48[]spread;uint48[]feesByAccount;for(i=0;i<numAccounts;i++){aum+=target[i];}emitReportAum(aum);uint48tempAum=aum;for(i=uint8(breaks.length);i>=0;i--){splits[i]=uint48(ceil(breaks[i],tempAum));tempAum=uint48(sub(tempAum,splits[i]));}emitReportSplits(splits);for(i=0;i<splits.length;i++){feeTotal+=(splits[i]*10)*rates[i];}emitReportFeeTotal(feeTotal);}functionceil(uinta,uintm)internalpurereturns(uint){return((a+m-1)/m)*m;}functioncalculatePercentage(uint48theNumber,uint48bps)publicviewreturns(uint128){returnuint128(int256(theNumber)*int256(bps)/int256(10000));}functionmul(uint256_a,uint256_b)internalpurereturns(uint256){if(_a==0){return0;}uint256c=_a*_b;require(c/_a==_b);returnc;}functiondiv(uint256_a,uint256_b)internalpurereturns(uint256){require(_b>0);uint256c=_a/_b;returnc;}functionsub(uint256_a,uint256_b)internalpurereturns(uint256){require(_b<=_a);uint256c=_a-_b;returnc;}functionadd(uint256_a,uint256_b)internalpurereturns(uint256){uint256c=_a+_b;require(c>=_a);returnc;}functionmod(uint256a,uint256b)internalpurereturns(uint256){require(b!=0);returna%b;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 11ca45b
+severity: 3
+line: 175
+column: 35
+content: i>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: d48ac4
+severity: 2
+line: 175
+column: 35
+content: i>=0
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 17
+column: 4
+content: string_eMap
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 18
+column: 4
+content: uint48[]_breaks
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 19
+column: 4
+content: uint48[]_rates
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 108
+column: 13
+content: uint48[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 123
+column: 13
+content: uint48[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 123
+column: 23
+content: uint48[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 110
+column: 4
+content: uint48[]values
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 158
+column: 4
+content: uint48[]splits
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 159
+column: 4
+content: uint48[]feesBySplit
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 160
+column: 4
+content: uint48[]spread
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 161
+column: 4
+content: uint48[]feesByAccount
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_UPGRADE_TO_050 :11
+SOLIDITY_UINT_CANT_BE_NEGATIVE :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_DIV_MUL :1

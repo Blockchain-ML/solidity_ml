@@ -1,0 +1,146 @@
+F:\Blockchain\solidity_dataset_work\4k_dataset\95758.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 109
+column: 48
+content: 0x0000000000000000000000000000000000000088
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 6
+column: 0
+content: contractCandidateManagerisOwnable{usingSafeMathforuint256;uint256constantpublicBLOCK_PER_EPOCH=900;constructor()public{team=msg.sender;}addresspayablepublicteam;address[]publiccandidates;structCandidateState{uint256candidateType;boolisCandidate;}mapping(address=>CandidateState)CandidatesState;eventNewCandidate(address_candidate,string_name,address_coinbase,uint256_type);functionnewCandidate(stringmemory_candidateName,address_coinbase)publiconlyOwner{CandidateContract_candidate=newCandidateContract(_candidateName,_coinbase,address(this),team);CandidatesState[address(_candidate)]=CandidateState({candidateType:2,isCandidate:true});candidates.push(address(_candidate));emitNewCandidate(address(_candidate),_candidateName,_coinbase,1);}functionchangeTeamAddress(addresspayable_team)publiconlyOwner{team=_team;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 67
+column: 0
+content: contractCandidateContract{usingSafeMathforuint256;addresspubliccm;stringpublicCandidateName;addresspubliccoinbaseAddr;uint256constantpublicBLOCK_PER_EPOCH=900;uint256constantpublicPENDING_STATUS=1;uint256constantpublicPROPOSED_STATUS=10;uint256constantpublicRESIGNED_STATUS=100;uint256publiccandidateStatus;addresspayablepublicreferralAddress;addresspayablepublicteamAddr;uint256publicmaxCap=250000ether;uint256publicstakerWithdrawDelay=96*BLOCK_PER_EPOCH;uint256publiccandidateWithdrawDelay=1440*BLOCK_PER_EPOCH;uint256publiclastEpochRewardFilled;uint256publicTotalRewardWithdrawn=0;uint256publicTotalRewardEpochFilled=0;uint256publichardwareFeePercentage=15;uint256publicwithdrawIndex=1;uint256publicreferralPercentage=0;uint256publiclastEpochCapUnder60k=0;uint256publicNUM_EPOCH_UNDER60k_TO_RESIGN=48*10;structWithdrawState{boolisWithdrawnStakeLocked;boolisWithdrawnCandidateLocked;mapping(uint256=>uint256)caps;uint256[]blockNumbers;}mapping(uint256=>uint256)publicindexes;mapping(address=>WithdrawState)withdrawsState;addresspayableconstantpublicvalidator=0x0000000000000000000000000000000000000088;mapping(address=>uint256)publicStakerRewardWithdrawState;mapping(address=>uint256)publicStakersTotalReward;mapping(uint256=>mapping(address=>uint256))publicStakersCapacity;mapping(address=>uint256[])publicEpochsAtWhichCapChange;uint256publicCapBeforeResign=0;boolpublicisStakeLockWithdrawn=false;boolpublicisCandidateLockWithdraw=false;uint256publicRemainingStakeAfterResign=0;uint256publiccapacity;mapping(uint256=>uint256)publiccapacityHistory;uint256[]publiccapacityChanges;address[]publicListStaker;structEpochReward{boolIsRewardPaid;uint256rewards;uint256actualRewards;}mapping(uint256=>EpochReward)publicEpochsReward;structVoteResult{stringdescription;mapping(address=>bool)voteResults;uint256supportCap;uint256epochStart;}structStakePrice{boolisForSale;uint256sellStakePrice;uint256amountForSale;}VoteResultpublicgovernance;uint256lastEpochHWPayout=0;mapping(address=>StakePrice)publicStakeExchange;eventUnStake(address_staker,uint256_amount);eventWithdrawReward(address_staker,uint256_reward);eventWithdrawRewardPerEpoch(address_staker,uint256_reward,uint256_epoch);eventStake(address_staker,uint256_amount);eventSaveCapacityByEpoch(uint256_epoch,uint256_totalStaker,uint256_capacity);eventPaymentHardware(uint256_epoch,uint256_hardwareFeePercentage,uint256_amount);eventPaymentRef(uint256_epoch,uint256_refPercentage,uint256_amount);eventWithdraw(address_owner,uint256_blockNumber,uint256_cap);eventCommunityVote(address_staker,uint256_code,string_des,uint256_cap,bool_support);eventResign(address_candidate);eventPropose(address_candidate);eventWithdrawAfterResign(address_staker,bool_isStakeLocked,uint256_withdrawalCap);eventTransferStake(address_from,address_to,uint256_amount);eventSetSellStake(address_staker,uint256_saleAmount,uint256_salePrice);eventBuyStake(address_buyer,uint256_amountNormalTomo,address_seller,uint256_amountStakeTomo,uint256_price);eventTradingFee(address_buyer,address_seller,address_team,uint256_fee);constructor(stringmemory_candidateName,address_coinbase,address_cm,address<missing ')'>payable_team)public{CandidateName=_candidateName;cm=_cm;coinbaseAddr=_coinbase;candidateStatus=PENDING_STATUS;lastEpochRewardFilled=0;governance.epochStart=currentEpoch();governance.description="Voting for resigning";teamAddr=_team;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 7
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 68
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 38
+column: 4
+content: functionchangeTeamAddress(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 172
+column: 4
+content: constructor(stringmemory_candidateName,address_coinbase,address_cm,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 24
+column: 4
+content: mapping(address=>CandidateState)CandidatesState;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 39
+column: 8
+content: team=_team;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 107
+column: 4
+content: mapping(address=>WithdrawState)withdrawsState;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 152
+column: 4
+content: uint256lastEpochHWPayout=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 174
+column: 8
+content: cm=_cm;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 175
+column: 8
+content: coinbaseAddr=_coinbase;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 176
+column: 8
+content: candidateStatus=PENDING_STATUS;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 177
+column: 8
+content: lastEpochRewardFilled=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 178
+column: 8
+content: governance.epochStart=currentEpoch
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 178
+column: 44
+content: ();governance.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 179
+column: 19
+content: description="Voting for resigning";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 180
+column: 8
+content: teamAddr=_team;
+
+SOLIDITY_VISIBILITY :14
+SOLIDITY_SAFEMATH :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_ADDRESS_HARDCODED :1

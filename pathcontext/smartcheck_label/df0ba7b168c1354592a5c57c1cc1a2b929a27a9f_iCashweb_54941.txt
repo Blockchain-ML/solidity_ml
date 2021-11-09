@@ -1,0 +1,189 @@
+C:\Users\hp\DataSet\contracts\ropsten\df\df0ba7b168c1354592a5c57c1cc1a2b929a27a9f_iCashweb.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 46
+column: 8
+content: iOwner=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 60
+column: 40
+content: iOperable[address(0)]
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 147
+column: 15
+content: _balances[address(0)]
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 148
+column: 8
+content: _balances[address(0)]
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 148
+column: 32
+content: _balances[address(0)]
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 156
+column: 15
+content: _approvals[_from][address(0)]
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 157
+column: 8
+content: _approvals[_from][address(0)]
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 157
+column: 40
+content: _approvals[_from][address(0)]
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 165
+column: 8
+content: _approvals[address(0)]
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 175
+column: 8
+content: _balances[address(0)]
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 175
+column: 32
+content: _balances[address(0)]
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 205
+column: 8
+content: _balances[address(0)]
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 205
+column: 32
+content: _balances[address(0)]
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 164
+column: 4
+content: functionapprove(address_to,uint256_val)publicreturns(bool){_approvals[address(0)][_to]=_val;emitApproval(address(0),_to,_val);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 91
+column: 0
+content: contractiCashwebisiCashwebToken{usingiMathforuint256;stringpublicconstantname="iCashweb";stringpublicconstantsymbol="ICWeb";uint256publicconstantdecimal=18;uint256_totalSupply;uint256_rate;uint256_totalMintSupply;uint256_maxMintable;mapping(address=>uint256)_balances;mapping(address=>mapping(address=>uint256))_approvals;constructor(uint256_price,uint256_val)public{_mintingStarted=true;_minted=false;_rate=_price;_totalSupply=_val.mul(2);_maxMintable=_val;_balances[iOwner]=_val;emitTransfer(0x0,iOwner,_val);}functiongetMinted()publicviewreturns(bool){return_minted;}functionisOwner(address_addr)publicviewreturns(bool){return_addr==iOwner;}functiongetMintingStatus()publicviewreturns(bool){return_mintingStarted;}functiongetRate()publicviewreturns(uint256){return_rate;}functiontotalMintSupply()publicviewreturns(uint256){return_totalMintSupply;}functiontotalSupply()publicviewreturns(uint256){return_totalSupply;}functionbalanceOf(address_addr)publicviewreturns(uint256){return_balances[_addr];}functionallowance(address_from,address_to)publicviewreturns(uint256){return_approvals[_from][_to];}functiontransfer(address_to,uint_val)publicreturns(bool){assert(_balances[address(0)]>=_val&&address(0)!=_to);_balances[address(0)]=_balances[address(0)].sub(_val);_balances[_to]=_balances[_to].add(_val);emitTransfer(address(0),_to,_val);returntrue;}functiontransferFrom(address_from,address_to,uint_val)publicreturns(bool){assert(_balances[_from]>=_val);assert(_approvals[_from][address(0)]>=_val);_approvals[_from][address(0)]=_approvals[_from][address(0)].sub(_val);_balances[_from]=_balances[_from].sub(_val);_balances[_to]=_balances[_to].add(_val);emitTransfer(_from,_to,_val);returntrue;}functionapprove(address_to,uint256_val)publicreturns(bool){_approvals[address(0)][_to]=_val;emitApproval(address(0),_to,_val);returntrue;}function()publicmintingStartedpayable{assert(msg.value>0);uinttokens=msg.value.mul(_rate);uinttotalToken=_totalMintSupply.add(tokens);assert(_maxMintable>=totalToken);_balances[address(0)]=_balances[address(0)].add(tokens);_totalMintSupply=_totalMintSupply.add(tokens);iOwner.transfer(msg.value);emitTransfer(0x0,address(0),tokens);}functionmoveMintTokens(address_from,address_to,uint256_value)publiciOnlyOwnerreturns(bool){require(_to!=_from);require(_balances[_from]>=_value);_balances[_from]=_balances[_from].sub(_value);_balances[_to]=_balances[_to].add(_value);emitTransfer(_from,_to,_value);returntrue;}functiontransferMintTokens(address_to,uint256_value)publiciOnlyOwnerreturns(bool){uinttotalToken=_totalMintSupply.add(_value);require(_maxMintable>=totalToken);_balances[_to]=_balances[_to].add(_value);_totalMintSupply=_totalMintSupply.add(_value);emitTransfer(0x0,_to,_value);returntrue;}functionreleaseMintTokens()publicnotMintedreturns(bool){require(address(0)==iOwner);uint256releaseAmount=_maxMintable.sub(_totalMintSupply);uint256totalReleased=_totalMintSupply.add(releaseAmount);require(_maxMintable>=totalReleased);_totalMintSupply=_totalMintSupply.add(releaseAmount);_balances[address(0)]=_balances[address(0)].add(releaseAmount);_minted=true;emitTransfer(0x0,address(0),releaseAmount);emitRelease(address(0),releaseAmount);returntrue;}functionchangeRate(uint256_value)publicreturns(bool){require(address(0)==iOwner&&_value>0);_rate=_value;returntrue;}functiontransferOwnership(address_to)public{require(address(0)==iOwner&&_to!=address(0));addressoldOwner=iOwner;uint256balAmount=_balances[oldOwner];_balances[_to]=_balances[_to].add(balAmount);_balances[oldOwner]=0;iOwner=_to;emitTransfer(oldOwner,_to,balAmount);emitOwnerTransferred(oldOwner,_to);}eventRelease(address_addr,uint256_val);eventTransfer(address_from,address_to,uint256_value);eventApproval(address_from,address_to,uint256_value);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 170
+column: 16
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 41
+column: 4
+content: mapping(address=>bool)iOperable;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 42
+column: 4
+content: bool_mintingStarted;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 43
+column: 4
+content: bool_minted;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 97
+column: 4
+content: uint256_totalSupply;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 98
+column: 4
+content: uint256_rate;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 99
+column: 4
+content: uint256_totalMintSupply;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 100
+column: 4
+content: uint256_maxMintable;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 101
+column: 4
+content: mapping(address=>uint256)_balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 102
+column: 4
+content: mapping(address=>mapping(address=>uint256))_approvals;
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :13
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_ERC20_APPROVE :1

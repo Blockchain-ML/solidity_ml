@@ -1,0 +1,132 @@
+C:\Users\hp\DataSet\contracts\ropsten\bc\bcf744991c19c06bca9321194fb6981842c6b13e_LotteryTest.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 91
+column: 4
+content: functiongetDrawP()constantexternalreturns(uint){returndrawP;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 95
+column: 4
+content: functiongetBetclose()constantexternalreturns(bool){returnbetclose;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 99
+column: 4
+content: functiongetPeriods()constantexternalreturns(uint8){returnPeriods;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 156
+column: 4
+content: functiongetPoolbyGtype(uint8_type)constantexternalreturns(uint){Poolstoragerec=pools[_type];returnrec.Amount;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 160
+column: 4
+content: functiongetAllbetByGtype(uint8_btype)constantexternalreturns(uint){tGnumstoragerec=tgums[Periods];tGtypestoragerec1=rec.tgtypes[_btype];returnrec1.bets;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 165
+column: 4
+content: functiongetAllbetByNum(uint8_btype,int8_bnum)constantexternalreturns(uint){tGnumstoragerec=tgums[Periods];tGtypestoragerec1=rec.tgtypes[_btype];tNumstoragerec2=rec1.tnums[_bnum];returnrec2.bets;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 171
+column: 4
+content: functiongetbetData(uint8_btype,int8_bnum,address_owner)constantexternalreturns(uint){tGnumstoragerec=tgums[Periods];tGtypestoragerec1=rec.tgtypes[_btype];tNumstoragerec2=rec1.tnums[_bnum];returnrec2.betusers[_owner];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 178
+column: 4
+content: functiongetBetUint(uint8_btype,int8_bnum)constantinternalreturns(uint){tGnumstoragerec=tgums[Periods];tGtypestoragerec1=rec.tgtypes[_btype];tNumstoragerec2=rec1.tnums[_bnum];uinttmp_uint=0;uintTotalPool=this.getPoolbyGtype(_btype);for(uinti=0;i<rec2.betAddress.length;i++){tmp_uint+=rec2.betusers[rec2.betAddress[i]];}uintrs=TotalPool/tmp_uint;returnrs;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 191
+column: 4
+content: functiongetResult(uint8_periods,uint8_btype)constantexternalreturns(int8,bool){return(results[_periods][_btype],results_status[_periods][_btype]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 184
+column: 8
+content: for(uinti=0;i<rec2.betAddress.length;i++){tmp_uint+=rec2.betusers[rec2.betAddress[i]];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 233
+column: 16
+content: for(uinti=0;i<rec2.betAddress.length;i++){uintwin=rec2.betusers[rec2.betAddress[i]]*uint_amount;if(withdraw(rec2.betAddress[i],win)){updPool(j,win);emitdrawBet(_period,j,_bhash,rec2.betAddress[i],win);}else{returnfalse;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 184
+column: 8
+content: for(uinti=0;i<rec2.betAddress.length;i++){tmp_uint+=rec2.betusers[rec2.betAddress[i]];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 233
+column: 16
+content: for(uinti=0;i<rec2.betAddress.length;i++){uintwin=rec2.betusers[rec2.betAddress[i]]*uint_amount;if(withdraw(rec2.betAddress[i],win)){updPool(j,win);emitdrawBet(_period,j,_bhash,rec2.betAddress[i],win);}else{returnfalse;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: mapping(address=>uint256)winners;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 17
+column: 4
+content: mapping(uint8=>Pstatus)draws;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 4
+content: mapping(uint=>tGnum)tgums;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 4
+content: mapping(uint8=>Pool)pools;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :9
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2

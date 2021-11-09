@@ -1,0 +1,84 @@
+C:\Users\hp\DataSet\contracts\ropsten\d4\d478ac051f2c61d814003d5faa0b75bcbff465ec_TokenWithInvariants.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: om991k
+severity: 2
+line: 28
+column: 9
+content: call.value(value)()
+
+ruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: om991k
+severity: 2
+line: 34
+column: 19
+content: call.value(balance)()
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 10
+column: 36
+content: throw
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 10
+column: 4
+content: if(this.balance<totalSupply)throw;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 28
+column: 9
+content: call.value(value)()
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 34
+column: 19
+content: call.value(balance)()
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 17
+column: 2
+content: functiondeposit(uintamount)payablecheckInvariants{balanceOf[msg.sender]+=amount;totalSupply+=amount;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 22
+column: 2
+content: functiontransfer(addressto,uintvalue)checkInvariants{if(balanceOf[msg.sender]>=value){balanceOf[to]+=value;balanceOf[msg.sender]-=value;to.call.value(value)();}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 32
+column: 2
+content: functionwithdraw()checkInvariants{uintbalance=balanceOf[msg.sender];if(msg.sender.call.value(balance)()){totalSupply-=balance;balanceOf[msg.sender]=0;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 40
+column: 2
+content: function()payable{if(msg.value>0){totalSupply+=msg.value;}}
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_CALL_WITHOUT_DATA :2

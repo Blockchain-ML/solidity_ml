@@ -1,0 +1,63 @@
+C:\Users\hp\DataSet\RebalancingSetIssuanceModule.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 437
+column: 47
+content: _baseSetQuantity.div(baseSetNaturalUnit).mul(currentUnit)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 432
+column: 8
+content: for(uint256i=0;i<baseSetComponents.length;i++){addresscurrentComponent=baseSetComponents[i];uint256currentUnit=baseSetUnits[i];uint256currentComponentQuantity=_baseSetQuantity.div(baseSetNaturalUnit).mul(currentUnit);if(currentComponent==address(weth)){require(msg.value>=currentComponentQuantity,"RebalancingSetIssuanceModule.depositComponentsAndHandleEth: Not enough ether included for base SetToken");weth.deposit.value(currentComponentQuantity)();ERC20Wrapper.ensureAllowance(address(weth),address(this),transferProxy,currentComponentQuantity);}else{coreInstance.depositModule(msg.sender,address(this),currentComponent,currentComponentQuantity);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 483
+column: 8
+content: for(uint256i=0;i<baseSetComponents.length;i++){addresscurrentComponent=baseSetComponents[i];uint256currentComponentQuantity=vaultInstance.getOwnerBalance(currentComponent,address(this));if(currentComponent==address(weth)){coreInstance.withdrawModule(address(this),address(this),address(weth),currentComponentQuantity);weth.withdraw(currentComponentQuantity);msg.sender.transfer(currentComponentQuantity);}else{coreInstance.withdrawModule(address(this),msg.sender,currentComponent,currentComponentQuantity);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 432
+column: 8
+content: for(uint256i=0;i<baseSetComponents.length;i++){addresscurrentComponent=baseSetComponents[i];uint256currentUnit=baseSetUnits[i];uint256currentComponentQuantity=_baseSetQuantity.div(baseSetNaturalUnit).mul(currentUnit);if(currentComponent==address(weth)){require(msg.value>=currentComponentQuantity,"RebalancingSetIssuanceModule.depositComponentsAndHandleEth: Not enough ether included for base SetToken");weth.deposit.value(currentComponentQuantity)();ERC20Wrapper.ensureAllowance(address(weth),address(this),transferProxy,currentComponentQuantity);}else{coreInstance.depositModule(msg.sender,address(this),currentComponent,currentComponentQuantity);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 483
+column: 8
+content: for(uint256i=0;i<baseSetComponents.length;i++){addresscurrentComponent=baseSetComponents[i];uint256currentComponentQuantity=vaultInstance.getOwnerBalance(currentComponent,address(this));if(currentComponent==address(weth)){coreInstance.withdrawModule(address(this),address(this),address(weth),currentComponentQuantity);weth.withdraw(currentComponentQuantity);msg.sender.transfer(currentComponentQuantity);}else{coreInstance.withdrawModule(address(this),msg.sender,currentComponent,currentComponentQuantity);}}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 41
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 361
+column: 16
+content: (address,uint256)
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 483
+column: 8
+content: for(uint256i=0;i<baseSetComponents.length;i++){addresscurrentComponent=baseSetComponents[i];uint256currentComponentQuantity=vaultInstance.getOwnerBalance(currentComponent,address(this));if(currentComponent==address(weth)){coreInstance.withdrawModule(address(this),address(this),address(weth),currentComponentQuantity);weth.withdraw(currentComponentQuantity);msg.sender.transfer(currentComponentQuantity);}else{coreInstance.withdrawModule(address(this),msg.sender,currentComponent,currentComponentQuantity);}}
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_DIV_MUL :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_TRANSFER_IN_LOOP :1

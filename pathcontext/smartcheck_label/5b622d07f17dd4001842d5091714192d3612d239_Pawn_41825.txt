@@ -1,0 +1,359 @@
+C:\Users\hp\DataSet\contracts\ropsten\5b\5b622d07f17dd4001842d5091714192d3612d239_Pawn.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 193
+column: 8
+content: for(uinti;i<erc20Data.length;i++){addrs[i]=erc20Data[i].addr;amounts[i]=erc20Data[i].amount;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 202
+column: 8
+content: for(uinti;i<erc721Data.length;i++){addrs[i]=erc721Data[i].addr;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 210
+column: 8
+content: for(uinti;i<erc721Data.length;i++){if(erc721Data[i].addr==_addr)returnerc721Data[i].nfts;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 272
+column: 8
+content: for(i=0;i<erc20Datas.length;i++){require(erc20Datas[i].addr.transferFrom(_from,_to,erc20Datas[i].amount));}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 279
+column: 8
+content: for(i=0;i<erc721Datas.length;i++){addr=erc721Datas[i].addr;uint[]storagenfts=erc721Datas[i].nfts;for(uintj=0;j<nfts.length;j++){require(addr.takeOwnership(nfts[j]));}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 282
+column: 12
+content: for(uintj=0;j<nfts.length;j++){require(addr.takeOwnership(nfts[j]));}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 300
+column: 8
+content: for(i=0;i<erc20Datas.length;i++){require(erc20Datas[i].addr.transfer(_to,erc20Datas[i].amount));}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 307
+column: 8
+content: for(i=0;i<erc721Datas.length;i++){addr=erc721Datas[i].addr;uint[]storagenfts=erc721Datas[i].nfts;for(uintj=0;j<nfts.length;j++){require(addr.transfer(_to,nfts[j]));}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 310
+column: 12
+content: for(uintj=0;j<nfts.length;j++){require(addr.transfer(_to,nfts[j]));}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 136
+column: 4
+content: functionencodeCurrency(stringcurrency)publicpurereturns(bytes32o){require(bytes(currency).length<=32);assembly{o:=mload(add(currency,32))}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 146
+column: 4
+content: functiondecodeCurrency(bytes32b)publicpurereturns(stringo){uint256ns=256;while(true){if(ns==0||(b<<ns-8)!=0)break;ns-=8;}assembly{ns:=div(ns,8)o:=mload(0x40)mstore(0x40,add(o,and(add(add(ns,0x20),0x1f),not(0x1f))))mstore(o,ns)mstore(add(o,32),b)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 161
+column: 4
+content: functionreadBytes32(bytesdata,uint256index)internalpurereturns(bytes32o){require(data.length/32>index);assembly{o:=mload(add(data,add(32,mul(32,index))))}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 193
+column: 8
+content: for(uinti;i<erc20Data.length;i++){addrs[i]=erc20Data[i].addr;amounts[i]=erc20Data[i].amount;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 202
+column: 8
+content: for(uinti;i<erc721Data.length;i++){addrs[i]=erc721Data[i].addr;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 210
+column: 8
+content: for(uinti;i<erc721Data.length;i++){if(erc721Data[i].addr==_addr)returnerc721Data[i].nfts;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 272
+column: 8
+content: for(i=0;i<erc20Datas.length;i++){require(erc20Datas[i].addr.transferFrom(_from,_to,erc20Datas[i].amount));}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 279
+column: 8
+content: for(i=0;i<erc721Datas.length;i++){addr=erc721Datas[i].addr;uint[]storagenfts=erc721Datas[i].nfts;for(uintj=0;j<nfts.length;j++){require(addr.takeOwnership(nfts[j]));}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 282
+column: 12
+content: for(uintj=0;j<nfts.length;j++){require(addr.takeOwnership(nfts[j]));}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 300
+column: 8
+content: for(i=0;i<erc20Datas.length;i++){require(erc20Datas[i].addr.transfer(_to,erc20Datas[i].amount));}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 307
+column: 8
+content: for(i=0;i<erc721Datas.length;i++){addr=erc721Datas[i].addr;uint[]storagenfts=erc721Datas[i].nfts;for(uintj=0;j<nfts.length;j++){require(addr.transfer(_to,nfts[j]));}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 310
+column: 12
+content: for(uintj=0;j<nfts.length;j++){require(addr.transfer(_to,nfts[j]));}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 148
+column: 15
+content: true
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 136
+column: 4
+content: functionencodeCurrency(stringcurrency)publicpurereturns(bytes32o){require(bytes(currency).length<=32);assembly{o:=mload(add(currency,32))}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 146
+column: 4
+content: functiondecodeCurrency(bytes32b)publicpurereturns(stringo){uint256ns=256;while(true){if(ns==0||(b<<ns-8)!=0)break;ns-=8;}assembly{ns:=div(ns,8)o:=mload(0x40)mstore(0x40,add(o,and(add(add(ns,0x20),0x1f),not(0x1f))))mstore(o,ns)mstore(add(o,32),b)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 161
+column: 4
+content: functionreadBytes32(bytesdata,uint256index)internalpurereturns(bytes32o){require(data.length/32>index);assembly{o:=mload(add(data,add(32,mul(32,index))))}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 47
+column: 40
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 48
+column: 42
+content: string_symbol
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 60
+column: 65
+content: stringinfo
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 108
+column: 40
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 116
+column: 37
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 125
+column: 25
+content: stringticker
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 136
+column: 28
+content: stringcurrency
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 146
+column: 60
+content: stringo
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 161
+column: 25
+content: bytesdata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 190
+column: 60
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 190
+column: 77
+content: uint[]amounts
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 199
+column: 65
+content: address[]addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 207
+column: 80
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 235
+column: 64
+content: uint[]_nfts
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 333
+column: 41
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 334
+column: 43
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 341
+column: 58
+content: stringinfo
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 138
+column: 8
+content: assembly{o:=mload(add(currency,32))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 149
+column: 8
+content: assembly{ns:=div(ns,8)o:=mload(0x40)mstore(0x40,add(o,and(add(add(ns,0x20),0x1f),not(0x1f))))mstore(o,ns)mstore(add(o,32),b)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 163
+column: 8
+content: assembly{o:=mload(add(data,add(32,mul(32,index))))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 170
+column: 4
+content: Engineengine;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 172
+column: 4
+content: mapping(uint=>address)pawnToOwner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 173
+column: 4
+content: mapping(uint=>address)pawnToApproved;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 175
+column: 4
+content: mapping(uint=>PawnToken)loanIdToPawn;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :3
+SOLIDITY_EXTRA_GAS_IN_LOOPS :9
+SOLIDITY_UPGRADE_TO_050 :17
+SOLIDITY_GAS_LIMIT_IN_LOOPS :10
+SOLIDITY_USING_INLINE_ASSEMBLY :3
+SOLIDITY_SHOULD_NOT_BE_PURE :3

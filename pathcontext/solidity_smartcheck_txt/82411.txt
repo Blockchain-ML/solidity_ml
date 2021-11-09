@@ -1,0 +1,45 @@
+F:\Blockchain\dataset_new_byID\82411.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 14
+column: 2
+content: functiontestInitialUsingDeployedContract(){LogoVotelogovote=LogoVote(DeployedAddresses.LogoVote());Votevote=Vote(logovote.vote());Assert.equal(logovote.totalReward(),0,"LogoVote should have 0 reward initially");Assert.equal(vote.totalSupply(),100000,"Vote should have 10000 totalSupply initially");Assert.equal(vote.initialSupply(),100000,"Vote should have 10000 initialSupply initially");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 23
+column: 2
+content: functiontestInitialEndBlock(){LogoVoteMocklogovote=newLogoVoteMock();Assert.equal(logovote.endBlock(),172800+logovote.startBlock(),'Should return correct block number');}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 28
+column: 2
+content: functiontestIsAfterEndAndIsRespectTimeFrame(){LogoVoteMocklogovote=newLogoVoteMock();logovote.setMockedBlockNumber(logovote.endBlock()-1);Assert.isTrue(logovote.isRespectTimeFrame(),'Should return true');logovote.setMockedBlockNumber(logovote.endBlock()+1);Assert.isTrue(logovote.isAfterEnd(),'Should return true');}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 54
+column: 2
+content: functiontestInitialWithNewVote(){Votevote=newVote();Assert.equal(vote.totalSupply(),100000,"Vote should have 10000 totalSupply initially");Assert.equal(vote.initialSupply(),100000,"Vote should have 10000 initialSupply initially");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 2
+content: ThrowProxythrowProxy;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_PRAGMAS_VERSION :1

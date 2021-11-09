@@ -1,0 +1,243 @@
+C:\Users\hp\DataSet\contracts\ropsten\3d\3df9555c5dd9530a930c00e8511e39bac028530a_HNS.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 58
+column: 20
+content: 0x80
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 60
+column: 26
+content: 0xE0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 62
+column: 26
+content: 0xF0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 64
+column: 26
+content: 0xF8
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 66
+column: 26
+content: 0xFC
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 221
+column: 4
+content: functiongetAddressByName(string_name)publicconstantreturns(addressaddrs){returnhnsMap[stringToBytes32(_name)];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 216
+column: 9
+content: for(uinti=0;i<_addrs.length;i++){registHns(bytes32ToString(_names[i]),_addrs[i]);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 177
+column: 4
+content: functionstringToBytes32(stringmemorysource)internalpurereturns(bytes32result){assembly{result:=mload(add(source,32))}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 216
+column: 9
+content: for(uinti=0;i<_addrs.length;i++){registHns(bytes32ToString(_names[i]),_addrs[i]);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 115
+column: 0
+content: contractHNS{usingstringsfor*;stringpublicname="HPB Name Service";addresspublicpreAddr=0;addresspublicnextAddr=0;mapping(bytes32=>address)publichnsMap;addresspublicowner;modifieronlyOwner{require(msg.sender==owner);_;}eventReceivedHpb(addressindexedsender,uintamount);function()payableexternal{emitReceivedHpb(msg.sender,msg.value);}constructor()payablepublic{owner=msg.sender;}eventTransferOwnership(addressindexedfrom,addressindexedto);functiontransferOwnership(addressnewOwner)onlyOwnerpublic{owner=newOwner;emitTransferOwnership(msg.sender,newOwner);}functionisEndsWithHpb(string_name)publicpurereturns(bool_check){strings.slicememorys=_name.toSlice();returns.endsWith(".hpb".toSlice());}functionisValidLenth(string_name)publicpurereturns(bool_check){strings.slicememorys=_name.toSlice();returns.len()>6&&s.len()<32;}eventSetPreAddr(addressindexed_preAddr);functionsetPreAddr(address_preAddr)onlyOwnerpublic{preAddr=_preAddr;emitSetPreAddr(_preAddr);}eventSetNextAddr(addressindexed_nextAddr);functionsetNextAddr(address_nextAddr)onlyOwnerpublic{nextAddr=_nextAddr;emitSetNextAddr(_nextAddr);}functionstringToBytes32(stringmemorysource)internalpurereturns(bytes32result){assembly{result:=mload(add(source,32))}}functionbytes32ToString(bytes32x)internalpurereturns(string){bytesmemorybytesString=newbytes(32);uintcharCount=0;for(uintj=0;j<32;j++){bytechar=byte(bytes32(uint(x)*2**(8*j)));if(char!=0){bytesString[charCount]=char;charCount++;}}bytesmemorybytesStringTrimmed=newbytes(charCount);for(j=0;j<charCount;j++){bytesStringTrimmed[j]=bytesString[j];}returnstring(bytesStringTrimmed);}eventRegistHns(stringindexed_name,addressindexed_addr);functionregistHns(string_name,address_addr)public{stringmemorynewName;if(!isEndsWithHpb(_name)){newName=_name.toSlice().concat(".hpb".toSlice());}else{newName=_name;}require(isValidLenth(newName));hnsMap[stringToBytes32(newName)]=_addr;emitRegistHns(newName,_addr);}functionregistHnsBatch(bytes32[]_names,address[]_addrs)public{for(uinti=0;i<_addrs.length;i++){registHns(bytes32ToString(_names[i]),_addrs[i]);}}functiongetAddressByName(string_name)publicconstantreturns(addressaddrs){returnhnsMap[stringToBytes32(_name)];}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 164
+column: 4
+content: functionsetPreAddr(address_preAddr)onlyOwnerpublic{preAddr=_preAddr;emitSetPreAddr(_preAddr);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 169
+column: 4
+content: functionsetNextAddr(address_nextAddr)onlyOwnerpublic{nextAddr=_nextAddr;emitSetNextAddr(_nextAddr);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 10
+column: 4
+content: functionmemcpy(uintdest,uintsrc,uintlen)privatepure{for(;len>=32;len-=32){assembly{mstore(dest,mload(src))}dest+=32;src+=32;}uintmask=256**(32-len)-1;assembly{letsrcpart:=and(mload(src),not(mask))letdestpart:=and(mload(dest),mask)mstore(dest,or(destpart,srcpart))}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 33
+column: 4
+content: functiontoSlice(stringmemoryself)internalpurereturns(slicememory){uintptr;assembly{ptr:=add(self,0x20)}returnslice(bytes(self).length,ptr);}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 49
+column: 4
+content: functionlen(slicememoryself)internalpurereturns(uintl){uintptr=self._ptr-31;uintend=ptr+self._len;for(l=0;ptr<end;l++){uint8b;assembly{b:=and(mload(ptr),0xFF)}if(b<0x80){ptr+=1;}elseif(b<0xE0){ptr+=2;}elseif(b<0xF0){ptr+=3;}elseif(b<0xF8){ptr+=4;}elseif(b<0xFC){ptr+=5;}else{ptr+=6;}}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 80
+column: 4
+content: functionendsWith(slicememoryself,slicememoryneedle)internalpurereturns(bool){if(self._len<needle._len){returnfalse;}uintselfptr=self._ptr+self._len-needle._len;if(selfptr==needle._ptr){returntrue;}boolequal;assembly{letlength:=mload(needle)letneedleptr:=mload(add(needle,0x20))equal:=eq(keccak256(selfptr,length),keccak256(needleptr,length))}returnequal;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 104
+column: 4
+content: functionconcat(slicememoryself,slicememoryother)internalpurereturns(stringmemory){stringmemoryret=newstring(self._len+other._len);uintretptr;assembly{retptr:=add(ret,32)}memcpy(retptr,self._ptr,self._len);memcpy(retptr+self._len,other._ptr,other._len);returnret;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 177
+column: 4
+content: functionstringToBytes32(stringmemorysource)internalpurereturns(bytes32result){assembly{result:=mload(add(source,32))}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 154
+column: 27
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 159
+column: 26
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 182
+column: 63
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 200
+column: 23
+content: string_name
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 213
+column: 5
+content: bytes32[]_names
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 214
+column: 5
+content: address[]_addrs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 222
+column: 8
+content: string_name
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 13
+column: 12
+content: assembly{mstore(dest,mload(src))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 21
+column: 8
+content: assembly{letsrcpart:=and(mload(src),not(mask))letdestpart:=and(mload(dest),mask)mstore(dest,or(destpart,srcpart))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 35
+column: 8
+content: assembly{ptr:=add(self,0x20)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 55
+column: 12
+content: assembly{b:=and(mload(ptr),0xFF)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 89
+column: 8
+content: assembly{letlength:=mload(needle)letneedleptr:=mload(add(needle,0x20))equal:=eq(keccak256(selfptr,length),keccak256(needleptr,length))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 107
+column: 8
+content: assembly{retptr:=add(ret,32)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 178
+column: 6
+content: assembly{result:=mload(add(source,32))}
+
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :5
+SOLIDITY_UPGRADE_TO_050 :7
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :7
+SOLIDITY_SHOULD_NOT_BE_PURE :6

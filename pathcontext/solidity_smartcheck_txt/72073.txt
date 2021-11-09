@@ -1,0 +1,44 @@
+F:\Blockchain\dataset_new_byID\72073.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 25
+column: 8
+content: if(signatureLength==0){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 33
+column: 8
+content: if(signatureTypeRaw>=uint8(SignatureType.NSignatureTypes)){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 44
+column: 8
+content: if(signatureType==SignatureType.Illegal){revert();}elseif(signatureType==SignatureType.Invalid){revert();}elseif(signatureType==SignatureType.EIP712){if(signatureLength!=66){revert();}uint8v=uint8(signature[0]);bytes32r=signature.readBytes32(1);bytes32s=signature.readBytes32(33);signerAddress=ecrecover(hash,v,r,s);returnsignerAddress;}elseif(signatureType==SignatureType.EthSign){if(signatureLength!=66){revert();}uint8v=uint8(signature[0]);bytes32r=signature.readBytes32(1);bytes32s=signature.readBytes32(33);signerAddress=ecrecover(keccak256(abi.encodePacked("\x19Ethereum Signed Message:\n32",hash)),v,r,s);returnsignerAddress;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 50
+column: 15
+content: if(signatureType==SignatureType.Invalid){revert();}elseif(signatureType==SignatureType.EIP712){if(signatureLength!=66){revert();}uint8v=uint8(signature[0]);bytes32r=signature.readBytes32(1);bytes32s=signature.readBytes32(33);signerAddress=ecrecover(hash,v,r,s);returnsignerAddress;}elseif(signatureType==SignatureType.EthSign){if(signatureLength!=66){revert();}uint8v=uint8(signature[0]);bytes32r=signature.readBytes32(1);bytes32s=signature.readBytes32(33);signerAddress=ecrecover(keccak256(abi.encodePacked("\x19Ethereum Signed Message:\n32",hash)),v,r,s);returnsignerAddress;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 54
+column: 12
+content: if(signatureLength!=66){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 70
+column: 12
+content: if(signatureLength!=66){revert();}
+
+SOLIDITY_REVERT_REQUIRE :6

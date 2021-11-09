@@ -1,0 +1,106 @@
+C:\Users\hp\DataSet\contracts\ropsten\90\90756dfa760c2f100d5c67c7f856bd1a297aff37_LongDex.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 55
+column: 37
+content: 0xD94135082B996e2d86dDe0515B58DD1e89E48062
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 57
+column: 22
+content: 0xa1c510d39842C44F7dC728b8d9B1204d3e22226b
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 28
+column: 31
+content: 0x00
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 8
+column: 4
+content: functionbalanceOf(address_owner)constantpublicreturns(uint256);
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 5
+column: 0
+content: contractDFSTokenInterface{uint256publictotalSupply;function()publicpayable;functionbalanceOf(address_owner)constantpublicreturns(uint256);functiontransfer(address_to,uint256_value)publicreturns(bool);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 12
+column: 0
+content: contractLongDex{DFSTokenInterfaceDFSToken;uint256publicfundingGoal;uintDateStage1End=1528562100;uintdeadline=1528562400;uint256publictokenSale;uint256publictokenLeft=2000;addressbeneficiary;boolfundingGoalReached=false;uint256publicrate=100;modifieronlyValidAddress(address_to){require(_to!=address(0x00));_;}modifieronlyOwner(){require(msg.sender==beneficiary);_;}functioncheckStage1Over()internal{if(now>=DateStage1End){rate=6000;}}functionsetRate(uint256_rate)onlyOwnerpublicreturns(uint256){rate=_rate;returnrate;}functionLongDex()public{DFSToken=DFSTokenInterface(0xD94135082B996e2d86dDe0515B58DD1e89E48062);fundingGoal=2000;beneficiary=0xa1c510d39842C44F7dC728b8d9B1204d3e22226b;}function()externalpayable{require(tokenLeft>0);uintamount=msg.value;uint256_value=rate*amount;require(_value<=tokenLeft);require((tokenSale+_value)<fundingGoal);tokenSale+=_value;tokenLeft-=_value;assert(DFSToken.transfer(msg.sender,_value));beneficiary.transfer(msg.value);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 43
+column: 4
+content: functionsetRate(uint256_rate)onlyOwnerpublicreturns(uint256){rate=_rate;returnrate;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 7
+column: 16
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 14
+column: 4
+content: DFSTokenInterfaceDFSToken;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 18
+column: 4
+content: uintDateStage1End=1528562100;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 4
+content: uintdeadline=1528562400;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 22
+column: 4
+content: addressbeneficiary;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 24
+column: 4
+content: boolfundingGoalReached=false;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_UPGRADE_TO_050 :1

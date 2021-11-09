@@ -1,0 +1,144 @@
+C:\Users\hp\DataSet\BatchExchangeViewer.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 32
+column: 65
+content: (tokenFilter,address(0),0,LARGE_PAGE_SIZE)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 78
+column: 70
+content: (tokenFilter,address(0),0,LARGE_PAGE_SIZE)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 278
+column: 8
+content: for(uint256index=0;index<filter.length;index++){if(filter[index]==buyToken){foundBuyToken=true;}if(filter[index]==sellToken){foundSellToken=true;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 328
+column: 8
+content: for(uint256index=0;index<tokenIds.length;index++){result[index]=batchExchange.tokenAddressToIdMap(tokenIds[index]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 368
+column: 8
+content: for(uint256i=0;i<source.length;i++){destination[offset+i]=source[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 278
+column: 8
+content: for(uint256index=0;index<filter.length;index++){if(filter[index]==buyToken){foundBuyToken=true;}if(filter[index]==sellToken){foundSellToken=true;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 328
+column: 8
+content: for(uint256index=0;index<tokenIds.length;index++){result[index]=batchExchange.tokenAddressToIdMap(tokenIds[index]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 368
+column: 8
+content: for(uint256i=0;i<source.length;i++){destination[offset+i]=source[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 244
+column: 15
+content: orderIndex<pageSize
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 38f6c7
+severity: 2
+line: 157
+column: 8
+content: while(hasNextPage&&5*gasleft()>3*gasLeftBeforePage){gasLeftBeforePage=gasleft();uint256unfilteredCount=writeEncodedOrdersPaginatedWithTokenFilter(tokenFilter,nextPageUser,nextPageUserOffset,unfiltered);hasNextPage=unfilteredCount==maxPageSize;for(uint16index=0;index<unfilteredCount;index++){bytesmemoryelement=unfiltered.slice(uint256(index)*AUCTION_ELEMENT_WIDTH,AUCTION_ELEMENT_WIDTH);element=updateSellTokenBalanceForBatchId(element,batchIds[2]);addressuser=getUser(element);if(user==nextPageUser){nextPageUserOffset+=1;}else{nextPageUserOffset=1;nextPageUser=user;}if(batchIds[0]>=getValidFrom(element)&&batchIds[1]<=getValidUntil(element)){setLength(elements,elements.length+INDEXED_AUCTION_ELEMENT_WIDTH);copyInPlace(element,elements,elements.length-INDEXED_AUCTION_ELEMENT_WIDTH);copyInPlace(abi.encodePacked(nextPageUserOffset-1),elements,elements.length-INDEXED_AUCTION_ELEMENT_WIDTH+AUCTION_ELEMENT_WIDTH);}if(elements.length>=maxPageSize*INDEXED_AUCTION_ELEMENT_WIDTH){return(elements,true,nextPageUser,nextPageUserOffset);}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 10
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 357
+column: 4
+content: functionsetLength(bytesmemorybuffer,uint256length)publicpure{assembly{mstore(buffer,length)}}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 55
+column: 16
+content: (bytesmemoryelements,boolhasNextPage,addressnextPageUser,uint16nextPageUserOffset)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 101
+column: 16
+content: (bytesmemoryelements,boolhasNextPage,addressnextPageUser,uint16nextPageUserOffset)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 142
+column: 16
+content: (bytesmemoryelements,boolhasNextPage,addressnextPageUser,uint16nextPageUserOffset)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 248
+column: 72
+content: staticcall.gas(5000)(abi.encodeWithSignature("orders(address,uint256)",currentUser,currentOffset))
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 358
+column: 8
+content: assembly{mstore(buffer,length)}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 21
+column: 4
+content: BatchExchangebatchExchange;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :5
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_SHOULD_RETURN_STRUCT :3
+SOLIDITY_SHOULD_NOT_BE_PURE :1

@@ -1,0 +1,47 @@
+C:\Users\hp\DataSet\DipTge.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 83
+column: 2
+content: functioncalculateMaxContribution(address_contributor)publicconstantreturns(uint256_maxContribution){uint256maxContrib=0;if(crowdsaleState==state.priorityPass){maxContrib=contributorList[_contributor].allowance.sub(contributorList[_contributor].contributionAmount);if(maxContrib>hardCap.sub(weiRaised)){maxContrib=hardCap.sub(weiRaised);}}elseif(crowdsaleState==state.crowdsale){if(contributorList[_contributor].allowance>0){maxContrib=hardCap.sub(weiRaised);}}returnmaxContrib;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 113
+column: 2
+content: functioncalculateTokens(address_contributor,uint256_amount,uint256_rate)publicconstantreturns(uint256_tokens){uint256bonus=contributorList[_contributor].bonus;assert(bonus==0||bonus==4||bonus==10);if(bonus>0){_tokens=_amount.add(_amount.div(bonus)).mul(_rate);}else{_tokens=_amount.mul(_rate);}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 208
+column: 2
+content: functiontokenIsLocked(address_contributor)publicconstantreturns(bool){if(block.timestamp<lockInTime1&&contributorList[_contributor].lockupPeriod==1){returntrue;}elseif(block.timestamp<lockInTime2&&contributorList[_contributor].lockupPeriod==2){returntrue;}returnfalse;}
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 119
+column: 16
+content: _amount.add(_amount.div(bonus)).mul(_rate)
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 68
+column: 2
+content: functionsetRate(uint256_rate)onlyOwnerpublic{require(crowdsaleState==state.pendingStart);rate=_rate;}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 21
+column: 2
+content: usingSafeMathforuint256;
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_DIV_MUL :1

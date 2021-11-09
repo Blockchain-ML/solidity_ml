@@ -1,0 +1,82 @@
+C:\Users\hp\DataSet\BRDCrowdsale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 66
+column: 2
+content: functionhasEnded()publicconstantreturns(bool){bool_capReached=weiRaised>=cap;returnsuper.hasEnded()||_capReached;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 72
+column: 2
+content: functionhasStarted()publicconstantreturns(bool){returnnow>startTime;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 219
+column: 2
+content: functionvalidPurchase()internalconstantreturns(bool){bool_withinCap=weiRaised.add(msg.value)<=cap;bool_isAuthorized=authorizer.isAuthorized(msg.sender);bool_isMin=msg.value>=minContribution;uint256_alreadyContributed=token.balanceOf(msg.sender).div(rate);bool_withinMax=msg.value.add(_alreadyContributed)<=maxContribution;returnsuper.validPurchase()&&_withinCap&&_isAuthorized&&_isMin&&_withinMax;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 155
+column: 2
+content: functionsetAuthorizer(BRDCrowdsaleAuthorizer_authorizer)onlyOwnerpublic{require(!hasStarted());authorizer=_authorizer;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 161
+column: 2
+content: functionsetLockup(BRDLockup_lockup)onlyOwnerpublic{require(!hasStarted());lockup=_lockup;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 167
+column: 2
+content: functionsetToken(BRDToken_token)onlyOwnerpublic{require(!hasStarted());token=_token;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 173
+column: 2
+content: functionsetCap(uint256_newCap)onlyOwnerpublic{require(_newCap>0);require(!hasStarted());cap=_newCap;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 180
+column: 2
+content: functionsetMaxContribution(uint256_newMaxContribution)onlyOwnerpublic{maxContribution=_newMaxContribution;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 185
+column: 2
+content: functionsetEndTime(uint256_newEndTime)onlyOwnerpublic{endTime=_newEndTime;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 13
+column: 2
+content: usingSafeMathforuint256;
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :6
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1

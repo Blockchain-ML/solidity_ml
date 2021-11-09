@@ -1,0 +1,84 @@
+F:\Blockchain\solidity_dataset_work\4k_dataset\95040.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 33
+column: 8
+content: _owner=address(0)
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 74
+column: 8
+content: for(uint8i=0;i<_result.length;++i){votes[i][_result[i]]++;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 89
+column: 12
+content: for(uint8i=0;i<attributes[0];++i){for(uint8j=0;j<attributes[i+3];++j){_result[_sum-_rest]=votes[i][j];_rest--;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 90
+column: 16
+content: for(uint8j=0;j<attributes[i+3];++j){_result[_sum-_rest]=votes[i][j];_rest--;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 96
+column: 12
+content: for(uint8i=0;i<attributes[0];++i){for(uint8j=0;j<attributes[1];++j){_result[_sum-_rest]=votes[i][j];_rest--;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 97
+column: 16
+content: for(uint8j=0;j<attributes[1];++j){_result[_sum-_rest]=votes[i][j];_rest--;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 74
+column: 8
+content: for(uint8i=0;i<_result.length;++i){votes[i][_result[i]]++;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 49
+column: 0
+content: contractQuestionnariesisOwnable{mapping(uint8=>mapping(uint8=>uint256))votes;mapping(address=>bool)voted;uint[]publicattributes;stringpubliccertification;eventVote(address);constructor(uint[]memory_attributes,stringmemory_certification)public{attributes=_attributes;certification=_certification;}functionvote(uint8[]memory_result)public{require(!voted[msg.sender],"You have already voted.");for(uint8i=0;i<_result.length;++i){votes[i][_result[i]]++;}voted[msg.sender]=true;emitVote(msg.sender);}functioncallResult()viewexternalreturns(uint256[]memory){uint256[]memory_result;uint256_sum=attributes[2];_result=newuint256[](_sum);uint256_rest=_sum;if(attributes[1]==0){for(uint8i=0;i<attributes[0];++i){for(uint8j=0;j<attributes[i+3];++j){_result[_sum-_rest]=votes[i][j];_rest--;}}}else{for(uint8i=0;i<attributes[0];++i){for(uint8j=0;j<attributes[1];++j){_result[_sum-_rest]=votes[i][j];_rest--;}}}return_result;}functioncallVotes(uint8_i,uint8_j)publicreturns(uint256){returnvotes[_i][_j];}function()payableexternal{require(msg.sender==owner());}}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 4
+column: 12
+content: private
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 51
+column: 4
+content: mapping(uint8=>mapping(uint8=>uint256))votes;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 4
+content: mapping(address=>bool)voted;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :5
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

@@ -1,0 +1,168 @@
+F:\Blockchain\dataset_new_byID\79272.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 28
+column: 18
+content: 0xFFFF
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 29
+column: 8
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 56
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 66
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 91
+column: 8
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 94
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 111
+column: 8
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 133
+column: 6
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 14
+column: 2
+content: functionsize()externalconstantreturns(uint16){returnuint16(addresses.length);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 104
+column: 2
+content: functiongetEmployee(addresse)externalconstantreturns(uint32,uint32,uint32,uint32,uint32,uint32,uint32,EmployeeState){Employeeemployee=employees[e];if(employee.idx==0)throw;return(employee.issueDate,employee.timeToSign,employee.terminatedAt,employee.fadeoutStarts,employee.poolOptions,employee.extraOptions,employee.suspendedAt,employee.state);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 117
+column: 3
+content: functionhasEmployee(addresse)externalconstantreturns(bool){returnemployees[e].idx!=0;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 126
+column: 2
+content: functiongetSerializedEmployee(addresse)externalconstantreturns(uint[9]){Employeememoryemployee=employees[e];if(employee.idx==0)throw;returnserializeEmployee(employee);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 18
+column: 2
+content: functionsetEmployee(addresse,uint32issueDate,uint32timeToSign,uint32terminatedAt,uint32fadeoutStarts,uint32poolOptions,uint32extraOptions,uint32suspendedAt,EmployeeStatestate)externalonlyOwnerreturns(boolisNew){uint16empIdx=employees[e].idx;if(empIdx==0){uintsize=addresses.length;if(size==0xFFFF)throw;isNew=true;empIdx=uint16(size+1);addresses.push(e);CreateEmployee(e,poolOptions,extraOptions,empIdx);}else{isNew=false;UpdateEmployee(e,poolOptions,extraOptions,empIdx);}employees[e]=Employee({issueDate:issueDate,timeToSign:timeToSign,terminatedAt:terminatedAt,fadeoutStarts:fadeoutStarts,poolOptions:poolOptions,extraOptions:extraOptions,suspendedAt:suspendedAt,state:state,idx:empIdx});}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 61
+column: 2
+content: functionsetFadeoutStarts(addresse,uint32fadeoutStarts)externalonlyOwner{if(employees[e].idx==0)throw;UpdateEmployee(e,employees[e].poolOptions,employees[e].extraOptions,employees[e].idx);employees[e].fadeoutStarts=fadeoutStarts;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 28
+column: 6
+content: if(size==0xFFFF)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 55
+column: 4
+content: if(employees[e].idx==0)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 65
+column: 4
+content: if(employees[e].idx==0)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 90
+column: 4
+content: if(state!=EmployeeState.Terminated)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 93
+column: 4
+content: if(employee.idx==0)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 110
+column: 6
+content: if(employee.idx==0)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 132
+column: 4
+content: if(employee.idx==0)throw;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 2
+content: mapping(address=>Employee)employees;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :11
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :7
+SOLIDITY_ADDRESS_HARDCODED :1

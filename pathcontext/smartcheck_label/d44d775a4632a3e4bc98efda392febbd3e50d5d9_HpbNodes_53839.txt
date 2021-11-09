@@ -1,0 +1,278 @@
+C:\Users\hp\DataSet\contracts\ropsten\d4\d44d775a4632a3e4bc98efda392febbd3e50d5d9_HpbNodes.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 152
+column: 8
+content: nodeStages[currentStageNum].hpbNodes.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 53
+column: 8
+content: nodeStages.length++
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 176
+column: 4
+content: functiongetAllHpbNodesByStageNum(uintstageNum)onlyOwnerpublicconstantreturns(address[]coinbases,bytes32[]cids,bytes32[]hids){require(stageNum!=0);require(stageNum<=currentStageNum);uintcl=nodeStages[stageNum].hpbNodes.length;address[]memory_coinbases=newaddress[](cl);bytes32[]memory_cids=newbytes32[](cl);bytes32[]memory_hids=newbytes32[](cl);for(uinti=0;i<nodeStages[stageNum].hpbNodes.length;i++){_coinbases[i]=nodeStages[stageNum].hpbNodes[i].coinbase;_cids[i]=nodeStages[stageNum].hpbNodes[i].cid;_hids[i]=nodeStages[stageNum].hpbNodes[i].hid;}return(_coinbases,_cids,hids);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 197
+column: 4
+content: functiongetAllHpbNodes()onlyOwnerpublicconstantreturns(address[]coinbases,bytes32[]cids,bytes32[]hids){returngetAllHpbNodesByStageNum(currentStageNum);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 104
+column: 8
+content: for(uinti=0;i<coinbases.length;i++){addHpbNode(coinbases[i],cids[i],hids[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 136
+column: 8
+content: for(uinti=0;i<coinbases.length;i++){updateHpbNode(coinbases[i],cids[i],hids[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 148
+column: 8
+content: for(uinti=index;i<nodeStages[currentStageNum].hpbNodes.length-1;i++){nodeStages[currentStageNum].hpbNodes[i]=nodeStages[currentStageNum].hpbNodes[i+1];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 159
+column: 8
+content: for(uinti=0;i<coinbases.length;i++){deleteHpbNode(coinbases[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 169
+column: 8
+content: for(uinti=0;i<nodeStages[stageNum].hpbNodes.length;i++){addresscoinbase=nodeStages[stageNum].hpbNodes[i].coinbase;bytes32cid=nodeStages[stageNum].hpbNodes[i].cid;bytes32hid=nodeStages[stageNum].hpbNodes[i].hid;addHpbNode(coinbase,cid,hid);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 189
+column: 8
+content: for(uinti=0;i<nodeStages[stageNum].hpbNodes.length;i++){_coinbases[i]=nodeStages[stageNum].hpbNodes[i].coinbase;_cids[i]=nodeStages[stageNum].hpbNodes[i].cid;_hids[i]=nodeStages[stageNum].hpbNodes[i].hid;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 67
+column: 4
+content: functionstringToBytes32(stringmemorysource)internalpurereturns(bytes32result){assembly{result:=mload(add(source,32))}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 104
+column: 8
+content: for(uinti=0;i<coinbases.length;i++){addHpbNode(coinbases[i],cids[i],hids[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 136
+column: 8
+content: for(uinti=0;i<coinbases.length;i++){updateHpbNode(coinbases[i],cids[i],hids[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 159
+column: 8
+content: for(uinti=0;i<coinbases.length;i++){deleteHpbNode(coinbases[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 169
+column: 8
+content: for(uinti=0;i<nodeStages[stageNum].hpbNodes.length;i++){addresscoinbase=nodeStages[stageNum].hpbNodes[i].coinbase;bytes32cid=nodeStages[stageNum].hpbNodes[i].cid;bytes32hid=nodeStages[stageNum].hpbNodes[i].hid;addHpbNode(coinbase,cid,hid);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 189
+column: 8
+content: for(uinti=0;i<nodeStages[stageNum].hpbNodes.length;i++){_coinbases[i]=nodeStages[stageNum].hpbNodes[i].coinbase;_cids[i]=nodeStages[stageNum].hpbNodes[i].cid;_hids[i]=nodeStages[stageNum].hpbNodes[i].hid;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractHpbNodes{stringpublicname="HPB Nodes Service";addresspublicowner;modifieronlyOwner{require(msg.sender==owner);_;}eventTransferOwnership(addressindexedfrom,addressindexedto);functiontransferOwnership(addressnewOwner)onlyOwnerpublic{owner=newOwner;emitTransferOwnership(msg.sender,newOwner);}structHpbNode{addresscoinbase;bytes32cid;bytes32hid;}structNodeStage{uintblockNumber;HpbNode[]hpbNodes;mapping(address=>uint)hpbNodesIndexMap;}NodeStage[]publicnodeStages;uintcurrentStageNum=0;constructor()payablepublic{owner=msg.sender;changeStage(0);}eventChangeStage(uintindexedstageNum);functionchangeStage(uintstageNum)internal{currentStageNum=stageNum;nodeStages.length++;nodeStages[currentStageNum].hpbNodesIndexMap[msg.sender]=0;nodeStages[currentStageNum].hpbNodes.push(HpbNode(msg.sender,0,0));nodeStages[currentStageNum].blockNumber=block.number;emitChangeStage(stageNum);}functionaddStage()onlyOwnerpublic{changeStage(currentStageNum+1);}functionstringToBytes32(stringmemorysource)internalpurereturns(bytes32result){assembly{result:=mload(add(source,32))}}eventAddHpbNode(addressindexedcoinbase,bytes32indexedcid,bytes32indexedhid);functionaddHpbNode(addresscoinbase,bytes32cid,bytes32hid)onlyOwnerpublic{uintindex=nodeStages[currentStageNum].hpbNodesIndexMap[coinbase];require(index==0);index=nodeStages[currentStageNum].hpbNodes.length;nodeStages[currentStageNum].hpbNodesIndexMap[coinbase]=index;nodeStages[currentStageNum].hpbNodes.push(HpbNode(coinbase,cid,hid));emitAddHpbNode(coinbase,cid,hid);}functionaddHpbNodeWithString(addresscoinbase,stringcid,stringhid)onlyOwnerpublic{addHpbNode(coinbase,stringToBytes32(cid),stringToBytes32(hid));}functionaddHpbNodeBatch(address[]coinbases,bytes32[]cids,bytes32[]hids)onlyOwnerpublic{for(uinti=0;i<coinbases.length;i++){addHpbNode(coinbases[i],cids[i],hids[i]);}}eventUpdateHpbNode(addressindexedcoinbase,bytes32indexedcid,bytes32indexedhid);functionupdateHpbNode(addresscoinbase,bytes32cid,bytes32hid)onlyOwnerpublic{uintindex=nodeStages[currentStageNum].hpbNodesIndexMap[coinbase];require(index!=0);nodeStages[currentStageNum].hpbNodes[index].coinbase=coinbase;nodeStages[currentStageNum].hpbNodes[index].cid=cid;nodeStages[currentStageNum].hpbNodes[index].hid=hid;emitUpdateHpbNode(coinbase,cid,hid);}functionupdateHpbNodeWithString(addresscoinbase,stringcid,stringhid)onlyOwnerpublic{updateHpbNode(coinbase,stringToBytes32(cid),stringToBytes32(hid));}functionupdateHpbNodeBatch(address[]coinbases,bytes32[]cids,bytes32[]hids)onlyOwnerpublic{for(uinti=0;i<coinbases.length;i++){updateHpbNode(coinbases[i],cids[i],hids[i]);}}eventDeleteHpbNode(addressindexedcoinbase);functiondeleteHpbNode(addresscoinbase)onlyOwnerpublic{uintindex=nodeStages[currentStageNum].hpbNodesIndexMap[coinbase];require(index!=0);for(uinti=index;i<nodeStages[currentStageNum].hpbNodes.length-1;i++){nodeStages[currentStageNum].hpbNodes[i]=nodeStages[currentStageNum].hpbNodes[i+1];}deletenodeStages[currentStageNum].hpbNodes[index];nodeStages[currentStageNum].hpbNodes.length--;nodeStages[currentStageNum].hpbNodesIndexMap[coinbase]=0;emitDeleteHpbNode(coinbase);}functiondeleteHpbNodeBatch(address[]coinbases)onlyOwnerpublic{for(uinti=0;i<coinbases.length;i++){deleteHpbNode(coinbases[i]);}}functioncopyAllHpbNodesByStageNum(uintstageNum)onlyOwnerpublic{require(stageNum!=0);require(stageNum<currentStageNum);for(uinti=0;i<nodeStages[stageNum].hpbNodes.length;i++){addresscoinbase=nodeStages[stageNum].hpbNodes[i].coinbase;bytes32cid=nodeStages[stageNum].hpbNodes[i].cid;bytes32hid=nodeStages[stageNum].hpbNodes[i].hid;addHpbNode(coinbase,cid,hid);}}functiongetAllHpbNodesByStageNum(uintstageNum)onlyOwnerpublicconstantreturns(address[]coinbases,bytes32[]cids,bytes32[]hids){require(stageNum!=0);require(stageNum<=currentStageNum);uintcl=nodeStages[stageNum].hpbNodes.length;address[]memory_coinbases=newaddress[](cl);bytes32[]memory_cids=newbytes32[](cl);bytes32[]memory_hids=newbytes32[](cl);for(uinti=0;i<nodeStages[stageNum].hpbNodes.length;i++){_coinbases[i]=nodeStages[stageNum].hpbNodes[i].coinbase;_cids[i]=nodeStages[stageNum].hpbNodes[i].cid;_hids[i]=nodeStages[stageNum].hpbNodes[i].hid;}return(_coinbases,_cids,hids);}functiongetAllHpbNodes()onlyOwnerpublicconstantreturns(address[]coinbases,bytes32[]cids,bytes32[]hids){returngetAllHpbNodesByStageNum(currentStageNum);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 67
+column: 4
+content: functionstringToBytes32(stringmemorysource)internalpurereturns(bytes32result){assembly{result:=mload(add(source,32))}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 93
+column: 8
+content: stringcid
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 94
+column: 8
+content: stringhid
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 100
+column: 8
+content: address[]coinbases
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 101
+column: 8
+content: bytes32[]cids
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 102
+column: 8
+content: bytes32[]hids
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 125
+column: 8
+content: stringcid
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 126
+column: 8
+content: stringhid
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 132
+column: 8
+content: address[]coinbases
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 133
+column: 8
+content: bytes32[]cids
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 134
+column: 8
+content: bytes32[]hids
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 157
+column: 8
+content: address[]coinbases
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 179
+column: 8
+content: address[]coinbases
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 180
+column: 8
+content: bytes32[]cids
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 181
+column: 8
+content: bytes32[]hids
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 199
+column: 8
+content: address[]coinbases
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 200
+column: 8
+content: bytes32[]cids
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 201
+column: 8
+content: bytes32[]hids
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 68
+column: 7
+content: assembly{result:=mload(add(source,32))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 41
+column: 4
+content: uintcurrentStageNum=0;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :6
+SOLIDITY_UPGRADE_TO_050 :17
+SOLIDITY_GAS_LIMIT_IN_LOOPS :5
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

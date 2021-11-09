@@ -1,0 +1,40 @@
+F:\Blockchain\dataset_new_byID\78837.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 325
+column: 8
+content: if(p%4==3){y_=ECCMath.expmod(y2,(p+1)/4,p);}else{revert();}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 176
+column: 4
+content: function_mul(uintd,uint[2]P)publicviewreturns(uint[3]Q){uintp=pp;if(d==0){returnpointOfInfinity;}uintdwPtr;uinti;assembly{letdm:=0dwPtr:=mload(0x40)mstore(0x40,add(dwPtr,512))loop:jumpi(loop_end,iszero(d))jumpi(even,iszero(and(d,1)))dm:=mod(d,32)mstore8(add(dwPtr,i),dm)d:=add(sub(d,dm),mul(gt(dm,16),32))even:d:=div(d,2)i:=add(i,1)jump(loop)loop_end:}uint[3][8]memoryPREC;PREC[0]=[P[0],P[1],1];uint[3]memoryX=_double(PREC[0]);PREC[1]=_addMixed(X,P);PREC[2]=_add(X,PREC[1]);PREC[3]=_add(X,PREC[2]);PREC[4]=_add(X,PREC[3]);PREC[5]=_add(X,PREC[4]);PREC[6]=_add(X,PREC[5]);PREC[7]=_add(X,PREC[6]);while(i>0){uintdj;uintpIdx;i--;assembly{dj:=byte(0,mload(add(dwPtr,i)))}Q=_double(Q);if(dj>16){pIdx=(31-dj)/2;Q=_add(Q,[PREC[pIdx][0],p-PREC[pIdx][1],PREC[pIdx][2]]);}elseif(dj>0){pIdx=(dj-1)/2;Q=_add(Q,[PREC[pIdx][0],PREC[pIdx][1],PREC[pIdx][2]]);}if(Q[0]==pointOfInfinity[0]&&Q[1]==pointOfInfinity[1]&&Q[2]==pointOfInfinity[2]){returnQ;}}returnQ;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 185
+column: 8
+content: assembly{letdm:=0dwPtr:=mload(0x40)mstore(0x40,add(dwPtr,512))loop:jumpi(loop_end,iszero(d))jumpi(even,iszero(and(d,1)))dm:=mod(d,32)mstore8(add(dwPtr,i),dm)d:=add(sub(d,dm),mul(gt(dm,16),32))even:d:=div(d,2)i:=add(i,1)jump(loop)loop_end:}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 220
+column: 12
+content: assembly{dj:=byte(0,mload(add(dwPtr,i)))}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_USING_INLINE_ASSEMBLY :2
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

@@ -1,0 +1,55 @@
+C:\Users\hp\DataSet\contracts\ropsten\3a\3a0a3986c00a31b1f60a78898312f68336aada20_JvaToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 97
+column: 4
+content: functionallowance(address_owner,address_spender)publicconstantreturns(uintremaining){returnallowed[_owner][_spender];}
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 92
+column: 4
+content: functionapprove(address_spender,uint_value)public{allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractowned{addresspublicowner;addresspubliccandidate;functionowned()payablepublic{owner=msg.sender;}modifieronlyOwner{require(owner==msg.sender);_;}functionchangeOwner(address_owner)onlyOwnerpublic{candidate=_owner;}functionconfirmOwner()public{require(candidate==msg.sender);owner=candidate;deletecandidate;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 28
+column: 0
+content: contractJvaTokenisowned{addresspublicjvaBackend;boolpubliccrowdsaleFinished;uintpublictotalSupply;mapping(address=>uint256)publicbalanceOf;stringpublicstandard=&39;Token0.1&39;;stringpublicname=&39;LinkMTesting-JVA&39;;stringpublicsymbol="JVA";uint8publicdecimals=8;mapping(address=>mapping(address=>uint))publicallowed;eventApproval(addressindexedowner,addressindexedspender,uintvalue);eventTransfer(addressindexedfrom,addressindexedto,uintvalue);eventMint(addressindexedminter,uinttokens,uint8originalCoinType,bytes32originalTxHash);modifieronlyPayloadSize(uintsize){require(msg.data.length>=size+4);_;}functionJvaToken(address_jvaBackend)publicpayableowned(){jvaBackend=_jvaBackend;}functionchangeBackend(address_jvaBackend)publiconlyOwner{jvaBackend=_jvaBackend;}functionmintTokens(address_minter,uint_tokens,uint8_originalCoinType,bytes32_originalTxHash)public{require(msg.sender==jvaBackend);require(!crowdsaleFinished);balanceOf[_minter]+=_tokens;totalSupply+=_tokens;Transfer(this,_minter,_tokens);Mint(_minter,_tokens,_originalCoinType,_originalTxHash);}functionfinishCrowdsale()onlyOwnerpublic{crowdsaleFinished=true;}functiontransfer(address_to,uint256_value)publiconlyPayloadSize(2*32){require(balanceOf[msg.sender]>=_value);require(balanceOf[_to]+_value>=balanceOf[_to]);balanceOf[msg.sender]-=_value;balanceOf[_to]+=_value;Transfer(msg.sender,_to,_value);}functiontransferFrom(address_from,address_to,uint_value)publiconlyPayloadSize(3*32){require(balanceOf[_from]>=_value);require(balanceOf[_to]+_value>=balanceOf[_to]);require(allowed[_from][msg.sender]>=_value);balanceOf[_from]-=_value;balanceOf[_to]+=_value;allowed[_from][msg.sender]-=_value;Transfer(_from,_to,_value);}functionapprove(address_spender,uint_value)public{allowed[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);}functionallowance(address_owner,address_spender)publicconstantreturns(uintremaining){returnallowed[_owner][_spender];}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 38
+content: Token0.1&39;;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 36
+column: 38
+content: LinkMTesting-JVA&39;;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_ERC20_APPROVE :1

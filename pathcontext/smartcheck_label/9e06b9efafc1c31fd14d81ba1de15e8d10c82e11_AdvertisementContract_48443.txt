@@ -1,0 +1,149 @@
+C:\Users\hp\DataSet\contracts\ropsten\9e\9e06b9efafc1c31fd14d81ba1de15e8d10c82e11_AdvertisementContract.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 69
+column: 5
+content: functiontotalSupply()publicconstantreturns(uint);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 70
+column: 5
+content: functionbalanceOf(addresstokenOwner)publicconstantreturns(uintbalance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 71
+column: 5
+content: functionallowance(addresstokenOwner,addressspender)publicconstantreturns(uintremaining);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 207
+column: 4
+content: functiongetTokenBalance()publicconstantreturns(uint){returntoken.balanceOf(msg.sender);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 176
+column: 8
+content: for(j=0;j<voters.length;j++){token.mint(wallet,voters[j].publicKey,perVoterPayout);voters[j].amountEarned=voters[j].amountEarned.add(perVoterPayout);advertisementList[advId].amountToBePaid=advertisementList[advId].amountToBePaid.sub(perVoterPayout);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 176
+column: 8
+content: for(j=0;j<voters.length;j++){token.mint(wallet,voters[j].publicKey,perVoterPayout);voters[j].amountEarned=voters[j].amountEarned.add(perVoterPayout);advertisementList[advId].amountToBePaid=advertisementList[advId].amountToBePaid.sub(perVoterPayout);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 81
+column: 0
+content: contractAdvertisementContract{usingSafeMathforuint256;structAdvertisement{addressadvertiser;uintadvertisementId;stringadvertisementLink;uintamountToBePaid;boolisUnlocked;}structVoter{addresspublicKey;uintamountEarned;}structVoteAdvertisementPayoutScheme{uintvoterPercentage;uintsystemPercentage;}ERC20Interfacepublictoken;VoteAdvertisementPayoutSchemevoteAdvertismentPayoutSchemeObj;Advertisementadvertisement;Votervoter;uintcounter=0;addresspublicwallet;mapping(uint=>Voter[])advertisementVoterList;mapping(uint=>Advertisement)advertisementList;uintlocalIntAsPerNeed;addresslocalAddressAsPerNeed;Voter[]voters;constructor(address_wallet,address_tokenAddress)public{wallet=_wallet;token=ERC20Interface(_tokenAddress);setup();}function()publicpayable{revert();}functionsetup()internal{voteAdvertismentPayoutSchemeObj=VoteAdvertisementPayoutScheme({voterPercentage:79,systemPercentage:21});}functionuploadAdvertisement(uintadId,stringadvLink,addressadvertiserAddress,uintuploadTokenAmount)public{require(msg.sender==wallet);token.mint(advertiserAddress,wallet,uploadTokenAmount*10**18);advertisement=Advertisement({advertiser:advertiserAddress,advertisementId:adId,advertisementLink:advLink,amountToBePaid:uploadTokenAmount*10**18,isUnlocked:false});advertisementList[adId]=advertisement;}functionAdvertisementPayout(uintadvId)public{require(msg.sender==wallet);require(token.balanceOf(wallet)>=advertisementList[advId].amountToBePaid);require(advertisementList[advId].advertisementId==advId);require(advertisementList[advId].isUnlocked==true);require(advertisementList[advId].amountToBePaid>0);uintj=0;voters=advertisementVoterList[advertisementList[advId].advertisementId];localIntAsPerNeed=voteAdvertismentPayoutSchemeObj.voterPercentage;uintvoterPayout=advertisementList[advId].amountToBePaid.mul(localIntAsPerNeed);voterPayout=voterPayout.div(100);uintperVoterPayout=voterPayout.div(voters.length);localIntAsPerNeed=voteAdvertismentPayoutSchemeObj.systemPercentage;uintsystemPayout=advertisementList[advId].amountToBePaid.mul(localIntAsPerNeed);systemPayout=systemPayout.div(100);for(j=0;j<voters.length;j++){token.mint(wallet,voters[j].publicKey,perVoterPayout);voters[j].amountEarned=voters[j].amountEarned.add(perVoterPayout);advertisementList[advId].amountToBePaid=advertisementList[advId].amountToBePaid.sub(perVoterPayout);}advertisementList[advId].amountToBePaid=advertisementList[advId].amountToBePaid.sub(systemPayout);require(advertisementList[advId].amountToBePaid==0);}functionVoteAdvertisement(uintadId,addressvoterPublicKey)public{require(advertisementList[adId].advertisementId==adId);require(advertisementList[adId].isUnlocked==false);voter=Voter({publicKey:voterPublicKey,amountEarned:0});advertisementVoterList[adId].push(voter);}functionunlockAdvertisement(uintadId)public{require(msg.sender==wallet);require(advertisementList[adId].advertisementId==adId);advertisementList[adId].isUnlocked=true;}functiongetTokenBalance()publicconstantreturns(uint){returntoken.balanceOf(msg.sender);}functionchangeWalletAddress(addressnewWallet)public{require(msg.sender==wallet);wallet=newWallet;}}
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 130
+column: 31
+content: {revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 83
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 130
+column: 16
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 139
+column: 43
+content: stringadvLink
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 109
+column: 4
+content: VoteAdvertisementPayoutSchemevoteAdvertismentPayoutSchemeObj;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 110
+column: 4
+content: Advertisementadvertisement;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 111
+column: 4
+content: Votervoter;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 112
+column: 4
+content: uintcounter=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 115
+column: 4
+content: mapping(uint=>Voter[])advertisementVoterList;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 117
+column: 4
+content: mapping(uint=>Advertisement)advertisementList;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 119
+column: 4
+content: uintlocalIntAsPerNeed;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 120
+column: 4
+content: addresslocalAddressAsPerNeed;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 121
+column: 4
+content: Voter[]voters;
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

@@ -1,0 +1,323 @@
+F:\Blockchain\dataset_new_byID\76671.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 259
+column: 49
+content: 0xd3947A690C9D96a796C16ee16E966aDA3CfE280c
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 260
+column: 52
+content: 0xac6832183b15d412830ace2C2404E2C693BdbD9E
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 261
+column: 52
+content: 0x38eEAAe96BB6ee05bdfcFb3AFa94842EEd383c39
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 384
+column: 23
+content: msg.value.div(ethWei).mul(ethWei)
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 254
+column: 0
+content: contractFairHotWinisUtilFairHot,WhitelistAdminRole{usingSafeMathfor*;uintethWei=1ether;addresspayableprivatedevAddr=address(0xd3947A690C9D96a796C16ee16E966aDA3CfE280c);addresspayableprivateFOMO=address(0xac6832183b15d412830ace2C2404E2C693BdbD9E);addresspayableprivateFoundation=address(0x38eEAAe96BB6ee05bdfcFb3AFa94842EEd383c39);structUser{uintid;addressuserAddress;uintfreeAmount;uintfreezeAmount;uintlineAmount;uintinviteAmount;uintdayBonusAmount;uintbonusAmount;uintdynamicAmount;uinttotalAmount;uintlevel;uintlineLevel;uintresTime;uintinvestTimes;stringinviteCode;stringbeCode;uintrewardIndex;uintlastRwTime;uintday;boolisNew;uintteamCount;}structUserGlobal{uintid;addressuserAddress;stringinviteCode;stringbeCode;uintstatus;boolisVaild;}structAwardData{uintoneInvReward;uinttwoInvReward;uintthreeInvReward;}uintstartTime;uintlineStatus=0;mapping(uint=>uint)rInvestCount;mapping(uint=>uint)rInvestMoney;uintperiod=1days;uintuid=0;uintrid=1;mapping(uint=>uint[])lineArrayMapping;mapping(uint=>mapping(address=>User))userRoundMapping;mapping(address=>UserGlobal)userMapping;mapping(string=>address)addressMapping;mapping(uint=>address)indexMapping;mapping(uint=>mapping(address=>mapping(uint=>AwardData)))userAwardDataMapping;uintbonuslimit=15ether;uintsendLimit=100ether;uintwithdrawLimit=15ether;uintcanImport=1;uintcanSetStartTime=1;modifierisHuman(){addressaddr=msg.sender;uintcodeLength;assembly{codeLength:=extcodesize(addr)}require(codeLength==0,"sorry humans only");require(tx.origin==msg.sender,"sorry, humans only");_;}eventLogInvestIn(addressindexedwho,uintindexeduid,uintamount,uinttime,stringinviteCode,stringreferrer);eventLogWithdrawProfit(addressindexedwho,uintindexeduid,uintamount,uinttime);eventLogChristmas(addressindexedwho,uintindexeduid,uintamount,uinttime);constructor()public{}function()externalpayable{}functiondangerousGameStart(uinttime)externalonlyOwner{require(canSetStartTime==1,"dangerousGameStart, limited!");require(time>now,"no, dangerousGameStart");startTime=time;canSetStartTime=0;}functiondoNotImitate()publicviewreturns(bool){returnstartTime!=0&&now>startTime;}functionupdateLine(uintline)externalonlyWhitelistAdmin{lineStatus=line;}functionisLine()privateviewreturns(bool){returnlineStatus!=0;}functionactAllLimit(uintbonusLi,uintsendLi,uintwithdrawLi)externalonlyOwner{require(bonusLi>=15ether&&sendLi>=100ether&&withdrawLi>=15ether,"invalid amount");bonuslimit=bonusLi;sendLimit=sendLi;withdrawLimit=withdrawLi;}functionstopImport()externalonlyOwner{canImport=0;}functionactUserStatus(addressaddr,uintstatus)externalonlyWhitelistAdmin{require(status==0||status==1||status==2,"bad parameter status");UserGlobalstorageuserGlobal=userMapping[addr];userGlobal.status=status;}functioninvestIn(stringmemoryinviteCode,stringmemorybeCode,uintday)publicisHuman()payable{require(day==3||day==5,"must day is 3 or 5");require(doNotImitate(),"no, doNotImitate");require(msg.value>=1*ethWei&&msg.value<=15*ethWei,"between 1 and 15");require(msg.value==msg.value.div(ethWei).mul(ethWei),"invalid msg value");UserGlobalstorageuserGlobal=userMapping[msg.sender];if(userGlobal.id==0){require(!compareStr(inviteCode,"")&&bytes(inviteCode).length==6,"invalid invite code");addressbeCodeAddr=addressMapping[beCode];require(isUsed(beCode),"beCode not exist");require(beCodeAddr!=msg.sender,"beCodeAddr can't be self");require(!isUsed(inviteCode),"invite code is used");registerUser(msg.sender,inviteCode,beCode);}uintinvestAmout;uintlineAmount;if(isLine()){lineAmount=msg.value;}else{investAmout=msg.value;}Userstorageuser=userRoundMapping[rid][msg.sender];if(user.id!=0){require(user.freezeAmount.add(user.lineAmount)==0,"only once invest");user.freezeAmount=investAmout;user.lineAmount=lineAmount;user.level=getLevel(user.freezeAmount);user.lineLevel=getNodeLevel(user.freezeAmount.add(user.freeAmount).add(user.lineAmount));user.isNew=false;}else{user.id=userGlobal.id;user.userAddress=msg.sender;user.freezeAmount=investAmout;user.level=getLevel(investAmout);user.lineAmount=lineAmount;user.lineLevel=getNodeLevel(user.freezeAmount.add(user.freeAmount).add(user.lineAmount));user.inviteCode=userGlobal.inviteCode;user.beCode=userGlobal.beCode;user.isNew=true;}user.day=day;user.totalAmount=user.totalAmount.add(investAmout);rInvestCount[rid]=rInvestCount[rid].add(1);rInvestMoney[rid]=rInvestMoney[rid].add(msg.value);if(!isLine()){sendFeetoAdmin(msg.value);countBonus(user.userAddress);emitLogInvestIn(msg.sender,userGlobal.id,msg.value,now,userGlobal.inviteCode,userGlobal.beCode);}else{lineArrayMapping[rid].push(user.id);}}functionimportGlobal(addressaddr,stringcalldata<missing ')'>inviteCode,stringcalldatabeCode)externalonlyWhitelistAdmin{require(canImport==1,"import stopped");UserGlobalstorageuser=userMapping[addr];require(user.id==0,"user already exists");require(!compareStr<missing ';'>(inviteCode,""),"empty invite code");if<missing ';'>(uid!=0){require(!compareStr<missing ';'>(beCode,""),"empty beCode");<missing ';'>}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 120
+column: 9
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 176
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 259
+column: 17
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 260
+column: 20
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 261
+column: 20
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 256
+column: 1
+content: usingSafeMathfor*;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 437
+column: 1
+content: functionimportGlobal(addressaddr,stringcalldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 1
+content: uintethWei=1ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 257
+column: 1
+content: uintethWei=1ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 302
+column: 1
+content: uintstartTime;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 303
+column: 1
+content: uintlineStatus=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 304
+column: 1
+content: mapping(uint=>uint)rInvestCount;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 305
+column: 1
+content: mapping(uint=>uint)rInvestMoney;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 307
+column: 1
+content: uintperiod=1days;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 308
+column: 1
+content: uintuid=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 309
+column: 1
+content: uintrid=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 311
+column: 1
+content: mapping(uint=>uint[])lineArrayMapping;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 312
+column: 1
+content: mapping(uint=>mapping(address=>User))userRoundMapping;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 313
+column: 1
+content: mapping(address=>UserGlobal)userMapping;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 314
+column: 1
+content: mapping(string=>address)addressMapping;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 315
+column: 1
+content: mapping(uint=>address)indexMapping;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 317
+column: 1
+content: mapping(uint=>mapping(address=>mapping(uint=>AwardData)))userAwardDataMapping;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 319
+column: 1
+content: uintbonuslimit=15ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 320
+column: 1
+content: uintsendLimit=100ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 321
+column: 1
+content: uintwithdrawLimit=15ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 322
+column: 1
+content: uintcanImport=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 323
+column: 1
+content: uintcanSetStartTime=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 437
+column: 53
+content: inviteCode,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 437
+column: 65
+content: stringcalldata
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 438
+column: 2
+content: require(canImport==1,"import stopped");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 439
+column: 2
+content: UserGlobalstorageuser=userMapping[addr];
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 440
+column: 2
+content: require(user.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 440
+column: 15
+content: id==0,"user already exists");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 441
+column: 2
+content: require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 441
+column: 9
+content: (!compareStr<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 441
+column: 21
+content: (inviteCode,""),"empty invite code");if<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 442
+column: 5
+content: (uid!=0){require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 443
+column: 10
+content: (!compareStr<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 443
+column: 22
+content: (beCode,""),"empty beCode");<missing ';'>
+
+SOLIDITY_VISIBILITY :33
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :5
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_DIV_MUL :1

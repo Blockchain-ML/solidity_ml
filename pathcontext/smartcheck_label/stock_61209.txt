@@ -1,0 +1,73 @@
+C:\Users\hp\DataSet\stock.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 18
+column: 14
+content: send(balance*shares[shareholder]/100)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 23
+column: 9
+content: send(amount)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 31
+column: 14
+content: send(amount)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 6
+column: 1
+content: functionstock(){taxman=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 10
+column: 1
+content: functionaddShareholder(addressshareholder,uintamount){addressuser=shareholder;shares[user]=amount;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 15
+column: 1
+content: functionpayDividend(addressshareholder,uintamount){uintbalance=this.balance;shareholder.send(balance*shares[shareholder]/100);tax(shareholder,amount*33/100);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 22
+column: 1
+content: functiontax(addressshareholder,uintamount){taxman.send(amount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 26
+column: 1
+content: functionsellShares(addressshareholder,uintamount){this.balance-amount;uinttaxes=amount*33/100;amount-taxes;tax(shareholder,taxes);shareholder.send(amount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 3
+column: 1
+content: addresstaxman;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 4
+column: 1
+content: mapping(address=>uint)shares;
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_UNCHECKED_CALL :3

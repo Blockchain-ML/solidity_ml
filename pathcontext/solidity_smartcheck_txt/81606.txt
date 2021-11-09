@@ -1,0 +1,102 @@
+F:\Blockchain\dataset_new_byID\81606.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 99
+column: 4
+content: functionnumQuestions()constantreturns(uint){returnquestions.size();}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 106
+column: 4
+content: functiongetQuestionIndex(uinti)constantreturns(address){returnquestions.get(i);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 113
+column: 4
+content: functiongetAllQuestionAddresses()constantreturns(address[]){returnquestions.values;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 26
+column: 4
+content: functionPredictionMarket(){isAdmin[msg.sender]=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 4
+content: functionhaltSwitch(bool_isHalted)onlyAdminreturns(boolok){return_haltSwitch(msg.sender,_isHalted);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 43
+column: 4
+content: functionkill(addressrecipient)onlyAdminonlyHaltedreturns(boolok){selfdestruct(recipient);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 56
+column: 4
+content: functionaddQuestion(stringquestionStr,uintbetDeadlineBlock,uintvoteDeadlineBlock)onlyAdminonlyNotHaltedreturns(boolok,addressquestionAddr){require(betDeadlineBlock>block.number);require(voteDeadlineBlock>betDeadlineBlock);bytes32questionID=keccak256(questionStr);require(questionHasBeenAsked[questionID]==false);questionHasBeenAsked[questionID]=true;Questionquestion=newQuestion(questionStr,betDeadlineBlock,voteDeadlineBlock);questions.add(address(question));LogAddQuestion(msg.sender,address(question),questionStr,betDeadlineBlock,voteDeadlineBlock);return(true,address(question));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 78
+column: 4
+content: functionaddETHFuturesQuestion(uinttargetUSDPrice,uintbetDeadlineBlock,uintvoteDeadlineBlock)onlyAdminonlyNotHaltedreturns(boolok,addressquestionAddr){require(betDeadlineBlock>block.number);require(voteDeadlineBlock>betDeadlineBlock);ETHFuturesQuestionquestion=newETHFuturesQuestion(targetUSDPrice,betDeadlineBlock,voteDeadlineBlock);ethFuturesQuestions.add(address(question));LogAddETHFuturesQuestion(msg.sender,address(question),targetUSDPrice,betDeadlineBlock,voteDeadlineBlock);return(true,address(question));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 99
+column: 4
+content: functionnumQuestions()constantreturns(uint){returnquestions.size();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 106
+column: 4
+content: functiongetQuestionIndex(uinti)constantreturns(address){returnquestions.get(i);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 113
+column: 4
+content: functiongetAllQuestionAddresses()constantreturns(address[]){returnquestions.values;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 4
+content: AddressSetLib.AddressSetquestions;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 20
+column: 4
+content: AddressSetLib.AddressSetethFuturesQuestions;
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1

@@ -1,0 +1,88 @@
+C:\Users\hp\DataSet\contracts\mainnet\b1\B1A2F4a31825E8c6c0aEFDE4719E189Eb1E2800c_SimpleContract.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractowned{addresspublicowner;functionowned()payable{owner=msg.sender;}modifieronlyOwner{require(owner==msg.sender);_;}functionchangeOwner(address_owner)onlyOwnerpublic{owner=_owner;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 18
+column: 0
+content: contractCrowdsaleisowned{uint256publictotalSupply;mapping(address=>uint256)publicbalanceOf;eventTransfer(addressindexedfrom,addressindexedto,uint256value);functionCrowdsale()payableowned(){totalSupply=900000000000000000000000000000;balanceOf[this]=1000000000000000000000000;balanceOf[owner]=totalSupply-balanceOf[this];Transfer(this,owner,balanceOf[owner]);}function()payable{require(balanceOf[this]>0);uint256tokens=5000000000000000000000*msg.value/1000000000000000000;if(tokens>balanceOf[this]){tokens=balanceOf[this];uintvalueWei=tokens*1000000000000000000/5000000000000000000000;msg.sender.transfer(msg.value-valueWei);}require(tokens>0);balanceOf[msg.sender]+=tokens;balanceOf[this]-=tokens;Transfer(this,msg.sender,tokens);}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 46
+column: 0
+content: contractTokenisCrowdsale{stringpublicstandard=&39;Token0.1&39;;stringpublicname=&39;SocCoin&39;;stringpublicsymbol=&39;SCN&39;;uint8publicdecimals=18;functionToken()payableCrowdsale(){}functiontransfer(address_to,uint256_value)public{require(balanceOf[msg.sender]>=_value);balanceOf[msg.sender]-=_value;balanceOf[_to]+=_value;Transfer(msg.sender,_to,_value);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 6
+column: 4
+content: functionowned()payable{owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 25
+column: 4
+content: functionCrowdsale()payableowned(){totalSupply=900000000000000000000000000000;balanceOf[this]=1000000000000000000000000;balanceOf[owner]=totalSupply-balanceOf[this];Transfer(this,owner,balanceOf[owner]);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 32
+column: 4
+content: function()payable{require(balanceOf[this]>0);uint256tokens=5000000000000000000000*msg.value/1000000000000000000;if(tokens>balanceOf[this]){tokens=balanceOf[this];uintvalueWei=tokens*1000000000000000000/5000000000000000000000;msg.sender.transfer(msg.value-valueWei);}require(tokens>0);balanceOf[msg.sender]+=tokens;balanceOf[this]-=tokens;Transfer(this,msg.sender,tokens);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 53
+column: 4
+content: functionToken()payableCrowdsale(){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 4
+content: functionSimpleContract()payableToken(){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 48
+column: 38
+content: Token0.1&39;;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 49
+column: 38
+content: SocCoin&39;;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 50
+column: 38
+content: SCN&39;;
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :3

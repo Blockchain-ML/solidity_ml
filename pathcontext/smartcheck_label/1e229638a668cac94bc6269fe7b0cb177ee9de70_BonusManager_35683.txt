@@ -1,0 +1,149 @@
+C:\Users\hp\DataSet\contracts\ropsten\1e\1e229638a668cac94bc6269fe7b0cb177ee9de70_BonusManager.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 175
+column: 58
+content: 0x00
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 142
+column: 18
+content: 0x0
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 128
+column: 8
+content: for(uinti=0;i<length;i++){bonusNames[i]=WalletBonusLists[wallet][i].bonusname;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 4
+column: 0
+content: contractBonusManager{constructor()public{}enumInequalityValue{LessThan,GreaterThan}structBonusName{bytes32bonusName;}structBonus{bytes32bonusName;bytes32bonusType;uintbonusTarget;uintbonusEndYear;uintbonusEndMonth;uintbonusEndDay;bytes32bonusToken;uintbonusAmount;boolbonusExists;InequalityValueineq;}structPaymentDetail{uinttotalPaid;}structWalletBonus{boolbonusExists;}structWalletBonusList{bytes32bonusname;}structWalletDetail{bytes32walletEmailAddress;}mapping(address=>WalletDetail)publicWalletDetails;mapping(address=>mapping(bytes32=>WalletBonus))publicWalletBonuses;mapping(address=>WalletBonusList[])publicWalletBonusLists;mapping(address=>mapping(bytes32=>PaymentDetail))publicPaymentDetails;mapping(bytes32=>Bonus)publicBonuses;address[]publicWallets;BonusName[]publicBonusNamesArray;bytes32[]publicBonusNamesBytes;uintk;functionaddK(uintk1)public{k=k1;}functiongetWallets()publicviewreturns(address[]){returnWallets;}functiongetBonusNames()publicviewreturns(bytes32[]){returnBonusNamesBytes;}functionaddBonus(stringbonusType,uintbonusTarget,uintbonusEndYear,uintbonusEndMonth,uintbonusEndDay,stringbonusToken,uintbonusAmount,stringbonusName,uintineq)public{bytes32bonusTokenBytes=stringToBytes32(bonusToken);bytes32bonusTypeBytes=stringToBytes32(bonusType);bytes32bonusNameBytes=stringToBytes32(bonusName);Bonuses[bonusNameBytes].bonusName=bonusNameBytes;Bonuses[bonusNameBytes].bonusType=bonusTypeBytes;Bonuses[bonusNameBytes].bonusTarget=bonusTarget;Bonuses[bonusNameBytes].bonusEndYear=bonusEndYear;Bonuses[bonusNameBytes].bonusEndMonth=bonusEndMonth;Bonuses[bonusNameBytes].bonusEndDay=bonusEndDay;Bonuses[bonusNameBytes].bonusToken=bonusTokenBytes;Bonuses[bonusNameBytes].bonusAmount=bonusAmount;Bonuses[bonusNameBytes].bonusExists=true;Bonuses[bonusNameBytes].ineq=InequalityValue(ineq);BonusNamememoryb;b.bonusName=bonusNameBytes;BonusNamesArray.push(b);BonusNamesBytes.push(bonusNameBytes);}functionaddWalletBonus(addresswallet,stringbonusName)public{bytes32bonusNameBytes=stringToBytes32(bonusName);require(Bonuses[bonusNameBytes].bonusExists);WalletBonuses[wallet][bonusNameBytes].bonusExists=true;WalletBonusListmemoryb;b.bonusname=bonusNameBytes;WalletBonusListmemorywb=WalletBonusList(bonusNameBytes);WalletBonusLists[wallet].push(wb);}functiongetWalletBonuses(addresswallet)publicviewreturns(bytes32[]bonusNames){uintlength=WalletBonusLists[wallet].length;bonusNames=newbytes32[](length);for(uinti=0;i<length;i++){bonusNames[i]=WalletBonusLists[wallet][i].bonusname;}}functiongetNumberWallets()publicviewreturns(uint){returnWallets.length;}functionstringToBytes32(stringmemorysource)publicpurereturns(bytes32result){bytesmemorytempEmptyStringTest=bytes(source);if(tempEmptyStringTest.length==0){return0x0;}assembly{result:=mload(add(source,32))}}functionbytes32ToString(bytes32x)publicpurereturns(string){bytesmemorybytesString=newbytes(32);uintcharCount=0;for(uintj=0;j<32;j++){bytechar=byte(bytes32(uint(x)*2**(8*j)));if(char!=0){bytesString[charCount]=char;charCount++;}}bytesmemorybytesStringTrimmed=newbytes(charCount);for(j=0;j<charCount;j++){bytesStringTrimmed[j]=bytesString[j];}returnstring(bytesStringTrimmed);}functionaddPaymentDetail(addresswallet,bytes32token,uintpayment)public{uinttotalPaid=PaymentDetails[wallet][token].totalPaid;totalPaid=totalPaid+payment;PaymentDetails[wallet][token].totalPaid=totalPaid;}functionaddWalletEmail(addresswallet,stringemailAddress)public{bytes32emailAddressBytes=stringToBytes32(emailAddress);require(WalletDetails[wallet].walletEmailAddress==0x00);if(WalletDetails[wallet].walletEmailAddress==emailAddressBytes){}else{WalletDetails[wallet].walletEmailAddress=emailAddressBytes;Wallets.push(wallet);}}functionaddWallet(addresswallet)public{Wallets.push(wallet);}functionisBonusPayable(addresswallet,stringbonusName,uinttargetReached,uintendYear,uintendMonth,uintendDay)publicviewreturns(boolpayBonus,uintbonusAmount,stringbonusToken){bytes32bonusNameBytes32=stringToBytes32(bonusName);require(Bonuses[bonusNameBytes32].bonusExists);require(WalletBonuses[wallet][bonusNameBytes32].bonusExists);boolbeforeEnd=false;payBonus=false;bytes32bonusTokenBytes;bonusAmount=0;bonusToken="";if((endYear<=Bonuses[bonusNameBytes32].bonusEndYear)&&(endMonth<=Bonuses[bonusNameBytes32].bonusEndMonth)&&(endDay<=Bonuses[bonusNameBytes32].bonusEndDay)){beforeEnd=true;}if((targetReached>=Bonuses[bonusNameBytes32].bonusTarget)&&beforeEnd){payBonus=true;bonusAmount=Bonuses[bonusNameBytes32].bonusAmount;bonusTokenBytes=Bonuses[bonusNameBytes32].bonusToken;bonusToken=bytes32ToString(bonusTokenBytes);}return(payBonus,bonusAmount,bonusToken);}function()payablepublic{}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 139
+column: 4
+content: functionstringToBytes32(stringmemorysource)publicpurereturns(bytes32result){bytesmemorytempEmptyStringTest=bytes(source);if(tempEmptyStringTest.length==0){return0x0;}assembly{result:=mload(add(source,32))}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 221
+column: 24
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 74
+column: 47
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 78
+column: 50
+content: bytes32[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 83
+column: 23
+content: stringbonusType
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 85
+column: 8
+content: stringbonusToken
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 85
+column: 45
+content: stringbonusName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 109
+column: 45
+content: stringbonusName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 123
+column: 67
+content: bytes32[]bonusNames
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 150
+column: 63
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 173
+column: 45
+content: stringemailAddress
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 190
+column: 44
+content: stringbonusName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 191
+column: 58
+content: stringbonusToken
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 145
+column: 8
+content: assembly{result:=mload(add(source,32))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 66
+column: 4
+content: uintk;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :12
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

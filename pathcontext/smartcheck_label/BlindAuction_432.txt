@@ -1,0 +1,54 @@
+C:\Users\hp\DataSet\BlindAuction.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 82
+column: 8
+content: for(uinti=0;i<length;i++){Bidstorage_bid=bids[msg.sender][i];var(value,fake,secret)=(_values[i],_fake[i],_secret[i]);if(_bid.blindedBid!=keccak256(value,fake,secret)){continue;}refund+=_bid.deposit;if(!fake&&_bid.deposit>=value){if(placeBid(msg.sender,value))refund-=value;}_bid.blindedBid=bytes32(0);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 86
+column: 35
+content: keccak256(value,fake,secret)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 68
+column: 8
+content: uint[]_values
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 69
+column: 8
+content: bool[]_fake
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 70
+column: 8
+content: bytes32[]_secret
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 23
+column: 4
+content: mapping(address=>uint)pendingReturns;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

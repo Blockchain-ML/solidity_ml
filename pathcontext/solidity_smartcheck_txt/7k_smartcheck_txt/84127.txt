@@ -1,0 +1,76 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\84127.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 47
+column: 4
+content: participants.length+=1
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 62
+column: 4
+content: while(balance>participants[payoutIdx].amount*2){uinttransactionAmount=participants[payoutIdx].amount*2;participants[payoutIdx].etherAddress.send(transactionAmount);balance-=transactionAmount;payoutIdx+=1;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 62
+column: 11
+content: balance>participants[payoutIdx].amount*2
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 64
+column: 43
+content: send(transactionAmount)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 73
+column: 12
+content: send(collectedFees)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 21
+column: 2
+content: functionAi(){owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 26
+column: 2
+content: function(){enter();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 30
+column: 2
+content: functionenter(){if(msg.value<10finney){msg.sender.send(msg.value);return;}uintamount;if(msg.value>100ether){collectedFees+=msg.value-100ether;amount=100ether;}else{amount=msg.value;}uintidx=participants.length;participants.length+=1;participants[idx].etherAddress=msg.sender;participants[idx].amount=amount;if(idx!=0){collectedFees+=amount/15;balance+=amount-amount/15;}else{collectedFees+=amount;}while(balance>participants[payoutIdx].amount*2){uinttransactionAmount=participants[payoutIdx].amount*2;participants[payoutIdx].etherAddress.send(transactionAmount);balance-=transactionAmount;payoutIdx+=1;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 71
+column: 2
+content: functioncollectFees()onlyowner{if(collectedFees==0)return;owner.send(collectedFees);collectedFees=0;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 77
+column: 2
+content: functionsetOwner(address_owner)onlyowner{owner=_owner;}
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_UNCHECKED_CALL :2

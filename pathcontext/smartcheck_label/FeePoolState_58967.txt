@@ -1,0 +1,47 @@
+C:\Users\hp\DataSet\FeePoolState.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 76
+column: 8
+content: for(uinti=0;i<FEE_PERIOD_LENGTH;i++){if(closingDebtIndex>=issuanceData[i].debtEntryIndex){return(issuanceData[i].debtPercentage,issuanceData[i].debtEntryIndex);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 117
+column: 8
+content: for(uinti=FEE_PERIOD_LENGTH-2;i<FEE_PERIOD_LENGTH;i--){uintnext=i+1;accountIssuanceLedger[account][next].debtPercentage=accountIssuanceLedger[account][i].debtPercentage;accountIssuanceLedger[account][next].debtEntryIndex=accountIssuanceLedger[account][i].debtEntryIndex;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 142
+column: 8
+content: for(uinti=0;i<accounts.length;i++){accountIssuanceLedger[accounts[i]][periodToInsert].debtPercentage=ratios[i];accountIssuanceLedger[accounts[i]][periodToInsert].debtEntryIndex=feePeriodCloseIndex;emitIssuanceDebtRatioEntry(accounts[i],ratios[i],feePeriodCloseIndex);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 142
+column: 8
+content: for(uinti=0;i<accounts.length;i++){accountIssuanceLedger[accounts[i]][periodToInsert].debtPercentage=ratios[i];accountIssuanceLedger[accounts[i]][periodToInsert].debtEntryIndex=feePeriodCloseIndex;emitIssuanceDebtRatioEntry(accounts[i],ratios[i],feePeriodCloseIndex);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 44
+column: 4
+content: functionsetFeePool(IFeePool_feePool)externalonlyOwner{feePool=_feePool;}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 11
+column: 4
+content: usingSafeMathforuint;
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

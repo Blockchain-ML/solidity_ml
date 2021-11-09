@@ -1,0 +1,33 @@
+F:\Blockchain\dataset_new_byID\72370.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 35
+column: 4
+content: functionsetEvil(bool_evil)publicreturns(bool){evil=_evil;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 12
+column: 0
+content: contractMaliciousTrader{boolevil=false;functiondoApprovals(ICash_cash,IAugur_augur,IAugurTrading_augurTrading)publicreturns(bool){IERC1155_shareToken=IERC1155(_augur.lookup("ShareToken"));_cash.approve(address(_augur),2**254);_shareToken.setApprovalForAll(address(_augur),true);address_fillOrder=_augurTrading.lookup("FillOrder");_cash.approve(_fillOrder,2**254);_shareToken.setApprovalForAll(_fillOrder,true);address_createOrder=_augurTrading.lookup("CreateOrder");_cash.approve(_createOrder,2**254);_shareToken.setApprovalForAll(_createOrder,true);returntrue;}functionmakeOrder(ICreateOrder_createOrder,Order.Types_type,uint256_attoshares,uint256_price,IMarket_market,uint256_outcome,bytes32_betterOrderId,bytes32_worseOrderId,bytes32_tradeGroupId)externalpayablereturns(bytes32){return_createOrder.publicCreateOrder(_type,_attoshares,_price,_market,_outcome,_betterOrderId,_worseOrderId,_tradeGroupId);}functionsetEvil(bool_evil)publicreturns(bool){evil=_evil;}function()externalpayable{if(evil){revert();}}}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 40
+column: 8
+content: if(evil){revert();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 4
+content: boolevil=false;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1

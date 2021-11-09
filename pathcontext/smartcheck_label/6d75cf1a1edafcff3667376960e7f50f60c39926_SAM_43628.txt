@@ -1,0 +1,163 @@
+C:\Users\hp\DataSet\contracts\ropsten\6d\6d75cf1a1edafcff3667376960e7f50f60c39926_SAM.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 393
+column: 2
+content: functionimplementation()publicviewreturns(addressimpl){bytes32position=implementationPosition;assembly{impl:=sload(position)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 460
+column: 2
+content: functionproxyOwner()publicviewreturns(addressowner){bytes32position=proxyOwnerPosition;assembly{owner:=sload(position)}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 71
+column: 0
+content: contractowned{addresspublicowner;modifieronlyOwner{require(msg.sender==owner);_;}constructor()public{owner=msg.sender;}functiontransferOwnership(addresspayablenewOwner)onlyOwnerpublicreturns(bool){owner=newOwner;returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 337
+column: 0
+content: contractProxy{functionimplementation()publicviewreturns(address);function()payableexternal{address_impl=implementation();require(_impl!=address(0));assembly{letptr:=mload(0x40)calldatacopy(ptr,0,calldatasize)letresult:=delegatecall(gas,_impl,ptr,calldatasize,0,0)letsize:=returndatasizereturndatacopy(ptr,0,size)switchresultcase0{revert(ptr,size)}default{return(ptr,size)}}}}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 382
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 439
+column: 10
+content: private
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 393
+column: 2
+content: functionimplementation()publicviewreturns(addressimpl){bytes32position=implementationPosition;assembly{impl:=sload(position)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 460
+column: 2
+content: functionproxyOwner()publicviewreturns(addressowner){bytes32position=proxyOwnerPosition;assembly{owner:=sload(position)}}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 300
+column: 104
+content: (uint256,stringmemory,stringmemory,uint256,uint256,stringmemory)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 504
+column: 36
+content: call.value(msg.value).gas(200000)(data)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 352
+column: 4
+content: assembly{letptr:=mload(0x40)calldatacopy(ptr,0,calldatasize)letresult:=delegatecall(gas,_impl,ptr,calldatasize,0,0)letsize:=returndatasizereturndatacopy(ptr,0,size)switchresultcase0{revert(ptr,size)}default{return(ptr,size)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 395
+column: 4
+content: assembly{impl:=sload(position)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 406
+column: 4
+content: assembly{sstore(position,newImplementation)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 462
+column: 4
+content: assembly{owner:=sload(position)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 472
+column: 4
+content: assembly{sstore(position,newProxyOwner)}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 97
+column: 4
+content: functiontransferOwnership(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 97
+column: 47
+content: newOwner)onlyOwnerpublicreturns
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 97
+column: 81
+content: (bool){owner=newOwner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 133
+column: 4
+content: mapping(address=>mapping(address=>mapping(uint256=>SoftwareAsset)))softwareAssetMapping;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 136
+column: 4
+content: mapping(address=>bool)vendorsMapping;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 139
+column: 4
+content: mapping(address=>mapping(address=>bool))businessesMapping;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 142
+column: 4
+content: mapping(address=>mapping(address=>bool))employeesMapping;
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_USING_INLINE_ASSEMBLY :5
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :2

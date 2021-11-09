@@ -1,0 +1,91 @@
+C:\Users\hp\DataSet\contracts\ropsten\4e\4e15611b3756baf6f6841e7abd8c634daf5979b6_ECVerify.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 31
+column: 24
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 32
+column: 21
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 33
+column: 21
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 62
+column: 33
+content: 0x0
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 12
+column: 2
+content: functionparse_signature(bytes32_hash,bytes_sigbytes)internalpurereturns(Signature_signature){bytes32_r;bytes32_s;uint8_v;assembly{_r:=mload(add(_sigbytes,32))_s:=mload(add(_sigbytes,64))_v:=byte(0,mload(add(_sigbytes,96)))}if(_v<27){_v+=27;}if((_v==27)||(_v==28)){_signature.hash=_hash;_signature.r=_r;_signature.s=_s;_signature.v=_v;}else{_signature.hash=0x0;_signature.r=0x0;_signature.s=0x0;_signature.v=0;}delete_sigbytes;}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 39
+column: 72
+content: (bool_verifies,address_signer)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 12
+column: 42
+content: bytes_sigbytes
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 12
+column: 82
+content: Signature_signature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 66
+column: 37
+content: bytes_sigbytes
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 17
+column: 4
+content: assembly{_r:=mload(add(_sigbytes,32))_s:=mload(add(_sigbytes,64))_v:=byte(0,mload(add(_sigbytes,96)))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 45
+column: 4
+content: assembly{let_size:=mload(0x40)mstore(_size,_hash)mstore(add(_size,32),_v)mstore(add(_size,64),_r)mstore(add(_size,96),_s)_verifies:=call(3000,1,0,_size,128,_size,32)_signer:=mload(_size)}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :4
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_USING_INLINE_ASSEMBLY :2
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

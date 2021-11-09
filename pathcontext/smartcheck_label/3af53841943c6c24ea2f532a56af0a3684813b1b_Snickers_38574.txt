@@ -1,0 +1,61 @@
+C:\Users\hp\DataSet\contracts\ropsten\3a\3af53841943c6c24ea2f532a56af0a3684813b1b_Snickers.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 49
+column: 29
+content: balances[msg.sender]*daily_percent/100*(curr_timestamp-timestamps[msg.sender])
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractSnickers{addressseed;uint256daily_percent;functionSnickers(){seed=msg.sender;daily_percent=5;}mapping(address=>uint256)balances;mapping(address=>uint256)timestamps;function()externalpayable{require(msg.value>=0);seed.send(msg.value/10);uintcurr_timestamp=now;if(balances[msg.sender]!=0){uint256pay_out=balances[msg.sender]*daily_percent/100*(curr_timestamp-timestamps[msg.sender])/86400;if(this.balance<pay_out)pay_out=this.balance;msg.sender.send(pay_out);Payout(msg.sender,pay_out);}timestamps[msg.sender]=curr_timestamp;balances[msg.sender]+=msg.value;if(msg.value>0)AcountTopup(msg.sender,balances[msg.sender]);}eventPayout(addressreceiver,uint256amount);eventAcountTopup(addressparticipiant,uint256ineterest);}
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 42
+column: 12
+content: send(msg.value/10)
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 29
+column: 3
+content: functionSnickers(){seed=msg.sender;daily_percent=5;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 3
+content: addressseed;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 27
+column: 3
+content: uint256daily_percent;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 34
+column: 3
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 3
+content: mapping(address=>uint256)timestamps;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_DIV_MUL :1

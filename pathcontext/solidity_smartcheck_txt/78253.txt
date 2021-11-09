@@ -1,0 +1,187 @@
+F:\Blockchain\dataset_new_byID\78253.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 132
+column: 19
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 458
+column: 34
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 466
+column: 41
+content: 0x0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 485
+column: 61
+content: 0x0
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 174
+column: 8
+content: throw
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 120
+column: 8
+content: for(uinti=0;i<_tokens.length;i++){require(_tokens[i]!=0x0);require(_rates[i]>0);ERC20Basictoken=ERC20Basic(_tokens[i]);tokenRates[token]=TokenRate(_rates[i],_decimals[i]);TokenRateUpdate(token,_rates[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 349
+column: 12
+content: for(uinti=0;i<bidderState.tokenBalances.length;i++){uint256tokenBidValue=bidderState.tokenBalances[i].value;if(tokenBidValue>0){bidderState.tokenBalances[i].value=0;sent=Auction(msg.sender).sendTokens(bidderState.tokenBalances[i].token,_bidder,tokenBidValue);require(sent);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 389
+column: 16
+content: for(uinti=0;i<bidderState.tokenBalances.length;i++){uint256tokenBid=bidderState.tokenBalances[i].value;if(tokenBid>0){bidderState.tokenBalances[i].value=0;sent=Auction(msg.sender).sendTokens(bidderState.tokenBalances[i].token,wallet,tokenBid);require(sent);FinalizedTokenTransfer(msg.sender,bidderState.tokenBalances[i].token,tokenBid);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 120
+column: 8
+content: for(uinti=0;i<_tokens.length;i++){require(_tokens[i]!=0x0);require(_rates[i]>0);ERC20Basictoken=ERC20Basic(_tokens[i]);tokenRates[token]=TokenRate(_rates[i],_decimals[i]);TokenRateUpdate(token,_rates[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 240
+column: 8
+content: for(uinti=0;i<index;i++){if(bidderState.tokenBalances[i].token==_token){index=i;break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 349
+column: 12
+content: for(uinti=0;i<bidderState.tokenBalances.length;i++){uint256tokenBidValue=bidderState.tokenBalances[i].value;if(tokenBidValue>0){bidderState.tokenBalances[i].value=0;sent=Auction(msg.sender).sendTokens(bidderState.tokenBalances[i].token,_bidder,tokenBidValue);require(sent);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 389
+column: 16
+content: for(uinti=0;i<bidderState.tokenBalances.length;i++){uint256tokenBid=bidderState.tokenBalances[i].value;if(tokenBid>0){bidderState.tokenBalances[i].value=0;sent=Auction(msg.sender).sendTokens(bidderState.tokenBalances[i].token,wallet,tokenBid);require(sent);FinalizedTokenTransfer(msg.sender,bidderState.tokenBalances[i].token,tokenBid);}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 12
+column: 0
+content: contractAuctionHubisBotManageable{usingSafeMathforuint256;structTokenBalance{addresstoken;uint256value;}structTokenRate{uint256value;uint256decimals;}structBidderState{uint256etherBalance;uint256tokensBalanceInEther;uint256managedBid;TokenBalance[]tokenBalances;}structActionState{uint256endSeconds;uint256maxTokenBidInEther;uint256minPrice;uint256highestBid;addresshighestBidder;uint64highestManagedBidder;boolallowManagedBids;boolcancelled;boolfinalized;mapping(address=>BidderState)bidderStates;bytes32item;}mapping(address=>ActionState)publicauctionStates;mapping(address=>TokenRate)publictokenRates;eventNewAction(addressindexedauction,stringitem);eventBid(addressindexedauction,addressbidder,uint256totalBidInEther,uint256indexedtokensBidInEther);eventTokenBid(addressindexedauction,addressbidder,addresstoken,uint256numberOfTokens);eventManagedBid(addressindexedauction,uint64bidder,uint256bid,addressknownManagedBidder);eventNewHighestBidder(addressindexedauction,addressbidder,uint64managedBidder,uint256totalBid);eventTokenRateUpdate(addressindexedtoken,uint256rate);eventWithdrawal(addressindexedauction,addressbidder,uint256etherAmount,uint256tokensBidInEther);eventCharity(addressindexedauction,addressbidder,uint256etherAmount,uint256tokensAmount);eventFinalized(addressindexedauction,addresshighestBidder,uint64highestManagedBidder,uint256amount);eventFinalizedTokenTransfer(addressindexedauction,addresstoken,uint256tokensBidInEther);eventFinalizedEtherTransfer(addressindexedauction,uint256etherAmount);eventExtendedEndTime(addressindexedauction,uint256newEndtime);eventCancelled(addressindexedauction);modifieronlyActive{ActionStatestorageauctionState=auctionStates[msg.sender];require(now<auctionState.endSeconds&&!auctionState.cancelled);_;}modifieronlyBeforeEnd{ActionStatestorageauctionState=auctionStates[msg.sender];require(now<auctionState.endSeconds);_;}modifieronlyAfterEnd{ActionStatestorageauctionState=auctionStates[msg.sender];require(now>auctionState.endSeconds&&auctionState.endSeconds>0);_;}modifieronlyNotCancelled{ActionStatestorageauctionState=auctionStates[msg.sender];require(!auctionState.cancelled);_;}modifieronlyAllowedManagedBids{ActionStatestorageauctionState=auctionStates[msg.sender];require(auctionState.allowManagedBids);_;}functionAuctionHub(address_wallet,address[]_tokens,uint256[]_rates,uint256[]_decimals)publicBotManageable(_wallet){botsStartEndTime[msg.sender]=uint128(now)<<64;require(_tokens.length==_rates.length);require(_tokens.length==_decimals.length);for(uinti=0;i<_tokens.length;i++){require(_tokens[i]!=0x0);require(_rates[i]>0);ERC20Basictoken=ERC20Basic(_tokens[i]);tokenRates[token]=TokenRate(_rates[i],_decimals[i]);TokenRateUpdate(token,_rates[i]);}}functionstringToBytes32(stringmemorysource)returns(bytes32result){bytesmemorytempEmptyStringTest=bytes(source);if(tempEmptyStringTest.length==0){return0x0;}assembly{result:=mload(add(source,32))}}functioncreateAuction(uint_endSeconds,uint256_maxTokenBidInEther,uint256_minPrice,string_item,bool_allowManagedBids)onlyBotpublicreturns(address){require(_endSeconds>now);require(_maxTokenBidInEther<=1000ether);require(_minPrice>0);Auctionauction=newAuction(this);ActionStatestorageauctionState=auctionStates[auction];auctionState.endSeconds=_endSeconds;auctionState.maxTokenBidInEther=_maxTokenBidInEther;auctionState.minPrice=_minPrice;auctionState.allowManagedBids=_allowManagedBids;stringmemoryitem=_item;auctionState.item=stringToBytes32(item);NewAction(auction,_item);returnaddress(auction);}function()payablepublic{throw;}functionbid(address_bidder,uint256_value,address_token,uint256_tokensNumber)publicreturns(boolisHighest){ActionStatestorageauctionState=auctionStates[msg.sender];require(now<auctionState.endSeconds&&!auctionState.cancelled);BidderStatestoragebidderState=auctionState.bidderStates[_bidder];uint256totalBid;if(_tokensNumber>0){totalBid=tokenBid(msg.sender,_bidder,_token,_tokensNumber);}else{require(_value>0);totalBid=bidderState.tokensBalanceInEther;}uint256etherBid=bidderState.etherBalance+_value;bidderState.etherBalance=etherBid;totalBid=totalBid+etherBid+bidderState.managedBid;if(totalBid>auctionState.highestBid&&totalBid>=auctionState.minPrice){auctionState.highestBid=totalBid;auctionState.highestBidder=_bidder;auctionState.highestManagedBidder=0;NewHighestBidder(msg.sender,_bidder,0,totalBid);if((auctionState.endSeconds-now)<1800){uint256newEnd=now+1800;auctionState.endSeconds=newEnd;ExtendedEndTime(msg.sender,newEnd);}isHighest=true;}Bid(msg.sender,_bidder,totalBid,totalBid-etherBid);returnisHighest;}functiontokenBid(address_auction,address_bidder,address_token,uint256_tokensNumber)internalreturns(uint256tokenBid){ActionStatestorageauctionState=auctionStates[_auction];BidderStatestoragebidderState=auctionState.bidderStates[_bidder];uint256totalBid=bidderState.tokensBalanceInEther;TokenRatestoragetokenRate=tokenRates[_token];require(tokenRate.value>0);uint256index=bidderState.tokenBalances.length;for(uinti=0;i<index;i++){if(bidderState.tokenBalances[i].token==_token){index=i;break;}}if(index==bidderState.tokenBalances.length){bidderState.tokenBalances.push(TokenBalance(_token,_tokensNumber));}else{bidderState.tokenBalances[index].value+=_tokensNumber;}totalBid=totalBid+_tokensNumber.mul(tokenRate.value).div(10**tokenRate.decimals);require(totalBid<=auctionState.maxTokenBidInEther);bidderState.tokensBalanceInEther=totalBid;TokenBid(_auction,_bidder,_token,_tokensNumber);returntotalBid;}functionmanagedBid(uint64_managedBidder,uint256_managedBid,address_knownManagedBidder)publicreturns(boolisHighest){require(_managedBidder!=0);ActionStatestorageauctionState=auctionStates[msg.sender];require(now<auctionState.endSeconds&&!auctionState.cancelled&&auctionState.allowManagedBids);uint256directBid=0;if(_knownManagedBidder!=0x0){BidderStatestoragebidderState=auctionState.bidderStates[_knownManagedBidder];require(_managedBid>bidderState.managedBid);bidderState.managedBid=_managedBid;directBid=bidderState.tokensBalanceInEther+bidderState.etherBalance;}uint256totalBid=directBid+_managedBid;if(totalBid>auctionState.highestBid&&totalBid>=auctionState.minPrice){auctionState.highestBid=totalBid;auctionState.highestBidder=_knownManagedBidder;auctionState.highestManagedBidder=_managedBidder;NewHighestBidder(msg.sender,_knownManagedBidder,_managedBidder,totalBid);if((auctionState.endSeconds-now)<1800){uint256newEnd=now+1800;auctionState.endSeconds=newEnd;ExtendedEndTime(msg.sender,newEnd);}isHighest=true;}ManagedBid(msg.sender,_managedBidder,_managedBid,_knownManagedBidder);returnisHighest;}functiontotalDirectBid(address_auction,address_bidder)viewpublicreturns(uint256_totalBid){ActionStatestorageauctionState=auctionStates[_auction];BidderStatestoragebidderState=auctionState.bidderStates[_bidder];returnbidderState.tokensBalanceInEther+bidderState.etherBalance;}functionsetTokenRate(address_token,uint256_tokenRate)onlyBotpublic{TokenRatestoragetokenRate=tokenRates[_token];require(tokenRate.value>0);tokenRate.value=_tokenRate;TokenRateUpdate(_token,_tokenRate);}functionwithdraw(address_bidder)publicreturns(boolsuccess){ActionStatestorageauctionState=auctionStates[msg.sender];BidderStatestoragebidderState=auctionState.bidderStates[_bidder];boolsent;require((_bidder!=auctionState.highestBidder)||auctionState.cancelled);uint256tokensBalanceInEther=bidderState.tokensBalanceInEther;if(bidderState.tokenBalances.length>0){for(uinti=0;i<bidderState.tokenBalances.length;i++){uint256tokenBidValue=bidderState.tokenBalances[i].value;if(tokenBidValue>0){bidderState.tokenBalances[i].value=0;sent=Auction(msg.sender).sendTokens(bidderState.tokenBalances[i].token,_bidder,tokenBidValue);require(sent);}}bidderState.tokensBalanceInEther=0;}else{require(tokensBalanceInEther==0);}uint256etherBid=bidderState.etherBalance;if(etherBid>0){bidderState.etherBalance=0;sent=Auction(msg.sender).sendEther(_bidder,etherBid);require(sent);}Withdrawal(msg.sender,_bidder,etherBid,tokensBalanceInEther);returntrue;}functionfinalize()publicreturns(bool){ActionStatestorageauctionState=auctionStates[msg.sender];require(!auctionState.finalized&&now>auctionState.endSeconds&&auctionState.endSeconds>0&&!auctionState.cancelled);if(auctionState.highestBidder!=address(0)){boolsent;BidderStatestoragebidderState=auctionState.bidderStates[auctionState.highestBidder];uint256tokensBalanceInEther=bidderState.tokensBalanceInEther;if(bidderState.tokenBalances.length>0){for(uinti=0;i<bidderState.tokenBalances.length;i++){uint256tokenBid=bidderState.tokenBalances[i].value;if(tokenBid>0){bidderState.tokenBalances[i].value=0;sent=Auction(msg.sender).sendTokens(bidderState.tokenBalances[i].token,wallet,tokenBid);require(sent);FinalizedTokenTransfer(msg.sender,bidderState.tokenBalances[i].token,tokenBid);}}bidderState.tokensBalanceInEther=0;}else{require(tokensBalanceInEther==0);}uint256etherBid=bidderState.etherBalance;if(etherBid>0){bidderState.etherBalance=0;sent=Auction(msg.sender).sendEther(wallet,etherBid);require(sent);FinalizedEtherTransfer(msg.sender,etherBid);}}auctionState.finalized=true;Finalized(msg.sender,auctionState.highestBidder,auctionState.highestManagedBidder,auctionState.highestBid);returntrue;}functioncancel()publicreturns(boolsuccess){ActionStatestorageauctionState=auctionStates[msg.sender];require(now<auctionState.endSeconds&&!auctionState.cancelled);auctionState.cancelled=true;Cancelled(msg.sender);returntrue;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REDUNDANT_FALLBACK_REJECT
+patternId: b85a32
+severity: 1
+line: 173
+column: 4
+content: {throw;}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 13
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 172
+column: 8
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 464
+column: 8
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 109
+column: 26
+content: address[]_tokens
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 109
+column: 45
+content: uint256[]_rates
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 109
+column: 63
+content: uint256[]_decimals
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 144
+column: 8
+content: string_item
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 564
+column: 17
+content: string
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 135
+column: 8
+content: assembly{result:=mload(add(source,32))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 129
+column: 4
+content: functionstringToBytes32(stringmemorysource)returns(bytes32result){bytesmemorytempEmptyStringTest=bytes(source);if(tempEmptyStringTest.length==0){return0x0;}assembly{result:=mload(add(source,32))}}
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_ADDRESS_HARDCODED :4
+SOLIDITY_UPGRADE_TO_050 :7
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_REDUNDANT_FALLBACK_REJECT :1

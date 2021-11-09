@@ -1,0 +1,100 @@
+F:\Blockchain\dataset_new_byID\79610.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 23
+column: 2
+content: functionvoteToFork(uint_forkHeight){if(block.number<_forkHeight){proposals[_forkHeight].votes[msg.sender]=true;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 29
+column: 2
+content: functionvoteNotToFork(uint_forkHeight){if(block.number<_forkHeight){proposals[_forkHeight].votes[msg.sender]=false;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 35
+column: 2
+content: functionrecordBlockHash(uint_forkHeight){if(block.number>_forkHeight&&block.number<_forkHeight+hashAccessWindow){proposals[_forkHeight].hashOfProposalBlock=block.blockhash(_forkHeight);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 41
+column: 2
+content: functioncountVote(address[]_votesToCount,uint_forkHeight,bytes[]merkleBranch){if(proposals[_forkHeight].hashOfProposalBlock!=0){}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 47
+column: 2
+content: functionactivateFork(uint_forkHeight){if(block.number>(_forkHeight+blocksForVoteCounting)&&proposals[_forkHeight].counted!=true){uintcurrentEtherEstimate=72009990+block.number*5.2;uintvotesInFavourOfProposal=proposals[_forkHeight].voteCounts[true];uintvotesOpposingProposal=proposals[_forkHeight].voteCounts[false];uinttotalProposalVotes=votesInFavourOfProposal+votesOpposingProposal;uintthresholdAttainedByProposal=totalProposalVotes*100/currentEtherEstimate;uintpercentageInFavourOfProposal=votesInFavourOfProposal*100/totalProposalVotes;if(thresholdAttainedByProposal>thresholdOfTotalEtherRequired&&percentageInFavourOfProposal>percentMajorityRequired){forkActivated=true;heightToForkAt=_forkHeight+blocksBeforeForkDeployed;proposals[_forkHeight].counted=true;}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 67
+column: 2
+content: functiongetFreeMoney(){if(forkActivated==true&&block.number>heightToForkAt){msg.sender.send(1000ether);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 4
+column: 2
+content: boolforkActivated=false;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 5
+column: 2
+content: uintblocksForVoteCounting=50000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 2
+content: uintblocksBeforeForkDeployed=200000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 7
+column: 2
+content: uintpercentMajorityRequired=90;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 8
+column: 2
+content: uintthresholdOfTotalEtherRequired=25;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 2
+content: uinthashAccessWindow=255;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 2
+content: uintheightToForkAt;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 21
+column: 2
+content: mapping(uint=>forkProposal)proposals;
+
+SOLIDITY_VISIBILITY :14

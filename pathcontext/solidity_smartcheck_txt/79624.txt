@@ -1,0 +1,61 @@
+F:\Blockchain\dataset_new_byID\79624.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 49
+column: 8
+content: channels.length++
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 8
+column: 0
+content: contractEtherShipsisPlayers,ECTools{structChannel{addressp1;addressp2;uintstake;bytes32p1root;bytes32p2root;addresshalfFinisher;uintblockStarted;uintbalance;uintp1Score;uintp2Score;boolfinished;}eventOpenChannel(uintchannelId,bytes32root,stringwebrtcId,uintamount,stringusername,addressindexedaddr);eventJoinChannel(uintchannelId,bytes32root,stringwebrtcId,uintamount,addressindexedaddr);eventCloseChannel(uintindexedchannelId,addressindexedplayer,boolfinished);Channel[]publicchannels;mapping(address=>address)publicsignAddresses;uintpublicBLOCKS_TO_JOIN=60;uintpublicBLOCKS_TO_TIMEOUT=60;uintpublicHIT_SHIP=1;functionopenChannel(bytes32_merkleRoot,string_webrtcId,uint_amount,address_signAddress)publicpayable{require(players[msg.sender].exists);require(_amount<=players[msg.sender].balance+msg.value);if(msg.value>0){players[msg.sender].balance+=msg.value;}uint_channelId=channels.length;channels.length++;signAddresses[msg.sender]=_signAddress;players[msg.sender].balance-=_amount;Channelstoragec=channels[_channelId];c.p1=msg.sender;c.stake=_amount;c.p1root=_merkleRoot;c.blockStarted=block.number;c.balance+=_amount;emitOpenChannel(_channelId,_merkleRoot,_webrtcId,_amount,players[msg.sender].username,msg.sender);}functionjoinChannel(uint_channelId,bytes32_merkleRoot,string_webrtcId,uint_amount,address_signAddress)publicpayable{require(_channelId<channels.length);require((channels[_channelId].p1!=address(0))&&(channels[_channelId].p2==address(0)));require(players[msg.sender].exists);require(_amount<=players[msg.sender].balance+msg.value);require(block.number<=channels[_channelId].blockStarted+BLOCKS_TO_JOIN);if(msg.value>0){players[msg.sender].balance+=msg.value;}signAddresses[msg.sender]=_signAddress;Channelstoragec=channels[_channelId];require(c.stake<=_amount);c.p2=msg.sender;c.p2root=_merkleRoot;c.blockStarted=block.number;c.balance+=_amount;players[msg.sender].balance-=_amount;players[c.p1].gamesPlayed+=1;players[c.p2].gamesPlayed+=1;emitJoinChannel(_channelId,_merkleRoot,_webrtcId,_amount,msg.sender);}functioncloseChannel(uint_channelId,bytes_sig,uint_numberOfGuesses,bytes32[35]_paths,uint[5]_pos,uint[5]_nonces)public{Channelstoragec=channels[_channelId];require(c.p1==msg.sender||c.p2==msg.sender);require(!c.finished);require(msg.sender!=c.halfFinisher);_assertUserSetShips(_paths,_pos,_nonces,c.p1==msg.sender?c.p1root:c.p2root);addressopponent=(c.p1==msg.sender)?c.p2:c.p1;bytes32hash=keccak256(abi.encodePacked(_channelId,msg.sender,_numberOfGuesses));require(_recoverSig(hash,_sig)==signAddresses[opponent]);uintwonAmount=c.stake*_numberOfGuesses/5;if(c.halfFinisher!=address(0)){c.finished=true;_setScore(msg.sender,_numberOfGuesses,_channelId);_addBalanceToPlayer(msg.sender,wonAmount,_channelId);if(c.p1Score==5||c.p2Score==5){players[c.p1].finishedGames+=1;players[c.p2].finishedGames+=1;if(c.p1Score==5){_addBalanceToPlayer(c.p1,c.balance,_channelId);}else{_addBalanceToPlayer(c.p2,c.balance,_channelId);}}else{uintamount=c.balance/2;_addBalanceToPlayer(c.p1,amount,_channelId);_addBalanceToPlayer(c.p2,amount,_channelId);}}else{c.halfFinisher=msg.sender;c.blockStarted=block.number;_setScore(msg.sender,_numberOfGuesses,_channelId);_addBalanceToPlayer(msg.sender,wonAmount,_channelId);}emitCloseChannel(_channelId,msg.sender,c.finished);}functiontimeout(uint_channelId)public{Channelstoragec=channels[_channelId];require(c.p1==msg.sender||c.p2==msg.sender);require(block.number>(c.blockStarted+BLOCKS_TO_TIMEOUT));require(!c.finished);if(c.p2==0x0){_addBalanceToPlayer(c.p1,c.stake,_channelId);c.finished=true;emitCloseChannel(_channelId,msg.sender,c.finished);}elseif(c.halfFinisher!=0x0){_addBalanceToPlayer(c.halfFinisher,c.balance,_channelId);(c.p1==c.halfFinisher)?_setScore(c.p1,5,_channelId):_setScore(c.p2,5,_channelId);c.finished=true;players[c.halfFinisher].finishedGames+=1;emitCloseChannel(_channelId,c.halfFinisher,c.finished);}}functiondisputeAnswer(uint_channelId,bytes_sig,uint_pos,uint_seq,uint_type,uint_nonce,bytes32[7]_path)public{Channelstoragec=channels[_channelId];require(c.p1==msg.sender||c.p2==msg.sender);require(!c.finished);addressopponent=(c.p1==msg.sender)?c.p2:c.p1;bytes32hash=keccak256(abi.encodePacked(_channelId,_pos,_seq,_type,_nonce,_path));require(_recoverSig(hash,_sig)==signAddresses[opponent]);bytes32opponentRoot=(c.p1==msg.sender)?c.p2root:c.p1root;if(keccak256(abi.encodePacked(_pos,_type,_nonce))!=_path[0]||_getRoot(_path,_pos)!=opponentRoot){players[msg.sender].finishedGames+=1;_addBalanceToPlayer(msg.sender,c.balance,_channelId);if(c.p1==msg.sender){_setScore(c.p1,5,_channelId);_setScore(c.p2,0,_channelId);}else{_setScore(c.p1,0,_channelId);_setScore(c.p2,5,_channelId);}c.finished=true;emitCloseChannel(_channelId,msg.sender,true);}}function_assertUserSetShips(bytes32[35]_paths,uint[5]_pos,uint[5]_nonces,bytes32_root)privateview{for(uinti=0;i<5;++i){bytes32computedHash=keccak256(abi.encodePacked(_pos[i]-1,HIT_SHIP,_nonces[i]));assert(computedHash==_paths[i*7]);uintposCopy=_pos[i];if(i>0){assert(posCopy>_pos[i-1]);}for(uintj=1;j<7;j++){bytes32proofElement=_paths[(i*7)+j];if(posCopy%2==0){computedHash=keccak256(abi.encodePacked(proofElement,computedHash));posCopy=posCopy/2;}else{computedHash=keccak256(abi.encodePacked(computedHash,proofElement));posCopy=uint(posCopy)/2+1;}}assert(computedHash==_root);}}function_recoverSig(bytes32_hash,bytes_sig)privatepurereturns(address){returnprefixedRecover(_hash,_sig);}function_getRoot(bytes32[7]_path,uint_pos)privatepurereturns(bytes32_root){uintpos=_pos+1;_root=_path[0];for(uinti=1;i<7;i++){if(pos%2==0){_root=keccak256(abi.encodePacked(_path[i],_root));pos=pos/2;}else{_root=keccak256(abi.encodePacked(_root,_path[i]));pos=uint(pos)/2+1;}}}function_addBalanceToPlayer(address_playerAddr,uint_amount,uint_channelId)private{assert(_amount<=channels[_channelId].balance);players[_playerAddr].balance+=_amount;channels[_channelId].balance-=_amount;}function_setScore(address_sender,uint_numberOfGuesses,uint_channelId)private{if(_sender==channels[_channelId].p1){channels[_channelId].p1Score=_numberOfGuesses;}else{channels[_channelId].p2Score=_numberOfGuesses;}}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 40
+column: 46
+content: string_webrtcId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 70
+column: 63
+content: string_webrtcId
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 104
+column: 43
+content: bytes_sig
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 193
+column: 44
+content: bytes_sig
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 267
+column: 40
+content: bytes_sig
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :5

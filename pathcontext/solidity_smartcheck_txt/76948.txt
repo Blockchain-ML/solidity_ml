@@ -1,0 +1,54 @@
+F:\Blockchain\dataset_new_byID\76948.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 109
+column: 4
+content: for(uinti=0;i<_owners.length;++i){m_owners[2+i]=uint(_owners[i]);m_ownerIndex[uint(_owners[i])]=2+i;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 109
+column: 4
+content: for(uinti=0;i<_owners.length;++i){m_owners[2+i]=uint(_owners[i]);m_ownerIndex[uint(_owners[i])]=2+i;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 62
+column: 0
+content: contractWalletLibraryisWalletEvents{structPendingState{uintyetNeeded;uintownersDone;uintindex;}structTransaction{addressto;uintvalue;bytesdata;}modifieronlyowner{if(isOwner(msg.sender))_;}modifieronlymanyowners(bytes32_operation){if(confirmAndCheck(_operation))_;}function()externalpayable{if(msg.value>0)emitDeposit(msg.sender,msg.value);}functioninitMultiowned(address[]memory_owners,uint_required)publiconly_uninitialized{m_numOwners=_owners.length+1;m_owners[1]=uint(msg.sender);m_ownerIndex[uint(msg.sender)]=1;for(uinti=0;i<_owners.length;++i){m_owners[2+i]=uint(_owners[i]);m_ownerIndex[uint(_owners[i])]=2+i;}m_required=_required;}functionrevoke(bytes32_operation)external{uintownerIndex=m_ownerIndex[uint(msg.sender)];if(ownerIndex==0)return;uintownerIndexBit=2**ownerIndex;WalletLibrary.PendingStatestoragepending=m_pending[_operation];if(pending.ownersDone&ownerIndexBit>0){pending.yetNeeded++;pending.ownersDone-=ownerIndexBit;emitRevoke(msg.sender,_operation);}}functionchangeOwner(address_from,address_to)onlymanyowners(keccak256(msg.data))external{if(isOwner(_to))return;uintownerIndex=m_ownerIndex[uint(_from)];if(ownerIndex==0)return;clearPending();m_owners[ownerIndex]=uint(_to);m_ownerIndex[uint(_from)]=0;m_ownerIndex[uint(_to)]=ownerIndex;emitOwnerChanged(_from,_to);}functionaddOwner(address_owner)onlymanyowners(keccak256(msg.data))external{if(isOwner(_owner))return;clearPending();if(m_numOwners>=c_maxOwners)reorganizeOwners();if(m_numOwners>=c_maxOwners)return;m_numOwners++;m_owners[m_numOwners]=uint(_owner);m_ownerIndex[uint(_owner)]=m_numOwners;emitOwnerAdded(_owner);}functionremoveOwner(address_owner)onlymanyowners(keccak256(msg.data))external{uintownerIndex=m_ownerIndex[uint(_owner)];if(ownerIndex==0)return;if(m_required>m_numOwners-1)return;m_owners[ownerIndex]=0;m_ownerIndex[uint(_owner)]=0;clearPending();reorganizeOwners();emitOwnerRemoved(_owner);}functionchangeRequirement(uint_newRequired)onlymanyowners(keccak256(msg.data))external{if(_newRequired>m_numOwners)return;m_required=_newRequired;clearPending();emitRequirementChanged(_newRequired);}functiongetOwner(uintownerIndex)externalviewreturns(address){returnaddress(m_owners[ownerIndex+1]);}functionisOwner(address_addr)publicviewreturns(bool){returnm_ownerIndex[uint(_addr)]>0;}functionhasConfirmed(bytes32_operation,address_owner)externalviewreturns(bool){WalletLibrary.PendingStatestoragepending=m_pending[_operation];uintownerIndex=m_ownerIndex[uint(_owner)];if(ownerIndex==0)returnfalse;uintownerIndexBit=2**ownerIndex;return!(pending.ownersDone&ownerIndexBit==0);}functioninitDaylimit(uint_limit)publiconly_uninitialized{m_dailyLimit=_limit;m_lastDay=today();}functionsetDailyLimit(uint_newLimit)onlymanyowners(keccak256(msg.data))external{m_dailyLimit=_newLimit;}functionresetSpentToday()onlymanyowners(keccak256(msg.data))external{m_spentToday=0;}modifieronly_uninitialized{require(m_numOwners>0);_;}functioninitWallet(address[]memory_owners,uint_required,uint_daylimit)publiconly_uninitialized{initDaylimit(_daylimit);initMultiowned(_owners,_required);}functionkill(addresspayable_to)onlymanyowners(keccak256<missing ';'>(msg.data))external{selfdestruct(_to);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 223
+column: 2
+content: functionkill(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 223
+column: 32
+content: _to)onlymanyowners
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 223
+column: 51
+content: (keccak256<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 224
+column: 16
+content: (_to);
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

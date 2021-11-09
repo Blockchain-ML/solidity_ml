@@ -1,0 +1,143 @@
+C:\Users\hp\DataSet\contracts\ropsten\d5\d5623149fea4e95cF0567eeF02C996D58683F482_BetDex.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: c67a09
+severity: 1
+line: 274
+column: 13
+content: 0x0
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 198
+column: 2
+content: functioncalculateWinnings(bytes32_eventId,address_userAddress)internalconstantreturns(uintwinnerReward){winnerReward=(((events[_eventId].totalReward.mul(10000000)).div(events[_eventId].winnerPoolTotal)).mul(events[_eventId].bettorsIndex[_userAddress].bets[events[_eventId].winningScenarioId])).div(10000000);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 216
+column: 2
+content: functioninternalDoesEventExist(bytes32_eventId)internalconstantreturns(bool){if(eventsIndex.length>0){return(eventsIndex[events[_eventId].index]==_eventId);}else{return(false);}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 224
+column: 2
+content: functiondoesEventExist(bytes32_eventId)publicconstantreturns(bool){if(eventsIndex.length>0){return(eventsIndex[events[_eventId].index]==_eventId);}else{return(false);}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 232
+column: 2
+content: functiongetScenarioNamesAndEventStatus(bytes32_eventId)publicconstantreturns(bytes32,bytes32,bool,bool,bool,bytes32){return(events[_eventId].firstScenarioName,events[_eventId].secondScenarioName,events[_eventId].eventHasEnded,events[_eventId].eventCancelled,events[_eventId].resultIsATie,events[_eventId].winningScenarioId);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 243
+column: 2
+content: functiongetEventInfo(bytes32_eventId)publicconstantreturns(uint,bytes32,uint,uint){return(events[_eventId].totalNumOfBets,events[_eventId].category,events[_eventId].bettingOpensTime,events[_eventId].eventStartsTime);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 252
+column: 2
+content: functiongetScenariosInfo(bytes32_eventId,string_firstScenarioName,string_secondScenarioName)publicconstantreturns(uint,uint,uint,uint){return(events[_eventId].scenarios[stringToBytes32(_firstScenarioName)].totalBet,events[_eventId].scenarios[stringToBytes32(_firstScenarioName)].numOfBets,events[_eventId].scenarios[stringToBytes32(_secondScenarioName)].totalBet,events[_eventId].scenarios[stringToBytes32(_secondScenarioName)].numOfBets);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 261
+column: 2
+content: functiongetAddressBetsForEvent(bytes32_eventId,address_userAddress,string_firstScenarioName,string_secondScenarioName)publicconstantreturns(uint,bool,bool,uint,uint){return(events[_eventId].bettorsIndex[_userAddress].totalBet,events[_eventId].bettorsIndex[_userAddress].rewarded,events[_eventId].bettorsIndex[_userAddress].refunded,events[_eventId].bettorsIndex[_userAddress].bets[stringToBytes32(_firstScenarioName)],events[_eventId].bettorsIndex[_userAddress].bets[stringToBytes32(_secondScenarioName)]);}
+
+ruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 199
+column: 20
+content: ((events[_eventId].totalReward.mul(10000000)).div(events[_eventId].winnerPoolTotal)).mul(events[_eventId].bettorsIndex[_userAddress].bets[events[_eventId].winningScenarioId])
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 130
+column: 2
+content: functionsetWinnerAndEndEvent(bytes32_eventId,bool_resultIsATie,string_winningScenarioName)externalonlyOwner{require(internalDoesEventExist(_eventId),"Event with that ID does not exist");require(!events[_eventId].eventHasEnded,"Event has already ended");require(events[_eventId].bettingOpensTime<now&&events[_eventId].eventStartsTime<now,"Betting has not closed");if(!_resultIsATie){require(events[_eventId].firstScenarioName==stringToBytes32(_winningScenarioName)||events[_eventId].secondScenarioName==stringToBytes32(_winningScenarioName));}events[_eventId].eventHasEnded=true;if(_resultIsATie){events[_eventId].resultIsATie=true;emitTieResultSet(_eventId,now);}elseif(events[_eventId].scenarios[events[_eventId].firstScenarioName].totalBet==0||events[_eventId].scenarios[events[_eventId].secondScenarioName].totalBet==0){events[_eventId].eventCancelled=true;events[_eventId].eventHasEnded=true;emitEventCancelled(_eventId,now);}else{uinthouseFeeAmount=(events[_eventId].totalReward).mul(houseFeePercent).div(100);events[_eventId].totalReward=(events[_eventId].totalReward).sub(houseFeeAmount);events[_eventId].winningScenarioId=stringToBytes32(_winningScenarioName);events[_eventId].winnerPoolTotal=events[_eventId].scenarios[events[_eventId].winningScenarioId].totalBet;if(!events[_eventId].houseFeePaid){events[_eventId].houseFeePaid=true;emitHouseFeePaid(houseFeeAddress,houseFeeAmount);houseFeeAddress.transfer(houseFeeAmount);}emitWinnerSet(_eventId,stringToBytes32(_winningScenarioName),now);}}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 4
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 271
+column: 2
+content: functionstringToBytes32(stringmemorysource)internalpurereturns(bytes32result){bytesmemorytempEmptyStringTest=bytes(source);if(tempEmptyStringTest.length==0){return0x0;}assembly{result:=mload(add(source,32))}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 252
+column: 46
+content: string_firstScenarioName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 252
+column: 73
+content: string_secondScenarioName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 261
+column: 74
+content: string_firstScenarioName
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 261
+column: 101
+content: string_secondScenarioName
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 277
+column: 4
+content: assembly{result:=mload(add(source,32))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 2
+content: mapping(bytes32=>Event)events;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 47
+column: 2
+content: bytes32[]eventsIndex;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :7
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :4
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_DIV_MUL :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

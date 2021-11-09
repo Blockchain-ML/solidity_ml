@@ -1,0 +1,110 @@
+F:\Blockchain\dataset_new_byID\76041.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 31
+column: 4
+content: functiongetRateScale()publicconstantreturns(uint){returnRATE_SCALE;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 35
+column: 4
+content: functiongetRate(addressbuyer,uinttotalSold,uintamountWei)publicconstantreturns(uint){uintrate;if(totalSold<STEP_30){rate=RATE_30;}elseif(totalSold<STEP_20){rate=RATE_20;}elseif(totalSold<STEP_10){rate=RATE_10;}else{rate=BASE_RATE;}if(amountWei>=1ether){rate+=rate*13/100;}elseif(amountWei>=0.5ether){rate+=rate*10/100;}elseif(amountWei>=0.1ether){rate+=rate*7/100;}elseif(amountWei>=0.05ether){rate+=rate*5/100;}elseif(amountWei>=0.03ether){rate+=rate*4/100;}elseif(amountWei>=0.01ether){rate+=rate*25/1000;}ExclusiveRatememoryeRate=exclusiveRate[buyer];if(eRate.exists&&eRate.workUntil>=now){if(eRate.rate!=0){rate=eRate.rate;}rate+=rate*eRate.bonusPercent1000/1000;}returnrate;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 81
+column: 4
+content: functionsetExclusiveRate(address_investor,uint_rate,uint16_bonusPercent1000,uint32_workUntil)onlyOwner{exclusiveRate[_investor]=ExclusiveRate(_workUntil,_rate,_bonusPercent1000,true);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 81
+column: 4
+content: functionsetExclusiveRate(address_investor,uint_rate,uint16_bonusPercent1000,uint32_workUntil)onlyOwner{exclusiveRate[_investor]=ExclusiveRate(_workUntil,_rate,_bonusPercent1000,true);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 85
+column: 4
+content: functionremoveExclusiveRate(address_investor)onlyOwner{deleteexclusiveRate[_investor];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 4
+content: uintconstantRATE_SCALE=10000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: uintconstantSTEP_30=2000000*TOKEN_DECIMAL_MULTIPLIER;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 11
+column: 4
+content: uintconstantSTEP_20=4000000*TOKEN_DECIMAL_MULTIPLIER;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 4
+content: uintconstantSTEP_10=6000000*TOKEN_DECIMAL_MULTIPLIER;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 4
+content: uintconstantRATE_30=1950*RATE_SCALE;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 14
+column: 4
+content: uintconstantRATE_20=1800*RATE_SCALE;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 4
+content: uintconstantRATE_10=1650*RATE_SCALE;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 16
+column: 4
+content: uintconstantBASE_RATE=1500*RATE_SCALE;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 29
+column: 4
+content: mapping(address=>ExclusiveRate)exclusiveRate;
+
+SOLIDITY_VISIBILITY :11
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1

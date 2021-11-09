@@ -1,0 +1,242 @@
+C:\Users\hp\DataSet\contracts\ropsten\4b\4b200701b05d17591ca35fb29a017d81997ea0b0_slot.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 202
+column: 22
+content: 0x3c62Aa7913bc303ee4B9c07Df87B556B6770E3fC
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 302
+column: 4
+content: functionapprove(address_spender,uint_value)externalreturns(bool_success){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);_success=true;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 27
+column: 8
+content: for(uint256i=0;i<array.length;i++){if(array[i]==value){returntrue;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 27
+column: 8
+content: for(uint256i=0;i<array.length;i++){if(array[i]==value){returntrue;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 215
+column: 8
+content: for(uinti=0;i<num;++i){require(balances[_user[i]]>=_amount[i]);balances[_user[i]]-=_amount[i];owners[i]=_owner;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 113
+column: 0
+content: contractslotisERC20{structSignaturesCollection{bytesmessage;address[]authorities;bytes[]signatures;}stringinternaltokenName="slot";stringinternaltokenSymbol="slt";uintinternaltokenDecimals=0;uintinternaltokenTotalSupply;uintinternaltransferRate=100;mapping(address=>uint)internalbalances;mapping(address=>mapping(address=>uint))internalallowed;uint256publicrequiredSignatures;address[]publicauthorities;mapping(bytes32=>address[])deposits;mapping(address=>address)publicpublicAddress;mapping(bytes32=>SignaturesCollection)signatures;mapping(bytes32=>address[])syncs;eventWithdrawSignatureSubmitted(bytes32messageHash);eventCollectedSignatures(addressauthorityResponsibleForRelay,bytes32messageHash);eventDepositConfirmation(addressrecipient,uint256value,bytes32transactoinHash);eventTransfer(addressindexed_from,addressindexed_to,uint_value);eventLogin(addressindexedprivateAdd,addressindexedpublicAdd,uinttime);eventApproval(addressindexed_owner,addressindexed_spender,uint_value);eventSync(address[]_from,address[]_to,uint[]_amount,uint[]time);eventSyncConfirmation(addressindexed_from,addressindexed_to,uinttime);eventPay(addressindexed_user,uint_amount,bytes32transactoinHash);eventAward(addressindexed_user,uint_amount);eventConsume(addressindexed_user,uint_amount);eventExchangeToken(addressuser,uintamount);constructor(uintinitialSupply,uint_requiredSignatures,address[]_authorities)public{tokenTotalSupply=initialSupply*10**uint(tokenDecimals);balances[msg.sender]=tokenTotalSupply;requiredSignatures=_requiredSignatures;authorities=_authorities;}modifieronlyAuthority(){require(Helpers.addressArrayContains(authorities,msg.sender));_;}function()payablepublic{require(msg.value>0);uintreward=msg.value*transferRate;require(balances[msg.sender]+reward>=balances[msg.sender]);balances[msg.sender]+=reward;}functionlogin(addresspublicAdd)public{publicAddress[msg.sender]=publicAdd;emitLogin(msg.sender,publicAdd,now);}functionaddAuthority(addressnewAuthority)publiconlyAuthority(){authorities.push(newAuthority);}functionsetRequiredSignatures(uintnewRequiredSignatures)publiconlyAuthority(){requiredSignatures=newRequiredSignatures;}functiongetRequiredSignatures()viewpublicreturns(uint_requiredSignatures){_requiredSignatures=requiredSignatures;}functionconsume(address_user,uint_amount)publicreturns(bool_success){require(balances[_user]>=_amount);balances[_user]-=_amount;emitConsume(_user,_amount);_success=true;}functionsync(address[]_user,uint[]_amount,uint[]_time)public{address_owner=0x3c62Aa7913bc303ee4B9c07Df87B556B6770E3fC;address[]memoryowners=newaddress[](_user.length);uintnum=_user.length;for(uinti=0;i<num;++i){require(balances[_user[i]]>=_amount[i]);balances[_user[i]]-=_amount[i];owners[i]=_owner;}emitSync(_user,owners,_amount,_time);}functionsubmitSignature(bytesmessage,bytessignature)publiconlyAuthority(){require(msg.sender==MessageSigning.recoverAddressFromSignedMessage(signature,message));varhash=keccak256(message);require(!Helpers.addressArrayContains(signatures[hash].authorities,msg.sender));signatures[hash].message=message;signatures[hash].authorities.push(msg.sender);signatures[hash].signatures.push(signature);if(signatures[hash].authorities.length==requiredSignatures){emitCollectedSignatures(msg.sender,hash);}else{emitWithdrawSignatureSubmitted(hash);}}functionpay(address_user,uint_amount,bytes32_transactionHash)publiconlyAuthority(){varhash=keccak256(_user,_amount,_transactionHash);deposits[hash].push(msg.sender);if(deposits[hash].length==requiredSignatures){balances[_user]+=_amount;emitPay(_user,_amount,_transactionHash);}}functionsetTransferRate(uint_transfeRate)publiconlyAuthority(){transferRate=_transfeRate;}functionTransferRate()externalviewreturns(uint_transfeRate){_transfeRate=transferRate;}functionTokenName()externalviewreturns(string_name){_name=tokenName;}functionsymbol()externalviewreturns(string_symbol){_symbol=tokenSymbol;}functiondecimals()externalviewreturns(uint_decimals){_decimals=tokenDecimals;}functiontotalSupply()externalviewreturns(uint_totalSupply){_totalSupply=tokenTotalSupply;}functionbalanceOf(address_owner)externalviewreturns(uint_balance){_balance=balances[_owner];}functiontransfer(address_to,uint_value)externalreturns(bool_success){require(_value<=balances[msg.sender]);require(balances[_to]+_value>=balances[_to]);balances[msg.sender]-=_value;balances[_to]+=_value;emitTransfer(msg.sender,_to,_value);_success=true;}functiontransferFrom(address_from,address_to,uint_value)externalreturns(bool_success){require(_value<=balances[_from]);require(_value<=allowed[_from][msg.sender]);require(balances[_to]+_value>=balances[_to]);balances[_from]-=_value;balances[_to]+=_value;allowed[_from][msg.sender]-=_value;emitTransfer(_from,_to,_value);_success=true;}functionapprove(address_spender,uint_value)externalreturns(bool_success){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);_success=true;}functionallowance(address_owner,address_spender)externalviewreturns(uint_remaining){_remaining=allowed[_owner][_spender];}functionaward(address_user,uint_amount)public{require(balances[_user]+_amount>=balances[_user]);balances[_user]+=_amount;}functionsignature(bytes32messageHash,uint256index)publicviewreturns(bytes){returnsignatures[messageHash].signatures[index];}functionmessage(bytes32message_hash)publicviewreturns(bytes){returnsignatures[message_hash].message;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 4
+column: 4
+content: functionrecoverAddressFromSignedMessage(bytessignature,bytesmessage)internalpurereturns(address){require(signature.length==65);bytes32r;bytes32s;bytes1v;assembly{r:=mload(add(signature,0x20))s:=mload(add(signature,0x40))v:=mload(add(signature,0x60))}returnecrecover(hashMessage(message),uint8(v),r,s);}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 20
+column: 15
+content: keccak256(prefix,Helpers.uintToString(message.length),message)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 244
+column: 19
+content: keccak256(_user,_amount,_transactionHash)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 170
+column: 24
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 4
+column: 45
+content: bytessignature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 4
+column: 62
+content: bytesmessage
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 18
+column: 25
+content: bytesmessage
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 26
+column: 34
+content: address[]array
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 37
+column: 69
+content: string
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 61
+column: 38
+content: bytesmessage
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 61
+column: 53
+content: uint8[]vs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 61
+column: 65
+content: bytes32[]rs
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 61
+column: 79
+content: bytes32[]ss
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 61
+column: 93
+content: address[]allowed_signers
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 157
+column: 63
+content: address[]_authorities
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 201
+column: 18
+content: address[]_user
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 201
+column: 36
+content: uint[]_amount
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 201
+column: 53
+content: uint[]_time
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 223
+column: 29
+content: bytesmessage
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 223
+column: 44
+content: bytessignature
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 339
+column: 80
+content: bytes
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 344
+column: 64
+content: bytes
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 10
+column: 8
+content: assembly{r:=mload(add(signature,0x20))s:=mload(add(signature,0x40))v:=mload(add(signature,0x60))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 134
+column: 4
+content: mapping(bytes32=>address[])deposits;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 136
+column: 4
+content: mapping(bytes32=>SignaturesCollection)signatures;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 137
+column: 4
+content: mapping(bytes32=>address[])syncs;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :21
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1
+SOLIDITY_ERC20_APPROVE :1

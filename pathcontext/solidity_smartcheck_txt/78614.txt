@@ -1,0 +1,154 @@
+F:\Blockchain\dataset_new_byID\78614.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 188
+column: 4
+content: functiongetReceiversCount()constantonlyOwnerreturns(uint32){returnreceiversCount;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 192
+column: 4
+content: functiongetReceiver(uint32i)constantonlyOwnerreturns(address){returntokenReceivers[i];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 156
+column: 8
+content: for(uint32i=0;i<receiversCount;i++){addressreceiver=tokenReceivers[i];if(approved[receiver]&&tokens[receiver]>0){claimFor(receiver);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 72
+column: 4
+content: functionsetTokenRate(uint256_tokenRate)onlyOwner{require(_tokenRate>0);tokenRate=_tokenRate;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 9
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 50
+column: 4
+content: functionClaimableCrowdsale(address_tokenAddress,address_bankAddress,address_beneficiaryAddress,uint256_tokenRate,uint256_minBuyableAmount,uint256_maxTokensAmount,uint256_endDate){token=HoQuToken(_tokenAddress);bankAddress=_bankAddress;beneficiaryAddress=_beneficiaryAddress;tokenRate=_tokenRate;minBuyableAmount=_minBuyableAmount;maxTokensAmount=_maxTokensAmount;endDate=_endDate;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 72
+column: 4
+content: functionsetTokenRate(uint256_tokenRate)onlyOwner{require(_tokenRate>0);tokenRate=_tokenRate;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 78
+column: 4
+content: functionbuy()payableinProgresswhenNotPaused{uint256payAmount=msg.value;uint256returnAmount=0;uint256tokensAmount=tokenRate.mul(payAmount);if(issuedTokensAmount+tokensAmount>maxTokensAmount){tokensAmount=maxTokensAmount.sub(issuedTokensAmount);payAmount=tokensAmount.div(tokenRate);returnAmount=msg.value.sub(payAmount);}issuedTokensAmount=issuedTokensAmount.add(tokensAmount);require(issuedTokensAmount<=maxTokensAmount);storeTokens(msg.sender,tokensAmount);TokenBought(msg.sender,tokensAmount,payAmount);beneficiaryAddress.transfer(payAmount);if(returnAmount>0){msg.sender.transfer(returnAmount);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 105
+column: 4
+content: functionadd(address_receiver,uint256_equivalentEthAmount)onlyOwnerinProgresswhenNotPaused{uint256tokensAmount=tokenRate.mul(_equivalentEthAmount);issuedTokensAmount=issuedTokensAmount.add(tokensAmount);storeTokens(_receiver,tokensAmount);TokenAdded(_receiver,tokensAmount,_equivalentEthAmount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 114
+column: 4
+content: functiontopUp(address_receiver,uint256_equivalentEthAmount)onlyOwnerwhenNotPaused{uint256tokensAmount=tokenRate.mul(_equivalentEthAmount);issuedTokensAmount=issuedTokensAmount.add(tokensAmount);storeTokens(_receiver,tokensAmount);TokenToppedUp(_receiver,tokensAmount,_equivalentEthAmount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 123
+column: 4
+content: functionsub(address_receiver,uint256_equivalentEthAmount)onlyOwnerwhenNotPaused{uint256tokensAmount=tokenRate.mul(_equivalentEthAmount);require(tokens[_receiver]>=tokensAmount);tokens[_receiver]=tokens[_receiver].sub(tokensAmount);issuedTokensAmount=issuedTokensAmount.sub(tokensAmount);TokenSubtracted(_receiver,tokensAmount,_equivalentEthAmount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 145
+column: 4
+content: functionclaim()whenNotPaused{claimFor(msg.sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 150
+column: 4
+content: functionclaimOne(address_receiver)onlyOwnerwhenNotPaused{claimFor(_receiver);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 155
+column: 4
+content: functionclaimAll()onlyOwnerwhenNotPaused{for(uint32i=0;i<receiversCount;i++){addressreceiver=tokenReceivers[i];if(approved[receiver]&&tokens[receiver]>0){claimFor(receiver);}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 176
+column: 4
+content: functionapprove(address_receiver)onlyOwnerwhenNotPaused{approved[_receiver]=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 181
+column: 4
+content: functionfinish()onlyOwner{require(issuedTokensAmount>=maxTokensAmount||now>endDate);require(!isFinished);isFinished=true;token.transfer(bankAddress,token.balanceOf(this));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 188
+column: 4
+content: functiongetReceiversCount()constantonlyOwnerreturns(uint32){returnreceiversCount;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 192
+column: 4
+content: functiongetReceiver(uint32i)constantonlyOwnerreturns(address){returntokenReceivers[i];}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 4
+content: addressbeneficiaryAddress;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 25
+column: 4
+content: uint256endDate;
+
+SOLIDITY_VISIBILITY :15
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1

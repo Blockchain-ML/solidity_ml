@@ -1,0 +1,68 @@
+C:\Users\hp\DataSet\PoaToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 691
+column: 2
+content: functionapprove(address_spender,uint256_value)publicwhenNotPausedreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 24
+column: 10
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 26
+column: 10
+content: private
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 308
+column: 36
+content: call(abi.encodeWithSignature("logCustodianChanged(address,address)",custodian,_newCustodian))
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 358
+column: 36
+content: call(abi.encodeWithSignature("logTerminated()"))
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 521
+column: 36
+content: call(abi.encodeWithSignature("logPayout(uint256)",_payoutAmount.sub(_delta)))
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 552
+column: 36
+content: call(abi.encodeWithSignature("logClaim(address,uint256)",msg.sender,_payoutAmount))
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 581
+column: 36
+content: call(abi.encodeWithSignature("logProofOfCustodyUpdated()",_ipfsHash))
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 768
+column: 4
+content: assembly{let_poaCrowdsaleMaster:=sload(poaCrowdsaleMaster_slot)calldatacopy(0x0,0x0,calldatasize)letresult:=delegatecall(gas,_poaCrowdsaleMaster,0x0,calldatasize,0x0,0)ifiszero(result){revert(0,0)}returndatacopy(0x0,0x0,returndatasize)return(0x0,returndatasize)}
+
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_UNCHECKED_CALL :5
+SOLIDITY_ERC20_APPROVE :1

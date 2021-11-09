@@ -1,0 +1,113 @@
+F:\Blockchain\dataset_new_byID\82136.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 15
+column: 40
+content: 0x6Dca9BB7dA4c09930A466956E0A3e3F7fee1ef7D
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 43
+column: 12
+content: for(uintn=0;n<userBets.length;n++){if(userBets[n]==_matchId){returnfalse;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 139
+column: 8
+content: for(uintn=0;n<bets.length;n++){if(bets[n].user==msg.sender){return(bets[n].amount,bets[n].chosenWinner);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 43
+column: 12
+content: for(uintn=0;n<userBets.length;n++){if(userBets[n]==_matchId){returnfalse;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 139
+column: 8
+content: for(uintn=0;n<bets.length;n++){if(bets[n].user==msg.sender){return(bets[n].amount,bets[n].chosenWinner);}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 12
+column: 0
+content: contractSportsBetsisDisableable{addressinternalboxingOracleAddr=0x6Dca9BB7dA4c09930A466956E0A3e3F7fee1ef7D;OracleInterfaceinternalboxingOracle=OracleInterface(boxingOracleAddr);uintinternalminimumBet=1000000000000;mapping(address=>bytes32[])internaluserToBets;mapping(bytes32=>Bet[])internalmatchToBets;mapping(bytes32=>bool)internalmatchPaidOut;structBet{addressuser;bytes32matchId;uintamount;uint8chosenWinner;}function_betIsValid(address_user,bytes32_matchId,uint8_chosenWinner)privateviewreturns(bool){bytes32[]storageuserBets=userToBets[_user];if(userBets.length>0){for(uintn=0;n<userBets.length;n++){if(userBets[n]==_matchId){returnfalse;}}}uint8participantCount;(,,,participantCount,,,)=boxingOracle.getMatch(_matchId);if(_chosenWinner>=participantCount)returnfalse;returntrue;}function_matchOpenForBetting(bytes32_matchId)privateviewreturns(bool){OracleInterface.MatchOutcomeoutcome;(,,,,,outcome,)=getMatch(_matchId);returnoutcome==OracleInterface.MatchOutcome.Pending;}functionsetOracleAddress(address_oracleAddress)externalonlyOwnerreturns(bool){boxingOracleAddr=_oracleAddress;boxingOracle=OracleInterface(boxingOracleAddr);returnboxingOracle.testConnection();}functiongetOracleAddress()externalviewreturns(address){returnboxingOracleAddr;}functiongetBettableMatches()publicviewreturns(bytes32[]){returnboxingOracle.getPendingMatches();}functiongetMatches()publicviewreturns(bytes32[]){returnboxingOracle.getAllMatches();}functiongetMatch(bytes32_matchId)publicviewreturns(bytes32id,stringname,stringparticipants,uint8participantCount,uintdate,OracleInterface.MatchOutcomeoutcome,int8winner){returnboxingOracle.getMatch(_matchId);}functiongetMostRecentMatch()publicviewreturns(bytes32id,stringname,stringparticipants,uintparticipantCount,uintdate,OracleInterface.MatchOutcomeoutcome,int8winner){returnboxingOracle.getMostRecentMatch(true);}functiongetUserBets()publicviewreturns(bytes32[]){returnuserToBets[msg.sender];}functiongetUserBet(bytes32_matchId)publicviewreturns(uintamount,uint8winner){Bet[]storagebets=matchToBets[_matchId];for(uintn=0;n<bets.length;n++){if(bets[n].user==msg.sender){return(bets[n].amount,bets[n].chosenWinner);}}return(0,0);}functionplaceBet(bytes32_matchId,uint8_chosenWinner)publicpayablenotDisabled{require(msg.value>=minimumBet);require(boxingOracle.matchExists(_matchId));require(_betIsValid(msg.sender,_matchId,_chosenWinner));require(_matchOpenForBetting(_matchId));Bet[]storagebets=matchToBets[_matchId];bets.push(Bet(msg.sender,_matchId,msg.value,_chosenWinner))-1;bytes32[]storageuserBets=userToBets[msg.sender];userBets.push(_matchId);}functiontestOracleConnection()publicviewreturns(bool){returnboxingOracle.testConnection();}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 75
+column: 4
+content: functionsetOracleAddress(address_oracleAddress)externalonlyOwnerreturns(bool){boxingOracleAddr=_oracleAddress;boxingOracle=OracleInterface(boxingOracleAddr);returnboxingOracle.testConnection();}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 89
+column: 55
+content: bytes32[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 95
+column: 47
+content: bytes32[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 104
+column: 8
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 105
+column: 8
+content: stringparticipants
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 118
+column: 8
+content: stringname
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 119
+column: 8
+content: stringparticipants
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 130
+column: 48
+content: bytes32[]
+
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :7
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2

@@ -1,0 +1,117 @@
+C:\Users\hp\DataSet\contracts\ropsten\3f\3F333B4351A515b4f259D1e63626505d7463b870_PasesInvitados.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractPasesInvitados{addresspublicowner;mapping(address=>uint16)cuentas_socios;mapping(uint16=>address)socios_cuentas;mapping(uint16=>uint)pases_socios;mapping(uint32=>mapping(uint=>uint))pases_libres_socios_anio;enumEstadoAsignacion{NoAsignado,Asignado}mapping(uint32=>mapping(uint16=>EstadoAsignacion))pases_libres_socios_asignados;enumEstadoSocio{NoAsignado,Deudor,PagaEnTermino,InscriptoEscuela}mapping(uint32=>mapping(uint16=>EstadoSocio))estado_socios;enumTipoPase{NoAsignado,Noche,Dia}enumTipoTemporada{NoAsignado,Alta,Baja}mapping(uint16=>uint256)balance_socios;uint256precio_unidad_pase=100000;uint256precio_precision=10**18;eventEventPasesUsados(uint32fecha,uint16socio,uint16pases);eventEventCompraUnidadesPases(uint16socio,uint8unidades,uint256costo_unidad,uint256total);eventEventAsignarPasesLibres(uint16socio,uint32mes,uint16pases);constructor()public{owner=msg.sender;}functionsetOwner(address_owner)public{require(msg.sender==owner,"Debe ser owner para cambiar a otro owner");owner=_owner;}modifieronlyOwner(){require(msg.sender==owner,"Solamente accesible para el owner");_;}functionBalance()publiconlyOwnerviewreturns(uint256_balance){_balance=address(this).balance;}functionTransferTo(addresspayable_to)publiconlyOwner{_to.transfer(address<missing ';'>(this).balance);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 67
+column: 4
+content: functionsetOwner(address_owner)public{require(msg.sender==owner,"Debe ser owner para cambiar a otro owner");owner=_owner;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 84
+column: 4
+content: functionTransferTo(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 4
+content: mapping(address=>uint16)cuentas_socios;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 14
+column: 4
+content: mapping(uint16=>address)socios_cuentas;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 18
+column: 4
+content: mapping(uint16=>uint)pases_socios;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 22
+column: 4
+content: mapping(uint32=>mapping(uint=>uint))pases_libres_socios_anio;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 32
+column: 4
+content: mapping(uint32=>mapping(uint16=>EstadoAsignacion))pases_libres_socios_asignados;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 39
+column: 4
+content: mapping(uint32=>mapping(uint16=>EstadoSocio))estado_socios;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 48
+column: 4
+content: mapping(uint16=>uint256)balance_socios;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 4
+content: uint256precio_unidad_pase=100000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 53
+column: 4
+content: uint256precio_precision=10**18;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 85
+column: 8
+content: _to.transfer
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 85
+column: 20
+content: (address<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 85
+column: 28
+content: (this).balance);
+
+SOLIDITY_VISIBILITY :13
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

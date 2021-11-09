@@ -1,0 +1,41 @@
+C:\Users\hp\DataSet\contracts\ropsten\4b\4b07f3c384c2753f07882a75741d8ed9633fef93_Airdrop.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DIV_MUL
+patternId: 09hhh1
+severity: 2
+line: 48
+column: 20
+content: (seed/1000)*1000
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 142
+column: 15
+content: z<y
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractAirdrop{usingSafeMathforuint256;uint256publicairDropTracker_=100;uint256publicearned_money=0;boolpublicisjump=false;eventrecord(addresscaller,boolisjump);modifierisHuman(){address_addr=msg.sender;uint256_codeLength;assembly{_codeLength:=extcodesize(_addr)}require(_codeLength==0,"sorry humans only");_;}functionsetThreshold(uint256num)public{airDropTracker_=num;}functionreset()public{isjump=false;}function_airdrop()privateviewreturns(bool){uint256seed=uint256(keccak256(abi.encodePacked((block.timestamp).add(block.difficulty).add((uint256(keccak256(abi.encodePacked(block.coinbase))))/(now)).add(block.gaslimit).add((uint256(keccak256(abi.encodePacked(msg.sender))))/(now)).add(block.number))));if((seed-((seed/1000)*1000))<airDropTracker_){returntrue;}else{returnfalse;}}functioncan_i_jump()isHuman()publicpayable{if(_airdrop()){isjump=true;emitrecord(msg.sender,true);earned_money=100;}else{airDropTracker_++;emitrecord(msg.sender,false);}}functionwithdraw()isHuman()public{if(earned_money==100)earned_money=earned_money-20;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 5
+column: 4
+content: usingSafeMathforuint256;
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_DIV_MUL :1

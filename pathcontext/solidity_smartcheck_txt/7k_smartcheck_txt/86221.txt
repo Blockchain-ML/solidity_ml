@@ -1,0 +1,76 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\86221.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 6
+column: 4
+content: functiontotalSupply()publicconstantreturns(uint);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 8
+column: 4
+content: functionbalanceOf(addresstokenOwner)publicconstantreturns(uintbalance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 10
+column: 4
+content: functionallowance(addresstokenOwner,addressspender)publicconstantreturns(uintremaining);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 32
+column: 4
+content: functionlookup(address[]addressesToCheck,addressowner,addressspender,boolincludeAccountBalance,boolincludeAllowance)publicconstantreturns(uint[],uint[],uintaccountBalance){uint[]memorybalances=newuint[](addressesToCheck.length);uint[]memoryallowances;if(includeAllowance){allowances=newuint[](addressesToCheck.length);}for(uinti=0;i<addressesToCheck.length;i++){ERC20Interfaceerc20=ERC20Interface(addressesToCheck[i]);balances[i]=erc20.balanceOf(owner);if(includeAllowance){allowances[i]=erc20.allowance(owner,spender);}}if(includeAccountBalance){accountBalance=owner.balance;}return(balances,allowances,accountBalance);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 46
+column: 8
+content: for(uinti=0;i<addressesToCheck.length;i++){ERC20Interfaceerc20=ERC20Interface(addressesToCheck[i]);balances[i]=erc20.balanceOf(owner);if(includeAllowance){allowances[i]=erc20.allowance(owner,spender);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 46
+column: 8
+content: for(uinti=0;i<addressesToCheck.length;i++){ERC20Interfaceerc20=ERC20Interface(addressesToCheck[i]);balances[i]=erc20.balanceOf(owner);if(includeAllowance){allowances[i]=erc20.allowance(owner,spender);}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 32
+column: 20
+content: address[]addressesToCheck
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 35
+column: 16
+content: uint[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 35
+column: 24
+content: uint[]
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 64
+column: 4
+content: functionsuicide(){require(msg.sender==owner);selfdestruct(msg.sender);}
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :4
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

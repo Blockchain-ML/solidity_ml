@@ -1,0 +1,54 @@
+C:\Users\hp\DataSet\contracts\ropsten\5f\5fefa0a0cee7b043527c25b7d14d8e7d4de06344_service.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 10
+column: 28
+content: 0xc4bfa60850704b323e8af5c7e9e81502cc599e2b
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 3
+column: 2
+content: functionbalanceOf(addresswho)publicconstantreturns(uint256);
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 20
+column: 8
+content: assembly{payloadSize:=mload(_extraData)payload:=mload(add(_extraData,0x20))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 34
+column: 8
+content: assembly{payloadSize:=mload(_extraData)payload:=mload(add(_extraData,0x20))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 14
+column: 4
+content: functionreceiveApproval(address_sender,uint256_value,address_tokenContract,bytes_extraData){require(_tokenContract==tokenContract);require(ERC20Basic(tokenContract).transferFrom(_sender,address(this),_value));uint256payloadSize;uint256payload;assembly{payloadSize:=mload(_extraData)payload:=mload(add(_extraData,0x20))}payload=payload>>8*(32-payloadSize);info[_sender]=payload;balance[_sender]+=_value;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 28
+column: 4
+content: functiontokenFallback(address_sender,uint256_value,bytes_extraData)returns(bool){require(msg.sender==tokenContract);uint256payloadSize;uint256payload;assembly{payloadSize:=mload(_extraData)payload:=mload(add(_extraData,0x20))}payload=payload>>8*(32-payloadSize);info[_sender]=payload;balance[_sender]+=_value;returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: addresstokenContract=0xc4bfa60850704b323e8af5c7e9e81502cc599e2b;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_USING_INLINE_ASSEMBLY :2

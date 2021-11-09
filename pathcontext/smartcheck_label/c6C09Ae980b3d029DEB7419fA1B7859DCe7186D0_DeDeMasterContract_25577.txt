@@ -1,0 +1,151 @@
+C:\Users\hp\DataSet\contracts\mainnet\c6\c6C09Ae980b3d029DEB7419fA1B7859DCe7186D0_DeDeMasterContract.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 27cb59
+severity: 1
+line: 137
+column: 3
+content: suicide
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 27cb59
+severity: 1
+line: 141
+column: 3
+content: suicide
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 27cb59
+severity: 1
+line: 152
+column: 2
+content: suicide
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 4
+column: 1
+content: functiontotalSupply()constantreturns(uintsupply);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 5
+column: 1
+content: functionbalanceOf(address_owner)constantreturns(uintbalance);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 9
+column: 1
+content: functionallowance(address_owner,address_spender)constantreturns(uintremaining);
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 4
+column: 1
+content: functiontotalSupply()constantreturns(uintsupply);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 5
+column: 1
+content: functionbalanceOf(address_owner)constantreturns(uintbalance);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 6
+column: 1
+content: functiontransfer(address_to,uint_value)returns(boolsuccess);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 7
+column: 1
+content: functiontransferFrom(address_from,address_to,uint_value)returns(boolsuccess);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 8
+column: 1
+content: functionapprove(address_spender,uint_value)returns(boolsuccess);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 9
+column: 1
+content: functionallowance(address_owner,address_spender)constantreturns(uintremaining);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 27
+column: 1
+content: functionDeDeMasterContract(address_dedeNetworkAddress){dedeNetworkAddress=_dedeNetworkAddress;myAddress=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 32
+column: 1
+content: functionchangeDedeAddress(addressnewDedeAddress){require(msg.sender==myAddress||msg.sender==dedeNetworkAddress);dedeNetworkAddress=newDedeAddress;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 37
+column: 1
+content: functionissue(uint256_targetAmount,uint256_bulletAmount,address_targetAddress,address_bulletAddress,uint256_validationTime,address_issuer)payable{require(msg.sender==dedeNetworkAddress);if(_targetAddress==0){require(msg.value>=_targetAmount);if(msg.value>_targetAmount){msg.sender.transfer(msg.value-_targetAmount);}}else{assert(ERC20Interface(_targetAddress).transferFrom(msg.sender,this,_targetAmount));}addressdede=(newDeDeContract).value(_targetAddress==0?_targetAmount:0)(msg.sender,msg.sender,_issuer,_targetAmount,_bulletAmount,_targetAddress,_bulletAddress,_validationTime);isDeDeContract[dede]=true;if(_targetAddress!=0){assert(ERC20Interface(_targetAddress).transfer(dede,_targetAmount));}Issue(msg.sender,dedeNetworkAddress,_issuer,dede);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 60
+column: 1
+content: functionactivate(addressdede)payable{var_dede=DeDeContract(dede);require(isDeDeContract[dede]);isDeDeContract[dede]=false;_dede.activate.value(msg.value)(msg.sender);Activate(_dede.dip(),_dede.scs(),_dede.issuer(),dede);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 71
+column: 1
+content: functionnullify(addressdede){var_dede=DeDeContract(dede);require(isDeDeContract[dede]);isDeDeContract[dede]=false;_dede.nullify(msg.sender);Nullify(_dede.dip(),_dede.scs(),_dede.issuer(),dede);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 109
+column: 1
+content: functionDeDeContract(address_dip,address_scs,address_issuer,uint256_targetAmount,uint256_bulletAmount,address_targetAddress,address_bulletAddress,uint256_validationTime)payable{require(now<_validationTime);masterContract=msg.sender;dip=_dip;scs=_scs;issuer=_issuer;targetAddress=_targetAddress;bulletAddress=_bulletAddress;targetAmount=_targetAmount;bulletAmount=_bulletAmount;validationTime=_validationTime;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 126
+column: 1
+content: functionactivate(addresssender)payable{require(msg.sender==masterContract);require(sender==scs);require(now>=validationTime&&now<validationTime+1days);if(targetAddress!=0){assert(ERC20Interface(targetAddress).transfer(scs,targetAmount));}if(bulletAddress==0){require(msg.value>=bulletAmount);suicide(dip);}else{assert(ERC20Interface(bulletAddress).transferFrom(scs,dip,bulletAmount));suicide(scs);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 144
+column: 1
+content: functionnullify(addresssender){require(msg.sender==masterContract);require(now>=(validationTime+1days)&&(sender==dip||sender==scs));if(targetAddress!=0){assert(ERC20Interface(targetAddress).transfer(dip,targetAmount));}suicide(dip);}
+
+SOLIDITY_VISIBILITY :14
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :6
+SOLIDITY_PRAGMAS_VERSION :1

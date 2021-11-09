@@ -1,0 +1,357 @@
+C:\Users\hp\DataSet\contracts\ropsten\28\286a2bc20fe0ee7e10e6ce0dfc1f7087b220ea9d_DCN.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 61
+column: 2
+content: functionget_asset(uint32asset_id)publicviewreturns(stringmemorysymbol,uint64unit_scale,addresscontract_address){uint256[5]memoryreturn_value_mem;assembly{letdata:=sload(add(assets_slot,asset_id))mstore(return_value_mem,96)mstore(add(return_value_mem,96),4)mstore(add(return_value_mem,128),data)mstore(add(return_value_mem,32),and(div(data,0x10000000000000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,64),and(data,0xffffffffffffffffffffffffffffffffffffffff))return(return_value_mem,132)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 75
+column: 2
+content: functionget_exchange(uint32exchange_id)publicviewreturns(stringmemoryname,uint64quote_asset_id,addressaddr,uint64fee_balance){uint256[6]memoryreturn_value_mem;assembly{letexchange_ptr:=add(exchanges_slot,mul(2,exchange_id))letexchange_data:=sload(exchange_ptr)mstore(return_value_mem,128)mstore(add(return_value_mem,128),8)mstore(add(return_value_mem,160),exchange_data)mstore(add(return_value_mem,32),and(div(exchange_data,0x10000000000000000000000000000000000000000),0xffffffff))mstore(add(return_value_mem,64),and(exchange_data,0xffffffffffffffffffffffffffffffffffffffff))exchange_data:=sload(add(exchange_ptr,1))mstore(add(return_value_mem,96),exchange_data)return(return_value_mem,168)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 92
+column: 2
+content: functionget_exchange_count()publicviewreturns(uint32count){uint256[1]memoryreturn_value_mem;assembly{letdata:=sload(exchange_count_slot)mstore(return_value_mem,data)return(return_value_mem,32)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 102
+column: 2
+content: functionget_asset_count()publicviewreturns(uint32count){uint256[1]memoryreturn_value_mem;assembly{letasset_count:=sload(asset_count_slot)mstore(return_value_mem,asset_count)return(return_value_mem,32)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 112
+column: 2
+content: functionget_balance(addressuser,uint32asset_id)publicviewreturns(uint256return_balance){uint256[1]memoryreturn_value_mem;assembly{letuser_ptr:=add(users_slot,mul(4294967296,user))letbalance_ptr:=add(user_ptr,asset_id)mstore(return_value_mem,sload(balance_ptr))return(return_value_mem,32)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 123
+column: 2
+content: functionget_session(addressuser,uint32exchange_id)publicviewreturns(uint64version,uint64unlock_at,uint64fee_limit,uint64fee_used){uint256[4]memoryreturn_value_mem;assembly{letexchange_ptr:=add(exchanges_slot,mul(2,exchange_id))letquote_asset_id:=and(div(sload(exchange_ptr),0x10000000000000000000000000000000000000000),0xffffffff)letsession_ptr:=add(add(sessions_slot,mul(55340232221128654848,user)),mul(12884901888,exchange_id))letquote_state_ptr:=add(session_ptr,mul(3,quote_asset_id))letstate_data_0:=sload(quote_state_ptr)letstate_data_1:=sload(add(quote_state_ptr,1))mstore(return_value_mem,and(div(state_data_1,0x1000000000000000000000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,32),and(state_data_1,0xffffffffffffffffffffffffffffffffffffffffffffffff))mstore(add(return_value_mem,64),and(div(state_data_0,0x1000000000000000000000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,96),and(div(state_data_0,0x100000000000000000000000000000000),0xffffffffffffffff))return(return_value_mem,128)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 141
+column: 2
+content: functionget_session_balance(addressuser,uint32exchange_id,uint32asset_id)publicviewreturns(uint64total_deposit,uint64asset_balance){uint256[2]memoryreturn_value_mem;assembly{letsession_ptr:=add(add(sessions_slot,mul(55340232221128654848,user)),mul(12884901888,exchange_id))letstate_ptr:=add(session_ptr,mul(3,asset_id))letstate_data:=sload(state_ptr)mstore(return_value_mem,and(div(state_data,0x10000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,32),and(state_data,0xffffffffffffffff))return(return_value_mem,64)}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 154
+column: 2
+content: functionget_session_state(addressuser,uint32exchange_id,uint32asset_id)publicviewreturns(int64quote_qty,int64base_qty,int64quote_shift,int64base_shift,uint64version,int64min_quote,int64min_base,uint64long_max_price,uint64short_min_price){uint256[8]memoryreturn_value_mem;assembly{letsession_ptr:=add(add(sessions_slot,mul(55340232221128654848,user)),mul(12884901888,exchange_id))letstate_ptr:=add(session_ptr,mul(3,asset_id))letstate_data_0:=sload(state_ptr)letstate_data_1:=sload(add(state_ptr,1))letstate_data_2:=sload(add(state_ptr,2))mstore(return_value_mem,and(div(state_data_0,0x1000000000000000000000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,32),and(div(state_data_0,0x100000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,64),and(div(state_data_1,0x10000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,96),and(state_data_1,0xffffffffffffffff))mstore(add(return_value_mem,128),and(div(state_data_2,0x100000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,160),and(div(state_data_1,0x1000000000000000000000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,192),and(div(state_data_1,0x100000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,224),and(div(state_data_2,0x10000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,256),and(state_data_2,0xffffffffffffffff))return(return_value_mem,288)}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 61
+column: 2
+content: functionget_asset(uint32asset_id)publicviewreturns(stringmemorysymbol,uint64unit_scale,addresscontract_address){uint256[5]memoryreturn_value_mem;assembly{letdata:=sload(add(assets_slot,asset_id))mstore(return_value_mem,96)mstore(add(return_value_mem,96),4)mstore(add(return_value_mem,128),data)mstore(add(return_value_mem,32),and(div(data,0x10000000000000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,64),and(data,0xffffffffffffffffffffffffffffffffffffffff))return(return_value_mem,132)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 75
+column: 2
+content: functionget_exchange(uint32exchange_id)publicviewreturns(stringmemoryname,uint64quote_asset_id,addressaddr,uint64fee_balance){uint256[6]memoryreturn_value_mem;assembly{letexchange_ptr:=add(exchanges_slot,mul(2,exchange_id))letexchange_data:=sload(exchange_ptr)mstore(return_value_mem,128)mstore(add(return_value_mem,128),8)mstore(add(return_value_mem,160),exchange_data)mstore(add(return_value_mem,32),and(div(exchange_data,0x10000000000000000000000000000000000000000),0xffffffff))mstore(add(return_value_mem,64),and(exchange_data,0xffffffffffffffffffffffffffffffffffffffff))exchange_data:=sload(add(exchange_ptr,1))mstore(add(return_value_mem,96),exchange_data)return(return_value_mem,168)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 92
+column: 2
+content: functionget_exchange_count()publicviewreturns(uint32count){uint256[1]memoryreturn_value_mem;assembly{letdata:=sload(exchange_count_slot)mstore(return_value_mem,data)return(return_value_mem,32)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 102
+column: 2
+content: functionget_asset_count()publicviewreturns(uint32count){uint256[1]memoryreturn_value_mem;assembly{letasset_count:=sload(asset_count_slot)mstore(return_value_mem,asset_count)return(return_value_mem,32)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 112
+column: 2
+content: functionget_balance(addressuser,uint32asset_id)publicviewreturns(uint256return_balance){uint256[1]memoryreturn_value_mem;assembly{letuser_ptr:=add(users_slot,mul(4294967296,user))letbalance_ptr:=add(user_ptr,asset_id)mstore(return_value_mem,sload(balance_ptr))return(return_value_mem,32)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 123
+column: 2
+content: functionget_session(addressuser,uint32exchange_id)publicviewreturns(uint64version,uint64unlock_at,uint64fee_limit,uint64fee_used){uint256[4]memoryreturn_value_mem;assembly{letexchange_ptr:=add(exchanges_slot,mul(2,exchange_id))letquote_asset_id:=and(div(sload(exchange_ptr),0x10000000000000000000000000000000000000000),0xffffffff)letsession_ptr:=add(add(sessions_slot,mul(55340232221128654848,user)),mul(12884901888,exchange_id))letquote_state_ptr:=add(session_ptr,mul(3,quote_asset_id))letstate_data_0:=sload(quote_state_ptr)letstate_data_1:=sload(add(quote_state_ptr,1))mstore(return_value_mem,and(div(state_data_1,0x1000000000000000000000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,32),and(state_data_1,0xffffffffffffffffffffffffffffffffffffffffffffffff))mstore(add(return_value_mem,64),and(div(state_data_0,0x1000000000000000000000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,96),and(div(state_data_0,0x100000000000000000000000000000000),0xffffffffffffffff))return(return_value_mem,128)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 141
+column: 2
+content: functionget_session_balance(addressuser,uint32exchange_id,uint32asset_id)publicviewreturns(uint64total_deposit,uint64asset_balance){uint256[2]memoryreturn_value_mem;assembly{letsession_ptr:=add(add(sessions_slot,mul(55340232221128654848,user)),mul(12884901888,exchange_id))letstate_ptr:=add(session_ptr,mul(3,asset_id))letstate_data:=sload(state_ptr)mstore(return_value_mem,and(div(state_data,0x10000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,32),and(state_data,0xffffffffffffffff))return(return_value_mem,64)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 154
+column: 2
+content: functionget_session_state(addressuser,uint32exchange_id,uint32asset_id)publicviewreturns(int64quote_qty,int64base_qty,int64quote_shift,int64base_shift,uint64version,int64min_quote,int64min_base,uint64long_max_price,uint64short_min_price){uint256[8]memoryreturn_value_mem;assembly{letsession_ptr:=add(add(sessions_slot,mul(55340232221128654848,user)),mul(12884901888,exchange_id))letstate_ptr:=add(session_ptr,mul(3,asset_id))letstate_data_0:=sload(state_ptr)letstate_data_1:=sload(add(state_ptr,1))letstate_data_2:=sload(add(state_ptr,2))mstore(return_value_mem,and(div(state_data_0,0x1000000000000000000000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,32),and(div(state_data_0,0x100000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,64),and(div(state_data_1,0x10000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,96),and(state_data_1,0xffffffffffffffff))mstore(add(return_value_mem,128),and(div(state_data_2,0x100000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,160),and(div(state_data_1,0x1000000000000000000000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,192),and(div(state_data_1,0x100000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,224),and(div(state_data_2,0x10000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,256),and(state_data_2,0xffffffffffffffff))return(return_value_mem,288)}}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 62
+column: 10
+content: (stringmemorysymbol,uint64unit_scale,addresscontract_address)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 76
+column: 10
+content: (stringmemoryname,uint64quote_asset_id,addressaddr,uint64fee_balance)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 124
+column: 10
+content: (uint64version,uint64unlock_at,uint64fee_limit,uint64fee_used)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 142
+column: 10
+content: (uint64total_deposit,uint64asset_balance)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 155
+column: 10
+content: (int64quote_qty,int64base_qty,int64quote_shift,int64base_shift,uint64version,int64min_quote,int64min_base,uint64long_max_price,uint64short_min_price)
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 56
+column: 26
+content: assembly{sstore(creator_slot,caller)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 64
+column: 4
+content: assembly{letdata:=sload(add(assets_slot,asset_id))mstore(return_value_mem,96)mstore(add(return_value_mem,96),4)mstore(add(return_value_mem,128),data)mstore(add(return_value_mem,32),and(div(data,0x10000000000000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,64),and(data,0xffffffffffffffffffffffffffffffffffffffff))return(return_value_mem,132)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 78
+column: 4
+content: assembly{letexchange_ptr:=add(exchanges_slot,mul(2,exchange_id))letexchange_data:=sload(exchange_ptr)mstore(return_value_mem,128)mstore(add(return_value_mem,128),8)mstore(add(return_value_mem,160),exchange_data)mstore(add(return_value_mem,32),and(div(exchange_data,0x10000000000000000000000000000000000000000),0xffffffff))mstore(add(return_value_mem,64),and(exchange_data,0xffffffffffffffffffffffffffffffffffffffff))exchange_data:=sload(add(exchange_ptr,1))mstore(add(return_value_mem,96),exchange_data)return(return_value_mem,168)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 95
+column: 4
+content: assembly{letdata:=sload(exchange_count_slot)mstore(return_value_mem,data)return(return_value_mem,32)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 105
+column: 4
+content: assembly{letasset_count:=sload(asset_count_slot)mstore(return_value_mem,asset_count)return(return_value_mem,32)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 115
+column: 4
+content: assembly{letuser_ptr:=add(users_slot,mul(4294967296,user))letbalance_ptr:=add(user_ptr,asset_id)mstore(return_value_mem,sload(balance_ptr))return(return_value_mem,32)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 126
+column: 4
+content: assembly{letexchange_ptr:=add(exchanges_slot,mul(2,exchange_id))letquote_asset_id:=and(div(sload(exchange_ptr),0x10000000000000000000000000000000000000000),0xffffffff)letsession_ptr:=add(add(sessions_slot,mul(55340232221128654848,user)),mul(12884901888,exchange_id))letquote_state_ptr:=add(session_ptr,mul(3,quote_asset_id))letstate_data_0:=sload(quote_state_ptr)letstate_data_1:=sload(add(quote_state_ptr,1))mstore(return_value_mem,and(div(state_data_1,0x1000000000000000000000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,32),and(state_data_1,0xffffffffffffffffffffffffffffffffffffffffffffffff))mstore(add(return_value_mem,64),and(div(state_data_0,0x1000000000000000000000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,96),and(div(state_data_0,0x100000000000000000000000000000000),0xffffffffffffffff))return(return_value_mem,128)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 144
+column: 4
+content: assembly{letsession_ptr:=add(add(sessions_slot,mul(55340232221128654848,user)),mul(12884901888,exchange_id))letstate_ptr:=add(session_ptr,mul(3,asset_id))letstate_data:=sload(state_ptr)mstore(return_value_mem,and(div(state_data,0x10000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,32),and(state_data,0xffffffffffffffff))return(return_value_mem,64)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 158
+column: 4
+content: assembly{letsession_ptr:=add(add(sessions_slot,mul(55340232221128654848,user)),mul(12884901888,exchange_id))letstate_ptr:=add(session_ptr,mul(3,asset_id))letstate_data_0:=sload(state_ptr)letstate_data_1:=sload(add(state_ptr,1))letstate_data_2:=sload(add(state_ptr,2))mstore(return_value_mem,and(div(state_data_0,0x1000000000000000000000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,32),and(div(state_data_0,0x100000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,64),and(div(state_data_1,0x10000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,96),and(state_data_1,0xffffffffffffffff))mstore(add(return_value_mem,128),and(div(state_data_2,0x100000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,160),and(div(state_data_1,0x1000000000000000000000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,192),and(div(state_data_1,0x100000000000000000000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,224),and(div(state_data_2,0x10000000000000000),0xffffffffffffffff))mstore(add(return_value_mem,256),and(state_data_2,0xffffffffffffffff))return(return_value_mem,288)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 177
+column: 54
+content: assembly{letcurrent_creator:=sload(creator_slot)ifiszero(eq(current_creator,caller)){revert(0,0)}sstore(creator_slot,new_creator)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 185
+column: 4
+content: assembly{letcreator_address:=sload(creator_slot)ifiszero(eq(creator_address,caller)){mstore(revert_reason,1)revert(add(revert_reason,31),1)}letasset_id:=sload(asset_count_slot)ifiszero(lt(asset_id,exp(2,32))){mstore(revert_reason,2)revert(add(revert_reason,31),1)}letsymbol_len:=mload(symbol)ifiszero(eq(symbol_len,4)){mstore(revert_reason,3)revert(add(revert_reason,31),1)}ifiszero(unit_scale){mstore(revert_reason,4)revert(add(revert_reason,31),1)}ifiszero(contract_address){mstore(revert_reason,5)revert(add(revert_reason,31),1)}letasset_symbol:=mload(add(symbol,32))letasset_data:=or(asset_symbol,or(mul(unit_scale,0x10000000000000000000000000000000000000000),contract_address))letasset_ptr:=add(assets_slot,asset_id)sstore(asset_ptr,asset_data)sstore(asset_count_slot,add(asset_id,1))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 221
+column: 4
+content: assembly{letcreator_address:=sload(creator_slot)ifiszero(eq(creator_address,caller)){mstore(revert_reason,1)revert(add(revert_reason,31),1)}letname_len:=mload(name)ifiszero(eq(name_len,8)){mstore(revert_reason,2)revert(add(revert_reason,31),1)}letasset_count:=sload(asset_count_slot)ifiszero(lt(quote_asset_id,asset_count)){mstore(revert_reason,3)revert(add(revert_reason,31),1)}letexchange_count:=sload(exchange_count_slot)ifiszero(lt(exchange_count,exp(2,32))){mstore(revert_reason,4)revert(add(revert_reason,31),1)}letexchange_ptr:=add(exchanges_slot,mul(2,exchange_count))letname_data:=mload(add(name,32))letexchange_data:=or(name_data,or(mul(quote_asset_id,0x10000000000000000000000000000000000000000),addr))sstore(exchange_ptr,exchange_data)sstore(exchange_count_slot,add(exchange_count,1))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 256
+column: 4
+content: assembly{ifiszero(amount){stop()}{letasset_count:=sload(asset_count_slot)ifiszero(lt(asset_id,asset_count)){mstore(revert_reason,1)revert(add(revert_reason,31),1)}}mstore(transfer_in_mem,0x23b872dd00000000000000000000000000000000000000000000000000000000)mstore(add(transfer_in_mem,4),caller)mstore(add(transfer_in_mem,36),address)mstore(add(transfer_in_mem,68),amount)letasset_data:=sload(add(assets_slot,asset_id))letasset_address:=and(asset_data,0xffffffffffffffffffffffffffffffffffffffff){letsuccess:=call(gas,asset_address,0,transfer_in_mem,100,transfer_out_mem,32)ifiszero(success){mstore(revert_reason,2)revert(add(revert_reason,31),1)}letresult:=mload(transfer_out_mem)ifiszero(result){mstore(revert_reason,3)revert(add(revert_reason,31),1)}}letuser_ptr:=add(users_slot,mul(4294967296,caller))letasset_ptr:=add(user_ptr,asset_id)letcurrent_balance:=sload(asset_ptr)sstore(asset_ptr,add(current_balance,amount))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 294
+column: 4
+content: assembly{ifiszero(amount){stop()}letuser_ptr:=add(users_slot,mul(4294967296,caller))letasset_ptr:=add(user_ptr,asset_id)letcurrent_balance:=sload(asset_ptr)iflt(current_balance,amount){mstore(revert_reason,1)revert(add(revert_reason,31),1)}mstore(transfer_in_mem,0xa9059cbb00000000000000000000000000000000000000000000000000000000)mstore(add(transfer_in_mem,4),destination)mstore(add(transfer_in_mem,36),amount)letasset_data:=sload(add(assets_slot,asset_id))letasset_address:=and(asset_data,0xffffffffffffffffffffffffffffffffffffffff)letsuccess:=call(gas,asset_address,0,transfer_in_mem,68,transfer_out_mem,32)ifiszero(success){mstore(revert_reason,2)revert(add(revert_reason,31),1)}letresult:=mload(transfer_out_mem)ifiszero(result){mstore(revert_reason,3)revert(add(revert_reason,31),1)}sstore(asset_ptr,sub(current_balance,amount))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 325
+column: 4
+content: assembly{ifor(lt(unlock_at,add(timestamp,43200)),gt(unlock_at,add(timestamp,2592000))){mstore(revert_reason,1)revert(add(revert_reason,31),1)}{letexchange_count:=sload(exchange_count_slot)ifiszero(lt(exchange_id,exchange_count)){mstore(revert_reason,2)revert(add(revert_reason,31),1)}}letexchange_ptr:=add(exchanges_slot,mul(2,exchange_id))letquote_asset_id:=and(div(sload(exchange_ptr),0x10000000000000000000000000000000000000000),0xffffffff)letsession_ptr:=add(add(sessions_slot,mul(55340232221128654848,caller)),mul(12884901888,exchange_id))letquote_state_ptr:=add(session_ptr,mul(3,quote_asset_id))letquote_state:=sload(quote_state_ptr)letcurrent_fee_limit:=and(div(quote_state,0x1000000000000000000000000000000000000000000000000),0xffffffffffffffff)iflt(fee_limit,current_fee_limit){mstore(revert_reason,3)revert(add(revert_reason,31),1)}ifgt(fee_limit,current_fee_limit){sstore(quote_state_ptr,or(and(quote_state,0xffffffffffffffffffffffffffffffffffffffffffffffff),mul(fee_limit,0x1000000000000000000000000000000000000000000000000)))}letversion:=and(div(sload(add(quote_state_ptr,1)),0x1000000000000000000000000000000000000000000000000),0xffffffffffffffff)sstore(add(quote_state_ptr,1),or(mul(add(version,1),0x1000000000000000000000000000000000000000000000000),unlock_at))mstore(log_data_mem,caller)mstore(add(log_data_mem,32),exchange_id)log1(log_data_mem,64,0x1fceb0227bbc8d151c84f6f90cac5b115842ef0ed5dd5b6ee6bf6eca2dae91f7)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 366
+column: 4
+content: assembly{{letasset_count:=sload(asset_count_slot)ifiszero(lt(asset_id,asset_count)){mstore(revert_reason,1)revert(add(revert_reason,31),1)}}ifiszero(quantity){mstore(revert_reason,2)revert(add(revert_reason,31),1)}letasset_data:=sload(add(assets_slot,asset_id))letamount:=mul(quantity,and(div(asset_data,0x10000000000000000000000000000000000000000),0xffffffffffffffff))letasset_address:=and(asset_data,0xffffffffffffffffffffffffffffffffffffffff)mstore(transfer_in_mem,0x23b872dd00000000000000000000000000000000000000000000000000000000)mstore(add(transfer_in_mem,4),caller)mstore(add(transfer_in_mem,36),address)mstore(add(transfer_in_mem,68),amount){letsuccess:=call(gas,asset_address,0,transfer_in_mem,100,transfer_out_mem,32)ifiszero(success){mstore(revert_reason,3)revert(add(revert_reason,31),1)}letresult:=mload(transfer_out_mem)ifiszero(result){mstore(revert_reason,4)revert(add(revert_reason,31),1)}}letsession_ptr:=add(add(sessions_slot,mul(55340232221128654848,caller)),mul(12884901888,exchange_id))letasset_state_ptr:=add(session_ptr,mul(3,asset_id))letasset_state_data:=sload(asset_state_ptr)lettotal_deposit:=and(add(and(div(asset_state_data,0x10000000000000000),0xffffffffffffffff),quantity),0xFFFFFFFFFFFFFFFF)letasset_balance:=add(and(asset_state_data,0xffffffffffffffff),quantity)ifgt(asset_balance,0xFFFFFFFFFFFFFFFF){mstore(revert_reason,5)revert(add(revert_reason,31),1)}sstore(asset_state_ptr,or(and(asset_state_data,0xffffffffffffffffffffffffffffffff00000000000000000000000000000000),or(mul(total_deposit,0x10000000000000000),asset_balance)))mstore(log_data_mem,caller)mstore(add(log_data_mem,32),exchange_id)mstore(add(log_data_mem,64),asset_id)log1(log_data_mem,96,0x80e69f6146713abffddddec8ef3901e1cd3fd9e079375d62e04e2719f1adf500)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 421
+column: 4
+content: assembly{{letuser_ptr:=add(users_slot,mul(4294967296,caller))letasset_ptr:=add(user_ptr,asset_id)letasset_balance:=sload(asset_ptr)letasset_data:=sload(add(assets_slot,asset_id))letunit_scale:=and(div(asset_data,0x10000000000000000000000000000000000000000),0xffffffffffffffff)letamount:=mul(quantity,unit_scale)ifgt(amount,asset_balance){mstore(revert_reason,1)revert(add(revert_reason,31),1)}asset_balance:=sub(asset_balance,amount)sstore(asset_ptr,asset_balance)}letsession_ptr:=add(add(sessions_slot,mul(55340232221128654848,caller)),mul(12884901888,exchange_id))letasset_state_ptr:=add(session_ptr,mul(3,asset_id))letasset_state_data:=sload(asset_state_ptr)lettotal_deposit:=add(and(div(asset_state_data,0x10000000000000000),0xffffffffffffffff),quantity)letasset_balance:=add(and(asset_state_data,0xffffffffffffffff),quantity)total_deposit:=and(total_deposit,0xFFFFFFFFFFFFFFFF)ifgt(asset_balance,0xFFFFFFFFFFFFFFFF){mstore(revert_reason,2)revert(add(revert_reason,31),1)}sstore(asset_state_ptr,or(and(asset_state_data,0xffffffffffffffffffffffffffffffff00000000000000000000000000000000),or(mul(total_deposit,0x10000000000000000),asset_balance)))mstore(log_data_mem,caller)mstore(add(log_data_mem,32),exchange_id)mstore(add(log_data_mem,64),asset_id)log1(log_data_mem,96,0x80e69f6146713abffddddec8ef3901e1cd3fd9e079375d62e04e2719f1adf500)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 461
+column: 4
+content: assembly{letexchange_data:=sload(add(exchanges_slot,mul(2,exchange_id)))letquote_asset_id:=and(div(exchange_data,0x10000000000000000000000000000000000000000),0xffffffff)letsession_ptr:=add(add(sessions_slot,mul(55340232221128654848,caller)),mul(12884901888,exchange_id)){letquote_state_ptr:=add(session_ptr,mul(3,quote_asset_id))letunlock_at:=and(sload(add(quote_state_ptr,1)),0xffffffffffffffffffffffffffffffffffffffffffffffff)iflt(timestamp,unlock_at){mstore(revert_reason,1)revert(add(revert_reason,31),1)}}{letasset_state_ptr:=add(session_ptr,mul(3,asset_id))letasset_state_data:=sload(asset_state_ptr)letasset_balance:=and(asset_state_data,0xffffffffffffffff)ifgt(quantity,asset_balance){mstore(revert_reason,2)revert(add(revert_reason,31),1)}asset_balance:=sub(asset_balance,quantity)sstore(asset_state_ptr,or(and(asset_state_data,0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000),asset_balance))}{letuser_ptr:=add(users_slot,mul(4294967296,caller))letasset_ptr:=add(user_ptr,asset_id)letasset_balance:=sload(asset_ptr)letasset_data:=sload(add(assets_slot,asset_id))letunit_scale:=and(div(asset_data,0x10000000000000000000000000000000000000000),0xffffffffffffffff)letamount:=mul(quantity,unit_scale)asset_balance:=add(asset_balance,amount)iflt(asset_balance,amount){mstore(revert_reason,3)revert(add(revert_reason,31),1)}sstore(asset_ptr,asset_balance)}mstore(log_data_mem,caller)mstore(add(log_data_mem,32),exchange_id)mstore(add(log_data_mem,64),asset_id)log1(log_data_mem,96,0x80e69f6146713abffddddec8ef3901e1cd3fd9e079375d62e04e2719f1adf500)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 532
+column: 4
+content: assembly{letdata_size:=mload(data)letcursor:=add(data,32)ifiszero(eq(data_size,149)){mstore(revert_reason,1)revert(add(revert_reason,31),1)}letupdate_data:=mload(cursor)cursor:=add(cursor,20)user_addr:=and(div(update_data,0x1000000000000000000000000),0xffffffffffffffffffffffffffffffffffffffff)mstore(hash_buffer_mem,0xe0bfc2789e007df269c9fec46d3ddd4acf88fdf0f76af154da933aab7fb2f2b9)update_data:=mload(cursor)cursor:=add(cursor,32)letasset_state_ptr:=0{letversion:=0{letexchange_id:=and(div(update_data,0x100000000000000000000000000000000000000000000000000000000),0xffffffff)mstore(add(hash_buffer_mem,32),exchange_id)letasset_id:=and(div(update_data,0x1000000000000000000000000000000000000000000000000),0xffffffff)mstore(add(hash_buffer_mem,64),asset_id)version:=and(div(update_data,0x100000000000000000000000000000000),0xffffffffffffffff)mstore(add(hash_buffer_mem,96),version)letsession_ptr:=add(add(sessions_slot,mul(55340232221128654848,user_addr)),mul(12884901888,exchange_id))asset_state_ptr:=add(session_ptr,mul(3,asset_id)){letexchange_data:=sload(add(exchanges_slot,mul(2,exchange_id)))letexchange_address:=and(exchange_data,0xffffffffffffffffffffffffffffffffffffffff)ifiszero(eq(caller,exchange_address)){mstore(revert_reason,2)revert(add(revert_reason,31),1)}letquote_asset_id:=and(div(exchange_data,0x10000000000000000000000000000000000000000),0xffffffff)ifeq(quote_asset_id,asset_id){mstore(revert_reason,6)revert(add(revert_reason,31),1)}}letcurrent_version:=and(div(sload(add(asset_state_ptr,2)),0x100000000000000000000000000000000),0xffffffffffffffff)ifiszero(gt(version,current_version)){mstore(revert_reason,3)revert(add(revert_reason,31),1)}}{letlong_max_price:=and(div(update_data,0x10000000000000000),0xffffffffffffffff)mstore(add(hash_buffer_mem,128),long_max_price)letshort_min_price:=and(update_data,0xffffffffffffffff)mstore(add(hash_buffer_mem,160),short_min_price)sstore(add(asset_state_ptr,2),or(or(mul(version,0x100000000000000000000000000000000),mul(long_max_price,0x10000000000000000)),short_min_price))}}update_data:=mload(cursor)cursor:=add(cursor,32)letstate_data_1:=0{letmin_quote_qty:=and(div(update_data,0x1000000000000000000000000000000000000000000000000),0xffffffffffffffff)state_data_1:=mul(min_quote_qty,0x1000000000000000000000000000000000000000000000000)ifand(min_quote_qty,0x8000000000000000){min_quote_qty:=or(min_quote_qty,0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000)}mstore(add(hash_buffer_mem,192),min_quote_qty)}{letmin_base_qty:=and(div(update_data,0x100000000000000000000000000000000),0xffffffffffffffff)state_data_1:=or(state_data_1,mul(min_base_qty,0x100000000000000000000000000000000))ifand(min_base_qty,0x8000000000000000){min_base_qty:=or(min_base_qty,0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000)}mstore(add(hash_buffer_mem,224),min_base_qty)}letquote_shift:=and(div(update_data,0x10000000000000000),0xffffffffffffffff)state_data_1:=or(state_data_1,mul(quote_shift,0x10000000000000000))ifand(quote_shift,0x8000000000000000){quote_shift:=or(quote_shift,0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000)}mstore(add(hash_buffer_mem,256),quote_shift)letbase_shift:=and(update_data,0xffffffffffffffff)state_data_1:=or(state_data_1,base_shift)ifand(base_shift,0x8000000000000000){base_shift:=or(base_shift,0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000)}mstore(add(hash_buffer_mem,288),base_shift)sstore(add(asset_state_ptr,1),state_data_1){letcurrent_state_data:=sload(add(asset_state_ptr,1)){letcurrent_quote_shift:=and(div(current_state_data,0x10000000000000000),0xffffffffffffffff)ifand(current_quote_shift,0x8000000000000000){current_quote_shift:=or(current_quote_shift,0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000)}quote_shift:=sub(quote_shift,current_quote_shift)}{letcurrent_base_shift:=and(current_state_data,0xffffffffffffffff)ifand(current_base_shift,0x8000000000000000){current_base_shift:=or(current_base_shift,0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000)}base_shift:=sub(base_shift,current_base_shift)}}letstate_data_0:=sload(asset_state_ptr)letquote_qty:=add(quote_shift,and(div(state_data_0,0x1000000000000000000000000000000000000000000000000),0xffffffffffffffff))letbase_qty:=add(base_shift,and(div(state_data_0,0x100000000000000000000000000000000),0xffffffffffffffff))ifor(or(slt(quote_qty,0xffffffffffffffffffffffffffffffffffffffffffffffff8000000000000000),sgt(quote_qty,0x7fffffffffffffff)),or(slt(base_qty,0xffffffffffffffffffffffffffffffffffffffffffffffff8000000000000000),sgt(base_qty,0x7fffffffffffffff))){mstore(revert_reason,4)revert(add(revert_reason,31),1)}sstore(asset_state_ptr,or(and(state_data_0,0xffffffffffffffffffffffffffffffff),or(mul(and(quote_qty,0xFFFFFFFFFFFFFFFF),0x1000000000000000000000000000000000000000000000000),mul(and(base_qty,0xFFFFFFFFFFFFFFFF),0x100000000000000000000000000000000))))lethash:=keccak256(hash_buffer_mem,320){letfinal_ptr:=hash_buffer_memmstore(final_ptr,0x1901000000000000000000000000000000000000000000000000000000000000)final_ptr:=add(final_ptr,2)mstore(final_ptr,0xe3d3073cc59e3a3126c17585a7e516a048e61a9a1c82144af982d1c194b18710)final_ptr:=add(final_ptr,32)mstore(final_ptr,hash)}hash:=keccak256(hash_buffer_mem,66)mstore(hash_buffer_mem,hash)update_data:=mload(cursor)cursor:=add(cursor,32)mstore(add(hash_buffer_mem,32),update_data)update_data:=mload(cursor)cursor:=add(cursor,32)mstore(add(hash_buffer_mem,64),update_data)update_data:=mload(cursor)mstore(add(hash_buffer_mem,96),and(div(update_data,0x100000000000000000000000000000000000000000000000000000000000000),0xff))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 664
+column: 4
+content: assembly{ifiszero(eq(recover_address,user_addr)){mstore(revert_reason,5)revert(add(revert_reason,31),1)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 687
+column: 4
+content: assembly{letcursor:=add(data,32)letdata_len:=mload(data)mstore(sub(msize,160),add(cursor,data_len))iflt(data_len,4){mstore(sub(msize,32),0)revert(add(sub(msize,32),31),1)}lettmp_data:=mload(cursor)cursor:=add(cursor,4){letexchange_id:=and(div(tmp_data,0x100000000000000000000000000000000000000000000000000000000),0xffffffff)letexchange_count:=sload(exchange_count_slot)ifiszero(lt(exchange_id,exchange_count)){mstore(sub(msize,32),1)revert(add(sub(msize,32),31),1)}letexchange_ptr:=add(exchanges_slot,mul(2,exchange_id))letexchange_data_0:=sload(exchange_ptr)ifiszero(eq(caller,and(exchange_data_0,0xffffffffffffffffffffffffffffffffffffffff))){mstore(sub(msize,32),2)revert(add(sub(msize,32),31),1)}mstore(sub(msize,192),and(div(exchange_data_0,0x10000000000000000000000000000000000000000),0xffffffff))mstore(sub(msize,128),sload(add(exchange_ptr,1)))mstore(sub(msize,96),exchange_id)}for{}iszero(lt(sub(mload(sub(msize,160)),cursor),5)){}{tmp_data:=mload(cursor)cursor:=add(cursor,5){letuser_count:=and(div(tmp_data,0x1000000000000000000000000000000000000000000000000000000),0xff)letsettlements_size:=mul(user_count,44)letgroup_end:=add(cursor,settlements_size)ifgt(group_end,mload(sub(msize,160))){mstore(sub(msize,32),3)revert(add(sub(msize,32),31),1)}mstore(sub(msize,64),group_end)}letbase_asset_id:=and(div(tmp_data,0x100000000000000000000000000000000000000000000000000000000),0xffffffff)letquote_net:=0letbase_net:=0for{}lt(cursor,mload(sub(msize,64))){}{tmp_data:=mload(cursor)cursor:=add(cursor,20)letsession_ptr:=add(add(sessions_slot,mul(55340232221128654848,and(div(tmp_data,0x1000000000000000000000000),0xffffffffffffffffffffffffffffffffffffffff))),mul(12884901888,mload(sub(msize,96))))tmp_data:=mload(cursor)cursor:=add(cursor,24)letquote_delta:=and(div(tmp_data,0x1000000000000000000000000000000000000000000000000),0xffffffffffffffff)letbase_delta:=and(div(tmp_data,0x100000000000000000000000000000000),0xffffffffffffffff)letfees:=and(div(tmp_data,0x10000000000000000),0xffffffffffffffff)ifand(quote_delta,0x8000000000000000){quote_delta:=or(quote_delta,0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000)}ifand(base_delta,0x8000000000000000){base_delta:=or(base_delta,0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000)}quote_net:=add(quote_net,quote_delta)base_net:=add(base_net,base_delta)letquote_state_ptr:=add(session_ptr,mul(3,mload(sub(msize,192))))letbase_state_ptr:=add(session_ptr,mul(3,base_asset_id)){letstate_data_1:=sload(add(quote_state_ptr,1))letunlock_at:=and(state_data_1,0xffffffffffffffffffffffffffffffffffffffffffffffff)ifgt(timestamp,unlock_at){mstore(sub(msize,32),4)revert(add(sub(msize,32),31),1)}}{letstate_data_0:=sload(quote_state_ptr)letasset_balance:=and(state_data_0,0xffffffffffffffff)asset_balance:=add(asset_balance,quote_delta)asset_balance:=sub(asset_balance,fees)ifgt(asset_balance,0xFFFFFFFFFFFFFFFF){mstore(sub(msize,32),5)revert(add(sub(msize,32),31),1)}letfee_used:=and(div(state_data_0,0x100000000000000000000000000000000),0xffffffffffffffff)fee_used:=add(fee_used,fees)letexchange_fees_mem:=sub(msize,128)mstore(exchange_fees_mem,add(mload(exchange_fees_mem),fees))letfee_limit:=and(div(state_data_0,0x1000000000000000000000000000000000000000000000000),0xffffffffffffffff)ifgt(fee_used,fee_limit){mstore(sub(msize,32),6)revert(add(sub(msize,32),31),1)}sstore(quote_state_ptr,or(and(state_data_0,0xffffffffffffffff0000000000000000ffffffffffffffff0000000000000000),or(mul(fee_used,0x100000000000000000000000000000000),asset_balance)))}letquote_qty:=0letbase_qty:=0{letstate_ptr:=add(session_ptr,mul(3,base_asset_id))letstate_data_0:=sload(state_ptr)letasset_balance:=and(state_data_0,0xffffffffffffffff)asset_balance:=add(asset_balance,base_delta)ifgt(asset_balance,0xFFFFFFFFFFFFFFFF){mstore(sub(msize,32),7)revert(add(sub(msize,32),31),1)}quote_qty:=and(div(state_data_0,0x1000000000000000000000000000000000000000000000000),0xffffffffffffffff)base_qty:=and(div(state_data_0,0x100000000000000000000000000000000),0xffffffffffffffff)ifand(quote_qty,0x8000000000000000){quote_qty:=or(quote_qty,0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000)}ifand(base_qty,0x8000000000000000){base_qty:=or(base_qty,0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000)}quote_qty:=add(quote_qty,quote_delta)base_qty:=add(base_qty,base_delta)ifor(or(slt(quote_qty,0xffffffffffffffffffffffffffffffffffffffffffffffff8000000000000000),sgt(quote_qty,0x7fffffffffffffff)),or(slt(base_qty,0xffffffffffffffffffffffffffffffffffffffffffffffff8000000000000000),sgt(base_qty,0x7fffffffffffffff))){mstore(sub(msize,32),8)revert(add(sub(msize,32),31),1)}sstore(state_ptr,or(and(state_data_0,0xffffffffffffffff0000000000000000),or(or(mul(quote_qty,0x1000000000000000000000000000000000000000000000000),mul(base_qty,0x100000000000000000000000000000000)),asset_balance)))}{letstate_data_1:=sload(add(base_state_ptr,1))letmin_quote:=and(div(state_data_1,0x1000000000000000000000000000000000000000000000000),0xffffffffffffffff)letmin_base:=and(div(state_data_1,0x100000000000000000000000000000000),0xffffffffffffffff)ifand(min_quote,0x8000000000000000){min_quote:=or(min_quote,0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000)}ifand(min_base,0x8000000000000000){min_base:=or(min_base,0xffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000)}ifor(slt(quote_qty,min_quote),slt(base_qty,min_base)){mstore(sub(msize,32),9)revert(add(sub(msize,32),31),1)}}{letstate_data_2:=sload(add(base_state_ptr,2))letnegatives:=add(slt(quote_qty,0),mul(slt(base_qty,0),2))switchnegativescase3{mstore(sub(msize,32),10)revert(add(sub(msize,32),31),1)}case1{ifiszero(base_qty){mstore(sub(msize,32),11)revert(add(sub(msize,32),31),1)}letcurrent_price:=div(mul(sub(0,quote_qty),100000000),base_qty)ifgt(current_price,and(div(state_data_2,0x10000000000000000),0xffffffffffffffff)){mstore(sub(msize,32),12)revert(add(sub(msize,32),31),1)}}case2{ifiszero(quote_qty){mstore(sub(msize,32),13)revert(add(sub(msize,32),31),1)}letcurrent_price:=div(mul(quote_qty,100000000),sub(0,base_qty))iflt(current_price,and(state_data_2,0xffffffffffffffff)){mstore(sub(msize,32),14)revert(add(sub(msize,32),31),1)}}}}ifor(quote_net,base_net){mstore(sub(msize,32),15)revert(add(sub(msize,32),31),1)}}letexchange_fees:=mload(sub(msize,128))letexchange_id:=mload(sub(msize,96))letexchange_ptr:=add(exchanges_slot,mul(2,exchange_id))sstore(add(exchange_ptr,1),exchange_fees)}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 5
+column: 2
+content: uint256creator;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 6
+column: 2
+content: uint256exchange_count;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 7
+column: 2
+content: uint256asset_count;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 51
+column: 2
+content: Exchange[(2**32)]exchanges;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 2
+content: Asset[(2**32)]assets;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 53
+column: 2
+content: User[(2**160)]users;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 54
+column: 2
+content: UserSessions[(2**160)]sessions;
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :8
+SOLIDITY_USING_INLINE_ASSEMBLY :21
+SOLIDITY_SHOULD_RETURN_STRUCT :5
+SOLIDITY_SHOULD_NOT_BE_VIEW :8

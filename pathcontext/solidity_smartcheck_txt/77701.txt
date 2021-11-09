@@ -1,0 +1,203 @@
+F:\Blockchain\dataset_new_byID\77701.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 36
+column: 6
+content: throw
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 11
+column: 0
+content: contractTestableStandardCampaignisStandardCampaign{function()payablepublic{}functionTestableStandardCampaign(string_name,uint256_expiry,uint256_fundingGoal,address_beneficiary,address_owner)StandardCampaign(_name,_expiry,_fundingGoal,_beneficiary,_owner){}modifiervalidRefundClaim(uint256_contributionID){ContributionrefundContribution=contributions[_contributionID];if(refundsClaimed[_contributionID]==true){throw;}_;}functionsetExpiry(uint_expiry){expiry=_expiry;}functionaddTimeToExpiry(uint_timeToAdd){expiry=expiry+_timeToAdd;}functionsetFundingGoal(uint256_fundingGoal){fundingGoal=_fundingGoal;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 32
+column: 4
+content: if(refundsClaimed[_contributionID]==true){throw;}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 13
+column: 22
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 59
+column: 22
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 15
+column: 2
+content: functionTestableStandardCampaign(string_name,uint256_expiry,uint256_fundingGoal,address_beneficiary,address_owner)StandardCampaign(_name,_expiry,_fundingGoal,_beneficiary,_owner){}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 44
+column: 2
+content: functionsetExpiry(uint_expiry){expiry=_expiry;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 48
+column: 2
+content: functionaddTimeToExpiry(uint_timeToAdd){expiry=expiry+_timeToAdd;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 52
+column: 2
+content: functionsetFundingGoal(uint256_fundingGoal){fundingGoal=_fundingGoal;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 61
+column: 2
+content: functionnewProposal(address_board,string_name,address_proxy,uint_debatePeriod,address_destination,uint_value,bytes_calldata)returns(uintproposalID){returnBoardRoom(_board).newProposal(_name,_proxy,_debatePeriod,_destination,_value,_calldata);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 2
+content: functionvote(address_board,uint_proposalID,uint_position)returns(uintvoteWeight){returnBoardRoom(_board).vote(_proposalID,_position);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 69
+column: 2
+content: functionexecute(address_board,uint_proposalID,bytes_calldata){returnBoardRoom(_board).execute(_proposalID,_calldata);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 73
+column: 2
+content: functionnewCampaign(string_name,uint256_expiry,uint256_fundingGoal,address_beneficiary)returns(address){returnaddress(newStandardCampaign(_name,_expiry,_fundingGoal,_beneficiary,address(this)));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 80
+column: 2
+content: functionnewTestableCampaign(string_name,uint256_expiry,uint256_fundingGoal,address_beneficiary)returns(address){returnaddress(newTestableStandardCampaign(_name,_expiry,_fundingGoal,_beneficiary,address(this)));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 87
+column: 2
+content: functionnewContribution(address_campaign,uint256_value)returns(uint){StandardCampaigntarget=StandardCampaign(_campaign);returntarget.contributeMsgValue.value(_value)();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 109
+column: 2
+content: functionsetup(){member1=newCampaignMemberProxy();registry=newOpenRegistry();registry.register(address(member1));board=newBoardRoom(address(rules));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 116
+column: 2
+content: functiontest_campaignRules(){uint256expiry=now+1weeks;uint256fundingGoal=1000;addressdestinationAccount=address(newCampaignMemberProxy());CampaignMemberProxymemberA=newCampaignMemberProxy();registry.register(address(memberA));if(memberA.send(1000)){}addressbeneficiary=address(memberA);target=StandardCampaign(memberA.newCampaign(campaignName,expiry,fundingGoal,beneficiary));rules=newCampaignRules(address(target));board=newBoardRoom(address(rules));if(board.send(1000)){}OwnedProxyproxy=newOwnedProxy(address(board));if(proxy.send(600)){}assertEq(target.stage(),uint256(0));assertEq(target.amountRaised(),uint256(0));assertEq(target.fundingGoal(),fundingGoal);assertEq(target.expiry(),expiry);assertEq(target.beneficiary(),beneficiary);assertEq(target.totalContributions(),uint256(0));assertEq(target.owner(),address(memberA));CampaignMemberProxymemberB=newCampaignMemberProxy();registry.register(address(memberB));CampaignMemberProxymemberC=newCampaignMemberProxy();registry.register(address(memberC));CampaignMemberProxymemberD=newCampaignMemberProxy();registry.register(address(memberD));if(memberB.send(1000)){}if(memberC.send(1000)){}if(memberD.send(1000)){}assertEq(target.balance,0);assertEq(memberA.newContribution(address(target),250),uint256(0));assertEq(uint256(target.balance),uint256(250));assertEq(uint256(memberA.balance),uint256(750));assertEq(memberB.newContribution(address(target),249),uint256(1));assertEq(uint256(target.balance),uint256(499));assertEq(uint256(memberB.balance),uint256(751));assertEq(memberB.newProposal(address(board),"Some Awesome Sauce Proposal",address(proxy),30,target,400,""),0);assertEq(rules.votingWeightOf(address(memberA),0),250);assertEq(rules.votingWeightOf(address(memberB),0),249);memberA.vote(address(board),0,1);memberB.vote(address(board),0,0);assertEq(board.numVoters(0),2);assertEq(proxy.balance,600);memberA.execute(address(board),0,"");assertEq(proxy.balance,200);assertEq(target.balance,899);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 185
+column: 2
+content: functiontest_CampaignRulesFail(){uint256expiry=now+1weeks;uint256fundingGoal=1000;addressdestinationAccount=address(newCampaignMemberProxy());CampaignMemberProxymemberA=newCampaignMemberProxy();registry.register(address(memberA));if(memberA.send(1000)){}addressbeneficiary=address(memberA);target=StandardCampaign(memberA.newCampaign(campaignName,expiry,fundingGoal,beneficiary));rules=newCampaignRules(address(target));board=newBoardRoom(address(rules));if(board.send(1000)){}OwnedProxyproxy=newOwnedProxy(address(board));if(proxy.send(600)){}assertEq(target.stage(),uint256(0));assertEq(target.amountRaised(),uint256(0));assertEq(target.fundingGoal(),fundingGoal);assertEq(target.expiry(),expiry);assertEq(target.beneficiary(),beneficiary);assertEq(target.totalContributions(),uint256(0));assertEq(target.owner(),address(memberA));CampaignMemberProxymemberB=newCampaignMemberProxy();registry.register(address(memberB));CampaignMemberProxymemberC=newCampaignMemberProxy();registry.register(address(memberC));CampaignMemberProxymemberD=newCampaignMemberProxy();registry.register(address(memberD));if(memberB.send(1000)){}if(memberC.send(1000)){}if(memberD.send(1000)){}assertEq(target.balance,0);assertEq(memberA.newContribution(address(target),250),uint256(0));assertEq(uint256(target.balance),uint256(250));assertEq(uint256(memberA.balance),uint256(750));assertEq(memberB.newContribution(address(target),249),uint256(1));assertEq(uint256(target.balance),uint256(499));assertEq(uint256(memberB.balance),uint256(751));assertEq(memberB.newProposal(address(board),"Some Awesome Sauce Proposal",address(proxy),30,target,400,""),0);assertEq(rules.votingWeightOf(address(memberA),0),250);assertEq(rules.votingWeightOf(address(memberB),0),249);memberA.vote(address(board),0,0);memberB.vote(address(board),0,1);assertEq(board.numVoters(0),2);assertEq(proxy.balance,600);memberA.execute(address(board),0,"");assertEq(proxy.balance,600);assertEq(target.balance,499);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 98
+column: 2
+content: OpenRegistryregistry;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 99
+column: 2
+content: OwnedProxyproxy;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 100
+column: 2
+content: CampaignRulesrules;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 101
+column: 2
+content: BoardRoomboard;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 102
+column: 2
+content: CampaignMemberProxymember1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 104
+column: 2
+content: StandardCampaigntarget;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 105
+column: 2
+content: stringcampaignName="Make America Great Again";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 106
+column: 2
+content: stringstandardCampaignContributeMethodABI="contributeMsgValue():(uint256 contributionID)";
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 107
+column: 2
+content: stringstandardCampaignPayoutMethodABI="payoutToBeneficiary():(uint256 amountClaimed)";
+
+SOLIDITY_VISIBILITY :22
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :2

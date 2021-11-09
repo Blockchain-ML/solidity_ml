@@ -1,0 +1,53 @@
+C:\Users\hp\DataSet\contracts\ropsten\91\914d0cedcfa536a55f16fa9a2b5a2986262594b5_SECoin.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 3
+column: 0
+content: contractSECoin{stringpublicname;stringpublicsymbol;uintpublictotalSupply;uintpublicdecimals=10e18;mapping(address=>uint)balances;addresspublicowner;modifieronlyOwner{require(owner==msg.sender);_;}constructor(){name="Software Engineering Coin";symbol="SEC";owner=msg.sender;totalSupply=0;}functionmint(address_investor,uintamount)onlyOwner{balances[_investor]+=amount*decimals;totalSupply+=amount*decimals;}functionbuy()payable{balances[msg.sender]+=msg.value*decimals;totalSupply+=msg.value*decimals;}functiontransfer(address_to,uintamount){require(balances[msg.sender]>=amount);balances[_to]+=amount;balances[msg.sender]-=amount;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 18
+column: 4
+content: constructor(){name="Software Engineering Coin";symbol="SEC";owner=msg.sender;totalSupply=0;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 26
+column: 4
+content: functionmint(address_investor,uintamount)onlyOwner{balances[_investor]+=amount*decimals;totalSupply+=amount*decimals;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 32
+column: 4
+content: functionbuy()payable{balances[msg.sender]+=msg.value*decimals;totalSupply+=msg.value*decimals;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 38
+column: 4
+content: functiontransfer(address_to,uintamount){require(balances[msg.sender]>=amount);balances[_to]+=amount;balances[msg.sender]-=amount;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 4
+content: mapping(address=>uint)balances;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

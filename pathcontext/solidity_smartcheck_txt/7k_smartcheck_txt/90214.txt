@@ -1,0 +1,38 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\90214.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 9
+column: 2
+content: functiontestCanSetAndGetParticipant(){IterableMapping.itmaptestMap;addresstestAddr=msg.sender;IterableMapping.set(testMap,testAddr,true);boolres=IterableMapping.get(testMap,testAddr);Assert.equal(res,true,"Iterable map should set participant");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 19
+column: 2
+content: functiontestCanRemoveParticipant(){IterableMapping.itmaptestMap;addresstestAddr=msg.sender;IterableMapping.set(testMap,testAddr,true);boolres1=IterableMapping.get(testMap,testAddr);Assert.equal(res1,true,"Iterable map should set participant");IterableMapping.remove(testMap,testAddr);boolres2=IterableMapping.get(testMap,testAddr);Assert.equal(res2,false,"Iterable map should delete participant");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 34
+column: 2
+content: functiontestCanIterateOverParticipants(){IterableMapping.itmaptestMap;addresstestAddr1=msg.sender;uintcount=0;uintexpectedCount=1;IterableMapping.set(testMap,testAddr1,true);for(vari=IterableMapping.iterate_start(testMap);IterableMapping.iterate_valid(testMap,i);i=IterableMapping.iterate_next(testMap,i)){var(key,value)=IterableMapping.iterate_get(testMap,i);count++;}Assert.equal(count,expectedCount,"Iterable map should be able to iterate");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 49
+column: 2
+content: functiontestItermapIntegration(){IterableMapping.itmaptestMap;addresstestAddr1=msg.sender;uintcount=0;uintexpectedCount=1;IterableMapping.set(testMap,testAddr1,true);boolres1=IterableMapping.get(testMap,testAddr1);Assert.equal(res1,true,"Should add and get user");for(vari=IterableMapping.iterate_start(testMap);IterableMapping.iterate_valid(testMap,i);i=IterableMapping.iterate_next(testMap,i)){var(key,value)=IterableMapping.iterate_get(testMap,i);count++;Assert.equal(value,true,"Iterate value returned should be true");IterableMapping.remove(testMap,key);boolres2=IterableMapping.get(testMap,key);Assert.equal(res2,false,"Should have deleted key from iterate");}Assert.equal(count,expectedCount,"Iterable map should be able to iterate");}
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_PRAGMAS_VERSION :1

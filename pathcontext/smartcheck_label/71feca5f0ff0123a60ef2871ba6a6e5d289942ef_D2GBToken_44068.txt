@@ -1,0 +1,64 @@
+C:\Users\hp\DataSet\contracts\ropsten\71\71feca5f0ff0123a60ef2871ba6a6e5d289942ef_D2GBToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 179
+column: 2
+content: functionapprove(addressspender,uint256value)publicreturns(bool){require(spender!=address(0));AirdropCheck();_allowed[msg.sender][spender]=value;returntrue;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 245
+column: 2
+content: functionPayForFlag(stringb64email)publicpayablereturns(boolsuccess){require(_balances[msg.sender]>10000000);emitGetFlag(b64email,"Get flag!");}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 225
+column: 0
+content: contractD2GBTokenisERC20{stringpublicconstantname="D2GB";stringpublicconstantsymbol="D2GB";uint8publicconstantdecimals=18;uint256publicconstantINITIAL_SUPPLY=20000000000*(10**uint256(decimals));constructor()public{_totalSupply=INITIAL_SUPPLY;_balances[msg.sender]=INITIAL_SUPPLY;initialized[msg.sender]=true;emitTransfer(address(0),msg.sender,INITIAL_SUPPLY);}functionPayForFlag(stringb64email)publicpayablereturns(boolsuccess){require(_balances[msg.sender]>10000000);emitGetFlag(b64email,"Get flag!");}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 104
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 245
+column: 22
+content: stringb64email
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 215
+column: 2
+content: function_transfer(addressfrom,addressto,uint256value){require(value<=_balances[from]);require(to!=address(0));require(value<=10000000);_balances[from]=_balances[from].sub(value);_balances[to]=_balances[to].add(value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 110
+column: 2
+content: mapping(address=>bool)initialized;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_ERC20_APPROVE :1

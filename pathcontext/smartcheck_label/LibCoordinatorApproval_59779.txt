@@ -1,0 +1,25 @@
+C:\Users\hp\DataSet\LibCoordinatorApproval.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 19
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 64
+column: 4
+content: function_hashCoordinatorApproval(CoordinatorApprovalmemoryapproval)internalpurereturns(bytes32result){bytes32schemaHash=EIP712_COORDINATOR_APPROVAL_SCHEMA_HASH;bytesmemorytransactionSignature=approval.transactionSignature;addresstxOrigin=approval.txOrigin;bytes32transactionHash=approval.transactionHash;assembly{lettransactionSignatureHash:=keccak256(add(transactionSignature,32),mload(transactionSignature))letmemPtr:=mload(64)mstore(memPtr,schemaHash)mstore(add(memPtr,32),txOrigin)mstore(add(memPtr,64),transactionHash)mstore(add(memPtr,96),transactionSignatureHash)result:=keccak256(memPtr,128)}returnresult;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 82
+column: 8
+content: assembly{lettransactionSignatureHash:=keccak256(add(transactionSignature,32),mload(transactionSignature))letmemPtr:=mload(64)mstore(memPtr,schemaHash)mstore(add(memPtr,32),txOrigin)mstore(add(memPtr,64),transactionHash)mstore(add(memPtr,96),transactionSignatureHash)result:=keccak256(memPtr,128)}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

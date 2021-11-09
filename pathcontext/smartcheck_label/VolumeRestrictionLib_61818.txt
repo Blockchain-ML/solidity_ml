@@ -1,0 +1,47 @@
+C:\Users\hp\DataSet\VolumeRestrictionLib.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 122
+column: 8
+content: for(i=0;i<investors.length;i++){if(_isVolRestricted(_dataStore.getUint256(_getKey(INVESTORFLAGS,investors[i])))){counter=counter+(_holderToRestrictionType[investors[i]]==VolumeRestrictionTMStorage.TypeOfPeriod.Both?2:1);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 134
+column: 8
+content: for(i=0;i<investors.length;i++){if(_isVolRestricted(_dataStore.getUint256(_getKey(INVESTORFLAGS,investors[i])))){allAddresses[counter]=investors[i];if(_holderToRestrictionType[investors[i]]==VolumeRestrictionTMStorage.TypeOfPeriod.MultipleDays){_setValues(_individualRestrictions.individualRestriction[investors[i]],allowedTokens,startTime,rollingPeriodInDays,endTime,typeOfRestriction,counter);}elseif(_holderToRestrictionType[investors[i]]==VolumeRestrictionTMStorage.TypeOfPeriod.OneDay){_setValues(_individualRestrictions.individualDailyRestriction[investors[i]],allowedTokens,startTime,rollingPeriodInDays,endTime,typeOfRestriction,counter);}elseif(_holderToRestrictionType[investors[i]]==VolumeRestrictionTMStorage.TypeOfPeriod.Both){_setValues(_individualRestrictions.individualRestriction[investors[i]],allowedTokens,startTime,rollingPeriodInDays,endTime,typeOfRestriction,counter);counter++;allAddresses[counter]=investors[i];_setValues(_individualRestrictions.individualDailyRestriction[investors[i]],allowedTokens,startTime,rollingPeriodInDays,endTime,typeOfRestriction,counter);}counter++;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 122
+column: 8
+content: for(i=0;i<investors.length;i++){if(_isVolRestricted(_dataStore.getUint256(_getKey(INVESTORFLAGS,investors[i])))){counter=counter+(_holderToRestrictionType[investors[i]]==VolumeRestrictionTMStorage.TypeOfPeriod.Both?2:1);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 134
+column: 8
+content: for(i=0;i<investors.length;i++){if(_isVolRestricted(_dataStore.getUint256(_getKey(INVESTORFLAGS,investors[i])))){allAddresses[counter]=investors[i];if(_holderToRestrictionType[investors[i]]==VolumeRestrictionTMStorage.TypeOfPeriod.MultipleDays){_setValues(_individualRestrictions.individualRestriction[investors[i]],allowedTokens,startTime,rollingPeriodInDays,endTime,typeOfRestriction,counter);}elseif(_holderToRestrictionType[investors[i]]==VolumeRestrictionTMStorage.TypeOfPeriod.OneDay){_setValues(_individualRestrictions.individualDailyRestriction[investors[i]],allowedTokens,startTime,rollingPeriodInDays,endTime,typeOfRestriction,counter);}elseif(_holderToRestrictionType[investors[i]]==VolumeRestrictionTMStorage.TypeOfPeriod.Both){_setValues(_individualRestrictions.individualRestriction[investors[i]],allowedTokens,startTime,rollingPeriodInDays,endTime,typeOfRestriction,counter);counter++;allAddresses[counter]=investors[i];_setValues(_individualRestrictions.individualDailyRestriction[investors[i]],allowedTokens,startTime,rollingPeriodInDays,endTime,typeOfRestriction,counter);}counter++;}}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 10
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 110
+column: 15
+content: (address[]memoryallAddresses,uint256[]memoryallowedTokens,uint256[]memorystartTime,uint256[]memoryrollingPeriodInDays,uint256[]memoryendTime,VolumeRestrictionTMStorage.RestrictionType[]memorytypeOfRestriction)
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_SHOULD_RETURN_STRUCT :1

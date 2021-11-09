@@ -1,0 +1,113 @@
+C:\Users\hp\DataSet\contracts\ropsten\06\061fe1e72ad2d6fec7971e3fd0118148b7a41e6c_NokuCustomPresaleService.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 194
+column: 4
+content: owner=address(0)
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 444
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 716
+column: 4
+content: functionsetMinDeposit(uint256_minDeposit)externalonlyOwner{require(0<_minDeposit&&_minDeposit<minDeposit,"_minDeposit not in range [0, minDeposit]");require(!hasEnded(),"presale has ended");minDeposit=_minDeposit;emitLogMinDepositChanged(msg.sender,_minDeposit);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 729
+column: 4
+content: functionsetMaxWhitelistLength(uint256_maxWhitelistLength)externalonlyOwner{require(!hasEnded(),"presale has ended");setMaxWhitelistLengthInternal(_maxWhitelistLength);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 738
+column: 4
+content: functionsetWhitelistThresholdBalance(uint256_whitelistThreshold)externalonlyOwner{require(!hasEnded(),"presale has ended");setWhitelistThresholdBalanceInternal(_whitelistThreshold);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 766
+column: 4
+content: functionsetPresaleToken(MintableToken_presaleToken,uint256_rate)externalonlyOwner{require(_presaleToken!=presaleToken||_rate!=rate,"both _presaleToken and _rate equal to current ones");require(!hasEnded(),"presale has ended");presaleToken=_presaleToken;rate=_rate;emitLogPresaleTokenChanged(msg.sender,_presaleToken,_rate);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 883
+column: 4
+content: functionsetMaxCap(uint256_maxCap)externalonlyOwner{require(_maxCap>maxCap,"_maxCap is not greater than current maxCap");require(!hasEnded(),"presale has ended");maxCap=_maxCap;emitLogMaxCapChanged(msg.sender,_maxCap);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 1013
+column: 4
+content: functionsetPricingPlan(address_pricingPlan)publiconlyOwner{require(_pricingPlan.isContract(),"_pricingPlan is not contract");require(NokuPricingPlan(_pricingPlan)!=pricingPlan,"_pricingPlan equal to current");pricingPlan=NokuPricingPlan(_pricingPlan);emitLogPricingPlanChanged(msg.sender,_pricingPlan);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 335
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 585
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 835
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 140
+column: 2
+content: functionisContract(addressaddr)internalviewreturns(bool){uint256size;assembly{size:=extcodesize(addr)}returnsize>0;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 337
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 339
+column: 2
+content: uint256totalSupply_;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :3
+SOLIDITY_OVERPOWERED_ROLE :6
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1
+SOLIDITY_ERC20_APPROVE :1

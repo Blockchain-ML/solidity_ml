@@ -1,0 +1,90 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\86357.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 122
+column: 4
+content: functiongetPlayerData(uint32_playerId)constantexternalreturns(addresstrainer,uint32totalWin,uint32totalLose,uint32point,uint64a0,uint64a1,uint64a2,uint64s0,uint64s1,uint64s2,uint32energy,uintlastClaim){PlayerDatamemoryplayer=players[_playerId];return(player.trainer,player.totalWin,player.totalLose,player.point,player.monsters[0],player.monsters[1],player.monsters[2],player.monsters[3],player.monsters[4],player.monsters[5],player.energy,player.lastClaim);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 129
+column: 4
+content: functiongetPlayerDataByAddress(address_trainer)constantexternalreturns(uint32playerId,uint32totalWin,uint32totalLose,uint32point,uint64a0,uint64a1,uint64a2,uint64s0,uint64s1,uint64s2,uint32energy,uintlastClaim){playerId=playerIds[_trainer];PlayerDatamemoryplayer=players[playerId];totalWin=player.totalWin;totalLose=player.totalLose;point=player.point;a0=player.monsters[0];a1=player.monsters[1];a2=player.monsters[2];s0=player.monsters[3];s1=player.monsters[4];s2=player.monsters[5];energy=player.energy;lastClaim=player.lastClaim;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 146
+column: 4
+content: functionisOnBattle(address_trainer,uint64_objId)constantexternalreturns(bool){uint32playerId=playerIds[_trainer];if(playerId==0)returnfalse;PlayerDatamemoryplayer=players[playerId];for(uinti=0;i<player.monsters.length;i++)if(player.monsters[i]==_objId)returntrue;returnfalse;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 157
+column: 4
+content: functiongetPlayerPoint(uint32_playerId)constantexternalreturns(addresstrainer,uint32totalWin,uint32totalLose,uint32point){PlayerDatamemoryplayer=players[_playerId];return(player.trainer,player.totalWin,player.totalLose,player.point);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 162
+column: 4
+content: functiongetPlayerId(address_trainer)constantexternalreturns(uint32playerId){returnplayerIds[_trainer];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 166
+column: 4
+content: functiongetPlayerEnergy(uint32_playerId)constantexternalreturns(addresstrainer,uint32energy,uintlastClaim){PlayerDatamemoryplayer=players[_playerId];trainer=player.trainer;energy=player.energy;lastClaim=player.lastClaim;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 173
+column: 4
+content: functiongetPlayerEnergyByAddress(address_trainer)constantexternalreturns(uint32playerId,uint32energy,uintlastClaim){playerId=playerIds[_trainer];PlayerDatamemoryplayer=players[playerId];energy=player.energy;lastClaim=player.lastClaim;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 151
+column: 8
+content: for(uinti=0;i<player.monsters.length;i++)if(player.monsters[i]==_objId)returntrue;
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 151
+column: 8
+content: for(uinti=0;i<player.monsters.length;i++)if(player.monsters[i]==_objId)returntrue;
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 71
+column: 4
+content: mapping(uint32=>PlayerData)players;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 72
+column: 4
+content: mapping(address=>uint32)playerIds;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :7
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

@@ -1,0 +1,105 @@
+C:\Users\hp\DataSet\ZeroExV2MultiOrderExchangeWrapper.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 215
+column: 8
+content: for(uint256i=0;i<orders.length&&total.makerAmount!=0;i++){Ordermemoryorder=orders[i];OrderInfomemoryinfo=zeroExExchange.getOrderInfo(order);if(info.orderStatus!=uint8(OrderStatus.FILLABLE)){continue;}TokenAmountsmemoryavailable;available.takerAmount=order.takerAssetAmount.sub(info.orderTakerAssetFilledAmount);available.makerAmount=MathHelpers.getPartialAmount(available.takerAmount,order.takerAssetAmount,order.makerAssetAmount);if(available.makerAmount>total.makerAmount){available.makerAmount=total.makerAmount;available.takerAmount=MathHelpers.getPartialAmountRoundedUp(order.takerAssetAmount,order.makerAssetAmount,available.makerAmount);}if(!makerHasEnoughTokens(makerToken,balances,order.makerAddress,available.makerAmount)){continue;}total.takerAmount=total.takerAmount.add(available.takerAmount);total.makerAmount=total.makerAmount.sub(available.makerAmount);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 286
+column: 8
+content: for(i=0;i<balances.length;i++){current=balances[i];if(current.owner==address(0)||current.owner==makerAddress){break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 286
+column: 8
+content: for(i=0;i<balances.length;i++){current=balances[i];if(current.owner==address(0)||current.owner==makerAddress){break;}}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 45
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 388
+column: 4
+content: functionparseMaxPriceRatio(bytesmemoryorderData)privatepurereturns(TokenAmountsmemory){uint256takerAmountRatio=0;uint256makerAmountRatio=0;assembly{takerAmountRatio:=mload(add(orderData,32))makerAmountRatio:=mload(add(orderData,64))}require(uint128(takerAmountRatio)==takerAmountRatio,"ZeroExV2MultiOrderExchangeWrapper#parseMaxPriceRatio: takerAmountRatio > 128 bits");require(uint128(makerAmountRatio)==makerAmountRatio,"ZeroExV2MultiOrderExchangeWrapper#parseMaxPriceRatio: makerAmountRatio > 128 bits");returnTokenAmounts({takerAmount:takerAmountRatio,makerAmount:makerAmountRatio});}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 423
+column: 4
+content: functionparseSignatures(bytesmemoryorderData)privatepurereturns(bytes[]memory){uint256numOrders=parseNumOrders(orderData);bytes[]memorysignatures=newbytes[](numOrders);for(uint256i=0;i<numOrders;i++){signatures[i]=newbytes(66);bytesmemorysignature=signatures[i];uint256dataOffset=getOrderDataOffset(i);assembly{mstore(add(signature,32),mload(add(add(orderData,288),dataOffset)))mstore(add(signature,64),mload(add(add(orderData,320),dataOffset)))mstore(add(signature,66),mload(add(add(orderData,322),dataOffset)))}}returnsignatures;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 454
+column: 4
+content: functionparseOrders(bytesmemoryorderData,addressmakerToken,addresstakerToken)privatepurereturns(Order[]memory){uint256numOrders=parseNumOrders(orderData);Order[]memoryorders=newOrder[](numOrders);bytesmemorymakerAssetData=tokenAddressToAssetData(makerToken);bytesmemorytakerAssetData=tokenAddressToAssetData(takerToken);for(uint256i=0;i<numOrders;i++){Ordermemoryorder=orders[i];order.makerFee=0;order.takerFee=0;order.makerAssetData=makerAssetData;order.takerAssetData=takerAssetData;uint256dataOffset=getOrderDataOffset(i);assembly{mstore(order,mload(add(add(orderData,32),dataOffset)))mstore(add(order,32),mload(add(add(orderData,64),dataOffset)))mstore(add(order,64),mload(add(add(orderData,96),dataOffset)))mstore(add(order,96),mload(add(add(orderData,128),dataOffset)))mstore(add(order,128),mload(add(add(orderData,160),dataOffset)))mstore(add(order,160),mload(add(add(orderData,192),dataOffset)))mstore(add(order,256),mload(add(add(orderData,224),dataOffset)))mstore(add(order,288),mload(add(add(orderData,256),dataOffset)))}}returnorders;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 499
+column: 4
+content: functiontokenAddressToAssetData(addresstokenAddress)privatepurereturns(bytesmemory){bytesmemoryresult=newbytes(36);bytes32selector=0xf47261b000000000000000000000000000000000000000000000000000000000;assembly{mstore(add(result,32),selector)mstore(add(result,36),tokenAddress)}returnresult;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 399
+column: 8
+content: assembly{takerAmountRatio:=mload(add(orderData,32))makerAmountRatio:=mload(add(orderData,64))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 441
+column: 12
+content: assembly{mstore(add(signature,32),mload(add(add(orderData,288),dataOffset)))mstore(add(signature,64),mload(add(add(orderData,320),dataOffset)))mstore(add(signature,66),mload(add(add(orderData,322),dataOffset)))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 481
+column: 12
+content: assembly{mstore(order,mload(add(add(orderData,32),dataOffset)))mstore(add(order,32),mload(add(add(orderData,64),dataOffset)))mstore(add(order,64),mload(add(add(orderData,96),dataOffset)))mstore(add(order,96),mload(add(add(orderData,128),dataOffset)))mstore(add(order,128),mload(add(add(orderData,160),dataOffset)))mstore(add(order,160),mload(add(add(orderData,192),dataOffset)))mstore(add(order,256),mload(add(add(orderData,224),dataOffset)))mstore(add(order,288),mload(add(add(orderData,256),dataOffset)))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 512
+column: 8
+content: assembly{mstore(add(result,32),selector)mstore(add(result,36),tokenAddress)}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 52
+column: 4
+content: uint256constantPRICE_DATA_LENGTH=64;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 55
+column: 4
+content: uint256constantORDER_DATA_LENGTH=322;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :4
+SOLIDITY_SHOULD_NOT_BE_PURE :4

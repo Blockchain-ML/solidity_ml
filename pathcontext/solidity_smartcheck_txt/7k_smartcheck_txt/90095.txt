@@ -1,0 +1,113 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\90095.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 129
+column: 2
+content: functiongetSaleRate(uint256currentBaseTokensSold)publicconstantreturns(uint256){uintdecimals=TOKEN_DECIMALS;uint256wholeTokensSold=currentBaseTokensSold.div(decimals);uint256generation=wholeTokensSold.div(10**6);uint256priceMultiplier=0;for(uinti=0;i<=generation;i++){priceMultiplier=priceMultiplier.add(decimals.div(1+i));}returnrate.mul(decimals).div(priceMultiplier);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 157
+column: 2
+content: functiongetCurrentSaleRate()publicconstantreturns(uint256){returngetSaleRate(baseTokensSold);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 59
+column: 4
+content: for(uinti=0;i<_toArray.length;i++){token.mint(_toArray[i],_amtArray[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 59
+column: 4
+content: for(uinti=0;i<_toArray.length;i++){token.mint(_toArray[i],_amtArray[i]);}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 72
+column: 2
+content: functionsetBaseTokensSold(uint256_baseTokensSold)onlyOwner{baseTokensSold=_baseTokensSold;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 11
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 28
+column: 2
+content: functionSwarmCrowdsale(uint256_startTime,uint256_endTime,uint256_rate,address_wallet,address_token,uint256_baseTokensSold)FinalizableCrowdsale(_startTime,_endTime,_rate,_wallet,_token){baseTokensSold=_baseTokensSold;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 42
+column: 2
+content: functionpresaleMint(address_to,uint256_amt)onlyOwner{require(!initialized);token.mint(_to,_amt);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 49
+column: 2
+content: functionmultiPresaleMint(address[]_toArray,uint256[]_amtArray)onlyOwner{require(!initialized);require(_toArray.length>0);require(_toArray.length==_amtArray.length);for(uinti=0;i<_toArray.length;i++){token.mint(_toArray[i],_amtArray[i]);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 2
+content: functioninitializeToken()onlyOwner{require(!initialized);initialized=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 72
+column: 2
+content: functionsetBaseTokensSold(uint256_baseTokensSold)onlyOwner{baseTokensSold=_baseTokensSold;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 17
+column: 2
+content: uint256constantTOKEN_DECIMALS=10**18;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 20
+column: 2
+content: uint256constantTOKEN_TARGET_SOLD=33333333*TOKEN_DECIMALS;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 23
+column: 2
+content: uint256constantMAX_TOKEN_SALE_CAP=33333333*TOKEN_DECIMALS;
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

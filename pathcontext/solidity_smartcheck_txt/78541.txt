@@ -1,0 +1,202 @@
+F:\Blockchain\dataset_new_byID\78541.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 24
+column: 16
+content: 0xe7246aa3
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 25
+column: 16
+content: 0xe75a4a2c
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 26
+column: 16
+content: 0xf4ff7d2d
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 27
+column: 16
+content: 0x6e46c9bb
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 28
+column: 16
+content: 0xee73722f
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 29
+column: 16
+content: 0xdb4d0ae0
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 30
+column: 16
+content: 0x60068e2d
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 215
+column: 8
+content: loanList.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 538
+column: 8
+content: loanList.length--
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 19
+column: 4
+content: functioninitialize(address_target)publiconlyOwner{targets[0xe7246aa3]=_target;targets[0xe75a4a2c]=_target;targets[0xf4ff7d2d]=_target;targets[0x6e46c9bb]=_target;targets[0xee73722f]=_target;targets[0xdb4d0ae0]=_target;targets[0x60068e2d]=_target;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 47
+column: 8
+content: if(loanOrder.loanTokenAddress==address(0)){revert("BZxLoanHealth::payInterest: loanOrder.loanTokenAddress == address(0)");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 53
+column: 8
+content: if(loanPosition.loanTokenAmountFilled==0){revert("BZxLoanHealth::payInterest: loanPosition.loanTokenAmountFilled == 0");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 86
+column: 8
+content: if(loanPosition.loanTokenAmountFilled==0||!loanPosition.active){revert("BZxLoanHealth::liquidatePosition: loanPosition.loanTokenAmountFilled == 0 || !loanPosition.active");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 91
+column: 8
+content: if(loanOrder.loanTokenAddress==address(0)){revert("BZxLoanHealth::liquidatePosition: loanOrder.loanTokenAddress == address(0)");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 110
+column: 12
+content: if(loanTokenAmount==0){revert("BZxLoanHealth::liquidatePosition: loanTokenAmount == 0");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 120
+column: 16
+content: if(!OracleInterface(oracleAddresses[loanOrder.oracleAddress]).shouldLiquidate(loanOrderHash,trader,loanOrder.loanTokenAddress,loanPosition.positionTokenAddressFilled,loanPosition.collateralTokenAddressFilled,loanPosition.loanTokenAmountFilled,loanPosition.positionTokenAmountFilled,loanPosition.collateralTokenAmountFilled,loanOrder.maintenanceMarginAmount)){revert("BZxLoanHealth::liquidatePosition: liquidation not allowed");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 359
+column: 12
+content: if(!BZxVault(vaultContract).withdrawToken(interestData.interestTokenAddress,oracleAddresses[loanOrder.oracleAddress],amountPaid)){revert("BZxLoanHealth::_payInterest: BZxVault.withdrawToken failed");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 368
+column: 12
+content: if(!OracleInterface(oracleAddresses[loanOrder.oracleAddress]).didPayInterest(loanOrder.loanOrderHash,loanPosition.trader,loanPosition.lender,interestData.interestTokenAddress,amountPaid,convert,gasUsed)){revert("BZxLoanHealth::_payInterest: OracleInterface.didPayInterest failed");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 399
+column: 8
+content: if(loanPosition.loanTokenAmountFilled==0||!loanPosition.active){revert("BZxLoanHealth::_closeLoan: loanPosition.loanTokenAmountFilled == 0 || !loanPosition.active");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 404
+column: 8
+content: if(loanOrder.loanTokenAddress==address(0)){revert("BZxLoanHealth::_closeLoan: loanOrder.loanTokenAddress == address(0)");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 418
+column: 12
+content: if(loanTokenAmount==0){revert("BZxLoanHealth::_closeLoan: loanTokenAmount == 0");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 461
+column: 12
+content: if(!BZxVault(vaultContract).withdrawToken(loanOrder.interestTokenAddress,loanPosition.trader,totalInterestToRefund)){revert("BZxLoanHealth::_finalizeLoan: BZxVault.withdrawToken interest failed");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 472
+column: 12
+content: if(!BZxVault(vaultContract).withdrawToken(loanPosition.collateralTokenAddressFilled,oracleAddresses[loanOrder.oracleAddress],loanPosition.collateralTokenAmountFilled)){revert("BZxLoanHealth::_finalizeLoan: BZxVault.withdrawToken (collateral) failed");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 495
+column: 12
+content: if(!BZxVault(vaultContract).withdrawToken(loanPosition.collateralTokenAddressFilled,loanPosition.trader,loanPosition.collateralTokenAmountFilled)){revert("BZxLoanHealth::_finalizeLoan: BZxVault.withdrawToken collateral failed");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 508
+column: 16
+content: if(!BZxVault(vaultContract).withdrawToken(loanPosition.positionTokenAddressFilled,loanPosition.trader,profit)){revert("BZxLoanHealth::_finalizeLoan: BZxVault.withdrawToken profit failed");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 519
+column: 12
+content: if(!BZxVault(vaultContract).withdrawToken(loanPosition.positionTokenAddressFilled,loanPosition.lender,loanPosition.positionTokenAmountFilled)){revert("BZxLoanHealth::_finalizeLoan: BZxVault.withdrawToken loan failed");}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 548
+column: 8
+content: if(!OracleInterface(oracleAddresses[loanOrder.oracleAddress]).didCloseLoan(loanOrder.loanOrderHash,msg.sender,isLiquidation,gasUsed)){revert("BZxLoanHealth::_finalizeLoan: OracleInterface.didCloseLoan failed");}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 15
+column: 4
+content: usingSafeMathforuint256;
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :2
+SOLIDITY_REVERT_REQUIRE :17
+SOLIDITY_ADDRESS_HARDCODED :7

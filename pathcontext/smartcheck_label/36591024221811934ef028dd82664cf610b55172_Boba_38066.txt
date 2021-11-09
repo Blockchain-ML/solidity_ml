@@ -1,0 +1,33 @@
+C:\Users\hp\DataSet\contracts\ropsten\36\36591024221811934ef028dd82664cf610b55172_Boba.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 60
+column: 0
+content: contractBoba{uintp3dPercentage=20;uintinternalreserveInWei=0;uintinternaltotalMicroKeys=0;mapping(address=>uint)internalkeyHolding;eventonBoughtMicroKeys(uintmicroKeys_,stringtweet_);functiongetWeiPriceMicroKeys()publicpurereturns(uint){return1e6;}functionvaluePerMicroKey()publicviewreturns(uint){returnreserveInWei/totalMicroKeys;}constructor()public{}functionbuyKeys(uintmicroKeys_,stringtweet_)publicpayable{require(microKeys_*getWeiPriceMicroKeys()<msg.value*(100-p3dPercentage)/100,"Need to pay higher than current prices");reserveInWei=SafeMath.add(reserveInWei,msg.value);reserveInWei=msg.value*p3dPercentage/100;address_customerAddress=msg.sender;keyHolding[_customerAddress]+=microKeys_;totalMicroKeys+=microKeys_;emitonBoughtMicroKeys(microKeys_,tweet_);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 85
+column: 38
+content: stringtweet_
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 61
+column: 4
+content: uintp3dPercentage=20;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :1

@@ -1,0 +1,141 @@
+C:\Users\hp\DataSet\RLPEncode.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 12
+column: 43
+content: 0x80
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 54
+column: 15
+content: 0x1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 57
+column: 13
+content: 0x100
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 10
+column: 1
+content: functionencodeItem(bytesmemoryself)internalconstantreturns(bytes){bytesmemoryencoded;if(self.length==1&&uint(self[0])<0x80){encoded=newbytes(1);encoded=self;}else{encoded=BytesLib.concat(encodeLength(self.length,128),self);}returnencoded;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 22
+column: 2
+content: functionencodeList(bytes[]memoryself)internalconstantreturns(bytes){bytesmemoryencoded;for(uinti=0;i<self.length;i++){encoded=BytesLib.concat(encoded,encodeItem(self[i]));}returnBytesLib.concat(encodeLength(encoded.length,192),encoded);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 33
+column: 1
+content: functionencodeListWithPasses(bytes[]memoryself,bool[]pass)internalconstantreturns(bytes){bytesmemoryencoded;for(uinti=0;i<self.length;i++){if(pass[i]==true){encoded=BytesLib.concat(encoded,self[i]);}else{encoded=BytesLib.concat(encoded,encodeItem(self[i]));}}returnBytesLib.concat(encodeLength(encoded.length,192),encoded);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 46
+column: 2
+content: functionencodeLength(uint256L,uint256offset)internalconstantreturns(bytes){if(L<56){bytesmemoryprefix=newbytes(1);prefix[0]=byte(L+offset);returnprefix;}else{uintlenLen;uinti=0x1;while(L/i!=0){lenLen++;i*=0x100;}bytesmemoryprefix0=getLengthBytes(offset+55+lenLen);bytesmemoryprefix1=getLengthBytes(L);returnBytesLib.concat(prefix0,prefix1);}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 65
+column: 1
+content: functiongetLengthBytes(uint256x)constantreturns(bytesb){uint256nBytes=1;if(x>255){nBytes=2;}b=newbytes(nBytes);for(uinti=0;i<nBytes;i++){b[i]=byte(uint8(x/(2**(8*(nBytes-1-i)))));}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 24
+column: 4
+content: for(uinti=0;i<self.length;i++){encoded=BytesLib.concat(encoded,encodeItem(self[i]));}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 35
+column: 4
+content: for(uinti=0;i<self.length;i++){if(pass[i]==true){encoded=BytesLib.concat(encoded,self[i]);}else{encoded=BytesLib.concat(encoded,encodeItem(self[i]));}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 24
+column: 4
+content: for(uinti=0;i<self.length;i++){encoded=BytesLib.concat(encoded,encodeItem(self[i]));}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 35
+column: 4
+content: for(uinti=0;i<self.length;i++){if(pass[i]==true){encoded=BytesLib.concat(encoded,self[i]);}else{encoded=BytesLib.concat(encoded,encodeItem(self[i]));}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 4
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 10
+column: 67
+content: bytes
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 22
+column: 70
+content: bytes
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 33
+column: 52
+content: bool[]pass
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 33
+column: 92
+content: bytes
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 46
+column: 78
+content: bytes
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 1
+content: functiongetLengthBytes(uint256x)constantreturns(bytesb){uint256nBytes=1;if(x>255){nBytes=2;}b=newbytes(nBytes);for(uinti=0;i<nBytes;i++){b[i]=byte(uint8(x/(2**(8*(nBytes-1-i)))));}}
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :5
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_ADDRESS_HARDCODED :3
+SOLIDITY_UPGRADE_TO_050 :5
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2

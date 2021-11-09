@@ -1,0 +1,78 @@
+C:\Users\hp\DataSet\contracts\mainnet\3f\3f041a9705fd66e0e795fb1fbca3896030f0679d_PoliToken.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: 111ttt
+severity: 1
+line: 257
+column: 25
+content: call.value(div_).gas(gas_)("")
+
+ruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 164
+column: 2
+content: functionapprove(address_spender,uint256_value)publicchk_paused()returns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 102
+column: 8
+content: for(uinti=1;i<=totalPartners_;i++){if(store[i].owner==_to){exists_=true;}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 53
+column: 0
+content: contractERC20Basic{functionbalanceOf(addresswho)publicviewreturns(uint256);functiontransfer(addressto,uint256value)publicpayablereturns(bool);eventTransfer(addressindexedfrom,addressindexedto,uint256value);boolinternalpause=false;modifierchk_paused(){require(pause==false,&39<missing ')'>;Sorry,<missing '}'>
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 64
+column: 0
+content: contractERC20isERC20Basic{functiontotalSupply()publicviewreturns(uint);functionallowance(addressowner,addressspender)publicviewreturns(uint256);functiontransferFrom(addressfrom,addressto,uint256value)publicpayablereturns(bool);functionapprove(addressspender,uint256value)publicreturns(bool);eventApproval(addressindexedowner,addressindexedspender,uint256value);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 79
+column: 0
+content: contractBasicTokenisERC20Basic{usingSafeMathforuint256;mapping(address=>uint256)internalbalances;structpartners{uint256seq;addressowner;}mapping(uint=>partners)internalstore;uint256internaltotalPartners_;uint256internaldiv_bal_;functiontransfer(address_to,uint256_value)publicpayablereturns(bool){require(_to!=address(0),&39<missing ')'>;Addressneed<missing ';'>tobe<missing ';'>differentof<missing ';'>zero&39;);require(_value<=balances[msg.sender],&39<missing ')'>;Valueisgreaterthan<missing ';'>balance&39;);require(pause==false,&39<missing ')'>;Contractpaused<missing ';'>topay<missing ';'>dividendsor<missing ';'>otherreason<missing ';'>especifiedin<missing ';'>polidatacompressor.com&39;);if(balances[msg.sender]>=_value&&_value>0){balances[msg.sender]=balances[msg.sender].Ssub(_value);boolexists_=false;for(uinti=1;i<=totalPartners_;i++){if(store[i].owner==_to){exists_=true;}}if(exists_==false){totalPartners_=totalPartners_.Sadd(1);store[totalPartners_].seq=totalPartners_;store[totalPartners_].owner=_to;}balances[_to]=balances[_to].Sadd(_value);emitTransfer(msg.sender,_to,_value);returntrue;}else{returnfalse;}}functionbalanceOf(address_owner)publicviewreturns(uint256){returnbalances[_owner];}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 128
+column: 0
+content: contractStandardTokenisERC20,BasicToken{mapping(address=>mapping(address=>uint256))internalallowed;addressinternalowner;functiontransferFrom(address_from,address_to,uint256_value)publicpayablechk_paused()returns(bool){require(_to!=address(0),&39<missing ')'>;Addressneed<missing ';'>tobe<missing ';'>differentof<missing ';'>zero&39;);require(_value<=balances[_from],&39<missing ')'>;Valueisgreaterthan<missing ';'>balance&39;);require(_value<=allowed[_from][msg.sender],&39<missing ')'>;Valueisgreaterthan<missing ';'>allowed&39;);balances[_from]=balances[_from].Ssub(_value);balances[_to]=balances[_to].Sadd(_value);allowed[_from][msg.sender]=allowed[_from][msg.sender].Ssub(_value);emitTransfer(_from,_to,_value);returntrue;}functionapprove(address_spender,uint256_value)publicchk_paused()returns(bool){allowed[msg.sender][_spender]=_value;emitApproval(msg.sender,_spender,_value);returntrue;}functionallowance(address_owner,address_spender)publicviewreturns(uint256){returnallowed[_owner][_spender];}functionincreaseApproval(address_spender,uint256_addedValue)publicchk_paused()returns(bool){allowed[msg.sender][_spender]=(allowed[msg.sender][_spender].Sadd(_addedValue));emitApproval(msg.sender,_spender,allowed[msg.sender][_spender]);returntrue;}functiondecreaseApproval(address_spender,uint256_subtractedValue)publicchk_paused()returns(bool){uint256oldValue=allowed[msg.sender][_spender];if(_subtractedValue>oldValue){allowed[msg.sender][_spender]=0;}else{allowed[msg.sender][_spender]=oldValue.Ssub(_subtractedValue);}emitApproval(msg.sender,_spender,allowed[msg.sender][_spender]);returntrue;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 80
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 257
+column: 25
+content: call.value(div_).gas(gas_)("")
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :4
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_CALL_WITHOUT_DATA :1
+SOLIDITY_ERC20_APPROVE :1

@@ -1,0 +1,196 @@
+C:\Users\hp\DataSet\contracts\mainnet\72\720c9a0a45b46a84fc1730224ab6cf617cdd98de_BTC.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 112
+column: 19
+content: 0xfd
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 114
+column: 27
+content: 0xfd
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 116
+column: 27
+content: 0xfe
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 118
+column: 27
+content: 0xff
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 271
+column: 32
+content: 0x76
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 272
+column: 36
+content: 0xa9
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 273
+column: 36
+content: 0x14
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 274
+column: 37
+content: 0x88
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 275
+column: 37
+content: 0xac
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 281
+column: 36
+content: 0xa9
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 282
+column: 36
+content: 0x14
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 283
+column: 37
+content: 0x87
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 185
+column: 8
+content: for(uinti=0;i<output_values.length;i++){varpkhash=parseOutputScript(txBytes,script_starts[i],output_script_lens[i]);if(pkhash==btcAddress&&output_values[i]>=value){return(true,output_values[i]);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 185
+column: 8
+content: for(uinti=0;i<output_values.length;i++){varpkhash=parseOutputScript(txBytes,script_starts[i],output_script_lens[i]);if(pkhash==btcAddress&&output_values[i]>=value){return(true,output_values[i]);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 101
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VAR
+patternId: d28aa7
+severity: 2
+line: 214
+column: 13
+content: vari=0
+
+ruleId: SOLIDITY_VAR
+patternId: d28aa7
+severity: 2
+line: 247
+column: 13
+content: vari=0
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 107
+column: 4
+content: functionparseVarInt(bytestxBytes,uintpos)returns(uint,uint){varibit=uint8(txBytes[pos]);pos+=1;if(ibit<0xfd){return(ibit,pos);}elseif(ibit==0xfd){return(getBytesLE(txBytes,pos,16),pos+2);}elseif(ibit==0xfe){return(getBytesLE(txBytes,pos,32),pos+4);}elseif(ibit==0xff){return(getBytesLE(txBytes,pos,64),pos+8);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 123
+column: 4
+content: functiongetBytesLE(bytesdata,uintpos,uintbits)returns(uint){if(bits==8){returnuint8(data[pos]);}elseif(bits==16){returnuint16(data[pos])+uint16(data[pos+1])*2**8;}elseif(bits==32){returnuint32(data[pos])+uint32(data[pos+1])*2**8+uint32(data[pos+2])*2**16+uint32(data[pos+3])*2**24;}elseif(bits==64){returnuint64(data[pos])+uint64(data[pos+1])*2**8+uint64(data[pos+2])*2**16+uint64(data[pos+3])*2**24+uint64(data[pos+4])*2**32+uint64(data[pos+5])*2**40+uint64(data[pos+6])*2**48+uint64(data[pos+7])*2**56;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 147
+column: 4
+content: functiongetFirstTwoOutputs(bytestxBytes)returns(uint,bytes20,uint,bytes20){uintpos;uint[]memoryinput_script_lens=newuint[](2);uint[]memoryoutput_script_lens=newuint[](2);uint[]memoryscript_starts=newuint[](2);uint[]memoryoutput_values=newuint[](2);bytes20[]memoryoutput_addresses=newbytes20[](2);pos=4;(input_script_lens,pos)=scanInputs(txBytes,pos,0);(output_values,script_starts,output_script_lens,pos)=scanOutputs(txBytes,pos,2);for(uinti=0;i<2;i++){varpkhash=parseOutputScript(txBytes,script_starts[i],output_script_lens[i]);output_addresses[i]=pkhash;}return(output_values[0],output_addresses[0],output_values[1],output_addresses[1]);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 175
+column: 4
+content: functioncheckValueSent(bytestxBytes,bytes20btcAddress,uintvalue)returns(bool,uint){uintpos=4;(,pos)=scanInputs(txBytes,pos,0);var(output_values,script_starts,output_script_lens,)=scanOutputs(txBytes,pos,0);for(uinti=0;i<output_values.length;i++){varpkhash=parseOutputScript(txBytes,script_starts[i],output_script_lens[i]);if(pkhash==btcAddress&&output_values[i]>=value){return(true,output_values[i]);}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 197
+column: 4
+content: functionscanInputs(bytestxBytes,uintpos,uintstop)returns(uint[],uint){uintn_inputs;uinthalt;uintscript_len;(n_inputs,pos)=parseVarInt(txBytes,pos);if(stop==0||stop>n_inputs){halt=n_inputs;}else{halt=stop;}uint[]memoryscript_lens=newuint[](halt);for(vari=0;i<halt;i++){pos+=36;(script_len,pos)=parseVarInt(txBytes,pos);script_lens[i]=script_len;pos+=script_len+4;}return(script_lens,pos);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 228
+column: 4
+content: functionscanOutputs(bytestxBytes,uintpos,uintstop)returns(uint[],uint[],uint[],uint){uintn_outputs;uinthalt;uintscript_len;(n_outputs,pos)=parseVarInt(txBytes,pos);if(stop==0||stop>n_outputs){halt=n_outputs;}else{halt=stop;}uint[]memoryscript_starts=newuint[](halt);uint[]memoryscript_lens=newuint[](halt);uint[]memoryoutput_values=newuint[](halt);for(vari=0;i<halt;i++){output_values[i]=getBytesLE(txBytes,pos,64);pos+=8;(script_len,pos)=parseVarInt(txBytes,pos);script_starts[i]=pos;script_lens[i]=script_len;pos+=script_len;}return(output_values,script_starts,script_lens,pos);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 260
+column: 4
+content: functionsliceBytes20(bytesdata,uintstart)returns(bytes20){uint160slice=0;for(uint160i=0;i<20;i++){slice+=uint160(data[i+start])<<(8*(19-i));}returnbytes20(slice);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 269
+column: 4
+content: functionisP2PKH(bytestxBytes,uintpos,uintscript_len)returns(bool){return(script_len==25)&&(txBytes[pos]==0x76)&&(txBytes[pos+1]==0xa9)&&(txBytes[pos+2]==0x14)&&(txBytes[pos+23]==0x88)&&(txBytes[pos+24]==0xac);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 279
+column: 4
+content: functionisP2SH(bytestxBytes,uintpos,uintscript_len)returns(bool){return(script_len==23)&&(txBytes[pos+0]==0xa9)&&(txBytes[pos+1]==0x14)&&(txBytes[pos+22]==0x87);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 288
+column: 4
+content: functionparseOutputScript(bytestxBytes,uintpos,uintscript_len)returns(bytes20){if(isP2PKH(txBytes,pos,script_len)){returnsliceBytes20(txBytes,pos+3);}elseif(isP2SH(txBytes,pos,script_len)){returnsliceBytes20(txBytes,pos+2);}else{return;}}
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_VAR :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_ADDRESS_HARDCODED :12
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

@@ -1,0 +1,59 @@
+F:\Blockchain\solidity_dataset_work\7k_dataset_ByID\89058.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 22
+column: 4
+content: functionmint(address_to,uint256_amount)onlyOwnerreturns(bool){returnmintInternal(_to,_amount);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 27
+column: 4
+content: functionfinishMinting()onlyOwnerreturns(bool){mintingFinished=true;MintFinished();returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 65
+column: 4
+content: functionPreLastWill(uint256_rate,address_wallet,string_name,string_symbol,uint8_decimals){require(_rate>0);require(_wallet!=0x0);rate=_rate;wallet=_wallet;name=_name;symbol=_symbol;decimals=_decimals;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 82
+column: 4
+content: functiontransfer(address_to,uint_value)onlyOwnerreturns(bool){returnsuper.transfer(_to,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 86
+column: 4
+content: functiontransferFrom(address_from,address_to,uint_value)onlyOwnerreturns(bool){returnsuper.transferFrom(_from,_to,_value);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 90
+column: 4
+content: function()payable{buyTokens(msg.sender);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 94
+column: 4
+content: functionbuyTokens(addressbeneficiary)payable{require(beneficiary!=0x0);require(msg.value>0);uint256weiAmount=msg.value;uint256tokens=weiAmount.mul(rate);mintInternal(beneficiary,tokens);TokenPurchase(msg.sender,beneficiary,weiAmount,tokens);forwardFunds();}
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_PRAGMAS_VERSION :1

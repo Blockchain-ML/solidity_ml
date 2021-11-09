@@ -1,0 +1,213 @@
+C:\Users\hp\DataSet\contracts\mainnet\cd\cdf89e7f44fcc837630fb4a10387ca81eba6932a_MultiSigTokenWallet.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 9
+column: 36
+content: 0xeD247980396B10169BB1d36f6e278eD16700a60f
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 123
+column: 8
+content: owners.length-=1
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 230
+column: 4
+content: functionisConfirmed(uintactionId)publicconstantreturns(bool){uintcount=0;for(uinti=0;i<owners.length;i++){if(confirmations[actionId][owners[i]])count+=1;if(count==quorum)returntrue;}returnfalse;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 269
+column: 4
+content: functiongetConfirmationCount(uintactionId)publicconstantreturns(uintcount){for(uinti=0;i<owners.length;i++)if(confirmations[actionId][owners[i]])count+=1;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 283
+column: 4
+content: functiongetActionCount(boolpending,boolexecuted,boolexceptDeleted)publicconstantreturns(uintcount){for(uinti=0;i<actionCount;i++)if(((pending&&!actions[i].executed)||(executed&&actions[i].executed))&&(!exceptDeleted||!actions[i].deleted))count+=1;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 297
+column: 4
+content: functiongetOwners()publicconstantreturns(address[]){returnowners;}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 308
+column: 4
+content: functiongetConfirmations(uintactionId)publicconstantreturns(address[]_confirmations){address[]memoryconfirmationsTemp=newaddress[](owners.length);uintcount=0;uinti;for(i=0;i<owners.length;i++)if(confirmations[actionId][owners[i]]){confirmationsTemp[count]=owners[i];count+=1;}_confirmations=newaddress[](count);for(i=0;i<count;i++)_confirmations[i]=confirmationsTemp[i];}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 331
+column: 4
+content: functiongetActionIds(boolpending,boolexecuted,boolexceptDeleted)publicconstantreturns(uint[]memory){uint[]memoryactionIds;uintcount=0;uinti;for(i=0;i<actionCount;i++)if(((pending&&!actions[i].executed)||(executed&&actions[i].executed))&&(!exceptDeleted||!actions[i].deleted)){actionIds[count]=i;count+=1;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 359
+column: 2
+content: functionbalanceOf(addresswho)constantreturns(uint256);
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 91
+column: 8
+content: for(uinti=0;i<_owners.length;i++){require(!isOwner[_owners[i]]&&_owners[i]!=0);isOwner[_owners[i]]=true;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 118
+column: 8
+content: for(uinti=0;i<owners.length-1;i++)if(owners[i]==owner){owners[i]=owners[owners.length-1];break;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 236
+column: 8
+content: for(uinti=0;i<owners.length;i++){if(confirmations[actionId][owners[i]])count+=1;if(count==quorum)returntrue;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 274
+column: 8
+content: for(uinti=0;i<owners.length;i++)if(confirmations[actionId][owners[i]])count+=1;
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 288
+column: 8
+content: for(uinti=0;i<actionCount;i++)if(((pending&&!actions[i].executed)||(executed&&actions[i].executed))&&(!exceptDeleted||!actions[i].deleted))count+=1;
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 316
+column: 8
+content: for(i=0;i<owners.length;i++)if(confirmations[actionId][owners[i]]){confirmationsTemp[count]=owners[i];count+=1;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 339
+column: 8
+content: for(i=0;i<actionCount;i++)if(((pending&&!actions[i].executed)||(executed&&actions[i].executed))&&(!exceptDeleted||!actions[i].deleted)){actionIds[count]=i;count+=1;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 331
+column: 4
+content: functiongetActionIds(boolpending,boolexecuted,boolexceptDeleted)publicconstantreturns(uint[]memory){uint[]memoryactionIds;uintcount=0;uinti;for(i=0;i<actionCount;i++)if(((pending&&!actions[i].executed)||(executed&&actions[i].executed))&&(!exceptDeleted||!actions[i].deleted)){actionIds[count]=i;count+=1;}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 269
+column: 4
+content: functiongetConfirmationCount(uintactionId)publicconstantreturns(uintcount){for(uinti=0;i<owners.length;i++)if(confirmations[actionId][owners[i]])count+=1;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 283
+column: 4
+content: functiongetActionCount(boolpending,boolexecuted,boolexceptDeleted)publicconstantreturns(uintcount){for(uinti=0;i<actionCount;i++)if(((pending&&!actions[i].executed)||(executed&&actions[i].executed))&&(!exceptDeleted||!actions[i].deleted))count+=1;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 91
+column: 8
+content: for(uinti=0;i<_owners.length;i++){require(!isOwner[_owners[i]]&&_owners[i]!=0);isOwner[_owners[i]]=true;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 236
+column: 8
+content: for(uinti=0;i<owners.length;i++){if(confirmations[actionId][owners[i]])count+=1;if(count==quorum)returntrue;}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 274
+column: 8
+content: for(uinti=0;i<owners.length;i++)if(confirmations[actionId][owners[i]])count+=1;
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 316
+column: 8
+content: for(i=0;i<owners.length;i++)if(confirmations[actionId][owners[i]]){confirmationsTemp[count]=owners[i];count+=1;}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 220
+column: 17
+content: if(action.actionType==ActionChoices.WithdrawOwner)withdrawOwner(action.addressField);elserevert();
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 87
+column: 33
+content: address[]_owners
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 300
+column: 17
+content: address[]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 311
+column: 17
+content: address[]_confirmations
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 359
+column: 2
+content: functionbalanceOf(addresswho)constantreturns(uint256);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 360
+column: 2
+content: functiontransfer(addressto,uint256value)returns(bool);
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :7
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :3
+SOLIDITY_EXTRA_GAS_IN_LOOPS :7
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4

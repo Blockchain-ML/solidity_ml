@@ -1,0 +1,68 @@
+F:\Blockchain\dataset_new_byID\73776.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 21
+column: 4
+content: for(uint256i=0;i<requiredCorePrivileges.length;i++){access=access&&_core.hasCorePrivilege(address(this),requiredCorePrivileges[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 26
+column: 4
+content: for(uint256i=0;i<requiredProxyPrivileges.length;i++){access=access&&_core.hasProxyPrivilege(address(this),ALL_PROXIES,requiredProxyPrivileges[i]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 137
+column: 4
+content: for(uint256i=0;i<_spenders.length;i++){require(_allowances[i]<=balance,"TF16");require(_token.approve(_spenders[i],_allowances[i]),"TF17");emitAllowanceUpdated(_token,_spenders[i],_allowances[i]);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 112
+column: 2
+content: functionconfigureTokensales(ITokenProxy_token,address[]memory_tokensales,uint256[]memory_allowances)overridepubliconlyProxyOperator(Proxy(address(_token)))returns(bool){ITokenCorecore=ITokenCore(_token.core());require(hasCoreAccess(core),"TF01");require(_tokensales.length==_allowances.length,"TF14");(,,,,uint256[2]memoryschedule,,,)=core.token(address(_token));require(core.defineLock(address(_token),schedule[0],schedule[1],_tokensales),"TF15");updateAllowances(_token,_tokensales,_allowances);emitTokensalesConfigured(_token,_tokensales);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 130
+column: 2
+content: functionupdateAllowances(ITokenProxy_token,address[]memory_spenders,uint256[]memory_allowances)overridepubliconlyProxyOperator(_token)returns(bool){uint256balance=_token.balanceOf(address(this));for(uint256i=0;i<_spenders.length;i++){require(_allowances[i]<=balance,"TF16");require(_token.approve(_spenders[i],_allowances[i]),"TF17");emitAllowanceUpdated(_token,_spenders[i],_allowances[i]);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 21
+column: 4
+content: for(uint256i=0;i<requiredCorePrivileges.length;i++){access=access&&_core.hasCorePrivilege(address(this),requiredCorePrivileges[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 26
+column: 4
+content: for(uint256i=0;i<requiredProxyPrivileges.length;i++){access=access&&_core.hasProxyPrivilege(address(this),ALL_PROXIES,requiredProxyPrivileges[i]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 137
+column: 4
+content: for(uint256i=0;i<_spenders.length;i++){require(_allowances[i]<=balance,"TF16");require(_token.approve(_spenders[i],_allowances[i]),"TF17");emitAllowanceUpdated(_token,_spenders[i],_allowances[i]);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :3

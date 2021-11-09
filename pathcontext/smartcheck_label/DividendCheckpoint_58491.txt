@@ -1,0 +1,32 @@
+C:\Users\hp\DataSet\DividendCheckpoint.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 20
+column: 0
+content: contractDividendCheckpointisDividendCheckpointStorage,ICheckpoint,Module{usingSafeMathforuint256;uint256internalconstante18=uint256(10)**uint256(18);eventSetDefaultExcludedAddresses(address[]_excluded);eventSetWithholding(address[]_investors,uint256[]_withholding);eventSetWithholdingFixed(address[]_investors,uint256_withholding);eventSetWallet(addressindexed_oldWallet,addressindexed_newWallet);eventUpdateDividendDates(uint256indexed_dividendIndex,uint256_maturity,uint256_expiry);function_validDividendIndex(uint256_dividendIndex)internalview{require(_dividendIndex<dividends.length,"Invalid dividend");require(!dividends[_dividendIndex].reclaimed,"Dividend reclaimed");require(now>=dividends[_dividendIndex].maturity,"Dividend maturity in future");require(now<dividends[_dividendIndex].expiry,"Dividend expiry in past");}functionconfigure(addresspayable_wallet)publiconlyFactory{_setWallet(_wallet);}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 21
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 43
+column: 4
+content: functionconfigure(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 46
+column: 8
+content: _setWallet(_wallet);
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_LOCKED_MONEY :1

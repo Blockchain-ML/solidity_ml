@@ -1,0 +1,81 @@
+C:\Users\hp\DataSet\CTokenExchangeIssuanceModule.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 246
+column: 8
+content: for(uint256i=0;i<_receiveTokens.length;i++){addresscurrentComponentAddress=_receiveTokens[i];uint256currentComponentQuantity=_receiveTokenAmounts[i];addressunderlyingAddress=cTokenWhiteList.whitelist(currentComponentAddress);if(underlyingAddress!=address(0)){ICTokencTokenInstance=ICToken(currentComponentAddress);uint256exchangeRate=cTokenInstance.exchangeRateCurrent();uint256underlyingQuantity=CompoundUtils.convertCTokenToUnderlying(currentComponentQuantity,exchangeRate);coreInstance.withdrawModule(msg.sender,address(this),underlyingAddress,underlyingQuantity);mintCToken(cTokenInstance,underlyingAddress,underlyingQuantity);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 297
+column: 8
+content: for(uint256i=0;i<baseSetComponents.length;i++){addresscurrentComponentAddress=baseSetComponents[i];uint256currentComponentQuantity=vaultInstance.getOwnerBalance(currentComponentAddress,msg.sender);uint256requiredQuantity=quantityOfNaturalUnits.mul(baseSetUnits[i]);addressunderlyingAddress=cTokenWhiteList.whitelist(currentComponentAddress);if(underlyingAddress!=address(0)&&currentComponentQuantity<requiredQuantity){uint256quantityToMint=requiredQuantity-currentComponentQuantity;ICTokencTokenInstance=ICToken(currentComponentAddress);uint256exchangeRate=cTokenInstance.exchangeRateCurrent();uint256underlyingQuantity=CompoundUtils.convertCTokenToUnderlying(quantityToMint,exchangeRate);coreInstance.transferModule(underlyingAddress,underlyingQuantity,msg.sender,address(this));mintCToken(cTokenInstance,underlyingAddress,underlyingQuantity);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 346
+column: 8
+content: for(uint256i=0;i<_sendTokens.length;i++){addressexchangeWrapper=coreInstance.exchangeIds(_sendTokenExchangeIds[i]);addresscurrentComponentAddress=_sendTokens[i];uint256currentComponentQuantity=_sendTokenAmounts[i];addressunderlyingAddress=cTokenWhiteList.whitelist(currentComponentAddress);if(underlyingAddress!=address(0)){redeemCToken(ICToken(currentComponentAddress),currentComponentQuantity);uint256underlyingQuantity=ERC20Wrapper.balanceOf(underlyingAddress,address(this));ERC20Wrapper.ensureAllowance(underlyingAddress,address(this),transferProxy,underlyingQuantity);coreInstance.transferModule(underlyingAddress,underlyingQuantity,address(this),exchangeWrapper);}else{coreInstance.withdrawModule(address(this),exchangeWrapper,currentComponentAddress,currentComponentQuantity);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 488
+column: 8
+content: for(uint256i=0;i<_sendTokens.length;i++){addressexchangeWrapper=coreInstance.exchangeIds(_sendTokenExchangeIds[i]);coreInstance.transferModule(_sendTokens[i],_sendTokenAmounts[i],msg.sender,exchangeWrapper);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 514
+column: 8
+content: for(uint256i=0;i<baseSetComponents.length;i++){addresscurrentComponentAddress=baseSetComponents[i];uint256currentComponentQuantity=vaultInstance.getOwnerBalance(currentComponentAddress,address(this));if(currentComponentQuantity>0){addressunderlyingAddress=cTokenWhiteList.whitelist(currentComponentAddress);if(underlyingAddress!=address(0)){redeemCToken(ICToken(currentComponentAddress),currentComponentQuantity);uint256underlyingQuantity=ERC20Wrapper.balanceOf(underlyingAddress,address(this));ERC20Wrapper.ensureAllowance(underlyingAddress,address(this),transferProxy,underlyingQuantity);coreInstance.transferModule(underlyingAddress,underlyingQuantity,address(this),msg.sender);}else{coreInstance.withdrawModule(address(this),msg.sender,currentComponentAddress,currentComponentQuantity);}}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 246
+column: 8
+content: for(uint256i=0;i<_receiveTokens.length;i++){addresscurrentComponentAddress=_receiveTokens[i];uint256currentComponentQuantity=_receiveTokenAmounts[i];addressunderlyingAddress=cTokenWhiteList.whitelist(currentComponentAddress);if(underlyingAddress!=address(0)){ICTokencTokenInstance=ICToken(currentComponentAddress);uint256exchangeRate=cTokenInstance.exchangeRateCurrent();uint256underlyingQuantity=CompoundUtils.convertCTokenToUnderlying(currentComponentQuantity,exchangeRate);coreInstance.withdrawModule(msg.sender,address(this),underlyingAddress,underlyingQuantity);mintCToken(cTokenInstance,underlyingAddress,underlyingQuantity);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 297
+column: 8
+content: for(uint256i=0;i<baseSetComponents.length;i++){addresscurrentComponentAddress=baseSetComponents[i];uint256currentComponentQuantity=vaultInstance.getOwnerBalance(currentComponentAddress,msg.sender);uint256requiredQuantity=quantityOfNaturalUnits.mul(baseSetUnits[i]);addressunderlyingAddress=cTokenWhiteList.whitelist(currentComponentAddress);if(underlyingAddress!=address(0)&&currentComponentQuantity<requiredQuantity){uint256quantityToMint=requiredQuantity-currentComponentQuantity;ICTokencTokenInstance=ICToken(currentComponentAddress);uint256exchangeRate=cTokenInstance.exchangeRateCurrent();uint256underlyingQuantity=CompoundUtils.convertCTokenToUnderlying(quantityToMint,exchangeRate);coreInstance.transferModule(underlyingAddress,underlyingQuantity,msg.sender,address(this));mintCToken(cTokenInstance,underlyingAddress,underlyingQuantity);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 346
+column: 8
+content: for(uint256i=0;i<_sendTokens.length;i++){addressexchangeWrapper=coreInstance.exchangeIds(_sendTokenExchangeIds[i]);addresscurrentComponentAddress=_sendTokens[i];uint256currentComponentQuantity=_sendTokenAmounts[i];addressunderlyingAddress=cTokenWhiteList.whitelist(currentComponentAddress);if(underlyingAddress!=address(0)){redeemCToken(ICToken(currentComponentAddress),currentComponentQuantity);uint256underlyingQuantity=ERC20Wrapper.balanceOf(underlyingAddress,address(this));ERC20Wrapper.ensureAllowance(underlyingAddress,address(this),transferProxy,underlyingQuantity);coreInstance.transferModule(underlyingAddress,underlyingQuantity,address(this),exchangeWrapper);}else{coreInstance.withdrawModule(address(this),exchangeWrapper,currentComponentAddress,currentComponentQuantity);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 488
+column: 8
+content: for(uint256i=0;i<_sendTokens.length;i++){addressexchangeWrapper=coreInstance.exchangeIds(_sendTokenExchangeIds[i]);coreInstance.transferModule(_sendTokens[i],_sendTokenAmounts[i],msg.sender,exchangeWrapper);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 514
+column: 8
+content: for(uint256i=0;i<baseSetComponents.length;i++){addresscurrentComponentAddress=baseSetComponents[i];uint256currentComponentQuantity=vaultInstance.getOwnerBalance(currentComponentAddress,address(this));if(currentComponentQuantity>0){addressunderlyingAddress=cTokenWhiteList.whitelist(currentComponentAddress);if(underlyingAddress!=address(0)){redeemCToken(ICToken(currentComponentAddress),currentComponentQuantity);uint256underlyingQuantity=ERC20Wrapper.balanceOf(underlyingAddress,address(this));ERC20Wrapper.ensureAllowance(underlyingAddress,address(this),transferProxy,underlyingQuantity);coreInstance.transferModule(underlyingAddress,underlyingQuantity,address(this),msg.sender);}else{coreInstance.withdrawModule(address(this),msg.sender,currentComponentAddress,currentComponentQuantity);}}}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 46
+column: 4
+content: usingSafeMathforuint256;
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :5
+SOLIDITY_GAS_LIMIT_IN_LOOPS :5

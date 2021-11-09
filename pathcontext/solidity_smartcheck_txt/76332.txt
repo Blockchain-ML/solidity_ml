@@ -1,0 +1,275 @@
+F:\Blockchain\dataset_new_byID\76332.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 168
+column: 8
+content: for(i=0;i<detachedByInputs.length;i++){if(detachedByInputs[i]!=0){numChallengedInsAndOuts++;}else{break;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 175
+column: 8
+content: for(i=0;i<detachedByOutputs.length;i++){if(detachedByOutputs[i]!=0){numChallengedInsAndOuts++;}else{break;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 257
+column: 12
+content: for(scratchSpace[2]=0;scratchSpace[2]<TX.inputs.length;scratchSpace[2]++){txInput=TX.inputs[scratchSpace[2]];scratchSpace[0]=BankexPlasmaTransaction.makeInputOrOutputIndex(txInput.blockNumber,txInput.txNumberInBlock,txInput.outputNumberInTX);utxo=publishedUTXOs[scratchSpace[0]];if(utxo.amountAndOwnerConfirmed){if(utxo.originalOwner!=TX.sender||utxo.value!=txInput.amount){revert();}else{if(utxo.spendingTransactionIndex==0){utxo.spendingTransactionIndex=publishedTransactionIndex;utxo.isLinkedToLimbo=publishedTransaction.isLimbo;utxo.utxoStatus=UTXOstatusSpent;utxo.collateralHolder=msg.sender;publishedTransaction.inputIndexes.push(scratchSpace[0]);}else{clashOnTheInput=true;}}}elseif(utxo.spendingTransactionIndex!=0){clashOnTheInput=true;}else{utxo.originalOwner=TX.sender;utxo.value=txInput.amount;utxo.utxoStatus=UTXOstatusSpent;utxo.collateralHolder=msg.sender;utxo.spendingTransactionIndex=publishedTransactionIndex;utxo.isLinkedToLimbo=publishedTransaction.isLimbo;}if(scratchSpace[1]==0){scratchSpace[1]=scratchSpace[0];}elseif(scratchSpace[1]<scratchSpace[0]){scratchSpace[1]=scratchSpace[0];}publishedUTXOs[scratchSpace[0]]=utxo;publishedTransaction.inputIndexes.push(scratchSpace[0]);emitInputIsPublished(scratchSpace[0]);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 303
+column: 16
+content: for(scratchSpace[2]=0;scratchSpace[2]<TX.inputs.length;scratchSpace[2]++){txInput=TX.inputs[scratchSpace[2]];scratchSpace[0]=BankexPlasmaTransaction.makeInputOrOutputIndex(txInput.blockNumber,txInput.txNumberInBlock,txInput.outputNumberInTX);utxo=publishedUTXOs[scratchSpace[0]];if(utxo.spendingTransactionIndex==0){continue;}TransactionstoragepreviouslyPublishedTransaction=publishedTransactions[utxo.spendingTransactionIndex];if(previouslyPublishedTransaction.priority>scratchSpace[1]){previouslyPublishedTransaction.isCanonical=false;detachedInputs[uint256(scratchSpace[3])]=scratchSpace[0];scratchSpace[3]++;utxo.collateralHolder=msg.sender;if(utxo.amountAndOwnerConfirmed){if(utxo.originalOwner!=TX.sender||utxo.value!=txInput.amount){transactionIsNonCanonical=true;}else{utxo.spendingTransactionIndex=publishedTransactionIndex;utxo.isLinkedToLimbo=publishedTransaction.isLimbo;}}elseif(utxo.originalOwner!=TX.sender||utxo.value!=txInput.amount){utxo.originalOwner=TX.sender;utxo.value=txInput.amount;utxo.spendingTransactionIndex=publishedTransactionIndex;utxo.isLinkedToLimbo=publishedTransaction.isLimbo;}}else{transactionIsNonCanonical=true;}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 365
+column: 12
+content: for(scratchSpace[2]=0;scratchSpace[2]<TX.outputs.length;scratchSpace[2]++){txOutput=TX.outputs[scratchSpace[2]];require(txOutput.outputNumberInTX==scratchSpace[2]);scratchSpace[0]=BankexPlasmaTransaction.makeInputOrOutputIndex(_plasmaBlockNumber,TX.txNumberInBlock,txOutput.outputNumberInTX);utxo=publishedUTXOs[scratchSpace[0]];if(utxo.amountAndOwnerConfirmed){revert();}elseif(utxo.spendingTransactionIndex!=0||utxo.utxoStatus==UTXOstatusSpent){if(utxo.originalOwner!=txOutput.recipient||utxo.value!=txOutput.amount){publishedTransaction.isCanonical=false;detachedOutputs[uint256(scratchSpace[3])]=scratchSpace[0];scratchSpace[3]++;utxo.utxoStatus=UTXOstatusUnspent;publishedTransaction.outputIndexes.push(scratchSpace[0]);}else{utxo.utxoStatus=UTXOstatusSpent;publishedTransaction.outputIndexes.push(scratchSpace[0]);}}else{utxo.originalOwner=txOutput.recipient;utxo.value=txOutput.amount;utxo.utxoStatus=UTXOstatusUnspent;publishedTransaction.outputIndexes.push(scratchSpace[0]);}utxo.amountAndOwnerConfirmed=true;publishedUTXOs[scratchSpace[0]]=utxo;emitOutputIsPublished(scratchSpace[0]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 168
+column: 8
+content: for(i=0;i<detachedByInputs.length;i++){if(detachedByInputs[i]!=0){numChallengedInsAndOuts++;}else{break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 175
+column: 8
+content: for(i=0;i<detachedByOutputs.length;i++){if(detachedByOutputs[i]!=0){numChallengedInsAndOuts++;}else{break;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 257
+column: 12
+content: for(scratchSpace[2]=0;scratchSpace[2]<TX.inputs.length;scratchSpace[2]++){txInput=TX.inputs[scratchSpace[2]];scratchSpace[0]=BankexPlasmaTransaction.makeInputOrOutputIndex(txInput.blockNumber,txInput.txNumberInBlock,txInput.outputNumberInTX);utxo=publishedUTXOs[scratchSpace[0]];if(utxo.amountAndOwnerConfirmed){if(utxo.originalOwner!=TX.sender||utxo.value!=txInput.amount){revert();}else{if(utxo.spendingTransactionIndex==0){utxo.spendingTransactionIndex=publishedTransactionIndex;utxo.isLinkedToLimbo=publishedTransaction.isLimbo;utxo.utxoStatus=UTXOstatusSpent;utxo.collateralHolder=msg.sender;publishedTransaction.inputIndexes.push(scratchSpace[0]);}else{clashOnTheInput=true;}}}elseif(utxo.spendingTransactionIndex!=0){clashOnTheInput=true;}else{utxo.originalOwner=TX.sender;utxo.value=txInput.amount;utxo.utxoStatus=UTXOstatusSpent;utxo.collateralHolder=msg.sender;utxo.spendingTransactionIndex=publishedTransactionIndex;utxo.isLinkedToLimbo=publishedTransaction.isLimbo;}if(scratchSpace[1]==0){scratchSpace[1]=scratchSpace[0];}elseif(scratchSpace[1]<scratchSpace[0]){scratchSpace[1]=scratchSpace[0];}publishedUTXOs[scratchSpace[0]]=utxo;publishedTransaction.inputIndexes.push(scratchSpace[0]);emitInputIsPublished(scratchSpace[0]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 303
+column: 16
+content: for(scratchSpace[2]=0;scratchSpace[2]<TX.inputs.length;scratchSpace[2]++){txInput=TX.inputs[scratchSpace[2]];scratchSpace[0]=BankexPlasmaTransaction.makeInputOrOutputIndex(txInput.blockNumber,txInput.txNumberInBlock,txInput.outputNumberInTX);utxo=publishedUTXOs[scratchSpace[0]];if(utxo.spendingTransactionIndex==0){continue;}TransactionstoragepreviouslyPublishedTransaction=publishedTransactions[utxo.spendingTransactionIndex];if(previouslyPublishedTransaction.priority>scratchSpace[1]){previouslyPublishedTransaction.isCanonical=false;detachedInputs[uint256(scratchSpace[3])]=scratchSpace[0];scratchSpace[3]++;utxo.collateralHolder=msg.sender;if(utxo.amountAndOwnerConfirmed){if(utxo.originalOwner!=TX.sender||utxo.value!=txInput.amount){transactionIsNonCanonical=true;}else{utxo.spendingTransactionIndex=publishedTransactionIndex;utxo.isLinkedToLimbo=publishedTransaction.isLimbo;}}elseif(utxo.originalOwner!=TX.sender||utxo.value!=txInput.amount){utxo.originalOwner=TX.sender;utxo.value=txInput.amount;utxo.spendingTransactionIndex=publishedTransactionIndex;utxo.isLinkedToLimbo=publishedTransaction.isLimbo;}}else{transactionIsNonCanonical=true;}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 365
+column: 12
+content: for(scratchSpace[2]=0;scratchSpace[2]<TX.outputs.length;scratchSpace[2]++){txOutput=TX.outputs[scratchSpace[2]];require(txOutput.outputNumberInTX==scratchSpace[2]);scratchSpace[0]=BankexPlasmaTransaction.makeInputOrOutputIndex(_plasmaBlockNumber,TX.txNumberInBlock,txOutput.outputNumberInTX);utxo=publishedUTXOs[scratchSpace[0]];if(utxo.amountAndOwnerConfirmed){revert();}elseif(utxo.spendingTransactionIndex!=0||utxo.utxoStatus==UTXOstatusSpent){if(utxo.originalOwner!=txOutput.recipient||utxo.value!=txOutput.amount){publishedTransaction.isCanonical=false;detachedOutputs[uint256(scratchSpace[3])]=scratchSpace[0];scratchSpace[3]++;utxo.utxoStatus=UTXOstatusUnspent;publishedTransaction.outputIndexes.push(scratchSpace[0]);}else{utxo.utxoStatus=UTXOstatusSpent;publishedTransaction.outputIndexes.push(scratchSpace[0]);}}else{utxo.originalOwner=txOutput.recipient;utxo.value=txOutput.amount;utxo.utxoStatus=UTXOstatusUnspent;publishedTransaction.outputIndexes.push(scratchSpace[0]);}utxo.amountAndOwnerConfirmed=true;publishedUTXOs[scratchSpace[0]]=utxo;emitOutputIsPublished(scratchSpace[0]);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 262
+column: 20
+content: if(utxo.originalOwner!=TX.sender||utxo.value!=txInput.amount){revert();}else{if(utxo.spendingTransactionIndex==0){utxo.spendingTransactionIndex=publishedTransactionIndex;utxo.isLinkedToLimbo=publishedTransaction.isLimbo;utxo.utxoStatus=UTXOstatusSpent;utxo.collateralHolder=msg.sender;publishedTransaction.inputIndexes.push(scratchSpace[0]);}else{clashOnTheInput=true;}}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 353
+column: 8
+content: if(publishedTransaction.status==PublishedTXstatusWaitingForInputChallenges){detachedOutputs=newuint72[](TX.outputs.length);uint72[]memoryscratchSpace=newuint72[](4);UTXOmemoryutxo;BankexPlasmaTransaction.TransactionOutputmemorytxOutput;for(scratchSpace[2]=0;scratchSpace[2]<TX.outputs.length;scratchSpace[2]++){txOutput=TX.outputs[scratchSpace[2]];require(txOutput.outputNumberInTX==scratchSpace[2]);scratchSpace[0]=BankexPlasmaTransaction.makeInputOrOutputIndex(_plasmaBlockNumber,TX.txNumberInBlock,txOutput.outputNumberInTX);utxo=publishedUTXOs[scratchSpace[0]];if(utxo.amountAndOwnerConfirmed){revert();}elseif(utxo.spendingTransactionIndex!=0||utxo.utxoStatus==UTXOstatusSpent){if(utxo.originalOwner!=txOutput.recipient||utxo.value!=txOutput.amount){publishedTransaction.isCanonical=false;detachedOutputs[uint256(scratchSpace[3])]=scratchSpace[0];scratchSpace[3]++;utxo.utxoStatus=UTXOstatusUnspent;publishedTransaction.outputIndexes.push(scratchSpace[0]);}else{utxo.utxoStatus=UTXOstatusSpent;publishedTransaction.outputIndexes.push(scratchSpace[0]);}}else{utxo.originalOwner=txOutput.recipient;utxo.value=txOutput.amount;utxo.utxoStatus=UTXOstatusUnspent;publishedTransaction.outputIndexes.push(scratchSpace[0]);}utxo.amountAndOwnerConfirmed=true;publishedUTXOs[scratchSpace[0]]=utxo;emitOutputIsPublished(scratchSpace[0]);}return(publishedTransaction,detachedOutputs);}else{revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 370
+column: 16
+content: if(utxo.amountAndOwnerConfirmed){revert();}elseif(utxo.spendingTransactionIndex!=0||utxo.utxoStatus==UTXOstatusSpent){if(utxo.originalOwner!=txOutput.recipient||utxo.value!=txOutput.amount){publishedTransaction.isCanonical=false;detachedOutputs[uint256(scratchSpace[3])]=scratchSpace[0];scratchSpace[3]++;utxo.utxoStatus=UTXOstatusUnspent;publishedTransaction.outputIndexes.push(scratchSpace[0]);}else{utxo.utxoStatus=UTXOstatusSpent;publishedTransaction.outputIndexes.push(scratchSpace[0]);}}else{utxo.originalOwner=txOutput.recipient;utxo.value=txOutput.amount;utxo.utxoStatus=UTXOstatusUnspent;publishedTransaction.outputIndexes.push(scratchSpace[0]);}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 243
+column: 20
+content: (Transactionstorage_publishedTransaction,uint72[]memorydetachedInputs)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 352
+column: 20
+content: (Transactionstorage_publishedTransaction,uint72[]memorydetachedOutputs)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 159
+column: 8
+content: bytes_plasmaTransaction
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 160
+column: 8
+content: bytes_merkleProof
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 209
+column: 8
+content: bytes_plasmaTransaction
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 210
+column: 8
+content: bytes_merkleProof
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 212
+column: 34
+content: uint72[]inputsAffected
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 212
+column: 59
+content: uint72[]outputsAffected
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 409
+column: 8
+content: assembly{letmemoryPointer:=mload(0x40)calldatacopy(memoryPointer,0,calldatasize)letnewFreeMemoryPointer:=add(memoryPointer,calldatasize)mstore(0x40,newFreeMemoryPointer)letretVal:=delegatecall(sub(gas,10000),callee,memoryPointer,calldatasize,newFreeMemoryPointer,0x40)letretDataSize:=returndatasizereturndatacopy(newFreeMemoryPointer,0,retDataSize)switchretValcase0{revert(0,0)}default{return(newFreeMemoryPointer,retDataSize)}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 34
+column: 4
+content: uint256constantTxTypeNull=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 35
+column: 4
+content: uint256constantTxTypeSplit=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 36
+column: 4
+content: uint256constantTxTypeMerge=2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 4
+content: uint256constantTxTypeFund=4;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 41
+column: 4
+content: uint8constantDepositStatusNoRecord=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 42
+column: 4
+content: uint8constantDepositStatusDeposited=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 43
+column: 4
+content: uint8constantDepositStatusWithdrawStarted=2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 44
+column: 4
+content: uint8constantDepositStatusWithdrawCompleted=3;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 45
+column: 4
+content: uint8constantDepositStatusDepositConfirmed=4;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 87
+column: 4
+content: uint8constantUTXOstatusNull=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 88
+column: 4
+content: uint8constantUTXOstatusUnspent=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 4
+content: uint8constantUTXOstatusSpent=2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 105
+column: 4
+content: uint8constantPublishedTXstatusNull=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 106
+column: 4
+content: uint8constantPublishedTXstatusWaitingForInputChallenges=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 107
+column: 4
+content: uint8constantPublishedTXstatusWaitingForOutputChallenges=2;
+
+SOLIDITY_VISIBILITY :15
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :3
+SOLIDITY_EXTRA_GAS_IN_LOOPS :5
+SOLIDITY_UPGRADE_TO_050 :6
+SOLIDITY_GAS_LIMIT_IN_LOOPS :5
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_RETURN_STRUCT :2

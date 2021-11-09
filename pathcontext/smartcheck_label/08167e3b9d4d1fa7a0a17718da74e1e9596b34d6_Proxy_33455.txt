@@ -1,0 +1,96 @@
+C:\Users\hp\DataSet\contracts\ropsten\08\08167e3b9d4d1fa7a0a17718da74e1e9596b34d6_Proxy.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 104
+column: 0
+content: contractProxyisStorageState,Accessibility{addresspublic_implementation;eventLogUpgrade(addressindexedimplementation);constructor()public{}functionimplementation()publicviewreturns(address){return_implementation;}functionupgradeTo(addressimpl)publiconlyAdmin(AccessRank.Three){require(_implementation!=impl);_implementation=impl;emitLogUpgrade(impl);}functionsetStorage(addressstrage_)publiconlyAdmin(AccessRank.Three){require(address(_storage)!=address(strage_));_storage=KeyValueStorage(strage_);}function()payablepublic{address_impl=implementation();require(_impl!=address(0));bytesmemorydata=msg.data;assembly{letresult:=delegatecall(gas,_impl,add(data,0x20),mload(data),0,0)letsize:=returndatasizeletptr:=mload(0x40)returndatacopy(ptr,0,size)switchresultcase0{revert(ptr,size)}default{return(ptr,size)}}}}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 125
+column: 22
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 53
+column: 4
+content: stringreleased
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 54
+column: 4
+content: stringreceived
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 55
+column: 4
+content: stringdate
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 56
+column: 4
+content: stringagreed
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 68
+column: 6
+content: stringreleased
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 69
+column: 6
+content: stringreceived
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 70
+column: 6
+content: stringdate
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 71
+column: 6
+content: stringagreed
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 130
+column: 4
+content: assembly{letresult:=delegatecall(gas,_impl,add(data,0x20),mload(data),0,0)letsize:=returndatasizeletptr:=mload(0x40)returndatacopy(ptr,0,size)switchresultcase0{revert(ptr,size)}default{return(ptr,size)}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 2
+content: mapping(address=>mapping(bytes32=>Invoice))_invoiceStorage;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 98
+column: 4
+content: KeyValueStorage_storage;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_UPGRADE_TO_050 :9
+SOLIDITY_USING_INLINE_ASSEMBLY :1

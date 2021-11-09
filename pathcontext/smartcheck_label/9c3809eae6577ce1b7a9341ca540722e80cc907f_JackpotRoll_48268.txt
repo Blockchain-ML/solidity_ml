@@ -1,0 +1,504 @@
+C:\Users\hp\DataSet\contracts\ropsten\9c\9c3809eae6577ce1b7a9341ca540722e80cc907f_JackpotRoll.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 43
+column: 32
+content: 0x3C2478326dcDDC41f59d7E730f09E818dBCDa8b9
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 44
+column: 19
+content: 0x3C2478326dcDDC41f59d7E730f09E818dBCDa8b9
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 345
+column: 35
+content: 0xf7
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 346
+column: 35
+content: 0xf6
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 350
+column: 30
+content: 0x7f
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 354
+column: 39
+content: 0x80
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 354
+column: 65
+content: 0xb7
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 355
+column: 39
+content: 0x7f
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 359
+column: 44
+content: 0xb9
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 363
+column: 38
+content: 0xf9
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 367
+column: 31
+content: 0x1
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 371
+column: 32
+content: 0x7f
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 375
+column: 41
+content: 0x80
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 375
+column: 69
+content: 0xb7
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 376
+column: 41
+content: 0x7f
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 380
+column: 36
+content: 0xb9
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 384
+column: 39
+content: 0xf8
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 388
+column: 39
+content: 0xf8
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 392
+column: 38
+content: 0x94
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 300
+column: 28
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 318
+column: 31
+content: sha3
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 187b5a
+severity: 1
+line: 338
+column: 25
+content: sha3
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 273
+column: 4
+content: functionverifyMerkleProof(uintseedHash,uintoffset)pureprivatereturns(bytes32blockHash,bytes32uncleHash){uintscratchBuf1;assembly{scratchBuf1:=mload(0x40)}uintuncleHeaderLength;uintblobLength;uintshift;uinthashSlot;for(;;offset+=blobLength){assembly{blobLength:=and(calldataload(sub(offset,30)),0xffff)}if(blobLength==0){break;}assembly{shift:=and(calldataload(sub(offset,28)),0xffff)}require(shift+32<=blobLength,"Shift bounds check.");offset+=4;assembly{hashSlot:=calldataload(add(offset,shift))}require(hashSlot==0,"Non-empty hash slot.");assembly{calldatacopy(scratchBuf1,offset,blobLength)mstore(add(scratchBuf1,shift),seedHash)seedHash:=sha3(scratchBuf1,blobLength)uncleHeaderLength:=blobLength}}uncleHash=bytes32(seedHash);uintscratchBuf2=scratchBuf1+uncleHeaderLength;uintunclesLength;assembly{unclesLength:=and(calldataload(sub(offset,28)),0xffff)}uintunclesShift;assembly{unclesShift:=and(calldataload(sub(offset,26)),0xffff)}require(unclesShift+uncleHeaderLength<=unclesLength,"Shift bounds check.");offset+=6;assembly{calldatacopy(scratchBuf2,offset,unclesLength)}memcpy(scratchBuf2+unclesShift,scratchBuf1,uncleHeaderLength);assembly{seedHash:=sha3(scratchBuf2,unclesLength)}offset+=unclesLength;assembly{blobLength:=and(calldataload(sub(offset,30)),0xffff)shift:=and(calldataload(sub(offset,28)),0xffff)}require(shift+32<=blobLength,"Shift bounds check.");offset+=4;assembly{hashSlot:=calldataload(add(offset,shift))}require(hashSlot==0,"Non-empty hash slot.");assembly{calldatacopy(scratchBuf1,offset,blobLength)mstore(add(scratchBuf1,shift),seedHash)blockHash:=sha3(scratchBuf1,blobLength)}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 70
+column: 4
+content: functionsetSecretSigner(addressNew_Secret_Signer_Address)externalonlyOwner{Secret_Signer_Address=New_Secret_Signer_Address;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 74
+column: 4
+content: functionsetCroupier(addressNew_Croupier)externalonlyOwner{Croupier=New_Croupier;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 78
+column: 4
+content: functionsetMaxProfit(uint_Max_Profit)publiconlyOwner{Max_Profit=_Max_Profit;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 17
+column: 12
+content: private
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 273
+column: 4
+content: functionverifyMerkleProof(uintseedHash,uintoffset)pureprivatereturns(bytes32blockHash,bytes32uncleHash){uintscratchBuf1;assembly{scratchBuf1:=mload(0x40)}uintuncleHeaderLength;uintblobLength;uintshift;uinthashSlot;for(;;offset+=blobLength){assembly{blobLength:=and(calldataload(sub(offset,30)),0xffff)}if(blobLength==0){break;}assembly{shift:=and(calldataload(sub(offset,28)),0xffff)}require(shift+32<=blobLength,"Shift bounds check.");offset+=4;assembly{hashSlot:=calldataload(add(offset,shift))}require(hashSlot==0,"Non-empty hash slot.");assembly{calldatacopy(scratchBuf1,offset,blobLength)mstore(add(scratchBuf1,shift),seedHash)seedHash:=sha3(scratchBuf1,blobLength)uncleHeaderLength:=blobLength}}uncleHash=bytes32(seedHash);uintscratchBuf2=scratchBuf1+uncleHeaderLength;uintunclesLength;assembly{unclesLength:=and(calldataload(sub(offset,28)),0xffff)}uintunclesShift;assembly{unclesShift:=and(calldataload(sub(offset,26)),0xffff)}require(unclesShift+uncleHeaderLength<=unclesLength,"Shift bounds check.");offset+=6;assembly{calldatacopy(scratchBuf2,offset,unclesLength)}memcpy(scratchBuf2+unclesShift,scratchBuf1,uncleHeaderLength);assembly{seedHash:=sha3(scratchBuf2,unclesLength)}offset+=unclesLength;assembly{blobLength:=and(calldataload(sub(offset,30)),0xffff)shift:=and(calldataload(sub(offset,28)),0xffff)}require(shift+32<=blobLength,"Shift bounds check.");offset+=4;assembly{hashSlot:=calldataload(add(offset,shift))}require(hashSlot==0,"Non-empty hash slot.");assembly{calldatacopy(scratchBuf1,offset,blobLength)mstore(add(scratchBuf1,shift),seedHash)blockHash:=sha3(scratchBuf1,blobLength)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 399
+column: 4
+content: functionmemcpy(uintdest,uintsrc,uintlen)pureprivate{for(;len>=32;len-=32){assembly{mstore(dest,mload(src))}dest+=32;src+=32;}uintmask=256**(32-len)-1;assembly{letsrcpart:=and(mload(src),not(mask))letdestpart:=and(mload(dest),mask)mstore(dest,or(destpart,srcpart))}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 342
+column: 5
+content: functionrequireCorrectReceipt(uintoffset)viewprivate{uintleafHeaderByte;assembly{leafHeaderByte:=byte(0,calldataload(offset))}require(leafHeaderByte>=0xf7,"Receipt leaf longer than 55 bytes.");offset+=leafHeaderByte-0xf6;uintpathHeaderByte;assembly{pathHeaderByte:=byte(0,calldataload(offset))}if(pathHeaderByte<=0x7f){offset+=1;}else{require(pathHeaderByte>=0x80&&pathHeaderByte<=0xb7,"Path is an RLP string.");offset+=pathHeaderByte-0x7f;}uintreceiptStringHeaderByte;assembly{receiptStringHeaderByte:=byte(0,calldataload(offset))}require(receiptStringHeaderByte==0xb9,"Receipt string is always at least 256 bytes long, but less than 64k.");offset+=3;uintreceiptHeaderByte;assembly{receiptHeaderByte:=byte(0,calldataload(offset))}require(receiptHeaderByte==0xf9,"Receipt is always at least 256 bytes long, but less than 64k.");offset+=3;uintstatusByte;assembly{statusByte:=byte(0,calldataload(offset))}require(statusByte==0x1,"Status should be success.");offset+=1;uintcumGasHeaderByte;assembly{cumGasHeaderByte:=byte(0,calldataload(offset))}if(cumGasHeaderByte<=0x7f){offset+=1;}else{require(cumGasHeaderByte>=0x80&&cumGasHeaderByte<=0xb7,"Cumulative gas is an RLP string.");offset+=cumGasHeaderByte-0x7f;}uintbloomHeaderByte;assembly{bloomHeaderByte:=byte(0,calldataload(offset))}require(bloomHeaderByte==0xb9,"Bloom filter is always 256 bytes long.");offset+=256+3;uintlogsListHeaderByte;assembly{logsListHeaderByte:=byte(0,calldataload(offset))}require(logsListHeaderByte==0xf8,"Logs list is less than 256 bytes long.");offset+=2;uintlogEntryHeaderByte;assembly{logEntryHeaderByte:=byte(0,calldataload(offset))}require(logEntryHeaderByte==0xf8,"Log entry is less than 256 bytes long.");offset+=2;uintaddressHeaderByte;assembly{addressHeaderByte:=byte(0,calldataload(offset))}require(addressHeaderByte==0x94,"Address is 20 bytes long.");uintlogAddress;assembly{logAddress:=and(calldataload(sub(offset,11)),0xffffffffffffffffffffffffffffffffffffffff)}require(logAddress==uint(address(this)));}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 273
+column: 80
+content: (bytes32blockHash,bytes32uncleHash)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 91
+column: 8
+content: sendFunds(Beneficiary,Withdraw_Amount,Withdraw_Amount)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 224
+column: 8
+content: sendFunds(game.Gamer,Game_Win+Jackpot_Small_Win+Jackpot_Medium_Win+Jackpot_Large_Win==0?1wei:Game_Win+Jackpot_Small_Win+Jackpot_Medium_Win+Jackpot_Large_Win,Game_Win)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 262
+column: 8
+content: sendFunds(game.Gamer,Amount,Amount)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 67
+column: 16
+content: public
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 275
+column: 27
+content: assembly{scratchBuf1:=mload(0x40)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 284
+column: 12
+content: assembly{blobLength:=and(calldataload(sub(offset,30)),0xffff)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 290
+column: 12
+content: assembly{shift:=and(calldataload(sub(offset,28)),0xffff)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 294
+column: 12
+content: assembly{hashSlot:=calldataload(add(offset,shift))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 297
+column: 12
+content: assembly{calldatacopy(scratchBuf1,offset,blobLength)mstore(add(scratchBuf1,shift),seedHash)seedHash:=sha3(scratchBuf1,blobLength)uncleHeaderLength:=blobLength}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 310
+column: 27
+content: assembly{unclesLength:=and(calldataload(sub(offset,28)),0xffff)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 311
+column: 27
+content: assembly{unclesShift:=and(calldataload(sub(offset,26)),0xffff)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 315
+column: 8
+content: assembly{calldatacopy(scratchBuf2,offset,unclesLength)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 318
+column: 8
+content: assembly{seedHash:=sha3(scratchBuf2,unclesLength)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 323
+column: 8
+content: assembly{blobLength:=and(calldataload(sub(offset,30)),0xffff)shift:=and(calldataload(sub(offset,28)),0xffff)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 330
+column: 8
+content: assembly{hashSlot:=calldataload(add(offset,shift))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 333
+column: 8
+content: assembly{calldatacopy(scratchBuf1,offset,blobLength)mstore(add(scratchBuf1,shift),seedHash)blockHash:=sha3(scratchBuf1,blobLength)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 343
+column: 29
+content: assembly{leafHeaderByte:=byte(0,calldataload(offset))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 348
+column: 29
+content: assembly{pathHeaderByte:=byte(0,calldataload(offset))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 358
+column: 38
+content: assembly{receiptStringHeaderByte:=byte(0,calldataload(offset))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 362
+column: 32
+content: assembly{receiptHeaderByte:=byte(0,calldataload(offset))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 366
+column: 25
+content: assembly{statusByte:=byte(0,calldataload(offset))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 370
+column: 31
+content: assembly{cumGasHeaderByte:=byte(0,calldataload(offset))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 379
+column: 30
+content: assembly{bloomHeaderByte:=byte(0,calldataload(offset))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 383
+column: 33
+content: assembly{logsListHeaderByte:=byte(0,calldataload(offset))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 387
+column: 33
+content: assembly{logEntryHeaderByte:=byte(0,calldataload(offset))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 391
+column: 32
+content: assembly{addressHeaderByte:=byte(0,calldataload(offset))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 394
+column: 25
+content: assembly{logAddress:=and(calldataload(sub(offset,11)),0xffffffffffffffffffffffffffffffffffffffff)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 402
+column: 12
+content: assembly{mstore(dest,mload(src))}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 408
+column: 8
+content: assembly{letsrcpart:=and(mload(src),not(mask))letdestpart:=and(mload(dest),mask)mstore(dest,or(destpart,srcpart))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 8
+column: 4
+content: uintconstantGame_Cut_Percentage=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 9
+column: 4
+content: uintconstantGame_Modulo=100;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 10
+column: 4
+content: uintconstantJackpot_Small_Modulo=100;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 11
+column: 4
+content: uintconstantJackpot_Medium_Modulo=1000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 12
+column: 4
+content: uintconstantJackpot_Large_Modulo=10000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 4
+content: uintconstantJackpot_Ticket_Price=0.003ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 14
+column: 4
+content: uintconstantMin_Ticket_Price=0.01ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 15
+column: 4
+content: uintconstantGame_Expires_After=250;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 33
+column: 4
+content: mapping(uint=>Game)games;
+
+SOLIDITY_VISIBILITY :9
+SOLIDITY_OVERPOWERED_ROLE :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :1
+SOLIDITY_ADDRESS_HARDCODED :19
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_UNCHECKED_CALL :3
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_SHOULD_NOT_BE_PURE :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_USING_INLINE_ASSEMBLY :25
+SOLIDITY_SHOULD_NOT_BE_VIEW :1

@@ -1,0 +1,161 @@
+F:\Blockchain\solidity_dataset_work\4k_dataset\94502.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 104
+column: 42
+content: 0xcd740db5
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 149
+column: 46
+content: 0xed81cdda
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 170
+column: 46
+content: 0x43a61a8e
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 187
+column: 50
+content: 0x6352211e
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 197
+column: 50
+content: 0xed81cdda
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 221
+column: 42
+content: 0x150b7a02
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: b140cd
+severity: 1
+line: 235
+column: 59
+content: 0xed81cdda
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 267
+column: 8
+content: ownedTokens[_from].length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 331
+column: 8
+content: parentToChildTokenIds[_fromContract][_fromTokenId].length--
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 122
+column: 15
+content: rootOwnerAddress==address(this)
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 116
+column: 4
+content: functionrootOwnerOf_(uint256_tokenId)internalviewreturns(bytes32rootOwner){addressrootOwnerAddress=address(mokens[_tokenId].data);require(rootOwnerAddress!=address(0),"tokenId not found.");uint256parentTokenId;boolisParent;while(rootOwnerAddress==address(this)){parentTokenId=mokens[_tokenId].parentTokenId;isParent=parentTokenId>0;if(isParent){_tokenId=parentTokenId-1;}else{_tokenId=childTokenOwner[rootOwnerAddress][_tokenId]-1;}rootOwnerAddress=address(mokens[_tokenId].data);}parentTokenId=mokens[_tokenId].parentTokenId;isParent=parentTokenId>0;if(isParent){parentTokenId--;}bytesmemorycalldata;boolcallSuccess;if(isParent==false){calldata=abi.encodeWithSelector(0xed81cdda,address(this),_tokenId);assembly{callSuccess:=staticcall(gas,rootOwnerAddress,add(calldata,0x20),mload(calldata),calldata,0x20)ifcallSuccess{rootOwner:=mload(calldata)}}if(callSuccess==true&&rootOwner>>224==ERC998_MAGIC_VALUE){returnrootOwner;}else{returnERC998_MAGIC_VALUE<<224|bytes32(rootOwnerAddress);}}else{calldata=abi.encodeWithSelector(0x43a61a8e,parentTokenId);assembly{callSuccess:=staticcall(gas,rootOwnerAddress,add(calldata,0x20),mload(calldata),calldata,0x20)ifcallSuccess{rootOwner:=mload(calldata)}}if(callSuccess==true&&rootOwner>>224==ERC998_MAGIC_VALUE){returnrootOwner;}else{addresschildContract=rootOwnerAddress;calldata=abi.encodeWithSelector(0x6352211e,parentTokenId);assembly{callSuccess:=staticcall(gas,rootOwnerAddress,add(calldata,0x20),mload(calldata),calldata,0x20)ifcallSuccess{rootOwnerAddress:=mload(calldata)}}require(callSuccess,"Call to ownerOf failed");calldata=abi.encodeWithSelector(0xed81cdda,childContract,parentTokenId);assembly{callSuccess:=staticcall(gas,rootOwnerAddress,add(calldata,0x20),mload(calldata),calldata,0x20)ifcallSuccess{rootOwner:=mload(calldata)}}if(callSuccess==true&&rootOwner>>224==ERC998_MAGIC_VALUE){returnrootOwner;}else{returnERC998_MAGIC_VALUE<<224|bytes32(rootOwnerAddress);}}}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 279
+column: 4
+content: functionisContract(addressaddr)internalviewreturns(bool){uint256size;assembly{size:=extcodesize(addr)}returnsize>0;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 150
+column: 12
+content: assembly{callSuccess:=staticcall(gas,rootOwnerAddress,add(calldata,0x20),mload(calldata),calldata,0x20)ifcallSuccess{rootOwner:=mload(calldata)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 171
+column: 12
+content: assembly{callSuccess:=staticcall(gas,rootOwnerAddress,add(calldata,0x20),mload(calldata),calldata,0x20)ifcallSuccess{rootOwner:=mload(calldata)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 188
+column: 16
+content: assembly{callSuccess:=staticcall(gas,rootOwnerAddress,add(calldata,0x20),mload(calldata),calldata,0x20)ifcallSuccess{rootOwnerAddress:=mload(calldata)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 198
+column: 16
+content: assembly{callSuccess:=staticcall(gas,rootOwnerAddress,add(calldata,0x20),mload(calldata),calldata,0x20)ifcallSuccess{rootOwner:=mload(calldata)}}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 236
+column: 12
+content: assembly{callSuccess:=staticcall(gas,_from,add(calldata,0x20),mload(calldata),calldata,0x20)ifcallSuccess{tokenOwner:=mload(calldata)}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 87
+column: 4
+content: mapping(uint256=>mapping(address=>uint256))erc20ContractIndex;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 104
+column: 4
+content: bytes32constantERC998_MAGIC_VALUE=0xcd740db5;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 221
+column: 4
+content: bytes4constantERC721_RECEIVED_NEW=0x150b7a02;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 223
+column: 4
+content: uint256constantUINT16_MASK=0x000000000000000000000000000000000000000000000000000000000000ffff;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 224
+column: 4
+content: uint256constantMAX_OWNER_MOKENS=65536;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :2
+SOLIDITY_ADDRESS_HARDCODED :7
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :5
+SOLIDITY_SHOULD_NOT_BE_VIEW :2

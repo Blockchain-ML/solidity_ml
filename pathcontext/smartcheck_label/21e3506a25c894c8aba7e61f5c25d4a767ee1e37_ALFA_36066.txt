@@ -1,0 +1,79 @@
+C:\Users\hp\DataSet\contracts\ropsten\21\21e3506a25c894c8aba7e61f5c25d4a767ee1e37_ALFA.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ERC20_APPROVE
+patternId: af782c
+severity: 2
+line: 90
+column: 4
+content: functionapprove(addressspender,uint256tokens)publicreturns(boolsuccess){require(block.timestamp>stage0);require(CoSup>=_totalSupply||block.timestamp>stage3);allowed[msg.sender][spender]=tokens;emitApproval(msg.sender,spender,tokens);returntrue;}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 22
+column: 0
+content: contractOWN{addresspayablepublicowner;addresspayablepublicnewOwner;eventOwnershipTransferred(addressindexed_from,addressindexed_to);modifieronlyOwner{require(msg.sender==owner);_;}functiontransferOwnership(addresspayable_newOwner)publiconlyOwner{newOwner=_newOwner;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 126
+column: 8
+content: if(CoSup<_totalSupply||block.timestamp<stage3){btreg[msg.sender]=1;require(msg.value>10**16);addressref=bytesToAddress(msg.data);uint256CoFw;CoFw=EndM;if(ref!=address(0)){CoFw=EndP;require(ref!=msg.sender);require(isContract(ref)==false);require(btreg[ref]==1);if(CoSup<StdSup||block.timestamp<stage2){CoFw=SecP;}if(CoSup<IcoSup||block.timestamp<stage1){CoFw=IcoP;}}else{if(CoSup<StdSup||block.timestamp<stage2){CoFw=SecM;}if(CoSup<IcoSup||block.timestamp<stage1){CoFw=IcoM;}}uint256tokens=msg.value.safeMul(CoFw);require(tokens>0);if(ref!=address(0)){require(ref!=msg.sender);require(isContract(ref)==false);require(btreg[ref]==1);uint256bounty=tokens.safeDiv(10);assert(balances[ref].safeAdd(bounty)>balances[ref]);require(balances[address(this)]>=(bounty+tokens));CoSup=CoSup.safeAdd(bounty);emitTransfer(address(0),ref,bounty);balances[ref]=balances[ref].safeAdd(bounty);balances[address(this)]=balances[address(this)].safeSub(bounty);}assert(balances[msg.sender].safeAdd(tokens)>balances[msg.sender]);require(balances[address(this)]>=tokens);CoSup=CoSup.safeAdd(tokens);emitTransfer(address(0),msg.sender,tokens);balances[msg.sender]=balances[msg.sender].safeAdd(tokens);balances[address(this)]=balances[address(this)].safeSub(tokens);owner.transfer(msg.value);}else{revert();}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 113
+column: 4
+content: functionbytesToAddress(bytesmemorysource)internalpurereturns(addressaddr){assembly{addr:=mload(add(source,0x14))}returnaddr;}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_VIEW
+patternId: 189abf
+severity: 1
+line: 114
+column: 4
+content: functionisContract(addressaddr)internalviewreturns(bool){uintsize;assembly{size:=extcodesize(addr)}returnsize>0;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 113
+column: 84
+content: assembly{addr:=mload(add(source,0x14))}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 26
+column: 4
+content: functiontransferOwnership(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 74
+content: newOwner=_newOwner;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 50
+column: 4
+content: mapping(address=>mapping(address=>uint256))allowed;
+
+SOLIDITY_VISIBILITY :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_VIEW :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1
+SOLIDITY_ERC20_APPROVE :1

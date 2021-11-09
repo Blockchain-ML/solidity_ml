@@ -1,0 +1,45 @@
+F:\Blockchain\dataset_new_byID\81835.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 8
+column: 2
+content: functionResolver(addressdestination){pointers[stringToSig("symbol")]=Pointer(destination,32);pointers[stringToSig("decimals")]=Pointer(destination,32);pointers[stringToSig("name")]=Pointer(destination,32);pointers[stringToSig("totalSupply()")]=Pointer(destination,32);pointers[stringToSig("balanceOf(address)")]=Pointer(destination,32);pointers[stringToSig("allowance(address,address)")]=Pointer(destination,32);pointers[stringToSig("transfer(address,uint256)")]=Pointer(destination,32);pointers[stringToSig("transferFrom(address,address,uint256)")]=Pointer(destination,32);pointers[stringToSig("approve(address,uint256)")]=Pointer(destination,32);pointers[stringToSig("mint(uint256)")]=Pointer(destination,0);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 22
+column: 2
+content: functionlookup(bytes4sig)returns(address,uint){return(destination(sig),outsize(sig));}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 27
+column: 2
+content: functiondestination(bytes4sig)returns(address){returnpointers[sig].destination;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 31
+column: 2
+content: functionoutsize(bytes4sig)returns(uint){if(pointers[sig].destination!=0){returnpointers[sig].outsize;}else{return32;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 41
+column: 2
+content: functionstringToSig(stringsignature)returns(bytes4){returnbytes4(keccak256(signature));}
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_PRAGMAS_VERSION :1

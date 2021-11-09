@@ -1,0 +1,162 @@
+C:\Users\hp\DataSet\contracts\mainnet\60\6085df4802721d24e39f69721b294a831cb2bd10_TenXBuyer.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 43
+column: 34
+content: 0xd43D09Ec1bC5e57C8F3D0c64020d403b04c7f783
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 45
+column: 29
+content: 0xB97048628DB6B661D4C2aA833e95Dbe1A905B280
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 47
+column: 22
+content: 0x4e6A1c57CdBfd97e8efe831f8f4418b1F2A09e6e
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 83
+column: 23
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 49bd2a
+severity: 1
+line: 113
+column: 25
+content: throw
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 17
+column: 2
+content: functionbalanceOf(address_owner)constantreturns(uintbalance);
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 21
+column: 0
+content: contractMainSale{addresspublicmultisigVault;uintpublicaltDeposits;functioncreateTokens(addressrecipient)payable;}
+
+ruleId: SOLIDITY_MSGVALUE_EQUALS_ZERO
+patternId: 1df89a
+severity: 1
+line: 107
+column: 8
+content: msg.value==0
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 83
+column: 4
+content: if(bought_tokens)throw;
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 113
+column: 6
+content: if(bought_tokens)throw;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 16
+column: 2
+content: functiontransfer(address_to,uint_value);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 17
+column: 2
+content: functionbalanceOf(address_owner)constantreturns(uintbalance);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 24
+column: 2
+content: functioncreateTokens(addressrecipient)payable;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 50
+column: 2
+content: functionwithdraw(){if(!bought_tokens){uinteth_amount=balances[msg.sender];balances[msg.sender]=0;msg.sender.transfer(eth_amount);}else{uintpay_amount=balances[msg.sender]*pay_per_eth;balances[msg.sender]=0;uintfee=0;boolcap_reached=(sale.multisigVault().balance+sale.altDeposits()>hardcap);if(cap_reached||(now>time_bought+1days)){fee=pay_amount/100;}token.transfer(msg.sender,pay_amount-fee);token.transfer(developer,fee);}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 81
+column: 2
+content: functionadd_to_bounty()payable{if(bought_tokens)throw;bounty+=msg.value;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 89
+column: 2
+content: functionbuy(){if(bought_tokens)return;bought_tokens=true;time_bought=now;sale.createTokens.value(this.balance-bounty)(address(this));msg.sender.transfer(bounty);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 105
+column: 2
+content: functiondefault_helper()payable{if(msg.value==0){withdraw();}else{if(bought_tokens)throw;balances[msg.sender]+=msg.value;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 119
+column: 2
+content: function()payable{default_helper();}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 38
+column: 2
+content: uinthardcap=200000ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 40
+column: 2
+content: uintpay_per_eth=420;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 47
+column: 2
+content: addressdeveloper=0x4e6A1c57CdBfd97e8efe831f8f4418b1F2A09e6e;
+
+SOLIDITY_VISIBILITY :11
+SOLIDITY_MSGVALUE_EQUALS_ZERO :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :3
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :3

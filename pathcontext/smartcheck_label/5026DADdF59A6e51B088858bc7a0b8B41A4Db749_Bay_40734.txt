@@ -1,0 +1,296 @@
+C:\Users\hp\DataSet\contracts\ropsten\50\5026DADdF59A6e51B088858bc7a0b8B41A4Db749_Bay.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 57
+column: 4
+content: owner=address(0)
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 398
+column: 4
+content: fish[_x][_y][_fish]=address(0)
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 146
+column: 2
+content: functiongetContract(bytes32_name)publicconstantreturns(address){}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 410
+column: 2
+content: functiongetShip(uint16_x,uint16_y,address_address)publicconstantreturns(uint256id,boolfloating,boolsailing,booldirection,boolfishing,uint64blockNumber,uint16location){uint16loc=shipLocation(_x,_y,_address);ShipthisShip=ships[_x][_y][_address];return(thisShip.id,thisShip.floating,thisShip.sailing,thisShip.direction,thisShip.fishing,thisShip.blockNumber,loc);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 437
+column: 2
+content: functionfishLocation(bytes32id)publicconstantreturns(uint16,uint16){bytes16[2]memoryparts=[bytes16(0),0];assembly{mstore(parts,id)mstore(add(parts,16),id)}return(uint16(uint(parts[0])%width),uint16(uint(parts[1])%depth));}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 449
+column: 2
+content: functionshipLocation(uint16_x,uint16_y,address_owner)publicconstantreturns(uint16){ShipthisShip=ships[_x][_y][_owner];if(!thisShip.sailing){returnthisShip.location;}else{uint256blocksTraveled=block.number-thisShip.blockNumber;uint256pixelsTraveled=blocksTraveled*shipSpeed;uint16location;if(thisShip.direction){location=thisShip.location+uint16(pixelsTraveled);}else{location=thisShip.location-uint16(pixelsTraveled);}returnlocation;}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 468
+column: 2
+content: functioninRangeToDisembark(uint16_x,uint16_y,address_account)publicconstantreturns(bool){if(ships[_x][_y][_account].location==0||!ships[_x][_y][_account].floating)returnfalse;uint16harborLocation=getHarborLocation(_x,_y);if(ships[_x][_y][_account].location>=harborLocation){return((ships[_x][_y][_account].location-harborLocation)<3000);}else{return((harborLocation-ships[_x][_y][_account].location)<3000);}}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 481
+column: 2
+content: functiongetHarborLocation(uint16_x,uint16_y)publicconstantreturns(uint16){LandlandContract=Land(getContract("Land"));uint16harborLocation=landContract.getTileLocation(_x,_y,getContract("Harbor"));returnuint16((65535*uint256(harborLocation))/4000);}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 524
+column: 2
+content: functiongetTileLocation(uint16_x,uint16_y,address_address)publicconstantreturns(uint16){}
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 525
+column: 2
+content: functionfindTileByAddress(uint16_x,uint16_y,address_address)publicconstantreturns(uint8){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 146
+column: 2
+content: functiongetContract(bytes32_name)publicconstantreturns(address){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 147
+column: 2
+content: functionhasPermission(address_contract,bytes32_permission)publicviewreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 153
+column: 2
+content: functiontransferFrom(address_from,address_to,uint256_value)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 154
+column: 2
+content: functiongalleassTransferFrom(address_from,address_to,uint256_value)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 155
+column: 2
+content: functiontransfer(address_to,uint256_value)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 156
+column: 2
+content: functionapprove(address_spender,uint256_value)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 206
+column: 2
+content: functionallowSpecies(uint16_x,uint16_y,address_species)onlyOwnerpublicreturns(bool){assert(_species!=address(0));species[_x][_y][_species]=true;}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 524
+column: 2
+content: functiongetTileLocation(uint16_x,uint16_y,address_address)publicconstantreturns(uint16){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 525
+column: 2
+content: functionfindTileByAddress(uint16_x,uint16_y,address_address)publicconstantreturns(uint8){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 536
+column: 2
+content: functiontransferFrom(address_from,address_to,uint256_value)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 537
+column: 2
+content: functiontransfer(address_to,uint256_value)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 541
+column: 2
+content: functionupdate(address_player,uint16_milestone,bool_value)publicreturns(bool){}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 531
+column: 2
+content: functionownerOf(uint256_tokenId)externalviewreturns(addressowner){}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 118
+column: 17
+content: send(_amount)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 226
+column: 19
+content: keccak256(nonce++,block.blockhash(block.number-1),msg.sender)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 497
+column: 24
+content: keccak256(bait,block.blockhash(thisShip.blockNumber))
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 498
+column: 24
+content: keccak256(bait,catchHash,block.blockhash(thisShip.blockNumber))
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 178
+column: 47
+content: ShipthisShip
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 495
+column: 22
+content: ShipthisShip
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 255
+column: 4
+content: ShipthisShip=ships[_x][_y][msg.sender]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 287
+column: 4
+content: ShipthisShip=ships[_x][_y][msg.sender]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 304
+column: 4
+content: ShipthisShip=ships[_x][_y][msg.sender]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 325
+column: 4
+content: ShipthisShip=ships[_x][_y][msg.sender]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 343
+column: 4
+content: ShipthisShip=ships[_x][_y][msg.sender]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 363
+column: 4
+content: ShipthisShip=ships[_x][_y][msg.sender]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 420
+column: 4
+content: ShipthisShip=ships[_x][_y][_address]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 451
+column: 4
+content: ShipthisShip=ships[_x][_y][_owner]
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 439
+column: 8
+content: assembly{mstore(parts,id)mstore(add(parts,16),id)}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 176
+column: 2
+content: uint8updateNonce=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 216
+column: 2
+content: uint256nonce;
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :8
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :13
+SOLIDITY_SEND :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UPGRADE_TO_050 :13
+SOLIDITY_USING_INLINE_ASSEMBLY :1

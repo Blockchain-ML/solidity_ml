@@ -1,0 +1,161 @@
+F:\Blockchain\dataset_new_byID\81122.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 25
+column: 50
+content: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: a91b18
+severity: 1
+line: 30
+column: 4
+content: addressconstantpublicFEE_COLLECTION_ADDRESS=address(0);
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 19
+column: 0
+content: contractMintWithKyberisAbstractBuyAndMint,IBuyAndMint,ReentrancyGuard{usingSafeERC20forIERC20;usingSafeMathforuint256;usingAddressforaddresspayable;usingStableMathforuint256;addressconstantinternalETH_TOKEN_ADDRESS=0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;addressconstantpublicFEE_COLLECTION_ADDRESS=address(0);KyberNetworkProxyInterfacepublickyberNetworkProxy;constructor(address_kyberNetworkProxy,address[]memory_mAssets)publicAbstractBuyAndMint(_mAssets){require(_kyberNetworkProxy!=address(0),"Kyber proxy address is zero");kyberNetworkProxy=KyberNetworkProxyInterface(_kyberNetworkProxy);}function_externalDexAddress()internalviewreturns(address){returnaddress(kyberNetworkProxy);}functionbuyAndMintMaxMasset(address_srcBasset,address_destMasset)externalpayablenonReentrantreturns(uint256mAssetQtyMinted){require(msg.value>0,"ETH not sent");require(_massetExists(_destMasset),"Not a valid mAsset");mAssetQtyMinted=_buyAndMint(_srcBasset,_destMasset,msg.value,_msgSender());}functionbuyAndMintGivenMasset(address_srcBasset,address_destMasset,uint256_amountOfBasset)externalpayablenonReentrantreturns(uint256mAssetQtyMinted){require(_massetExists(_destMasset),"Not a valid mAsset");(uint256expectedRate,)=kyberNetworkProxy.getExpectedRate(_srcBasset,ETH_TOKEN_ADDRESS,_amountOfBasset);uint256amountInETH=_amountOfBasset.mulTruncate(expectedRate);require(msg.value>=amountInETH,"Not enough ETH sent");mAssetQtyMinted=_buyAndMint(_srcBasset,_destMasset,amountInETH,_msgSender());msg.sender.sendValue(msg.value.sub(amountInETH));}functionbuyAndMintMulti(address[]calldata_srcBassets,uint256[]calldata<missing ')'>_ethAmount,address_destMasset)externalpayablenonReentrantreturns(uint256mAssetQtyMinted){require(msg.value>0,"ETH not sent");<missing ';'>uint256bAssetsLen=_srcBassets.length;require(bAssetsLen>0,"No array data sent");require(bAssetsLen==_ethAmount.length,"Array length not matched");require(_massetExists(_destMasset),"Not a valid mAsset");mAssetQtyMinted=_buyAndMintMulti(_srcBassets,_ethAmount,_destMasset,_msgSender());}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 21
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 189
+column: 43
+content: (uintexpectedRate,uintslippageRate)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 91
+column: 19
+content: sendValue(msg.value.sub(amountInETH))
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 95
+column: 4
+content: functionbuyAndMintMulti(address[]calldata_srcBassets,uint256[]calldata<missing ')'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 97
+column: 27
+content: _ethAmount,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 98
+column: 8
+content: address_destMasset)externalpayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 102
+column: 8
+content: nonReentrantreturns
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 103
+column: 16
+content: (uint256mAssetQtyMinted){require
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 105
+column: 15
+content: (msg.value>0,"ETH not sent");<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 106
+column: 8
+content: uint256bAssetsLen=_srcBassets.length;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 107
+column: 8
+content: require(bAssetsLen>0,"No array data sent");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 108
+column: 8
+content: require(bAssetsLen==
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 108
+column: 30
+content: _ethAmount.length,"Array length not matched");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 109
+column: 8
+content: require(_massetExists
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 109
+column: 29
+content: (_destMasset),"Not a valid mAsset");
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 113
+column: 8
+content: mAssetQtyMinted=_buyAndMintMulti
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 113
+column: 42
+content: (_srcBassets,_ethAmount,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 113
+column: 68
+content: _destMasset,_msgSender
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 113
+column: 91
+content: ());
+
+SOLIDITY_VISIBILITY :16
+SOLIDITY_SAFEMATH :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1

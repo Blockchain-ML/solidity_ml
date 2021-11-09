@@ -1,0 +1,47 @@
+C:\Users\hp\DataSet\ExchangeExecution.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 130
+column: 8
+content: for(uint256i=0;i<_exchangeIssuanceParams.receiveTokens.length;i++){uint256tokenBalance=vaultInstance.getOwnerBalance(_exchangeIssuanceParams.receiveTokens[i],msg.sender);uint256requiredAddition=_exchangeIssuanceParams.receiveTokenAmounts[i];requiredBalances[i]=tokenBalance.add(requiredAddition);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 58
+column: 8
+content: while(scannedBytes<_orderData.length){ExchangeHeaderLibrary.ExchangeHeadermemoryheader=ExchangeHeaderLibrary.parseExchangeHeader(_orderData,scannedBytes);addressexchangeWrapper=coreInstance.exchangeIds(header.exchange);require(exchangeWrapper!=address(0),"ExchangeExecution.executeExchangeOrders: Invalid or disabled Exchange address");uint256exchangeBitIndex=CommonMath.safePower(2,header.exchange);require((calledExchanges&exchangeBitIndex)==0,"ExchangeExecution.executeExchangeOrders: Exchange already called");uint256exchangeDataLength=header.orderDataBytesLength.add(ExchangeHeaderLibrary.EXCHANGE_HEADER_LENGTH());bytesmemorybodyData=ExchangeHeaderLibrary.sliceBodyData(_orderData,scannedBytes,exchangeDataLength);ExchangeWrapperLibraryV2.ExchangeDatamemoryexchangeData=ExchangeWrapperLibraryV2.ExchangeData({caller:msg.sender,orderCount:header.orderCount});ExchangeWrapperLibrary.callExchange(core,exchangeData,exchangeWrapper,bodyData);scannedBytes=scannedBytes.add(exchangeDataLength);calledExchanges=calledExchanges.add(exchangeBitIndex);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 130
+column: 8
+content: for(uint256i=0;i<_exchangeIssuanceParams.receiveTokens.length;i++){uint256tokenBalance=vaultInstance.getOwnerBalance(_exchangeIssuanceParams.receiveTokens[i],msg.sender);uint256requiredAddition=_exchangeIssuanceParams.receiveTokenAmounts[i];requiredBalances[i]=tokenBalance.add(requiredAddition);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 58
+column: 15
+content: scannedBytes<_orderData.length
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 39
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 100
+column: 35
+content: callExchange(core,exchangeData,exchangeWrapper,bodyData)
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_UNCHECKED_CALL :1

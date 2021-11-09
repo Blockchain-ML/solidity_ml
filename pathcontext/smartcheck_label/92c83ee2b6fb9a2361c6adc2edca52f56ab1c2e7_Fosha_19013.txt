@@ -1,0 +1,75 @@
+C:\Users\hp\DataSet\contracts\mainnet\92\92c83ee2b6fb9a2361c6adc2edca52f56ab1c2e7_Fosha.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 27
+column: 0
+content: contractFosha{usingSafeMathforuint256;stringconstantpublicstandard="ERC20";stringconstantpublicsymbol="FOSHA";stringconstantpublicname="Fosha";uint8constantpublicdecimals=18;uint256constantpublicinitialSupply=78000000*1ether;uint256constantpublictokensForIco=62400000*1ether;uint256publicstartTransferTime;uint256publictokensSold;mapping(address=>uint256)publicbalanceOf;mapping(address=>mapping(address=>uint256))publicallowance;uint256constantpublicstart=1524391200;uint256constantpublicend=1525132799;uint256constantpublictokenExchangeRate=3000;uint256publicamountRaised;boolpubliccrowdsaleClosed=false;addresspublicfundWallet;addressethFundWallet;eventTransfer(addressindexedfrom,addressindexedto,uint256value);eventApproval(addressindexed_owner,addressindexedspender,uint256value);eventFundTransfer(addressbacker,uintamount,boolisContribution,uint_amountRaised);functionFosha(address_ethFundWallet){ethFundWallet=_ethFundWallet;fundWallet=msg.sender;balanceOf[fundWallet]=initialSupply;startTransferTime=end;}function()payable{uint256amount=msg.value;uint256numTokens=amount.mul(tokenExchangeRate);require(!crowdsaleClosed&&now>=start&&now<=end&&tokensSold.add(numTokens)<=tokensForIco&&amount<=5);ethFundWallet.transfer(amount);balanceOf[fundWallet]=balanceOf[fundWallet].sub(numTokens);balanceOf[msg.sender]=balanceOf[msg.sender].add(numTokens);Transfer(fundWallet,msg.sender,numTokens);amountRaised=amountRaised.add(amount);tokensSold+=numTokens;FundTransfer(msg.sender,amount,true,amountRaised);}functiontransfer(address_to,uint256_value)returns(boolsuccess){require(now>=startTransferTime);balanceOf[msg.sender]=balanceOf[msg.sender].sub(_value);balanceOf[_to]=balanceOf[_to].add(_value);Transfer(msg.sender,_to,_value);returntrue;}functionapprove(address_spender,uint256_value)returns(boolsuccess){require((_value==0)||(allowance[msg.sender][_spender]==0));allowance[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}functiontransferFrom(address_from,address_to,uint256_value)returns(boolsuccess){if(now<startTransferTime){require(_from==fundWallet);}var_allowance=allowance[_from][msg.sender];require(_value<=_allowance);balanceOf[_from]=balanceOf[_from].sub(_value);balanceOf[_to]=balanceOf[_to].add(_value);allowance[_from][msg.sender]=_allowance.sub(_value);Transfer(_from,_to,_value);returntrue;}functionmarkCrowdsaleEnding(){require(now>end);crowdsaleClosed=true;}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 29
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 57
+column: 4
+content: functionFosha(address_ethFundWallet){ethFundWallet=_ethFundWallet;fundWallet=msg.sender;balanceOf[fundWallet]=initialSupply;startTransferTime=end;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 64
+column: 4
+content: function()payable{uint256amount=msg.value;uint256numTokens=amount.mul(tokenExchangeRate);require(!crowdsaleClosed&&now>=start&&now<=end&&tokensSold.add(numTokens)<=tokensForIco&&amount<=5);ethFundWallet.transfer(amount);balanceOf[fundWallet]=balanceOf[fundWallet].sub(numTokens);balanceOf[msg.sender]=balanceOf[msg.sender].add(numTokens);Transfer(fundWallet,msg.sender,numTokens);amountRaised=amountRaised.add(amount);tokensSold+=numTokens;FundTransfer(msg.sender,amount,true,amountRaised);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 77
+column: 4
+content: functiontransfer(address_to,uint256_value)returns(boolsuccess){require(now>=startTransferTime);balanceOf[msg.sender]=balanceOf[msg.sender].sub(_value);balanceOf[_to]=balanceOf[_to].add(_value);Transfer(msg.sender,_to,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 85
+column: 4
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess){require((_value==0)||(allowance[msg.sender][_spender]==0));allowance[msg.sender][_spender]=_value;Approval(msg.sender,_spender,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 92
+column: 4
+content: functiontransferFrom(address_from,address_to,uint256_value)returns(boolsuccess){if(now<startTransferTime){require(_from==fundWallet);}var_allowance=allowance[_from][msg.sender];require(_value<=_allowance);balanceOf[_from]=balanceOf[_from].sub(_value);balanceOf[_to]=balanceOf[_to].add(_value);allowance[_from][msg.sender]=_allowance.sub(_value);Transfer(_from,_to,_value);returntrue;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 105
+column: 4
+content: functionmarkCrowdsaleEnding(){require(now>end);crowdsaleClosed=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 51
+column: 4
+content: addressethFundWallet;
+
+SOLIDITY_VISIBILITY :7
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1

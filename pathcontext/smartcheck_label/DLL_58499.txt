@@ -1,0 +1,38 @@
+C:\Users\hp\DataSet\DLL.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 15
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 13
+column: 1
+content: functiongetNext(Datastorageself,uintcurr)returns(uint){returnself.dll[curr].next;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 17
+column: 1
+content: functiongetPrev(Datastorageself,uintcurr)returns(uint){returnself.dll[curr].prev;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 21
+column: 1
+content: functioninsert(Datastorageself,uintprev,uintcurr,uintnext){self.dll[curr].prev=prev;self.dll[curr].next=next;self.dll[prev].next=curr;self.dll[next].prev=curr;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 29
+column: 1
+content: functionremove(Datastorageself,uintcurr){uintnext=getNext(self,curr);uintprev=getPrev(self,curr);self.dll[next].prev=prev;self.dll[prev].next=next;self.dll[curr].next=curr;self.dll[curr].prev=curr;}
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_PRAGMAS_VERSION :1

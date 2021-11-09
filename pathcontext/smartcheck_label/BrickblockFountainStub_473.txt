@@ -1,0 +1,40 @@
+C:\Users\hp\DataSet\BrickblockFountainStub.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 45
+column: 2
+content: functionupdateAccount(address_locker,uint256_value)privatereturns(uint256){Placeholder(_locker,_value);}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 82
+column: 2
+content: functionclaimCompanyTokens()publiconlyOwnerreturns(bool){require(block.number>companyShareReleaseBlock);BrickblockToken_bbt=BrickblockToken(brickBlockTokenAddress);uint256_companyTokens=balanceOf(_bbt);balances[this].tokens=balances[this].tokens.sub(_companyTokens);balances[owner].tokens=balances[owner].tokens.add(_companyTokens);updateAccount(brickBlockTokenAddress,0);_bbt.transfer(owner,_companyTokens);CompanyTokensReleased(owner,_companyTokens);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 2
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 10
+column: 2
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 18
+column: 2
+content: mapping(address=>Account)balances;
+
+SOLIDITY_VISIBILITY :1
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2

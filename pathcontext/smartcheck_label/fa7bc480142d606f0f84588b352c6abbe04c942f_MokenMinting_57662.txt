@@ -1,0 +1,77 @@
+C:\Users\hp\DataSet\contracts\ropsten\fa\fa7bc480142d606f0f84588b352c6abbe04c942f_MokenMinting.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 304
+column: 4
+content: functionvalidateAndLower(string_s)internalpurereturns(stringmokenName){assembly{letlen:=mload(_s)letp:=add(_s,0x20)ifeq(len,0){revert(0,0)}ifgt(len,100){revert(0,0)}letb:=byte(0,mload(add(_s,0x20)))iflt(b,0x21){revert(0,0)}b:=byte(0,mload(add(p,sub(len,1))))iflt(b,0x21){revert(0,0)}for{letend:=add(p,len)}lt(p,end){p:=add(p,1)}{b:=byte(0,mload(p))iflt(b,0x5b){ifgt(b,0x40){mstore8(p,add(b,32))}}}}return_s;}
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 7d54ca
+severity: 1
+line: 177
+column: 62
+content: (uint256index,uint256startTokenId)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 304
+column: 30
+content: string_s
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 304
+column: 64
+content: stringmokenName
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 305
+column: 8
+content: assembly{letlen:=mload(_s)letp:=add(_s,0x20)ifeq(len,0){revert(0,0)}ifgt(len,100){revert(0,0)}letb:=byte(0,mload(add(_s,0x20)))iflt(b,0x21){revert(0,0)}b:=byte(0,mload(add(p,sub(len,1))))iflt(b,0x21){revert(0,0)}for{letend:=add(p,len)}lt(p,end){p:=add(p,1)}{b:=byte(0,mload(p))iflt(b,0x5b){ifgt(b,0x40){mstore8(p,add(b,32))}}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 92
+column: 4
+content: mapping(uint256=>mapping(address=>uint256))erc20ContractIndex;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 129
+column: 4
+content: uint256constantMAX_MOKENS=4294967296;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 130
+column: 4
+content: uint256constantMAX_OWNER_MOKENS=65536;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 131
+column: 4
+content: uint256constantMOKEN_LINK_HASH_MASK=0xffffffffffffffff000000000000000000000000000000000000000000000000;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

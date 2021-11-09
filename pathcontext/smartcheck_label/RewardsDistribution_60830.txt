@@ -1,0 +1,69 @@
+C:\Users\hp\DataSet\RewardsDistribution.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 118
+column: 8
+content: distributions.length--
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 115
+column: 8
+content: for(uinti=index;i<distributions.length-1;i++){distributions[i]=distributions[i+1];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 162
+column: 8
+content: for(uinti=0;i<distributions.length;i++){if(distributions[i].destination!=address(0)||distributions[i].amount!=0){remainder=remainder.sub(distributions[i].amount);IERC20(synthetixProxy).transfer(distributions[i].destination,distributions[i].amount);bytesmemorypayload=abi.encodeWithSignature("notifyRewardAmount(uint256)",distributions[i].amount);distributions[i].destination.call(payload);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 162
+column: 8
+content: for(uinti=0;i<distributions.length;i++){if(distributions[i].destination!=address(0)||distributions[i].amount!=0){remainder=remainder.sub(distributions[i].amount);IERC20(synthetixProxy).transfer(distributions[i].destination,distributions[i].amount);bytesmemorypayload=abi.encodeWithSignature("notifyRewardAmount(uint256)",distributions[i].amount);distributions[i].destination.call(payload);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 65
+column: 4
+content: functionsetSynthetixProxy(address_synthetixProxy)externalonlyOwner{synthetixProxy=_synthetixProxy;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 69
+column: 4
+content: functionsetRewardEscrow(address_rewardEscrow)externalonlyOwner{rewardEscrow=_rewardEscrow;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 73
+column: 4
+content: functionsetFeePoolProxy(address_feePoolProxy)externalonlyOwner{feePoolProxy=_feePoolProxy;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 81
+column: 4
+content: functionsetAuthority(address_authority)externalonlyOwner{authority=_authority;}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 12
+column: 4
+content: usingSafeMathforuint;
+
+SOLIDITY_SAFEMATH :1
+SOLIDITY_OVERPOWERED_ROLE :4
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1

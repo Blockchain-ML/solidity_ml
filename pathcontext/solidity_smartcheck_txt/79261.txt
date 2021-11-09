@@ -1,0 +1,83 @@
+F:\Blockchain\dataset_new_byID\79261.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 146
+column: 8
+content: for(i=0;i<b.inputPublicKeys.length;i++){reusablePoints[1]=outputs[b.assetID][b.inputPublicKeys[i].X][b.inputPublicKeys[i].Y];hashToVerify=keccak256(reusablePoints[1].X,reusablePoints[1].Y);require(schnorrVerifier.verifySignatureAsPoints(hashToVerify,b.inputSchnorrSignatures[2*i],b.inputSchnorrSignatures[2*i+1],publicParameters.generator(),b.inputPublicKeys[i]));reusablePoints[0]=reusablePoints[0].add(reusablePoints[1]);deleteoutputs[b.assetID][b.inputPublicKeys[i].X][b.inputPublicKeys[i].Y];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 154
+column: 8
+content: for(i=0;i<b.outputPublicKeys.length;i++){require(outputs[b.assetID][b.outputPublicKeys[i].X][b.outputPublicKeys[i].Y].X==0);require(outputs[b.assetID][b.outputPublicKeys[i].X][b.outputPublicKeys[i].Y].Y==0);reusablePoints[1]=alt_bn128.G1Point(b.outputs[2*i],b.outputs[2*i+1]);reusablePoints[0]=reusablePoints[0].add(reusablePoints[1].neg());outputs[b.assetID][b.outputPublicKeys[i].X][b.outputPublicKeys[i].Y]=reusablePoints[1];emitTransfer(b.outputIndexes[i],b.outputPublicKeys[i].X,b.outputPublicKeys[i].Y,b.assetID,b.outputKeyExchangeData[2*i],b.outputKeyExchangeData[2*i+1]);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 146
+column: 8
+content: for(i=0;i<b.inputPublicKeys.length;i++){reusablePoints[1]=outputs[b.assetID][b.inputPublicKeys[i].X][b.inputPublicKeys[i].Y];hashToVerify=keccak256(reusablePoints[1].X,reusablePoints[1].Y);require(schnorrVerifier.verifySignatureAsPoints(hashToVerify,b.inputSchnorrSignatures[2*i],b.inputSchnorrSignatures[2*i+1],publicParameters.generator(),b.inputPublicKeys[i]));reusablePoints[0]=reusablePoints[0].add(reusablePoints[1]);deleteoutputs[b.assetID][b.inputPublicKeys[i].X][b.inputPublicKeys[i].Y];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 154
+column: 8
+content: for(i=0;i<b.outputPublicKeys.length;i++){require(outputs[b.assetID][b.outputPublicKeys[i].X][b.outputPublicKeys[i].Y].X==0);require(outputs[b.assetID][b.outputPublicKeys[i].X][b.outputPublicKeys[i].Y].Y==0);reusablePoints[1]=alt_bn128.G1Point(b.outputs[2*i],b.outputs[2*i+1]);reusablePoints[0]=reusablePoints[0].add(reusablePoints[1].neg());outputs[b.assetID][b.outputPublicKeys[i].X][b.outputPublicKeys[i].Y]=reusablePoints[1];emitTransfer(b.outputIndexes[i],b.outputPublicKeys[i].X,b.outputPublicKeys[i].Y,b.assetID,b.outputKeyExchangeData[2*i],b.outputKeyExchangeData[2*i+1]);}
+
+ruleId: SOLIDITY_MSGVALUE_EQUALS_ZERO
+patternId: 1df89a
+severity: 1
+line: 50
+column: 33
+content: msg.value==0
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 148
+column: 27
+content: keccak256(reusablePoints[1].X,reusablePoints[1].Y)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 901eae
+severity: 1
+line: 162
+column: 23
+content: keccak256(reusablePoints[0].X,reusablePoints[0].Y)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 86
+column: 8
+content: uint256[]_parametersArray
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 94
+column: 8
+content: bytes32[]_outputKeyExchangeData
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 138
+column: 31
+content: Boardb
+
+SOLIDITY_MSGVALUE_EQUALS_ZERO :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+SOLIDITY_UPGRADE_TO_050 :5
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2

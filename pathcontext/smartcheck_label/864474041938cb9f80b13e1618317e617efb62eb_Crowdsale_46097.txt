@@ -1,0 +1,64 @@
+C:\Users\hp\DataSet\contracts\ropsten\86\864474041938cb9f80b13e1618317e617efb62eb_Crowdsale.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 67
+column: 34
+content: 0x8e72A97a158ACD1E7E14a7802e289f23afA54e24
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 38
+column: 4
+content: functionbalanceOf(addresswho)publicconstantreturns(uint256);
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 42
+column: 0
+content: contractCrowdsale{usingSafeMathforuint256;addresspublicwallet;addresspubliccontractAddress;tokenpublictokenReward;uint256publiccrowdSaleCoeff;uintpublicstartDate;uintpublicendDate;functionCrowdsale()public{wallet=msg.sender;contractAddress=address(0x8e72A97a158ACD1E7E14a7802e289f23afA54e24);tokenReward=token(contractAddress);crowdSaleCoeff=8000000;startDate=now;endDate=now+1weeks;}function()publicpayable{require(msg.value>0);require(startDate<=now&&now<=endDate);uint256numTokens=SafeMath.mul(msg.value,crowdSaleCoeff);require(numTokens<=tokenReward.balanceOf(wallet));tokenReward.transferFrom(wallet,msg.sender,numTokens);wallet.transfer(msg.value);}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 43
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 74
+column: 16
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 23rt6g
+severity: 1
+line: 38
+column: 36
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 23rt6g
+severity: 1
+line: 39
+column: 67
+content: public
+
+SOLIDITY_VISIBILITY :2
+SOLIDITY_SAFEMATH :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_UPGRADE_TO_050 :1

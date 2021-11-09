@@ -1,0 +1,432 @@
+C:\Users\hp\DataSet\contracts\ropsten\ee\ee128cecb8dbca03ce80850db6a42cc644cf317d_EthexLoto.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 365
+column: 1
+content: contractEthexSuperprize{structPayout{uint256index;uint256amount;uint256block;addresspayablewinnerAddress;bytes16betId;}Payout[]publicpayouts;addresspayableprivateowner;addresspubliclotoAddress;addresspayablepublicnewVersionAddress;EthexSuperprizepreviousContract;uint256publichold;eventSuperprize(uint256index,uint256amount,addresswinner,bytes16betId,bytestate);uint8constantPARTS=6;uint256constantPRECISION=1ether;uint256constantMONTHLY=150000;constructor()public{owner=msg.sender;}modifieronlyOwner{require(msg.sender==owner);_;}function()externalpayable{}functioninitSuperprize(addresspayablewinner,bytes16betId)external{require(msg.sender==lotoAddress);uint256amount=address(this).balance-hold;hold=address(this).balance;uint256sum;uint256temp;for(uint256<missing ')'>i=1;i<PARTS;i++){temp=amount*PRECISION*(i-1+10)/75/PRECISION;sum+=temp;payouts.push(Payout(i,temp,block.number+i*MONTHLY,winner,betId));}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 477
+column: 0
+content: contractEthexLoto{structBet{uint256blockNumber;uint256amount;bytes16id;bytes6bet;addresspayablegamer;}structTransaction{uint256amount;addresspayablegamer;}structSuperprize{uint256amount;bytes16id;}mapping(uint256=>uint256)publicblockNumberQueue;mapping(uint256=>uint256)publicamountQueue;mapping(uint256=>bytes16)publicidQueue;mapping(uint256=>bytes6)publicbetQueue;mapping(uint256=>addresspayable)publicgamerQueue;uint256publicfirst=2;uint256publiclast=1;uint256publicholdBalance;addresspayablepublicjackpotAddress;addresspayablepublichouseAddress;addresspayablepublicsuperprizeAddress;addresspayableprivateowner;eventResult(uint256amount,bytes16id,addressgamer)anonymous;eventRefundBet(uint256amount,bytes16id,addressgamer)anonymous;uint8constantN=16;uint256constantMIN_BET=0.01ether;uint256constantPRECISION=1ether;uint256constantJACKPOT_PERCENT=10;uint256constantHOUSE_EDGE=10;constructor(addresspayablejackpot,addresspayablehouse,addresspayablesuperprize)publicpayable{owner=msg.sender;jackpotAddress=jackpot;houseAddress=house;superprizeAddress=superprize;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 34
+column: 20
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 339
+column: 21
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 376
+column: 20
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 508
+column: 20
+content: private
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 110
+column: 4
+content: functionregisterTicket(bytes16id,address<missing ')'>payable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 405
+column: 4
+content: functioninitSuperprize(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 528
+column: 4
+content: constructor(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 37
+column: 4
+content: EthexJackpotpreviousContract;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 76
+column: 4
+content: uint256constantDAILY=5000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 77
+column: 4
+content: uint256constantWEEKLY=35000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 78
+column: 4
+content: uint256constantMONTHLY=150000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 79
+column: 4
+content: uint256constantSEASONAL=450000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 80
+column: 4
+content: uint256constantPRECISION=1ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 81
+column: 4
+content: uint256constantDAILY_PART=84;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 82
+column: 4
+content: uint256constantWEEKLY_PART=12;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 83
+column: 4
+content: uint256constantMONTHLY_PART=3;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 111
+column: 8
+content: uint256number=numberEnd+1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 112
+column: 11
+content: (block.number>=dailyEnd){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 113
+column: 12
+content: setDaily
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 113
+column: 20
+content: ();dailyNumberStart=number;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 379
+column: 4
+content: EthexSuperprizepreviousContract;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 390
+column: 4
+content: uint8constantPARTS=6;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 391
+column: 4
+content: uint256constantPRECISION=1ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 392
+column: 4
+content: uint256constantMONTHLY=150000;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 405
+column: 44
+content: winner,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 405
+column: 52
+content: bytes16betId)external{
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 406
+column: 8
+content: require(msg.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 406
+column: 20
+content: sender==lotoAddress);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 407
+column: 8
+content: uint256amount=address(this).balance-hold;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 408
+column: 8
+content: hold=
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 408
+column: 15
+content: address(this).
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 408
+column: 29
+content: balance;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 409
+column: 8
+content: uint256sum;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 410
+column: 8
+content: uint256temp;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 411
+column: 12
+content: (uint256<missing ')'>i=1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 411
+column: 28
+content: i<PARTS;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 411
+column: 39
+content: i++){
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 412
+column: 12
+content: temp=amount*
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 412
+column: 28
+content: PRECISION*
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 412
+column: 40
+content: (i-1+10)/75/PRECISION;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 413
+column: 12
+content: sum+=temp;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 414
+column: 12
+content: payouts.push(Payout
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 414
+column: 31
+content: (i,temp,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 414
+column: 41
+content: block.number+i*
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 414
+column: 60
+content: MONTHLY,winner,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 414
+column: 77
+content: betId));
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 522
+column: 4
+content: uint8constantN=16;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 523
+column: 4
+content: uint256constantMIN_BET=0.01ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 524
+column: 4
+content: uint256constantPRECISION=1ether;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 525
+column: 4
+content: uint256constantJACKPOT_PERCENT=10;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 526
+column: 4
+content: uint256constantHOUSE_EDGE=10;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 528
+column: 32
+content: jackpot,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 528
+column: 41
+content: addresspayablehouse,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 528
+column: 64
+content: addresspayablesuperprize)publicpayable{
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 529
+column: 8
+content: owner=msg.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 529
+column: 20
+content: sender;jackpotAddress=jackpot;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 531
+column: 8
+content: houseAddress=house;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 532
+column: 8
+content: superprizeAddress=superprize;
+
+SOLIDITY_VISIBILITY :54
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :4

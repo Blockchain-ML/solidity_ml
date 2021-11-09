@@ -1,0 +1,164 @@
+F:\Blockchain\dataset_new_byID\82303.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 42
+column: 8
+content: Useruser
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 66
+column: 8
+content: Commoditycommodity=commodityMap[commodityID]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 70
+column: 8
+content: Useruser=producerMap[msg.sender]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 84
+column: 8
+content: Commoditycommodity=commodityMap[commodityID]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 88
+column: 8
+content: Useruser=retailerMap[msg.sender]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 98
+column: 8
+content: Commoditycommodity=commodityMap[commodityID]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 113
+column: 8
+content: Commoditycommodity=commodityMap[commodityID]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 124
+column: 8
+content: Commoditycommodity=commodityMap[commodityID]
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 441gim
+severity: 1
+line: 129
+column: 8
+content: Useruser
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 32
+column: 4
+content: functionSupplyChain(){owner=msg.sender;whiteList[owner]=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 37
+column: 4
+content: functionaddWhiteList(addressaddr){whiteList[addr]=true;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 41
+column: 4
+content: functionnewUser(bytes32ID,bytes32name,Actoractor)returns(bool,string){Useruser;if(actor==Actor.Producer){user=producerMap[msg.sender];}elseif(actor==Actor.Retailer){user=retailerMap[msg.sender];}elseif(actor==Actor.Customer){user=customerMap[msg.sender];}else{return(false,"the actor is not belong");}if(user.ID!=0x0){return(false,"this ID has been occupied!");}user.ID=ID;user.name=name;user.actor=actor;return(true,"Success");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 64
+column: 4
+content: functionnewProduct(bytes32commodityID,bytes32commodityName,uinttimestamp)returns(bool,bytes32){Commoditycommodity=commodityMap[commodityID];if(commodity.commodityID!=0x0){return(false,"The commodityID already exist!");}Useruser=producerMap[msg.sender];if(user.ID==0x0){return(false,"The producer don't exist!");}commodity.commodityID=commodityID;commodity.commodityName=commodityName;commodity.produceTime=timestamp;commodity.producerName=user.name;return(true,"Success,produce a new product");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 83
+column: 4
+content: functionretailerInnerTransfer(bytes32commodityID,uinttimestamp)returns(bool,string){Commoditycommodity=commodityMap[commodityID];if(commodity.commodityID==0x0){return(false,"The commodityID don't exist!");}Useruser=retailerMap[msg.sender];if(user.ID==0x0){return(false,"The retailer don't exist!");}commodity.timestamps.push(timestamp);commodity.retailerNames.push(user.name);return(true,"Success");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 97
+column: 4
+content: functionfromRetailerToCustomer(bytes32commodityID,uinttimestamp)returns(bool,string){Commoditycommodity=commodityMap[commodityID];if(commodity.commodityID==0x0){return(false,"The commodityID don't exist!");}commodity.sellTime=timestamp;return(true,"Success,Has been sold");}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 107
+column: 4
+content: functiongetCommodityRecordsByWhiteList(bytes32commodityID)returns(bool,string,bytes32producerName,uintproduceTime,bytes32[]retailerNames,uint[]retailerTimes,bytes32customerName,uintsellTime){if(!whiteList[msg.sender]){return(false,"you has no access",producerName,produceTime,retailerNames,retailerTimes,customerName,commodity.sellTime);}Commoditycommodity=commodityMap[commodityID];if(commodity.commodityID==0x0){return(false,"The commodityID is not exist",producerName,produceTime,retailerNames,retailerTimes,customerName,commodity.sellTime);}return(true,"Success",commodity.producerName,commodity.produceTime,commodity.retailerNames,commodity.timestamps,commodity.customerName,commodity.sellTime);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 121
+column: 4
+content: functiongetCommodity(bytes32commodityID,Actoractor)returns(bool,string,bytes32producerName,uintproduceTime,bytes32[]retailerNames,uint[]retailerTimes,bytes32customerName,uintsellTime){Commoditycommodity=commodityMap[commodityID];if(commodity.commodityID==0x0){return(false,"The commodityID is not exist",producerName,produceTime,retailerNames,retailerTimes,customerName,sellTime);}Useruser;if(actor==Actor.Producer){user=producerMap[msg.sender];}elseif(actor==Actor.Retailer){user=retailerMap[msg.sender];}elseif(actor==Actor.Customer){user=customerMap[msg.sender];}else{return(false,"the actor is not belong",producerName,produceTime,retailerNames,retailerTimes,customerName,sellTime);}if(commodity.isBinding){if(commodity.owner!=msg.sender){return(false,"warning,this commodity has been bound",producerName,produceTime,retailerNames,retailerTimes,customerName,sellTime);}else{(false,"has already bind",commodity.producerName,commodity.retailerNames,commodity.customerName);}}if(commodity.sellTime>0){commodity.isBinding=true;commodity.owner=msg.sender;commodity.customerName=user.name;}return(true,"Success",commodity.producerName,commodity.produceTime,commodity.retailerNames,commodity.timestamps,commodity.customerName,commodity.sellTime);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 25
+column: 4
+content: mapping(address=>User)producerMap;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 26
+column: 4
+content: mapping(address=>User)retailerMap;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 27
+column: 4
+content: mapping(address=>User)customerMap;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 28
+column: 4
+content: mapping(bytes32=>Commodity)commodityMap;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 29
+column: 4
+content: mapping(address=>bool)whiteList;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 30
+column: 4
+content: addressowner;
+
+SOLIDITY_VISIBILITY :14
+SOLIDITY_UPGRADE_TO_050 :9

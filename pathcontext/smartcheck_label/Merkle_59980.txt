@@ -1,0 +1,33 @@
+C:\Users\hp\DataSet\Merkle.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 15
+column: 8
+content: for(uint256i=32;i<=proof.length;i+=32){assembly{proofElement:=mload(add(proof,i))}if(index%2==0){computedHash=keccak256(abi.encodePacked(computedHash,proofElement));}else{computedHash=keccak256(abi.encodePacked(proofElement,computedHash));}index=index/2;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 4
+column: 4
+content: functioncheckMembership(bytes32leaf,uint256mainIndex,bytes32rootHash,bytesmemoryproof)publicpurereturns(bool){bytes32proofElement;bytes32computedHash=leaf;require(proof.length%32==0,"Invalid proof length");uint256index=mainIndex;for(uint256i=32;i<=proof.length;i+=32){assembly{proofElement:=mload(add(proof,i))}if(index%2==0){computedHash=keccak256(abi.encodePacked(computedHash,proofElement));}else{computedHash=keccak256(abi.encodePacked(proofElement,computedHash));}index=index/2;}returncomputedHash==rootHash;}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 16
+column: 12
+content: assembly{proofElement:=mload(add(proof,i))}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_SHOULD_NOT_BE_PURE :1

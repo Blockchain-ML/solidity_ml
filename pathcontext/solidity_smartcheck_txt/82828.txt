@@ -1,0 +1,62 @@
+F:\Blockchain\dataset_new_byID\82828.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 47acc2
+severity: 1
+line: 7
+column: 4
+content: functionreverseBytes32(bytes32x)internalpurereturns(bytes32){for(uinti=0;i<32;i++){assembly{mstore8(i,x)x:=div(x,256)}}assembly{return(0x0,32)}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 7
+column: 4
+content: functionreverseBytes32(bytes32x)internalpurereturns(bytes32){for(uinti=0;i<32;i++){assembly{mstore8(i,x)x:=div(x,256)}}assembly{return(0x0,32)}}
+
+ruleId: SOLIDITY_SHOULD_NOT_BE_PURE
+patternId: 11314f
+severity: 1
+line: 21
+column: 4
+content: functioncheckSig(bytes32hash,bytessig)internalpurereturns(address){uint8v;bytes32r;bytes32s;assembly{r:=mload(add(sig,32))s:=mload(add(sig,64))v:=and(mload(add(sig,65)),255)}if(v<27)v+=27;returnecrecover(hash,v,r,s);}
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 21
+column: 36
+content: bytessig
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 9
+column: 12
+content: assembly{mstore8(i,x)x:=div(x,256)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 14
+column: 8
+content: assembly{return(0x0,32)}
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 29
+column: 8
+content: assembly{r:=mload(add(sig,32))s:=mload(add(sig,64))v:=and(mload(add(sig,65)),255)}
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_USING_INLINE_ASSEMBLY :3
+SOLIDITY_SHOULD_NOT_BE_PURE :2

@@ -1,0 +1,252 @@
+C:\Users\hp\DataSet\contracts\mainnet\89\896d335daf43b01931bcacaa4cb24fc5e095cea2_Controller.sol
+jar:file:/C:/Users/hp/AppData/Roaming/npm/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 872bdd
+severity: 1
+line: 77
+column: 8
+content: workers.length--
+
+ruleId: SOLIDITY_ARRAY_LENGTH_MANIPULATION
+patternId: 43ba1c
+severity: 1
+line: 39
+column: 8
+content: workers.length++
+
+ruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: om991k
+severity: 2
+line: 178
+column: 18
+content: call.value(amount)()
+
+ruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: om991k
+severity: 2
+line: 264
+column: 16
+content: call.value(address(this).balance)()
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 147
+column: 4
+content: functionallowance(address_owner,address_spender)constantreturns(uint256remaining);
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 150
+column: 4
+content: functionbalanceOf(addresstokenOwner)publicconstantreturns(uintbalance);
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 58
+column: 8
+content: for(uint256i=1;i<workers.length;i++){result[i-1]=workers[i];}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 255
+column: 8
+content: for(uint256i=0;i<size;i++){wallet=wallets[i];balance=wallet.balance;if(wallet.transferEther(this,balance)){emitWithdrawEth(wallet,forward,balance);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 299
+column: 8
+content: for(uint256i=0;i<size;i++){wallet=wallets[i];balance=token.balanceOf(wallet);if(wallet.transferERC20Token(token,forward,balance)){emitWithdrawToken(token,wallet,forward,balance);}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 122
+column: 0
+content: contractControllerProxyisControllerStorage,Ownable,HasWorkers,DelegateProvider,DelegateProxy{functiongetDelegate()publicviewreturns(addressdelegate){delegate=walletsDelegate;}functionsetWalletsDelegate(address_delegate)publiconlyOwnerreturns(bool){walletsDelegate=_delegate;returntrue;}functionsetControllerDelegate(address_delegate)publiconlyOwnerreturns(bool){controllerDelegate=_delegate;returntrue;}function()publicpayable{if(gasleft()>2400){delegatedFwd(controllerDelegate,msg.data);}}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 153
+column: 0
+content: contractWalletProxyisWalletStorage,DelegateProxy{eventReceivedETH(addressfrom,uint256amount);constructor()public{owner=msg.sender;}function()publicpayable{if(msg.value>0){emitReceivedETH(msg.sender,msg.value);}if(gasleft()>2400){delegatedFwd(DelegateProvider(owner).getDelegate(),msg.data);}}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 20
+column: 4
+content: functionsetOwner(address_owner)publiconlyOwnerreturns(bool){require(_owner!=address(0));owner=_owner;returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 127
+column: 4
+content: functionsetWalletsDelegate(address_delegate)publiconlyOwnerreturns(bool){walletsDelegate=_delegate;returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 132
+column: 4
+content: functionsetControllerDelegate(address_delegate)publiconlyOwnerreturns(bool){controllerDelegate=_delegate;returntrue;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 208
+column: 4
+content: functionsetForward(address_forward)publiconlyOwnerreturns(bool){emitChangedForward(forward,_forward,msg.sender);forward=_forward;returntrue;}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 1
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 32
+column: 32
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 33
+column: 14
+content: private
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 264
+column: 16
+content: call.value(address(this).balance)()
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 178
+column: 18
+content: call.value(amount)()
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 264
+column: 16
+content: call.value(address(this).balance)()
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 137
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 160
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 181
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 313
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 102
+column: 38
+content: bytes_calldata
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 249
+column: 30
+content: Wallet[]wallets
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 294
+column: 45
+content: Wallet[]wallets
+
+ruleId: SOLIDITY_USING_INLINE_ASSEMBLY
+patternId: 109cd5
+severity: 1
+line: 103
+column: 4
+content: assembly{letresult:=delegatecall(sub(gas,10000),_dst,add(_calldata,0x20),mload(_calldata),0,0)letsize:=returndatasizeletptr:=mload(0x40)returndatacopy(ptr,0,size)switchresultcase0{revert(ptr,size)}default{return(ptr,size)}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 23rt6g
+severity: 1
+line: 28
+column: 40
+content: public
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 145
+column: 4
+content: functiontransfer(address_to,uint_value)returns(boolsuccess);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 146
+column: 4
+content: functiontransferFrom(address_from,address_to,uint256_value)returns(boolsuccess);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 147
+column: 4
+content: functionallowance(address_owner,address_spender)constantreturns(uint256remaining);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 148
+column: 4
+content: functionapprove(address_spender,uint256_value)returns(boolsuccess);
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_OVERPOWERED_ROLE :4
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_ARRAY_LENGTH_MANIPULATION :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UPGRADE_TO_050 :9
+SOLIDITY_GAS_LIMIT_IN_LOOPS :2
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :2
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_USING_INLINE_ASSEMBLY :1
+SOLIDITY_CALL_WITHOUT_DATA :2
